@@ -1,8 +1,21 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
-อัปเดต 2026-09-29 — Phase 6 Zombie AI & Basic Enemy Combat runtime verified
+อัปเดต 2026-09-29 — Phase 7 Night Wave & Survival Loop
 
-## Phase 6 enemy architecture (current)
+## Phase 7 survival architecture (current)
+
+- `GameRoot/NightWaveManager` (`scripts/survival/night_wave_manager.gd`) binds existing GameClock, Player and `MainWorld/WaveSpawnPoints`. DAY/ACTIVE/CLEARED/RESTING/GAME_OVER, one start per survival day; no farming/crafting/weapon dependency. `NightWaveData` + `resources/waves/day_1.tres` configure6Normal/2s/12m; same prototype config reused on later days, no difficulty progression.
+- Clock is unchanged and remains source of truth. night_started begins spawning; day_started handles both natural and rest dawn. Clock owns current_day and new_day_started. State changes precede cleanup to prevent false clears/reentry.
+- `ZombieSpawnFactory` shares navigation projection, proximity and capsule occupancy validation with debug spawner. Cardinal wave points are (0,-20),(20,0),(0,20),(-20,0) in X/Z. Blocked markers retry; deterministic round-robin. Wave instances and debug instances are separate populations.
+- Wave tracking: dictionaries keyed by instance ID, one alive set plus tracked corpses. Remaining = total - spawned + alive. died removes alive immediately; tree exit only cleans corpses. Unexpected living removal returns a pending spawn. No scene-tree polling.
+- NormalZombie adds per-instance pursue_target for distant wave attackers and despawn for administrative cleanup without death credit. Existing movement, Health receiver, attack timing and animation remain. All enemies only target Somchai.
+- `GameRoot/RestSystem` + `MainWorld/Bed` (`scenes/interactables/Bed.tscn`) use E interaction. CLEARED night accepts rest, locks controls/aim and pauses gameplay for0.35s; then existing HP heal/stamina reset and Clock.skip_to_day. Abort handles death/unload and releases pause. Plants use existing elapsed timestamp notifications during time skip.
+- Natural dawn: state DAY, disable/despawn tracked enemies, clear counters, emit morning feedback; no stat restore. GAME_OVER stops spawning/clock and cleans wave, R scene reload restores defaults. This dawn despawn rule is a demo design decision.
+- HUD NightLabel shows remaining/alive/incoming, clear/rest state; feedback adds17:00 warning/night/day announcements. Debug bag adds17:50/start-night/kill-active/05:50/dawn; map marker meshes/labels follow debug visibility. Debug kill does not bypass pending spawns.
+- Bed is solid World+Interactable at(-10.5,0,-7); nav rebaked to63polygons. Existing collision masks retained. Re-run tools/bake_prototype_navigation.gd after static geometry edits.
+- Tests: phase_7_lifecycle_test (headless/rendered edge cases), phase_7_full_day_test (normal production clock/input and resources, two complete Day1 scenarios without cheats). See PHASE_7_TEST_REPORT.md. Next scope awaits Phase8 prompt.
+
+## Phase 6 enemy foundation (historical settings extended above)
 
 - `scripts/data/zombie_data.gd` / `resources/enemies/normal_zombie.tres`: immutable identity, tuning, visual scene and animation names. Runtime health and timers are per instance.
 - `scenes/enemies/NormalZombie.tscn` / `scripts/enemies/normal_zombie.gd`: CharacterBody3D with Visual, capsule, NavigationAgent3D, existing Health and DebugLabel. Four local states: IDLE, CHASE, ATTACK, DEAD. No general-purpose state framework.

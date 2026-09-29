@@ -12,6 +12,8 @@ extends Node3D
 @onready var crafting_system: CraftingSystem = $CraftingSystem
 @onready var crafting_ui: CraftingUI = $CraftingUI
 @onready var weapons: WeaponController = $Player/WeaponController
+@onready var waves: NightWaveManager = $NightWaveManager
+@onready var rest: RestSystem = $RestSystem
 
 @onready var player: PlayerController = $Player
 @onready var clock: GameClock = $TimeController
@@ -45,6 +47,8 @@ func _ready() -> void:
 	debug_controls.bind(player, clock)
 	debug_controls.zombie_spawner = $MainWorld/ZombieTestSpawner
 	debug_controls.zombie_spawner.bind(player, debug_controls)
+	debug_controls.status_changed.connect(_update_spawn_debug)
+	_update_spawn_debug(debug_controls.active, "")
 	hud.bind_inventory(inventory)
 	hud.bind_gameplay_mode(gameplay_mode, equipment)
 	player.aim_ray.bind(player.camera_rig, player, debug_controls)
@@ -73,8 +77,19 @@ func _ready() -> void:
 		for message in recipe_errors:
 			push_error("Crafting data: " + message)
 		hud.show_message("Crafting data is invalid. See the Godot debugger for details.")
+	waves.bind(clock, player, $MainWorld/WaveSpawnPoints)
+	rest.bind(waves, player)
+	$MainWorld/Bed.bind(rest)
+	hud.bind_survival(waves)
+	debug_controls.waves = waves
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart") and player.health.is_dead:
 		get_tree().reload_current_scene()
+
+
+func _update_spawn_debug(active: bool, _summary: String) -> void:
+	for side in ["North", "South", "East", "West"]:
+		$MainWorld.get_node(side + "SpawnMarker").visible = active
+		$MainWorld.get_node(side + "SpawnLabel").visible = active

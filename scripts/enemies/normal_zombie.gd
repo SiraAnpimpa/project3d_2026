@@ -13,6 +13,7 @@ enum State { IDLE, CHASE, ATTACK, DEAD }
 @onready var label: Label3D = $DebugLabel
 var state: State = State.IDLE
 var target: PlayerController
+var pursue_target: bool = false # Wave enemies seek the player beyond local detection range.
 var animation_player: AnimationPlayer
 var attacks_landed: int = 0
 var path_updates: int = 0
@@ -86,7 +87,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 	var distance := global_position.distance_to(target.global_position)
-	if distance > data.detection_range:
+	if distance > data.detection_range and not pursue_target:
 		_windup = -1
 		_set_state(State.IDLE)
 	elif distance <= data.attack_range and _clear_melee_line():
@@ -180,3 +181,13 @@ func _die() -> void:
 	for mesh in _meshes: mesh.material_overlay = null
 	_refresh_label()
 	died.emit()
+
+
+func despawn() -> void:
+	# Administrative cleanup is not a combat death and grants no kill credit.
+	set_physics_process(false)
+	_windup = -1
+	velocity = Vector3.ZERO
+	collision_layer = 0
+	collision_mask = 0
+	queue_free()

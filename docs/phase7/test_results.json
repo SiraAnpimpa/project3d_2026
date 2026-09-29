@@ -1,0 +1,152 @@
+{
+  "date": "2026-09-30",
+  "checks": 36,
+  "passed": 36,
+  "note": "Initial combined run failed two rendered camera checks. Both passed unchanged targeted reruns. Entries describe latest logs, not an uninterrupted clean batch.",
+  "results": [
+    {
+      "check": "camera_collision_ray_test",
+      "passed": true
+    },
+    {
+      "check": "camera_controls_test",
+      "passed": true
+    },
+    {
+      "check": "camera_rate_test",
+      "passed": true
+    },
+    {
+      "check": "camera_walkthrough_test",
+      "passed": true
+    },
+    {
+      "check": "editor_import",
+      "passed": true
+    },
+    {
+      "check": "input_modes_integration_test",
+      "passed": true
+    },
+    {
+      "check": "input_selection_data_test",
+      "passed": true
+    },
+    {
+      "check": "main_scene_boot",
+      "passed": true
+    },
+    {
+      "check": "movement_rate_test",
+      "passed": true
+    },
+    {
+      "check": "phase_2_integration_test",
+      "passed": true
+    },
+    {
+      "check": "phase_3_data_test",
+      "passed": true
+    },
+    {
+      "check": "phase_3_debug_test",
+      "passed": true
+    },
+    {
+      "check": "phase_3_extension_test",
+      "passed": true
+    },
+    {
+      "check": "phase_3_farming_test",
+      "passed": true
+    },
+    {
+      "check": "phase_3_growth_rate_test",
+      "passed": true
+    },
+    {
+      "check": "phase_3_integration_test",
+      "passed": true
+    },
+    {
+      "check": "phase_3_inventory_test",
+      "passed": true
+    },
+    {
+      "check": "phase_3_ui_test",
+      "passed": true
+    },
+    {
+      "check": "phase_4_crafting_test",
+      "passed": true
+    },
+    {
+      "check": "phase_5_weapon_test",
+      "passed": true
+    },
+    {
+      "check": "phase_6_zombie_test",
+      "passed": true
+    },
+    {
+      "check": "phase_7_full_day_test",
+      "passed": true
+    },
+    {
+      "check": "phase_7_lifecycle_test",
+      "passed": true
+    },
+    {
+      "check": "rendered_camera_controls",
+      "passed": true
+    },
+    {
+      "check": "rendered_camera_walkthrough",
+      "passed": true
+    },
+    {
+      "check": "rendered_input_modes",
+      "passed": true
+    },
+    {
+      "check": "rendered_phase2",
+      "passed": true
+    },
+    {
+      "check": "rendered_phase3",
+      "passed": true
+    },
+    {
+      "check": "rendered_phase4_crafting",
+      "passed": true
+    },
+    {
+      "check": "rendered_phase5_weapon",
+      "passed": true
+    },
+    {
+      "check": "rendered_phase6_zombie",
+      "passed": true
+    },
+    {
+      "check": "rendered_phase7_lifecycle",
+      "passed": true
+    },
+    {
+      "check": "stage_1_test",
+      "passed": true
+    },
+    {
+      "check": "stage_2_interaction_test",
+      "passed": true
+    },
+    {
+      "check": "stage_3_stats_test",
+      "passed": true
+    },
+    {
+      "check": "stage_4_clock_test",
+      "passed": true
+    }
+  ]
+}

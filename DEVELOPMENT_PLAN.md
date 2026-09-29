@@ -1,6 +1,12 @@
 # DEVELOPMENT_PLAN — Somchai's Last Harvest
 
-## Current: Phase 6 / M9 complete, runtime verified (2026-09-29)
+## Current: Phase 7 / M10-M11 complete, runtime verified (2026-09-30)
+
+NightWaveManager, WaveData, four spawn directions, active/pending/death tracking, clear/rest reward, natural dawn cleanup without healing, exact next-day transition and night HUD are implemented. Both full Day1 outcomes pass through normal production clock and gameplay inputs without debug grants/heals/time skips. Latest36checks pass; two rendered camera checks needed unchanged reruns. Results are in PHASE_7_TEST_REPORT.md. Next: **Phase8 - Day1-10 Progression + Runner + Tank + Seed/Recipe Unlock Progression**, awaiting its prompt. No progression, enemy variants or ending work started.
+
+## Historical Phase 6
+
+## Phase 6 / M9 complete, runtime verified (2026-09-29)
 
 NormalZombie and ZombieData, IDLE/CHASE/ATTACK/DEAD, baked navigation around box/shelter, timed melee through shared Health, generic weapon damage, real Idle/Walk/Punch/Death clips and safe delayed cleanup are implemented. 33 suite runs passed, including rendered 3/5-enemy combat. See PHASE_6_TEST_REPORT.md. Next: **Phase 7 - Night Wave & Survival Loop (M10)**, awaiting its prompt. No waves, automatic night spawning, Runner/Tank or progression were started.
 
@@ -46,8 +52,8 @@ Crafting & Workbench Foundation ผ่าน 29-run suite รวม rendered loo
 | 7 | **Crafting & Workbench — Phase 4 done** | M5–M6 | สูตรตะกั่ว+กระดาษ+ทองแดง → กระสุนพื้นฐาน, สมุนไพร→ยา และเหล็ก+ทองแดง→Metal Component ทำงาน. Inventory exchange atomic; workbench E/UIและ rendered farming→craft loop ผ่าน. |
 | 8 | **Phase 5 DONE** - ปืนเริ่มต้น + damage | M4, M5, M6A, M7 | ปืนหนึ่งชนิดยิงใช้กระสุนจริง, hit/miss ชัด, damage ส่งเข้าศัตรูทดสอบ, ไม่มี ammo แล้วไม่ยิง. ปรับ visual/จุด muzzle ของ GLB wrapper. |
 | 9 | **Normal zombie + navigation - Phase 6 done** | M1, M4, M8 | Zombie เดินหาผู้เล่นบน map ทดสอบ, โจมตี/รับ damage/ตาย, animation Idle/Walk/Attack/Death ที่มีจริงเล่นถูก; navigation ไม่ติดสิ่งกีดขวางหลัก. |
-| 10 | Night wave + rest/no-rest | M3, M4, M9 | 18:00 spawn Normal zombie จาก marker, active count ถูก; ฆ่าหมดก่อน 06:00 แล้วพัก/ฟื้น HP-stamina/ข้ามเช้า; ถ้ายังเหลือที่ 06:00 เข้าทาง no-rest และไม่ฟื้นเต็ม; transition ไม่ซ้ำ. |
-| 11 | **Day 1 vertical slice** | M0–M10 | เล่นต่อเนื่องจาก 06:00 ถึง Day 2 ได้ตาม loop โดยไม่ใช้ debug command; plant→harvest→craft→shoot→survive→sleep ครบ. ทดสอบเส้นทาง wave clear, no-rest และ death. UI มีข้อมูลพอเล่นได้. |
+| 10 | **Night wave + rest/no-rest - Phase 7 done** | M3, M4, M9 | 18:00 spawn Normal zombie จาก marker, active count ถูก; ฆ่าหมดก่อน 06:00 แล้วพัก/ฟื้น HP-stamina/ข้ามเช้า; ถ้ายังเหลือที่ 06:00 เข้าทาง no-rest และไม่ฟื้นเต็ม; transition ไม่ซ้ำ. |
+| 11 | **Day 1 vertical slice - Phase 7 done** | M0–M10 | เล่นต่อเนื่องจาก 06:00 ถึง Day 2 ได้ตาม loop โดยไม่ใช้ debug command; plant→harvest→craft→shoot→survive→sleep ครบ. ทดสอบเส้นทาง wave clear, no-rest และ death. UI มีข้อมูลพอเล่นได้. |
 | 12 | Day 2–10 data progression + seed unlock | M11 | day counter และ wave parameters เป็น data, Day 3–4 เริ่ม Runner, Day 7–9 เริ่ม Tank, seed ใหม่ปลดล็อกตามวันที่กำหนด; เล่น/เร่ง QA ผ่านหลายวันไม่ reset state ผิด. |
 | 13 | Special plants/ammo + enemy variants | M12 | เพิ่ม fantasy crop และผลกระสุนทีละชนิดจาก data; Runner/Tank ใช้ scene/data แยก, silhouette อ่านออก, effect ที่เลือกทดสอบกับศัตรูได้. เพิ่มเท่าที่ asset และเวลาอนุญาต. |
 | 14 | Day 10 final night + rescue ending | M12–M13 | Wave สุดท้ายมีหลายชนิด, รอดถึง 06:00 แล้ว trigger rescue ครั้งเดียว, มี win state/ending ที่อ่านรู้เรื่อง; แพ้ก่อนนั้นไม่ trigger rescue. |

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="NightWaveData" load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/data/night_wave_data.gd" id="data"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/NormalZombie.tscn" id="zombie"]
+[resource]
+script = ExtResource("data")
+zombie_scene = ExtResource("zombie")

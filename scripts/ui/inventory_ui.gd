@@ -170,6 +170,17 @@ func bind_debug(debug: DebugControls) -> void:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.pressed.connect(debug.execute.bind(enemy_actions[index]))
 		enemy_row.add_child(button)
+	var wave_row := HBoxContainer.new()
+	container.add_child(wave_row)
+	var wave_actions := [&"debug_before_night", &"debug_start_night", &"debug_kill_wave", &"debug_before_dawn", &"debug_force_dawn"]
+	var wave_labels := ["17:50", "Start night", "Kill active wave", "05:50", "Dawn"]
+	for index in wave_actions.size():
+		var button := Button.new()
+		button.name = String(wave_actions[index])
+		button.text = wave_labels[index]
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.pressed.connect(debug.execute.bind(wave_actions[index]))
+		wave_row.add_child(button)
 	debug_message = Label.new()
 	debug_message.text = "Development only. Changes apply to this run."
 	debug_message.add_theme_font_size_override("font_size", 13)

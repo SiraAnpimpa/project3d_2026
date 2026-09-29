@@ -1,4 +1,4 @@
-# Runtime tests - Phases 2-6, Camera and Input / Selection
+# Runtime tests - Phases 2-7, Camera and Input / Selection
 
 Run from project root with Godot 4.7:
 
@@ -6,7 +6,7 @@ Run from project root with Godot 4.7:
 .\tests\run_tests.ps1 -Godot 'C:\Users\ADMIN\Desktop\Godot_v4.7-stable_win64.exe\Godot_v4.7-stable_win64.exe' -WithRendering
 ```
 
-Without `-WithRendering`: 25 runs (import,23 test scripts,main boot). With it: 33 runs, including Phase 2 mouse capture, Phase 3 real-time farming, camera controls, camera walkthrough, input/modes integration Phase 4 crafting, Phase 5 weapons and Phase 6 zombies. Allow approximately two minutes. Every process has a60-second timeout; nonzero exit, missing result, assertion/parser/runtime errors fail the suite. The known Windows root-certificate-store message is reported in full logs and excluded explicitly. No other engine error is excluded.
+Without `-WithRendering`: 27 runs (import,25 test scripts,main boot). With it: 36 runs, including Phase 2 mouse capture, Phase 3 real-time farming, camera controls, camera walkthrough, input/modes integration Phase 4 crafting, Phase 5 weapons, Phase 6 zombies and Phase 7 lifecycle. Allow several minutes. Ordinary checks have a60-second timeout; full-day simulation has180seconds; nonzero exit, missing result, assertion/parser/runtime errors fail the suite. The known Windows root-certificate-store message is reported in full logs and excluded explicitly. No other engine error is excluded.
 
 Default logs: `.godot/test-logs/`; captures: `.godot/test-captures/`. Override with `-LogDirectory` and `-CaptureDirectory`. Historical Phase 3 logs remain under `.godot/test-logs/phase3/`; historical Camera logs are under `.godot/test-logs/camera/`. Current Input logs are `.godot/test-logs/input/`; screenshots in `docs/input/`.
 
@@ -65,8 +65,14 @@ Historical Phase 4 final suite: **29 runs, failures=0**. Logs are in `.godot/tes
 
 Historical Phase 5 final suite: **31 runs, failures=0**. Logs `.godot/test-logs/phase5_final/`; screenshots `docs/phase5/`. See [Phase 5 report](../PHASE_5_TEST_REPORT.md) for exact results, assets and limits. Phase 5 crop setup advances the game clock; separate rendered Phase 3 validates natural growth (30.384 real seconds).
 
-## Phase 6 coverage (current)
+## Phase 6 coverage
 
 `phase_6_zombie_test.gd` covers actual debug bag spawning, safe markers/cap, idle/detect/chase, speed/facing, box and shelter detours, player sprint input and target refresh, windup/miss/cooldown/wall checks, generic weapon hits and reload, hit/death animation, delayed cleanup, farm/night/pause, 3/5-agent independent attacks and rifle kills, player death/rebind and death cancellation. It runs headless and rendered with fixed simulation deltas; screenshot inspection confirms model/animation/UI. Pack combat heals the player in the fixture for sustained observation; a separate melee death case verifies game over.
 
-Current suite: **33/33 passed**, logs `.godot/test-logs/phase6_final/`, images `docs/phase6/`, details in [Phase 6 report](../PHASE_6_TEST_REPORT.md). After the full suite, two assertions for moving-target chase and debug UI clicking were added and the focused headless/rendered tests rerun successfully. No unrelated production changes followed the regression run. Natural growth still has its separate real-time rendered test (30.409 seconds).
+Historical Phase 6 suite: **33/33 passed**, logs `.godot/test-logs/phase6_final/`, images `docs/phase6/`, details in [Phase 6 report](../PHASE_6_TEST_REPORT.md). After the full suite, two assertions for moving-target chase and debug UI clicking were added and the focused headless/rendered tests rerun successfully. No unrelated production changes followed the regression run. Natural growth still has its separate real-time rendered test (30.409 seconds).
+
+## Phase 7 coverage (current)
+
+- `phase_7_lifecycle_test.gd`: auto18:00, pending count/duplicate guards, distributed safe spawn, clear/rest restrictions, physical bed E/aim lock, healing/day increment/plant time skip, dawn cleanup without restoration, blocked/retry/replacement, death/restart, interrupted rest, backward seek and Day2 reuse. Runs headless and rendered; controlled clock seeks/damage isolate edge cases.
+- `phase_7_full_day_test.gd`: headless production-clock simulation of two complete Day1 scenarios. Movement/wheel/E/crafting UI/Q/R/RMB/LMB prepare eight crops,40ammo+medicine, kill6with30shots, then walk/rest into Day2. Second unprepared night kites until natural dawn with reduced stats. No clock seek/time-scale changes/teleports/grants/heals/direct enemy damage; fixed engine deltas accelerate wall time. It is automated simulation, not manual realtime playtesting.180second timeout accommodates the full frame count.
+- Current suite size:36checks, all latest runs passed. Initial combined batch failed two rendered camera checks; unchanged isolated reruns passed both. Cause not isolated; see report caveat. Final results: PHASE_7_TEST_REPORT.md; logs `.godot/test-logs/phase7_final/`; inspected captures `docs/phase7/`.

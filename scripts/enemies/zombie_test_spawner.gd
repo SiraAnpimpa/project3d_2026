@@ -33,22 +33,8 @@ func spawn_test_zombies(count: int) -> int:
 func spawn_at(point: Vector3) -> NormalZombie:
 	# Explicit factory for test fixtures and a future wave caller. No clock coupling.
 	if not is_instance_valid(player) or zombies.size() >= maximum_alive: return null
-	var map := get_world_3d().navigation_map
-	if NavigationServer3D.map_get_iteration_id(map) == 0: return null
-	var location := NavigationServer3D.map_get_closest_point(map, point)
-	if location.distance_to(point) > 1.0: return null
-	var shape := CapsuleShape3D.new()
-	shape.radius = 0.4
-	shape.height = 1.8
-	var query := PhysicsShapeQueryParameters3D.new()
-	query.shape = shape
-	query.transform.origin = location + Vector3(0, 0.95, 0)
-	query.collision_mask = 11
-	if not get_world_3d().direct_space_state.intersect_shape(query, 1).is_empty(): return null
-	var zombie := zombie_scene.instantiate() as NormalZombie
-	get_parent().add_child(zombie)
-	zombie.global_position = Vector3(location.x, 0.05, location.z)
-	zombie.bind(player)
+	var zombie := ZombieSpawnFactory.spawn(get_parent(), zombie_scene, player, point)
+	if zombie == null: return null
 	zombie.label.visible = debug != null and debug.active
 	zombies.append(zombie)
 	zombie.tree_exiting.connect(func() -> void: zombies.erase(zombie))

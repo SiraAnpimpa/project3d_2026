@@ -1,6 +1,21 @@
 # PROGRESS — Somchai's Last Harvest
 
-## Current: Phase 6 complete, runtime verified (2026-09-29)
+## Current: Phase 7 complete, runtime verified (2026-09-30)
+
+- NightWaveData and NightWaveManager add clock-driven DAY/ACTIVE/CLEARED/RESTING/GAME_OVER lifecycle; six Normal Zombies, 2s cadence, 12m minimum distance, four cardinal markers. Tracks alive/pending/corpses via signals; clear only after all spawned and none alive.
+- ZombieSpawnFactory shares navigation/capsule checks with debug spawner. Wave pursuit overrides local detection without rewriting AI. Administrative despawn cancels attacks without kill credit.
+- Bed/RestSystem: physical E after clear, pause and aim/weapon lock, full existing stats, clock skip to06:00 with one day increment and timestamp plant growth. Natural dawn safely removes unfinished wave without healing. Game over stops spawn/clock; R resets scene.
+- Added night HUD, feedback and gated17:50/start-night/kill-active/05:50/dawn buttons. World marker visuals follow debug visibility. Navigation rebaked with bed,63polygons.
+- New: scripts/data/night_wave_data.gd, scripts/survival/{night_wave_manager,rest_system,bed}.gd, scripts/enemies/zombie_spawn_factory.gd, resources/waves/day_1.tres, scenes/interactables/Bed.tscn; tests/phase_7_{lifecycle,full_day}_test.gd; PHASE_7_TEST_REPORT.md.
+- Modified: GameRoot/MainWorld/HUD scenes, dependency wiring, HUD/debug UI, NormalZombie and test spawner, navigation resource, test runner. Clock/weapon/farming/crafting/player movement core unchanged.
+- Passed focused lifecycle headless/rendered and full Day1 simulation without debug grants/heals/clock skips/teleports. Farm8crops -> craft40ammo+medicine -> natural night ->30shots kill6 -> rest: HP90 to100, Day2. Badnight naturally reaches Day2 HP70/stamina81.67 with safe cleanup. Old25headless regression passed.
+- Latest verification36/36checks passed: import +25headless +boot +9rendered. Initial combined batch failed2renderedcamera checks; unchanged targeted reruns passed both, cause not isolated. Logs .godot/test-logs/phase7_final/; inspected screenshots and per-check results in docs/phase7/. No outstanding functional failure.
+- Next exact step: wait for Phase8 prompt (Day1-10 progression, Runner/Tank, seed/recipe unlocks). No Phase8 work started.
+- Limits: temporary balance, static nav/placeholder bed, no offscreen filter/audio/sleep animation/medicine consumption. Full-day simulation is automated fixed-delta runtime, not manual wall-time playtest.
+
+## Historical Phase 6
+
+## Phase 6 complete, runtime verified (2026-09-29)
 
 - Implemented ZombieData, NormalZombie scene/controller and debug test spawner. IDLE / CHASE / ATTACK / DEAD, 12m detection, navigation every0.3s, 2m/s walk, 10 damage with0.3s windup/1.2s interval, shared Health and1.2s delayed death.
 - Added baked prototype NavigationRegion (59 polygons) and reproducible tools/bake_prototype_navigation.gd. Static World geometry and TestInteractable included. Enemy layer8; player mask9, aim/weapon masks13; old layer4 remains Interactable.

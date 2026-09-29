@@ -19,6 +19,7 @@ var catalog: ItemCatalog
 var loadout: InventoryLoadout
 var farm_plots: Array[FarmPlot] = []
 var zombie_spawner: ZombieTestSpawner
+var waves: NightWaveManager
 
 const FARMING_ACTIONS: Array[StringName] = [
 	&"debug_give_seeds", &"debug_clear_farm", &"debug_grow_all",
@@ -66,6 +67,15 @@ func set_active(value: bool) -> void:
 
 func execute(action: StringName) -> void:
 	if not active or not debug_enabled or not OS.is_debug_build():
+		return
+	if action in [&"debug_before_night", &"debug_start_night", &"debug_kill_wave", &"debug_before_dawn", &"debug_force_dawn"]:
+		if waves == null or waves.state == NightWaveManager.State.GAME_OVER: return
+		match action:
+			&"debug_before_night": clock.seek(clock.current_day, 17, 50)
+			&"debug_start_night": clock.skip_to_night()
+			&"debug_kill_wave": waves.debug_kill_active()
+			&"debug_before_dawn": clock.seek(clock.current_day, 5, 50)
+			&"debug_force_dawn": clock.skip_to_day()
 		return
 	if action in [&"debug_spawn_zombie", &"debug_spawn_three", &"debug_clear_zombies"]:
 		if zombie_spawner == null: return

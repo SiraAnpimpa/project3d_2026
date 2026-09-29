@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" path="res://scenes/combat/TargetDummy.tscn" id="Dummy"]
 [ext_resource type="NavigationMesh" path="res://resources/navigation/prototype_navigation.tres" id="nav"]
 [ext_resource type="Script" path="res://scripts/enemies/zombie_test_spawner.gd" id="spawner"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Bed.tscn" id="bed"]
 
 [sub_resource type="StandardMaterial3D" id="GroundMat"]
 albedo_color = Color(0.27, 0.34, 0.24, 1)
@@ -168,6 +169,23 @@ material = SubResource("RescueMat")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("nav")
+
+[node name="Bed" parent="." instance=ExtResource("bed")]
+position = Vector3(-10.5, 0, -7)
+
+[node name="WaveSpawnPoints" type="Node3D" parent="."]
+
+[node name="North" type="Marker3D" parent="WaveSpawnPoints"]
+position = Vector3(0, 0.1, -20)
+
+[node name="East" type="Marker3D" parent="WaveSpawnPoints"]
+position = Vector3(20, 0.1, 0)
+
+[node name="South" type="Marker3D" parent="WaveSpawnPoints"]
+position = Vector3(0, 0.1, 20)
+
+[node name="West" type="Marker3D" parent="WaveSpawnPoints"]
+position = Vector3(-20, 0.1, 0)
 
 [node name="ZombieTestSpawner" type="Node3D" parent="."]
 script = ExtResource("spawner")

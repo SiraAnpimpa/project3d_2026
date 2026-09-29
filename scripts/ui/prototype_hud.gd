@@ -21,6 +21,7 @@ var inventory: Inventory
 var gameplay_mode: GameplayModeController
 var equipment: EquipmentLoadout
 var weapons: WeaponController
+var waves: NightWaveManager
 @onready var ammo_label: Label = %AmmoLabel
 @onready var seed_label: Label = %SeedLabel
 
@@ -29,6 +30,23 @@ func _ready() -> void:
 	prompt_panel.hide()
 	death_panel.hide()
 	toast_timer.timeout.connect(func() -> void: toast_label.text = "")
+
+
+func bind_survival(manager: NightWaveManager) -> void:
+	waves = manager
+	waves.changed.connect(_refresh_survival)
+	waves.feedback.connect(show_message)
+	_refresh_survival()
+
+
+func _refresh_survival() -> void:
+	var label: Label = %NightLabel
+	label.visible = waves.state != NightWaveManager.State.DAY and waves.state != NightWaveManager.State.GAME_OVER
+	match waves.state:
+		NightWaveManager.State.ACTIVE:
+			label.text = "ZOMBIES LEFT  %d\nAlive: %d  |  Incoming: %d" % [waves.remaining_zombies, waves.alive.size(), waves.total_zombies - waves.spawned_zombies]
+		NightWaveManager.State.CLEARED: label.text = "NIGHT CLEARED  |  0 left\nRest at the shelter bed"
+		NightWaveManager.State.RESTING: label.text = "RESTING..."
 
 
 func bind(target_player: PlayerController, clock: GameClock, debug: DebugControls) -> void:

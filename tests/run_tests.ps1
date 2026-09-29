@@ -12,14 +12,14 @@ $LogDirectory = (Resolve-Path -LiteralPath $LogDirectory).Path
 $failures = 0
 
 function Invoke-GodotCheck {
-    param([string]$Name, [string]$Arguments, [bool]$ExpectResult = $true)
+    param([string]$Name, [string]$Arguments, [bool]$ExpectResult = $true, [int]$TimeoutSeconds = 60)
     $logFile = Join-Path $LogDirectory ($Name + '.log')
     $arguments = '--path "' + $projectRoot + '" --log-file "' + $logFile + '" ' + $Arguments
     $process = Start-Process -FilePath $Godot -ArgumentList $arguments -WindowStyle Hidden -PassThru
-    if (-not $process.WaitForExit(60000)) {
+    if (-not $process.WaitForExit($TimeoutSeconds * 1000)) {
         $process.Kill()
         $script:failures += 1
-        Write-Output "FAIL $Name (60-second timeout): $logFile"
+        Write-Output "FAIL $Name ($TimeoutSeconds-second timeout): $logFile"
         return
     }
     $content = Get-Content -LiteralPath $logFile -Raw
@@ -49,10 +49,11 @@ foreach ($test in @(
     'phase_3_growth_rate_test', 'phase_3_integration_test',
     'camera_controls_test', 'camera_collision_ray_test', 'camera_rate_test',
     'camera_walkthrough_test', 'input_selection_data_test', 'input_modes_integration_test',
-    'phase_4_crafting_test', 'phase_5_weapon_test', 'phase_6_zombie_test'
+    'phase_4_crafting_test', 'phase_5_weapon_test', 'phase_6_zombie_test', 'phase_7_lifecycle_test'
 )) {
     Invoke-GodotCheck $test ('--headless --fixed-fps 60 --script res://tests/' + $test + '.gd')
 }
+Invoke-GodotCheck 'phase_7_full_day_test' '--headless --fixed-fps 60 --script res://tests/phase_7_full_day_test.gd' $true 180
 Invoke-GodotCheck 'main_scene_boot' '--headless --fixed-fps 60 --quit-after 120' $false
 if ($WithRendering) {
     New-Item -ItemType Directory -Force -Path $CaptureDirectory | Out-Null
@@ -66,6 +67,7 @@ if ($WithRendering) {
     Invoke-GodotCheck 'rendered_phase4_crafting' ('--audio-driver Dummy --script res://tests/phase_4_crafting_test.gd -- --capture-dir "' + $capturePath + '"')
     Invoke-GodotCheck 'rendered_phase5_weapon' ('--audio-driver Dummy --script res://tests/phase_5_weapon_test.gd -- --capture-dir "' + $capturePath + '"')
     Invoke-GodotCheck 'rendered_phase6_zombie' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_6_zombie_test.gd -- --capture-dir "' + $capturePath + '"')
+    Invoke-GodotCheck 'rendered_phase7_lifecycle' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_7_lifecycle_test.gd -- --capture-dir "' + $capturePath + '"')
 }
 Write-Output "SUITE_RESULT failures=$failures logs=$LogDirectory"
 exit $failures
