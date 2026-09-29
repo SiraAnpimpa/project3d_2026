@@ -1,73 +1,64 @@
 # Somchai's Last Harvest
 
-Godot **4.7.2 / Compatibility**. **Phase 4 Crafting & Workbench เสร็จแล้ว**: farming, inventory, mode/seed selection, shoulder camera และสามสูตร crafting. ยังไม่มีระบบยิง. Main scene `scenes/main/GameRoot.tscn`.
+Godot **4.7.2 / Compatibility**. **Phase 5 Weapon & Shooting Foundation เสร็จและทดสอบ runtime แล้ว**. Main scene: `scenes/main/GameRoot.tscn`.
 
-## เปิดเกมและทดลองปลูก
+## วิธีเล่นตั้งแต่ปลูกจนยิง
 
-Import `project.godot` แล้วกด **F5**. เริ่มใน **FARMING** พร้อม Lead Seedที่เลือกไว้และเมล็ด5ชนิด ชนิดละ3.
-
-1. ใช้ **Mouse Wheel** เปลี่ยนเมล็ด หรือกด **Tab** เปิดกระเป๋าแล้วคลิกเมล็ด/ใช้arrows+Enter.
-2. Tab/Escปิดกระเป๋าแล้วเมาส์จะcaptureกลับ. เดินไปแปลงจนเห็น `[E] Plant ...` และกด E.
-3. รอLeadโตประมาณ30วินาที แล้วกด Eเก็บLead×2. เมล็ดที่ใช้หมดจะหายจากรายการwheelและเลือกตัวถัดไปให้อัตโนมัติ.
-4. กด **Q** เข้าCOMBAT แล้วกดRMBค้างเพื่อเล็ง; กลับQเป็นFarmingก่อนปลูก/เก็บเกี่ยว.
-5. ปลูกและเก็บ Lead/Paper/Copper แล้วเดินไป Workbench ใกล้ farm. เมื่อเห็น `[E] Use Workbench` กด E, เลือก Basic Ammo และกด Craft. วัตถุดิบจะลดและ Basic Ammo ×10 จะเข้ากระเป๋า. Small Herb ×2 คราฟต์ Basic Medicine; Iron ×2 + Copper ×1 คราฟต์ Metal Component.
-
-กระเป๋า, Crafting และ Pause หยุดเวลา/การเติบโต. กระเป๋าเต็มแล้ว harvest หรือ craft ไม่สำเร็จจะไม่เสียของ. สูตรและจำนวนเป็น **TEMPORARY BALANCE**. ยังไม่มีขาย/ทิ้งวัสดุหรือsave.
+1. Import `project.godot` แล้วกด **F5**. เริ่ม Farming พร้อมเมล็ด 5 ชนิด ชนิดละ 3 และ Basic Rifle ในช่องอาวุธ 1. แม็กกาซีนและกระสุนสำรองเริ่มที่ 0.
+2. ใช้ **Wheel** เลือก Lead / Paper / Copper Seed; เดินไปแปลงแล้วกด **E** ปลูกและเก็บเกี่ยวเมื่อโต.
+3. ไป Workbench ใกล้ฟาร์ม กด **E**, เลือก Basic Ammo แล้ว Craft. Lead ×1 + Paper ×1 + Copper ×1 ได้กระสุน ×10.
+4. ปิดด้วย Esc, กด **Q** เข้า Combat แล้ว **R** รอรีโหลด 1.5 วินาที.
+5. **RMB** ค้างเล็ง และ **LMB** ยิง Target Dummy ด้านเหนือฟาร์มที่ (3, 0, -8). ยิงโดน 5 นัดจะทำลายเป้า.
 
 ## Controls
 
 | ปุ่ม | การทำงาน |
 |---|---|
-| WASD / Shift | เดิน / วิ่งตามstamina |
-| Mouse / arrows | หมุนกล้อง; captureอัตโนมัติระหว่างเล่น |
-| **Tab** | เปิด/ปิดกระเป๋า; เลิกใช้I |
-| **Q** | Farming↔Combat |
-| **Wheel up/down** | Seedก่อนหน้า/ถัดไปในFarming; เฉพาะequippedweaponในCombat |
-| E | Interact; ปลูก/harvestได้เฉพาะFarming, เปิดWorkbenchได้ทั้งสองmode |
-| RMBค้าง | AimเฉพาะCombat; ปล่อยกลับnormalcamera |
-| **V** | สลับไหล่ซ้าย/ขวา (ย้ายจากQ) |
-| **Esc** | เปิด/ปิดPause; ถ้าbagหรือCraftingเปิดอยู่ให้ปิดหน้านั้นก่อน |
-| Rเมื่อHPหมด | เริ่มใหม่; ยังไม่ใช่Reload |
-| F1 | เปิด/ปิดdebug |
-| F2/F3, F4/F5 | ลด/ฟื้นHP, ลด/ฟื้นstamina |
-| F6/F7, F8/F9 | ย้อน/เพิ่ม1gamehour, ข้ามday/night |
-| F10/F11/F12 | เวลา×1↔×20, pauseclock, restoreplayer |
+| WASD / Shift | เดิน / วิ่งตาม stamina |
+| Mouse / arrows | หมุนกล้อง |
+| Tab | เปิด/ปิดกระเป๋า |
+| Q | Farming / Combat |
+| Wheel | เลือกเมล็ดใน Farming; สลับปืนที่ equip ใน Combat |
+| E | Interact / ปลูก / เก็บเกี่ยว / Workbench |
+| RMB ค้าง | Aim ใน Combat |
+| LMB ขณะ aim | ยิง; ค้างเพื่อยิงอัตโนมัติ |
+| R | Reload ใน Combat; เริ่มใหม่เมื่อ HP หมด |
+| V | สลับไหล่กล้อง |
+| Esc | ปิด bag/crafting ก่อน; เปิด/ปิด Pause |
+| F1 | เปิด/ปิด debug |
+| F2/F3, F4/F5 | ลด/ฟื้น HP, ลด/ฟื้น stamina |
+| F6/F7, F8/F9 | ย้อน/เพิ่ม 1 game hour, ข้าม day/night |
+| F10/F11/F12 | เวลา ×1/×20, pause clock, restore player |
 
-Normalcameraหันตัวตามทิศเดิน; CombatAimเดินข้าง/ถอยโดยยังหันตามกล้อง. Sprintจริงยกเลิกaim; ค้างRMBจะกลับaimเมื่อหยุดsprint. Mode switchไม่resetstats/inventory/camera และจำseed/weaponแยกกัน. Farmingซ่อนshootingcrosshair. LMBยังไม่ยิง.
+Bag, Crafting และ Pause หยุดเวลา/การเติบโตและบล็อกการยิง. Farming ปลูก/เก็บเกี่ยวได้; Combat ยิงได้เมื่อ aim. Sprint ยกเลิก aim; ค้าง RMB จะกลับ aim เมื่อหยุด sprint.
 
-## Equipment foundation
+## Equipment / Ammo
 
-มี **3 equippedweapon slots** แยกจากowneditemsในbag. เมื่อมีownedweapon ให้คลิกitemแล้วคลิกslotด้านล่าง; ×ถอดออกโดยยังเก็บในbag. WheelCombatข้ามช่องว่างและไม่วนผ่านปืนที่ยังไม่equip. ปรับจำนวนช่องที่ `Player/EquipmentLoadout.weapon_slot_count`.
+มี 3 ช่องอาวุธ ปรับจำนวนได้ที่ `Player/EquipmentLoadout.weapon_slot_count`. เลือกปืนใน bag แล้วคลิกช่องเพื่อ equip; × ถอดโดยยังเก็บปืนไว้. Wheel ข้ามช่องว่าง. ปืนหนึ่ง ID ลงได้ช่องเดียว; จำนวนในแม็กกาซีนจำไว้เมื่อสลับหรือถอดปืน.
 
-F5ปกติยังไม่มีproductionweaponitems จึงแสดง `No weapon equipped`. ชุดทดสอบใช้Rifle/Shotgun/SMG/Crossbow/Special Gunชั่วคราวเพื่อทดสอบowned5/equipped3; ไม่มีmodelปืน/ammo/reload/firing.
+Basic Rifle: damage 20, 5 นัด/วินาที, แม็ก 10, reload 1.5 วินาที, range 60 m. Reserve อ่านจาก Basic Ammo ใน Inventory. Reload ใช้กระสุนเท่าที่ขาดเมื่อครบเวลา; เปลี่ยนปืน/mode/เปิดเมนูยกเลิกโดยไม่เสียกระสุน. HUD แสดงชื่อปืน ช่อง แม็ก กระสุนสำรอง และสถานะ reload. แนวยิงตรวจสิ่งกีดขวางจากปากกระบอก.
 
-## Crafting
+## Farming / Crafting
 
-Workbench อยู่ที่ขอบ farm ด้านเหนือ ใช้ E เดิม. หน้าต่างแสดงสูตรตาม category, จำนวนที่มี/ต้องใช้, output และเหตุผลเมื่อ craft ไม่ได้. Craftครั้งละหนึ่ง batch; ปิดด้วย Esc แล้วกลับ mode เดิม. Basic Ammo อยู่ในกระเป๋าและ stack ได้ แต่ยังยิงไม่ได้. Basic Medicine ยังใช้ heal ไม่ได้. เพิ่มสูตรใหม่ผ่าน ItemData + RecipeEntry + CraftRecipe + RecipeBook โดยไม่แก้ core crafting script; ดู [Architecture](PROJECT_ARCHITECTURE.md).
+Inventory 24 slots, stack 99. Lead 30s→2, Paper 25s→3, Iron 40s→2, Copper 35s→2, Small Herb 20s→1 ที่เวลา ×1. Day/night ช่วงละ 10 นาทีจริง. Seed selection อ่านจาก Inventory และเรียง tier/display_order/ID; ไม่มี fixed hotbar.
 
-## Seed ordering / เพิ่มพืช
+สูตรอื่น: Small Herb ×2 → Basic Medicine ×1; Iron ×2 + Copper ×1 → Metal Component ×1. Medicine ยังใช้ heal ไม่ได้. กระเป๋าเต็มแล้ว harvest/craft ไม่สำเร็จจะไม่เสียของ. สัดส่วนทั้งหมดเป็น **TEMPORARY BALANCE**; ยังไม่มีขาย/ทิ้งของหรือ save.
 
-SeedSelectorอ่านitemชนิดSEEDที่`plantable=true`และquantity>0 จากInventory; ไม่มีfixedhotbar. เรียง`ItemData.tier`แล้ว`display_order` (IDเป็นtie-break). Production5ชนิดเป็นtier1 orders10..50. Seedหลายstackมีหนึ่งรายการและแสดงquantityรวม.
+F1 แล้ว Tab เปิด debug actions: Give seeds, Clear farm, Grow all, +1 hour, Fill/Clear bag และ Give Basic Ammo ×30. เพิ่มกระสุนได้เฉพาะเมื่อ debug เปิด.
 
-เพิ่มseedด้วยItemData/PlantData/catalogตาม [Architecture](PROJECT_ARCHITECTURE.md). ตั้งplantable/tier/orderด้วย; พืชTier2+ยังเป็นแนวคิด ไม่มีunlocklogicในphaseนี้.
-
-## ค่ากล้อง / ฟาร์ม
-
-CameraPivot: normal4.2m/FOV70/offset0.70m; aim2.6m/FOV55/offset0.85m; height1.65m; sensitivity0.003; pitch−65..+45°. Playerturn12/s, aimwalk2.8m/s; AimRay100m. Collisionและmovementใช้ฐานCamera phaseเดิม.
-
-Inventory24slots, stack99, seedsเริ่มต้น3/type. Lead30s→2, Paper25s→3, Iron40s→2, Copper35s→2, SmallHerb20s→1ที่×1. กลางวัน/กลางคืนช่วงละ10นาทีจริง. F1เปิดdebugแล้วTabใช้Give seeds/Clear farm/Grow all/+1hour/Fill bag/Clear bag; debugtimejumpsเปลี่ยนเวลาแม้bagเปิด.
-
-## เอกสาร / Tests
-
-- [รายงาน Phase 4 Crafting พร้อมภาพ](PHASE_4_TEST_REPORT.md)
-- [รายงานInput / Selection พร้อมภาพ](PHASE_INPUT_SELECTION_TEST_REPORT.md)
-- [สถานะงาน](PROGRESS.md)
-- [Architecture](PROJECT_ARCHITECTURE.md)
-- [วิธีรันtests](tests/README.md)
-- [รายงานCameraเดิม](PHASE_CAMERA_TEST_REPORT.md)
+## Tests / ข้อจำกัด
 
 ```powershell
 .\tests\run_tests.ps1 -Godot 'C:\path\to\Godot_v4.7.2-stable_win64_console.exe' -WithRendering
 ```
 
-Phase 4 final suite **29 runs, failures=0**, รวมrendererและLeadgrowth30.382วินาทีจริง. ไม่มีScriptErrorใน final logs; Aimstrafeใช้Walkplaceholder. ยังไม่มีhumanlongsession/export/performancebenchmark. หยุดที่ Phase 4; Weapon & Shooting Foundationเป็นงานถัดไปเมื่อมีคำขอ.
+Phase 5 final suite **31 runs, failures=0** รวม rendered gameplay และ natural Lead growth 30.384 วินาที. ท่าถือปืนใช้ idle/walk เดิม ยังไม่มี dedicated aim/reload animation, IK หรือเสียงปืน. ยังไม่ได้ human long-session/export/performance benchmark. หยุดที่ Phase 5; รอ Phase 6 — Zombie AI & Basic Enemy Combat.
+
+- [รายงาน Phase 5 และภาพทดสอบ](PHASE_5_TEST_REPORT.md)
+- [รายงาน Phase 4](PHASE_4_TEST_REPORT.md)
+- [รายงาน Input / Selection](PHASE_INPUT_SELECTION_TEST_REPORT.md)
+- [รายงาน Camera](PHASE_CAMERA_TEST_REPORT.md)
+- [สถานะงาน](PROGRESS.md)
+- [Architecture และการเพิ่มข้อมูล](PROJECT_ARCHITECTURE.md)
+- [แผนพัฒนา](DEVELOPMENT_PLAN.md)
+- [วิธีรัน tests](tests/README.md)

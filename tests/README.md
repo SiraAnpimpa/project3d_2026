@@ -6,7 +6,7 @@ Run from project root with Godot 4.7:
 .\tests\run_tests.ps1 -Godot 'C:\Users\ADMIN\Desktop\Godot_v4.7-stable_win64.exe\Godot_v4.7-stable_win64.exe' -WithRendering
 ```
 
-Without `-WithRendering`: 23 runs (import,21 test scripts,main boot). With it: 29 runs, including Phase 2 mouse capture, Phase 3 real-time farming, camera controls, camera walkthrough, input/modes integration and Phase 4 crafting. Allow approximately two minutes. Every process has a60-second timeout; nonzero exit, missing result, assertion/parser/runtime errors fail the suite. The known Windows root-certificate-store message is reported in full logs and excluded explicitly. No other engine error is excluded.
+Without `-WithRendering`: 24 runs (import,22 test scripts,main boot). With it: 31 runs, including Phase 2 mouse capture, Phase 3 real-time farming, camera controls, camera walkthrough, input/modes integration Phase 4 crafting and Phase 5 weapons. Allow approximately two minutes. Every process has a60-second timeout; nonzero exit, missing result, assertion/parser/runtime errors fail the suite. The known Windows root-certificate-store message is reported in full logs and excluded explicitly. No other engine error is excluded.
 
 Default logs: `.godot/test-logs/`; captures: `.godot/test-captures/`. Override with `-LogDirectory` and `-CaptureDirectory`. Historical Phase 3 logs remain under `.godot/test-logs/phase3/`; historical Camera logs are under `.godot/test-logs/camera/`. Current Input logs are `.godot/test-logs/input/`; screenshots in `docs/input/`.
 
@@ -51,10 +51,16 @@ Final Camera suite: 24 runs, failures=0. See PHASE_CAMERA_TEST_REPORT.md for exa
 - Prior tests adapt intentional contracts: Tab replacesI, VreplacesQforShoulder, QentersCombatbeforeAim, Escpauses, depletedseedclears/fallsforward, startupautoselectsvalidseed. Core movement/farming/stat/growth assertions remain.
 - Synthetic wheel events send pressed AND release edges to avoid retainingGUI mouse focus on modalshade. No productionUI workaround was added for that harness bug.
 
-Historical input milestone suite: **27runs, failures=0**, Leadgrowth30.297real seconds. The olderCamera24run andPhase3counts above are also historical. See PHASE_INPUT_SELECTION_TEST_REPORT.md for those results. The Phase 4 suite below is current.
+Historical input milestone suite: **27runs, failures=0**, Leadgrowth30.297real seconds. The olderCamera24run andPhase3counts above are also historical. See PHASE_INPUT_SELECTION_TEST_REPORT.md for those results. The Phase 5 suite below is current.
 
 ## Phase 4 coverage
 
 `phase_4_crafting_test.gd` exercises physical E planting and harvesting of all five crops, the existing E workbench interaction, modal pause and key routing, all three recipes, inventory quantities and stacking, full bag rollback, synchronous craft reentry, repeated craft presses, a resource-only recipe with two outputs, and duplicate ID validation. It runs headless and rendered; rendered captures can be saved with `-WithRendering`. See `PHASE_4_TEST_REPORT.md` for verified results and limits.
 
-Current final suite: **29 runs, failures=0**. Logs are in `.godot/test-logs/phase4_final/`; inspected screenshots are in `docs/phase4/`.
+Historical Phase 4 final suite: **29 runs, failures=0**. Logs are in `.godot/test-logs/phase4_final/`; inspected screenshots are in `docs/phase4/`.
+
+## Phase 5 coverage (current)
+
+`phase_5_weapon_test.gd` runs headless and rendered: actual farming/crafting/reload/aim/fire/dummy death, ammo accounting, spam, per-weapon magazine memory, switching, semi-auto and automatic fire, 30/120 Hz cooldowns, near/far/range, cover and clipped muzzle, empty equipment, UI/mode/death guards, debug gates and restart. Temporary pistol data is test-only. Previous catalog/startup tests now expect 14 items and the starter rifle.
+
+Current final suite: **31 runs, failures=0**. Logs `.godot/test-logs/phase5_final/`; screenshots `docs/phase5/`. See [Phase 5 report](../PHASE_5_TEST_REPORT.md) for exact results, assets and limits. Phase 5 crop setup advances the game clock; separate rendered Phase 3 validates natural growth (30.384 real seconds).

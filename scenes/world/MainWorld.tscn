@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://scenes/farming/FarmPlot.tscn" id="FarmPlot"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/Workbench.tscn" id="Workbench"]
+[ext_resource type="PackedScene" path="res://scenes/combat/TargetDummy.tscn" id="Dummy"]
 
 [sub_resource type="StandardMaterial3D" id="GroundMat"]
 albedo_color = Color(0.27, 0.34, 0.24, 1)
@@ -325,6 +326,9 @@ outline_size = 8
 
 [node name="Workbench" parent="." instance=ExtResource("Workbench")]
 position = Vector3(-2, 0, -1)
+
+[node name="TargetDummy" parent="." instance=ExtResource("Dummy")]
+position = Vector3(3, 0, -8)
 
 [node name="CollisionTestBlock" type="StaticBody3D" parent="."]
 position = Vector3(7, 0.75, 3)

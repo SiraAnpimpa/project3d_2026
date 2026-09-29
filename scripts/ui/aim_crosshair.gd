@@ -5,6 +5,18 @@ var rig: ThirdPersonCamera
 var ray: CameraAimRay
 var debug_label: Label
 var player: PlayerController
+var hit_time := 0.0
+
+
+func flash_hit() -> void:
+	hit_time = 0.16
+	queue_redraw()
+
+
+func _process(delta: float) -> void:
+	if hit_time > 0:
+		hit_time = maxf(0, hit_time - delta)
+		queue_redraw()
 
 
 func bind(target_player: PlayerController, aim_ray: CameraAimRay, label: Label) -> void:
@@ -42,3 +54,6 @@ func _draw() -> void:
 		draw_line(center + direction * 5, center + direction * 12, Color(0.05, 0.07, 0.06, 0.9), 4.0)
 		draw_line(center + direction * 5, center + direction * 12, tint, 2.0)
 	draw_circle(center, 1.5, tint)
+	if hit_time > 0:
+		for direction in [Vector2(1, 1), Vector2(-1, 1), Vector2(1, -1), Vector2(-1, -1)]:
+			draw_line(center + direction * 7, center + direction * 13, Color(1, 0.5, 0.2), 3)

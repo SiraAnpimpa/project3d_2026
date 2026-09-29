@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/world/MainWorld.tscn" id="1_world"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2_player"]
@@ -18,12 +18,14 @@
 [ext_resource type="Resource" path="res://resources/recipes/book.tres" id="recipe_book"]
 [ext_resource type="Script" path="res://scripts/crafting/crafting_system.gd" id="crafting_system"]
 [ext_resource type="PackedScene" path="res://scenes/ui/CraftingUI.tscn" id="crafting_ui"]
+[ext_resource type="Resource" path="res://resources/items/basic_rifle.tres" id="starter_weapon"]
 
 [node name="GameRoot" type="Node3D"]
 script = ExtResource("4_root")
 starter_loadout = ExtResource("10_loadout")
 catalog = ExtResource("11_catalog")
 recipe_book = ExtResource("recipe_book")
+starter_weapon = ExtResource("starter_weapon")
 
 [node name="MainWorld" parent="." instance=ExtResource("1_world")]
 

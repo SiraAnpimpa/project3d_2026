@@ -155,6 +155,10 @@ func bind_debug(debug: DebugControls) -> void:
 		button.add_theme_font_size_override("font_size", 14)
 		button.pressed.connect(debug.execute.bind(DebugControls.FARMING_ACTIONS[index]))
 		row.add_child(button)
+	var ammo_button := Button.new()
+	ammo_button.text = "DEBUG: Give Basic Ammo x30"
+	ammo_button.pressed.connect(debug.execute.bind(&"debug_give_ammo"))
+	container.add_child(ammo_button)
 	debug_message = Label.new()
 	debug_message.text = "Development only. Changes apply to this run."
 	debug_message.add_theme_font_size_override("font_size", 13)

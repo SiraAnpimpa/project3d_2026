@@ -33,7 +33,7 @@ func run() -> void:
 	var player: PlayerController = game.get_node("Player")
 	var inventory: Inventory = player.get_node("Inventory")
 	var clock: GameClock = game.get_node("TimeController")
-	check(inventory.get_slots().size() == 5 and inventory.get_item_amount(&"seed_lead") == 3, "starter seeds appear once in game")
+	check(inventory.get_slots().size() == 6 and inventory.get_item_amount(&"seed_lead") == 3 and inventory.has_item(&"basic_rifle"), "starter seeds and Phase 5 rifle appear once in game")
 	key(KEY_TAB)
 	check(ui.is_open and paused and ui.screen.visible, "Tab opens inventory and pauses world")
 	check(ui.slot_buttons.size() == 24 and ui.slot_buttons[0].text.contains("x3") and ui.slot_buttons[0].icon != null, "UI displays capacity, quantity and icon")

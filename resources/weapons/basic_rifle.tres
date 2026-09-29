@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3]
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="script"]
+[ext_resource type="Resource" path="res://resources/items/basic_rifle.tres" id="item"]
+[ext_resource type="Resource" path="res://resources/items/basic_ammo.tres" id="ammo"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/BasicRifle.tscn" id="visual"]
+
+[resource]
+script = ExtResource("script")
+weapon_id = &"basic_rifle"
+display_name = "Basic Rifle"
+description = "A simple automatic rifle using farm-crafted Basic Ammo."
+weapon_type = 1
+weapon_item = ExtResource("item")
+ammo_type = ExtResource("ammo")
+damage = 20.0
+fire_rate = 5.0
+magazine_size = 10
+reload_time = 1.5
+range_meters = 60.0
+automatic = true
+spread_degrees = 0.0
+recoil_degrees = 0.0
+weapon_scene = ExtResource("visual")
+muzzle_path = NodePath("Muzzle")

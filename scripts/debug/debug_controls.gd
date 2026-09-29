@@ -66,6 +66,11 @@ func set_active(value: bool) -> void:
 func execute(action: StringName) -> void:
 	if not active or not debug_enabled or not OS.is_debug_build():
 		return
+	if action == &"debug_give_ammo":
+		if inventory != null and catalog != null:
+			var added := inventory.add_item(catalog.get_item(&"basic_ammo"), 30)
+			message_posted.emit("Debug: gave Basic Ammo x30" if added else "Inventory full; no ammo added")
+		return
 	if action in FARMING_ACTIONS:
 		_execute_farming(action)
 		_publish()

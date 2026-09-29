@@ -3,6 +3,7 @@ extends Node3D
 @export var catalog: ItemCatalog
 @export var starter_loadout: InventoryLoadout
 @export var recipe_book: RecipeBook
+@export var starter_weapon: ItemData
 @onready var inventory: Inventory = $Player/Inventory
 @onready var inventory_ui: InventoryUI = $InventoryUI
 @onready var equipment: EquipmentLoadout = $Player/EquipmentLoadout
@@ -10,6 +11,7 @@ extends Node3D
 @onready var pause_menu: PauseMenu = $PauseMenu
 @onready var crafting_system: CraftingSystem = $CraftingSystem
 @onready var crafting_ui: CraftingUI = $CraftingUI
+@onready var weapons: WeaponController = $Player/WeaponController
 
 @onready var player: PlayerController = $Player
 @onready var clock: GameClock = $TimeController
@@ -22,7 +24,11 @@ func _ready() -> void:
 	player.global_transform = $MainWorld/PlayerSpawn.global_transform
 	if starter_loadout == null or not starter_loadout.give_to(inventory):
 		push_error("Starter loadout is invalid or inventory is too small.")
+	if starter_weapon != null and not inventory.add_item(starter_weapon):
+		push_error("Cannot grant starter weapon.")
 	equipment.bind(inventory)
+	if starter_weapon != null:
+		equipment.equip_weapon(0, starter_weapon)
 	gameplay_mode.bind(inventory, equipment, player.camera_rig)
 	gameplay_mode.mode_changed.connect(func(_mode: GameplayModeController.Mode) -> void: player.interactor.refresh_target())
 	inventory_ui.bind(inventory, player)
@@ -41,6 +47,8 @@ func _ready() -> void:
 	hud.bind_gameplay_mode(gameplay_mode, equipment)
 	player.aim_ray.bind(player.camera_rig, player, debug_controls)
 	hud.get_node("Root/Crosshair").bind(player, player.aim_ray, hud.get_node("Root/AimDebugLabel"))
+	weapons.bind(player, inventory, equipment, gameplay_mode, catalog)
+	hud.bind_weapons(weapons)
 	var errors := catalog.validation_errors() if catalog != null else PackedStringArray(["Item catalog is missing."])
 	if errors.is_empty():
 		for plot in $MainWorld/FarmArea.get_children():

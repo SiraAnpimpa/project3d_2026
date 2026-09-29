@@ -17,7 +17,7 @@ func check(ok: bool, description: String) -> void:
 func run() -> void:
 	var catalog: ItemCatalog = load("res://resources/catalog.tres")
 	check(catalog != null and catalog.validation_errors().is_empty(), "complete catalog loads and validates")
-	check(catalog.items.size() == 13 and catalog.plants.size() == 5, "five seeds, five harvest materials and three craft outputs have unique ids")
+	check(catalog.items.size() == 14 and catalog.plants.size() == 5, "five seeds, five harvest materials, three craft outputs and starter rifle have unique ids")
 	for plant in catalog.plants:
 		check(plant.stage_at(0) == 0 and plant.stage_at(0.25) == 1 and plant.stage_at(0.65) == 2 and plant.stage_at(1) == 3, "four stage thresholds: " + plant.display_name)
 	var bad_catalog := catalog.duplicate() as ItemCatalog

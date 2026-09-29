@@ -20,6 +20,8 @@ var _prompt_target: Interactable
 var inventory: Inventory
 var gameplay_mode: GameplayModeController
 var equipment: EquipmentLoadout
+var weapons: WeaponController
+@onready var ammo_label: Label = %AmmoLabel
 @onready var seed_label: Label = %SeedLabel
 
 
@@ -113,6 +115,25 @@ func _refresh_seed() -> void:
 func show_message(message: String) -> void:
 	toast_label.text = message
 	toast_timer.start()
+
+
+func bind_weapons(controller: WeaponController) -> void:
+	weapons = controller
+	controller.state_changed.connect(_refresh_ammo)
+	controller.feedback.connect(show_message)
+	controller.hit_confirmed.connect($Root/Crosshair.flash_hit)
+	_refresh_ammo()
+
+
+func _refresh_ammo() -> void:
+	ammo_label.visible = weapons != null and gameplay_mode != null and not gameplay_mode.is_farming()
+	if not ammo_label.visible: return
+	if weapons.current == null:
+		ammo_label.text = "No usable weapon equipped"
+		return
+	var state := weapons.current
+	ammo_label.text = "%s  [%d]\n%d / %d   |   Magazine / Reserve\n%s" % [state.data.display_name, equipment.selected_weapon_slot + 1,
+		state.current_magazine, weapons.reserve_ammo(), "RELOADING..." if state.is_reloading else "RMB Aim  /  LMB Fire  /  R Reload"]
 
 
 func _on_debug_status(active: bool, summary: String) -> void:

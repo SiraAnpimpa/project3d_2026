@@ -38,6 +38,9 @@ func run() -> void:
 	var hud: PrototypeHUD = game.get_node("HUD")
 	var crosshair: AimCrosshair = game.get_node("HUD/Root/Crosshair")
 	var rig := player.camera_rig
+	# This fixture tests five temporary weapons and three slots from an empty loadout.
+	# Phase 5 separately verifies the production starter rifle and its runtime state.
+	inventory.remove_item(&"basic_rifle")
 	key(KEY_F1)
 	game.clock.seek(1, 9, 0)
 	check(mode.is_farming() and inventory.selected_seed_id == &"seed_lead" and not crosshair.visible, "startup is Farming with first seed selected and shooting crosshair hidden")
@@ -188,7 +191,7 @@ func run() -> void:
 	key(KEY_R)
 	await frames(10)
 	game = current_scene as Node3D
-	check(game.get_node("Player/GameplayMode").is_farming() and game.get_node("Player/EquipmentLoadout").selected_weapon_slot == -1 and not paused, "restart begins fresh in Farming with empty equipment")
+	check(game.get_node("Player/GameplayMode").is_farming() and game.get_node("Player/EquipmentLoadout").selected_weapon_slot == 0 and game.get_node("Player/EquipmentLoadout").get_selected_weapon().id == &"basic_rifle" and not paused, "restart begins fresh in Farming with the Phase 5 starter rifle")
 	print("INPUT_MODES_INTEGRATION_RESULT failures=", failures)
 	game.queue_free()
 	await process_frame

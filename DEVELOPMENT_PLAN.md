@@ -1,5 +1,11 @@
 # DEVELOPMENT_PLAN — Somchai's Last Harvest
 
+## Current: Phase 5 / M8 complete, runtime verified (2026-09-29)
+
+Weapon data/runtime, starter rifle, existing equipment slots, muzzle hitscan and cover checks, inventory ammo, timed reload, Health damage and Target Dummy passed all 31 suite runs including rendered end-to-end play. See PHASE_5_TEST_REPORT.md. Next: Phase 6 - Zombie AI & Basic Enemy Combat (M9), awaiting its prompt. No AI started. Dedicated aim/reload animation, audio and individual duplicate weapon instances remain future work.
+
+## Historical milestones
+
 ## Phase 4 / M7 — เสร็จและ runtime verified 2026-09-29
 
 Crafting & Workbench Foundation ผ่าน 29-run suite รวม rendered loop. Recipe Resources3สูตร, inventory atomic exchange, workbenchใช้ interactionเดิม, CraftingUIแสดง data/จำนวน/เหตุผลและ pauseเหมือน bag. Basic Ammo, Basic Medicine, Metal Component craftได้จริง; สัดส่วนเป็น **TEMPORARY BALANCE**. ดู `PHASE_4_TEST_REPORT.md`. Milestoneถัดไปตามแผนคือ **Weapon & Shooting Foundation (M8)** เมื่อมีคำขอใหม่; Phase 4 ไม่เริ่ม shooting/medicine usage.
@@ -32,7 +38,7 @@ Crafting & Workbench Foundation ผ่าน 29-run suite รวม rendered loo
 | 6A | **Shoulder camera + aim foundation — done** | M1–M6 | Normal/aim, movement/strafe, crosshair/ray, collision, inventory/farming regression และ rendered walkthrough ผ่าน; ยังไม่ยิง. |
 | 6B | **Input / modes / item selection — done** | M6A | Tab/Q/wheel, seedsdynamic/tier, equipment3slots, mode memory, Combat-onlyaim, runtime/regressionผ่าน |
 | 7 | **Crafting & Workbench — Phase 4 done** | M5–M6 | สูตรตะกั่ว+กระดาษ+ทองแดง → กระสุนพื้นฐาน, สมุนไพร→ยา และเหล็ก+ทองแดง→Metal Component ทำงาน. Inventory exchange atomic; workbench E/UIและ rendered farming→craft loop ผ่าน. |
-| 8 | ปืนเริ่มต้น + damage | M4, M5, M6A, M7 | ปืนหนึ่งชนิดยิงใช้กระสุนจริง, hit/miss ชัด, damage ส่งเข้าศัตรูทดสอบ, ไม่มี ammo แล้วไม่ยิง. ปรับ visual/จุด muzzle ของ GLB wrapper. |
+| 8 | **Phase 5 DONE** - ปืนเริ่มต้น + damage | M4, M5, M6A, M7 | ปืนหนึ่งชนิดยิงใช้กระสุนจริง, hit/miss ชัด, damage ส่งเข้าศัตรูทดสอบ, ไม่มี ammo แล้วไม่ยิง. ปรับ visual/จุด muzzle ของ GLB wrapper. |
 | 9 | Normal zombie + navigation | M1, M4, M8 | Zombie เดินหาผู้เล่นบน map ทดสอบ, โจมตี/รับ damage/ตาย, animation Idle/Walk/Attack/Death ที่มีจริงเล่นถูก; navigation ไม่ติดสิ่งกีดขวางหลัก. |
 | 10 | Night wave + rest/no-rest | M3, M4, M9 | 18:00 spawn Normal zombie จาก marker, active count ถูก; ฆ่าหมดก่อน 06:00 แล้วพัก/ฟื้น HP-stamina/ข้ามเช้า; ถ้ายังเหลือที่ 06:00 เข้าทาง no-rest และไม่ฟื้นเต็ม; transition ไม่ซ้ำ. |
 | 11 | **Day 1 vertical slice** | M0–M10 | เล่นต่อเนื่องจาก 06:00 ถึง Day 2 ได้ตาม loop โดยไม่ใช้ debug command; plant→harvest→craft→shoot→survive→sleep ครบ. ทดสอบเส้นทาง wave clear, no-rest และ death. UI มีข้อมูลพอเล่นได้. |

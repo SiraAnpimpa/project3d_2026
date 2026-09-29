@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_player"]
 [ext_resource type="Script" path="res://scripts/player/camera_rig.gd" id="2_camera"]
@@ -14,6 +14,8 @@
 
 [ext_resource type="Script" path="res://scripts/inventory/equipment_loadout.gd" id="10_equipment"]
 [ext_resource type="Script" path="res://scripts/player/gameplay_mode_controller.gd" id="11_mode"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_controller.gd" id="weapon_controller"]
+[ext_resource type="Resource" path="res://resources/weapons/basic_rifle.tres" id="rifle_data"]
 
 [sub_resource type="CapsuleShape3D" id="Capsule"]
 radius = 0.32
@@ -35,6 +37,9 @@ script = ExtResource("3_visual")
 
 [node name="Matt" parent="Visual" instance=ExtResource("4_matt")]
 scale = Vector3(1.1, 1.1, 1.1)
+
+[node name="WeaponSocket" type="Node3D" parent="Visual"]
+position = Vector3(-0.32, 1.12, 0.25)
 
 [node name="CameraPivot" type="Node3D" parent="."]
 position = Vector3(0, 1.65, 0)
@@ -76,3 +81,7 @@ script = ExtResource("10_equipment")
 
 [node name="GameplayMode" type="Node" parent="."]
 script = ExtResource("11_mode")
+
+[node name="WeaponController" type="Node3D" parent="."]
+script = ExtResource("weapon_controller")
+definitions = Array[Resource]([ExtResource("rifle_data")])

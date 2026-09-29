@@ -1,6 +1,19 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
-อัปเดต 2026-09-29 — Phase 4 Crafting & Workbench runtime verified
+อัปเดต 2026-09-29 — Phase 5 Weapon & Shooting Foundation runtime verified
+
+## Phase 5 weapon architecture (current)
+
+- `GameRoot` grants canonical starter rifle ItemData, equips slot 0, then binds `Player/WeaponController` to Inventory, EquipmentLoadout, GameplayMode, camera and ItemCatalog. HUD binds weapon state/feedback/hit signals. Default magazine/reserve are zero.
+- `scripts/data/weapon_data.gd` / `resources/weapons/basic_rifle.tres`: immutable definition, validated scene/muzzle, ammo and weapon catalog references, damage/rate/magazine/reload/range/auto/spread/recoil. `resources/items/basic_rifle.tres` is the owned WEAPON item.
+- `scripts/weapons/weapon_runtime.gd`: mutable magazine/cooldown/reload state per owned ID. `weapon_controller.gd`: selection, visual lifecycle, firing/reload gates, cooldown remainder, reserve consumption and ray damage. Equipment remains 3 configurable slots, one reference per unique ID; unequipping preserves runtime while ownership remains.
+- `Player/Visual/WeaponSocket` hosts `scenes/weapons/BasicRifle.tscn`. A runtime BoneAttachment3D follows Middle1.R position at unit scale; +Z model points at existing CameraAimRay. Socket fallback is available. Original GLBs and camera/movement scripts remain unchanged.
+- Camera center ray supplies aim point -> safety ray from body to muzzle -> muzzle ray toward aim point up to weapon range. Mask5 excludes player. Collider child `Health` receives existing `take_damage`; `hit_confirmed` flashes the crosshair. No enemy class dependency.
+- `MainWorld/TargetDummy` uses `scenes/combat/TargetDummy.tscn` and `scripts/combat/target_dummy.gd`: 100 HP HealthComponent, label, flash, collision disabled/removal on death.
+- Ammo flow: farm materials -> existing recipe exchange -> Inventory Basic Ammo -> timed reload completion consumes missing rounds -> runtime magazine -> firing consumes one. Cancel reload on controls/mode/selection/death without consuming reserve. There is no separate reserve counter.
+- LMB (`fire`) requires Combat + aim; R (`reload`) requires live Combat and remains restart when dead. Menus use existing camera controls gate. HUD AmmoLabel shows name/slot/magazine/reserve/reload; debug bag can grant a finite 30 rounds only when debug is enabled.
+- New scene/resource/script paths are listed above; the foundational tree below omits those additional children for readability. Historical phase sections below describe their original scope; current production includes weapon behavior described here.
+- Verification: 31 runs passed; see PHASE_5_TEST_REPORT.md. Next: Phase 6 Zombie AI & Basic Enemy Combat after its prompt. No projectile, special ammo effects, AI, audio, save or dedicated aim/reload animations are implemented.
 
 ## Runtime foundation
 
@@ -45,8 +58,8 @@ res://
 ├── Asset/                           # Original 243 GLBs, unchanged
 ├── assets/ui/items/                 # 10 prototype SVG icons
 ├── resources/
-│   ├── catalog.tres                 # 13 ItemData + 5 PlantData references
-│   ├── items/                       # 5 seed + 5 harvest material + 3 crafted item .tres
+│   ├── catalog.tres                 # 14 ItemData + 5 PlantData references
+│   ├── items/                       # 5 seed + 5 harvest material + 3 crafted item + 1 rifle .tres
 │   ├── plants/                      # 5 .tres
 │   ├── recipes/                     # RecipeBook + 3 CraftRecipe .tres
 │   └── inventory/starter_loadout.tres

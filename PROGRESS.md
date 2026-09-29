@@ -1,5 +1,19 @@
 # PROGRESS — Somchai's Last Harvest
 
+## Current: Phase 5 complete, runtime verified (2026-09-29)
+
+- Data-driven WeaponData, separate WeaponRuntime, WeaponController and starter Basic Rifle equipped in slot 1. Existing three configurable slots retain magazines per owned weapon ID.
+- Combat + RMB + LMB hitscan from muzzle toward camera aim point, cover and barrel penetration checks. R reload consumes crafted Basic Ammo from Inventory on completion. Initial magazine/reserve are zero.
+- Target Dummy at (3, 0, -8), existing HealthComponent, 100 HP, damage flash and death. Rifle: damage20, 5shots/s, mag10, reload1.5s, range60m. Temporary balance.
+- HUD name/slot/mag/reserve/reloading, hit marker and muzzle flash. Debug-gated +30 ammo. Menus, mode changes, switching and death cancel reload without consuming ammo.
+- Created: scripts/data/weapon_data.gd, scripts/weapons/{weapon_runtime,weapon_controller}.gd, scripts/combat/target_dummy.gd; scenes/weapons/BasicRifle.tscn, scenes/combat/TargetDummy.tscn; resources/items/basic_rifle.tres, resources/weapons/basic_rifle.tres; tests/phase_5_weapon_test.gd; PHASE_5_TEST_REPORT.md; docs/phase5/ captures.
+- Modified: input map, catalog, GameRoot/Player/MainWorld/HUD scenes, root wiring, HUD/crosshair/debug UI, runner and startup/catalog expectation tests, project documentation. Camera, PlayerController and Inventory core scripts unchanged.
+- Final suite: 31/31 runs passed (import, 22 headless, boot, 7 rendered). Full farming/craft/reload/aim/fire/death loop, obstruction, partial reload, spam, state retention, 30/120Hz rates and regressions pass. Logs .godot/test-logs/phase5_final/. Natural rendered Lead growth: 30.384 seconds.
+- No functional bugs reproduced. Debt: idle/walk arms without dedicated aim/reload animation or IK, placeholder icon/dummy/flash, no audio/save/duplicate individual weapon instances. No human long-session/export/performance test.
+- Next exact step: wait for Phase 6 - Zombie AI & Basic Enemy Combat prompt. Do not start AI. See PHASE_5_TEST_REPORT.md for architecture, evidence and limitations.
+
+## Historical Phase 4 status
+
 อัปเดต 2026-09-29 — **Phase 4 Crafting & Workbench เสร็จและ runtime verified**
 
 ## Current Phase 4 status
