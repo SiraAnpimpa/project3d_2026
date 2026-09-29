@@ -1,6 +1,7 @@
 [gd_scene format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/farming/FarmPlot.tscn" id="FarmPlot"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/Workbench.tscn" id="Workbench"]
 
 [sub_resource type="StandardMaterial3D" id="GroundMat"]
 albedo_color = Color(0.27, 0.34, 0.24, 1)
@@ -20,10 +21,6 @@ roughness = 0.9
 
 [sub_resource type="StandardMaterial3D" id="RoofMat"]
 albedo_color = Color(0.24, 0.31, 0.29, 1)
-roughness = 0.9
-
-[sub_resource type="StandardMaterial3D" id="BenchMat"]
-albedo_color = Color(0.61, 0.42, 0.23, 1)
 roughness = 0.9
 
 [sub_resource type="StandardMaterial3D" id="BoundaryMat"]
@@ -136,13 +133,6 @@ material = SubResource("RoofMat")
 
 [sub_resource type="BoxShape3D" id="Shape15"]
 size = Vector3(6.6, 0.3, 5.5)
-
-[sub_resource type="BoxMesh" id="Box16"]
-size = Vector3(2.8, 1.4, 1.2)
-material = SubResource("BenchMat")
-
-[sub_resource type="BoxShape3D" id="Shape16"]
-size = Vector3(2.8, 1.4, 1.2)
 
 [sub_resource type="BoxMesh" id="Box17"]
 size = Vector3(2, 1.5, 2)
@@ -333,22 +323,8 @@ pixel_size = 0.008
 text = "SHELTER"
 outline_size = 8
 
-[node name="WorkbenchPlaceholder" type="StaticBody3D" parent="."]
-position = Vector3(5, 0.7, -5)
-
-[node name="Collider" type="CollisionShape3D" parent="WorkbenchPlaceholder"]
-shape = SubResource("Shape16")
-
-[node name="Mesh" type="MeshInstance3D" parent="WorkbenchPlaceholder"]
-mesh = SubResource("Box16")
-
-[node name="WorkbenchLabel" type="Label3D" parent="."]
-position = Vector3(5, 2.1, -5)
-billboard = 1
-font_size = 36
-pixel_size = 0.008
-text = "WORKBENCH AREA"
-outline_size = 8
+[node name="Workbench" parent="." instance=ExtResource("Workbench")]
+position = Vector3(-2, 0, -1)
 
 [node name="CollisionTestBlock" type="StaticBody3D" parent="."]
 position = Vector3(7, 0.75, 3)

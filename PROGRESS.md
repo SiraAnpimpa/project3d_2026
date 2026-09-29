@@ -1,5 +1,21 @@
 # PROGRESS — Somchai's Last Harvest
 
+อัปเดต 2026-09-29 — **Phase 4 Crafting & Workbench เสร็จและ runtime verified**
+
+## Current Phase 4 status
+
+- RecipeEntry/CraftRecipe/RecipeBook Resources, category, outputหลายชนิด, `craft_amount`, `unlock_day` และ validation/duplicate ID พร้อมใช้งาน. สูตร Day 1: Basic Ammo (Lead1+Paper1+Copper1→10), Basic Medicine (Small Herb2→1), Metal Component (Iron2+Copper1→1). **TEMPORARY BALANCE**.
+- ItemCatalog เพิ่ม crafted ItemData3รายการ; Basic Ammo typeAMMO, Medicine typeCONSUMABLE, Metal Component typeMATERIAL. ใช้ icon เดิมเป็น placeholder. ไม่มี shooting/reload/medicine usage.
+- Inventory เพิ่ม `can_exchange_items`/`exchange_items` ที่จำลอง stack หลัง consume และก่อน add; commitครั้งเดียวพร้อม `inventory_changed`. CraftingSystem ตรวจสูตร/วัน/ของ/พื้นที่ใหม่ทุกครั้งและกัน reentrant craft.
+- Workbench reusable scene แทน placeholder ใน MainWorld ใกล้ farm; ใช้ PlayerInteractor และ E เดิม. CraftingUI สร้าง recipe list จาก data, แสดงจำนวน/เหตุผล/ผล craft, pauseเวลา, release mouse, cancel aim, Escปิดก่อนPause, ไม่ซ้อน TabBag; กลับ mode เดิม.
+- Files created: `scripts/data/{recipe_entry,craft_recipe,recipe_book}.gd`, `scripts/crafting/{crafting_system,workbench}.gd`, `scripts/ui/crafting_ui.gd`, `scenes/interactables/Workbench.tscn`, `scenes/ui/CraftingUI.tscn`, `resources/items/{basic_ammo,basic_medicine,metal_component}.tres`, `resources/recipes/{basic_ammo,basic_medicine,metal_component,book}.tres`, `tests/phase_4_crafting_test.gd`, `PHASE_4_TEST_REPORT.md`, `docs/phase4/` captures.
+- Files modified: Inventory, ItemData, catalog, GameRoot/MainWorld, InventoryUI/PauseMenu, test runner, Phase 3 catalog-count tests, PROGRESS/PROJECT_ARCHITECTURE/DEVELOPMENT_PLAN/tests README.
+- Tests: final 29-run suite exit0/failures0 (import, 21 headless scripts, boot, 6 rendered); Phase 4 end-to-end E plant/harvest/workbench/craft, full bag, stack reuse, reentry/spam, data-only two-output recipe, Day 2 lock, duplicate/invalid recipe all pass. Rendered Phase 3 growth 30.382s at x1. Details in `PHASE_4_TEST_REPORT.md`.
+- Known issues: no failures reproduced in automated runs; human playthrough/export not performed. Technical debt: placeholder art/balance, no save, medicine use and weapon behavior deferred.
+- **Next exact step:** stop Phase 4 here. Await a separate Phase 5 request for Weapon & Shooting Foundation; do not start gun behavior from this task.
+
+## Previous input/selection milestone (historical)
+
 อัปเดต 2026-09-29 — **Input / Inventory Access / Item Selection เสร็จแล้ว**
 
 ## Current status
@@ -55,6 +71,6 @@ Cameraเดิม: normal4.2m/FOV70/offset0.70; aim2.6m/FOV55/offset0.85; heigh
 
 ## Next exact step
 
-**งานนี้เสร็จแล้ว หยุดรอpromptถัดไป.** เมื่อcontinueอ่านไฟล์นี้กับPHASE_INPUT_SELECTION_TEST_REPORTและตรวจGitก่อน; ไม่มีงานinputที่ค้างและไม่เริ่มGunShootingเอง. Weaponphaseพร้อมใช้current_mode, selected_equippedweapon/equipment_changed และaimray/targetจากCamera. ต้องรอคำขอเพื่อออกแบบWeaponData/instances/model/firing/muzzleblock/ammo/reload/damage.
+**Historical note:** input milestone เสร็จก่อน Phase 4. สถานะและ next exact step ปัจจุบันอยู่ด้านบน. Weaponphaseพร้อมใช้current_mode, selected_equippedweapon/equipment_changed และaimray/targetจากCamera. ต้องรอคำขอเพื่อออกแบบWeaponData/instances/model/firing/muzzleblock/ammo/reload/damage.
 
 Suggested commit: `feat: add farming combat modes and dynamic item selection` (ยังไม่ได้commit).

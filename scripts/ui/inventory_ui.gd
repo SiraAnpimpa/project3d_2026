@@ -13,6 +13,7 @@ var equipment: EquipmentLoadout
 var selected_owned_weapon: ItemData
 var equipment_buttons: Array[Button] = []
 var unequip_buttons: Array[Button] = []
+var crafting_ui: CraftingUI
 
 @onready var screen: Control = $Screen
 @onready var grid: GridContainer = %Slots
@@ -34,11 +35,15 @@ func bind(target_inventory: Inventory, target_player: PlayerController) -> void:
 	refresh()
 
 
+func bind_crafting(menu: CraftingUI) -> void:
+	crafting_ui = menu
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_echo():
 		return
 	if event.is_action_pressed("toggle_inventory"):
-		if not get_tree().paused or is_open:
+		if (not get_tree().paused or is_open) and (crafting_ui == null or not crafting_ui.is_open):
 			set_open(not is_open)
 		get_viewport().set_input_as_handled()
 	elif is_open and event.is_action_pressed("pause"):

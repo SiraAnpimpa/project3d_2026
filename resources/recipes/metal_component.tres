@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CraftRecipe" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/craft_recipe.gd" id="recipe"]
+[ext_resource type="Script" path="res://scripts/data/recipe_entry.gd" id="entry"]
+[ext_resource type="Resource" path="res://resources/items/iron.tres" id="iron"]
+[ext_resource type="Resource" path="res://resources/items/copper.tres" id="copper"]
+[ext_resource type="Resource" path="res://resources/items/metal_component.tres" id="output"]
+
+[sub_resource type="Resource" id="iron_entry"]
+script = ExtResource("entry")
+item = ExtResource("iron")
+quantity = 2
+
+[sub_resource type="Resource" id="copper_entry"]
+script = ExtResource("entry")
+item = ExtResource("copper")
+quantity = 1
+
+[sub_resource type="Resource" id="result_entry"]
+script = ExtResource("entry")
+item = ExtResource("output")
+quantity = 1
+
+[resource]
+script = ExtResource("recipe")
+recipe_id = &"metal_component"
+display_name = "Metal Component"
+description = "A basic part for future equipment."
+category = 5
+ingredients = Array[Resource]([SubResource("iron_entry"), SubResource("copper_entry")])
+outputs = Array[Resource]([SubResource("result_entry")])
+craft_amount = 1
+unlock_day = 1

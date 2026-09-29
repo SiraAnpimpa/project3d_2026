@@ -83,6 +83,72 @@ func remove_item(item_id: StringName, amount: int = 1) -> bool:
 	return true
 
 
+func can_exchange_items(removals: Dictionary, additions: Dictionary) -> bool:
+	return _simulate_exchange(removals, additions).get("ok", false)
+
+
+func exchange_items(removals: Dictionary, additions: Dictionary) -> bool:
+	# Stage every stack mutation first. Publish a single committed inventory change.
+	var result := _simulate_exchange(removals, additions)
+	if not result.get("ok", false):
+		return false
+	_slots = result["slots"]
+	_definitions = result["definitions"]
+	_repair_seed_selection()
+	inventory_changed.emit()
+	return true
+
+
+func _simulate_exchange(removals: Dictionary, additions: Dictionary) -> Dictionary:
+	var staged: Array[InventorySlot] = get_slots()
+	var definitions: Dictionary[StringName, ItemData] = _definitions.duplicate()
+	for group in [removals, additions]:
+		if group.is_empty():
+			return {"ok": false}
+		for item in group:
+			var amount: Variant = group[item]
+			if not item is ItemData or not amount is int or amount <= 0:
+				return {"ok": false}
+			var data := item as ItemData
+			if not data.validation_errors().is_empty():
+				return {"ok": false}
+			if definitions.has(data.id) and definitions[data.id] != data:
+				return {"ok": false}
+			definitions[data.id] = data
+	for item in removals:
+		var remaining: int = removals[item]
+		if get_item_amount(item.id) < remaining:
+			return {"ok": false}
+		for index in range(staged.size() - 1, -1, -1):
+			var slot := staged[index]
+			if slot.item.id != item.id:
+				continue
+			var removed := mini(slot.quantity, remaining)
+			slot.quantity -= removed
+			remaining -= removed
+			if slot.quantity == 0:
+				staged.remove_at(index)
+			if remaining == 0:
+				break
+	for item in additions:
+		var remaining: int = additions[item]
+		for slot in staged:
+			if slot.item.id != item.id:
+				continue
+			var moved := mini(item.max_stack - slot.quantity, remaining)
+			slot.quantity += moved
+			remaining -= moved
+			if remaining == 0:
+				break
+		while remaining > 0 and staged.size() < capacity:
+			var moved := mini(item.max_stack, remaining)
+			staged.append(InventorySlot.new(item, moved))
+			remaining -= moved
+		if remaining > 0:
+			return {"ok": false}
+	return {"ok": true, "slots": staged, "definitions": definitions}
+
+
 func select_seed(item_id: StringName) -> bool:
 	var item: ItemData = _definitions.get(item_id)
 	if item == null or not _is_selectable_seed(item) or not has_item(item_id):

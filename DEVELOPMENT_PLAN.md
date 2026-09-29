@@ -1,5 +1,9 @@
 # DEVELOPMENT_PLAN — Somchai's Last Harvest
 
+## Phase 4 / M7 — เสร็จและ runtime verified 2026-09-29
+
+Crafting & Workbench Foundation ผ่าน 29-run suite รวม rendered loop. Recipe Resources3สูตร, inventory atomic exchange, workbenchใช้ interactionเดิม, CraftingUIแสดง data/จำนวน/เหตุผลและ pauseเหมือน bag. Basic Ammo, Basic Medicine, Metal Component craftได้จริง; สัดส่วนเป็น **TEMPORARY BALANCE**. ดู `PHASE_4_TEST_REPORT.md`. Milestoneถัดไปตามแผนคือ **Weapon & Shooting Foundation (M8)** เมื่อมีคำขอใหม่; Phase 4 ไม่เริ่ม shooting/medicine usage.
+
 ## Input / selection milestone — เสร็จ 2026-09-29
 
 หลังCamera phaseเพิ่มTabinventory, QFarming/Combat, Vshoulder, EscPause, dynamicseedlist+tier/order, centralwheelrouter, configurable3weaponslotsแยกowned/equipped, mode/selectionHUDและCombat-onlyAim. Final27runsผ่าน; ดูPHASE_INPUT_SELECTION_TEST_REPORT.md. Equipmentเป็นfoundation;ยังไม่มีGunShooting/WeaponData/ammo/reload/damage.
@@ -10,7 +14,7 @@
 
 ## เป้าหมายและขอบเขต
 
-แผนเริ่มจาก repository ที่มี GLB 243 ไฟล์. **Phase 2 ทำ M0–M4 และ Phase 3 ทำ M5–M6 เสร็จแล้ว**. Phase 3 จำกัดเฉพาะเมล็ด/วัสดุ, inventory24 slots, UI, data-driven farming5ชนิด+testplant, 12plots, growth/harvest/debug. ไม่สร้างpickup/ammo/medicinebehavior. Final suite18 runsผ่านรวมภาพและเวลาจริง; ดูPHASE_3_TEST_REPORT.md. หลังจากนั้นทำCamera milestoneตามคำขอแยกด้านบนแล้ว; งานM7และWeaponยังต้องรอpromptถัดไป.
+แผนเริ่มจาก repository ที่มี GLB 243 ไฟล์. **Phase 2 ทำ M0–M4, Phase 3 ทำ M5–M6 และ Phase 4 ทำ M7 เสร็จแล้ว**. Phase 3 จำกัดเฉพาะเมล็ด/วัสดุ, inventory24 slots, UI, data-driven farming5ชนิด+testplant, 12plots, growth/harvest/debug. Phase 4 เพิ่ม crafted items, recipe data, atomic exchange และ workbench. ยังไม่มี pickup, medicine usage หรือ shooting. ดูรายงานแต่ละ Phase สำหรับผลทดสอบ; Weapon/M8ยังต้องรอคำขอถัดไป.
 
 เป้าหมายหลักคือ **Day 1 เล่นครบวงจร** ก่อนขยายเป็น 10 วัน: 06:00 → ปลูก → เก็บเกี่ยว → craft กระสุน → 18:00 → ซอมบี้ → ต่อสู้ → wave หมด → พัก → Day 2. ทดสอบทางเลือกที่ไม่กำจัดซอมบี้จน 06:00 ด้วยเพื่อยืนยันผล no-rest. Day 10 เป็นขั้นถัดไป ไม่ใช่เป้าหมายแรก.
 
@@ -27,7 +31,7 @@
 | 6 | **Farm plot + plant growth + harvest — Phase 3 done** | M3, M5 | ใช้ seed ลงแปลงได้, stage เติบโตตามเวลา, เก็บเกี่ยวได้ครั้งเดียวแล้วเพิ่มผลผลิตใน inventory. พืชพื้นฐานสำหรับสูตรกระสุนต้องโตทันช่วงกลางวันของ Day 1. |
 | 6A | **Shoulder camera + aim foundation — done** | M1–M6 | Normal/aim, movement/strafe, crosshair/ray, collision, inventory/farming regression และ rendered walkthrough ผ่าน; ยังไม่ยิง. |
 | 6B | **Input / modes / item selection — done** | M6A | Tab/Q/wheel, seedsdynamic/tier, equipment3slots, mode memory, Combat-onlyaim, runtime/regressionผ่าน |
-| 7 | Crafting recipe ขั้นต่ำ | M5–M6 | สูตรตะกั่ว+กระดาษ+ทองแดง → กระสุนพื้นฐานทำงาน, ใช้วัตถุดิบแบบ atomic, ของไม่พอแล้วไม่เสีย item; workbench prototype ใช้งานผ่าน interaction. สูตรสมุนไพร→ยาเพิ่มเมื่อมี crop visual/สมดุลพร้อม. |
+| 7 | **Crafting & Workbench — Phase 4 done** | M5–M6 | สูตรตะกั่ว+กระดาษ+ทองแดง → กระสุนพื้นฐาน, สมุนไพร→ยา และเหล็ก+ทองแดง→Metal Component ทำงาน. Inventory exchange atomic; workbench E/UIและ rendered farming→craft loop ผ่าน. |
 | 8 | ปืนเริ่มต้น + damage | M4, M5, M6A, M7 | ปืนหนึ่งชนิดยิงใช้กระสุนจริง, hit/miss ชัด, damage ส่งเข้าศัตรูทดสอบ, ไม่มี ammo แล้วไม่ยิง. ปรับ visual/จุด muzzle ของ GLB wrapper. |
 | 9 | Normal zombie + navigation | M1, M4, M8 | Zombie เดินหาผู้เล่นบน map ทดสอบ, โจมตี/รับ damage/ตาย, animation Idle/Walk/Attack/Death ที่มีจริงเล่นถูก; navigation ไม่ติดสิ่งกีดขวางหลัก. |
 | 10 | Night wave + rest/no-rest | M3, M4, M9 | 18:00 spawn Normal zombie จาก marker, active count ถูก; ฆ่าหมดก่อน 06:00 แล้วพัก/ฟื้น HP-stamina/ข้ามเช้า; ถ้ายังเหลือที่ 06:00 เข้าทาง no-rest และไม่ฟื้นเต็ม; transition ไม่ซ้ำ. |
@@ -63,4 +67,4 @@
 
 ## ลำดับงาน Prompt ถัดไป
 
-Input/Inventory/Selectionเสร็จแล้ว. อ่านPROGRESS.mdและPHASE_INPUT_SELECTION_TEST_REPORT.mdและตรวจGitก่อนงานต่อ. รอผู้ใช้ระบุphaseถัดไป; ยังไม่เริ่มGunShooting/Craftingเอง. Weaponphaseมีmodegate/selectedweapon/aimrayพร้อม แต่ต้องออกแบบWeaponData/instancesและระบบยิงตามคำขอใหม่.
+Phase 4 เสร็จแล้ว. อ่าน `PROGRESS.md`, `PHASE_4_TEST_REPORT.md` และตรวจ Git ก่อนงานต่อ. รอผู้ใช้ระบุ Phase 5; Weaponphaseมี mode gate, selected weapon, aim ray และ crafted Basic Ammo พร้อมเป็นฐาน แต่ยังต้องออกแบบ WeaponData/instances, muzzle block, firing, reload และ damage ตามคำขอใหม่.

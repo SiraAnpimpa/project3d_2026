@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/world/MainWorld.tscn" id="1_world"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2_player"]
@@ -15,11 +15,15 @@
 [ext_resource type="Resource" path="res://resources/catalog.tres" id="11_catalog"]
 
 [ext_resource type="PackedScene" path="res://scenes/ui/PauseMenu.tscn" id="pause_menu"]
+[ext_resource type="Resource" path="res://resources/recipes/book.tres" id="recipe_book"]
+[ext_resource type="Script" path="res://scripts/crafting/crafting_system.gd" id="crafting_system"]
+[ext_resource type="PackedScene" path="res://scenes/ui/CraftingUI.tscn" id="crafting_ui"]
 
 [node name="GameRoot" type="Node3D"]
 script = ExtResource("4_root")
 starter_loadout = ExtResource("10_loadout")
 catalog = ExtResource("11_catalog")
+recipe_book = ExtResource("recipe_book")
 
 [node name="MainWorld" parent="." instance=ExtResource("1_world")]
 
@@ -45,3 +49,8 @@ script = ExtResource("8_debug")
 [node name="InventoryUI" parent="." instance=ExtResource("9_inventory_ui")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("pause_menu")]
+
+[node name="CraftingSystem" type="Node" parent="."]
+script = ExtResource("crafting_system")
+
+[node name="CraftingUI" parent="." instance=ExtResource("crafting_ui")]

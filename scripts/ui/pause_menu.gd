@@ -6,6 +6,7 @@ signal opened_changed(is_open: bool)
 var is_open := false
 var _inventory_ui: InventoryUI
 var _health: HealthComponent
+var _crafting_ui: CraftingUI
 var _previous_pause := false
 
 
@@ -20,11 +21,15 @@ func bind(inventory_ui: InventoryUI, health: HealthComponent) -> void:
 	health.died.connect(func() -> void: set_open(false))
 
 
+func bind_crafting(menu: CraftingUI) -> void:
+	_crafting_ui = menu
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_echo() or not event.is_action_pressed("pause"):
 		return
 	# An open bag owns Esc. Do not open two paused screens with one key event.
-	if _inventory_ui == null or _inventory_ui.is_open or _health.is_dead:
+	if _inventory_ui == null or _inventory_ui.is_open or _health.is_dead or (_crafting_ui != null and _crafting_ui.is_open):
 		return
 	if get_tree().paused and not is_open:
 		return
@@ -35,7 +40,7 @@ func _input(event: InputEvent) -> void:
 func set_open(value: bool) -> void:
 	if value == is_open:
 		return
-	if value and (_inventory_ui == null or _inventory_ui.is_open or _health.is_dead):
+	if value and (_inventory_ui == null or _inventory_ui.is_open or _health.is_dead or (_crafting_ui != null and _crafting_ui.is_open)):
 		return
 	is_open = value
 	$Screen.visible = value

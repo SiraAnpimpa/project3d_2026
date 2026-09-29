@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CraftRecipe" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/craft_recipe.gd" id="recipe"]
+[ext_resource type="Script" path="res://scripts/data/recipe_entry.gd" id="entry"]
+[ext_resource type="Resource" path="res://resources/items/small_herb.tres" id="herb"]
+[ext_resource type="Resource" path="res://resources/items/basic_medicine.tres" id="output"]
+
+[sub_resource type="Resource" id="herb_entry"]
+script = ExtResource("entry")
+item = ExtResource("herb")
+quantity = 2
+
+[sub_resource type="Resource" id="result_entry"]
+script = ExtResource("entry")
+item = ExtResource("output")
+quantity = 1
+
+[resource]
+script = ExtResource("recipe")
+recipe_id = &"basic_medicine"
+display_name = "Basic Medicine"
+description = "A simple herb remedy."
+category = 1
+ingredients = Array[Resource]([SubResource("herb_entry")])
+outputs = Array[Resource]([SubResource("result_entry")])
+craft_amount = 1
+unlock_day = 1

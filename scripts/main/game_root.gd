@@ -2,11 +2,14 @@ extends Node3D
 
 @export var catalog: ItemCatalog
 @export var starter_loadout: InventoryLoadout
+@export var recipe_book: RecipeBook
 @onready var inventory: Inventory = $Player/Inventory
 @onready var inventory_ui: InventoryUI = $InventoryUI
 @onready var equipment: EquipmentLoadout = $Player/EquipmentLoadout
 @onready var gameplay_mode: GameplayModeController = $Player/GameplayMode
 @onready var pause_menu: PauseMenu = $PauseMenu
+@onready var crafting_system: CraftingSystem = $CraftingSystem
+@onready var crafting_ui: CraftingUI = $CraftingUI
 
 @onready var player: PlayerController = $Player
 @onready var clock: GameClock = $TimeController
@@ -25,8 +28,11 @@ func _ready() -> void:
 	inventory_ui.bind(inventory, player)
 	inventory_ui.bind_equipment(equipment)
 	pause_menu.bind(inventory_ui, player.health)
+	inventory_ui.bind_crafting(crafting_ui)
+	pause_menu.bind_crafting(crafting_ui)
 	pause_menu.opened_changed.connect(player.camera_rig.set_menu_open)
 	inventory_ui.opened_changed.connect(player.camera_rig.set_menu_open)
+	crafting_ui.opened_changed.connect(player.camera_rig.set_menu_open)
 	player.health.changed.connect(func(hp: float, _maximum: float) -> void: player.camera_rig.set_player_alive(hp > 0))
 	lighting.bind_clock(clock)
 	hud.bind(player, clock, debug_controls)
@@ -46,6 +52,17 @@ func _ready() -> void:
 			push_error("Farming data: " + message)
 		hud.show_message("Farming data is invalid. See the Godot debugger for details.")
 	inventory_ui.bind_debug(debug_controls)
+	var recipe_errors := recipe_book.validation_errors(catalog) if recipe_book != null else PackedStringArray(["Recipe book is missing."])
+	if recipe_errors.is_empty():
+		crafting_system.bind(inventory, recipe_book, clock)
+		crafting_ui.bind(crafting_system, inventory_ui, pause_menu, player)
+		$MainWorld/Workbench.workbench_requested.connect(func(actor: Node3D) -> void:
+			if actor == player:
+				crafting_ui.set_open(true))
+	else:
+		for message in recipe_errors:
+			push_error("Crafting data: " + message)
+		hud.show_message("Crafting data is invalid. See the Godot debugger for details.")
 
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -1,15 +1,15 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
-อัปเดต 2026-09-29 — Input / Inventory Access / Item Selection complete
+อัปเดต 2026-09-29 — Phase 4 Crafting & Workbench runtime verified
 
 ## Runtime foundation
 
 Godot 4.7, Compatibility renderer, viewport1280×720, physics60 Hz. Main scene `scenes/main/GameRoot.tscn`; desktop prototype, ไม่มี autoload/addon. กล้องและทิศหัน movement รองรับ normal/aim แล้ว; HP/stamina/clock/lighting และ farming/inventory ยังคงใช้ฐาน Phase 2–3. Root ทำ dependency wiring โดยตรง; ยังไม่ต้องเพิ่ม global event bus หรือ manager ที่ไม่มีหน้าที่.
 
 ```text
-GameRoot (game_root.gd; catalog + starter_loadout Resources)
+GameRoot (game_root.gd; catalog + starter_loadout + recipe_book Resources)
 ├── MainWorld
-│   ├── Ground / boundaries / shelter / workbench / spawn / rescue markers
+│   ├── Ground / boundaries / shelter / spawn / rescue markers
 │   ├── PlayerSpawn
 │   ├── FarmArea
 │   │   └── FarmPlot ×12 (instances, 3×4)
@@ -17,6 +17,7 @@ GameRoot (game_root.gd; catalog + starter_loadout Resources)
 │   │       └── PlantAnchor → Plant (runtime)
 │   │           ├── ModelRoot → NaturePlantVisual → Plant.glb
 │   │           └── SeedMarker / Produce
+│   ├── Workbench (Interactable; reusable scene)
 │   └── WorldEnvironment / Sun / ShelterLight
 ├── Player (CharacterBody3D)
 │   ├── Collision / Visual → Matt
@@ -32,7 +33,9 @@ GameRoot (game_root.gd; catalog + starter_loadout Resources)
 ├── HUD → Root/Crosshair + AimDebugLabel
 ├── DebugControls
 ├── InventoryUI (Always, layer10; bag + equip controls)
-└── PauseMenu (Always, layer20; mutually exclusive with bag)
+├── PauseMenu (Always, layer20; mutually exclusive with bag/crafting)
+├── CraftingSystem (inventory + RecipeBook + clock)
+└── CraftingUI (Always, layer15; mutually exclusive with bag/Pause)
 ```
 
 ## File layout
@@ -42,17 +45,18 @@ res://
 ├── Asset/                           # Original 243 GLBs, unchanged
 ├── assets/ui/items/                 # 10 prototype SVG icons
 ├── resources/
-│   ├── catalog.tres                 # 10 ItemData + 5 PlantData references
-│   ├── items/                       # 5 seed + 5 material .tres
+│   ├── catalog.tres                 # 13 ItemData + 5 PlantData references
+│   ├── items/                       # 5 seed + 5 harvest material + 3 crafted item .tres
 │   ├── plants/                      # 5 .tres
+│   ├── recipes/                     # RecipeBook + 3 CraftRecipe .tres
 │   └── inventory/starter_loadout.tres
 ├── scenes/
 │   ├── main/GameRoot.tscn
 │   ├── world/MainWorld.tscn
 │   ├── player/Player.tscn
-│   ├── interactables/TestInteractable.tscn
+│   ├── interactables/{TestInteractable,Workbench}.tscn
 │   ├── farming/{FarmPlot,Plant,NaturePlantVisual}.tscn
-│   └── ui/{HUD,InventoryUI,PauseMenu}.tscn
+│   └── ui/{HUD,InventoryUI,PauseMenu,CraftingUI}.tscn
 ├── scripts/
 │   ├── main/game_root.gd
 │   ├── player/{player_controller,camera_rig,player_visual,aim_ray,gameplay_mode_controller}.gd
@@ -61,15 +65,16 @@ res://
 │   ├── time/game_clock.gd
 │   ├── world/day_night_environment.gd
 │   ├── debug/debug_controls.gd
-│   ├── data/{item_data,plant_data,item_catalog,inventory_loadout}.gd
+│   ├── data/{item_data,plant_data,item_catalog,inventory_loadout,recipe_entry,craft_recipe,recipe_book}.gd
 │   ├── inventory/{inventory,inventory_slot,equipment_loadout}.gd
 │   ├── farming/{farm_plot,plant_visual}.gd
-│   └── ui/{prototype_hud,inventory_ui,aim_crosshair,pause_menu}.gd
-├── tests/                           # 20 GDScript tests + runner + fixtures
-└── docs/{phase2,phase3,camera,input}/             # Renderer evidence
+│   ├── crafting/{crafting_system,workbench}.gd
+│   └── ui/{prototype_hud,inventory_ui,aim_crosshair,pause_menu,crafting_ui}.gd
+├── tests/                           # 21 GDScript tests + runner + fixtures
+└── docs/{phase2,phase3,camera,input,phase4}/      # Renderer evidence
 ```
 
-มี production scripts26ไฟล์, scenes10ไฟล์, production Resources17ไฟล์. Phase 3เพิ่ม scripts9/scenes4; test fixture Resources อีก3ไฟล์แยกจาก demo catalog.
+Phase 4 เพิ่ม production scripts6ไฟล์, scenes2ไฟล์ และ resources7ไฟล์; test fixture Resources ของ Phase 3 แยกจาก demo catalog.
 
 ## Static definitions and runtime state
 
@@ -82,6 +87,9 @@ res://
 | InventorySlot RefCounted | Runtime ItemData reference + quantity; no node/scene per item |
 | Inventory Node | Slots/capacity, quantity APIs, selection, inventory_changed/selection_changed |
 | FarmPlot | Runtime planted_time/PlantData/progress/stage/state/visual; EMPTY→PLANTED→READY→EMPTY |
+| RecipeEntry / CraftRecipe / RecipeBook | ItemData+quantity; formula/category/outputs/unlock_day; registry validation/duplicate ID |
+| CraftingSystem | Revalidate recipe and inventory, execute one guarded inventory exchange |
+| Workbench / CraftingUI | Existing E interaction opens paused recipe UI; UI reads data and shows current inventory |
 
 ไม่เขียน quantity, growth, HP หรือเวลาลง static `.tres`. Seed link ใช้ stable `plant_id` แล้วค้นใน catalog; PlantData อ้าง seed/harvest ItemData. เป็นการเลือกวิธี implementation ของแผน Resources เดิมเพื่อหลีกเลี่ยง circular `.tres` references และไม่ต้องเพิ่ม subclass ของ SeedData. ไม่สร้าง script แยกแต่ละพืช.
 
@@ -89,13 +97,21 @@ Catalog validation ทำตอน root พร้อมใช้งานก่�
 
 ## Inventory contract
 
-`add_item(ItemData, amount) -> bool`, `remove_item(id, amount) -> bool`, `has_item(id, amount=1)`, `get_item_amount(id)`, `can_add_item`, `get_slots`, `select_seed`, `get_selected_seed`, `clear`.
+`add_item(ItemData, amount) -> bool`, `remove_item(id, amount) -> bool`, `has_item(id, amount=1)`, `get_item_amount(id)`, `can_add_item`, `can_exchange_items`, `exchange_items`, `get_slots`, `select_seed`, `get_selected_seed`, `clear`.
 
-Add/remove เป็น all-or-nothing ต่อคำขอหนึ่ง item. วางเข้า stack เดิมก่อนเปิด slotใหม่. คืนfalseเมื่อจำนวนไม่เป็นบวก,ข้อมูลผิด,ของ/พื้นที่ไม่พอ หรือIDนั้นใช้definitionอื่นอยู่แล้ว. Snapshot slots แก้เองแล้วไม่เปลี่ยน live inventory. APIนี้เป็นฐานสำหรับphaseต่อไป; ยังไม่มี transactionหลายวัตถุดิบหรือสูตรcrafting.
+Add/remove เป็น all-or-nothing ต่อคำขอหนึ่ง item. วางเข้า stack เดิมก่อนเปิด slotใหม่. คืนfalseเมื่อจำนวนไม่เป็นบวก,ข้อมูลผิด,ของ/พื้นที่ไม่พอ หรือIDนั้นใช้definitionอื่นอยู่แล้ว. Snapshot slots แก้เองแล้วไม่เปลี่ยน live inventory. Phase 4 `exchange_items` จำลองการลบวัตถุดิบทุกชนิดก่อนเพิ่มผลลัพธ์ทุกชนิดในสำเนา; commitได้จึง emit `inventory_changed` ครั้งเดียว. Output จึงใช้ slot ที่วัตถุดิบหมด stack เปิดให้ได้ และ failure ไม่เสีย item.
 
 Inventoryเก็บselected_seed_idแยกจากbag slot. get_selectable_seedsรวมIDที่เป็นSEED+plantable+quantity>0และเรียงtier/display_order/ID. Mutationซ่อมselectionก่อนinventory_changed; หมดแล้วเลือกตัวถัดไปตามprogressionและwrap, ไม่มีseedแล้วclearID. เพิ่มของไม่รบกวนselectionที่ยังvalid. เริ่มเกมเลือกseedแรกอัตโนมัติ. ไม่จำกัดจำนวนช่องselector; capacityของInventoryยังเป็นคนละกติกา.
 
 InventoryUIเปิดด้วยtoggle_inventory=Tab; click/keyboardเลือกseedหรือownedweapon. SceneTreepauseขณะเปิด, UIเป็นAlways. Tab/Esc/Closeคืนpauseเดิม; opened_changedเชื่อมcamera menu gateเพื่อrelease/capturecursorและclearheldaim. PauseMenuรับEscเมื่อbagปิด; ถ้าbagเปิดจะปล่อยให้InventoryUIปิดbagครั้งเดียว. TabขณะPauseไม่เปิดbagซ้อน. หน้าต่างไม่ใช้pause/cursorlogicซ้ำกับCameraRig.
+
+## Phase 4 crafting contract
+
+`RecipeEntry` อ้าง `ItemData` จริง+quantity; `CraftRecipe` มี ID, category (Ammo/Medicine/Weapon/Utility/Defense/Material), ingredient/output arrays, `craft_amount`, `unlock_day`. `RecipeBook` เป็น registry ของ Resources; GameRootตรวจ empty/duplicateID, item reference ให้ตรง canonical ItemCatalog และ quantity ก่อน bind. สูตรใหม่เพิ่ม data ลง catalog/book โดยไม่แก้ CraftingSystem หรือ CraftingUI. Basic Ammo x10, Basic Medicine x1, Metal Component x1 ทั้งหมดเป็น **TEMPORARY BALANCE** และ unlock Day1. Basic Ammo มี ItemType.AMMO สำหรับ phase ถัดไป; Medicineเป็นCONSUMABLEแต่ยังไม่มี use/heal.
+
+`CraftingSystem.failure_reason` เช็ค data, Day gate, วัตถุดิบจริงและ capacity หลัง consume; `craft` เช็คอีกครั้ง, `_busy` กัน callbackซ้อน, แล้วเรียก Inventory.exchange_items. Craftครั้งละหนึ่ง batch. มีหลาย output ได้และปฏิเสธแบบ atomic หาก outputใดใส่ไม่ครบ. Inventoryเป็นเจ้าของ quantities/stackingและ signalเดียว; CraftingSystemไม่รู้ Player/Camera/FarmPlot.
+
+Workbench scene extends `Interactable`, ใช้ layer3/range/line-of-sight/Eเดิม; GameRootฟัง workbench_requested แล้วเปิด CraftingUI. UI สร้าง list จาก RecipeBook, แสดง owned/required, output, lock/failure/success. CanvasLayer Always pause treeเหมือน bag; camera menu gate จัด cursor/aim. Escปิด craftingก่อนPause; Tabไม่เปิด bag ซ้อน; Q/wheel/clockหยุดขณะ menu เปิด. Mode Farming/Combatไม่เปลี่ยนเมื่อเข้า/ออก.
 
 
 ## Interaction and farming contract
@@ -168,7 +184,7 @@ Input Map: Tab toggle_inventoryแทนI; Q switch_mode; V switch_shoulderแ�
 
 OriginalGLBs243ไฟล์ไม่ถูกย้ายหรือแก้. Shared importer default `gltf/embedded_image_handling=3`; generated `Asset/**/*.glb.import` ignoreไว้. ถ้าปรับper-assetimportอนาคตให้เริ่มtrackmetadataนั้น. SVGiconsใหม่มีimportmetadataตามGodotปกติ. `docs/.gdignore` กันภาพเอกสารจากassetimport.
 
-Resourceแผนอนาคตยังเป็นRecipeData/WeaponData/ZombieData; sceneอนาคตWorkbench/Chest/ItemPickup/Zombieและcoordinatorเมื่อมีหน้าที่จริง. **Phase 3ไม่สร้าง Crafting/Combat/Wave/Shop/Sleep/Unlock/Save/Ending.** ดูผลจริงและข้อจำกัดใน `PHASE_3_TEST_REPORT.md`.
+Resource/sceneอนาคตยังเป็นWeaponData/ZombieData, Chest/ItemPickup/Zombie และ coordinator เมื่อมีหน้าที่จริง. Phase 4 ยังไม่สร้าง Shooting/Wave/Shop/Sleep/Save/Ending. ดูผลจริงและข้อจำกัดใน `PHASE_4_TEST_REPORT.md`.
 
 
-Current verification: 27runs failures=0, sourceGLBs243hashesunchanged. รายงานปัจจุบัน PHASE_INPUT_SELECTION_TEST_REPORT.md; Camera reportเป็นผลphaseก่อนการเปลี่ยนbindingรอบนี้. รอpromptถัดไป.
+Current verification: 29 runs, failures=0 รวม Phase 4 rendered test; รายงานปัจจุบัน `PHASE_4_TEST_REPORT.md`. Source GLBs ไม่ถูกแก้ใน Phase 4. Camera/input reportsเป็นผล historical milestone.

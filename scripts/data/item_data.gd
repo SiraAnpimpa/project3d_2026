@@ -1,7 +1,7 @@
 class_name ItemData
 extends Resource
 
-enum ItemType { SEED, MATERIAL, CONSUMABLE, TOOL, WEAPON }
+enum ItemType { SEED, MATERIAL, CONSUMABLE, TOOL, WEAPON, AMMO }
 
 @export var id: StringName
 @export var display_name: String
@@ -25,7 +25,7 @@ func validation_errors() -> PackedStringArray:
 		errors.append("Item '%s' needs a display_name." % id)
 	if max_stack <= 0:
 		errors.append("Item '%s': max_stack must be greater than zero." % id)
-	if item_type < ItemType.SEED or item_type > ItemType.WEAPON:
+	if item_type < ItemType.SEED or item_type > ItemType.AMMO:
 		errors.append("Item '%s': unknown item_type." % id)
 	if item_type == ItemType.SEED and plant_id == &"":
 		errors.append("Seed '%s' needs a plant_id." % id)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RecipeBook" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/recipe_book.gd" id="1"]
+[ext_resource type="Resource" path="res://resources/recipes/basic_ammo.tres" id="ammo"]
+[ext_resource type="Resource" path="res://resources/recipes/basic_medicine.tres" id="medicine"]
+[ext_resource type="Resource" path="res://resources/recipes/metal_component.tres" id="metal"]
+
+[resource]
+script = ExtResource("1")
+recipes = Array[Resource]([ExtResource("ammo"), ExtResource("medicine"), ExtResource("metal")])
