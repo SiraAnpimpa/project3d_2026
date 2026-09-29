@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryLoadout" load_steps=7 format=3]
+[ext_resource type="Script" path="res://scripts/data/inventory_loadout.gd" id="1"]
+[ext_resource type="Resource" path="res://resources/items/seed_lead.tres" id="2"]
+[ext_resource type="Resource" path="res://resources/items/seed_paper.tres" id="3"]
+[ext_resource type="Resource" path="res://resources/items/seed_iron.tres" id="4"]
+[ext_resource type="Resource" path="res://resources/items/seed_copper.tres" id="5"]
+[ext_resource type="Resource" path="res://resources/items/seed_small_herb.tres" id="6"]
+[resource]
+script = ExtResource("1")
+items = Array[Resource]([ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6")])
+quantities = PackedInt32Array(3, 3, 3, 3, 3)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=5 format=3]
+[ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+[ext_resource type="Resource" path="res://tests/fixtures/seed_test.tres" id="2"]
+[ext_resource type="Resource" path="res://tests/fixtures/test_material.tres" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
+[resource]
+script = ExtResource("1")
+plant_id = &"test_plant"
+display_name = "Test Plant"
+seed_item = ExtResource("2")
+harvest_item = ExtResource("3")
+harvest_amount = 4
+growth_minutes = 18.0
+growth_stages = PackedStringArray("Seed", "Sprout", "Growing", "Ready")
+stage_thresholds = PackedFloat32Array(0, 0.2, 0.6, 1)
+stage_scales = PackedFloat32Array(0.15, 0.4, 0.8, 1.15)
+visual_scene = ExtResource("4")
+produce_color = Color(0.8, 0.4, 0.9, 1)

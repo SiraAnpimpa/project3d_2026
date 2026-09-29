@@ -1,0 +1,67 @@
+param(
+    [Parameter(Mandatory = $true)][string]$Godot,
+    [string]$LogDirectory = (Join-Path $PSScriptRoot '..\.godot\test-logs'),
+    [switch]$WithRendering,
+    [string]$CaptureDirectory = (Join-Path $PSScriptRoot '..\.godot\test-captures')
+)
+
+$ErrorActionPreference = 'Stop'
+$projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
+New-Item -ItemType Directory -Force -Path $LogDirectory | Out-Null
+$LogDirectory = (Resolve-Path -LiteralPath $LogDirectory).Path
+$failures = 0
+
+function Invoke-GodotCheck {
+    param([string]$Name, [string]$Arguments, [bool]$ExpectResult = $true)
+    $logFile = Join-Path $LogDirectory ($Name + '.log')
+    $arguments = '--path "' + $projectRoot + '" --log-file "' + $logFile + '" ' + $Arguments
+    $process = Start-Process -FilePath $Godot -ArgumentList $arguments -WindowStyle Hidden -PassThru
+    if (-not $process.WaitForExit(60000)) {
+        $process.Kill()
+        $script:failures += 1
+        Write-Output "FAIL $Name (60-second timeout): $logFile"
+        return
+    }
+    $content = Get-Content -LiteralPath $logFile -Raw
+    $errors = @($content -split "`n" | Where-Object {
+        ($_ -match '^SCRIPT ERROR:|^ERROR:|FAIL:') -and ($_ -notmatch 'Failed to read the root certificate store')
+    })
+    $missingResult = $ExpectResult -and ($content -notmatch '_RESULT')
+    if ($process.ExitCode -ne 0 -or $errors.Count -gt 0 -or $missingResult -or $content -match 'pass=false|failures=[1-9]') {
+        $script:failures += 1
+        Write-Output "FAIL $Name (exit $($process.ExitCode)): $logFile"
+        Write-Output $errors
+    } else {
+        Write-Output "PASS $Name (exit $($process.ExitCode))"
+        $content -split "`n" | Where-Object { $_ -match '_RESULT|SKIP:|GROWTH_RUNTIME' } | Write-Output
+    }
+    if ($content -match 'Failed to read the root certificate store') {
+        Write-Output 'Environment note: Godot could not read the Windows certificate store; see full log.'
+    }
+}
+
+Invoke-GodotCheck 'editor_import' '--headless --import' $false
+foreach ($test in @(
+    'stage_1_test', 'stage_2_interaction_test', 'stage_3_stats_test',
+    'stage_4_clock_test', 'movement_rate_test', 'phase_2_integration_test',
+    'phase_3_inventory_test', 'phase_3_ui_test', 'phase_3_data_test',
+    'phase_3_farming_test', 'phase_3_debug_test', 'phase_3_extension_test',
+    'phase_3_growth_rate_test', 'phase_3_integration_test',
+    'camera_controls_test', 'camera_collision_ray_test', 'camera_rate_test',
+    'camera_walkthrough_test', 'input_selection_data_test', 'input_modes_integration_test'
+)) {
+    Invoke-GodotCheck $test ('--headless --fixed-fps 60 --script res://tests/' + $test + '.gd')
+}
+Invoke-GodotCheck 'main_scene_boot' '--headless --fixed-fps 60 --quit-after 120' $false
+if ($WithRendering) {
+    New-Item -ItemType Directory -Force -Path $CaptureDirectory | Out-Null
+    $capturePath = (Resolve-Path -LiteralPath $CaptureDirectory).Path
+    Invoke-GodotCheck 'rendered_phase2' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_2_integration_test.gd -- --capture-dir "' + $capturePath + '"')
+    # No --fixed-fps here: verify the farming loop against real elapsed time.
+    Invoke-GodotCheck 'rendered_phase3' ('--audio-driver Dummy --script res://tests/phase_3_integration_test.gd -- --realtime --capture-dir "' + $capturePath + '"')
+    Invoke-GodotCheck 'rendered_camera_controls' '--audio-driver Dummy --fixed-fps 60 --script res://tests/camera_controls_test.gd'
+    Invoke-GodotCheck 'rendered_camera_walkthrough' ('--audio-driver Dummy --script res://tests/camera_walkthrough_test.gd -- --capture-dir "' + $capturePath + '"')
+    Invoke-GodotCheck 'rendered_input_modes' ('--audio-driver Dummy --script res://tests/input_modes_integration_test.gd -- --capture-dir "' + $capturePath + '"')
+}
+Write-Output "SUITE_RESULT failures=$failures logs=$LogDirectory"
+exit $failures

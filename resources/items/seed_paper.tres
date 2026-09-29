@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/item_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/items/seed_paper.svg" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"seed_paper"
+display_name = "Paper Seed"
+description = "Select this seed, close inventory and press E at an empty plot."
+icon = ExtResource("2")
+max_stack = 99
+item_type = 0
+plant_id = &"paper"
+
+plantable = true
+tier = 1
+display_order = 20

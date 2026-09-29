@@ -1,0 +1,458 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/farming/FarmPlot.tscn" id="FarmPlot"]
+
+[sub_resource type="StandardMaterial3D" id="GroundMat"]
+albedo_color = Color(0.27, 0.34, 0.24, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="PathMat"]
+albedo_color = Color(0.53, 0.5, 0.37, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="SoilMat"]
+albedo_color = Color(0.24, 0.16, 0.11, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="ShelterMat"]
+albedo_color = Color(0.45, 0.37, 0.27, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="RoofMat"]
+albedo_color = Color(0.24, 0.31, 0.29, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="BenchMat"]
+albedo_color = Color(0.61, 0.42, 0.23, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="BoundaryMat"]
+albedo_color = Color(0.3, 0.34, 0.32, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="SpawnMat"]
+albedo_color = Color(0.65, 0.25, 0.14, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="RescueMat"]
+albedo_color = Color(0.19, 0.5, 0.52, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="ObstacleMat"]
+albedo_color = Color(0.43, 0.45, 0.45, 1)
+roughness = 0.9
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.55, 0.7, 0.79, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.75, 0.83, 0.94, 1)
+ambient_light_energy = 0.65
+tonemap_mode = 0
+
+[sub_resource type="BoxMesh" id="Box1"]
+size = Vector3(48, 0.6, 48)
+material = SubResource("GroundMat")
+
+[sub_resource type="BoxShape3D" id="Shape1"]
+size = Vector3(48, 0.6, 48)
+
+[sub_resource type="BoxMesh" id="Box2"]
+size = Vector3(4, 0.02, 43)
+material = SubResource("PathMat")
+
+[sub_resource type="BoxMesh" id="Box3"]
+size = Vector3(35, 0.02, 3)
+material = SubResource("PathMat")
+
+[sub_resource type="BoxMesh" id="Box4"]
+size = Vector3(48, 1.6, 0.6)
+material = SubResource("BoundaryMat")
+
+[sub_resource type="BoxShape3D" id="Shape4"]
+size = Vector3(48, 1.6, 0.6)
+
+[sub_resource type="BoxMesh" id="Box5"]
+size = Vector3(48, 1.6, 0.6)
+material = SubResource("BoundaryMat")
+
+[sub_resource type="BoxShape3D" id="Shape5"]
+size = Vector3(48, 1.6, 0.6)
+
+[sub_resource type="BoxMesh" id="Box6"]
+size = Vector3(0.6, 1.6, 48)
+material = SubResource("BoundaryMat")
+
+[sub_resource type="BoxShape3D" id="Shape6"]
+size = Vector3(0.6, 1.6, 48)
+
+[sub_resource type="BoxMesh" id="Box7"]
+size = Vector3(0.6, 1.6, 48)
+material = SubResource("BoundaryMat")
+
+[sub_resource type="BoxShape3D" id="Shape7"]
+size = Vector3(0.6, 1.6, 48)
+
+[sub_resource type="BoxMesh" id="Box8"]
+size = Vector3(3, 0.1, 2.5)
+material = SubResource("SoilMat")
+
+[sub_resource type="BoxMesh" id="Box9"]
+size = Vector3(3, 0.1, 2.5)
+material = SubResource("SoilMat")
+
+[sub_resource type="BoxMesh" id="Box10"]
+size = Vector3(3, 0.1, 2.5)
+material = SubResource("SoilMat")
+
+[sub_resource type="BoxMesh" id="Box11"]
+size = Vector3(3, 0.1, 2.5)
+material = SubResource("SoilMat")
+
+[sub_resource type="BoxMesh" id="Box12"]
+size = Vector3(6, 3, 0.3)
+material = SubResource("ShelterMat")
+
+[sub_resource type="BoxShape3D" id="Shape12"]
+size = Vector3(6, 3, 0.3)
+
+[sub_resource type="BoxMesh" id="Box13"]
+size = Vector3(0.3, 3, 5)
+material = SubResource("ShelterMat")
+
+[sub_resource type="BoxShape3D" id="Shape13"]
+size = Vector3(0.3, 3, 5)
+
+[sub_resource type="BoxMesh" id="Box14"]
+size = Vector3(0.3, 3, 5)
+material = SubResource("ShelterMat")
+
+[sub_resource type="BoxShape3D" id="Shape14"]
+size = Vector3(0.3, 3, 5)
+
+[sub_resource type="BoxMesh" id="Box15"]
+size = Vector3(6.6, 0.3, 5.5)
+material = SubResource("RoofMat")
+
+[sub_resource type="BoxShape3D" id="Shape15"]
+size = Vector3(6.6, 0.3, 5.5)
+
+[sub_resource type="BoxMesh" id="Box16"]
+size = Vector3(2.8, 1.4, 1.2)
+material = SubResource("BenchMat")
+
+[sub_resource type="BoxShape3D" id="Shape16"]
+size = Vector3(2.8, 1.4, 1.2)
+
+[sub_resource type="BoxMesh" id="Box17"]
+size = Vector3(2, 1.5, 2)
+material = SubResource("ObstacleMat")
+
+[sub_resource type="BoxShape3D" id="Shape17"]
+size = Vector3(2, 1.5, 2)
+
+[sub_resource type="BoxMesh" id="Box18"]
+size = Vector3(2, 0.08, 2)
+material = SubResource("SpawnMat")
+
+[sub_resource type="BoxMesh" id="Box19"]
+size = Vector3(2, 0.08, 2)
+material = SubResource("SpawnMat")
+
+[sub_resource type="BoxMesh" id="Box20"]
+size = Vector3(2, 0.08, 2)
+material = SubResource("SpawnMat")
+
+[sub_resource type="BoxMesh" id="Box21"]
+size = Vector3(2, 0.08, 2)
+material = SubResource("SpawnMat")
+
+[sub_resource type="BoxMesh" id="Box22"]
+size = Vector3(6, 0.08, 6)
+material = SubResource("RescueMat")
+
+[node name="MainWorld" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-55, -35, 0)
+light_color = Color(1, 0.93, 0.8, 1)
+light_energy = 1.2
+shadow_enabled = true
+directional_shadow_max_distance = 60.0
+
+[node name="Ground" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.3, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("Shape1")
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("Box1")
+
+[node name="MainPath" type="Node3D" parent="."]
+position = Vector3(0, 0.014, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="MainPath"]
+mesh = SubResource("Box2")
+
+[node name="CrossPath" type="Node3D" parent="."]
+position = Vector3(0, 0.016, 1)
+
+[node name="Mesh" type="MeshInstance3D" parent="CrossPath"]
+mesh = SubResource("Box3")
+
+[node name="NorthBoundary" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.8, -24)
+
+[node name="Collider" type="CollisionShape3D" parent="NorthBoundary"]
+shape = SubResource("Shape4")
+
+[node name="Mesh" type="MeshInstance3D" parent="NorthBoundary"]
+mesh = SubResource("Box4")
+
+[node name="SouthBoundary" type="StaticBody3D" parent="."]
+position = Vector3(0, 0.8, 24)
+
+[node name="Collider" type="CollisionShape3D" parent="SouthBoundary"]
+shape = SubResource("Shape5")
+
+[node name="Mesh" type="MeshInstance3D" parent="SouthBoundary"]
+mesh = SubResource("Box5")
+
+[node name="EastBoundary" type="StaticBody3D" parent="."]
+position = Vector3(24, 0.8, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="EastBoundary"]
+shape = SubResource("Shape6")
+
+[node name="Mesh" type="MeshInstance3D" parent="EastBoundary"]
+mesh = SubResource("Box6")
+
+[node name="WestBoundary" type="StaticBody3D" parent="."]
+position = Vector3(-24, 0.8, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="WestBoundary"]
+shape = SubResource("Shape7")
+
+[node name="Mesh" type="MeshInstance3D" parent="WestBoundary"]
+mesh = SubResource("Box7")
+
+[node name="PlayerSpawn" type="Marker3D" parent="."]
+position = Vector3(0, 0.1, 6)
+
+[node name="FarmArea" type="Node3D" parent="."]
+
+[node name="Plot01" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-4.0, 0.025, 2.0)
+
+[node name="Plot02" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-6.6, 0.025, 2.0)
+
+[node name="Plot03" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-9.2, 0.025, 2.0)
+
+[node name="Plot04" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-11.8, 0.025, 2.0)
+
+[node name="Plot05" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-4.0, 0.025, 4.6)
+
+[node name="Plot06" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-6.6, 0.025, 4.6)
+
+[node name="Plot07" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-9.2, 0.025, 4.6)
+
+[node name="Plot08" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-11.8, 0.025, 4.6)
+
+[node name="Plot09" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-4.0, 0.025, 7.2)
+
+[node name="Plot10" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-6.6, 0.025, 7.2)
+
+[node name="Plot11" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-9.2, 0.025, 7.2)
+
+[node name="Plot12" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-11.8, 0.025, 7.2)
+
+[node name="FarmLabel" type="Label3D" parent="."]
+position = Vector3(-9, 1.5, 0)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "FARM AREA"
+outline_size = 8
+
+[node name="ShelterBack" type="StaticBody3D" parent="."]
+position = Vector3(-9, 1.5, -9)
+
+[node name="Collider" type="CollisionShape3D" parent="ShelterBack"]
+shape = SubResource("Shape12")
+
+[node name="Mesh" type="MeshInstance3D" parent="ShelterBack"]
+mesh = SubResource("Box12")
+
+[node name="ShelterLeft" type="StaticBody3D" parent="."]
+position = Vector3(-12, 1.5, -6.5)
+
+[node name="Collider" type="CollisionShape3D" parent="ShelterLeft"]
+shape = SubResource("Shape13")
+
+[node name="Mesh" type="MeshInstance3D" parent="ShelterLeft"]
+mesh = SubResource("Box13")
+
+[node name="ShelterRight" type="StaticBody3D" parent="."]
+position = Vector3(-6, 1.5, -6.5)
+
+[node name="Collider" type="CollisionShape3D" parent="ShelterRight"]
+shape = SubResource("Shape14")
+
+[node name="Mesh" type="MeshInstance3D" parent="ShelterRight"]
+mesh = SubResource("Box14")
+
+[node name="ShelterRoof" type="StaticBody3D" parent="."]
+position = Vector3(-9, 3.1, -6.5)
+
+[node name="Collider" type="CollisionShape3D" parent="ShelterRoof"]
+shape = SubResource("Shape15")
+
+[node name="Mesh" type="MeshInstance3D" parent="ShelterRoof"]
+mesh = SubResource("Box15")
+
+[node name="ShelterLabel" type="Label3D" parent="."]
+position = Vector3(-9, 3.8, -4)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "SHELTER"
+outline_size = 8
+
+[node name="WorkbenchPlaceholder" type="StaticBody3D" parent="."]
+position = Vector3(5, 0.7, -5)
+
+[node name="Collider" type="CollisionShape3D" parent="WorkbenchPlaceholder"]
+shape = SubResource("Shape16")
+
+[node name="Mesh" type="MeshInstance3D" parent="WorkbenchPlaceholder"]
+mesh = SubResource("Box16")
+
+[node name="WorkbenchLabel" type="Label3D" parent="."]
+position = Vector3(5, 2.1, -5)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "WORKBENCH AREA"
+outline_size = 8
+
+[node name="CollisionTestBlock" type="StaticBody3D" parent="."]
+position = Vector3(7, 0.75, 3)
+
+[node name="Collider" type="CollisionShape3D" parent="CollisionTestBlock"]
+shape = SubResource("Shape17")
+
+[node name="Mesh" type="MeshInstance3D" parent="CollisionTestBlock"]
+mesh = SubResource("Box17")
+
+[node name="ObstacleLabel" type="Label3D" parent="."]
+position = Vector3(7, 2.1, 3)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "COLLISION TEST"
+outline_size = 8
+
+[node name="ZombieSpawnAreas" type="Node3D" parent="."]
+
+[node name="North" type="Marker3D" parent="ZombieSpawnAreas"]
+position = Vector3(0, 0.05, -20)
+
+[node name="NorthSpawnMarker" type="Node3D" parent="."]
+position = Vector3(0, 0.05, -20)
+
+[node name="Mesh" type="MeshInstance3D" parent="NorthSpawnMarker"]
+mesh = SubResource("Box18")
+
+[node name="NorthSpawnLabel" type="Label3D" parent="."]
+position = Vector3(0, 1.2, -20)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "SPAWN NORTH"
+outline_size = 8
+
+[node name="South" type="Marker3D" parent="ZombieSpawnAreas"]
+position = Vector3(0, 0.05, 20)
+
+[node name="SouthSpawnMarker" type="Node3D" parent="."]
+position = Vector3(0, 0.05, 20)
+
+[node name="Mesh" type="MeshInstance3D" parent="SouthSpawnMarker"]
+mesh = SubResource("Box19")
+
+[node name="SouthSpawnLabel" type="Label3D" parent="."]
+position = Vector3(0, 1.2, 20)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "SPAWN SOUTH"
+outline_size = 8
+
+[node name="West" type="Marker3D" parent="ZombieSpawnAreas"]
+position = Vector3(-20, 0.05, 0)
+
+[node name="WestSpawnMarker" type="Node3D" parent="."]
+position = Vector3(-20, 0.05, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="WestSpawnMarker"]
+mesh = SubResource("Box20")
+
+[node name="WestSpawnLabel" type="Label3D" parent="."]
+position = Vector3(-20, 1.2, 0)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "SPAWN WEST"
+outline_size = 8
+
+[node name="East" type="Marker3D" parent="ZombieSpawnAreas"]
+position = Vector3(20, 0.05, 0)
+
+[node name="EastSpawnMarker" type="Node3D" parent="."]
+position = Vector3(20, 0.05, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="EastSpawnMarker"]
+mesh = SubResource("Box21")
+
+[node name="EastSpawnLabel" type="Label3D" parent="."]
+position = Vector3(20, 1.2, 0)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "SPAWN EAST"
+outline_size = 8
+
+[node name="RescueArea" type="Node3D" parent="."]
+position = Vector3(13, 0.05, 10)
+
+[node name="Mesh" type="MeshInstance3D" parent="RescueArea"]
+mesh = SubResource("Box22")
+
+[node name="RescueLabel" type="Label3D" parent="."]
+position = Vector3(13, 1.2, 10)
+billboard = 1
+font_size = 36
+pixel_size = 0.008
+text = "RESCUE AREA"
+outline_size = 8
+
+[node name="ShelterLight" type="OmniLight3D" parent="."]
+position = Vector3(-8, 2.6, -5)
+light_color = Color(1, 0.68, 0.3, 1)
+light_energy = 1.5
+omni_range = 8.0

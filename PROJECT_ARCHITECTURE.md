@@ -1,0 +1,174 @@
+# PROJECT_ARCHITECTURE — Somchai's Last Harvest
+
+อัปเดต 2026-09-29 — Input / Inventory Access / Item Selection complete
+
+## Runtime foundation
+
+Godot 4.7, Compatibility renderer, viewport1280×720, physics60 Hz. Main scene `scenes/main/GameRoot.tscn`; desktop prototype, ไม่มี autoload/addon. กล้องและทิศหัน movement รองรับ normal/aim แล้ว; HP/stamina/clock/lighting และ farming/inventory ยังคงใช้ฐาน Phase 2–3. Root ทำ dependency wiring โดยตรง; ยังไม่ต้องเพิ่ม global event bus หรือ manager ที่ไม่มีหน้าที่.
+
+```text
+GameRoot (game_root.gd; catalog + starter_loadout Resources)
+├── MainWorld
+│   ├── Ground / boundaries / shelter / workbench / spawn / rescue markers
+│   ├── PlayerSpawn
+│   ├── FarmArea
+│   │   └── FarmPlot ×12 (instances, 3×4)
+│   │       ├── Soil / interaction collision / Status label
+│   │       └── PlantAnchor → Plant (runtime)
+│   │           ├── ModelRoot → NaturePlantVisual → Plant.glb
+│   │           └── SeedMarker / Produce
+│   └── WorldEnvironment / Sun / ShelterLight
+├── Player (CharacterBody3D)
+│   ├── Collision / Visual → Matt
+│   ├── CameraPivot (yaw) → Pitch → ShoulderOffset → CameraBoom → Camera3D
+│   ├── AimRay (CameraAimRay)
+│   ├── Interactor / Health / Stamina
+│   ├── Inventory (owned items + dynamic seed selection)
+│   ├── EquipmentLoadout (equipped weapon references)
+│   └── GameplayMode (Farming/Combat + central wheel router)
+├── TestInteractable
+├── TimeController (GameClock)
+├── DayNightEnvironment
+├── HUD → Root/Crosshair + AimDebugLabel
+├── DebugControls
+├── InventoryUI (Always, layer10; bag + equip controls)
+└── PauseMenu (Always, layer20; mutually exclusive with bag)
+```
+
+## File layout
+
+```text
+res://
+├── Asset/                           # Original 243 GLBs, unchanged
+├── assets/ui/items/                 # 10 prototype SVG icons
+├── resources/
+│   ├── catalog.tres                 # 10 ItemData + 5 PlantData references
+│   ├── items/                       # 5 seed + 5 material .tres
+│   ├── plants/                      # 5 .tres
+│   └── inventory/starter_loadout.tres
+├── scenes/
+│   ├── main/GameRoot.tscn
+│   ├── world/MainWorld.tscn
+│   ├── player/Player.tscn
+│   ├── interactables/TestInteractable.tscn
+│   ├── farming/{FarmPlot,Plant,NaturePlantVisual}.tscn
+│   └── ui/{HUD,InventoryUI,PauseMenu}.tscn
+├── scripts/
+│   ├── main/game_root.gd
+│   ├── player/{player_controller,camera_rig,player_visual,aim_ray,gameplay_mode_controller}.gd
+│   ├── components/{health_component,stamina_component}.gd
+│   ├── interaction/{interactable,interactor}.gd
+│   ├── time/game_clock.gd
+│   ├── world/day_night_environment.gd
+│   ├── debug/debug_controls.gd
+│   ├── data/{item_data,plant_data,item_catalog,inventory_loadout}.gd
+│   ├── inventory/{inventory,inventory_slot,equipment_loadout}.gd
+│   ├── farming/{farm_plot,plant_visual}.gd
+│   └── ui/{prototype_hud,inventory_ui,aim_crosshair,pause_menu}.gd
+├── tests/                           # 20 GDScript tests + runner + fixtures
+└── docs/{phase2,phase3,camera,input}/             # Renderer evidence
+```
+
+มี production scripts26ไฟล์, scenes10ไฟล์, production Resources17ไฟล์. Phase 3เพิ่ม scripts9/scenes4; test fixture Resources อีก3ไฟล์แยกจาก demo catalog.
+
+## Static definitions and runtime state
+
+| Type | Responsibility / fields |
+|---|---|
+| ItemData Resource | Unique `id`, display name, description, Texture2D icon, max_stack, item_type, seed plant_id/plantable/tier/display_order |
+| PlantData Resource | plant_id/name, seed_item, harvest_item/amount, growth_minutes, stage names/thresholds/scales, visual_scene/stage_visuals, produce_color |
+| ItemCatalog Resource | Definitions and lookup byID; duplicate/cross-reference/shape validation |
+| InventoryLoadout Resource | Starter ItemData array + quantities; validates bundle capacity before giving |
+| InventorySlot RefCounted | Runtime ItemData reference + quantity; no node/scene per item |
+| Inventory Node | Slots/capacity, quantity APIs, selection, inventory_changed/selection_changed |
+| FarmPlot | Runtime planted_time/PlantData/progress/stage/state/visual; EMPTY→PLANTED→READY→EMPTY |
+
+ไม่เขียน quantity, growth, HP หรือเวลาลง static `.tres`. Seed link ใช้ stable `plant_id` แล้วค้นใน catalog; PlantData อ้าง seed/harvest ItemData. เป็นการเลือกวิธี implementation ของแผน Resources เดิมเพื่อหลีกเลี่ยง circular `.tres` references และไม่ต้องเพิ่ม subclass ของ SeedData. ไม่สร้าง script แยกแต่ละพืช.
+
+Catalog validation ทำตอน root พร้อมใช้งานก่อน bind plots. Dataผิดพิมพ์ error พร้อมชื่อID/field และไม่เปิดใช้แปลง. FarmPlot ตรวจ data อีกครั้งก่อน consume เมล็ด; ป้องกัน null errors และของหาย. ห้ามแก้ arrays ของ Resource ที่ shallow-copy มาโดยคิดว่าแยกแล้ว; ใช้ `Array.duplicate()` ก่อนแก้ catalog สำเนา.
+
+## Inventory contract
+
+`add_item(ItemData, amount) -> bool`, `remove_item(id, amount) -> bool`, `has_item(id, amount=1)`, `get_item_amount(id)`, `can_add_item`, `get_slots`, `select_seed`, `get_selected_seed`, `clear`.
+
+Add/remove เป็น all-or-nothing ต่อคำขอหนึ่ง item. วางเข้า stack เดิมก่อนเปิด slotใหม่. คืนfalseเมื่อจำนวนไม่เป็นบวก,ข้อมูลผิด,ของ/พื้นที่ไม่พอ หรือIDนั้นใช้definitionอื่นอยู่แล้ว. Snapshot slots แก้เองแล้วไม่เปลี่ยน live inventory. APIนี้เป็นฐานสำหรับphaseต่อไป; ยังไม่มี transactionหลายวัตถุดิบหรือสูตรcrafting.
+
+Inventoryเก็บselected_seed_idแยกจากbag slot. get_selectable_seedsรวมIDที่เป็นSEED+plantable+quantity>0และเรียงtier/display_order/ID. Mutationซ่อมselectionก่อนinventory_changed; หมดแล้วเลือกตัวถัดไปตามprogressionและwrap, ไม่มีseedแล้วclearID. เพิ่มของไม่รบกวนselectionที่ยังvalid. เริ่มเกมเลือกseedแรกอัตโนมัติ. ไม่จำกัดจำนวนช่องselector; capacityของInventoryยังเป็นคนละกติกา.
+
+InventoryUIเปิดด้วยtoggle_inventory=Tab; click/keyboardเลือกseedหรือownedweapon. SceneTreepauseขณะเปิด, UIเป็นAlways. Tab/Esc/Closeคืนpauseเดิม; opened_changedเชื่อมcamera menu gateเพื่อrelease/capturecursorและclearheldaim. PauseMenuรับEscเมื่อbagปิด; ถ้าbagเปิดจะปล่อยให้InventoryUIปิดbagครั้งเดียว. TabขณะPauseไม่เปิดbagซ้อน. หน้าต่างไม่ใช้pause/cursorlogicซ้ำกับCameraRig.
+
+
+## Interaction and farming contract
+
+ใช้ `PlayerInteractor` เดิม: sphere query radius2.8m, layer3 (bit4), ตรวจline of sightผ่านworld layer1. เพิ่มที่ `Interactable` เพียง `prompt_changed` กับ `get_interaction_text(actor,key_hint)`; HUDติดตามtargetและsignal เพื่อไม่ต้องเดินออก/เข้าใหม่เมื่อแปลงเปลี่ยนstate. TestInteractableเดิมยังแสดง `[E] Test interaction`.
+
+FarmPlotตรวจFarmingmodeทั้งis_availableและinteract; Combatไม่ปลูกหรือharvest. ตรวจseedtype/plantable/ownership/mapping/empty stateก่อนconsume1seed. `_busy` กันการเรียกซ้อนจากinventory signals. READY→harvestใช้ atomic inventory.add_item; สำเร็จจึงล้างPlant/Plot. กระเป๋าเต็มหรือมีstackspaceไม่ครบyieldจะคงพืชไว้ทั้งหมดพร้อมข้อความ. ไม่spawnpickupในPhase 3.
+
+PlantVisualใช้Plant sceneกลาง. NaturePlantVisual wraps `Plant.glb` scale0.65. Stage0ใช้seed marker; stage1/2เพิ่มscale; stage3เพิ่มproduce markerสีของชนิดนั้น. `stage_visuals` รองรับเปลี่ยนsceneแต่ละระยะภายหลังโดยไม่แก้core. มีสถานะ/เปอร์เซ็นต์ทั้งworld labelและinteraction prompt.
+
+## Clock, growth and pause decisions
+
+- Day1เริ่ม06:00; วันเพิ่มเมื่อ06:00ถัดไป ไม่ใช่เที่ยงคืน. กลางวัน06–18/กลางคืน18–06.
+- 12game hours =600real secondsที่x1. F10ใช้x20. Clockเดิมส่งtime_changedทุกgame minute; no per-plant frame loop.
+- Growth = elapsed game minutesจากplanted_timeหารduration. คำนวณได้ข้ามdusk/dawn/หลายวัน. กลางคืนไม่หยุดgrowth.
+- Clock-minute precisionทำให้visual/readyอาจช้าไม่ถึง1game minute (~0.833sจริงที่x1). Day/nightไม่เปลี่ยนgrowthrate.
+- Debug rewindไม่ลดprogress/ready; growthรอเวลาไล่ทัน timestamp. DebugGrowAllข้ามclockจนทุกต้นพร้อม+boundaryminute;ไม่ปลอมstateแยกจากระบบเวลา.
+- Inventorypauseหยุดworld/clock/growth. ปุ่มdebugadvanceในmenuเป็นexplicittimejumpและระบุไว้ในUI. F1ปิดdebugคืนtimescale1/clockunpaused แต่ไม่ยกเลิกSceneTreepauseของmenu.
+- HP0ปิดinventoryและหยุดplayerinteraction. Clockยังเดินเมื่อตายตามPhase 2. Rreloadmainจะรีเซ็ตinventory/plots; ไม่มีsave.
+
+## Existing foundation contracts retained
+
+Player4m/s, sprint7m/s, acceleration24, braking30; camera-relative movementและgravity/collision. Capsuleheight1.7/radius0.32. Aim walk2.8m/s, turn12/s; normalหันตาม movement และ aimหันตาม camera yaw. Camera architecture อยู่ด้านล่าง. PlayerVisualเล่นMattIdle/Walk/Run/Death; knifepropซ่อน.
+
+Health100 clamp/damage/heal/deathครั้งเดียว. Stamina100 drain22/s, recovery18/sหลัง1.2s; หมดแล้วต้องฟื้น25%ก่อนวิ่ง. HUDbindstats/clock/interaction/debugเหมือนเดิม. Physicslayers:1World,2Player,3Interactable. Farmplotใช้layer3เท่านั้นจึงเดินผ่านได้; TestInteractableยังชนworld.
+
+`GameClock.advance_game_minutes` ส่งทุกdawn/duskแม้ข้ามหลายวัน; `seek` สำหรับdebugไม่replayprogressionevents. `DayNightEnvironment` เปลี่ยนsun/ambient/backgroundจากclock. ไม่มีการrewriteระบบเหล่านี้ในPhase 3.
+
+## Shoulder camera and aiming contract
+
+`ThirdPersonCamera` รับผิดชอบ captured raw mouse look, yaw/pitch, aim state, shoulder side, framing transitions, collision และ cursor lifecycle. `PlayerController` ส่ง actual sprint status และอ่าน is_aiming; physics root ไม่หมุนตาม Visual. Normal turnตาม movement; aim turnตาม −CameraPivot.global_basis.z. Matt author+Z ยืนยันจาก foot rest ทั้งสองข้างและ source GLB endpoint (+Y local), dotกับVisual+Z0.999993. PlayerVisualยังเล่นIdle/Walk/Run/Deathเดิม.
+
+Hierarchy ที่แยกหน้าที่: CameraPivot yaw/height → Pitch → ShoulderOffset X → CameraBoom +Z → Camera3D. กล้อง parent ตาม Player โดยตรง. Normal4.2m/70°/+0.70m, aim2.6m/55°/+0.85m; height1.65m; clamp−65..+45°. ค่า exportรวม sensitivity, transition10/s, return8/s, radius0.22m, margin0.04m. ดูตารางครบใน PHASE_CAMERA_TEST_REPORT.
+
+Collision: sphere sweep ด้านข้างก่อนด้านหลัง, maskWorld1, exclude Player RID. intersect_shape ตรวจ overlap ก่อน cast_motion. Pull-inทันทีและ ease-out; refreshพร้อม mouse angle เปลี่ยน (ไม่รอ tickถัดไป) และหลัง physics movement. ไม่มี smoothing บน mouse displacement; FOV/offset/distanceใช้ exponential delta.
+
+Aim signals: `aim_changed(bool)`, `controls_changed(bool)`, `pose_updated`. `GameRoot` เชื่อม inventory opened_changed และ health changed เข้ากล้อง; ไม่เพิ่ม referenceย้อนกลับไป inventory. Sprintจริง clear aim แต่เก็บ heldRMBเพื่อกลับaimเมื่อจบ; menu/focus/pause/death/Esc clear heldRMB. Esc gameplayเปิดPauseและclearheldRMB; Esc/Resumeคืนcapture. Tab/Escปิดbagrecapture. Qเปลี่ยนFarming/Combat; Vเปลี่ยนไหล่. Mode controllerส่งset_combat_enabled; Farmingไม่รับAim. Arrowkeys fallbackปิดตอนmenu/paused.
+
+`CameraAimRay` bindกับ camera/player/debugโดยRoot. ฟัง pose_updated แล้วใช้viewport center project_ray_origin/normal; closest-hit raymask5, excludePlayer, range100m. ข้อมูล public `aim_origin`, `aim_direction`, `aim_point`, `has_hit`, `hit_normal`, `hit_collider`; ส่ง `sample_updated`. Missใช้origin+direction*range. ไม่มี damage หรือ weapon logic.
+
+`AimCrosshair` วาดกลางControlเต็มviewport; จางในCombatnormalและชัดในCombataim; ซ่อนในFarmingหรือเมื่อcontrolปิด. Debug F1 gatedด้วยdebug_enabled/debugbuild แสดงhit pointและทิศcamera/visualเฉพาะตอนaim. Markerไม่มีcolliderและไม่สร้าง nodeใหม่ต่อเฟรม.
+
+Future Weaponอ่านaim state/targetผ่านsignalsนี้. ต้องเพิ่มmuzzle obstruction checkแยกจากcamera rayเพื่อไม่ยิงทะลุcoverที่มุมกล้องมองข้ามได้; ยังไม่ได้ implement. Aim animation/IK/strafe clipsเป็นtechnical debt. **Camera phaseไม่เริ่มระบบยิงหรือคราฟต์.**
+
+## Gameplay modes / equipment / input ownership
+
+`GameplayModeController` enumFARMING/COMBATเริ่มFARMING; `_unhandled_input`รับQและwheelที่เดียว. ถ้าcamera.can_control=false/paused/deadจะไม่route. FARMING→Inventory.cycle_seed; COMBAT→EquipmentLoadout.cycle_weapon. Mode switchclearAimเมื่อออกจากCombatและไม่resetselection/stamina/position/camera. mode_changedแจ้งHUDและInteractorrefreshทันที.
+
+Inventoryรับผิดชอบowneditemsกับseedselectionเดิม. EquipmentLoadoutรับผิดชอบequippedreferences, count(default3), selected_weapon_slot(default−1) และequipment_changed. RootbindInventoryเข้ากับEquipment, แล้วModeเข้ากับInventory/Equipment/Camera. ไม่มีcomponentฟังmousewheelเพิ่ม.
+
+Equipment APIs: equip_weapon(slot,ItemData), unequip_weapon(slot), get_equipped_weapon(slot), get_selected_weapon(), cycle_weapon(direction), configure_slots(count). APIindex0..N−1, HUD1..N. Equipต้องownedWEAPONdefinitionตรงInventory;ไม่consumequantity. ย้ายreferenceที่เคยequipแล้วไปช่องใหม่;ไม่ซ้ำหลายช่อง. เมื่อquantity0/clearinventory/shrinkslotsจะpruneและเลือกvalidnextslot. Wheelเฉพาะoccupiedslots. โครงสร้างยังเป็นItemDataต่อID ไม่ใช่weaponinstanceที่มีammo/durabilityเฉพาะชิ้น.
+
+InventoryUIมีownedweaponcandidateแยกจากselectedseed. คลิกweaponแล้วslotเพื่อequip, ×unequip. HUDฟังmode/inventory/equipmentแสดงmode/seedquantitytierหรือweapon/slot. Demoไม่มีproductionweaponitems; testสร้าง5weaponsชั่วคราวเพื่อทดสอบequip3และexclude2ที่เหลือ. ไม่มีfiring/weaponvisual/ammo/reload.
+
+ItemData tier>=1, display_order>=0, plantabledefaultfalse. Seedsเดิมexplicittrue tier1 order10..50. Tier2FirePepper/Water, tier3Ice/Poison, tier4+Electric/Rare/Specialยังเป็นconcept; metadataพร้อมแต่ไม่สร้างunlocksystem. Fixturetestplantใช้tier2และผ่านdataextensionregression.
+
+Input Map: Tab toggle_inventoryแทนI; Q switch_mode; V switch_shoulderแทนQ; wheel4/5 cycle_item_previous/next; Esc pauseแทนrelease_mouse. Rยังrestartเฉพาะdead; LMBไม่ยิง. Camera capture_mousefallbackยังใช้เฉพาะdebug release API; gameplaymodalกลับแล้วcaptureอัตโนมัติ.
+
+## How to add another ordinary plant
+
+1. สร้างmaterial ItemData `.tres` พร้อมIDที่ไม่ซ้ำ/icon/max_stack/typeMATERIAL.
+2. สร้างseed ItemData `.tres` typeSEED, plantable=true, plant_id, tierและdisplay_orderที่ต้องการ. Tierเก็บที่seed ItemDataเพียงแหล่งเดียว; PlantDataอ้างseedนั้น.
+3. สร้างPlantData `.tres` ผูกseed/harvest, yield/duration/stages/visuals.
+4. เพิ่มitemsทั้งสองและplantลง `resources/catalog.tres`. เพิ่มstarterloadoutเฉพาะเมื่ออยากแจกในdemo.
+5. รันvalidatorและruntimeปลูก→โต→เก็บ→ปลูกซ้ำ. ไม่แก้FarmPlot/PlantVisual/Inventory.
+
+ตัวอย่างครบอยู่ใน `tests/fixtures/{seed_test,test_material,test_plant}.tres` และ `phase_3_extension_test.gd`. Fixturesนี้ลงทะเบียนในcatalogสำเนาระหว่างทดสอบ; productionยังมี5ชนิด.
+
+## Asset import and next scope
+
+OriginalGLBs243ไฟล์ไม่ถูกย้ายหรือแก้. Shared importer default `gltf/embedded_image_handling=3`; generated `Asset/**/*.glb.import` ignoreไว้. ถ้าปรับper-assetimportอนาคตให้เริ่มtrackmetadataนั้น. SVGiconsใหม่มีimportmetadataตามGodotปกติ. `docs/.gdignore` กันภาพเอกสารจากassetimport.
+
+Resourceแผนอนาคตยังเป็นRecipeData/WeaponData/ZombieData; sceneอนาคตWorkbench/Chest/ItemPickup/Zombieและcoordinatorเมื่อมีหน้าที่จริง. **Phase 3ไม่สร้าง Crafting/Combat/Wave/Shop/Sleep/Unlock/Save/Ending.** ดูผลจริงและข้อจำกัดใน `PHASE_3_TEST_REPORT.md`.
+
+
+Current verification: 27runs failures=0, sourceGLBs243hashesunchanged. รายงานปัจจุบัน PHASE_INPUT_SELECTION_TEST_REPORT.md; Camera reportเป็นผลphaseก่อนการเปลี่ยนbindingรอบนี้. รอpromptถัดไป.

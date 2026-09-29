@@ -1,0 +1,47 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/MainWorld.tscn" id="1_world"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/TestInteractable.tscn" id="3_test"]
+[ext_resource type="Script" path="res://scripts/main/game_root.gd" id="4_root"]
+[ext_resource type="Script" path="res://scripts/time/game_clock.gd" id="5_clock"]
+[ext_resource type="Script" path="res://scripts/world/day_night_environment.gd" id="6_lighting"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="7_hud"]
+[ext_resource type="Script" path="res://scripts/debug/debug_controls.gd" id="8_debug"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/InventoryUI.tscn" id="9_inventory_ui"]
+[ext_resource type="Resource" path="res://resources/inventory/starter_loadout.tres" id="10_loadout"]
+
+[ext_resource type="Resource" path="res://resources/catalog.tres" id="11_catalog"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/PauseMenu.tscn" id="pause_menu"]
+
+[node name="GameRoot" type="Node3D"]
+script = ExtResource("4_root")
+starter_loadout = ExtResource("10_loadout")
+catalog = ExtResource("11_catalog")
+
+[node name="MainWorld" parent="." instance=ExtResource("1_world")]
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector3(0, 0.15, 6)
+
+[node name="TestInteractable" parent="." instance=ExtResource("3_test")]
+position = Vector3(0, 0, -1)
+
+[node name="TimeController" type="Node" parent="."]
+script = ExtResource("5_clock")
+
+[node name="DayNightEnvironment" type="Node" parent="." node_paths=PackedStringArray("sun", "world_environment")]
+script = ExtResource("6_lighting")
+sun = NodePath("../MainWorld/Sun")
+world_environment = NodePath("../MainWorld/WorldEnvironment")
+
+[node name="HUD" parent="." instance=ExtResource("7_hud")]
+
+[node name="DebugControls" type="Node" parent="."]
+script = ExtResource("8_debug")
+
+[node name="InventoryUI" parent="." instance=ExtResource("9_inventory_ui")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("pause_menu")]

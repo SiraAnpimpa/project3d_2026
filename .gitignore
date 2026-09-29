@@ -1,0 +1,5 @@
+.godot/
+.kilo/
+*.log
+# These assets use the shared importer defaults in project.godot.
+Asset/**/*.glb.import

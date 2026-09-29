@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/player/camera_rig.gd" id="2_camera"]
+[ext_resource type="Script" path="res://scripts/player/player_visual.gd" id="3_visual"]
+[ext_resource type="PackedScene" path="res://Asset/Post Apocolypse Pack.undefined-glb/Characters Matt.glb" id="4_matt"]
+[ext_resource type="Script" path="res://scripts/interaction/interactor.gd" id="5_interactor"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="6_health"]
+[ext_resource type="Script" path="res://scripts/components/stamina_component.gd" id="7_stamina"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="8_inventory"]
+
+[ext_resource type="Script" path="res://scripts/player/aim_ray.gd" id="9_aim"]
+
+[ext_resource type="Script" path="res://scripts/inventory/equipment_loadout.gd" id="10_equipment"]
+[ext_resource type="Script" path="res://scripts/player/gameplay_mode_controller.gd" id="11_mode"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule"]
+radius = 0.32
+height = 1.7
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 1
+floor_snap_length = 0.3
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.85, 0)
+shape = SubResource("Capsule")
+
+[node name="Visual" type="Node3D" parent="."]
+rotation = Vector3(0, 3.14159265, 0)
+script = ExtResource("3_visual")
+
+[node name="Matt" parent="Visual" instance=ExtResource("4_matt")]
+scale = Vector3(1.1, 1.1, 1.1)
+
+[node name="CameraPivot" type="Node3D" parent="."]
+position = Vector3(0, 1.65, 0)
+script = ExtResource("2_camera")
+
+[node name="Pitch" type="Node3D" parent="CameraPivot"]
+rotation = Vector3(-0.23, 0, 0)
+
+[node name="ShoulderOffset" type="Node3D" parent="CameraPivot/Pitch"]
+position = Vector3(0.7, 0, 0)
+
+[node name="CameraBoom" type="Node3D" parent="CameraPivot/Pitch/ShoulderOffset"]
+position = Vector3(0, 0, 4.2)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Pitch/ShoulderOffset/CameraBoom"]
+current = true
+fov = 70.0
+near = 0.08
+far = 150.0
+
+[node name="AimRay" type="Node3D" parent="."]
+script = ExtResource("9_aim")
+
+[node name="Interactor" type="Node3D" parent="."]
+position = Vector3(0, 0.85, 0)
+script = ExtResource("5_interactor")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("6_health")
+
+[node name="Stamina" type="Node" parent="."]
+script = ExtResource("7_stamina")
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("8_inventory")
+
+[node name="EquipmentLoadout" type="Node" parent="."]
+script = ExtResource("10_equipment")
+
+[node name="GameplayMode" type="Node" parent="."]
+script = ExtResource("11_mode")
