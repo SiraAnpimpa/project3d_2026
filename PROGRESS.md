@@ -1,6 +1,19 @@
 # PROGRESS — Somchai's Last Harvest
 
-## Current: Phase 5 complete, runtime verified (2026-09-29)
+## Current: Phase 6 complete, runtime verified (2026-09-29)
+
+- Implemented ZombieData, NormalZombie scene/controller and debug test spawner. IDLE / CHASE / ATTACK / DEAD, 12m detection, navigation every0.3s, 2m/s walk, 10 damage with0.3s windup/1.2s interval, shared Health and1.2s delayed death.
+- Added baked prototype NavigationRegion (59 polygons) and reproducible tools/bake_prototype_navigation.gd. Static World geometry and TestInteractable included. Enemy layer8; player mask9, aim/weapon masks13; old layer4 remains Interactable.
+- Actual Zombie.glb inspected: Idle, Walk, Punch, Death integrated; hit flash without stun. Original assets unchanged. No wave/night spawn or enemy variants.
+- Added tests/phase_6_zombie_test.gd. Focused headless checks pass including obstacle/shelter routing, close gun hits, live reload, 3/5 agents and rifle kills, player death and cancellation. Full suite 33/33 passed (import +23 headless +boot +8 rendered); logs .godot/test-logs/phase6_final/. Focused test expanded with actual sprint and debug UI click, then headless/rendered rerun passed. Natural Lead growth 30.409s.
+- Created scripts/data/zombie_data.gd, scripts/enemies/{normal_zombie,zombie_test_spawner}.gd, scenes/enemies/NormalZombie.tscn, resources/enemies/normal_zombie.tres, resources/navigation/prototype_navigation.tres, bake tool and PHASE_6_TEST_REPORT.md.
+- Modified Player/MainWorld scene settings, GameRoot wiring, debug controls/bag spawn buttons, layer names, test runner. Core weapon/player/health/farming scripts not rewritten.
+- Limits: static nav requires rebake after geometry changes, capsule-only hits, timer melee timing, no crowd avoidance/audio/headshots. Pack fixture heals the player for prolonged observation; player death is tested separately.
+- Next exact step: wait for Phase 7 - Night Wave & Survival Loop prompt. No wave system started. Evidence and limits: PHASE_6_TEST_REPORT.md; inspected captures: docs/phase6/.
+
+## Historical Phase 5
+
+## Phase 5 complete, runtime verified (2026-09-29)
 
 - Data-driven WeaponData, separate WeaponRuntime, WeaponController and starter Basic Rifle equipped in slot 1. Existing three configurable slots retain magazines per owned weapon ID.
 - Combat + RMB + LMB hitscan from muzzle toward camera aim point, cover and barrel penetration checks. R reload consumes crafted Basic Ammo from Inventory on completion. Initial magazine/reserve are zero.

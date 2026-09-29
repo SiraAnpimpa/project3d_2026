@@ -18,6 +18,7 @@ var inventory: Inventory
 var catalog: ItemCatalog
 var loadout: InventoryLoadout
 var farm_plots: Array[FarmPlot] = []
+var zombie_spawner: ZombieTestSpawner
 
 const FARMING_ACTIONS: Array[StringName] = [
 	&"debug_give_seeds", &"debug_clear_farm", &"debug_grow_all",
@@ -65,6 +66,15 @@ func set_active(value: bool) -> void:
 
 func execute(action: StringName) -> void:
 	if not active or not debug_enabled or not OS.is_debug_build():
+		return
+	if action in [&"debug_spawn_zombie", &"debug_spawn_three", &"debug_clear_zombies"]:
+		if zombie_spawner == null: return
+		if action == &"debug_clear_zombies":
+			zombie_spawner.clear_zombies()
+			message_posted.emit("Debug: cleared test zombies")
+		else:
+			var count := zombie_spawner.spawn_test_zombies(3 if action == &"debug_spawn_three" else 1)
+			message_posted.emit("Debug: spawned %d zombie(s); maximum 5, occupied points skipped" % count)
 		return
 	if action == &"debug_give_ammo":
 		if inventory != null and catalog != null:

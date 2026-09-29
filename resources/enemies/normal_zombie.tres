@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ZombieData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/zombie_data.gd" id="data"]
+[ext_resource type="PackedScene" path="res://Asset/Post Apocolypse Pack.undefined-glb/Zombie.glb" id="visual"]
+
+[resource]
+script = ExtResource("data")
+visual_scene = ExtResource("visual")

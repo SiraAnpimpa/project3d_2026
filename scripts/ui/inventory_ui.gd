@@ -159,6 +159,17 @@ func bind_debug(debug: DebugControls) -> void:
 	ammo_button.text = "DEBUG: Give Basic Ammo x30"
 	ammo_button.pressed.connect(debug.execute.bind(&"debug_give_ammo"))
 	container.add_child(ammo_button)
+	var enemy_row := HBoxContainer.new()
+	container.add_child(enemy_row)
+	var enemy_actions := [&"debug_spawn_zombie", &"debug_spawn_three", &"debug_clear_zombies"]
+	var enemy_labels := ["Spawn zombie", "Spawn 3 zombies", "Clear zombies"]
+	for index in enemy_actions.size():
+		var button := Button.new()
+		button.name = String(enemy_actions[index])
+		button.text = enemy_labels[index]
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.pressed.connect(debug.execute.bind(enemy_actions[index]))
+		enemy_row.add_child(button)
 	debug_message = Label.new()
 	debug_message.text = "Development only. Changes apply to this run."
 	debug_message.add_theme_font_size_override("font_size", 13)

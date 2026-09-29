@@ -1,8 +1,21 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
-อัปเดต 2026-09-29 — Phase 5 Weapon & Shooting Foundation runtime verified
+อัปเดต 2026-09-29 — Phase 6 Zombie AI & Basic Enemy Combat runtime verified
 
-## Phase 5 weapon architecture (current)
+## Phase 6 enemy architecture (current)
+
+- `scripts/data/zombie_data.gd` / `resources/enemies/normal_zombie.tres`: immutable identity, tuning, visual scene and animation names. Runtime health and timers are per instance.
+- `scenes/enemies/NormalZombie.tscn` / `scripts/enemies/normal_zombie.gd`: CharacterBody3D with Visual, capsule, NavigationAgent3D, existing Health and DebugLabel. Four local states: IDLE, CHASE, ATTACK, DEAD. No general-purpose state framework.
+- `MainWorld/NavigationRegion3D`: committed `resources/navigation/prototype_navigation.tres`, 59 polygons baked from World static colliders. `tools/bake_prototype_navigation.gd` reproduces the bake, including the separate TestInteractable prop. Rebuild when static geometry changes. Radius0.5m/height1.8m protects the radius0.38m body; no dynamic rebake/crowd avoidance.
+- `MainWorld/ZombieTestSpawner` / `scripts/enemies/zombie_test_spawner.gd`: five Marker3D spawn points, validated navigation and collision clearance, instance limit5. GameRoot injects Player and DebugControls; spawned zombies receive Player directly. Debug bag buttons spawn1/spawn3/clear. No default enemies or clock/wave dependency.
+- Detection uses 12m distance; Chase refreshes destination every0.3s and consumes agent path each physics tick. Solid body motion, gravity, smooth facing. Melee stops movement at1.35m, winds up0.3s, rechecks range/World obstruction and deals10 through Player Health; each zombie has1.2s cooldown.
+- WeaponController remains generic: collider child `Health` receives damage. Enemy100HP dies after5rifle hits. Flash confirms hit; death disables collision and AI, plays animation, removes after1.2s. Existing player HUD/death/control gates remain.
+- Collision bits: World1, Player2, Interactable4 unchanged; Enemy8 added. Player mask9, Enemy mask11, aim/weapon masks13. Melee and navigation mask1. Farm Areas are not solid enemy obstacles; plants are not targets.
+- Zombie.glb actual clips: Idle, Walk, Punch, Death. Libraries duplicated per instance before loop changes. Source assets unchanged. Debug state/HP labels hide with debug. No audio/headshot/root-motion/save/variant logic.
+- Future Wave caller can use factory and `died`; delayed tree exit is cleanup, not wave-clear notification. Controller stops on invalid/dead target and supports explicit rebind. Wave policy/population limits remain Phase7 work.
+- Full verification: 33 runs passed, with focused updated Phase6 reruns. Report: PHASE_6_TEST_REPORT.md. The foundation tree below predates these additional nodes.
+
+## Phase 5 weapon architecture (retained; collision masks extended above)
 
 - `GameRoot` grants canonical starter rifle ItemData, equips slot 0, then binds `Player/WeaponController` to Inventory, EquipmentLoadout, GameplayMode, camera and ItemCatalog. HUD binds weapon state/feedback/hit signals. Default magazine/reserve are zero.
 - `scripts/data/weapon_data.gd` / `resources/weapons/basic_rifle.tres`: immutable definition, validated scene/muzzle, ammo and weapon catalog references, damage/rate/magazine/reload/range/auto/spread/recoil. `resources/items/basic_rifle.tres` is the owned WEAPON item.

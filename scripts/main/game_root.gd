@@ -43,6 +43,8 @@ func _ready() -> void:
 	lighting.bind_clock(clock)
 	hud.bind(player, clock, debug_controls)
 	debug_controls.bind(player, clock)
+	debug_controls.zombie_spawner = $MainWorld/ZombieTestSpawner
+	debug_controls.zombie_spawner.bind(player, debug_controls)
 	hud.bind_inventory(inventory)
 	hud.bind_gameplay_mode(gameplay_mode, equipment)
 	player.aim_ray.bind(player.camera_rig, player, debug_controls)

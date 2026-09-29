@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" path="res://scenes/farming/FarmPlot.tscn" id="FarmPlot"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/Workbench.tscn" id="Workbench"]
 [ext_resource type="PackedScene" path="res://scenes/combat/TargetDummy.tscn" id="Dummy"]
+[ext_resource type="NavigationMesh" path="res://resources/navigation/prototype_navigation.tres" id="nav"]
+[ext_resource type="Script" path="res://scripts/enemies/zombie_test_spawner.gd" id="spawner"]
 
 [sub_resource type="StandardMaterial3D" id="GroundMat"]
 albedo_color = Color(0.27, 0.34, 0.24, 1)
@@ -163,6 +165,27 @@ size = Vector3(6, 0.08, 6)
 material = SubResource("RescueMat")
 
 [node name="MainWorld" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = ExtResource("nav")
+
+[node name="ZombieTestSpawner" type="Node3D" parent="."]
+script = ExtResource("spawner")
+
+[node name="North" type="Marker3D" parent="ZombieTestSpawner"]
+position = Vector3(6, 0.1, -14)
+
+[node name="East" type="Marker3D" parent="ZombieTestSpawner"]
+position = Vector3(16, 0.1, 6)
+
+[node name="South" type="Marker3D" parent="ZombieTestSpawner"]
+position = Vector3(4, 0.1, 18)
+
+[node name="West" type="Marker3D" parent="ZombieTestSpawner"]
+position = Vector3(-18, 0.1, 5)
+
+[node name="NorthEast" type="Marker3D" parent="ZombieTestSpawner"]
+position = Vector3(15, 0.1, -12)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment")

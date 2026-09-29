@@ -1,4 +1,4 @@
-# Runtime tests — Phases 2, 3, Camera and Input / Selection
+# Runtime tests - Phases 2-6, Camera and Input / Selection
 
 Run from project root with Godot 4.7:
 
@@ -6,7 +6,7 @@ Run from project root with Godot 4.7:
 .\tests\run_tests.ps1 -Godot 'C:\Users\ADMIN\Desktop\Godot_v4.7-stable_win64.exe\Godot_v4.7-stable_win64.exe' -WithRendering
 ```
 
-Without `-WithRendering`: 24 runs (import,22 test scripts,main boot). With it: 31 runs, including Phase 2 mouse capture, Phase 3 real-time farming, camera controls, camera walkthrough, input/modes integration Phase 4 crafting and Phase 5 weapons. Allow approximately two minutes. Every process has a60-second timeout; nonzero exit, missing result, assertion/parser/runtime errors fail the suite. The known Windows root-certificate-store message is reported in full logs and excluded explicitly. No other engine error is excluded.
+Without `-WithRendering`: 25 runs (import,23 test scripts,main boot). With it: 33 runs, including Phase 2 mouse capture, Phase 3 real-time farming, camera controls, camera walkthrough, input/modes integration Phase 4 crafting, Phase 5 weapons and Phase 6 zombies. Allow approximately two minutes. Every process has a60-second timeout; nonzero exit, missing result, assertion/parser/runtime errors fail the suite. The known Windows root-certificate-store message is reported in full logs and excluded explicitly. No other engine error is excluded.
 
 Default logs: `.godot/test-logs/`; captures: `.godot/test-captures/`. Override with `-LogDirectory` and `-CaptureDirectory`. Historical Phase 3 logs remain under `.godot/test-logs/phase3/`; historical Camera logs are under `.godot/test-logs/camera/`. Current Input logs are `.godot/test-logs/input/`; screenshots in `docs/input/`.
 
@@ -59,8 +59,14 @@ Historical input milestone suite: **27runs, failures=0**, Leadgrowth30.297real s
 
 Historical Phase 4 final suite: **29 runs, failures=0**. Logs are in `.godot/test-logs/phase4_final/`; inspected screenshots are in `docs/phase4/`.
 
-## Phase 5 coverage (current)
+## Phase 5 coverage
 
 `phase_5_weapon_test.gd` runs headless and rendered: actual farming/crafting/reload/aim/fire/dummy death, ammo accounting, spam, per-weapon magazine memory, switching, semi-auto and automatic fire, 30/120 Hz cooldowns, near/far/range, cover and clipped muzzle, empty equipment, UI/mode/death guards, debug gates and restart. Temporary pistol data is test-only. Previous catalog/startup tests now expect 14 items and the starter rifle.
 
-Current final suite: **31 runs, failures=0**. Logs `.godot/test-logs/phase5_final/`; screenshots `docs/phase5/`. See [Phase 5 report](../PHASE_5_TEST_REPORT.md) for exact results, assets and limits. Phase 5 crop setup advances the game clock; separate rendered Phase 3 validates natural growth (30.384 real seconds).
+Historical Phase 5 final suite: **31 runs, failures=0**. Logs `.godot/test-logs/phase5_final/`; screenshots `docs/phase5/`. See [Phase 5 report](../PHASE_5_TEST_REPORT.md) for exact results, assets and limits. Phase 5 crop setup advances the game clock; separate rendered Phase 3 validates natural growth (30.384 real seconds).
+
+## Phase 6 coverage (current)
+
+`phase_6_zombie_test.gd` covers actual debug bag spawning, safe markers/cap, idle/detect/chase, speed/facing, box and shelter detours, player sprint input and target refresh, windup/miss/cooldown/wall checks, generic weapon hits and reload, hit/death animation, delayed cleanup, farm/night/pause, 3/5-agent independent attacks and rifle kills, player death/rebind and death cancellation. It runs headless and rendered with fixed simulation deltas; screenshot inspection confirms model/animation/UI. Pack combat heals the player in the fixture for sustained observation; a separate melee death case verifies game over.
+
+Current suite: **33/33 passed**, logs `.godot/test-logs/phase6_final/`, images `docs/phase6/`, details in [Phase 6 report](../PHASE_6_TEST_REPORT.md). After the full suite, two assertions for moving-target chase and debug UI clicking were added and the focused headless/rendered tests rerun successfully. No unrelated production changes followed the regression run. Natural growth still has its separate real-time rendered test (30.409 seconds).

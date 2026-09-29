@@ -23,7 +23,7 @@ height = 1.7
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 1
+collision_mask = 9
 floor_snap_length = 0.3
 script = ExtResource("1_player")
 
@@ -62,6 +62,7 @@ far = 150.0
 
 [node name="AimRay" type="Node3D" parent="."]
 script = ExtResource("9_aim")
+aim_collision_mask = 13
 
 [node name="Interactor" type="Node3D" parent="."]
 position = Vector3(0, 0.85, 0)
@@ -84,4 +85,5 @@ script = ExtResource("11_mode")
 
 [node name="WeaponController" type="Node3D" parent="."]
 script = ExtResource("weapon_controller")
+shot_collision_mask = 13
 definitions = Array[Resource]([ExtResource("rifle_data")])
