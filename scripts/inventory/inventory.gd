@@ -6,6 +6,7 @@ signal selection_changed
 
 @export_range(1, 100) var capacity: int = 24
 
+var progression: ProgressionManager
 var selected_seed_id: StringName
 var _slots: Array[InventorySlot] = []
 var _definitions: Dictionary[StringName, ItemData] = {}
@@ -203,7 +204,7 @@ func cycle_seed(direction: int) -> bool:
 
 
 func _is_selectable_seed(item: ItemData) -> bool:
-	return item != null and item.item_type == ItemData.ItemType.SEED and item.plantable
+	return item != null and item.item_type == ItemData.ItemType.SEED and item.plantable and (progression == null or progression.is_seed_unlocked(item.id))
 
 
 func _seed_before(a: ItemData, b: ItemData) -> bool:
@@ -230,3 +231,8 @@ func _repair_seed_selection() -> void:
 	if selected_seed_id != next_id:
 		selected_seed_id = next_id
 		selection_changed.emit()
+
+
+func refresh_seed_selection() -> void:
+	_repair_seed_selection()
+	selection_changed.emit()

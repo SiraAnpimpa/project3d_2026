@@ -107,7 +107,7 @@ func refresh() -> void:
 	for recipe in _buttons:
 		var button: Button = _buttons[recipe]
 		button.text = ("> " if recipe == selected_recipe else "  ") + recipe.display_name
-		if not recipe.is_unlocked(crafting.clock.current_day):
+		if not crafting.is_unlocked(recipe):
 			button.text += "  [LOCKED]"
 	for child in ingredients.get_children():
 		child.queue_free()

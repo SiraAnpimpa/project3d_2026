@@ -14,6 +14,7 @@ extends Resource
 @export var navigation_interval: float = 0.3
 @export var death_delay: float = 1.2
 @export var visual_scene: PackedScene
+@export var visual_tint: Color = Color.WHITE
 @export var visual_scale: float = 1.1
 @export var idle_animation: StringName = &"CharacterArmature|Idle"
 @export var walk_animation: StringName = &"CharacterArmature|Walk"

@@ -1,6 +1,14 @@
 # DEVELOPMENT_PLAN — Somchai's Last Harvest
 
-## Current: Phase 7 / M10-M11 complete, runtime verified (2026-09-30)
+## Current: Phase 8 / progression foundation complete (2026-09-30)
+
+Ten DayConfigs, mixed Normal/Runner/Tank waves, unlock registries and reward receipts, daily basic seeds, three magical plants, six recipes, threat HUD, gated debug jumps and terminal Night10 survival completion are implemented. Runtime smoke Days1/3/5/7/10, accelerated natural Day1-10, both final dawn/rest paths and mixed real-rifle combat pass. Full results, limits and placeholder balance: `PHASE_8_TEST_REPORT.md`.
+
+Special ammo uses prompt option A (unlock/item/craft only); loading/effects, additional weapons, Water/Electric plants and medicine use remain deferred. The prototype terminal completion is implemented; the original rescue-cinematic milestone is not complete. Next exact step: **wait for Phase9 - Final Night Ending, Rescue, UI/UX & Game Polish**. No Phase9 work started.
+
+## Historical Phase 7
+
+## Phase 7 / M10-M11 complete, runtime verified (2026-09-30)
 
 NightWaveManager, WaveData, four spawn directions, active/pending/death tracking, clear/rest reward, natural dawn cleanup without healing, exact next-day transition and night HUD are implemented. Both full Day1 outcomes pass through normal production clock and gameplay inputs without debug grants/heals/time skips. Latest36checks pass; two rendered camera checks needed unchanged reruns. Results are in PHASE_7_TEST_REPORT.md. Next: **Phase8 - Day1-10 Progression + Runner + Tank + Seed/Recipe Unlock Progression**, awaiting its prompt. No progression, enemy variants or ending work started.
 

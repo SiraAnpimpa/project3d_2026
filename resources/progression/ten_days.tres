@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DayProgressionData" load_steps=12 format=3]
+[ext_resource type="Script" path="res://scripts/data/day_progression_data.gd" id="data"]
+[ext_resource type="Resource" path="res://resources/progression/day_1.tres" id="day1"]
+[ext_resource type="Resource" path="res://resources/progression/day_2.tres" id="day2"]
+[ext_resource type="Resource" path="res://resources/progression/day_3.tres" id="day3"]
+[ext_resource type="Resource" path="res://resources/progression/day_4.tres" id="day4"]
+[ext_resource type="Resource" path="res://resources/progression/day_5.tres" id="day5"]
+[ext_resource type="Resource" path="res://resources/progression/day_6.tres" id="day6"]
+[ext_resource type="Resource" path="res://resources/progression/day_7.tres" id="day7"]
+[ext_resource type="Resource" path="res://resources/progression/day_8.tres" id="day8"]
+[ext_resource type="Resource" path="res://resources/progression/day_9.tres" id="day9"]
+[ext_resource type="Resource" path="res://resources/progression/day_10.tres" id="day10"]
+[resource]
+script = ExtResource("data")
+days = Array[Resource]([ExtResource("day1"), ExtResource("day2"), ExtResource("day3"), ExtResource("day4"), ExtResource("day5"), ExtResource("day6"), ExtResource("day7"), ExtResource("day8"), ExtResource("day9"), ExtResource("day10")])

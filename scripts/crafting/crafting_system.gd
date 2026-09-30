@@ -3,6 +3,7 @@ extends Node
 
 signal craft_completed(recipe: CraftRecipe)
 
+var progression: ProgressionManager
 var inventory: Inventory
 var book: RecipeBook
 var clock: GameClock
@@ -26,7 +27,7 @@ func failure_reason(recipe: CraftRecipe) -> String:
 		return "Crafting unavailable"
 	if book.get_recipe(recipe.recipe_id) != recipe or not recipe.validation_errors().is_empty():
 		return "Invalid recipe"
-	if not recipe.is_unlocked(clock.current_day):
+	if not is_unlocked(recipe):
 		return "Recipe Locked (Day %d)" % recipe.unlock_day
 	for entry in recipe.ingredients:
 		var needed := entry.quantity * recipe.craft_amount
@@ -62,3 +63,7 @@ func _totals(entries: Array[RecipeEntry], multiplier: int) -> Dictionary:
 	for entry in entries:
 		totals[entry.item] = entry.quantity * multiplier
 	return totals
+
+
+func is_unlocked(recipe: CraftRecipe) -> bool:
+	return progression.is_recipe_unlocked(recipe.recipe_id) if progression != null else recipe.is_unlocked(clock.current_day)

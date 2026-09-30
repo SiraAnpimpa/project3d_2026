@@ -181,6 +181,13 @@ func bind_debug(debug: DebugControls) -> void:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.pressed.connect(debug.execute.bind(wave_actions[index]))
 		wave_row.add_child(button)
+	var progression_tools := MenuButton.new()
+	progression_tools.text = "Progression: day jump / unlock tools"
+	var popup := progression_tools.get_popup()
+	var actions := [&"debug_set_day_1", &"debug_set_day_3", &"debug_set_day_5", &"debug_set_day_7", &"debug_set_day_10", &"debug_unlock_all", &"debug_reset_unlocks"]
+	for title in ["Day 1", "Day 3", "Day 5", "Day 7", "Day 10", "Unlock all seeds / recipes", "Reset unlocks to current day"]: popup.add_item(title)
+	popup.id_pressed.connect(func(id: int) -> void: debug.execute(actions[id]))
+	wave_row.add_child(progression_tools)
 	debug_message = Label.new()
 	debug_message.text = "Development only. Changes apply to this run."
 	debug_message.add_theme_font_size_override("font_size", 13)

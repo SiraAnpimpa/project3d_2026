@@ -22,6 +22,7 @@ var gameplay_mode: GameplayModeController
 var equipment: EquipmentLoadout
 var weapons: WeaponController
 var waves: NightWaveManager
+var _completed := false
 @onready var ammo_label: Label = %AmmoLabel
 @onready var seed_label: Label = %SeedLabel
 
@@ -36,13 +37,18 @@ func bind_survival(manager: NightWaveManager) -> void:
 	waves = manager
 	waves.changed.connect(_refresh_survival)
 	waves.feedback.connect(show_message)
+	if waves.progression != null: waves.progression.changed.connect(_refresh_survival)
 	_refresh_survival()
 
 
 func _refresh_survival() -> void:
 	var label: Label = %NightLabel
-	label.visible = waves.state != NightWaveManager.State.DAY and waves.state != NightWaveManager.State.GAME_OVER
+	label.visible = waves.state not in [NightWaveManager.State.GAME_OVER, NightWaveManager.State.GAME_COMPLETED]
 	match waves.state:
+		NightWaveManager.State.DAY:
+			if waves.progression != null and waves.progression.current != null:
+				label.text = "TONIGHT: " + waves.progression.current.wave.preview()
+				if not waves.progression.pending_rewards.is_empty(): label.text += "\nSeed delivery pending: make room in bag"
 		NightWaveManager.State.ACTIVE:
 			label.text = "ZOMBIES LEFT  %d\nAlive: %d  |  Incoming: %d" % [waves.remaining_zombies, waves.alive.size(), waves.total_zombies - waves.spawned_zombies]
 		NightWaveManager.State.CLEARED: label.text = "NIGHT CLEARED  |  0 left\nRest at the shelter bed"
@@ -80,7 +86,7 @@ func _on_stamina_changed(current: float, maximum: float) -> void:
 
 
 func _on_time_changed(day: int, hour: int, minute: int, daytime: bool) -> void:
-	day_label.text = "DAY %d   /   %s" % [day, "DAYTIME" if daytime else "NIGHTTIME"]
+	day_label.text = "DAY %d / 10   |   %s" % [mini(day, 10), "DAYTIME" if daytime else "NIGHTTIME"]
 	time_label.text = "%02d:%02d" % [hour, minute]
 
 
@@ -131,6 +137,7 @@ func _refresh_seed() -> void:
 
 
 func show_message(message: String) -> void:
+	if _completed: return
 	toast_label.text = message
 	toast_timer.start()
 
@@ -155,7 +162,7 @@ func _refresh_ammo() -> void:
 
 
 func _on_debug_status(active: bool, summary: String) -> void:
-	debug_panel.visible = active
+	debug_panel.visible = active and not _completed
 	debug_status.text = summary
 
 
@@ -164,3 +171,32 @@ func _key_hint(action: StringName) -> String:
 		if event is InputEventKey:
 			return OS.get_keycode_string(event.physical_keycode if event.physical_keycode != 0 else event.keycode)
 	return String(action)
+
+
+func show_completion() -> void:
+	_completed = true
+	prompt_panel.hide()
+	%NightLabel.hide()
+	toast_timer.stop()
+	toast_label.text = ""
+	for path in ["Root/DebugPanel", "Root/SeedLabel", "Root/AmmoLabel", "Root/Crosshair", "Root/Controls", "Root/AimDebugLabel"]:
+		get_node(path).hide()
+	var panel := PanelContainer.new()
+	panel.name = "CompletionPanel"
+	$Root.add_child(panel)
+	panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	panel.position -= Vector2(260, 110)
+	panel.custom_minimum_size = Vector2(520, 220)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 20)
+	panel.add_child(box)
+	var label := Label.new()
+	label.text = "GAME COMPLETED\nYOU SURVIVED ALL 10 NIGHTS\nRESCUE HAS ARRIVED\nPrototype ending"
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 24)
+	box.add_child(label)
+	var restart := Button.new()
+	restart.text = "Restart from Day 1  [R]"
+	restart.pressed.connect(func() -> void: get_tree().reload_current_scene())
+	box.add_child(restart)
+	restart.grab_focus()

@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="RecipeBook" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="RecipeBook" load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/data/recipe_book.gd" id="1"]
 [ext_resource type="Resource" path="res://resources/recipes/basic_ammo.tres" id="ammo"]
 [ext_resource type="Resource" path="res://resources/recipes/basic_medicine.tres" id="medicine"]
 [ext_resource type="Resource" path="res://resources/recipes/metal_component.tres" id="metal"]
 
+[ext_resource type="Resource" path="res://resources/recipes/fire_ammo.tres" id="fire"]
+[ext_resource type="Resource" path="res://resources/recipes/ice_ammo.tres" id="ice"]
+[ext_resource type="Resource" path="res://resources/recipes/poison_ammo.tres" id="poison"]
 [resource]
 script = ExtResource("1")
-recipes = Array[Resource]([ExtResource("ammo"), ExtResource("medicine"), ExtResource("metal")])
+recipes = Array[Resource]([ExtResource("ammo"), ExtResource("medicine"), ExtResource("metal"), ExtResource("fire"), ExtResource("ice"), ExtResource("poison")])

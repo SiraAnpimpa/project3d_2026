@@ -144,7 +144,7 @@ func run() -> void:
 	check(waves.state == NightWaveManager.State.DAY and waves.tracked.is_empty(), "backward debug seek does not replay an already started night")
 	game.clock.seek(2, 18)
 	await frames(3)
-	check(waves.state == NightWaveManager.State.ACTIVE and waves.total_zombies == 6, "Day 2 uses unchanged prototype wave without progression")
+	check(waves.state == NightWaveManager.State.ACTIVE and waves.total_zombies == 7, "Day 2 uses progression wave with seven normal zombies")
 	var invalid := waves.data.duplicate() as NightWaveData
 	invalid.spawn_interval = 0
 	check(not invalid.validation_errors().is_empty(), "invalid wave interval is rejected")

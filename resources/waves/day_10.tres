@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="NightWaveData" load_steps=9 format=3]
+[ext_resource type="Script" path="res://scripts/data/night_wave_data.gd" id="wave"]
+[ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="entry"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/NormalZombie.tscn" id="Normal"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/RunnerZombie.tscn" id="Runner"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/TankZombie.tscn" id="Tank"]
+[sub_resource type="Resource" id="Normal"]
+script = ExtResource("entry")
+scene = ExtResource("Normal")
+count = 14
+[sub_resource type="Resource" id="Runner"]
+script = ExtResource("entry")
+scene = ExtResource("Runner")
+count = 7
+[sub_resource type="Resource" id="Tank"]
+script = ExtResource("entry")
+scene = ExtResource("Tank")
+count = 3
+[resource]
+script = ExtResource("wave")
+day = 10
+spawn_interval = 1.1
+zombie_scene = ExtResource("Normal")
+normal_zombie_count = 14
+composition = Array[Resource]([SubResource("Normal"), SubResource("Runner"), SubResource("Tank")])

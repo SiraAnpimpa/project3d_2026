@@ -34,8 +34,8 @@ func run() -> void:
 	var ammo: CraftRecipe = game.recipe_book.get_recipe(&"basic_ammo")
 	var medicine: CraftRecipe = game.recipe_book.get_recipe(&"basic_medicine")
 	var metal: CraftRecipe = game.recipe_book.get_recipe(&"metal_component")
-	check(game.recipe_book.validation_errors(catalog).is_empty() and system.get_recipes().size() == 3, "three catalog-backed recipes load and validate")
-	check(ui._buttons.size() == 3 and ui._buttons.has(ammo) and ui._buttons.has(medicine) and ui._buttons.has(metal), "recipe list comes from recipe resources")
+	check(game.recipe_book.validation_errors(catalog).is_empty() and system.get_recipes().size() == 6, "six catalog-backed recipes load and validate")
+	check(ui._buttons.size() == 6 and ui._buttons.has(ammo) and ui._buttons.has(medicine) and ui._buttons.has(metal), "recipe list comes from recipe resources")
 	clock.set_process(false)
 	# Each material comes from the existing seed -> plot -> growth -> harvest path.
 	var plant_ids := [&"seed_lead", &"seed_paper", &"seed_copper", &"seed_iron", &"seed_small_herb", &"seed_small_herb"]
@@ -137,6 +137,7 @@ func run() -> void:
 	extra.outputs = [entry(test_item, 1), entry(catalog.get_item(&"paper"), 2)]
 	extra.unlock_day = 2
 	game.recipe_book.recipes.append(extra)
+	game.progression.data.get_day(2).recipe_unlocks.append(extra.recipe_id)
 	ui._build_recipe_list()
 	ui.refresh()
 	check(game.recipe_book.validation_errors(catalog).is_empty() and ui._buttons.has(extra), "new resource-only recipe appears in UI and validates")

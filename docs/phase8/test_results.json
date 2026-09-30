@@ -1,0 +1,331 @@
+{
+  "latest_passed": 40,
+  "total": 40,
+  "initial_batch_failures": 4,
+  "note": "Initial old-fixture/debug-guard failures fixed and targeted reruns passed. Latest per-check results, not an uninterrupted clean batch. Final rendered Phase8 rerun after terminal HUD cleanup.",
+  "checks": [
+    {
+      "check": "camera_collision_ray_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "CAMERA_COLLISION_RAY_RESULT jitter_m=0.0 failures=0"
+      ]
+    },
+    {
+      "check": "camera_controls_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "CAMERA_CONTROLS_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "camera_rate_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "CAMERA_RATE_RESULT 30Hz=(55.10107, 2.610781, 0.848989, 2.610781) 120Hz=(55.10107, 2.610781, 0.848989, 2.610781) pass=true"
+      ]
+    },
+    {
+      "check": "camera_walkthrough_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "CAMERA_WALKTHROUGH_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "editor_import",
+      "passed": true,
+      "errors": [],
+      "result_lines": []
+    },
+    {
+      "check": "input_modes_integration_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "INPUT_MODES_INTEGRATION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "input_selection_data_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "INPUT_SELECTION_DATA_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "main_scene_boot",
+      "passed": true,
+      "errors": [],
+      "result_lines": []
+    },
+    {
+      "check": "movement_rate_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "MOVEMENT_RATE_RESULT 30Hz=3.73332977294922m 120Hz=3.68335485458374m pass=true"
+      ]
+    },
+    {
+      "check": "phase_2_integration_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_2_INTEGRATION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_3_data_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_DATA_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_3_debug_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_DEBUG_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_3_extension_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_EXTENSION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_3_farming_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_FARMING_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_3_growth_rate_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_GROWTH_RATE_RESULT 30Hz=0.66666666666667 120Hz=0.66666666666667 failures=0"
+      ]
+    },
+    {
+      "check": "phase_3_integration_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_INTEGRATION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_3_inventory_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_INVENTORY_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_3_ui_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_UI_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_4_crafting_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_4_CRAFTING_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_5_weapon_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_5_WEAPON_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_6_zombie_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_6_ZOMBIE_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_7_full_day_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "CRAFT_RESULT ammo=40 medicine=1",
+        "PHASE_7_FULL_DAY_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_7_lifecycle_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_7_LIFECYCLE_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_8_progression_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "TEN_DAY_NODES { 1: 422, 2: 422, 3: 422, 4: 422, 5: 422, 6: 422, 7: 422, 8: 422, 9: 422, 10: 422 } memory_bytes=58335136.0",
+        "TEN_DAY_RUNTIME max_tracked=3 hp=100.0 nodes=426 dawns=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]",
+        "PHASE_8_PROGRESSION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase_8_variants_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "MIXED_COMBAT hits={ &\"normal_zombie\": 10, &\"runner_zombie\": 3, &\"tank_zombie\": 15 } reserve=30 magazine=2",
+        "PHASE_8_VARIANTS_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_camera_controls",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "CAMERA_CONTROLS_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_camera_walkthrough",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "CAMERA_WALKTHROUGH_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_input_modes",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "INPUT_MODES_INTEGRATION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_phase2",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_2_INTEGRATION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_phase3",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_3_INTEGRATION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_phase4_crafting",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_4_CRAFTING_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_phase5_weapon",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_5_WEAPON_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_phase6_zombie",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_6_ZOMBIE_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_phase7_lifecycle",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "PHASE_7_LIFECYCLE_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_phase8_progression",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "TEN_DAY_NODES { 1: 422, 2: 422, 3: 422, 4: 422, 5: 422, 6: 422, 7: 422, 8: 422, 9: 422, 10: 422 } memory_bytes=57904316.0",
+        "TEN_DAY_RUNTIME max_tracked=3 hp=100.0 nodes=426 dawns=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]",
+        "PHASE_8_PROGRESSION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "rendered_phase8_variants",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "MIXED_COMBAT hits={ &\"normal_zombie\": 10, &\"runner_zombie\": 3, &\"tank_zombie\": 15 } reserve=30 magazine=2",
+        "PHASE_8_VARIANTS_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "stage_1_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "STAGE_1_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "stage_2_interaction_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "STAGE_2_INTERACTION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "stage_3_stats_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "STAGE_3_STATS_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "stage_4_clock_test",
+      "passed": true,
+      "errors": [],
+      "result_lines": [
+        "STAGE_4_CLOCK_RESULT failures=0"
+      ]
+    }
+  ]
+}

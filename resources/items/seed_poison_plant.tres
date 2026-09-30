@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/data/item_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+id = &"seed_poison_plant"
+display_name = "Poison Plant Seed"
+description = "Magical farming resource."
+item_type = 0
+tier = 3
+plant_id = &"poison_plant"
+plantable = true
+display_order = 70

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DayConfig" load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/data/day_config.gd" id="config"]
+[ext_resource type="Resource" path="res://resources/waves/day_9.tres" id="wave"]
+[resource]
+script = ExtResource("config")
+day = 9
+wave = ExtResource("wave")
+seed_unlocks = Array[StringName]([])
+recipe_unlocks = Array[StringName]([])
+starter_quantity = 3
+supply_seed_ids = Array[StringName]([&"seed_lead", &"seed_paper", &"seed_iron", &"seed_copper", &"seed_small_herb"])
+supply_quantity = 8
+message = ""

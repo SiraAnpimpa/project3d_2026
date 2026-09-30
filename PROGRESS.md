@@ -1,6 +1,37 @@
 # PROGRESS — Somchai's Last Harvest
 
-## Current: Phase 7 complete, runtime verified (2026-09-30)
+## Current: Phase 8 complete, runtime verified (2026-09-30)
+
+- Data-driven ten-day campaign, interleaved wave composition, Runner/Tank sharing original AI, living cap12 and exact-variant pending replacement. Day1 retains6Normal; final Day10 is14Normal+7Runner+3Tank,1.1s cadence.
+- New central DayConfig/DayProgressionData/ProgressionManager; unlocked IDs are separate from owned quantities and grant receipts. New seeds3 once; five basic seeds8 each on Days2-10. Full-bag rewards remain pending and retry atomically without duplication. Debug reset retains grant receipts.
+- Fire Pepper Day3/tier2, Ice Plant Day5/tier3, Poison Plant Day7/tier3;54game-minute growth/yield2, three corresponding materials/ammo items/recipes. Catalog23items/eightplants; six recipes. Special ammo is craft-only, unusable in Basic Rifle; descriptions disclose this. Water/Electric/new weapons omitted optional scope.
+- HUD DayX/10, actual-data threat preview, unlock/Runner/Tank/FinalDay messages, pending rewards, compact debug dropdown. Night10 clear permits rest; natural/rest dawn triggers GAME_COMPLETED, stops clock/cleanup/gameplay, restart returns fresh Day1. No normal Day11 loop, cinematic or rescue scene.
+- Baseline Phase7 full-day and lifecycle passed before edits. Focused progression and variants pass headless/rendered; 10-day accelerated clock (3s half-days, no seeks/kills/heals) produced exact ten dawns, daytime node count422 on every day, no tracked/pending remnants, persistent farm/magazine/inventory. Mixed real Rifle kills2Normal+Runner+Tank in28hits. Tests heal during sustained mixed observation, not in production.
+- Regression initial batch had4 failures: debug restore guard and old catalog/farming/recipe fixture assumptions. Fixed guard and fixtures, targeted reruns passed. Latest40/40checks pass (import+27headless+boot+11rendered), with final focused rendered Phase8 rerun after terminal HUD cleanup. No remaining runtime/assertion errors. Inspected images and per-check summary are in docs/phase8. Full report `PHASE_8_TEST_REPORT.md` contains the complete day/unlock/composition table and honest test limitations.
+- New scripts: scripts/data/{day_config,day_progression_data,wave_entry}.gd; scripts/progression/progression_manager.gd; tests/phase_8_{progression,variants}_test.gd (with .uid files).
+- New resources: resources/progression/{ten_days,day_1..day_10}.tres; resources/waves/day_2..day_10.tres; resources/enemies/{runner_zombie,tank_zombie}.tres; scenes/enemies/{RunnerZombie,TankZombie}.tscn; resources/plants/{fire_pepper,ice_plant,poison_plant}.tres; resources/items/{seed_fire_pepper,seed_ice_plant,seed_poison_plant,fire_essence,ice_crystal,poison_extract,fire_ammo,ice_ammo,poison_ammo}.tres; resources/recipes/{fire_ammo,ice_ammo,poison_ammo}.tres.
+- Modified: catalog/recipebook/day1wave; NightWaveData/ZombieData; shared zombie tint and spawn clearance; Inventory/CraftingSystem/CraftingUI; GameRoot, NightWaveManager, HUD/debug/bag; old fixtures for intentional new content, test runner; project docs. Original GLBs unchanged, no AI copies.
+- Limits: placeholder enemy scale/tint and crop visuals/icons; temporary counts/timings/economy; elemental ammo effects and medicine use deferred; static nav/no crowd avoidance/save; no manual three-hour campaign, export or target-hardware FPS benchmark. Long-run state test had peak3tracked due short nights; separate cap fixture verifies12active+12pending, mixed combat verifies4live attackers.
+- Next exact action: wait for Phase9 - Final Night Ending, Rescue, UI/UX & Game Polish. Phase8 delivery includes commit/push; no Phase9 work started.
+
+### Current day / unlock table
+
+| Day | Normal / Runner / Tank | Spawn seconds | New seed + recipe |
+|---|---|---|---|
+| 1 | 6 / 0 / 0 | 2.0 | Five basic seeds; Basic Ammo, Medicine, Metal Component |
+| 2 | 7 / 0 / 0 | 1.9 | Daily basic supplies begin |
+| 3 | 7 / 2 / 0 | 1.8 | Fire Pepper + Fire Ammo |
+| 4 | 8 / 3 / 0 | 1.7 | - |
+| 5 | 9 / 4 / 0 | 1.6 | Ice Plant + Ice Ammo |
+| 6 | 10 / 5 / 0 | 1.5 | - |
+| 7 | 10 / 4 / 1 | 1.4 | Poison Plant + Poison Ammo |
+| 8 | 11 / 5 / 2 | 1.3 | - |
+| 9 | 12 / 6 / 2 | 1.2 | - |
+| 10 | 14 / 7 / 3 | 1.1 | Final night; completion at dawn |
+
+## Historical Phase 7
+
+## Phase 7 complete, runtime verified (2026-09-30)
 
 - NightWaveData and NightWaveManager add clock-driven DAY/ACTIVE/CLEARED/RESTING/GAME_OVER lifecycle; six Normal Zombies, 2s cadence, 12m minimum distance, four cardinal markers. Tracks alive/pending/corpses via signals; clear only after all spawned and none alive.
 - ZombieSpawnFactory shares navigation/capsule checks with debug spawner. Wave pursuit overrides local detection without rewriting AI. Administrative despawn cancels attacks without kill credit.

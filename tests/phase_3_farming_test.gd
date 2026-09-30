@@ -85,15 +85,17 @@ func run() -> void:
 	invalid_seed.item_type = ItemData.ItemType.SEED
 	invalid_seed.plantable = true
 	invalid_seed.plant_id = &"missing"
+	game.progression.unlocked_seed_ids[invalid_seed.id] = true # Exercise malformed mapping after the unlock gate.
 	inventory.add_item(invalid_seed, 2)
 	inventory.select_seed(invalid_seed.id)
 	check(plot.interact(player).contains("invalid plant data") and inventory.get_item_amount(invalid_seed.id) == 2, "invalid seed mapping fails without consumption")
 	inventory.clear()
 	game.starter_loadout.give_to(inventory)
+	var basic_plants: Array[PlantData] = catalog.plants.filter(func(data: PlantData) -> bool: return data.seed_item.tier == 1)
 	clock.seek(1, 17, 30)
-	for index in catalog.plants.size():
+	for index in basic_plants.size():
 		var other: FarmPlot = game.get_node("MainWorld/FarmArea").get_child(index)
-		inventory.select_seed(catalog.plants[index].seed_item.id)
+		inventory.select_seed(basic_plants[index].seed_item.id)
 		other.interact(player)
 	clock.advance_game_minutes(24)
 	var progress_before_rewind := plot.growth_progress
@@ -101,9 +103,9 @@ func run() -> void:
 	check(plot.growth_progress == progress_before_rewind, "debug rewind never reverses growth stages")
 	clock.advance_game_minutes(34)
 	var all_yields := true
-	for index in catalog.plants.size():
+	for index in basic_plants.size():
 		var other: FarmPlot = game.get_node("MainWorld/FarmArea").get_child(index)
-		var data := catalog.plants[index]
+		var data := basic_plants[index]
 		all_yields = all_yields and other.state == FarmPlot.State.READY
 		other.interact(player)
 		all_yields = all_yields and inventory.get_item_amount(data.harvest_item.id) == data.harvest_amount

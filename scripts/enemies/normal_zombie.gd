@@ -56,6 +56,13 @@ func _ready() -> void:
 				animation_player.get_animation(clip).loop_mode = Animation.LOOP_NONE
 	for mesh in model.find_children("*", "MeshInstance3D", true, false):
 		_meshes.append(mesh)
+		if data.visual_tint != Color.WHITE:
+			for surface in mesh.mesh.get_surface_count():
+				var original: Material = mesh.get_active_material(surface)
+				if original is StandardMaterial3D:
+					var tinted := original.duplicate() as StandardMaterial3D
+					tinted.albedo_color *= data.visual_tint
+					mesh.set_surface_override_material(surface, tinted)
 	_hit_material = StandardMaterial3D.new()
 	_hit_material.albedo_color = Color(1, 0.3, 0.12)
 	_play(data.idle_animation)

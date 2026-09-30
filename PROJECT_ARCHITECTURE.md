@@ -1,8 +1,21 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
-อัปเดต 2026-09-29 — Phase 7 Night Wave & Survival Loop
+Updated 2026-09-30 - Phase 8 Day Progression, Enemy Variants and Content Unlocks
 
-## Phase 7 survival architecture (current)
+## Phase 8 progression architecture (current, 2026-09-30)
+
+- `scripts/data/{day_config,day_progression_data,wave_entry}.gd` and `resources/progression/ten_days.tres` supply ten DayConfigs, each referencing its own `resources/waves/day_N.tres`. Each day defines composition/timing, seed and recipe unlock IDs, starter rewards, basic daily supplies and messages. No distributed per-day enemy branches.
+- `GameRoot` creates `ProgressionManager` and injects clock/catalog/inventory/book. `day_started` covers natural/rest dawn and debug seeks; ordinary dawn retains the clock's existing `new_day_started`. Separate dictionaries track reached days, unlocked seeds/recipes, seed reward receipts and pending deliveries. Full-bag grants retry on inventory changes with a reentrancy guard. No persistence.
+- Inventory seed selection requires unlocked + owned + plantable and keeps existing tier/order sort. CraftingSystem and CraftingUI share registry-based recipe gating; locked recipes stay visible. Isolated systems without a progression dependency retain the old day-metadata fallback. Recipe metadata must match the central unlock day.
+- Five basic seeds are granted by the original starter loadout only. New Fire/Ice/Poison seeds grant3 once on Days3/5/7; Days2-10 grant8 of each basic seed once to sustain farming. Missing rewards wait for bag capacity. Debug jumps apply missed unlocks without accumulating skipped daily supplies.
+- Wave composition is an array of scene/count WaveEntries, deterministically interleaved into `pending`. NightWaveManager reads the current DayConfig at dusk and retains the prior state machine plus GAME_COMPLETED. Living cap12, remaining includes pending, and unexpected removal replaces the exact scene type. Dictionaries separate living/corpses; cleanup clears all queued/tracked references.
+- Normal/Runner/Tank scenes use the same `normal_zombie.gd` and per-variant ZombieData. Runner60HP/4.5speed/8damage/Run; Tank300HP/1.5speed/25damage/Walk. Scene capsules match scaled visuals; factory occupancy reads the actual shape. Per-instance tint materials preserve shared imported assets. Nav radius0.5 supports Tank radius0.49; taller Tank fits the current shelter and passed route tests.
+- Catalog23items/eightplants and RecipeBook6recipes. Fire Pepper, Ice Plant and Poison Plant use shared growth/harvest/visual code; yield elemental materials. Fire/Ice/Poison Ammo are unlock/craft foundations only, explicitly incompatible with Basic Rifle. No status-effect or alternate weapon subsystem.
+- HUD shows DayX/10, data-derived threat preview, unlock/new-threat messages and pending reward notice. Debug bag dropdown provides Day1/3/5/7/10, unlock all, reset availability without resetting grant receipts. Debug day changes clean wave state before seeking.
+- Dawn after Night10 enters GAME_COMPLETED with no normal Day11 loop. Clock internally reaches story Day11/06:00; HUD clamps campaign progress to10/10. Natural dawn gives no heal; clear/rest follows existing recovery before completion. Terminal handler stops clock, clears enemies, disables gameplay nodes/menus, retains restart and displays prototype rescue text. `NightWaveManager.completed` is the Phase9 ending hook.
+- Tests `phase_8_progression_test.gd` and `phase_8_variants_test.gd` cover day smoke/unlocks/fullbag/cap/final paths/accelerated ten days and actual mixed shooting/navigation. See `PHASE_8_TEST_REPORT.md` for full table, evidence, test limits and debt. Phase9 not started.
+
+## Phase 7 survival architecture (historical; extended by Phase 8)
 
 - `GameRoot/NightWaveManager` (`scripts/survival/night_wave_manager.gd`) binds existing GameClock, Player and `MainWorld/WaveSpawnPoints`. DAY/ACTIVE/CLEARED/RESTING/GAME_OVER, one start per survival day; no farming/crafting/weapon dependency. `NightWaveData` + `resources/waves/day_1.tres` configure6Normal/2s/12m; same prototype config reused on later days, no difficulty progression.
 - Clock is unchanged and remains source of truth. night_started begins spawning; day_started handles both natural and rest dawn. Clock owns current_day and new_day_started. State changes precede cleanup to prevent false clears/reentry.

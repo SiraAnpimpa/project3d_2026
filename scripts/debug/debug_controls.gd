@@ -61,12 +61,21 @@ func set_active(value: bool) -> void:
 	active = value and debug_enabled and OS.is_debug_build()
 	if not active and clock != null:
 		clock.time_scale = 1.0
-		clock.paused = false
+		clock.paused = waves != null and waves.state in [NightWaveManager.State.GAME_OVER, NightWaveManager.State.GAME_COMPLETED]
 	_publish()
 
 
 func execute(action: StringName) -> void:
 	if not active or not debug_enabled or not OS.is_debug_build():
+		return
+	if waves != null and waves.state == NightWaveManager.State.GAME_COMPLETED: return
+	if String(action).begins_with("debug_set_day_"):
+		if waves != null: waves.debug_set_day(String(action).trim_prefix("debug_set_day_").to_int())
+		return
+	if action in [&"debug_unlock_all", &"debug_reset_unlocks"]:
+		if waves != null and waves.progression != null:
+			if action == &"debug_unlock_all": waves.progression.unlock_all()
+			else: waves.progression.reset_unlocks()
 		return
 	if action in [&"debug_before_night", &"debug_start_night", &"debug_kill_wave", &"debug_before_dawn", &"debug_force_dawn"]:
 		if waves == null or waves.state == NightWaveManager.State.GAME_OVER: return

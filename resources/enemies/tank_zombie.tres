@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZombieData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/zombie_data.gd" id="data"]
+[ext_resource type="PackedScene" path="res://Asset/Post Apocolypse Pack.undefined-glb/Zombie.glb" id="visual"]
+
+[resource]
+script = ExtResource("data")
+visual_scene = ExtResource("visual")
+
+zombie_id = &"tank_zombie"
+display_name = "Tank Zombie"
+max_health = 300.0
+move_speed = 1.5
+damage = 25.0
+visual_scale = 1.35
+attack_interval = 1.8
+walk_animation = &"CharacterArmature|Walk"
+visual_tint = Color(0.6, 0.8, 1, 1)

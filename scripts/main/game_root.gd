@@ -1,5 +1,6 @@
 extends Node3D
 
+var progression: ProgressionManager
 @export var catalog: ItemCatalog
 @export var starter_loadout: InventoryLoadout
 @export var recipe_book: RecipeBook
@@ -77,6 +78,16 @@ func _ready() -> void:
 		for message in recipe_errors:
 			push_error("Crafting data: " + message)
 		hud.show_message("Crafting data is invalid. See the Godot debugger for details.")
+	progression = ProgressionManager.new()
+	progression.name = "ProgressionManager"
+	progression.data = preload("res://resources/progression/ten_days.tres")
+	add_child(progression)
+	progression.feedback.connect(hud.show_message)
+	progression.bind(clock, inventory, catalog, recipe_book)
+	crafting_system.progression = progression
+	progression.changed.connect(crafting_ui.refresh)
+	waves.progression = progression
+	waves.completed.connect(_on_completed)
 	waves.bind(clock, player, $MainWorld/WaveSpawnPoints)
 	rest.bind(waves, player)
 	$MainWorld/Bed.bind(rest)
@@ -85,7 +96,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("restart") and player.health.is_dead:
+	if event.is_action_pressed("restart") and (player.health.is_dead or waves.state == NightWaveManager.State.GAME_COMPLETED):
 		get_tree().reload_current_scene()
 
 
@@ -93,3 +104,19 @@ func _update_spawn_debug(active: bool, _summary: String) -> void:
 	for side in ["North", "South", "East", "West"]:
 		$MainWorld.get_node(side + "SpawnMarker").visible = active
 		$MainWorld.get_node(side + "SpawnLabel").visible = active
+
+
+func _on_completed() -> void:
+	# Freeze gameplay nodes while leaving the HUD and restart handler available.
+	inventory_ui.set_open(false)
+	crafting_ui.set_open(false)
+	player.camera_rig.set_player_alive(false)
+	player.velocity = Vector3.ZERO
+	player.process_mode = Node.PROCESS_MODE_DISABLED
+	inventory_ui.process_mode = Node.PROCESS_MODE_DISABLED
+	crafting_ui.process_mode = Node.PROCESS_MODE_DISABLED
+	pause_menu.process_mode = Node.PROCESS_MODE_DISABLED
+	debug_controls.process_mode = Node.PROCESS_MODE_DISABLED
+	$MainWorld/ZombieTestSpawner.clear_zombies()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	hud.show_completion()
