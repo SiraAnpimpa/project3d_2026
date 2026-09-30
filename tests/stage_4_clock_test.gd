@@ -29,7 +29,7 @@ func run() -> void:
 	check(clock.current_hour == 18 and clock.current_minute == 0 and clock.is_nighttime, "600 real seconds reaches night at 18:00")
 	check(night_events == 1, "night transition emits once")
 	var sun := game.get_node("MainWorld/Sun") as DirectionalLight3D
-	check(is_equal_approx(sun.light_energy, 0.12), "night updates environment lighting")
+	check(is_equal_approx(sun.light_energy, game.get_node("DayNightEnvironment").night_energy) and sun.light_energy < game.get_node("DayNightEnvironment").day_energy, "night updates environment lighting")
 	clock.advance(300.0)
 	check(clock.current_hour == 0 and clock.current_day == 1, "midnight stays in survival Day 1")
 	clock.advance(300.0)

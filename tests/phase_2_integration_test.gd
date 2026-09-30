@@ -57,7 +57,7 @@ func run() -> void:
 	var hud := game.get_node("HUD") as PrototypeHUD
 	var debug := game.get_node("DebugControls") as DebugControls
 	clock.paused = true
-	check(ProjectSettings.get_setting("application/run/main_scene") == "res://scenes/main/GameRoot.tscn", "main scene is configured")
+	check(ProjectSettings.get_setting("application/run/main_scene") == "res://scenes/main/MainMenu.tscn", "main scene is configured")
 	var input_ok := true
 	for action in ["move_forward", "move_backward", "move_left", "move_right", "sprint", "interact", "aim", "debug_toggle"]:
 		input_ok = input_ok and InputMap.has_action(action) and not InputMap.action_get_events(action).is_empty()

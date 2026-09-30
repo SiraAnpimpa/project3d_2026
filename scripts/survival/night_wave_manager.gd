@@ -49,7 +49,7 @@ func bind(time: GameClock, actor: PlayerController, points: Node3D) -> void:
 func _on_time_changed(day: int, hour: int, _minute: int, daytime: bool) -> void:
 	if daytime and hour == 17 and _warned_day != day and state == State.DAY:
 		_warned_day = day
-		feedback.emit("Night approaching. Craft ammo and prepare.")
+		feedback.emit("FINAL NIGHT APPROACHING - Prepare for the last night." if day == 10 else "Night approaching. Craft ammo and prepare.")
 
 
 func _on_night(day: int) -> void:
@@ -72,7 +72,7 @@ func _on_night(day: int) -> void:
 	_spawn_wait = 0
 	state = State.ACTIVE
 	changed.emit()
-	feedback.emit("NIGHT %d - Zombies are approaching" % day)
+	feedback.emit("FINAL NIGHT - Survive until rescue at dawn." if day == 10 else "NIGHT %d - Zombies are approaching" % day)
 
 
 func _physics_process(delta: float) -> void:

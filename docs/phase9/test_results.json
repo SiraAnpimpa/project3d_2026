@@ -1,0 +1,342 @@
+{
+  "date": "2026-09-30",
+  "engine": "Godot 4.7.2 Compatibility",
+  "note": "Latest logs per check, including targeted reruns after fixes; not an uninterrupted green first run. Rendered checks use Dummy audio.",
+  "checks": [
+    {
+      "check": "camera_collision_ray_test",
+      "passed": true,
+      "result": [
+        "CAMERA_COLLISION_RAY_RESULT jitter_m=0.0 failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "camera_controls_test",
+      "passed": true,
+      "result": [
+        "CAMERA_CONTROLS_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "camera_rate_test",
+      "passed": true,
+      "result": [
+        "CAMERA_RATE_RESULT 30Hz=(55.11454, 2.811455, 0.848989, 2.811455) 120Hz=(55.11454, 2.811455, 0.848989, 2.811455) pass=true"
+      ],
+      "errors": []
+    },
+    {
+      "check": "camera_walkthrough_test",
+      "passed": true,
+      "result": [
+        "CAMERA_WALKTHROUGH_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "editor_import",
+      "passed": true,
+      "result": [],
+      "errors": []
+    },
+    {
+      "check": "input_modes_integration_test",
+      "passed": true,
+      "result": [
+        "INPUT_MODES_INTEGRATION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "input_selection_data_test",
+      "passed": true,
+      "result": [
+        "INPUT_SELECTION_DATA_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "main_scene_boot",
+      "passed": true,
+      "result": [],
+      "errors": []
+    },
+    {
+      "check": "movement_rate_test",
+      "passed": true,
+      "result": [
+        "MOVEMENT_RATE_RESULT 30Hz=3.73332977294922m 120Hz=3.68335485458374m pass=true"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_2_integration_test",
+      "passed": true,
+      "result": [
+        "PHASE_2_INTEGRATION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_3_data_test",
+      "passed": true,
+      "result": [
+        "PHASE_3_DATA_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_3_debug_test",
+      "passed": true,
+      "result": [
+        "PHASE_3_DEBUG_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_3_extension_test",
+      "passed": true,
+      "result": [
+        "PHASE_3_EXTENSION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_3_farming_test",
+      "passed": true,
+      "result": [
+        "PHASE_3_FARMING_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_3_growth_rate_test",
+      "passed": true,
+      "result": [
+        "PHASE_3_GROWTH_RATE_RESULT 30Hz=0.66666666666667 120Hz=0.66666666666667 failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_3_integration_test",
+      "passed": true,
+      "result": [
+        "GROWTH_RUNTIME wall_seconds=0.598 physics_ticks=1818 realtime=false",
+        "PHASE_3_INTEGRATION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_3_inventory_test",
+      "passed": true,
+      "result": [
+        "PHASE_3_INVENTORY_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_3_ui_test",
+      "passed": true,
+      "result": [
+        "PHASE_3_UI_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_4_crafting_test",
+      "passed": true,
+      "result": [
+        "PHASE_4_CRAFTING_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_5_weapon_test",
+      "passed": true,
+      "result": [
+        "PHASE_5_WEAPON_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_6_zombie_test",
+      "passed": true,
+      "result": [
+        "PHASE_6_ZOMBIE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_7_full_day_test",
+      "passed": true,
+      "result": [
+        "CRAFT_RESULT ammo=40 medicine=1",
+        "PHASE_7_FULL_DAY_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_7_lifecycle_test",
+      "passed": true,
+      "result": [
+        "PHASE_7_LIFECYCLE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_8_progression_test",
+      "passed": true,
+      "result": [
+        "PHASE_8_PROGRESSION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_8_variants_test",
+      "passed": true,
+      "result": [
+        "PHASE_8_VARIANTS_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "phase_9_presentation_test",
+      "passed": true,
+      "result": [
+        "PHASE_9_PRESENTATION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_camera_controls",
+      "passed": true,
+      "result": [
+        "CAMERA_CONTROLS_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_camera_walkthrough",
+      "passed": true,
+      "result": [
+        "CAMERA_WALKTHROUGH_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_input_modes",
+      "passed": true,
+      "result": [
+        "INPUT_MODES_INTEGRATION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase2",
+      "passed": true,
+      "result": [
+        "PHASE_2_INTEGRATION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase3",
+      "passed": true,
+      "result": [
+        "GROWTH_RUNTIME wall_seconds=30.397 physics_ticks=1824 realtime=true",
+        "PHASE_3_INTEGRATION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase4_crafting",
+      "passed": true,
+      "result": [
+        "PHASE_4_CRAFTING_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase5_weapon",
+      "passed": true,
+      "result": [
+        "PHASE_5_WEAPON_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase6_zombie",
+      "passed": true,
+      "result": [
+        "PHASE_6_ZOMBIE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase7_lifecycle",
+      "passed": true,
+      "result": [
+        "PHASE_7_LIFECYCLE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase8_progression",
+      "passed": true,
+      "result": [
+        "PHASE_8_PROGRESSION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase8_variants",
+      "passed": true,
+      "result": [
+        "PHASE_8_VARIANTS_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "rendered_phase9_presentation",
+      "passed": true,
+      "result": [
+        "PHASE_9_PRESENTATION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "stage_1_test",
+      "passed": true,
+      "result": [
+        "STAGE_1_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "stage_2_interaction_test",
+      "passed": true,
+      "result": [
+        "STAGE_2_INTERACTION_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "stage_3_stats_test",
+      "passed": true,
+      "result": [
+        "STAGE_3_STATS_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "check": "stage_4_clock_test",
+      "passed": true,
+      "result": [
+        "STAGE_4_CLOCK_RESULT failures=0"
+      ],
+      "errors": []
+    }
+  ]
+}

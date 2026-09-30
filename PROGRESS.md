@@ -1,5 +1,18 @@
 # PROGRESS — Somchai's Last Harvest
 
+## Current: Phase 9 complete, runtime verified (2026-09-30)
+
+- MainMenu is the project entry; Play hides debug tools, How To Play explains controls and the loop. Pause supports guide, restart and return to menu.
+- Final-day warning and final-night HUD/sky/ambience lead into guarded Day11 rescue: morning, fade, existing helicopter arrival, dedicated camera and ending buttons. Damage/input/waves stop; restarting creates a fresh campaign.
+- Shared UI theme, all six recipes visible, nine elemental item icons, first-day guide, damage flash, rest fade, clearer lighting, zone signs, boundary decoration and three limited non-shadow lights. Camera distances/FOV and animation blends tuned; core economy/combat unchanged.
+- Original generated SFX and ambience, reproducible generator; no external audio or music. Existing helicopter has a static rotor. Asset pack distribution licenses remain unverified.
+- Latest 42/42 per-check logs pass after fixes and targeted reruns, including rendered UI, full-day survival and ending/restart/menu routes. See PHASE_9_TEST_REPORT.md and docs/phase9/test_results.json.
+- Added MainMenu, GamePresentation, GameAudio, WorldPresentation, PresentationStyle, procedural audio generator and Phase9 integration test. Existing root/HUD/pause/camera/health/weapon/environment integration updated.
+- Remaining: placeholder crop/enemy art, no dedicated aim/reload clips, craft-only medicine/elemental ammo, no save, target-hardware profiling and license verification. No export or full final balance performed.
+- Next action: STOP and wait for Phase 10 - Final Balance, QA, Performance & Export.
+
+## Historical Phase 8
+
 ## Current: Phase 8 complete, runtime verified (2026-09-30)
 
 - Data-driven ten-day campaign, interleaved wave composition, Runner/Tank sharing original AI, living cap12 and exact-variant pending replacement. Day1 retains6Normal; final Day10 is14Normal+7Runner+3Tank,1.1s cadence.

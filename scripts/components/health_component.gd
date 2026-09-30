@@ -5,6 +5,7 @@ signal changed(current: float, maximum: float)
 signal died
 
 @export_range(1.0, 10000.0) var max_hp: float = 100.0
+var damage_enabled: bool = true
 var current_hp: float = 100.0
 var is_dead: bool = false
 
@@ -14,7 +15,7 @@ func _ready() -> void:
 
 
 func take_damage(amount: float) -> void:
-	if is_dead or amount <= 0.0:
+	if not damage_enabled or is_dead or amount <= 0.0:
 		return
 	_set_hp(current_hp - amount)
 	if current_hp <= 0.0:

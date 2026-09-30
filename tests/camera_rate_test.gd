@@ -27,7 +27,7 @@ func run() -> void:
 	await physics_frame
 	var at_30 := measure(player, 30)
 	var at_120 := measure(player, 120)
-	var pass_aim := at_30.distance_to(at_120) < 0.0001 and at_30.x < 56 and at_30.w < 2.7
+	var pass_aim := at_30.distance_to(at_120) < 0.0001 and at_30.x < player.camera_rig.aim_fov + 1 and at_30.w < player.camera_rig.aim_distance + 0.1
 	print("CAMERA_RATE_RESULT 30Hz=", at_30, " 120Hz=", at_120, " pass=", pass_aim)
 	game.queue_free()
 	await process_frame

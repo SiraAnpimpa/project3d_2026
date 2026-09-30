@@ -1,5 +1,15 @@
 # DEVELOPMENT_PLAN — Somchai's Last Harvest
 
+## Current: Phase 9 complete (2026-09-30)
+
+Rescue ending, final-night presentation, Main/Pause/Ending/GameOver menus, guide, UI/map/lighting/audio/feedback/camera polish are implemented and runtime verified. Latest 42 per-check results pass after fixes; PHASE_9_TEST_REPORT.md records fixture boundaries and remaining placeholders.
+
+The rescue-ending milestone is now complete at demo scope: survive Night10 to Day11 morning, trigger once, land the existing helicopter and show restart/menu choices. A full cinematic, animated rotor, boarding scene and authored weapon animations are not supplied.
+
+**STOP: wait for Phase 10 - Final Balance, QA, Performance & Export.** Next authorized phase should validate the complete economy, target hardware performance, real audio mix, asset distribution rights and export. No Phase10 work or export has been started. Medicine and elemental ammunition remain craft-only until explicitly scoped.
+
+## Historical Phase 8
+
 ## Current: Phase 8 / progression foundation complete (2026-09-30)
 
 Ten DayConfigs, mixed Normal/Runner/Tank waves, unlock registries and reward receipts, daily basic seeds, three magical plants, six recipes, threat HUD, gated debug jumps and terminal Night10 survival completion are implemented. Runtime smoke Days1/3/5/7/10, accelerated natural Day1-10, both final dawn/rest paths and mixed real-rifle combat pass. Full results, limits and placeholder balance: `PHASE_8_TEST_REPORT.md`.

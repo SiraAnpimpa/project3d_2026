@@ -49,7 +49,7 @@ foreach ($test in @(
     'phase_3_growth_rate_test', 'phase_3_integration_test',
     'camera_controls_test', 'camera_collision_ray_test', 'camera_rate_test',
     'camera_walkthrough_test', 'input_selection_data_test', 'input_modes_integration_test',
-    'phase_4_crafting_test', 'phase_5_weapon_test', 'phase_6_zombie_test', 'phase_7_lifecycle_test', 'phase_8_progression_test', 'phase_8_variants_test'
+    'phase_4_crafting_test', 'phase_5_weapon_test', 'phase_6_zombie_test', 'phase_7_lifecycle_test', 'phase_8_progression_test', 'phase_8_variants_test', 'phase_9_presentation_test'
 )) {
     Invoke-GodotCheck $test ('--headless --fixed-fps 60 --script res://tests/' + $test + '.gd')
 }
@@ -70,6 +70,7 @@ if ($WithRendering) {
     Invoke-GodotCheck 'rendered_phase7_lifecycle' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_7_lifecycle_test.gd -- --capture-dir "' + $capturePath + '"')
     Invoke-GodotCheck 'rendered_phase8_progression' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_8_progression_test.gd -- --capture-dir "' + $capturePath + '"')
     Invoke-GodotCheck 'rendered_phase8_variants' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_8_variants_test.gd -- --capture-dir "' + $capturePath + '"')
+    Invoke-GodotCheck 'rendered_phase9_presentation' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_9_presentation_test.gd -- --capture-dir "' + $capturePath + '"')
 }
 Write-Output "SUITE_RESULT failures=$failures logs=$LogDirectory"
 exit $failures

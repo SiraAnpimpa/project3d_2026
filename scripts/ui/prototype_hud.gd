@@ -23,6 +23,10 @@ var equipment: EquipmentLoadout
 var weapons: WeaponController
 var waves: NightWaveManager
 var _completed := false
+var _previous_hp := -1.0
+var _hurt_remaining := 0.0
+var _hint_time := 45.0
+var damage_flash: ColorRect
 @onready var ammo_label: Label = %AmmoLabel
 @onready var seed_label: Label = %SeedLabel
 
@@ -30,6 +34,15 @@ var _completed := false
 func _ready() -> void:
 	prompt_panel.hide()
 	death_panel.hide()
+	$Root/Title.text = "SOMCHAI'S LAST HARVEST"
+	$Root/Title.add_theme_font_size_override("font_size", 16)
+	damage_flash = ColorRect.new()
+	damage_flash.color = Color(0.65, 0.08, 0.04, 0)
+	damage_flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$Root.add_child(damage_flash)
+	$Root.move_child(damage_flash, 0)
+	damage_flash.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	toast_timer.wait_time = 5.0
 	toast_timer.timeout.connect(func() -> void: toast_label.text = "")
 
 
@@ -50,7 +63,7 @@ func _refresh_survival() -> void:
 				label.text = "TONIGHT: " + waves.progression.current.wave.preview()
 				if not waves.progression.pending_rewards.is_empty(): label.text += "\nSeed delivery pending: make room in bag"
 		NightWaveManager.State.ACTIVE:
-			label.text = "ZOMBIES LEFT  %d\nAlive: %d  |  Incoming: %d" % [waves.remaining_zombies, waves.alive.size(), waves.total_zombies - waves.spawned_zombies]
+			label.text = ("FINAL NIGHT\n" if waves.clock.current_day == 10 else "") + "ZOMBIES LEFT  %d\nAlive: %d  |  Incoming: %d" % [waves.remaining_zombies, waves.alive.size(), waves.total_zombies - waves.spawned_zombies]
 		NightWaveManager.State.CLEARED: label.text = "NIGHT CLEARED  |  0 left\nRest at the shelter bed"
 		NightWaveManager.State.RESTING: label.text = "RESTING..."
 
@@ -72,6 +85,9 @@ func bind(target_player: PlayerController, clock: GameClock, debug: DebugControl
 
 
 func _on_health_changed(current: float, maximum: float) -> void:
+	if _previous_hp >= 0 and current < _previous_hp: _hurt_remaining = 0.22
+	_previous_hp = current
+	hp_label.modulate = Color(1, 0.65, 0.55) if current <= maximum * 0.25 else Color.WHITE
 	hp_bar.max_value = maximum
 	hp_bar.value = current
 	hp_label.text = "HP   %d / %d" % [ceili(current), ceili(maximum)]
@@ -137,7 +153,7 @@ func _refresh_seed() -> void:
 
 
 func show_message(message: String) -> void:
-	if _completed: return
+	if _completed or not is_inside_tree(): return
 	toast_label.text = message
 	toast_timer.start()
 
@@ -200,3 +216,13 @@ func show_completion() -> void:
 	restart.pressed.connect(func() -> void: get_tree().reload_current_scene())
 	box.add_child(restart)
 	restart.grab_focus()
+
+
+func _process(delta: float) -> void:
+	_hurt_remaining = maxf(0, _hurt_remaining - delta)
+	if damage_flash != null: damage_flash.color.a = _hurt_remaining * 0.4
+	_hint_time = maxf(0, _hint_time - delta)
+	if player != null and _hint_time > 0:
+		$Root/Controls.text = "PLANT > HARVEST > WORKBENCH > AMMO\nQ: Combat   /   R: Reload before night\nEsc: Controls & pause"
+	elif not _completed:
+		$Root/Controls.text = "Esc: Controls & pause"

@@ -1,5 +1,27 @@
 # Somchai's Last Harvest
 
+## Phase 9 demo (Godot 4.7.2 / Compatibility)
+
+Import `project.godot` and press **F5** to open `scenes/main/MainMenu.tscn`. Choose **How To Play** or **Play**. Normal play hides debug UI; F1 toggles it for development.
+
+- WASD move, Shift sprint, mouse look; Q switches Farming/Combat.
+- Wheel selects seeds; E plants, harvests, opens the Workbench or rests at the shelter bed after clearing a night.
+- Grow Lead, Paper and Copper, then craft Basic Ammo at the Workbench. Q enters Combat, R reloads, RMB aims, LMB fires; V swaps camera shoulder.
+- Tab opens inventory; Esc closes the current panel or opens Pause, with controls, restart and Main Menu choices.
+- Survive ten nights. Fire/Ice/Poison crops unlock on Days3/5/7. On Day10 the final-night warning appears; surviving to Day11 06:00 starts rescue and the ending screen. Death offers restart/menu.
+
+Medicine and elemental ammunition can be crafted but cannot yet be used. No save system. Helicopter rotor and some world/crop/enemy visuals remain placeholders; original pack distribution rights need verification. Audio is original procedural SFX/ambience, without music.
+
+### Verification
+
+```powershell
+./tests/run_tests.ps1 -Godot 'PATH_TO_GODOT_CONSOLE.exe' -WithRendering
+```
+
+Latest 42 per-check results pass, including targeted reruns after fixes. See [Phase9 report](PHASE_9_TEST_REPORT.md), [screenshots and results](docs/phase9/) and [current progress](PROGRESS.md). Phase10 final balance, performance and export are pending.
+
+## Earlier gameplay notes (historical)
+
 Godot **4.7.2 / Compatibility**. **Phase 7 Night Wave & Survival Loop เสร็จและทดสอบ runtime แล้ว**. Main scene: `scenes/main/GameRoot.tscn`.
 
 ## วิธีเล่นตั้งแต่ปลูกจนยิง

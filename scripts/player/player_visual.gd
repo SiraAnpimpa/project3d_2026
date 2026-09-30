@@ -12,6 +12,10 @@ func _ready() -> void:
 	if knife != null:
 		knife.hide()
 	if animation_player != null:
+		for library_name in animation_player.get_animation_library_list():
+			var library := animation_player.get_animation_library(library_name).duplicate(true) as AnimationLibrary
+			animation_player.remove_animation_library(library_name)
+			animation_player.add_animation_library(library_name, library)
 		for clip in ["Idle", "Walk", "Run"]:
 			var key: String = "CharacterArmature|" + clip
 			if animation_player.has_animation(key):
@@ -29,4 +33,4 @@ func set_motion(moving: bool, sprinting: bool, dead: bool = false) -> void:
 	if animation_player != null:
 		var clip := "CharacterArmature|" + String(state)
 		if animation_player.has_animation(clip):
-			animation_player.play(clip, 0.15)
+			animation_player.play(clip, 0.2 if state == &"Idle" else 0.12)

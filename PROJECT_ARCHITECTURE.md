@@ -1,5 +1,19 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
+## Current Phase 9 presentation architecture
+
+Project entry is `scenes/main/MainMenu.tscn`. `PresentationStyle.go_to` releases pause and changes scenes; entering GameRoot sets a one-shot normal-play tree metadata flag so debug UI is hidden. Direct GameRoot test/editor entry preserves debug access.
+
+GameRoot owns three new local services: `GamePresentation` (always-processing CanvasLayer for rest fade, death buttons and terminal rescue), `GameAudio` (six pooled cue voices plus one ambience loop), and `WorldPresentation` (decorative geometry, zone signs and three non-shadow lights). These are freed with the game scene, with no persistent autoload state.
+
+NightWaveManager remains authoritative for completion. Its completion event stops gameplay and starts presentation once. HealthComponent's damage gate closes during rescue. The presentation clock drives an eight-second sequence, normalizes the existing helicopter mesh bounds and activates a dedicated rescue camera. Ending buttons create a fresh GameRoot or return to MainMenu. Day11 does not start another farming/wave cycle.
+
+Audio listens to existing interaction, inventory, crafting, progression and health signals plus WeaponController.shot_fired. Headless runs count cues without playing WAVs; rendered runs exercise playback with Dummy audio. Original sources and reproduction notes are in assets/audio/README.md and tools/generate_demo_audio.py.
+
+UI uses PresentationStyle's shared theme and guide. Crafting uses compact button padding to fit all six recipes at 720p. HUD timers ignore feedback arriving after scene removal. Gameplay/navigation resources, recipes and wave balance retain Phase8 values. See PHASE_9_TEST_REPORT.md for runtime evidence and limitations.
+
+## Historical Phase 8 architecture
+
 Updated 2026-09-30 - Phase 8 Day Progression, Enemy Variants and Content Unlocks
 
 ## Phase 8 progression architecture (current, 2026-09-30)

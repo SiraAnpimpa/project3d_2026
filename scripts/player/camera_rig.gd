@@ -12,11 +12,11 @@ signal pose_updated
 @export_range(0.0, 80.0) var maximum_pitch_degrees: float = 45.0
 @export_group("Shoulder framing")
 @export var camera_height: float = 1.65
-@export_range(0.5, 10.0) var normal_distance: float = 4.2
-@export_range(0.5, 10.0) var aim_distance: float = 2.6
+@export_range(0.5, 10.0) var normal_distance: float = 4.5
+@export_range(0.5, 10.0) var aim_distance: float = 2.8
 @export_range(-2.0, 2.0) var normal_shoulder_offset: float = 0.7
 @export_range(-2.0, 2.0) var aim_shoulder_offset: float = 0.85
-@export_range(30.0, 100.0) var normal_fov: float = 70.0
+@export_range(30.0, 100.0) var normal_fov: float = 72.0
 @export_range(30.0, 100.0) var aim_fov: float = 55.0
 @export_range(1.0, 30.0) var aim_transition_speed: float = 10.0
 @export_group("Collision")

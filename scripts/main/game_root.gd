@@ -1,5 +1,7 @@
 extends Node3D
 
+var presentation: GamePresentation
+var audio: GameAudio
 var progression: ProgressionManager
 @export var catalog: ItemCatalog
 @export var starter_loadout: InventoryLoadout
@@ -93,6 +95,24 @@ func _ready() -> void:
 	$MainWorld/Bed.bind(rest)
 	hud.bind_survival(waves)
 	debug_controls.waves = waves
+	audio = GameAudio.new()
+	audio.name = "GameAudio"
+	add_child(audio)
+	audio.bind(self)
+	presentation = GamePresentation.new()
+	presentation.name = "Presentation"
+	add_child(presentation)
+	presentation.bind(self)
+	var scenery := WorldPresentation.new()
+	$MainWorld.add_child(scenery)
+	scenery.bind($MainWorld, clock)
+	for screen in [inventory_ui.screen, crafting_ui.screen, pause_menu.get_node("Screen")]:
+		screen.theme = PresentationStyle.theme(screen == crafting_ui.screen)
+	if get_tree().has_meta("normal_play"):
+		get_tree().remove_meta("normal_play")
+		debug_controls.set_active(false)
+	gameplay_mode.mode_changed.connect(func(mode: GameplayModeController.Mode) -> void:
+		hud.show_message("FARMING MODE" if mode == GameplayModeController.Mode.FARMING else "COMBAT MODE"))
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -101,6 +121,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _update_spawn_debug(active: bool, _summary: String) -> void:
+	$TestInteractable/Label.visible = active
+	$TestInteractable.enabled = active
 	for side in ["North", "South", "East", "West"]:
 		$MainWorld.get_node(side + "SpawnMarker").visible = active
 		$MainWorld.get_node(side + "SpawnLabel").visible = active
@@ -119,4 +141,4 @@ func _on_completed() -> void:
 	debug_controls.process_mode = Node.PROCESS_MODE_DISABLED
 	$MainWorld/ZombieTestSpawner.clear_zombies()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	hud.show_completion()
+	presentation.start_ending()

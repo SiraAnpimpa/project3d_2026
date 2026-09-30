@@ -1,6 +1,7 @@
 class_name WeaponController
 extends Node3D
 
+signal shot_fired
 signal state_changed
 signal feedback(message: String)
 signal hit_confirmed
@@ -168,6 +169,7 @@ func try_fire() -> bool:
 		_player.camera_rig.orbit(0, deg_to_rad(state.data.recoil_degrees))
 	_committing = false
 	state_changed.emit()
+	shot_fired.emit()
 	return true
 
 
