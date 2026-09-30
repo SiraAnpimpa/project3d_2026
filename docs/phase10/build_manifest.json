@@ -1,0 +1,62 @@
+{
+  "version": "0.1.0-demo",
+  "normal_entry": "res://scenes/main/MainMenu.tscn",
+  "qa_executable_identical": true,
+  "files": [
+    {
+      "file": "ASSET_CREDITS.md",
+      "bytes": 2437,
+      "sha256": "9f314a6cacb4f2d201010b81402d670d8f696f32f09b0bec81513d6a930d09e8"
+    },
+    {
+      "file": "CONTROLS.md",
+      "bytes": 825,
+      "sha256": "563a43e116356e00482a1dfc811266ccfeb123168f3551210b42e3290b5186c4"
+    },
+    {
+      "file": "FINAL_BALANCE.md",
+      "bytes": 3876,
+      "sha256": "9b8ab7b8ebdc7647cd8af72e6fc67355038802bb28f98b478050bf38663216b8"
+    },
+    {
+      "file": "FINAL_QA_REPORT.md",
+      "bytes": 11043,
+      "sha256": "13daeed77725e9c4ac7238eb1a22704f9ac06e76e83b7cddca6a9bad8671777b"
+    },
+    {
+      "file": "GODOT_COPYRIGHT.txt",
+      "bytes": 100108,
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
+    },
+    {
+      "file": "GODOT_LICENSE.txt",
+      "bytes": 1149,
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+    },
+    {
+      "file": "KNOWN_ISSUES.md",
+      "bytes": 1157,
+      "sha256": "847ea7ba4e7d144123921f5877ba69bb8b1721a948dd29ead1084c0c7d54ff3a"
+    },
+    {
+      "file": "README.txt",
+      "bytes": 612,
+      "sha256": "0e1e520ec978a69bea840aa879e65bc221fff07fa6d1ce9bf83d27d769990da3"
+    },
+    {
+      "file": "RELEASE_CHECKLIST.md",
+      "bytes": 1415,
+      "sha256": "d114d844aff80363a6af74a5d5452c951a599725af7100c9f94352a36849d19c"
+    },
+    {
+      "file": "SomchaisLastHarvest.exe",
+      "bytes": 109127680,
+      "sha256": "4fb4fa7952a657cacdd171296fa9401238aaf6d637e347afd36a7ab1e88610ec"
+    },
+    {
+      "file": "SomchaisLastHarvest.pck",
+      "bytes": 2584456,
+      "sha256": "c58c948f6df4d018789b1fc3b48b6c76c373a90969830cd29258e690e701ea63"
+    }
+  ]
+}

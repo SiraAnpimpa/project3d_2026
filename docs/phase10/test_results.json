@@ -1,0 +1,59 @@
+{
+  "version": "0.1.0-demo",
+  "baseline": "Phase9 42checks; not rerun wholesale because changes are limited to supply and release cleanup.",
+  "latest_checks": [
+    {
+      "check": "phase10-balanced-final",
+      "passed": true,
+      "errors": [],
+      "result": [
+        "PHASE_10_CAMPAIGN_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase10-final-progression",
+      "passed": true,
+      "errors": [],
+      "result": [
+        "PHASE_8_PROGRESSION_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase10-death",
+      "passed": true,
+      "errors": [],
+      "result": [
+        "PHASE_10_DEATH_MATRIX_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase10-final-presentation",
+      "passed": true,
+      "errors": [],
+      "result": [
+        "PHASE_9_PRESENTATION_RESULT failures=0",
+        "STANDALONE_QUIT_BUTTON_REQUESTED"
+      ]
+    },
+    {
+      "check": "phase10-exported-performance",
+      "passed": true,
+      "errors": [],
+      "result": [
+        "PHASE_10_PERFORMANCE_RESULT failures=0"
+      ]
+    },
+    {
+      "check": "phase10-final-normal-boot",
+      "passed": true,
+      "errors": [],
+      "result": []
+    },
+    {
+      "check": "phase10-final-export",
+      "passed": true,
+      "errors": [],
+      "result": []
+    }
+  ]
+}

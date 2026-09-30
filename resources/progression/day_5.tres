@@ -9,5 +9,5 @@ seed_unlocks = Array[StringName]([&"seed_ice_plant"])
 recipe_unlocks = Array[StringName]([&"ice_ammo"])
 starter_quantity = 3
 supply_seed_ids = Array[StringName]([&"seed_lead", &"seed_paper", &"seed_iron", &"seed_copper", &"seed_small_herb"])
-supply_quantity = 8
+supply_quantity = 5
 message = ""

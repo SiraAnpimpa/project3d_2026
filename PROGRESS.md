@@ -1,5 +1,19 @@
 # PROGRESS — Somchai's Last Harvest
 
+## Current: Phase10 automated QA complete / v0.1.0-demo candidate (2026-09-30)
+
+- Balanced release-template legitimate campaign passed all10waves and rescue:739shots,321remaining; Night10 used136shots and took26damage. No grants/godmode/instant growth/direct kills/teleports/day jumps. Actual input, normal clock/economy; automated precise aiming is not human playtesting.
+- Only balance change: daily basic seed supplies3/4/4/5/5/6/7/8/8 for Days2-10, replacing8everyday. Other economy/combat/wave values unchanged. Before/after telemetry retained in docs/phase10.
+- Release cleanup: TargetDummy removed from normal/release game, debug-only interaction prints, F1/cheats disabled in actual release. Version/export preset created. Baseline had no reproduced blocker/high defect.
+- Passed: nine-scenario death/restart matrix; final accelerated progression/unlock/state regression; exported rendered menu/farming/crafting/combat/rest/gameover/ending/restart/real Quit; normal standalone rendered boot. Latest logs have no critical errors. Phase9's42check baseline remains applicable; no claim of a new wholesale43check run.
+- Release performance on RTX2060/i5-9300H: final-night12alive1080p mean4.819ms,p99=8.175ms. Campaign process private memory69.60MBinitial/78.36MBpeak; accelerated daytime nodes528everyday. No speculative optimization.
+- Candidate: release/SomchaisLastHarvest_v0.1.0_demo (EXE+PCK+docs/notices), matching playable ZIP; separate source archive. QA builds excluded from submission package. Normal entry MainMenu; no editor dependency.
+- Documents: FINAL_QA_REPORT, FINAL_BALANCE, CONTROLS, ASSET_CREDITS, KNOWN_ISSUES, RELEASE_CHECKLIST, issue register; source architecture/plan/README updated. tools/export_qa.py reproduces isolated release-template QA entry; tests excluded from normal export.
+- External/manual checks: original five GLB pack licenses missing, real listening mix/human difficulty and clean-machine test not certified. Desktop automation unavailable due missing native pipe; exported programmatic UI checks passed.
+- **FEATURE FREEZE.** Deliver commit/push and local artifacts, then STOP. Do not add features or continue balance without a new user request.
+
+## Historical Phase9 delivery
+
 ## Current: Phase 9 complete, runtime verified (2026-09-30)
 
 - MainMenu is the project entry; Play hides debug tools, How To Play explains controls and the loop. Pause supports guide, restart and return to menu.

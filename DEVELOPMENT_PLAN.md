@@ -1,5 +1,13 @@
 # DEVELOPMENT_PLAN — Somchai's Last Harvest
 
+## Current: Phase10 automated QA delivered / FEATURE FREEZE
+
+v0.1.0-demo Windows candidate exported and runtime tested. Full balanced legitimate automated Day1-10 campaign, final-night rescue, death/restart matrix, exported UI flow, actual Quit, progression/state and release profiling pass. Balance change is limited to progressive daily basic seed supplies. See FINAL_QA_REPORT.md, FINAL_BALANCE.md and RELEASE_CHECKLIST.md.
+
+Unresolved external/manual checks: original GLB distribution rights, human listening/difficulty and optional clean-machine confirmation. These are disclosed, not marked verified. No new major feature or speculative performance refactor. Deliver source commit/push and local source/playable packages, then STOP; further work requires a new user request.
+
+## Historical Phase9 plan
+
 ## Current: Phase 9 complete (2026-09-30)
 
 Rescue ending, final-night presentation, Main/Pause/Ending/GameOver menus, guide, UI/map/lighting/audio/feedback/camera polish are implemented and runtime verified. Latest 42 per-check results pass after fixes; PHASE_9_TEST_REPORT.md records fixture boundaries and remaining placeholders.

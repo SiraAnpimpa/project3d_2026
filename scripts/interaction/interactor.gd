@@ -63,4 +63,4 @@ func try_interact() -> void:
 		return
 	var message := target.interact(actor)
 	interaction_completed.emit(message)
-	print(message)
+	if OS.is_debug_build(): print(message)

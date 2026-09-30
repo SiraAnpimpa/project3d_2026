@@ -108,9 +108,11 @@ func _ready() -> void:
 	scenery.bind($MainWorld, clock)
 	for screen in [inventory_ui.screen, crafting_ui.screen, pause_menu.get_node("Screen")]:
 		screen.theme = PresentationStyle.theme(screen == crafting_ui.screen)
-	if get_tree().has_meta("normal_play"):
-		get_tree().remove_meta("normal_play")
+	if get_tree().has_meta("normal_play") or not OS.is_debug_build():
+		if get_tree().has_meta("normal_play"): get_tree().remove_meta("normal_play")
 		debug_controls.set_active(false)
+		# Preserve the development fixture only for direct editor/test entry.
+		$MainWorld/TargetDummy.queue_free()
 	gameplay_mode.mode_changed.connect(func(mode: GameplayModeController.Mode) -> void:
 		hud.show_message("FARMING MODE" if mode == GameplayModeController.Mode.FARMING else "COMBAT MODE"))
 

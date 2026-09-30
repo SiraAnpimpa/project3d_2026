@@ -1,5 +1,15 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
+## Current Phase10 release architecture
+
+Version0.1.0-demo. Existing gameplay architecture retained. Daily basic supply quantities now follow3/4/4/5/5/6/7/8/8 on Days2-10 in DayConfig resources; no separate economy logic added. MainMenu normal-play flag and release builds remove TargetDummy, while direct editor fixtures retain it. Interaction prints are debug-only; existing OS.is_debug_build guards disable release cheats.
+
+export_presets.cfg selects runtime scenes/scripts/data/UI/audio and the dynamically loaded helicopter plus dependencies. Tests/tools/docs are excluded from the normal PCK. tools/export_qa.py generates an isolated Node adapter from existing test inheritance, temporarily sets a QA entry and restores project/preset bytes in finally. QA and normal exports use the same release executable; only QA entry resources differ. Generated driver/scene are ignored and not shipped. Release artifacts live in ignored release/; source and playable packages are separate.
+
+See FINAL_QA_REPORT.md for exact automation boundaries and ASSET_CREDITS.md for unresolved original pack rights. Feature freeze; no save/consumable/elemental-combat subsystem was added.
+
+## Historical Phase9 architecture
+
 ## Current Phase 9 presentation architecture
 
 Project entry is `scenes/main/MainMenu.tscn`. `PresentationStyle.go_to` releases pause and changes scenes; entering GameRoot sets a one-shot normal-play tree metadata flag so debug UI is hidden. Direct GameRoot test/editor entry preserves debug access.

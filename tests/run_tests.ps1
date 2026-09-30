@@ -2,6 +2,8 @@ param(
     [Parameter(Mandatory = $true)][string]$Godot,
     [string]$LogDirectory = (Join-Path $PSScriptRoot '..\.godot\test-logs'),
     [switch]$WithRendering,
+    [switch]$WithCampaign,
+    [switch]$WithProfiling,
     [string]$CaptureDirectory = (Join-Path $PSScriptRoot '..\.godot\test-captures')
 )
 
@@ -49,7 +51,7 @@ foreach ($test in @(
     'phase_3_growth_rate_test', 'phase_3_integration_test',
     'camera_controls_test', 'camera_collision_ray_test', 'camera_rate_test',
     'camera_walkthrough_test', 'input_selection_data_test', 'input_modes_integration_test',
-    'phase_4_crafting_test', 'phase_5_weapon_test', 'phase_6_zombie_test', 'phase_7_lifecycle_test', 'phase_8_progression_test', 'phase_8_variants_test', 'phase_9_presentation_test'
+    'phase_4_crafting_test', 'phase_5_weapon_test', 'phase_6_zombie_test', 'phase_7_lifecycle_test', 'phase_8_progression_test', 'phase_8_variants_test', 'phase_9_presentation_test', 'phase_10_death_matrix_test'
 )) {
     Invoke-GodotCheck $test ('--headless --fixed-fps 60 --script res://tests/' + $test + '.gd')
 }
@@ -71,6 +73,12 @@ if ($WithRendering) {
     Invoke-GodotCheck 'rendered_phase8_progression' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_8_progression_test.gd -- --capture-dir "' + $capturePath + '"')
     Invoke-GodotCheck 'rendered_phase8_variants' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_8_variants_test.gd -- --capture-dir "' + $capturePath + '"')
     Invoke-GodotCheck 'rendered_phase9_presentation' ('--audio-driver Dummy --fixed-fps 60 --script res://tests/phase_9_presentation_test.gd -- --capture-dir "' + $capturePath + '"')
+}
+if ($WithCampaign) {
+    Invoke-GodotCheck 'phase_10_campaign_test' '--headless --fixed-fps 60 --script res://tests/phase_10_campaign_test.gd' $true 900
+}
+if ($WithProfiling) {
+    Invoke-GodotCheck 'phase_10_performance_test' '--audio-driver Dummy --script res://tests/phase_10_performance_test.gd' $true 120
 }
 Write-Output "SUITE_RESULT failures=$failures logs=$LogDirectory"
 exit $failures

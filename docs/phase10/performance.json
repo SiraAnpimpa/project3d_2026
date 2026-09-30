@@ -1,0 +1,67 @@
+{
+  "environment": "Windows, Intel i5-9300H, NVIDIA RTX2060, Godot4.7.2 Compatibility, release template, uncapped rendering, Dummy audio",
+  "memory_note": "MEMORY_STATIC returns zero in release; unavailable, not zero actual usage. See process memory samples separately.",
+  "stress_note": "12 living enemies with damage disabled only for synthetic performance workload. Not campaign evidence.",
+  "samples": [
+    {
+      "alive": 0,
+      "draw_calls": 319.0,
+      "frames": 600,
+      "max_ms": 7.793,
+      "mean_ms": 4.15809166666666,
+      "navigation_ms": 0.00557833333333328,
+      "nodes": 516,
+      "p95_ms": 4.9,
+      "p99_ms": 5.291,
+      "physics_ms": 0.529519999999992,
+      "process_ms": 5.75499499999999,
+      "scenario": "day_720p",
+      "static_memory": 0.0
+    },
+    {
+      "alive": 12,
+      "draw_calls": 433.0,
+      "frames": 600,
+      "max_ms": 9.481,
+      "mean_ms": 4.424125,
+      "navigation_ms": 0.0103566666666665,
+      "nodes": 1080,
+      "p95_ms": 6.129,
+      "p99_ms": 8.246,
+      "physics_ms": 1.90379833333334,
+      "process_ms": 6.09702499999999,
+      "scenario": "final_night_12_alive_720p",
+      "static_memory": 0.0
+    },
+    {
+      "alive": 12,
+      "draw_calls": 432.0,
+      "frames": 600,
+      "max_ms": 8.831,
+      "mean_ms": 4.81861000000001,
+      "navigation_ms": 0.0108033333333332,
+      "nodes": 1080,
+      "p95_ms": 6.407,
+      "p99_ms": 8.175,
+      "physics_ms": 2.5757516666667,
+      "process_ms": 6.42402833333328,
+      "scenario": "final_night_12_alive_1080p",
+      "static_memory": 0.0
+    },
+    {
+      "alive": 0,
+      "draw_calls": 299.0,
+      "frames": 600,
+      "max_ms": 10.747,
+      "mean_ms": 4.31905833333334,
+      "navigation_ms": 0.0530866666666668,
+      "nodes": 529,
+      "p95_ms": 6.495,
+      "p99_ms": 7.813,
+      "physics_ms": 0.517090000000005,
+      "process_ms": 7.75522333333341,
+      "scenario": "ending_1080p",
+      "static_memory": 0.0
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 .godot/
 .kilo/
 *.log
+release/
 # These assets use the shared importer defaults in project.godot.
 Asset/**/*.glb.import
+
+# Generated only by tools/export_qa.py; not part of the playable release.
+tests/StandaloneCampaign.tscn
+tests/standalone_campaign_driver.gd
+tests/standalone_campaign_driver.gd.uid
