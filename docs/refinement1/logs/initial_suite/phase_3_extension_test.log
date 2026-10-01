@@ -1,0 +1,12 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: additional plant added by resources and catalog registration only
+PASS: demo catalog remains unchanged
+PASS: generic FarmPlot plants the new seed
+PASS: new thresholds are read from data
+PASS: new duration reaches ready using common plant scene
+PASS: new yield harvested without plant-specific code
+PASS: new plant supports plot reuse
+PHASE_3_EXTENSION_RESULT failures=0

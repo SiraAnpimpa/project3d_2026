@@ -1,0 +1,43 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: RMB action migrated to aim without duplicate orbit binding
+PASS: gameplay starts with active mouse-look intent
+PASS: rendered gameplay captures mouse at startup
+PASS: right-shoulder framing places Somchai left of center
+PASS: raw mouse displacement rotates yaw and pitch without delta scaling
+PASS: downward pitch clamps at -65 degrees
+PASS: upward pitch clamps at 45 degrees with no roll
+PASS: W follows camera forward after a 90-degree yaw
+PASS: normal visual +Z turns toward movement smoothly
+MATT_FOOT_FORWARD Foot.L dot_visual_Z=0.9999932050705
+MATT_FOOT_FORWARD Foot.R dot_visual_Z=0.9999932050705
+PASS: both imported Matt foot directions confirm authored +Z forward
+PASS: RMB press enters aim and enables crosshair
+PASS: aim framing transitions instead of snapping
+PASS: aim reaches configured distance and FOV
+PASS: stationary aiming rotates visual toward camera forward
+PASS: aim movement move_forward keeps visual facing aim
+PASS: aim movement move_backward keeps visual facing aim
+PASS: aim movement move_left keeps visual facing aim
+PASS: aim movement move_right keeps visual facing aim
+PASS: moving with Shift exits aim, sprints and drains stamina
+PASS: held RMB resumes aim after sprint ends
+PASS: RMB release exits aim
+PASS: normal FOV restores smoothly
+PASS: V switches smoothly to left shoulder
+PASS: V switches back to right shoulder
+PASS: inventory releases mouse, disables aim and hides crosshair
+PASS: menu blocks mouse look and aiming behind UI
+PASS: Escape closes inventory once and restores normal camera control
+PASS: closing inventory recaptures mouse
+PASS: Escape during gameplay pauses and releases the cursor
+PASS: Escape resumes and recaptures camera control
+PASS: focus loss cancels aim and camera control
+PASS: focus restoration never leaves aim stuck
+PASS: external scene pause also releases mouse
+PASS: death disables camera controls and aim
+PASS: restoring player restores camera controls
+CAMERA_CONTROLS_RESULT failures=0

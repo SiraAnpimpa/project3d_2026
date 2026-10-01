@@ -42,7 +42,7 @@ func run() -> void:
 		game.clock.advance_game_minutes(60)
 		key(KEY_E)
 		check(plot.state == FarmPlot.State.EMPTY and game.inventory.has_item(plot._catalog.get_plant(StringName(String(row[0]).trim_prefix("seed_"))).harvest_item.id), "input plants and harvests " + row[0])
-	player.position = Vector3(-2, 0.05, 0.1)
+	player.position = game.get_node("MainWorld/Workbench").position + Vector3(0, 0.05, 1.1)
 	await frames(5)
 	key(KEY_E)
 	await frames(3)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://Asset/Post Apocolypse Pack.undefined-glb/Wooden Bat Barbed.glb" id="model"]
+
+[node name="WoodenBat" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("model")]
+position = Vector3(0, 0, 0.22)
+scale = Vector3(0.8, 0.8, 0.8)
+
+[node name="PrimaryGrip" type="Marker3D" parent="."]
+
+[node name="SecondaryGrip" type="Marker3D" parent="."]
+position = Vector3(0, 0, 0.1)
+
+[node name="HitTip" type="Marker3D" parent="."]
+position = Vector3(0, 0, 0.93)

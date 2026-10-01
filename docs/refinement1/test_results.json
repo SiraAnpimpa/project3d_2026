@@ -1,0 +1,595 @@
+{
+  "date": "2026-10-01",
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "method": "Automated runtime/input checks and visually inspected rendered captures; not manual playtesting.",
+  "initial_combined_batch": {
+    "checks": 52,
+    "passed": 51,
+    "failed": 1
+  },
+  "correction": "Headless backends cannot capture the OS mouse. The test now verifies gameplay control in both modes and capture only with a rendered window. Targeted headless rerun passed; rendered counterpart passed in the batch.",
+  "latest_per_check": {
+    "checks": 52,
+    "passed": 52,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "check": "camera_collision_ray_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/camera_collision_ray_test.log",
+      "initial_log": "logs/initial_suite/camera_collision_ray_test.log",
+      "result_lines": [
+        "CAMERA_COLLISION_RAY_RESULT jitter_m=0.0 failures=0"
+      ],
+      "assertions_passed": 19,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "camera_controls_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/camera_controls_test.log",
+      "initial_log": "logs/initial_suite/camera_controls_test.log",
+      "result_lines": [
+        "CAMERA_CONTROLS_RESULT failures=0"
+      ],
+      "assertions_passed": 33,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "camera_rate_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/camera_rate_test.log",
+      "initial_log": "logs/initial_suite/camera_rate_test.log",
+      "result_lines": [
+        "CAMERA_RATE_RESULT 30Hz=(55.11454, 2.811455, 0.848989, 2.811455) 120Hz=(55.11454, 2.811455, 0.848989, 2.811455) pass=true"
+      ],
+      "assertions_passed": 0,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "camera_walkthrough_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/camera_walkthrough_test.log",
+      "initial_log": "logs/initial_suite/camera_walkthrough_test.log",
+      "result_lines": [
+        "CAMERA_WALKTHROUGH_RESULT failures=0"
+      ],
+      "assertions_passed": 18,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "editor_import",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/editor_import.log",
+      "initial_log": "logs/initial_suite/editor_import.log",
+      "result_lines": [],
+      "assertions_passed": 0,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "input_modes_integration_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/input_modes_integration_test.log",
+      "initial_log": "logs/initial_suite/input_modes_integration_test.log",
+      "result_lines": [
+        "INPUT_MODES_INTEGRATION_RESULT failures=0"
+      ],
+      "assertions_passed": 39,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "input_selection_data_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/input_selection_data_test.log",
+      "initial_log": "logs/initial_suite/input_selection_data_test.log",
+      "result_lines": [
+        "INPUT_SELECTION_DATA_RESULT failures=0"
+      ],
+      "assertions_passed": 29,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "main_scene_boot",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/main_scene_boot.log",
+      "initial_log": "logs/initial_suite/main_scene_boot.log",
+      "result_lines": [],
+      "assertions_passed": 0,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "movement_rate_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/movement_rate_test.log",
+      "initial_log": "logs/initial_suite/movement_rate_test.log",
+      "result_lines": [
+        "MOVEMENT_RATE_RESULT 30Hz=3.73332977294922m 120Hz=3.68335485458374m pass=true"
+      ],
+      "assertions_passed": 0,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_10_death_matrix_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_10_death_matrix_test.log",
+      "initial_log": "logs/initial_suite/phase_10_death_matrix_test.log",
+      "result_lines": [
+        "PHASE_10_DEATH_MATRIX_RESULT failures=0"
+      ],
+      "assertions_passed": 36,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_2_integration_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_2_integration_test.log",
+      "initial_log": "logs/initial_suite/phase_2_integration_test.log",
+      "result_lines": [
+        "PHASE_2_INTEGRATION_RESULT failures=0"
+      ],
+      "assertions_passed": 24,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_3_data_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_3_data_test.log",
+      "initial_log": "logs/initial_suite/phase_3_data_test.log",
+      "result_lines": [
+        "PHASE_3_DATA_RESULT failures=0"
+      ],
+      "assertions_passed": 16,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_3_debug_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_3_debug_test.log",
+      "initial_log": "logs/initial_suite/phase_3_debug_test.log",
+      "result_lines": [
+        "PHASE_3_DEBUG_RESULT failures=0"
+      ],
+      "assertions_passed": 12,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_3_extension_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_3_extension_test.log",
+      "initial_log": "logs/initial_suite/phase_3_extension_test.log",
+      "result_lines": [
+        "PHASE_3_EXTENSION_RESULT failures=0"
+      ],
+      "assertions_passed": 7,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_3_farming_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_3_farming_test.log",
+      "initial_log": "logs/initial_suite/phase_3_farming_test.log",
+      "result_lines": [
+        "PHASE_3_FARMING_RESULT failures=0"
+      ],
+      "assertions_passed": 25,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_3_growth_rate_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_3_growth_rate_test.log",
+      "initial_log": "logs/initial_suite/phase_3_growth_rate_test.log",
+      "result_lines": [
+        "PHASE_3_GROWTH_RATE_RESULT 30Hz=0.66666666666667 120Hz=0.66666666666667 failures=0"
+      ],
+      "assertions_passed": 0,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_3_integration_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_3_integration_test.log",
+      "initial_log": "logs/initial_suite/phase_3_integration_test.log",
+      "result_lines": [
+        "PHASE_3_INTEGRATION_RESULT failures=0"
+      ],
+      "assertions_passed": 18,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_3_inventory_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_3_inventory_test.log",
+      "initial_log": "logs/initial_suite/phase_3_inventory_test.log",
+      "result_lines": [
+        "PHASE_3_INVENTORY_RESULT failures=0"
+      ],
+      "assertions_passed": 20,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_3_ui_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_3_ui_test.log",
+      "initial_log": "logs/initial_suite/phase_3_ui_test.log",
+      "result_lines": [
+        "PHASE_3_UI_RESULT failures=0"
+      ],
+      "assertions_passed": 11,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_4_crafting_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_4_crafting_test.log",
+      "initial_log": "logs/initial_suite/phase_4_crafting_test.log",
+      "result_lines": [
+        "PHASE_4_CRAFTING_RESULT failures=0"
+      ],
+      "assertions_passed": 54,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_5_weapon_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_5_weapon_test.log",
+      "initial_log": "logs/initial_suite/phase_5_weapon_test.log",
+      "result_lines": [
+        "PHASE_5_WEAPON_RESULT failures=0"
+      ],
+      "assertions_passed": 51,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_6_zombie_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_6_zombie_test.log",
+      "initial_log": "logs/initial_suite/phase_6_zombie_test.log",
+      "result_lines": [
+        "PHASE_6_ZOMBIE_RESULT failures=0"
+      ],
+      "assertions_passed": 46,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_7_full_day_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_7_full_day_test.log",
+      "initial_log": "logs/initial_suite/phase_7_full_day_test.log",
+      "result_lines": [
+        "CRAFT_RESULT ammo=40 medicine=1",
+        "PHASE_7_FULL_DAY_RESULT failures=0"
+      ],
+      "assertions_passed": 57,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_7_lifecycle_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_7_lifecycle_test.log",
+      "initial_log": "logs/initial_suite/phase_7_lifecycle_test.log",
+      "result_lines": [
+        "PHASE_7_LIFECYCLE_RESULT failures=0"
+      ],
+      "assertions_passed": 37,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_8_progression_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_8_progression_test.log",
+      "initial_log": "logs/initial_suite/phase_8_progression_test.log",
+      "result_lines": [
+        "PHASE_8_PROGRESSION_RESULT failures=0"
+      ],
+      "assertions_passed": 54,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_8_variants_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_8_variants_test.log",
+      "initial_log": "logs/initial_suite/phase_8_variants_test.log",
+      "result_lines": [
+        "PHASE_8_VARIANTS_RESULT failures=0"
+      ],
+      "assertions_passed": 21,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "phase_9_presentation_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/phase_9_presentation_test.log",
+      "initial_log": "logs/initial_suite/phase_9_presentation_test.log",
+      "result_lines": [
+        "PHASE_9_PRESENTATION_RESULT failures=0"
+      ],
+      "assertions_passed": 30,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "refinement_aim_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/refinement_aim_test.log",
+      "initial_log": "logs/initial_suite/refinement_aim_test.log",
+      "result_lines": [
+        "REFINEMENT_AIM_RESULT failures=0"
+      ],
+      "assertions_passed": 30,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "refinement_full_day_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/refinement_full_day_test.log",
+      "initial_log": "logs/initial_suite/refinement_full_day_test.log",
+      "result_lines": [
+        "CRAFT_RESULT ammo=40 medicine=1",
+        "PHASE_7_FULL_DAY_RESULT failures=0"
+      ],
+      "assertions_passed": 64,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "refinement_holding_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/refinement_holding_test.log",
+      "initial_log": "logs/initial_suite/refinement_holding_test.log",
+      "result_lines": [
+        "REFINEMENT_HOLDING_RESULT failures=0"
+      ],
+      "assertions_passed": 12,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "refinement_map_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/refinement_map_test.log",
+      "initial_log": "logs/initial_suite/refinement_map_test.log",
+      "result_lines": [
+        "REFINEMENT_MAP_RESULT failures=0"
+      ],
+      "assertions_passed": 198,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "refinement_movement_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/refinement_movement_test.log",
+      "initial_log": "logs/initial_suite/refinement_movement_test.log",
+      "result_lines": [
+        "REFINEMENT_MOVEMENT_RESULT failures=0"
+      ],
+      "assertions_passed": 8,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "refinement_shelter_probe",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/refinement_shelter_probe.log",
+      "initial_log": "logs/initial_suite/refinement_shelter_probe.log",
+      "result_lines": [
+        "REFINEMENT_SHELTER_RESULT failures=0"
+      ],
+      "assertions_passed": 1,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "refinement_skip_test",
+      "status": "passed",
+      "latest_log": "logs/focused/skip_headless.log",
+      "initial_log": "logs/initial_suite/refinement_skip_test.log",
+      "result_lines": [
+        "REFINEMENT_SKIP_RESULT failures=0"
+      ],
+      "assertions_passed": 36,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_camera_controls",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_camera_controls.log",
+      "initial_log": "logs/initial_suite/rendered_camera_controls.log",
+      "result_lines": [
+        "CAMERA_CONTROLS_RESULT failures=0"
+      ],
+      "assertions_passed": 35,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_camera_walkthrough",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_camera_walkthrough.log",
+      "initial_log": "logs/initial_suite/rendered_camera_walkthrough.log",
+      "result_lines": [
+        "CAMERA_WALKTHROUGH_RESULT failures=0"
+      ],
+      "assertions_passed": 28,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_input_modes",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_input_modes.log",
+      "initial_log": "logs/initial_suite/rendered_input_modes.log",
+      "result_lines": [
+        "INPUT_MODES_INTEGRATION_RESULT failures=0"
+      ],
+      "assertions_passed": 47,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase2",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase2.log",
+      "initial_log": "logs/initial_suite/rendered_phase2.log",
+      "result_lines": [
+        "PHASE_2_INTEGRATION_RESULT failures=0"
+      ],
+      "assertions_passed": 27,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase3",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase3.log",
+      "initial_log": "logs/initial_suite/rendered_phase3.log",
+      "result_lines": [
+        "PHASE_3_INTEGRATION_RESULT failures=0"
+      ],
+      "assertions_passed": 24,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase4_crafting",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase4_crafting.log",
+      "initial_log": "logs/initial_suite/rendered_phase4_crafting.log",
+      "result_lines": [
+        "PHASE_4_CRAFTING_RESULT failures=0"
+      ],
+      "assertions_passed": 56,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase5_weapon",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase5_weapon.log",
+      "initial_log": "logs/initial_suite/rendered_phase5_weapon.log",
+      "result_lines": [
+        "PHASE_5_WEAPON_RESULT failures=0"
+      ],
+      "assertions_passed": 54,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase6_zombie",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase6_zombie.log",
+      "initial_log": "logs/initial_suite/rendered_phase6_zombie.log",
+      "result_lines": [
+        "PHASE_6_ZOMBIE_RESULT failures=0"
+      ],
+      "assertions_passed": 52,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase7_lifecycle",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase7_lifecycle.log",
+      "initial_log": "logs/initial_suite/rendered_phase7_lifecycle.log",
+      "result_lines": [
+        "PHASE_7_LIFECYCLE_RESULT failures=0"
+      ],
+      "assertions_passed": 42,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase8_progression",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase8_progression.log",
+      "initial_log": "logs/initial_suite/rendered_phase8_progression.log",
+      "result_lines": [
+        "PHASE_8_PROGRESSION_RESULT failures=0"
+      ],
+      "assertions_passed": 62,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase8_variants",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase8_variants.log",
+      "initial_log": "logs/initial_suite/rendered_phase8_variants.log",
+      "result_lines": [
+        "PHASE_8_VARIANTS_RESULT failures=0"
+      ],
+      "assertions_passed": 25,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_phase9_presentation",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_phase9_presentation.log",
+      "initial_log": "logs/initial_suite/rendered_phase9_presentation.log",
+      "result_lines": [
+        "PHASE_9_PRESENTATION_RESULT failures=0"
+      ],
+      "assertions_passed": 46,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_refinement_aim",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_refinement_aim.log",
+      "initial_log": "logs/initial_suite/rendered_refinement_aim.log",
+      "result_lines": [
+        "REFINEMENT_AIM_RESULT failures=0"
+      ],
+      "assertions_passed": 32,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "rendered_refinement_skip",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/rendered_refinement_skip.log",
+      "initial_log": "logs/initial_suite/rendered_refinement_skip.log",
+      "result_lines": [
+        "REFINEMENT_SKIP_RESULT failures=0"
+      ],
+      "assertions_passed": 40,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "stage_1_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/stage_1_test.log",
+      "initial_log": "logs/initial_suite/stage_1_test.log",
+      "result_lines": [
+        "STAGE_1_RESULT failures=0"
+      ],
+      "assertions_passed": 8,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "stage_2_interaction_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/stage_2_interaction_test.log",
+      "initial_log": "logs/initial_suite/stage_2_interaction_test.log",
+      "result_lines": [
+        "STAGE_2_INTERACTION_RESULT failures=0"
+      ],
+      "assertions_passed": 7,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "stage_3_stats_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/stage_3_stats_test.log",
+      "initial_log": "logs/initial_suite/stage_3_stats_test.log",
+      "result_lines": [
+        "STAGE_3_STATS_RESULT failures=0"
+      ],
+      "assertions_passed": 11,
+      "known_certificate_diagnostic": true
+    },
+    {
+      "check": "stage_4_clock_test",
+      "status": "passed",
+      "latest_log": "logs/initial_suite/stage_4_clock_test.log",
+      "initial_log": "logs/initial_suite/stage_4_clock_test.log",
+      "result_lines": [
+        "STAGE_4_CLOCK_RESULT failures=0"
+      ],
+      "assertions_passed": 13,
+      "known_certificate_diagnostic": true
+    }
+  ],
+  "additional_passes": [
+    "logs/focused/refinement_campaign.log",
+    "logs/focused/final_performance_isolated.log",
+    "logs/focused/final_map_capture.log",
+    "logs/focused/final_main_boot.log"
+  ],
+  "only_excluded_engine_error": "ERROR: Failed to read the root certificate store."
+}

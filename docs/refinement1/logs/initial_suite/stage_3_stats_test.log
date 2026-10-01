@@ -1,0 +1,16 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: damage subtracts HP
+PASS: healing clamps to max HP
+PASS: negative damage is ignored
+PASS: death clamps HP and emits once
+PASS: dead player cannot move
+PASS: sprint consumes stamina over real physics steps
+PASS: stamina waits before recovering
+PASS: stamina recovers while not sprinting
+PASS: empty stamina prevents sprint
+PASS: restore clamps and clears exhaustion
+PASS: stamina drain is consistent at 30 and 120 steps/sec
+STAGE_3_STATS_RESULT failures=0

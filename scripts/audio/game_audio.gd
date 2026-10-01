@@ -12,7 +12,7 @@ var _reload_active := false
 
 func bind(game: Node3D) -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	for id in ["shot", "reload", "click", "harvest", "craft", "hurt", "unlock", "rotor", "wind"]:
+	for id in ["shot", "reload", "click", "harvest", "craft", "hurt", "unlock", "rotor", "wind", "bat_swing", "bat_hit"]:
 		streams[id] = load("res://assets/audio/%s.wav" % id)
 	for index in 6:
 		var voice := AudioStreamPlayer.new()
@@ -27,6 +27,8 @@ func bind(game: Node3D) -> void:
 	ambience.finished.connect(func() -> void:
 		if is_inside_tree() and DisplayServer.get_name() != "headless": ambience.play())
 	game.weapons.shot_fired.connect(func() -> void: cue("shot"))
+	game.weapons.melee_started.connect(func() -> void: cue("bat_swing"))
+	game.weapons.melee_hit.connect(func() -> void: cue("bat_hit"))
 	game.weapons.state_changed.connect(func() -> void:
 		var active: bool = game.weapons.current != null and game.weapons.current.is_reloading
 		if active and not _reload_active: cue("reload")

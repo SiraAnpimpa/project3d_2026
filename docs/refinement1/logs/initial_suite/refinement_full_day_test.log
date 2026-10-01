@@ -1,0 +1,91 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: real MainMenu Play enters normal game
+PASS: full loop begins Day 1 06:00 with production clock
+PASS: wheel selects seed_lead
+PASS: walked to (-4.0, 0.025, 2.9) through player input
+Planted Lead Plant.
+PASS: E plants real starter seed 0
+PASS: wheel selects seed_lead
+PASS: walked to (-6.6, 0.025, 2.9) through player input
+Planted Lead Plant.
+PASS: E plants real starter seed 1
+PASS: wheel selects seed_paper
+PASS: walked to (-9.2, 0.025, 2.9) through player input
+Planted Paper Plant.
+PASS: E plants real starter seed 2
+PASS: wheel selects seed_paper
+PASS: walked to (-11.8, 0.025, 2.9) through player input
+Planted Paper Plant.
+PASS: E plants real starter seed 3
+PASS: wheel selects seed_copper
+PASS: walked to (-4.0, 0.025, 5.5) through player input
+Planted Copper Plant.
+PASS: E plants real starter seed 4
+PASS: wheel selects seed_copper
+PASS: walked to (-6.6, 0.025, 5.5) through player input
+Planted Copper Plant.
+PASS: E plants real starter seed 5
+PASS: wheel selects seed_small_herb
+PASS: walked to (-9.2, 0.025, 5.5) through player input
+Planted Small Herb.
+PASS: E plants real starter seed 6
+PASS: wheel selects seed_small_herb
+PASS: walked to (-11.8, 0.025, 5.5) through player input
+Planted Small Herb.
+PASS: E plants real starter seed 7
+PASS: walked to (-4.0, 0.025, 2.9) through player input
+Harvested Lead x2.
+PASS: E harvests naturally grown crop 0
+PASS: walked to (-6.6, 0.025, 2.9) through player input
+Harvested Lead x2.
+PASS: E harvests naturally grown crop 1
+PASS: walked to (-9.2, 0.025, 2.9) through player input
+Harvested Paper x3.
+PASS: E harvests naturally grown crop 2
+PASS: walked to (-11.8, 0.025, 2.9) through player input
+Harvested Paper x3.
+PASS: E harvests naturally grown crop 3
+PASS: walked to (-4.0, 0.025, 5.5) through player input
+Harvested Copper x2.
+PASS: E harvests naturally grown crop 4
+PASS: walked to (-6.6, 0.025, 5.5) through player input
+Harvested Copper x2.
+PASS: E harvests naturally grown crop 5
+PASS: walked to (-9.2, 0.025, 5.5) through player input
+Harvested Small Herb x1.
+PASS: E harvests naturally grown crop 6
+PASS: walked to (-11.8, 0.025, 5.5) through player input
+Harvested Small Herb x1.
+PASS: E harvests naturally grown crop 7
+PASS: walked to (-4.5, 0.0, 0.1) through player input
+Workbench opened
+PASS: E opens workbench after harvest
+CRAFT_RESULT ammo=40 medicine=1
+PASS: harvested materials craft forty ammo and one medicine without grants
+PASS: walked to (10.0, 0.0, 10.0) through player input
+PASS: prepare rifle using only crafted ammunition
+PASS: prepared rifle fires immediately before waiting
+PASS: full loop requires confirmation before night
+PASS: full loop confirms waiting using actual UI input
+PASS: 18:00 starts production wave with debug disabled
+PASS: six production zombies die through actual rifle fire without healing or kill cheats
+PASS: wave attack actually reduced player health
+PASS: walked to (-9.0, 0.0, -2.5) through player input
+PASS: walked to (-9.0, 0.0, -6.5) through player input
+Resting until morning...
+PASS: real E bed interaction begins earned rest
+PASS: complete uncheated Day 1 farming crafting combat rest reaches healthy Day 2
+FULL_DAY_EARLY_CLEAR hp_before_rest=80.0 shots=32 medicine=1
+PASS: real MainMenu Play enters normal game
+PASS: walked to (14.0, 0.0, 14.0) through player input
+PASS: full loop requires confirmation before night
+PASS: full loop confirms waiting using actual UI input
+PASS: bad night survives by running until natural Day 2 dawn
+PASS: bad night retains damaged HP and spent sprint stamina without rest restoration
+PASS: bad-night dawn removes remaining wave without sleep
+FULL_DAY_BAD_NIGHT hp=70.0 stamina=81.666666666667 day=2
+FULL_DAY_RUNTIME wall_seconds=22.252 fixed_simulation=true debug_cheats=false
+PHASE_7_FULL_DAY_RESULT failures=0

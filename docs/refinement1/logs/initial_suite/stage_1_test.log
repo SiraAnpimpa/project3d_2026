@@ -1,0 +1,13 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: spawn settles on ground
+PASS: Matt animation player loads
+PASS: third-person camera is current
+PASS: input-driven movement advances player
+PASS: sprint is faster than walking
+PASS: boundary collision blocks player
+PASS: camera yaw changes
+PASS: camera pitch clamps
+STAGE_1_RESULT failures=0

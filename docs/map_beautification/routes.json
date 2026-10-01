@@ -1,0 +1,266 @@
+[
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 22.45,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 23.7666666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 18.2666666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 21.7666666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 10.0,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 10.5333333333333,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 8.11666666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 9.68333333333333,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 29.9,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 31.6,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 24.4666666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 29.0,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 20.2833333333333,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 32.85,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 30.1833333333333,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 17.3,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 9.03333333333333,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 14.6166666666667,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 13.55,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 7.71666666666667,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 27.0,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 43.9,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 40.4333333333333,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 23.0333333333333,
+    "target": [
+      -13.3000001907349,
+      0.159999996423721,
+      -10.5
+    ],
+    "variant": "Tank"
+  }
+]

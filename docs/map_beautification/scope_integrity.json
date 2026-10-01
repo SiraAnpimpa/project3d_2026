@@ -1,0 +1,27 @@
+{
+  "baseline_files": 715,
+  "unchanged_files": 707,
+  "changed_files": [
+    "scripts/presentation/game_presentation.gd",
+    "scripts/world/environment_assets.gd",
+    "scripts/world/rural_environment.gd",
+    "scripts/world/rural_terrain.gd",
+    "scripts/world/world_presentation.gd",
+    "scenes/main/GameRoot.tscn",
+    "scenes/world/MainWorld.tscn",
+    "resources/navigation/prototype_navigation.tres"
+  ],
+  "missing_files": [],
+  "unexpected_changes": [],
+  "protected_core_files": 195,
+  "protected_core_match": true,
+  "original_glbs": 243,
+  "supplied_cabin_glbs": 1,
+  "all_244_glbs_match": true,
+  "all_preexisting_asset_files_match": true,
+  "user_game_sounds_files": 24,
+  "presentation_only_exact_spatial_substitutions": true,
+  "game_root_only_exact_station_transform": true,
+  "project_config_only_exact_nav_settings": true,
+  "export_presets_match": true
+}

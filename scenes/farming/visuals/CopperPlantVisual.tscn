@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Single-GvfHo0roi3.glb" id="native"]
+
+[node name="CopperPlantVisual" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("native")]
+position = Vector3(-0.010297054, 0.010063180, 0.005082761)
+scale = Vector3(0.330693411, 0.330693411, 0.330693411)

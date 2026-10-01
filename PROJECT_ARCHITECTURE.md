@@ -1,6 +1,44 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
-## Current Phase10 release architecture
+## Current: Gameplay & Character Refinement
+
+StaminaComponent retains its drain/recovery algorithm; only drain14/s, recovery28/s and delay0.65s change. PlayerVisual retains Matt's existing clips, blending with speed-correlated cadence and a native Slash for melee. RiflePose extends the existing local SkeletonModifier3D for low-ready/aim, two grip markers, bounded torso motion, timer-driven recoil/reload and bat sweep. WeaponData/weapon scenes own per-weapon hold transforms; no new animation/IK framework. Physics movement remains4/7/2.8m/s and upright.
+
+WeaponData appends MELEE without changing previous enum IDs. WeaponRuntime owns per-weapon swing/contact/cooldown state. WeaponController branches for a short forward physics shape query at contact time, one nearest visible HealthComponent target per swing, and cancellation on mode/menu/switch/removal/death. Existing gun hitscan/ammo/reload stay authoritative. Wooden Bat uses the existing owned loadout/scroll/HUD/audio pool and starts in slot2; rifle stays default slot1. Core Inventory/Equipment code is unchanged.
+
+Eight PlantData.visual_scene paths select eight static native wrappers, centred and grounded from actual bounds. The optional show_produce_marker flag disables the old generic floating prism for these plants, defaulting true for custom data. Existing stage thresholds/scales and stage_visuals[] extension remain. FarmPlot, growth/economy/recipes/seed data, AI/waves/time/progression and map/nav resources match the current pre-pass snapshot. [Report](GAMEPLAY_REFINEMENT_REPORT.md), [mapping](PLANT_VISUAL_ASSET_MAPPING.md), [scope](docs/gameplay_refinement/scope_audit.json).
+
+## Historical: Final environment cleanup
+
+Environment finishing modifies only RuralEnvironment structure/prop placement, RuralTerrain colour transitions, EnvironmentAssets preload selection, WorldPresentation decorative boards/light attachments, Workbench visual meshes and the baked nav resource. MainWorld/GameRoot/GamePresentation and gameplay/UI/character/weapon files remain byte-identical to the current dirty baseline.
+
+RuralTerrain retains all height/trail/constants/mesh/physics functions; RuralEnvironment retains vegetation generation and 11,019 grass/116 trunk colliders. Explicit frame beams meet pitched roofs and terrain. Rock normals blend 65% with local slope; tool pitching grounds actual mesh vertices. Native Cabin/tower scenes and 54 other mesh batches remain. WorldPresentation owns five unchanged light services; decorative boards are gone. Workbench's added mesh children share its existing unchanged body/interaction. Navigation resource has 3,682 polygons with unchanged settings/actor logic and zero edge overlap. [Report](MAP_FINAL_CLEANUP_REPORT.md), [scope/function checks](docs/map_final_cleanup/scope_audit.json), [metrics](docs/map_final_cleanup/metrics.json).
+
+## Earlier phase records
+
+The following sections preserve earlier versions and their stated counts; current source/evidence is described above.
+
+## Historical map beautification architecture
+
+MainWorld owns @tool RuralTerrain and RuralEnvironment. Terrain supplies a fixed authored112 m playable /240 m visual height/color field,2 m collision/render mesh and4 m distant visual ring. Separate blended home/farm/depot/tower/tent/rescue foundations now replace the earlier assumption that every core interaction sits on one0 m plane. RuralEnvironment supplies authored structures, clusters, patches and identical static collision for navigation; five existing lights/signs belong to WorldPresentation.
+
+The supplied221-part Cabin and water tower retain native scenes. The Cabin wrapper widens its static doorway identically for visible/physical geometry and meets a continuous earth apron. Most scenery retains68 MultiMesh mesh batches and scale-aware LOD. Four grass variants use copied toned materials;11,019 instances have no per-tuft nodes/collision.116 playable trunks collide; canopy/understorey/distant scenery do not. No new gameplay service or vegetation rewrite.
+
+MainWorld holds the twelve plot transforms, bench, bed and RescueArea. Root TestInteractable matches utility storage. GamePresentation now derives only its rescue camera/player/heli transforms from RescueArea; all sequence timing/state/UI is preserved. Other gameplay/player/weapon/camera/animation/input scripts and data match the pre-pass snapshot.
+
+The existing bake tool parses actual world colliders plus the root station transform and writes3737 polygons with radius0.5/height1.8/climb0.2/max slope45°. XZ cell0.25/Y cell0.05 and3-cell detail sampling match the current map settings; edge audit finds no triple-shared edge. Rebuild after height/solid placement edits. The focused runner waits for usable async baked paths and verifies actual enemy/player input, not only path existence.
+
+Map scope, counts, coordinates, tests and evidence: [MAP_BEAUTIFICATION_REPORT.md](MAP_BEAUTIFICATION_REPORT.md), [MAP_ASSET_USAGE.md](MAP_ASSET_USAGE.md), docs/map_beautification. The older FarmDressing and Major Map reports below are historical; previous gameplay refinements remain active.
+
+## Post-production refinement pass1
+
+MainWorld/FarmDressing builds authored static scenery from existing GLBs and simple colliders. The existing bake tool instantiates the same map, including the props; rebake after changes. Original navigation/enemy controller retained. Explicit preloads make used scenery dependencies discoverable by export.
+
+PlayerVisual selects existing movement/Gun clips, retaining current_state for movement consumers and current_clip for actual animation. Playback follows velocity. WeaponController owns a RiflePose SkeletonModifier3D attached to Matt's skeleton; it runs after animation, adjusts two arms against unit-scale WeaponSocket grip markers, applies bounded torso/leg pose and caches grip diagnostics. It does not modify source animations or rest bones. Physics root and shooting logic remain authoritative; recoil/reload are presentation driven by actual weapon state. No AnimationTree or general IK framework.
+
+GameRoot binds one SkipNightDialog CanvasLayer. N and a HUD action request a modal; it rechecks daytime/day1–10/waveDAY/player/menu/reload/rest/ending/focus eligibility, pauses the tree, releases cursor, disables interaction and uses the existing camera menu gate to cancel aim/fire. Cancel owns no time changes. Confirm revalidates day/state, guards reentry, closes its pause, calls GameClock.skip_to_night, then releases transition guard deferred. Existing time_changed/night_started consumers update plants, lighting, HUD, audio and waves; no direct wave-start call and no rest-system reuse. Clock internals/economy/progression are unchanged. Default keyboard focus is Cancel; Escape cancels.
+
+## Historical Phase10 release architecture
 
 Version0.1.0-demo. Existing gameplay architecture retained. Daily basic supply quantities now follow3/4/4/5/5/6/7/8/8 on Days2-10 in DayConfig resources; no separate economy logic added. MainMenu normal-play flag and release builds remove TargetDummy, while direct editor fixtures retain it. Interaction prints are debug-only; existing OS.is_debug_build guards disable release cheats.
 
@@ -10,7 +48,7 @@ See FINAL_QA_REPORT.md for exact automation boundaries and ASSET_CREDITS.md for 
 
 ## Historical Phase9 architecture
 
-## Current Phase 9 presentation architecture
+## Historical Phase 9 presentation architecture
 
 Project entry is `scenes/main/MainMenu.tscn`. `PresentationStyle.go_to` releases pause and changes scenes; entering GameRoot sets a one-shot normal-play tree metadata flag so debug UI is hidden. Direct GameRoot test/editor entry preserves debug access.
 

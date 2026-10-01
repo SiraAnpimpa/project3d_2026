@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/world/MainWorld.tscn" id="1_world"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2_player"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/crafting/crafting_system.gd" id="crafting_system"]
 [ext_resource type="PackedScene" path="res://scenes/ui/CraftingUI.tscn" id="crafting_ui"]
 [ext_resource type="Resource" path="res://resources/items/basic_rifle.tres" id="starter_weapon"]
+[ext_resource type="Resource" path="res://resources/items/wooden_bat.tres" id="fallback_weapon"]
 [ext_resource type="Script" path="res://scripts/survival/night_wave_manager.gd" id="waves"]
 [ext_resource type="Script" path="res://scripts/survival/rest_system.gd" id="rest"]
 [ext_resource type="Resource" path="res://resources/waves/day_1.tres" id="wave_data"]
@@ -29,6 +30,7 @@ starter_loadout = ExtResource("10_loadout")
 catalog = ExtResource("11_catalog")
 recipe_book = ExtResource("recipe_book")
 starter_weapon = ExtResource("starter_weapon")
+fallback_weapon = ExtResource("fallback_weapon")
 
 [node name="MainWorld" parent="." instance=ExtResource("1_world")]
 
@@ -36,7 +38,7 @@ starter_weapon = ExtResource("starter_weapon")
 position = Vector3(0, 0.15, 6)
 
 [node name="TestInteractable" parent="." instance=ExtResource("3_test")]
-position = Vector3(0, 0, -1)
+position = Vector3(7.4, 0, -9.5)
 
 [node name="TimeController" type="Node" parent="."]
 script = ExtResource("5_clock")

@@ -1,0 +1,146 @@
+[
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.82634735107422,
+    "minimum_measured_actor_speed": 4.0,
+    "near_ground_samples": 59,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 1.0,
+    "tag": "candidate_7.0"
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 4.04265870218692,
+    "minimum_measured_actor_speed": 7.0,
+    "near_ground_samples": 23,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 1.0,
+    "tag": "candidate_7.0"
+  },
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.09048193009173,
+    "minimum_measured_actor_speed": 4.0,
+    "near_ground_samples": 61,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 2.20000004768372,
+    "tag": "candidate_6.0"
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 3.39388618469238,
+    "minimum_measured_actor_speed": 7.0,
+    "near_ground_samples": 25,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 1.16666662693024,
+    "tag": "candidate_6.0"
+  },
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.09048193009173,
+    "minimum_measured_actor_speed": 4.0,
+    "near_ground_samples": 61,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 2.20000004768372,
+    "tag": "candidate_5.5"
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 3.64948740005493,
+    "minimum_measured_actor_speed": 7.0,
+    "near_ground_samples": 25,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 1.27272725105286,
+    "tag": "candidate_5.5"
+  },
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.09048193009173,
+    "minimum_measured_actor_speed": 4.0,
+    "near_ground_samples": 61,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 2.20000004768372,
+    "tag": "candidate_5.0"
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 3.50551711188422,
+    "minimum_measured_actor_speed": 7.0,
+    "near_ground_samples": 27,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 1.39999997615814,
+    "tag": "candidate_5.0"
+  },
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.09048193009173,
+    "minimum_measured_actor_speed": 4.0,
+    "near_ground_samples": 61,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 2.20000004768372,
+    "tag": "candidate_4.5"
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 3.90028980043199,
+    "minimum_measured_actor_speed": 7.0,
+    "near_ground_samples": 27,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 1.55555558204651,
+    "tag": "candidate_4.5"
+  },
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.09048193009173,
+    "minimum_measured_actor_speed": 4.0,
+    "near_ground_samples": 61,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 2.20000004768372,
+    "tag": "candidate_4.0"
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 4.05815583008986,
+    "minimum_measured_actor_speed": 7.0,
+    "near_ground_samples": 26,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 1.75,
+    "tag": "candidate_4.0"
+  },
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.09048193009173,
+    "minimum_measured_actor_speed": 4.0,
+    "near_ground_samples": 61,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 2.20000004768372,
+    "tag": "candidate_3.5"
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 4.42151355743408,
+    "minimum_measured_actor_speed": 7.0,
+    "near_ground_samples": 25,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 2.0,
+    "tag": "candidate_3.5"
+  },
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.09048193009173,
+    "minimum_measured_actor_speed": 4.0,
+    "near_ground_samples": 61,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 2.20000004768372,
+    "tag": "candidate_3.24"
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 4.98684167861938,
+    "minimum_measured_actor_speed": 7.0,
+    "near_ground_samples": 24,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 2.16049385070801,
+    "tag": "candidate_3.24"
+  }
+]

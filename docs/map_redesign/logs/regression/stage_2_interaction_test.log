@@ -1,0 +1,13 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: no prompt outside interaction range
+PASS: nearby interactable is selected
+Interaction Successful
+PASS: interact action invokes object once
+PASS: disabled object clears prompt
+PASS: wall blocks interaction line of sight
+PASS: prompt returns after obstruction is removed
+PASS: removed target is safely cleared
+STAGE_2_INTERACTION_RESULT failures=0

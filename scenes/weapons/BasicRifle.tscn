@@ -14,10 +14,22 @@ material = SubResource("FlashMaterial")
 [node name="BasicRifle" type="Node3D"]
 
 [node name="Model" parent="." instance=ExtResource("rifle")]
-scale = Vector3(0.6, 0.6, 0.6)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="PrimaryGrip" type="Marker3D" parent="."]
+position = Vector3(0, -0.10, -0.045)
+
+[node name="SupportGrip" type="Marker3D" parent="."]
+position = Vector3(0, -0.04, 0.2)
+
+[node name="SecondaryGrip" type="Marker3D" parent="."]
+position = Vector3(0, -0.04, 0.2)
+
+[node name="MagazineGrip" type="Marker3D" parent="."]
+position = Vector3(0, -0.09, 0.04)
 
 [node name="Muzzle" type="Marker3D" parent="."]
-position = Vector3(0, 0.122, 0.615)
+position = Vector3(0, 0.1017, 0.5125)
 
 [node name="Flash" type="MeshInstance3D" parent="Muzzle"]
 visible = false

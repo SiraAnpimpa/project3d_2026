@@ -1,0 +1,21 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: complete catalog loads and validates
+PASS: eight seeds, eight harvest materials, six craft outputs and starter rifle have unique ids
+PASS: four stage thresholds: Lead Plant
+PASS: four stage thresholds: Paper Plant
+PASS: four stage thresholds: Iron Plant
+PASS: four stage thresholds: Copper Plant
+PASS: four stage thresholds: Small Herb
+PASS: four stage thresholds: Fire Pepper
+PASS: four stage thresholds: Ice Plant
+PASS: four stage thresholds: Poison Plant
+PASS: duplicate item ID diagnosed
+PASS: missing plant link diagnosed
+PASS: missing yield resource gives useful diagnostic
+PASS: invalid stage order rejected
+PASS: zero growth duration rejected
+PASS: testing invalid copies does not mutate static definitions
+PHASE_3_DATA_RESULT failures=0

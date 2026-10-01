@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://Asset/Stylized Nature MegaKit.undefined-glb/Bush.glb" id="native"]
+
+[node name="FirePepperPlantVisual" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("native")]
+position = Vector3(-0.015880911, 0.109796284, -0.003827410)
+scale = Vector3(0.467825670, 0.467825670, 0.467825670)

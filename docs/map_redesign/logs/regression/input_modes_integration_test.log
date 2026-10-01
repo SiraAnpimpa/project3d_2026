@@ -1,0 +1,46 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: startup is Farming with first seed selected and shooting crosshair hidden
+PASS: RMB cannot aim in Farming
+PASS: mouse look still works in Farming without RMB aim
+PASS: old I key no longer toggles inventory
+PASS: one wheel-down in Farming changes seed only once
+PASS: wheel-up reverses seed selection
+PASS: Tab opens bag, pauses gameplay and releases mouse
+PASS: bag blocks camera, aim, mode switching and gameplay wheel
+PASS: Tab closes bag and restores gameplay
+PASS: bag clicks equip three weapons from five owned items into exact slots
+PASS: unequipped weapons remain owned in bag
+PASS: Esc closes bag without also opening Pause
+PASS: Q enters Combat without resetting camera, position, shoulder or stamina
+PASS: Combat HUD shows selected equipped weapon and slot with crosshair
+PASS: Combat wheel changes equipped weapon only
+PASS: Combat wheel skips owned but unequipped weapons
+PASS: Combat selection wraps across equipped slots
+PASS: Combat wheel reverses across equipped slots
+PASS: RMB aims in Combat
+PASS: returning to Farming cancels aim and restores remembered seed
+PASS: returning to Combat restores its weapon without stale held aim
+PASS: each mode preserves its independent selection
+PASS: V switches shoulder without changing mode
+PASS: Farming interactor finds a nearby plot
+Planted Lead Plant.
+PASS: planting final seed updates dynamic list to next seed immediately
+PASS: HUD displays fallback seed and live quantity
+PASS: Combat cannot harvest through E or advertise farming availability
+PASS: direct farm interaction also enforces mode
+Harvested Lead x2.
+PASS: switching back to Farming permits exact harvest
+PASS: Esc opens Pause, disables aim and prevents overlapping inventory
+PASS: Pause blocks clock, camera, Q and both wheel selections
+PASS: Resume button returns controls without stuck aim
+PASS: movement and sprint still work after switching modes and menus
+PASS: bag unequip button keeps weapon in inventory
+PASS: empty Combat loadout is readable and safe after inventory clear
+PASS: empty Farming selector has an explicit HUD state
+PASS: wheel remains safe when either list is empty
+PASS: death blocks gameplay input and modal opening
+PASS: restart begins fresh in Farming with the Phase 5 starter rifle
+INPUT_MODES_INTEGRATION_RESULT failures=0

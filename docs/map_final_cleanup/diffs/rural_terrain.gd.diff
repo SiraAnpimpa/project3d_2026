@@ -1,0 +1,44 @@
+--- before/scripts/world/rural_terrain.gd
++++ after/scripts/world/rural_terrain.gd
+@@ -82,19 +82,31 @@
+ 	color = color.lerp(Color("958460"),dry*0.65)
+ 	var drain := mound(x,z,27+2*sin(z*0.10),16,4,20)
+ 	color = color.lerp(Color("756754"),drain*0.72)
+-	var utility := maxf(absf(x-3)-4.8,absf(z+10)-3.7)
+-	color = color.lerp(Color("8b7b5d"),1.0-smoothstep(0,1.8,utility))
++	var point := Vector2(x,z)
++	var edge_variation := 0.3*sin(x*0.63+z*0.37)+0.18*cos(z*0.71-x*0.22)
++	var utility := rounded_edge(point,Vector2(3,-10),Vector2(4.8,4.5),1.2)
++	color = color.lerp(Color("817358"),(1.0-smoothstep(-0.3,2.5,utility+edge_variation))*0.85)
+ 	var distance := trail_distance(Vector2(x,z))
+-	var path_width := 2.2 if z < 12 else 3.1
+-	var irregular := 0.25*sin(x*1.4+z*0.64)
+-	color = color.lerp(Color("897557"),1.0-smoothstep(path_width-0.9,path_width+1.1,distance+irregular))
+-	var yard := maxf(absf(x+12)-6.0,absf(z+6.0)-6.8)
+-	color = color.lerp(Color("94866a"),1.0-smoothstep(-0.4,1.0,yard))
++	var path_width := lerpf(2.2,3.1,smoothstep(8.0,20.0,z))
++	color = color.lerp(Color("807155"),(1.0-smoothstep(path_width-1.0,path_width+1.6,distance+edge_variation))*0.88)
++	var apron := rounded_edge(point,Vector2(-12,-10),Vector2(4.95,5.65),1.4)
++	color = color.lerp(Color("81765e"),(1.0-smoothstep(0.0,2.7,apron+edge_variation))*0.8)
++	var yard := rounded_edge(point,Vector2(-12,-6),Vector2(6.0,6.8),1.8)
++	color = color.lerp(Color("8a7b5e"),(1.0-smoothstep(-0.3,2.2,yard+edge_variation))*0.8)
+ 	var soil := minf(maxf(absf(x+8.9)-3.7,absf(z-8.5)-5.5),maxf(absf(x+17.9)-3.7,absf(z-8.5)-5.5))
+-	color = color.lerp(Color("615039"),1.0-smoothstep(-0.15,0.8,soil+0.15*sin(x*2.3+z)))
+-	var clearing := Vector2(x,z).distance_to(RESCUE)
+-	color = color.lerp(Color("999176"),1.0-smoothstep(7.8,10.2,clearing+0.2*sin(x+z*0.8)))
++	color = color.lerp(Color("615039"),1.0-smoothstep(-0.3,1.3,soil+edge_variation))
++	# Broad uneven worn-grass boundary, rather than a bright circular pad stamped on terrain.
++	var offset := point-RESCUE
++	var clearing := Vector2(offset.x*0.9,offset.y*1.05).length()
++	var clearing_edge := 0.8*sin(x*0.45+z*0.21)+0.45*cos(z*0.62-x*0.18)
++	color = color.lerp(Color("8d8162"),(1.0-smoothstep(4.5,12.5,clearing+clearing_edge))*0.88)
++	var truck_wear := point.distance_to(Vector2(18.5,41))
++	color = color.lerp(Color("807154"),(1.0-smoothstep(2.5,5.2,truck_wear))*0.5)
+ 	return color
++
++static func rounded_edge(point: Vector2,center: Vector2,half_extents: Vector2,corner: float) -> float:
++	var q := (point-center).abs()-half_extents+Vector2.ONE*corner
++	return Vector2(maxf(q.x,0),maxf(q.y,0)).length()+minf(maxf(q.x,q.y),0)-corner
+ 
+ func build_patch(label: String, half: float, step: float, solid: bool) -> void:
+ 	var vertices := PackedVector3Array()

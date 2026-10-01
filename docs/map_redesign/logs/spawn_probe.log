@@ -1,0 +1,14 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+ENTRY_CANDIDATE (40.0, -13.0) screened=false nav_delta=0.04585183784366 safe=true occluder=none
+ENTRY_CANDIDATE (43.0, -18.0) screened=false nav_delta=0.04699350148439 safe=true occluder=none
+ENTRY_CANDIDATE (44.0, -20.0) screened=true nav_delta=0.21962408721447 safe=true occluder=@StaticBody3D@28:<StaticBody3D#109773327234>
+ENTRY_CANDIDATE (40.0, -29.0) screened=true nav_delta=0.05310480296612 safe=true occluder=@StaticBody3D@42:<StaticBody3D#110343752606>
+ENTRY_CANDIDATE (42.0, -35.0) screened=true nav_delta=0.11502849310637 safe=true occluder=@StaticBody3D@30:<StaticBody3D#109873990533>
+ENTRY_CANDIDATE (39.0, -35.0) screened=true nav_delta=0.06013081967831 safe=true occluder=@StaticBody3D@24:<StaticBody3D#109404228469>
+ENTRY_CANDIDATE (45.0, -34.0) screened=true nav_delta=0.08498615026474 safe=true occluder=@StaticBody3D@30:<StaticBody3D#109873990533>
+ENTRY_CANDIDATE (34.0, -27.0) screened=true nav_delta=0.03036243654788 safe=true occluder=@StaticBody3D@30:<StaticBody3D#109873990533>
+ENTRY_CANDIDATE (38.0, -30.0) screened=true nav_delta=0.03170012682676 safe=true occluder=@StaticBody3D@30:<StaticBody3D#109873990533>
+MAP_SPAWN_PROBE_RESULT failures=0

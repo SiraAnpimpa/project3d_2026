@@ -1,0 +1,80 @@
+--- before/scripts/world/rural_terrain.gd
++++ after/scripts/world/rural_terrain.gd
+@@ -2,17 +2,24 @@
+ class_name RuralTerrain
+ extends Node3D
+ ## Authored height function shared by visible terrain, collider, props and bake.
+-## The functional farm/landing centre stays flat; terrain is not random generation.
++## Level farmstead and southern evacuation plateau; fixed authored contours.
+ 
+ const PLAY_HALF := 56.0
+ const VISUAL_HALF := 120.0
++const RESCUE := Vector2(29,43)
++const RESCUE_HEIGHT := 0.65
+ const TRAILS := [
+ 	[Vector2(0,-4),Vector2(2,-13),Vector2(4,-22),Vector2(-1,-28),Vector2(-10,-37)],
+ 	[Vector2(4,2),Vector2(13,-1),Vector2(22,3),Vector2(32,0),Vector2(39,5)],
+ 	[Vector2(32,0),Vector2(38,-6),Vector2(43,-11),Vector2(44,-20)],
+ 	[Vector2(-7,4),Vector2(-17,7),Vector2(-27,12),Vector2(-36,9),Vector2(-47,15)],
+-	[Vector2(0,6),Vector2(8,14),Vector2(14,23),Vector2(12,32),Vector2(18,41),Vector2(20,62),Vector2(28,112)],
+-	[Vector2(-13,-6),Vector2(-9,-3),Vector2(-4.5,-1),Vector2(0,2)]
++	[Vector2(0,7),Vector2(7,16),Vector2(9,25),Vector2(14,33),Vector2(18,41),Vector2(20,62),Vector2(28,112)],
++	[Vector2(14,33),Vector2(21,35),Vector2(25,39),Vector2(29,43)],
++	[Vector2(32,0),Vector2(31,-7),Vector2(28.5,-13.5),Vector2(33,-20)],
++	[Vector2(-27,12),Vector2(-31,16),Vector2(-34,21)],
++	[Vector2(-16,-8),Vector2(-19,-13),Vector2(-21,-18)],
++	[Vector2(-13.5,-6),Vector2(-13.5,-0.8),Vector2(-3,-1),Vector2(3,-6.5)],
++	[Vector2(-13.5,-0.8),Vector2(-13.4,8.5),Vector2(-13.4,17),Vector2(-7,19),Vector2(7,16)]
+ ]
+ 
+ func _ready() -> void:
+@@ -31,10 +38,25 @@
+ 	var drain_x := 27.0+2.0*sin(z*0.10)
+ 	height -= 2.4*mound(x,z,drain_x,16,6.0,21)
+ 	height *= edge
++	# Low roadside shoulder gradually hides the landing surface from the farm.
++	height += 2.2*mound(x,z,18,29,12,8)
+ 	var outside := smoothstep(52.0,78.0,maxf(absf(x),absf(z)))
+ 	height += outside*(7.5*mound(x,z,-65,-75,40,24)+9.5*mound(x,z,63,-78,35,32)+6.0*mound(x,z,-80,35,22,48))
+ 	height += outside*(1.0+0.9*sin(x*0.035)*cos(z*0.042))
+-	return height
++	# Broad level farm soil and depot foundations blend into the existing slopes.
++	var farm_edge := maxf(absf(x+13.4)-10.2,absf(z-8.5)-7.7)
++	height *= smoothstep(0.0,5.0,farm_edge)
++	var depot_edge := maxf(absf(x-35.5)-13.0,absf(z+23)-12.5)
++	height = lerpf(height,1.85,1.0-smoothstep(0.0,5.5,depot_edge))
++	height = lerpf(height,0.35,1.0-smoothstep(3.2,10.5,Vector2(x+21,z+18).length()))
++	height = lerpf(height,2.6,1.0-smoothstep(3.1,10.5,Vector2(x+34,z-21).length()))
++	# A continuous earth apron meets the veranda from all walking directions.
++	var porch_edge := maxf(absf(x+12)-4.6,absf(z+10)-5.3)
++	height = lerpf(height,0.135,1.0-smoothstep(0.0,1.8,porch_edge))
++	var checkpoint := 1.0-smoothstep(7.5,11.5,Vector2(x-18,z-45).length())
++	height = lerpf(height,RESCUE_HEIGHT,checkpoint)
++	var landing_blend := 1.0-smoothstep(9.5,16.5,Vector2(x,z).distance_to(RESCUE))
++	return lerpf(height,RESCUE_HEIGHT,landing_blend)
+ 
+ static func ground_point(x: float, z: float, lift: float = 0.0) -> Vector3:
+ 	return Vector3(x,height_at(x,z)+lift,z)
+@@ -60,16 +82,18 @@
+ 	color = color.lerp(Color("958460"),dry*0.65)
+ 	var drain := mound(x,z,27+2*sin(z*0.10),16,4,20)
+ 	color = color.lerp(Color("756754"),drain*0.72)
++	var utility := maxf(absf(x-3)-4.8,absf(z+10)-3.7)
++	color = color.lerp(Color("8b7b5d"),1.0-smoothstep(0,1.8,utility))
+ 	var distance := trail_distance(Vector2(x,z))
+ 	var path_width := 2.2 if z < 12 else 3.1
+ 	var irregular := 0.25*sin(x*1.4+z*0.64)
+ 	color = color.lerp(Color("897557"),1.0-smoothstep(path_width-0.9,path_width+1.1,distance+irregular))
+-	var yard := maxf(absf(x+8)-6.2,absf(z+2.6)-3.7)
++	var yard := maxf(absf(x+12)-6.0,absf(z+6.0)-6.8)
+ 	color = color.lerp(Color("94866a"),1.0-smoothstep(-0.4,1.0,yard))
+-	var soil := maxf(absf(x+7.9)-5.9,absf(z-4.6)-3.6)
++	var soil := minf(maxf(absf(x+8.9)-3.7,absf(z-8.5)-5.5),maxf(absf(x+17.9)-3.7,absf(z-8.5)-5.5))
+ 	color = color.lerp(Color("615039"),1.0-smoothstep(-0.15,0.8,soil+0.15*sin(x*2.3+z)))
+-	var clearing := Vector2(x-13,z-10).length()
+-	color = color.lerp(Color("999176"),1.0-smoothstep(4.3,6.8,clearing))
++	var clearing := Vector2(x,z).distance_to(RESCUE)
++	color = color.lerp(Color("999176"),1.0-smoothstep(7.8,10.2,clearing+0.2*sin(x+z*0.8)))
+ 	return color
+ 
+ func build_patch(label: String, half: float, step: float, solid: bool) -> void:

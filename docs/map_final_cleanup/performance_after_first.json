@@ -1,0 +1,62 @@
+[
+  {
+    "alive": 0,
+    "draw_calls": 2141.0,
+    "frames": 600,
+    "max_ms": 16.563,
+    "mean_ms": 9.863135,
+    "navigation_ms": 0.029531666666667,
+    "nodes": 1137,
+    "p95_ms": 15.172,
+    "p99_ms": 16.121,
+    "physics_ms": 0.524254999999999,
+    "process_ms": 14.3679233333334,
+    "scenario": "day_720p",
+    "static_memory": 88469356.0
+  },
+  {
+    "alive": 12,
+    "draw_calls": 2252.0,
+    "frames": 600,
+    "max_ms": 19.629,
+    "mean_ms": 12.13003,
+    "navigation_ms": 0.0082016666666667,
+    "nodes": 1701,
+    "p95_ms": 16.839,
+    "p99_ms": 18.506,
+    "physics_ms": 2.53518833333333,
+    "process_ms": 15.9019450000001,
+    "scenario": "final_night_12_alive_720p",
+    "static_memory": 96504208.0
+  },
+  {
+    "alive": 12,
+    "draw_calls": 2277.0,
+    "frames": 600,
+    "max_ms": 12.456,
+    "mean_ms": 8.09883,
+    "navigation_ms": 0.00605,
+    "nodes": 1701,
+    "p95_ms": 10.184,
+    "p99_ms": 11.052,
+    "physics_ms": 2.02434999999999,
+    "process_ms": 9.26611999999994,
+    "scenario": "final_night_12_alive_1080p",
+    "static_memory": 97993816.0
+  },
+  {
+    "alive": 0,
+    "draw_calls": 984.0,
+    "frames": 600,
+    "max_ms": 16.923,
+    "mean_ms": 12.0386166666667,
+    "navigation_ms": 0.00752166666666663,
+    "nodes": 1150,
+    "p95_ms": 15.047,
+    "p99_ms": 16.121,
+    "physics_ms": 0.0853533333333342,
+    "process_ms": 15.186005,
+    "scenario": "ending_1080p",
+    "static_memory": 93689704.0
+  }
+]

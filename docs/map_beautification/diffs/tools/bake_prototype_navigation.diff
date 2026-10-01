@@ -1,0 +1,27 @@
+--- before/tools/bake_prototype_navigation.gd
++++ after/tools/bake_prototype_navigation.gd
+@@ -11,7 +11,13 @@
+ 	# This solid prop lives outside MainWorld in GameRoot; include its actual scene.
+ 	var station: Node3D = load("res://scenes/interactables/TestInteractable.tscn").instantiate()
+ 	world.add_child(station)
+-	station.position = Vector3(0, 0, -1)
++	var root_scene := load("res://scenes/main/GameRoot.tscn") as PackedScene
++	var state := root_scene.get_state()
++	for index in state.get_node_count():
++		if state.get_node_name(index) != &"TestInteractable": continue
++		for property in state.get_node_property_count(index):
++			if state.get_node_property_name(index,property) == &"position":
++				station.position = state.get_node_property_value(index,property)
+ 	await physics_frame
+ 	var mesh := NavigationMesh.new()
+ 	mesh.geometry_parsed_geometry_type = NavigationMesh.PARSED_GEOMETRY_STATIC_COLLIDERS
+@@ -20,7 +26,8 @@
+ 	mesh.agent_height = 1.8
+ 	mesh.agent_max_climb = 0.2
+ 	mesh.cell_size = 0.25
+-	mesh.cell_height = 0.1
++	mesh.cell_height = 0.05 # Sub-30cm waypoint height clearance for existing controllers.
++	mesh.detail_sample_distance = 3.0 # Sample hill detail more closely to avoid overlapping triangles.
+ 	var source := NavigationMeshSourceGeometryData3D.new()
+ 	NavigationServer3D.parse_source_geometry_data(mesh, source, world)
+ 	NavigationServer3D.bake_from_source_geometry_data(mesh, source)

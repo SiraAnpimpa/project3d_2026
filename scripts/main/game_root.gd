@@ -3,10 +3,12 @@ extends Node3D
 var presentation: GamePresentation
 var audio: GameAudio
 var progression: ProgressionManager
+var skip_night: SkipNightDialog
 @export var catalog: ItemCatalog
 @export var starter_loadout: InventoryLoadout
 @export var recipe_book: RecipeBook
 @export var starter_weapon: ItemData
+@export var fallback_weapon: ItemData
 @onready var inventory: Inventory = $Player/Inventory
 @onready var inventory_ui: InventoryUI = $InventoryUI
 @onready var equipment: EquipmentLoadout = $Player/EquipmentLoadout
@@ -31,9 +33,13 @@ func _ready() -> void:
 		push_error("Starter loadout is invalid or inventory is too small.")
 	if starter_weapon != null and not inventory.add_item(starter_weapon):
 		push_error("Cannot grant starter weapon.")
+	if fallback_weapon != null and not inventory.add_item(fallback_weapon):
+		push_error("Cannot grant fallback weapon.")
 	equipment.bind(inventory)
 	if starter_weapon != null:
 		equipment.equip_weapon(0, starter_weapon)
+	if fallback_weapon != null:
+		equipment.equip_weapon(1, fallback_weapon)
 	gameplay_mode.bind(inventory, equipment, player.camera_rig)
 	gameplay_mode.mode_changed.connect(func(_mode: GameplayModeController.Mode) -> void: player.interactor.refresh_target())
 	inventory_ui.bind(inventory, player)
@@ -106,6 +112,10 @@ func _ready() -> void:
 	var scenery := WorldPresentation.new()
 	$MainWorld.add_child(scenery)
 	scenery.bind($MainWorld, clock)
+	skip_night = SkipNightDialog.new()
+	skip_night.name = "SkipNightDialog"
+	add_child(skip_night)
+	skip_night.bind(self)
 	for screen in [inventory_ui.screen, crafting_ui.screen, pause_menu.get_node("Screen")]:
 		screen.theme = PresentationStyle.theme(screen == crafting_ui.screen)
 	if get_tree().has_meta("normal_play") or not OS.is_debug_build():

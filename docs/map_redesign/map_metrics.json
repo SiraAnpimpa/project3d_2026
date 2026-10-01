@@ -1,0 +1,17 @@
+{
+  "high_m": 5.06505500658334,
+  "lights": 5,
+  "low_m": -1.78689084274275,
+  "mesh_instances": 149,
+  "model_placements": 709,
+  "multi_meshes": 68,
+  "nav_polygons": 1794,
+  "nodes": 924,
+  "playable_tree_colliders": 120,
+  "playable_triangles": 6272,
+  "sampled_points": 3025,
+  "sampled_slope_degrees": 28.9720117254201,
+  "static_bodies": 178,
+  "triangle_slope_degrees": 28.7369696052953,
+  "unique_assets": 69
+}

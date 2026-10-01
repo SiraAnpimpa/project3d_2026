@@ -1,0 +1,17 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: debug menu available inside paused inventory
+PASS: instant grow advances clock through shared growth path
+PASS: advance growth changes game time by one hour
+PASS: fill inventory fills all slots and existing stacks
+PASS: failed starter grant reports capacity without partial items
+PASS: clear inventory resets counts and selection
+PASS: give seeds uses configurable loadout
+PASS: clear farm resets plot and visual
+PASS: all farming debug actions are gated when disabled
+PASS: disabling tools hides debug UI without releasing menu pause
+PASS: Inspector gate prevents farming tools from reactivating
+PASS: death closes inventory and restores world processing
+PHASE_3_DEBUG_RESULT failures=0

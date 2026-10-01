@@ -1,0 +1,25 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: terrain has substantial raised and lowered areas
+PASS: all sampled playable slopes stay below actor/nav limits
+PASS: actual collision triangles have gentle slopes below the 45-degree navigation limit
+PASS: downward terrain ray has collision at (0.0, 6.0)
+TERRAIN_RAY (0.0, 6.0) y=0.0 expected=0.0
+PASS: downward terrain ray has collision at (-9.0, -6.0)
+TERRAIN_RAY (-9.0, -6.0) y=3.24999952316284 expected=0.0
+PASS: downward terrain ray has collision at (13.0, 10.0)
+TERRAIN_RAY (13.0, 10.0) y=0.0 expected=0.0
+PASS: downward terrain ray has collision at (-39.0, 12.0)
+TERRAIN_RAY (-39.0, 12.0) y=4.06697750091553 expected=4.07975817698333
+PASS: downward terrain ray has collision at (-10.0, -37.0)
+TERRAIN_RAY (-10.0, -37.0) y=4.3466157913208 expected=4.34997715627464
+PASS: downward terrain ray has collision at (44.0, -20.0)
+TERRAIN_RAY (44.0, -20.0) y=2.13638305664063 expected=2.13638182684724
+PASS: downward terrain ray has collision at (18.0, 39.0)
+TERRAIN_RAY (18.0, 39.0) y=0.15295219421387 expected=0.15389613977306
+PASS: downward terrain ray has collision at (28.0, 16.0)
+TERRAIN_RAY (28.0, 16.0) y=-1.54059410095215 expected=-1.54059329205709
+MAP_METRICS {"high_m":5.06505500658334,"lights":5,"low_m":-1.78689084274275,"mesh_instances":149,"model_placements":709,"multi_meshes":68,"nav_polygons":1794,"nodes":924,"playable_tree_colliders":120,"playable_triangles":6272,"sampled_points":3025,"sampled_slope_degrees":28.9720117254201,"static_bodies":178,"triangle_slope_degrees":28.7369696052953,"unique_assets":69}
+MAP_REDESIGN_METRICS_RESULT failures=0

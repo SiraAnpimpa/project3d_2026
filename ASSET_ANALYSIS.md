@@ -1,5 +1,29 @@
 # ASSET_ANALYSIS — Somchai's Last Harvest
 
+## Current: Gameplay & Character Refinement
+
+Actual imported/rendered audit covers138 candidates: all68 Nature sources,59 weapon-related candidates (including two Battery filename false positives),nine actors and two optional fantasy accents. All other supplied GLB names were checked for vegetation candidates. Matt has43 bones/20 usable native clips; no authored crop growth sets or dedicated aim/shoot/reload/strafe/backward/bat clip. Reuse Wooden Bat Barbed.glb and eight distinct vegetation models, preserving native source GLBs/materials. [Full Nature selection table](PLANT_VISUAL_ASSET_MAPPING.md), [animation/bat audit](GAMEPLAY_REFINEMENT_REPORT.md), [rendered evidence](docs/gameplay_refinement/README.md). Prior environment source counts below are historical and are not crop/weapon totals.
+
+## Historical: Final environment cleanup
+
+Use 56 of 244 unchanged source GLBs for 11,707 decorative placements (11,019 grass /688 others), through 54 MultiMesh mesh batches plus native Cabin/tower scenes. Remove 14 unused preloads and 18 misplaced/redundant instances; do not delete sources. Cabin exterior tones use material copies. Ground selected rocks/leaning tools/stacks without changing core systems or vegetation generation. [Current table](MAP_ASSET_USAGE.md), [cleanup report](MAP_FINAL_CLEANUP_REPORT.md), [scope](docs/map_final_cleanup/scope_audit.json). The previously supplied Cabin remains the 244th GLB; the inventory of 243 original pack files remains historical.
+
+## Earlier phase records
+
+The following sections preserve earlier versions and their stated counts; current source/evidence is described above.
+
+## Historical map beautification source update
+
+Asset/Cabin.glb is a separately supplied244th GLB, inspected/rendered as221 meshes and25 materials. Its9.5 m static wrapper now supplies the furnished farmhouse, with a wider accessible entry and floor aligned to terrain. Source GLB is unchanged. Existing nature/prop variants supply11,019 grass tufts and authored clusters through68 MultiMesh mesh batches. Current source has70 environment models/11,725 placed instances. All243 original models and supplied Cabin/audio are hash-preserved. MAP_BEAUTIFICATION_REPORT.md and current MAP_ASSET_USAGE.md contain scope, selection and measured costs. Historical pack analyses below remain applicable to their stated scope.
+
+## Major map coverage audit (2026-10-01)
+
+Opened/rendered all243 original GLBs in current Godot;197 broad environment/decor candidates, including optional RPG/fantasy items. Actual bounds/mesh/collider/triangle inventory and13 current contact pages retained. Selected69 distinct existing models across all five packs with actual zone purposes, instead of using only seven prior dressing assets. No house/barn/hill/cliff meshes exist; authored terrain and simple building shells supply those roles. All original source hashes unchanged. See ENVIRONMENT_ASSET_INVENTORY.md, MAP_ASSET_USAGE.md and docs/map_redesign. No character/weapon artwork or new external assets introduced.
+
+## Refinement Pass 1 update (2026-10-01)
+
+Reuse existing Chest, Barrel, Pallet, Traffic Barrier, Pine, Rock Medium and Shovel for static farm/base/approach scenery. No new item or storage behavior. Matt has 43 bones / 20 imported clips; dedicated aim/fire/reload/strafe/tool clips are absent. The current procedural rifle pose is documented separately from imported animation. All 243 original GLBs match the pre-pass hashes. See [the refinement report](POST_PRODUCTION_REFINEMENT_1.md) and `docs/refinement1/asset_audit.json`.
+
 ## Phase 3 implementation status — 2026-09-29
 
 ใช้ `Asset/Stylized Nature MegaKit.undefined-glb/Plant.glb` จริงผ่าน `NaturePlantVisual.tscn` wrapper scale0.65 สำหรับพืชทั้ง5ชนิด. ตรวจภาพในrendererแล้ว; ใช้seedmarker/scale/produceprismสีต่างกันและป้ายเพื่อสื่อ4growthstages. ไม่มีโมเดลพืชโลหะ/กระดาษ/สมุนไพรเฉพาะ จึงเป็นplaceholder. แปลงดิน/ridgesเป็นprimitive. เพิ่มSVGicons10ไฟล์ใน `assets/ui/items/` สำหรับเมล็ด/วัสดุ. MattและgreyboxจากPhase 2ยังใช้เดิม.

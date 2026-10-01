@@ -1,5 +1,13 @@
 # Asset audit - v0.1.0-demo
 
+## Major map pass asset usage
+
+The new environment uses69 models from the existing five packs; exact paths/counts/purposes are in MAP_ASSET_USAGE.md and docs/map_redesign/asset_usage.json. The original243 GLBs remain unchanged. Terrain, shells, fence fragments, path/ground color and background hills are authored within this project; no new downloaded/AI bitmap assets. Existing provenance/license status below is retained.
+
+## Refinement pass1 scenery reuse
+
+Additional existing files used without modification: `Asset/Post Apocolypse Pack.undefined-glb/{Chest,Barrel,Pallet,Traffic Barrier}.glb`; `Asset/Stylized Nature MegaKit.undefined-glb/{Pine,Rock Medium}.glb`; `Asset/Survival Pack-glb/Shovel.glb`. Author/source/license metadata is still unavailable, as for the historical packs below. New ground/fence/porch geometry and pose/UI code are project work. No external art or animation downloads.
+
 Audit of runtime dependencies, 2026-09-30. No new third-party art/audio downloaded during final QA. Original filenames are recorded without inferring creator, source website or license.
 
 | Used asset | Local source | License | Attribution requirement |

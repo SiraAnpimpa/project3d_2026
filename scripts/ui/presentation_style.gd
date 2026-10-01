@@ -1,7 +1,7 @@
 class_name PresentationStyle
 extends RefCounted
 
-const GUIDE := "Grow your supplies. Survive ten nights.\n\n1. Plant Lead, Paper and Copper; harvest when ready.\n2. Use the Workbench to craft Basic Ammo.\n3. Switch to Combat and reload before nightfall.\n4. Clear the night and rest in the shelter, or survive until dawn.\n\nWASD  Move     Shift  Sprint     Mouse / arrows  Look\nE  Interact     Tab  Bag     Q  Farming / Combat\nWheel  Select seed / equipped weapon     V  Switch shoulder\nRMB  Aim     LMB  Fire while aiming     R  Reload\nEsc  Close a menu / Pause\n\nSpecial ammo and medicine are craft-only in this demo."
+const GUIDE := "Grow your supplies. Survive ten nights.\n\n1. Plant Lead, Paper and Copper; harvest when ready.\n2. Use the Workbench to craft Basic Ammo.\n3. Switch to Combat and reload before nightfall.\n4. Clear the night and rest in the shelter, or survive until dawn.\n\nWASD  Move     Shift  Sprint     Mouse / arrows  Look\nE  Interact     Tab  Bag     Q  Farming / Combat\nWheel  Select seed / equipped weapon     V  Switch shoulder\nRMB  Aim rifle     LMB  Fire / swing bat     R  Reload rifle\nN  Wait until night (confirmation)     Esc  Close / Pause\n\nBat: Combat + LMB, no ammo. Special ammo and medicine are craft-only."
 
 static func theme(compact: bool = false) -> Theme:
 	var result := Theme.new()

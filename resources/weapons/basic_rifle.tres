@@ -22,3 +22,6 @@ spread_degrees = 0.0
 recoil_degrees = 0.0
 weapon_scene = ExtResource("visual")
 muzzle_path = NodePath("Muzzle")
+ready_hold_offset = Vector3(-0.18, -0.06, 0.24)
+aim_hold_offset = Vector3(-0.18, 0.04, 0.21)
+ready_pitch_degrees = 32.0

@@ -1,0 +1,108 @@
+{
+  "method": "Latest individual checks after relevant final changes; not a new combined historical 40/48/52-check suite. Runtime engine exits were also observed as zero.",
+  "automated_not_human": true,
+  "checks": [
+    {
+      "name": "import",
+      "passed": true,
+      "log": "logs/import_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "metrics",
+      "passed": true,
+      "log": "logs/metrics_supported.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "navigation_edges",
+      "passed": true,
+      "log": "logs/nav_edge_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "routes",
+      "passed": true,
+      "log": "logs/routes_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "full_day",
+      "passed": true,
+      "log": "logs/full_day_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "acceptance",
+      "passed": true,
+      "log": "logs/acceptance_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "survey",
+      "passed": true,
+      "log": "logs/survey_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "rescue",
+      "passed": true,
+      "log": "logs/rescue_supported.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "normal_boot",
+      "passed": true,
+      "log": "logs/boot_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "performance",
+      "passed": true,
+      "log": "logs/performance_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "bake",
+      "passed": true,
+      "log": "logs/bake_verified.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "supplied_cabin_audit",
+      "passed": true,
+      "log": "logs/cabin_audit_fixed.log",
+      "result_found": true,
+      "errors": [],
+      "excluded_certificate_store_diagnostic": true
+    },
+    {
+      "name": "scope_integrity",
+      "passed": true,
+      "evidence": "scope_integrity.json"
+    }
+  ],
+  "failures": 0
+}

@@ -1,0 +1,329 @@
+{
+  "days": [
+    {
+      "ammo_before": 60,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 1,
+      "hp": 100.0,
+      "magazine": 9,
+      "medicine": 0,
+      "nodes": 854,
+      "reserve": 10,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 3,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 3,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 41,
+      "weapon": "Basic Rifle",
+      "zombies": 6
+    },
+    {
+      "ammo_before": 79,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 2,
+      "hp": 100.0,
+      "magazine": 1,
+      "medicine": 0,
+      "nodes": 901,
+      "reserve": 39,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 6,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 6,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 39,
+      "weapon": "Basic Rifle",
+      "zombies": 7
+    },
+    {
+      "ammo_before": 120,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 3,
+      "hp": 100.0,
+      "magazine": 5,
+      "medicine": 0,
+      "nodes": 854,
+      "reserve": 70,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 10,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 10,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 45,
+      "weapon": "Basic Rifle",
+      "zombies": 9
+    },
+    {
+      "ammo_before": 155,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 4,
+      "hp": 100.0,
+      "magazine": 9,
+      "medicine": 0,
+      "nodes": 854,
+      "reserve": 95,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 14,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 14,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 51,
+      "weapon": "Basic Rifle",
+      "zombies": 11
+    },
+    {
+      "ammo_before": 204,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 5,
+      "hp": 100.0,
+      "magazine": 1,
+      "medicine": 0,
+      "nodes": 901,
+      "reserve": 144,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 19,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 19,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 59,
+      "weapon": "Basic Rifle",
+      "zombies": 13
+    },
+    {
+      "ammo_before": 245,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 6,
+      "hp": 100.0,
+      "magazine": 3,
+      "medicine": 0,
+      "nodes": 901,
+      "reserve": 175,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 24,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 24,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 67,
+      "weapon": "Basic Rifle",
+      "zombies": 15
+    },
+    {
+      "ammo_before": 298,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 7,
+      "hp": 100.0,
+      "magazine": 3,
+      "medicine": 0,
+      "nodes": 901,
+      "reserve": 218,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 30,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 30,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 77,
+      "weapon": "Basic Rifle",
+      "zombies": 15
+    },
+    {
+      "ammo_before": 361,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 8,
+      "hp": 100.0,
+      "magazine": 0,
+      "medicine": 0,
+      "nodes": 901,
+      "reserve": 261,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 37,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 37,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 100,
+      "weapon": "Basic Rifle",
+      "zombies": 18
+    },
+    {
+      "ammo_before": 421,
+      "cleared": true,
+      "damage": 0.0,
+      "day": 9,
+      "hp": 100.0,
+      "magazine": 2,
+      "medicine": 0,
+      "nodes": 901,
+      "reserve": 311,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 45,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 45,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 108,
+      "weapon": "Basic Rifle",
+      "zombies": 20
+    },
+    {
+      "ammo_before": 473,
+      "cleared": true,
+      "damage": 20.0,
+      "day": 10,
+      "hp": 80.0,
+      "magazine": 4,
+      "medicine": 0,
+      "nodes": 901,
+      "reserve": 333,
+      "resources_after": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 53,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "resources_before": {
+        "copper": 0,
+        "lead": 0,
+        "paper": 53,
+        "seed_copper": 0,
+        "seed_lead": 0,
+        "seed_paper": 0,
+        "small_herb": 0
+      },
+      "shots": 136,
+      "weapon": "Basic Rifle",
+      "zombies": 24
+    }
+  ],
+  "shots_total": 723,
+  "ammo_remaining": 337,
+  "rescue_ending_passed": true,
+  "normal_play": true,
+  "mode": "Headless fixed simulation deltas; normal game clock, finite resources and input. No skips, grants, healing cheats, teleports or direct kills."
+}

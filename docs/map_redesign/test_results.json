@@ -1,0 +1,584 @@
+{
+  "date": "2026-10-01",
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "renderer": "Compatibility/OpenGL",
+  "latest_checks": 48,
+  "passed": 48,
+  "headless_checks": 40,
+  "combined_initial_headless_result": "37/40; boundary and two full-day checks failed; original logs retained",
+  "method": "Latest per-check results after targeted repairs; final routes, map acceptance and profile rerun after complete playable-tree collision and bake. Automated input and image inspection, not human playtesting.",
+  "checks": [
+    {
+      "name": "camera_collision_ray_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/camera_collision_ray_test.log",
+      "result": [
+        "CAMERA_COLLISION_RAY_RESULT jitter_m=0.0 failures=0"
+      ],
+      "assertion_passes": 19,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "camera_controls_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/camera_controls_test.log",
+      "result": [
+        "CAMERA_CONTROLS_RESULT failures=0"
+      ],
+      "assertion_passes": 33,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "camera_rate_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/camera_rate_test.log",
+      "result": [
+        "CAMERA_RATE_RESULT 30Hz=(55.11454, 2.811455, 0.848989, 2.811455) 120Hz=(55.11454, 2.811455, 0.848989, 2.811455) pass=true"
+      ],
+      "assertion_passes": 0,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "camera_walkthrough_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/camera_walkthrough_test.log",
+      "result": [
+        "CAMERA_WALKTHROUGH_RESULT failures=0"
+      ],
+      "assertion_passes": 18,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "editor_import",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/editor_import.log",
+      "result": [],
+      "assertion_passes": 0,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "input_modes_integration_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/input_modes_integration_test.log",
+      "result": [
+        "INPUT_MODES_INTEGRATION_RESULT failures=0"
+      ],
+      "assertion_passes": 39,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "input_selection_data_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/input_selection_data_test.log",
+      "result": [
+        "INPUT_SELECTION_DATA_RESULT failures=0"
+      ],
+      "assertion_passes": 29,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "main_scene_boot",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/main_scene_boot.log",
+      "result": [],
+      "assertion_passes": 0,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "map_redesign_acceptance",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/headless_delivery.log",
+      "result": [
+        "MAP_REDESIGN_ACCEPTANCE_RESULT failures=0"
+      ],
+      "assertion_passes": 301,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "map_redesign_metrics",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/metrics_delivery.log",
+      "result": [
+        "MAP_REDESIGN_METRICS_RESULT failures=0"
+      ],
+      "assertion_passes": 11,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "movement_rate_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/movement_rate_test.log",
+      "result": [
+        "MOVEMENT_RATE_RESULT 30Hz=3.73332977294922m 120Hz=3.68335294723511m pass=true"
+      ],
+      "assertion_passes": 0,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_10_death_matrix_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_10_death_matrix_test.log",
+      "result": [
+        "PHASE_10_DEATH_MATRIX_RESULT failures=0"
+      ],
+      "assertion_passes": 36,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_2_integration_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_2_integration_test.log",
+      "result": [
+        "PHASE_2_INTEGRATION_RESULT failures=0"
+      ],
+      "assertion_passes": 24,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_3_data_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_3_data_test.log",
+      "result": [
+        "PHASE_3_DATA_RESULT failures=0"
+      ],
+      "assertion_passes": 16,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_3_debug_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_3_debug_test.log",
+      "result": [
+        "PHASE_3_DEBUG_RESULT failures=0"
+      ],
+      "assertion_passes": 12,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_3_extension_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_3_extension_test.log",
+      "result": [
+        "PHASE_3_EXTENSION_RESULT failures=0"
+      ],
+      "assertion_passes": 7,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_3_farming_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_3_farming_test.log",
+      "result": [
+        "PHASE_3_FARMING_RESULT failures=0"
+      ],
+      "assertion_passes": 25,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_3_growth_rate_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_3_growth_rate_test.log",
+      "result": [
+        "PHASE_3_GROWTH_RATE_RESULT 30Hz=0.66666666666667 120Hz=0.66666666666667 failures=0"
+      ],
+      "assertion_passes": 0,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_3_integration_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_3_integration_test.log",
+      "result": [
+        "PHASE_3_INTEGRATION_RESULT failures=0"
+      ],
+      "assertion_passes": 18,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_3_inventory_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_3_inventory_test.log",
+      "result": [
+        "PHASE_3_INVENTORY_RESULT failures=0"
+      ],
+      "assertion_passes": 20,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_3_ui_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_3_ui_test.log",
+      "result": [
+        "PHASE_3_UI_RESULT failures=0"
+      ],
+      "assertion_passes": 11,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_4_crafting_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_4_crafting_test.log",
+      "result": [
+        "PHASE_4_CRAFTING_RESULT failures=0"
+      ],
+      "assertion_passes": 54,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_5_weapon_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_5_weapon_test.log",
+      "result": [
+        "PHASE_5_WEAPON_RESULT failures=0"
+      ],
+      "assertion_passes": 51,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_6_zombie_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_6_zombie_test.log",
+      "result": [
+        "PHASE_6_ZOMBIE_RESULT failures=0"
+      ],
+      "assertion_passes": 46,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_7_full_day_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/full_day_clearance.log",
+      "result": [
+        "CRAFT_RESULT ammo=40 medicine=1",
+        "PHASE_7_FULL_DAY_RESULT failures=0"
+      ],
+      "assertion_passes": 57,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_7_lifecycle_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_7_lifecycle_test.log",
+      "result": [
+        "PHASE_7_LIFECYCLE_RESULT failures=0"
+      ],
+      "assertion_passes": 37,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_8_progression_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_8_progression_test.log",
+      "result": [
+        "PHASE_8_PROGRESSION_RESULT failures=0"
+      ],
+      "assertion_passes": 54,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_8_variants_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_8_variants_test.log",
+      "result": [
+        "PHASE_8_VARIANTS_RESULT failures=0"
+      ],
+      "assertion_passes": 21,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "phase_9_presentation_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/phase_9_presentation_test.log",
+      "result": [
+        "PHASE_9_PRESENTATION_RESULT failures=0"
+      ],
+      "assertion_passes": 30,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "refinement_aim_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/refinement_aim_test.log",
+      "result": [
+        "REFINEMENT_AIM_RESULT failures=0"
+      ],
+      "assertion_passes": 30,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "refinement_full_day_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/refinement_day_clearance.log",
+      "result": [
+        "CRAFT_RESULT ammo=40 medicine=1",
+        "PHASE_7_FULL_DAY_RESULT failures=0"
+      ],
+      "assertion_passes": 64,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "refinement_holding_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/refinement_holding_test.log",
+      "result": [
+        "REFINEMENT_HOLDING_RESULT failures=0"
+      ],
+      "assertion_passes": 12,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "refinement_map_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/delivery_routes.log",
+      "result": [
+        "REFINEMENT_MAP_RESULT failures=0"
+      ],
+      "assertion_passes": 198,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "refinement_movement_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/refinement_movement_test.log",
+      "result": [
+        "REFINEMENT_MOVEMENT_RESULT failures=0"
+      ],
+      "assertion_passes": 8,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "refinement_shelter_probe",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/refinement_shelter_probe.log",
+      "result": [
+        "REFINEMENT_SHELTER_RESULT failures=0"
+      ],
+      "assertion_passes": 1,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "refinement_skip_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/refinement_skip_test.log",
+      "result": [
+        "REFINEMENT_SKIP_RESULT failures=0"
+      ],
+      "assertion_passes": 36,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "stage_1_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/boundary_corrected.log",
+      "result": [
+        "STAGE_1_RESULT failures=0"
+      ],
+      "assertion_passes": 8,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "stage_2_interaction_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/stage_2_interaction_test.log",
+      "result": [
+        "STAGE_2_INTERACTION_RESULT failures=0"
+      ],
+      "assertion_passes": 7,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "stage_3_stats_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/stage_3_stats_test.log",
+      "result": [
+        "STAGE_3_STATS_RESULT failures=0"
+      ],
+      "assertion_passes": 11,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "stage_4_clock_test",
+      "mode": "headless",
+      "passed": true,
+      "log": "logs/regression/stage_4_clock_test.log",
+      "result": [
+        "STAGE_4_CLOCK_RESULT failures=0"
+      ],
+      "assertion_passes": 13,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "asset_audit",
+      "mode": "rendered audit",
+      "passed": true,
+      "log": "logs/asset_audit.log",
+      "result": [
+        "ENVIRONMENT_AUDIT_RESULT opened=243 failures=0"
+      ],
+      "assertion_passes": 0,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "delivery_acceptance",
+      "mode": "rendered map",
+      "passed": true,
+      "log": "logs/delivery_acceptance.log",
+      "result": [
+        "MAP_REDESIGN_ACCEPTANCE_RESULT failures=0"
+      ],
+      "assertion_passes": 317,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "farming_realtime",
+      "mode": "rendered real time",
+      "passed": true,
+      "log": "logs/farming_realtime.log",
+      "result": [
+        "PHASE_3_INTEGRATION_RESULT failures=0"
+      ],
+      "assertion_passes": 24,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "camera_rendered_final",
+      "mode": "rendered camera",
+      "passed": true,
+      "log": "logs/camera_rendered_final.log",
+      "result": [
+        "CAMERA_WALKTHROUGH_RESULT failures=0"
+      ],
+      "assertion_passes": 28,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "views_delivery",
+      "mode": "rendered composition",
+      "passed": true,
+      "log": "logs/views_delivery.log",
+      "result": [
+        "MAP_REDESIGN_CAPTURE_RESULT failures=0"
+      ],
+      "assertion_passes": 9,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "matched_after_fixed",
+      "mode": "rendered matched framing",
+      "passed": true,
+      "log": "logs/matched_after_fixed.log",
+      "result": [
+        "REFINEMENT_MAP_CAPTURE_RESULT failures=0"
+      ],
+      "assertion_passes": 4,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "delivery_performance",
+      "mode": "rendered real time profile",
+      "passed": true,
+      "log": "logs/delivery_performance.log",
+      "result": [
+        "PHASE_10_PERFORMANCE_RESULT failures=0"
+      ],
+      "assertion_passes": 1,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    },
+    {
+      "name": "rendered_boot",
+      "mode": "rendered normal entry",
+      "passed": true,
+      "log": "logs/rendered_boot.log",
+      "result": [],
+      "assertion_passes": 0,
+      "non_certificate_errors": [],
+      "certificate_store_note": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "clip": "Walk",
+    "mean_ground_foot_drift_mps": 2.81856330774598,
+    "near_ground_samples": 59,
+    "nominal_actor_speed": 4.0,
+    "playback_rate": 1.0
+  },
+  {
+    "clip": "Run",
+    "mean_ground_foot_drift_mps": 4.06876833542534,
+    "near_ground_samples": 23,
+    "nominal_actor_speed": 7.0,
+    "playback_rate": 1.0
+  }
+]

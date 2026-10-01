@@ -1,5 +1,13 @@
 # DEVELOPMENT_PLAN — Somchai's Last Harvest
 
+## Major Map / Terrain Redesign — complete, stop for review
+
+Environment audit → contour blockout → eight large zones/landmarks → structural/medium clusters → clustered vegetation/small details/background → ground/readability → final navigation/entries → actual three-variant routes/player/shoulder/farming/combat/normal-night checks → isolated performance → usage/report/progress completed in that order. The current request ends here. Wait for user map review and a new scope before any character/animation/weapon/holding/skip/UI work. No commit/push/export requested. See MAP_REDESIGN_REPORT.md.
+
+## Post-production refinement pass1 (current authorized scope)
+
+Stage A map → B movement → C holding → D aim → E confirmed daytime wait implemented sequentially, with focused test gates before advancing. Final regression and documentation are complete: latest 52/52 per-check passes, sustained 10-day campaign reaches rescue, final rendered boot and performance pass. This supersedes the historical feature freeze only for the user's specified refinement scope. No new enemies, weapons, crops, quests, saves or other major gameplay. STOP and wait for a new request. See POST_PRODUCTION_REFINEMENT_1.md; no commit/push or new export in this pass.
+
 ## Current: Phase10 automated QA delivered / FEATURE FREEZE
 
 v0.1.0-demo Windows candidate exported and runtime tested. Full balanced legitimate automated Day1-10 campaign, final-night rescue, death/restart matrix, exported UI flow, actual Quit, progression/state and release profiling pass. Balance change is limited to progressive daily basic seed supplies. See FINAL_QA_REPORT.md, FINAL_BALANCE.md and RELEASE_CHECKLIST.md.

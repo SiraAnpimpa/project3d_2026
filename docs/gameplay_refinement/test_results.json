@@ -1,0 +1,283 @@
+{
+  "note": "Relevant individual process gates; includes explicitly labelled baselines/audits/comparisons. Not a separate combined wrapper run.",
+  "excluded_diagnostic": "ERROR: Failed to read the root certificate store.",
+  "gates": [
+    {
+      "name": "baseline_asset_audit",
+      "role": "baseline audit",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_ASSET_AUDIT_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/baseline_asset_audit.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "remaining_weapon_audit",
+      "role": "additional audit",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_ASSET_AUDIT_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/remaining_weapon_audit.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "baseline_rig",
+      "role": "baseline audit",
+      "passed": true,
+      "result_pattern": "RIG_AUDIT_RESULT complete",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/baseline_rig.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "baseline_stamina_2",
+      "role": "baseline measurement",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_STAMINA_MEASURE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/baseline_stamina_2.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "baseline_poses",
+      "role": "baseline presentation",
+      "passed": true,
+      "result_pattern": "REFINEMENT_POSE_CAPTURE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/baseline_poses.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "baseline_plant_performance",
+      "role": "baseline measurement",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_PLANT_PERFORMANCE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/baseline_plant_performance.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "stamina_after",
+      "role": "current stamina",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_STAMINA_MEASURE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/stamina_after.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "movement_stage_a",
+      "role": "current movement",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_MOVEMENT_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/movement_stage_a.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "stride_cadence_audit",
+      "role": "cadence comparison",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_STRIDE_MEASURE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/stride_cadence_audit.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "stride_selected",
+      "role": "current cadence",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_STRIDE_MEASURE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/stride_selected.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "hand_pose_audit",
+      "role": "native hand audit",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_STRIDE_AUDIT_RESULT complete",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/hand_pose_audit.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "bat_final_logic",
+      "role": "current melee logic",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_BAT_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/bat_final_logic.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "bat_rendered",
+      "role": "rendered melee before final finger refinement",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_BAT_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/bat_rendered.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "plants_logic",
+      "role": "current farming",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_PLANTS_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/plants_logic.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "plants_rendered",
+      "role": "current rendered farming",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_PLANTS_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/plants_rendered.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "night_live",
+      "role": "live damaging night headless",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_NIGHT_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/night_live.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "night_rendered",
+      "role": "live damaging night rendered",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_NIGHT_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/night_rendered.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "full_day_regression",
+      "role": "ordinary natural time/resources regression",
+      "passed": true,
+      "result_pattern": "CLEANUP_FULL_DAY_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/full_day_regression.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "character_grip_capture",
+      "role": "final rendered character/grip",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_CHARACTER_CAPTURE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/character_grip_capture.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "aim_final",
+      "role": "final aim/reload/fire",
+      "passed": true,
+      "result_pattern": "REFINEMENT_AIM_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/aim_final.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "plant_performance_after",
+      "role": "current source measurement",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_PLANT_PERFORMANCE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/plant_performance_after.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "matched_legacy_art_2",
+      "role": "current code legacy-art comparison",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_PLANT_PERFORMANCE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/matched_legacy_art_2.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "matched_current_art_2",
+      "role": "current code current-art comparison",
+      "passed": true,
+      "result_pattern": "GAMEPLAY_PLANT_PERFORMANCE_RESULT failures=0",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/matched_current_art_2.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "final_import",
+      "role": "final editor import",
+      "passed": true,
+      "result_pattern": "Godot Engine",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_import.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    },
+    {
+      "name": "final_normal_boot",
+      "role": "final normal rendered entry",
+      "passed": true,
+      "result_pattern": "Godot Engine",
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_normal_boot.log",
+      "process_exit_code": 0,
+      "exit_code_source": "observed process tool result; not embedded in the engine log"
+    }
+  ],
+  "failed_count": 0,
+  "runner_syntax_errors": 0
+}

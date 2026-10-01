@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "errors": [],
+  "report_topics": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "current_gate_failures": 0,
+  "source_hashes_rechecked": 987,
+  "unique_plant_sources": 8,
+  "stop_for_user_review": true,
+  "combined_wrapper_run": false,
+  "new_export": false
+}

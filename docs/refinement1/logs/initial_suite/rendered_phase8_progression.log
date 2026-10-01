@@ -1,0 +1,70 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: all ten configs validate identities, wave data and unique unlocks
+PASS: missing config has explicit diagnostic
+PASS: Day 1 existing starter seeds are not awarded twice
+PASS: special recipe starts locked independently of materials
+PASS: owned locked seed cannot be selected
+PASS: debug day 1 updates config and HUD
+PASS: Day 1 duplicate event has no reward/notification duplication
+PASS: Day 1 spawns exact mixed composition and clears after pending is empty
+PASS: debug day 3 updates config and HUD
+PASS: saved rendered image: phase8_day3
+PASS: Day 3 duplicate event has no reward/notification duplication
+PASS: Day 3 spawns exact mixed composition and clears after pending is empty
+PASS: debug day 5 updates config and HUD
+PASS: Day 5 duplicate event has no reward/notification duplication
+PASS: Day 5 spawns exact mixed composition and clears after pending is empty
+PASS: debug day 7 updates config and HUD
+PASS: saved rendered image: phase8_day7
+PASS: Day 7 duplicate event has no reward/notification duplication
+PASS: Day 7 spawns exact mixed composition and clears after pending is empty
+PASS: debug day 10 updates config and HUD
+PASS: saved rendered image: phase8_day10
+PASS: Day 10 duplicate event has no reward/notification duplication
+PASS: Day 10 spawns exact mixed composition and clears after pending is empty
+PASS: final clear waits for dawn/rest rather than instant victory
+PASS: final clear allows rest
+PASS: final rest completes safely and keeps gameplay locked
+PASS: saved rendered image: phase8_completed_rest
+PASS: new seed reward selectable: fire_pepper
+PASS: magical plant grows: fire_pepper
+PASS: magical harvest uses correct material: fire_pepper
+PASS: unlocked recipe UI enables craft: fire_ammo
+PASS: workbench produces special ammo: fire_ammo
+PASS: saved rendered image: phase8_fire_ammo
+PASS: new seed reward selectable: ice_plant
+PASS: magical plant grows: ice_plant
+PASS: magical harvest uses correct material: ice_plant
+PASS: unlocked recipe UI enables craft: ice_ammo
+PASS: workbench produces special ammo: ice_ammo
+PASS: saved rendered image: phase8_ice_ammo
+PASS: new seed reward selectable: poison_plant
+PASS: magical plant grows: poison_plant
+PASS: magical harvest uses correct material: poison_plant
+PASS: unlocked recipe UI enables craft: poison_ammo
+PASS: workbench produces special ammo: poison_ammo
+PASS: saved rendered image: phase8_poison_ammo
+PASS: full bag keeps unlock separate from owned quantity and queues reward
+PASS: freeing bag claims queued rewards atomically once
+PASS: queued delivery cannot duplicate on repeated day
+PASS: debug reset separates unlocks from owned seeds
+PASS: reaching day after debug reset restores unlock without duplicate starter grant
+PASS: final wave caps twelve alive while counting twelve pending
+PASS: mixed queue includes tank before normal batch ends
+PASS: unexpected tank deletion returns same variant to pending
+PASS: unfinished final wave dawn wins, cleans up and does not heal
+PASS: completion stops clock and gameplay menus/fire
+PASS: saved rendered image: phase8_completed_dawn
+PASS: victory restart creates fresh Day 1 progression and rewards
+PASS: accelerated natural Day 1 through Night 10 completes with exactly ten dawns
+PASS: ten-day registry has no duplicate grants or Day 11 content
+PASS: long run has no stale enemy or pending references
+PASS: ten-day transitions preserve crop, magazine and inventory
+PASS: daytime node count does not accumulate across ten days
+TEN_DAY_NODES { 1: 820, 2: 820, 3: 820, 4: 820, 5: 820, 6: 820, 7: 820, 8: 820, 9: 820, 10: 820 } memory_bytes=62814988.0
+TEN_DAY_RUNTIME max_tracked=3 hp=100.0 nodes=825 dawns=[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+PHASE_8_PROGRESSION_RESULT failures=0

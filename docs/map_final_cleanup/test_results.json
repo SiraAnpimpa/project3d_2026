@@ -1,0 +1,146 @@
+{
+  "latest_checks": [
+    {
+      "name": "baseline_survey",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/baseline_survey.log"
+    },
+    {
+      "name": "baseline_performance",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/baseline_performance.log"
+    },
+    {
+      "name": "bake_cleanup_1",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/bake_cleanup_1.log"
+    },
+    {
+      "name": "edges_cleanup_1",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/edges_cleanup_1.log"
+    },
+    {
+      "name": "final_geometry",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_geometry.log"
+    },
+    {
+      "name": "routes_cleanup_1",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/routes_cleanup_1.log"
+    },
+    {
+      "name": "final_survey",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_survey.log"
+    },
+    {
+      "name": "final_finish_views",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_finish_views.log"
+    },
+    {
+      "name": "final_full_day",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_full_day.log"
+    },
+    {
+      "name": "final_rescue",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_rescue.log"
+    },
+    {
+      "name": "final_acceptance_headless",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_acceptance_headless.log"
+    },
+    {
+      "name": "final_night",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_night.log"
+    },
+    {
+      "name": "final_import",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_import.log"
+    },
+    {
+      "name": "final_metrics",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_metrics.log"
+    },
+    {
+      "name": "final_normal_boot",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_normal_boot.log"
+    },
+    {
+      "name": "final_performance",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_performance.log"
+    },
+    {
+      "name": "final_performance_confirmation",
+      "passed": true,
+      "result_found": true,
+      "errors": [],
+      "log": "logs/final_performance_confirmation.log"
+    },
+    {
+      "name": "scope_audit",
+      "passed": true,
+      "log": "scope_audit.json"
+    }
+  ],
+  "failures": 0,
+  "retained_intermediate_attempts": [
+    {
+      "log": "logs/import_after_structures.log",
+      "status": "parser failure; fixed explicit Vector3 rail endpoint types; final import succeeds"
+    },
+    {
+      "log": "logs/review_survey_1.log",
+      "status": "external 240-second timeout; no assertion failure; controlled scenery-only night survey completed all 99 views subsequently"
+    },
+    {
+      "log": "logs/final_acceptance.log",
+      "status": "rendered aggregate 240-second timeout after full movement/camera coverage; assertions split into complete headless acceptance and complete rendered night gates"
+    }
+  ],
+  "excluded_engine_diagnostic": "ERROR: Failed to read the root certificate store.",
+  "method": "actual production Input/controller automated checks plus framebuffer image inspection; not human playtesting",
+  "exit_status": "all latest processes returned 0; full logs additionally checked for results/errors"
+}

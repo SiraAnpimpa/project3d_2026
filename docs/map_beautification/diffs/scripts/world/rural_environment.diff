@@ -1,0 +1,385 @@
+--- before/scripts/world/rural_environment.gd
++++ after/scripts/world/rural_environment.gd
+@@ -6,9 +6,12 @@
+ 
+ var used_assets: Dictionary = {}
+ var playable_tree_colliders := 0
++var grass_counts: Dictionary = {}
++var structural_placements: Array = []
+ var _batches: Dictionary = {}
+ var _models: Dictionary = {}
+ var _materials: Dictionary = {}
++var _foliage_materials: Dictionary = {}
+ var rng := RandomNumberGenerator.new()
+ 
+ func _ready() -> void:
+@@ -28,22 +31,13 @@
+ 		if debug_label != null: debug_label.position = marker.position+Vector3.UP*1.2
+ 
+ func build_structures() -> void:
+-	# B: farmhouse silhouette above the retained, playable shelter shell.
+-	for side in [-1,1]:
+-		var roof := box("House",Vector3(-9+side*1.65,3.95,-6.5),Vector3(3.8,0.17,6.0),Color("66483b"))
+-		roof.rotation.z = -side*deg_to_rad(27)
+-	box("House",Vector3(-9,4.77,-6.5),Vector3(0.15,0.18,6.1),Color("4a3c33"))
+-	box("House",Vector3(-10.5,4.6,-8),Vector3(0.55,1.5,0.55),Color("76624e"))
+-	for x in [-12.15,-5.85]:
+-		box("House",Vector3(x,1.55,-6.5),Vector3(0.06,2.9,4.9),Color("777059"))
+-		box("House",Vector3(x,1.9,-7),Vector3(0.08,0.85,1.2),Color("23383a"))
+-	for x in [-12.1,-5.9]: box("House",Vector3(x,1.4,-3.7),Vector3(0.15,2.8,0.15),Color("706046"))
+-	box("House",Vector3(-9,2.95,-3.2),Vector3(6.5,0.16,1.8),Color("655344"))
+-	# C: open workshop roof and back wall keep the actual bench and front approach free.
+-	box("Workshop",Vector3(-3.9,1.45,-4.2),Vector3(4.5,2.9,0.15),Color("686c5a"),true)
+-	var roof := box("Workshop",Vector3(-3.9,3.0,-2.55),Vector3(4.8,0.16,3.8),Color("595447"))
+-	roof.rotation.x = deg_to_rad(8)
+-	for x in [-6.1,-1.7]: box("Workshop",Vector3(x,1.4,-1.1),Vector3(0.14,2.8,0.14),Color("74634a"),true)
++	# Main farm home: supplied Cabin; static open doorway, no door gameplay.
++	prop("Cabin","House",Vector2(-12,-10),9.5,0,true,-0.276)
++	# The workshop has its own yard across the house's eastern breathing space.
++	box("Workshop",Vector3(3,1.45,-12.4),Vector3(5.5,2.9,0.15),Color("686c5a"),true)
++	var roof := box("Workshop",Vector3(3,3.0,-10.1),Vector3(6.0,0.16,5.0),Color("595447"))
++	roof.rotation.x = deg_to_rad(6)
++	for x in [0.25,5.75]: box("Workshop",Vector3(x,1.4,-7.8),Vector3(0.14,2.8,0.14),Color("74634a"),true)
+ 	prop("Water Tower","House",Vector2(-21,-18),5.0,10,true,0,12.5)
+ 	# F: recognizable abandoned depot on the raised eastern old field.
+ 	prop("Container Green","Abandoned",Vector2(35,-23),8.5,18,true)
+@@ -56,55 +50,56 @@
+ 	var broken_roof := box("Ruins",RuralTerrain.ground_point(30,-16,3.7),Vector3(3.8,0.18,5.5),Color("665646"))
+ 	broken_roof.rotation.z = 0.16
+ 	# G: curved approach past a stopped supply truck and the broken road gate.
+-	prop("Truck","Road",Vector2(17,36),5.3,-28,true)
+-	prop("Town Sign","Road",Vector2(19,48),9.0,10)
+-	prop("Traffic Barrier-nugx3heueH","Road",Vector2(23,49),4.0,17,true)
+-	prop("Street Straight Crack","Road",Vector2(19,48),7.8,0,false,0.025)
+-	prop("Street Light","Road",Vector2(23,44),1.0,25,false,0,6.7)
++	prop("Truck","Road",Vector2(18,42),5.3,-9,true)
++	prop("Town Sign","Road",Vector2(15,49),6.0,0)
++	prop("Traffic Barrier-nugx3heueH","Road",Vector2(18,47),3.4,7,true)
++	prop("Street Straight Crack","Road",Vector2(16,49),6.0,0,false,0.025)
++	prop("Street Light","Road",Vector2(20,47),1.0,25,false,0,6.7)
+ 	# E/N: large silhouettes create remembered approach directions and hide entry pockets.
+ 	prop("Tree-qZtx0AHhcy","Forest",Vector2(-31,4),7,10,true,0,11)
+ 	prop("Dead Tree-Mcd2zYqyww","Forest",Vector2(-41,-8),5,25,true,0,8.5)
+-	for p in [Vector2(-3,-29),Vector2(7,-32),Vector2(-10,-32)]:
+-		prop("Rock Medium-JQxF95498B","Ridge",p,5.8,p.x*9,true)
+-	prop("Rock Medium","Forest",Vector2(-31,11),4.4,15,true)
++	rock_cluster(Vector2(-3,-29),4.1,"Ridge",15)
++	rock_cluster(Vector2(7,-32),5.8,"Ridge",62)
++	rock_cluster(Vector2(-10,-32),4.8,"Ridge",-17)
++	rock_cluster(Vector2(-31,11),4.4,"Forest",15)
+ 	for p in [Vector2(38,14),Vector2(44,9),Vector2(-49,-11),Vector2(-48,22),Vector2(2,-50)]:
+-		prop("Rock Medium-s1OJ3bBzqc","Boundary",p,4.5,p.x*7,true)
++		rock_cluster(p,4.5,"Boundary",p.x*7)
+ 	# Fence fragments belong to farm edges and the old western pasture, never a perimeter square.
+-	for z in [-4,-1,2,5,8]: fence(Vector2(-16,z),Vector2(-16,z+2.6),false)
++	for z in [3.5,7.8,12.0]: fence(Vector2(-24,z),Vector2(-24,z+2.6),false,true)
+ 	for z in [-22,-17,-12,-7]: fence(Vector2(-50,z),Vector2(-49,z+3.2),true)
+ 	for x in [24,29,34]: fence(Vector2(x,-9),Vector2(x+3.2,-9.5),true)
+-	# Existing cover bodies stay in their original functional positions.
+-	prop("Chest","Combat",Vector2(7,3),1.8,0)
+-	prop("Chest-RfSBvgcZUD","Combat",Vector2(7,3),1.3,8,false,0.9)
+-	prop("Chest","Workshop",Vector2(0,-1),1.4,0)
++	# Storage models match the retained bodies relocated into the utility zone.
++	prop("Chest","Workshop",Vector2(6.8,-12.5),1.8,0)
++	prop("Chest-RfSBvgcZUD","Workshop",Vector2(6.8,-12.5),1.3,8,false,0.9)
++	prop("Chest","Workshop",Vector2(7.4,-9.5),1.4,0)
+ 	var station := get_parent().get_parent().get_node_or_null("TestInteractable/Mesh")
+ 	if station != null: station.hide()
+ 
+ func build_clusters() -> void:
+-	# House: stored food/medical/radio supplies inside the safe shell.
+-	prop("Chest","House",Vector2(-7.3,-7.7),1.15,0,true)
+-	prop("Survival_Radio","House",Vector2(-7.3,-7.7),0.32,0,false,0.78)
+-	prop("Survival_First Aid Kit","House",Vector2(-8,-7.9),0.38,-8)
+-	prop("Survival_Backpack","House",Vector2(-11,-8),0.6,0)
+-	prop("Survival_Water Bottle","House",Vector2(-7,-8),0.13,0,false,0.79)
+-	prop("Survival_Pot","House",Vector2(-11.1,-3.4),0.32,0)
+-	prop("Survival_Pan","House",Vector2(-11.5,-3.4),0.4,35)
+-	# Workshop: fuel, parts and tools are grouped behind/beside the workbench.
+-	prop("Barrel","Workshop",Vector2(-1.5,-3.5),0.72,0,true)
+-	prop("Chest-RfSBvgcZUD","Workshop",Vector2(-2.4,-3.4),0.85,0,true)
+-	prop("Survival_Gas Can","Workshop",Vector2(-2.4,-3.4),0.3,10,false,0.53)
+-	prop("Survival_Propane Tank","Workshop",Vector2(-1,-3.1),0.37,0)
+-	prop("Pallet","Workshop",Vector2(-1.5,-5.1),1.4,0)
+-	prop("Survival_Shovel","Workshop",Vector2(-5.7,-4.0),0.4,0,false,0,1.7)
+-	prop("Survival_Axe","Workshop",Vector2(-5.8,-3.7),0.4,25,false,0,1.0)
+-	prop("RPG_Scythe","Workshop",Vector2(-1.8,-4.1),0.75,0,false,0,1.7)
+-	prop("RPG_Bag","Workshop",Vector2(-2.1,-3.3),0.3,15)
+-	prop("RPG_Book","House",Vector2(-7.2,-7.5),0.2,30,false,0.8)
+-	prop("RPG_Padlock","Workshop",Vector2(-2.4,-2.99),0.06,0,false,0.25)
+-	# A: supplies stay off plot interaction lanes; log pile at the field's western edge.
+-	prop("Barrel","Farm",Vector2(-17.2,10.5),0.8,0,true)
+-	prop("Survival_Shovel","Farm",Vector2(-17.0,10.1),0.3,0,false,0,1.4)
+-	for i in 5: prop("Survival_Wood Log","Farm",Vector2(-16.8+i*0.28,11.5),1.8,90,false,(i%2)*0.25)
++	# Domestic cache in the cabin's right room; left room / entry / rest lane stay open.
++	prop("Chest","House",Vector2(-10.3,-12.2),1.05,0,true,0)
++	prop("Survival_Radio","House",Vector2(-10.3,-12.2),0.32,0,false,0.67)
++	prop("Survival_First Aid Kit","House",Vector2(-10.8,-12.2),0.32,-8,false,0.67)
++	prop("Survival_Backpack","House",Vector2(-10,-11),0.6,0,false,0)
++	prop("Survival_Water Bottle","House",Vector2(-10,-12.2),0.13,0,false,0.67)
++	prop("RPG_Book","House",Vector2(-10.2,-12.4),0.2,30,false,0.67)
++	# Utility materials: stock against the back wall, tools by the side post.
++	prop("Barrel","Workshop",Vector2(5,-11.4),0.72,0,true)
++	prop("Chest-RfSBvgcZUD","Workshop",Vector2(3.9,-11.5),0.85,0,true)
++	prop("Survival_Gas Can","Workshop",Vector2(3.9,-11.5),0.3,10,false,0.53)
++	prop("Survival_Propane Tank","Workshop",Vector2(5.6,-11.4),0.37,0)
++	prop("Pallet","Workshop",Vector2(6.6,-14),1.4,0)
++	prop("Survival_Shovel","Workshop",Vector2(0.8,-11.6),0.4,0,false,0,1.7)
++	prop("Survival_Axe","Workshop",Vector2(0.8,-11.1),0.4,25,false,0,1.0)
++	prop("RPG_Scythe","Workshop",Vector2(5.1,-12),0.75,0,false,0,1.7)
++	prop("RPG_Bag","Workshop",Vector2(4.4,-11.5),0.3,15)
++	prop("RPG_Padlock","Workshop",Vector2(3.9,-11.09),0.06,0,false,0.25)
++	# Heavy firewood/storage belongs behind the utility shed, not the farm front.
++	prop("Barrel","Workshop",Vector2(0.7,-14.0),0.8,0,true)
++	prop("Survival_Shovel","Farm",Vector2(-24,3),0.3,0,false,0,1.4)
++	for i in 5: prop("Survival_Wood Log","Workshop",Vector2(1.8+i*0.32,-14.0),1.8,90,false,(i%2)*0.23)
++	prop("Survival_Pan","Workshop",Vector2(2.7,-8),0.4,35,false,0.88)
++	prop("Survival_Pot","Workshop",Vector2(3.35,-8),0.32,0,false,0.88)
+ 	# E: an abandoned forester's camp in a distinct clearing.
+ 	prop("Survival_Tent","Forest",Vector2(-34,21),4.4,30,true)
+ 	prop("Survival_Bonfire","Forest",Vector2(-31,20),0.85,0)
+@@ -124,9 +119,14 @@
+ 	prop("Fire Hydrant","Abandoned",Vector2(44,-28),0.45,0)
+ 	prop("Traffic Barrier","Abandoned",Vector2(40,-11),3.4,-10,true)
+ 	# Road and dry drainage: displaced supplies, culvert and bank stones.
+-	prop("Traffic Cone","Road",Vector2(15,35),0.45,0)
+-	prop("Survival_Gas Can","Road",Vector2(20,36),0.35,15)
+-	prop("Chest","Road",Vector2(21,35),0.9,15)
++	prop("Traffic Cone","Road",Vector2(23,38),0.45,0)
++	prop("Survival_Gas Can","Road",Vector2(18,39),0.35,15)
++	prop("Chest","Road",Vector2(19,39),0.9,15)
++	# A small aid/radio cache by the checkpoint, outside rotor clearance.
++	prop("Survival_Radio","Rescue",Vector2(19,39),0.32,0,false,0.58)
++	prop("Survival_First Aid Kit","Rescue",Vector2(18.8,38.9),0.32,0,false,0.58)
++	for point in [Vector2(23.5,39),Vector2(34.5,39),Vector2(23.5,47),Vector2(34.5,47)]:
++		prop("Traffic Cone","Rescue",point,0.4,0)
+ 	prop("Pipes","Drainage",Vector2(28,18),2.8,90)
+ 	var bank_stones := [Vector2(27.5,11.5),Vector2(29.2,13.8),Vector2(27.6,24),Vector2(25.8,27.8)]
+ 	for i in bank_stones.size():
+@@ -149,7 +149,7 @@
+ 			var angle := rng.randf()*TAU
+ 			var distance := sqrt(rng.randf())*radius
+ 			var point := center+Vector2(cos(angle),sin(angle))*distance
+-			if RuralTerrain.trail_distance(point) < 4.0: continue
++			if RuralTerrain.trail_distance(point) < 4.0 or point.distance_to(RuralTerrain.RESCUE) < 13.0: continue
+ 			var key: String = trees[i%trees.size()] if center.x < 0 else trees[4+i%3]
+ 			var background := maxf(absf(point.x),absf(point.y)) > RuralTerrain.PLAY_HALF
+ 			prop(key,"Background" if background else "Forest edge",point,4.5,rng.randf()*360,false,0,rng.randf_range(6.5,10.5))
+@@ -157,41 +157,82 @@
+ 			if not background:
+ 				prop("Bush with Flowers","Forest edge",point+Vector2(2.2,1.4),rng.randf_range(1.1,1.8),rng.randf()*360)
+ 				prop("Fern","Forest edge",point+Vector2(-1.8,1.3),0.65,rng.randf()*360)
+-	# Sparse edge detail; leave central shooting and all plot interactions clear.
+-	for center in [Vector2(-20,16),Vector2(-24,-5),Vector2(19,-16),Vector2(23,20),Vector2(39,-9),Vector2(20,44)]:
+-		for i in 22:
+-			var p: Vector2 = center+Vector2(rng.randf_range(-5,5),rng.randf_range(-4,4))
+-			if RuralTerrain.trail_distance(p) < 3.2: continue
+-			var grasses := ["Grass","Grass Wispy","Tall Grass","Clover"]
+-			prop(grasses[i%4],"Transition",p,rng.randf_range(0.35,0.8),rng.randf()*360,false,0,rng.randf_range(0.18,0.55))
++				grass_patch(point+Vector2(1.2,1.6),Vector2(2.0,1.6),14,"Forest floor",0.45,0.85)
++	# Fixed meadow/forest patches have dense, thinner and empty intervals.
++	# One batch per existing mesh variant; no per-blade scene nodes or grass collision.
++	var patches := [
++		[Vector2(-29,20),Vector2(8,7),330,"Meadow"],[Vector2(-17,24),Vector2(6,5),260,"Meadow"],
++		[Vector2(-5,26),Vector2(8,6),380,"Meadow"],[Vector2(-20,-2),Vector2(5,4),150,"Yard edge"],
++		[Vector2(-20,-21),Vector2(8,7),360,"Meadow"],[Vector2(-7,-21),Vector2(7,6),280,"Meadow"],
++		[Vector2(12,-17),Vector2(8,7),330,"Meadow"],[Vector2(14,-3),Vector2(6,5),210,"Combat edge"],
++		[Vector2(1,6),Vector2(5,4),130,"Combat edge"],[Vector2(12,15),Vector2(8,7),280,"Combat edge"],
++		[Vector2(23,12),Vector2(7,6),330,"Meadow"],[Vector2(36,11),Vector2(7,7),330,"Meadow"],
++		[Vector2(35,26),Vector2(6,5),300,"Meadow"],[Vector2(3,41),Vector2(9,8),390,"Meadow"],
++		[Vector2(-11,40),Vector2(11,9),550,"Meadow"],[Vector2(-27,36),Vector2(7,6),420,"Forest floor"],
++		[Vector2(-22,-36),Vector2(7,6),410,"Forest floor"],[Vector2(14,-38),Vector2(7,6),410,"Meadow"],
++		[Vector2(26,-38),Vector2(7,6),420,"Forest floor"],[Vector2(46,-36),Vector2(7,6),490,"Forest floor"],
++		[Vector2(43,-1),Vector2(7,6),470,"Forest floor"],[Vector2(44,27),Vector2(8,7),520,"Forest floor"],
++		[Vector2(-42,35),Vector2(9,8),630,"Forest floor"],[Vector2(-46,0),Vector2(11,9),740,"Forest floor"],
++		[Vector2(-39,-27),Vector2(8,7),560,"Forest floor"],[Vector2(-36,-43),Vector2(9,7),560,"Forest floor"],
++		[Vector2(-51,46),Vector2(8,6),470,"Wilderness"],[Vector2(-16,51),Vector2(10,5),470,"Wilderness"],
++		[Vector2(40,51),Vector2(10,5),470,"Wilderness"]
++	]
++	for patch in patches:
++		var zone: String = patch[3]
++		var short_grass := zone in ["Combat edge","Yard edge"]
++		grass_patch(patch[0],patch[1],patch[2],zone,0.23 if short_grass else 0.45,0.4 if short_grass else 0.85)
++	# Sparse short growth along farm soil edges and the yard; active beds stay bare.
++	for center in [Vector2(-22.4,6),Vector2(-22.6,12),Vector2(-4.0,12),Vector2(-11,16.4),Vector2(-18,1),Vector2(-8,-2)]:
++		grass_patch(center,Vector2(2.8,1.8),40,"Yard edge",0.16,0.28)
+ 	for i in 8:
+ 		prop("Bush" if i%2 else "Bush with Flowers","Abandoned",Vector2(33+i*1.6,-26+sin(i)*3),1.1,i*43)
+ 		prop("Mushroom" if i%2 else "Flower Group","Forest",Vector2(-33+i*0.8,23+sin(i)),0.35,i*73)
+ 	var road_stones := [Vector2(12.2,25.7),Vector2(13.5,27.1),Vector2(16.4,31.8),Vector2(17.9,32.6),Vector2(19.2,31.0),Vector2(21.3,38.6),Vector2(23.1,39.2),Vector2(22.6,40.4)]
+ 	for i in road_stones.size():
+ 		prop("Pebble Round" if i%2 else "Pebble Square","Road",road_stones[i],0.45+(i%3)*0.09,i*65)
++	# Roadside outcrop belongs to the reveal shoulder and screens the southern entry.
++	rock_cluster(Vector2(10,31),3.5,"Road shoulder",-20)
+ 
+ func prop(key: String, zone: String, point: Vector2, width: float, yaw: float, solid: bool = false, lift: float = 0, height: float = 0) -> void:
+ 	var info := model_info(key)
+ 	var bounds: AABB = info.bounds
+ 	var scale_factor := height/bounds.size.y if height > 0 else width/maxf(bounds.size.x,bounds.size.z)
+ 	var position := RuralTerrain.ground_point(point.x,point.y,lift)
+-	var transform := Transform3D(Basis(Vector3.UP,deg_to_rad(yaw)),position)
++	var orientation := Basis(Vector3.UP,deg_to_rad(yaw))
++	if key.begins_with("Rock Path"):
++		var dx := RuralTerrain.height_at(point.x+0.1,point.y)-RuralTerrain.height_at(point.x-0.1,point.y)
++		var dz := RuralTerrain.height_at(point.x,point.y+0.1)-RuralTerrain.height_at(point.x,point.y-0.1)
++		var normal := Vector3(-dx/0.2,1,-dz/0.2).normalized()
++		orientation = Basis(Quaternion(Vector3.UP,normal))*orientation
++	var transform := Transform3D(orientation,position)
+ 	var normalization := Transform3D(Basis.IDENTITY.scaled(Vector3.ONE*scale_factor),-Vector3(bounds.get_center().x,bounds.position.y,bounds.get_center().z)*scale_factor)
+-	if key == "Water Tower":
++	if key in ["Water Tower","Cabin"]:
+ 		# Preserve the landmark's imported scene/material behavior; other static props batch.
+ 		var anchor := Node3D.new()
+-		anchor.name = "WaterTower"
++		anchor.name = key.validate_node_name()
+ 		anchor.transform = transform*normalization
+ 		add_child(anchor)
+-		anchor.add_child((EnvironmentAssets.SCENES[key] as PackedScene).instantiate())
++		var model := (EnvironmentAssets.SCENES[key] as PackedScene).instantiate() as Node3D
++		anchor.add_child(model)
++		if key == "Cabin": prepare_cabin_model(model)
+ 	else:
+ 		if not _batches.has(key): _batches[key] = []
+ 		_batches[key].append(transform*normalization)
+-	if not used_assets.has(key): used_assets[key] = {"zones":[],"instances":0}
++	if not used_assets.has(key): used_assets[key] = {"zones":[],"instances":0,"zone_counts":{}}
+ 	if not used_assets[key].zones.has(zone): used_assets[key].zones.append(zone)
+ 	used_assets[key].instances += 1
+-	if solid:
++	used_assets[key].zone_counts[zone] = used_assets[key].zone_counts.get(zone,0)+1
++	if solid: structural_placements.append({"asset":key,"zone":zone,"point":[position.x,position.y,position.z],"width":width,"height":height,"lift":lift,"yaw":yaw})
++	if solid and key == "Cabin":
++		var faces := PackedVector3Array()
++		for part in info.parts:
++			# Door leaf/handle and the thin doormat are decorative; the continuous floor is solid.
++			if part.name in ["group2096568958","group1499761262","group1971417479"]: continue
++			for vertex: Vector3 in part.mesh.get_faces(): faces.append(part.transform*vertex)
++		var cabin_shape := ConcavePolygonShape3D.new()
++		cabin_shape.set_faces(faces)
++		collider("Cabin",transform*normalization,cabin_shape)
++	elif solid:
+ 		var shape := BoxShape3D.new()
+ 		shape.size = bounds.size*scale_factor
+ 		# Giant trees use trunk-only collision; the canopy stays clear above walking space.
+@@ -203,6 +244,7 @@
+ func model_info(key: String) -> Dictionary:
+ 	if _models.has(key): return _models[key]
+ 	var source := (EnvironmentAssets.SCENES[key] as PackedScene).instantiate() as Node3D
++	if key == "Cabin": prepare_cabin_model(source)
+ 	var info := {"bounds":GamePresentation.model_bounds(source),"parts":[]}
+ 	collect_parts(source,Transform3D.IDENTITY,info.parts)
+ 	source.free()
+@@ -211,7 +253,7 @@
+ 
+ func collect_parts(node: Node3D, parent: Transform3D, parts: Array) -> void:
+ 	var transform := parent*node.transform
+-	if node is MeshInstance3D: parts.append({"mesh":node.mesh,"transform":transform,"material":node.material_override})
++	if node is MeshInstance3D: parts.append({"mesh":node.mesh,"transform":transform,"material":node.material_override,"name":str(node.name)})
+ 	for child in node.get_children():
+ 		if child is Node3D: collect_parts(child,transform,parts)
+ 
+@@ -232,6 +274,14 @@
+ 			visual.name = key.validate_node_name()
+ 			visual.multimesh = multi
+ 			visual.material_override = part.material
++			if key in ["Grass","Tall Grass","Grass Wispy","Clover"]:
++				if not _foliage_materials.has(key):
++					var source_material := part.mesh.surface_get_material(0) as StandardMaterial3D
++					var toned := source_material.duplicate() as StandardMaterial3D
++					toned.albedo_color *= Color(0.48,0.59,0.38)
++					toned.roughness = 1.0
++					_foliage_materials[key] = toned
++				visual.material_override = _foliage_materials[key]
+ 			# MultiMesh LOD needs the scale inside instance transforms for tiny imported meshes.
+ 			# Otherwise imported container panels and similar thin structures disappear too soon.
+ 			visual.lod_bias = largest_scale
+@@ -273,12 +323,83 @@
+ 		collider(zone,visual.transform,shape)
+ 	return visual
+ 
+-func fence(a: Vector2, b: Vector2, broken: bool) -> void:
+-	var start := RuralTerrain.ground_point(a.x,a.y,0.85)
+-	var finish := RuralTerrain.ground_point(b.x,b.y,0.85)
+-	box("Fence",start,Vector3(0.15,1.7,0.15),Color("6a604a"))
+-	box("Fence",finish,Vector3(0.15,1.7,0.15),Color("6a604a"))
+-	for y in [-0.25,0.25]:
++func fence(a: Vector2, b: Vector2, broken: bool, low: bool = false) -> void:
++	var height := 1.0 if low else 1.7
++	var start := RuralTerrain.ground_point(a.x,a.y,height*0.5)
++	var finish := RuralTerrain.ground_point(b.x,b.y,height*0.5)
++	box("Fence",start,Vector3(0.15,height,0.15),Color("6a604a"))
++	box("Fence",finish,Vector3(0.15,height,0.15),Color("6a604a"))
++	for y in [-0.19,0.19] if low else [-0.25,0.25]:
+ 		var rail := box("Fence",(start+finish)*0.5+Vector3.UP*y,Vector3(0.12,0.14,start.distance_to(finish)),Color("8a8064"))
+ 		rail.look_at(finish)
+ 		if broken and y > 0: rail.rotation.x += 0.16
++
++func rock_cluster(center: Vector2, width: float, zone: String, yaw: float) -> void:
++	# Embed the dominant stone; smaller satellites and understorey join its base to earth.
++	var dominant := "Rock Medium-JQxF95498B" if zone == "Ridge" else "Rock Medium-s1OJ3bBzqc" if zone == "Boundary" else "Rock Medium"
++	prop(dominant,zone,center,width,yaw,true,-0.38)
++	for i in 3:
++		var angle := deg_to_rad(yaw+40+i*103)
++		var point := center+Vector2(cos(angle),sin(angle))*(width*0.48+0.4+i*0.2)
++		prop("Rock Medium" if i%2 else "Rock Medium-s1OJ3bBzqc",zone,point,1.6+i*0.4,yaw+i*53,false,-0.2)
++	for i in 5:
++		var angle := deg_to_rad(yaw+21+i*61)
++		var point := center+Vector2(cos(angle),sin(angle))*(width*0.55+0.7)
++		prop("Pebble Round" if i%2 else "Pebble Square",zone,point,0.35+i*0.06,i*47,false,-0.06)
++	prop("Bush with Flowers",zone,center+Vector2(-width*0.4,width*0.35),1.35,yaw)
++	prop("Fern",zone,center+Vector2(width*0.45,0.7),0.85,yaw+55)
++	grass_patch(center,Vector2(width*0.9,width*0.7),65,"Rock edge",0.35,0.65)
++
++func grass_patch(center: Vector2, radius: Vector2, count: int, zone: String, low: float, high: float) -> void:
++	for i in count:
++		var angle := rng.randf()*TAU
++		var spread := sqrt(rng.randf())
++		var point := center+Vector2(cos(angle)*radius.x,sin(angle)*radius.y)*spread
++		if not grass_allowed(point): continue
++		# Broken inner pockets create uneven clumps within each larger patch.
++		var pocket := sin(point.x*0.72+cos(point.y*0.33))*cos(point.y*0.61)
++		if pocket > 0.45 and i%3: continue
++		var key := "Grass" if i%10 < 6 else "Tall Grass" if i%10 < 8 else "Grass Wispy" if i%10 == 8 else "Clover"
++		var height := rng.randf_range(low,high)
++		if key == "Clover": height *= 0.55
++		prop(key,zone,point,0.5,rng.randf()*360,false,-0.018,height)
++		grass_counts[zone] = grass_counts.get(zone,0)+1
++
++func grass_allowed(point: Vector2) -> bool:
++	if maxf(absf(point.x),absf(point.y)) > 55.0: return false
++	if RuralTerrain.trail_distance(point) < (2.3 if point.y < 15 else 3.1): return false
++	if point.distance_to(RuralTerrain.RESCUE) < 10.3: return false
++	# Soil groups, veranda/house, open front yard, workshop and depot access stay clear.
++	if point.x > -21.7 and point.x < -5.2 and point.y > 2.4 and point.y < 14.6: return false
++	if point.x > -17.5 and point.x < -6.0 and point.y > -15.5 and point.y < 1.0: return false
++	if point.x > -0.5 and point.x < 8.6 and point.y > -15.5 and point.y < -5.6: return false
++	if point.x > 23 and point.x < 46 and point.y > -34.8 and point.y < -11.2: return false
++	if point.x > 13.5 and point.x < 22.5 and point.y > 37.5 and point.y < 50: return false
++	if point.distance_to(Vector2(-34,21)) < 4.0: return false
++	return true
++
++func prepare_cabin_model(model: Node3D) -> void:
++	# Static wrapper adaptation: widen this supplied cabin's narrow entry to ~1.85 m.
++	# Apply identical transforms to render and collision; keep the source GLB untouched.
++	for part: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
++		var label := str(part.name)
++		if label in ["group2096568958","group1499761262"]:
++			part.hide()
++			continue
++		if label == "group153432663": part.position.x -= 0.07
++		elif label == "group240409007": part.position.x += 0.07
++		elif label == "group1467649897":
++			var bounds := part.get_aabb()
++			part.scale.x = (bounds.size.x+0.14)/bounds.size.x
++			part.position.x = -0.07+(1.0-part.scale.x)*bounds.position.x
++		else:
++			var bounds := part.get_aabb()
++			var minimum := bounds.position
++			var maximum := bounds.end
++			if minimum.z < 0.37 or maximum.z > 0.54: continue
++			if minimum.x < -0.7 and maximum.x > -0.65 and maximum.x < -0.55:
++				part.scale.x = (bounds.size.x-0.07)/bounds.size.x
++				part.position.x = (1.0-part.scale.x)*minimum.x
++			elif minimum.x > -0.38 and minimum.x < -0.3 and maximum.x > 0.1:
++				part.scale.x = (bounds.size.x-0.07)/bounds.size.x
++				part.position.x = (1.0-part.scale.x)*maximum.x

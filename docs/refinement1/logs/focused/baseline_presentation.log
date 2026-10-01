@@ -1,0 +1,59 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: main menu has free mouse and unpaused tree
+PASS: saved rendered image: phase9_main_menu
+PASS: main menu guide opens through actual click
+PASS: saved rendered image: phase9_controls
+PASS: Escape closes guide and returns button focus
+PASS: Play starts fresh Day1 with hidden debug markers
+PASS: saved rendered image: phase9_day_farm
+Planted Lead Plant.
+Harvested Lead x2.
+PASS: input plants and harvests seed_lead
+Planted Paper Plant.
+Harvested Paper x3.
+PASS: input plants and harvests seed_paper
+Planted Copper Plant.
+Harvested Copper x2.
+PASS: input plants and harvests seed_copper
+Workbench opened
+PASS: Workbench UI crafts farmed ammo
+PASS: saved rendered image: phase9_crafting
+PASS: inventory owns input and pause
+PASS: saved rendered image: phase9_inventory
+PASS: pause freezes movement, clock and shooting
+PASS: saved rendered image: phase9_pause
+PASS: pause guide opens without resuming
+PASS: saved rendered image: phase9_pause_guide
+PASS: Escape guide returns to pause
+PASS: night combat hits, kills and emits bounded audio cues
+PASS: saved rendered image: phase9_night_combat
+PASS: cleared wave permits existing rest
+PASS: rest visibly fades with gameplay paused
+PASS: rest fade returns to morning with controls restored
+PASS: game-over buttons get free mouse
+PASS: saved rendered image: phase9_game_over
+PASS: game-over returns to main menu without stuck pause
+PASS: final-night warning is distinct
+PASS: final night has distinctive HUD and stronger ambience
+PASS: saved rendered image: phase9_final_night
+PASS: ending starts once and blocks gameplay/damage
+PASS: rescue camera and arriving helicopter visible after threat cleanup
+PASS: saved rendered image: phase9_rescue_arrival
+PASS: saved rendered image: phase9_rescue_landed
+PASS: sequence reaches ending screen
+PASS: saved rendered image: phase9_ending
+PASS: saved rendered image: phase9_ending_1080
+PASS: ending panel stays within 1920x1080
+PASS: ending screen returns to usable main menu
+PASS: saved rendered image: phase9_menu_1080
+PASS: new play after ending resets day, unlocks and damage gate
+PASS: saved rendered image: phase9_gameplay_1080
+PASS: death on final night cannot trigger rescue
+PASS: ending Play Again button restarts cleanly
+PASS: pause Restart releases pause and resets campaign
+PASS: pause Main Menu returns safely
+PHASE_9_PRESENTATION_RESULT failures=0

@@ -1,5 +1,29 @@
 # ASSET_GAMEPLAY_MAPPING — Somchai's Last Harvest
 
+## Current: Gameplay & Character Refinement
+
+Wooden Bat Barbed.glb → ammo-free Day1 fallback in the existing loadout. Native Matt Slash → bat swing with local weapon/palm adjustment; existing Idle/Walk/Run and gun variants remain locomotion. Plant Big → Lead; Clover → Paper; tall alternate Plant Big → Iron; yellow-pod Flower Single → Copper; Fern → Herb; red Bush → Fire; pale Mushroom → Ice; shelf Mushroom Laetiporus → Poison. Eight separate native silhouettes, selected after inspecting all68 Nature sources. See [PLANT_VISUAL_ASSET_MAPPING.md](PLANT_VISUAL_ASSET_MAPPING.md) for exact filenames, bounds, stages and unused candidates; [GAMEPLAY_REFINEMENT_REPORT.md](GAMEPLAY_REFINEMENT_REPORT.md) for functionality and limits. Existing map asset mapping below remains applicable to scenery; no new Water/Electric crop or Shotgun gameplay was invented.
+
+## Historical: Final environment cleanup
+
+Same anchors and systems: furnished Cabin→home/rest; twelve plots→two accessible farm groups; supported bench/frame/tools/rear logs/stock→workshop; rock/forest clusters→landmarks/entry screening; framed partial ruin→depot; existing dirt path/truck/cache/H/four cones/light→open rescue clearing. Remove decorative boards/gantry/asphalt/loose drainage samples and unrelated home/work props. Supplies/vise/tools remain decorative. 56 sources /11,707 placements; [runtime zone table](MAP_ASSET_USAGE.md), [report](MAP_FINAL_CLEANUP_REPORT.md). All gameplay item data, rules and ending behavior are unchanged.
+
+## Earlier phase records
+
+The following sections preserve earlier versions and their stated counts; current source/evidence is described above.
+
+## Historical map beautification zone mapping
+
+Cabin→furnished home/rest room; plots→two spaced six-plot beds; bench/tools/rear wood/stock→independent workshop; rock groups and dense green understorey→forest/ridge/zone edges; short sparse grass→combat/yard; leveled containers/vehicles/debris→abandoned depot; curved road/truck/checkpoint/aid cache→separate southeast rescue clearing.70 model sources/11,725 placements are listed in MAP_ASSET_USAGE.md. Original gameplay items and rules are unchanged; scenery chests/medical/fuel/tools remain decoration. See MAP_BEAUTIFICATION_REPORT.md. Earlier zone mappings below describe historical versions.
+
+## Historical map zone mapping
+
+A Farmstead→plots/tools/logs/water storage; B House→gable/porch/water tower/domestic supplies; C Workshop→bench/fuel/tools/material groups; D Combat→open meadow/retained crate cover; E Forest→rolling woodland/oak/dead tree/forester camp; F Abandoned→containers/ruins/evacuated vehicles/debris; G Road→truck/gate/sign/dirt rescue connection; H Boundary/background→ridge/rocks/trees/broken fence/blocked road/distant hills. Actual69-asset table with counts/purposes is MAP_ASSET_USAGE.md. All these supplies are decorative; existing gameplay interactions/crops/weapon/ending remain the source of game mechanics.
+
+## Refinement Pass 1 update (2026-10-01)
+
+Reuse existing Chest, Barrel, Pallet, Traffic Barrier, Pine, Rock Medium and Shovel for static farm/base/approach scenery. No new item or storage behavior. Matt has 43 bones / 20 imported clips; dedicated aim/fire/reload/strafe/tool clips are absent. The current procedural rifle pose is documented separately from imported animation. All 243 original GLBs match the pre-pass hashes. See [the refinement report](POST_PRODUCTION_REFINEMENT_1.md) and `docs/refinement1/asset_audit.json`.
+
 ## Phase 3 implementation status — 2026-09-29
 
 ใช้ `Asset/Stylized Nature MegaKit.undefined-glb/Plant.glb` จริงผ่าน `NaturePlantVisual.tscn` wrapper scale0.65 สำหรับพืชทั้ง5ชนิด. ตรวจภาพในrendererแล้ว; ใช้seedmarker/scale/produceprismสีต่างกันและป้ายเพื่อสื่อ4growthstages. ไม่มีโมเดลพืชโลหะ/กระดาษ/สมุนไพรเฉพาะ จึงเป็นplaceholder. แปลงดิน/ridgesเป็นprimitive. เพิ่มSVGicons10ไฟล์ใน `assets/ui/items/` สำหรับเมล็ด/วัสดุ. MattและgreyboxจากPhase 2ยังใช้เดิม.

@@ -1,0 +1,31 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: main scene is configured
+PASS: required actions have input bindings
+PASS: HUD initializes player stats
+PASS: HUD initializes day and HH:MM clock
+PASS: physical F2 input damages player and updates HUD
+PASS: physical F3 heals player
+PASS: F4 drains stamina and updates HUD
+PASS: F5 restores stamina
+PASS: F9 changes clock and HUD to night
+PASS: F8 advances next dawn and day counter
+PASS: F7 adds one game hour
+PASS: F6 rewinds one game hour
+PASS: F10 toggles accelerated time
+PASS: F11 pauses the game clock
+PASS: disabled debug ignores damage keys and hides panel
+PASS: disabling debug restores normal running time
+PASS: Inspector debug switch prevents re-enabling controls
+PASS: F1 re-enables development tools
+PASS: nearby station displays interaction prompt
+Interaction Successful
+PASS: physical E input shows interaction feedback
+SKIP: captured mouse motion requires a window; covered by the rendered test run
+PASS: Escape pauses and releases captured mouse
+PASS: death shows restart UI and disables interactions
+PASS: F12 restores player and clears death UI
+PASS: R restarts the main scene with fresh state
+PHASE_2_INTEGRATION_RESULT failures=0

@@ -1,0 +1,203 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: Normal North validates nav, collision and 12m clearance
+PASS: Normal North reaches (3.0, 0.05, 5.0)
+PASS: Normal East validates nav, collision and 12m clearance
+PASS: Normal East reaches (3.0, 0.05, 5.0)
+PASS: Normal South validates nav, collision and 12m clearance
+PASS: Normal South reaches (3.0, 0.05, 5.0)
+PASS: Normal West validates nav, collision and 12m clearance
+PASS: Normal West reaches (3.0, 0.05, 5.0)
+PASS: Runner North validates nav, collision and 12m clearance
+PASS: Runner North reaches (3.0, 0.05, 5.0)
+PASS: Runner East validates nav, collision and 12m clearance
+PASS: Runner East reaches (3.0, 0.05, 5.0)
+PASS: Runner South validates nav, collision and 12m clearance
+PASS: Runner South reaches (3.0, 0.05, 5.0)
+PASS: Runner West validates nav, collision and 12m clearance
+PASS: Runner West reaches (3.0, 0.05, 5.0)
+PASS: Tank North validates nav, collision and 12m clearance
+PASS: Tank North reaches (3.0, 0.05, 5.0)
+PASS: Tank East validates nav, collision and 12m clearance
+PASS: Tank East reaches (3.0, 0.05, 5.0)
+PASS: Tank South validates nav, collision and 12m clearance
+PASS: Tank South reaches (3.0, 0.05, 5.0)
+PASS: Tank West validates nav, collision and 12m clearance
+PASS: Tank West reaches (3.0, 0.05, 5.0)
+PASS: Normal North validates nav, collision and 12m clearance
+PASS: Normal North reaches (-9.0, 0.05, -6.0)
+PASS: Normal East validates nav, collision and 12m clearance
+PASS: Normal East reaches (-9.0, 0.05, -6.0)
+PASS: Normal South validates nav, collision and 12m clearance
+PASS: Normal South reaches (-9.0, 0.05, -6.0)
+PASS: Normal West validates nav, collision and 12m clearance
+PASS: Normal West reaches (-9.0, 0.05, -6.0)
+PASS: Runner North validates nav, collision and 12m clearance
+PASS: Runner North reaches (-9.0, 0.05, -6.0)
+PASS: Runner East validates nav, collision and 12m clearance
+PASS: Runner East reaches (-9.0, 0.05, -6.0)
+PASS: Runner South validates nav, collision and 12m clearance
+PASS: Runner South reaches (-9.0, 0.05, -6.0)
+PASS: Runner West validates nav, collision and 12m clearance
+PASS: Runner West reaches (-9.0, 0.05, -6.0)
+PASS: Tank North validates nav, collision and 12m clearance
+PASS: Tank North reaches (-9.0, 0.05, -6.0)
+PASS: Tank East validates nav, collision and 12m clearance
+PASS: Tank East reaches (-9.0, 0.05, -6.0)
+PASS: Tank South validates nav, collision and 12m clearance
+PASS: Tank South reaches (-9.0, 0.05, -6.0)
+PASS: Tank West validates nav, collision and 12m clearance
+PASS: Tank West reaches (-9.0, 0.05, -6.0)
+PASS: navigation reaches interactive/landing point (-4.0, 0.025, 2.8)
+PASS: actual player can walk to (-4.0, 0.025, 2.8)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-6.6, 0.025, 2.8)
+PASS: actual player can walk to (-6.6, 0.025, 2.8)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-9.2, 0.025, 2.8)
+PASS: actual player can walk to (-9.2, 0.025, 2.8)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-11.8, 0.025, 2.8)
+PASS: actual player can walk to (-11.8, 0.025, 2.8)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-4.0, 0.025, 5.4)
+PASS: actual player can walk to (-4.0, 0.025, 5.4)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-6.6, 0.025, 5.4)
+PASS: actual player can walk to (-6.6, 0.025, 5.4)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-9.2, 0.025, 5.4)
+PASS: actual player can walk to (-9.2, 0.025, 5.4)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-11.8, 0.025, 5.4)
+PASS: actual player can walk to (-11.8, 0.025, 5.4)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-4.0, 0.025, 8.0)
+PASS: actual player can walk to (-4.0, 0.025, 8.0)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-6.6, 0.025, 8.0)
+PASS: actual player can walk to (-6.6, 0.025, 8.0)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-9.2, 0.025, 8.0)
+PASS: actual player can walk to (-9.2, 0.025, 8.0)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-11.8, 0.025, 8.0)
+PASS: actual player can walk to (-11.8, 0.025, 8.0)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-4.5, 0.0, 0.2)
+PASS: actual player can walk to (-4.5, 0.0, 0.2)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (-9.0, 0.0, -6.0)
+PASS: actual player can walk to (-9.0, 0.0, -6.0)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: navigation reaches interactive/landing point (13.0, 0.0, 10.0)
+PASS: actual player can walk to (13.0, 0.0, 10.0)
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+PASS: camera has solid clearance
+REFINEMENT_MAP_RESULT failures=0

@@ -7,12 +7,15 @@
 [ext_resource type="Script" path="res://scripts/enemies/zombie_test_spawner.gd" id="spawner"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/Bed.tscn" id="bed"]
 
+[ext_resource type="Script" path="res://scripts/world/rural_terrain.gd" id="terrain"]
+[ext_resource type="Script" path="res://scripts/world/rural_environment.gd" id="rural"]
+
 [sub_resource type="StandardMaterial3D" id="GroundMat"]
 albedo_color = Color(0.27, 0.34, 0.24, 1)
 roughness = 0.9
 
 [sub_resource type="StandardMaterial3D" id="PathMat"]
-albedo_color = Color(0.53, 0.5, 0.37, 1)
+albedo_color = Color(0.43, 0.43, 0.32, 1)
 roughness = 0.9
 
 [sub_resource type="StandardMaterial3D" id="SoilMat"]
@@ -67,32 +70,32 @@ size = Vector3(35, 0.02, 3)
 material = SubResource("PathMat")
 
 [sub_resource type="BoxMesh" id="Box4"]
-size = Vector3(48, 1.6, 0.6)
+size = Vector3(112, 16, 0.6)
 material = SubResource("BoundaryMat")
 
 [sub_resource type="BoxShape3D" id="Shape4"]
-size = Vector3(48, 1.6, 0.6)
+size = Vector3(112, 16, 0.6)
 
 [sub_resource type="BoxMesh" id="Box5"]
-size = Vector3(48, 1.6, 0.6)
+size = Vector3(112, 16, 0.6)
 material = SubResource("BoundaryMat")
 
 [sub_resource type="BoxShape3D" id="Shape5"]
-size = Vector3(48, 1.6, 0.6)
+size = Vector3(112, 16, 0.6)
 
 [sub_resource type="BoxMesh" id="Box6"]
-size = Vector3(0.6, 1.6, 48)
+size = Vector3(0.6, 16, 112)
 material = SubResource("BoundaryMat")
 
 [sub_resource type="BoxShape3D" id="Shape6"]
-size = Vector3(0.6, 1.6, 48)
+size = Vector3(0.6, 16, 112)
 
 [sub_resource type="BoxMesh" id="Box7"]
-size = Vector3(0.6, 1.6, 48)
+size = Vector3(0.6, 16, 112)
 material = SubResource("BoundaryMat")
 
 [sub_resource type="BoxShape3D" id="Shape7"]
-size = Vector3(0.6, 1.6, 48)
+size = Vector3(0.6, 16, 112)
 
 [sub_resource type="BoxMesh" id="Box8"]
 size = Vector3(3, 0.1, 2.5)
@@ -167,25 +170,31 @@ material = SubResource("RescueMat")
 
 [node name="MainWorld" type="Node3D"]
 
+[node name="Terrain" type="Node3D" parent="."]
+script = ExtResource("terrain")
+
+[node name="RuralEnvironment" type="Node3D" parent="."]
+script = ExtResource("rural")
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("nav")
 
 [node name="Bed" parent="." instance=ExtResource("bed")]
-position = Vector3(-10.5, 0, -7)
+position = Vector3(-14.3, 0.14, -12)
 
 [node name="WaveSpawnPoints" type="Node3D" parent="."]
 
 [node name="North" type="Marker3D" parent="WaveSpawnPoints"]
-position = Vector3(0, 0.1, -20)
+position = Vector3(-10, 0.1, -37)
 
 [node name="East" type="Marker3D" parent="WaveSpawnPoints"]
-position = Vector3(20, 0.1, 0)
+position = Vector3(44, 0.1, -20)
 
 [node name="South" type="Marker3D" parent="WaveSpawnPoints"]
-position = Vector3(0, 0.1, 20)
+position = Vector3(18, 0.1, 39)
 
 [node name="West" type="Marker3D" parent="WaveSpawnPoints"]
-position = Vector3(-20, 0.1, 0)
+position = Vector3(-39, 0.1, 12)
 
 [node name="ZombieTestSpawner" type="Node3D" parent="."]
 script = ExtResource("spawner")
@@ -216,6 +225,8 @@ shadow_enabled = true
 directional_shadow_max_distance = 60.0
 
 [node name="Ground" type="StaticBody3D" parent="."]
+visible = false
+collision_layer = 0
 position = Vector3(0, -0.3, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="Ground"]
@@ -225,51 +236,57 @@ shape = SubResource("Shape1")
 mesh = SubResource("Box1")
 
 [node name="MainPath" type="Node3D" parent="."]
+visible = false
 position = Vector3(0, 0.014, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="MainPath"]
 mesh = SubResource("Box2")
 
 [node name="CrossPath" type="Node3D" parent="."]
+visible = false
 position = Vector3(0, 0.016, 1)
 
 [node name="Mesh" type="MeshInstance3D" parent="CrossPath"]
 mesh = SubResource("Box3")
 
 [node name="NorthBoundary" type="StaticBody3D" parent="."]
-position = Vector3(0, 0.8, -24)
+position = Vector3(0, 6, -56)
 
 [node name="Collider" type="CollisionShape3D" parent="NorthBoundary"]
 shape = SubResource("Shape4")
 
 [node name="Mesh" type="MeshInstance3D" parent="NorthBoundary"]
+visible = false
 mesh = SubResource("Box4")
 
 [node name="SouthBoundary" type="StaticBody3D" parent="."]
-position = Vector3(0, 0.8, 24)
+position = Vector3(0, 6, 56)
 
 [node name="Collider" type="CollisionShape3D" parent="SouthBoundary"]
 shape = SubResource("Shape5")
 
 [node name="Mesh" type="MeshInstance3D" parent="SouthBoundary"]
+visible = false
 mesh = SubResource("Box5")
 
 [node name="EastBoundary" type="StaticBody3D" parent="."]
-position = Vector3(24, 0.8, 0)
+position = Vector3(56, 6, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="EastBoundary"]
 shape = SubResource("Shape6")
 
 [node name="Mesh" type="MeshInstance3D" parent="EastBoundary"]
+visible = false
 mesh = SubResource("Box6")
 
 [node name="WestBoundary" type="StaticBody3D" parent="."]
-position = Vector3(-24, 0.8, 0)
+position = Vector3(-56, 6, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="WestBoundary"]
 shape = SubResource("Shape7")
 
 [node name="Mesh" type="MeshInstance3D" parent="WestBoundary"]
+visible = false
 mesh = SubResource("Box7")
 
 [node name="PlayerSpawn" type="Marker3D" parent="."]
@@ -278,40 +295,40 @@ position = Vector3(0, 0.1, 6)
 [node name="FarmArea" type="Node3D" parent="."]
 
 [node name="Plot01" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-4.0, 0.025, 2.0)
+position = Vector3(-7.0, 0.025, 4.5)
 
 [node name="Plot02" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-6.6, 0.025, 2.0)
+position = Vector3(-10.8, 0.025, 4.5)
 
 [node name="Plot03" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-9.2, 0.025, 2.0)
+position = Vector3(-16.0, 0.025, 4.5)
 
 [node name="Plot04" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-11.8, 0.025, 2.0)
+position = Vector3(-19.8, 0.025, 4.5)
 
 [node name="Plot05" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-4.0, 0.025, 4.6)
+position = Vector3(-7.0, 0.025, 8.5)
 
 [node name="Plot06" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-6.6, 0.025, 4.6)
+position = Vector3(-10.8, 0.025, 8.5)
 
 [node name="Plot07" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-9.2, 0.025, 4.6)
+position = Vector3(-16.0, 0.025, 8.5)
 
 [node name="Plot08" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-11.8, 0.025, 4.6)
+position = Vector3(-19.8, 0.025, 8.5)
 
 [node name="Plot09" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-4.0, 0.025, 7.2)
+position = Vector3(-7.0, 0.025, 12.5)
 
 [node name="Plot10" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-6.6, 0.025, 7.2)
+position = Vector3(-10.8, 0.025, 12.5)
 
 [node name="Plot11" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-9.2, 0.025, 7.2)
+position = Vector3(-16.0, 0.025, 12.5)
 
 [node name="Plot12" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-11.8, 0.025, 7.2)
+position = Vector3(-19.8, 0.025, 12.5)
 
 [node name="FarmLabel" type="Label3D" parent="."]
 position = Vector3(-9, 1.5, 0)
@@ -322,36 +339,48 @@ text = "FARM AREA"
 outline_size = 8
 
 [node name="ShelterBack" type="StaticBody3D" parent="."]
+visible = false
+collision_layer = 0
 position = Vector3(-9, 1.5, -9)
 
 [node name="Collider" type="CollisionShape3D" parent="ShelterBack"]
+disabled = true
 shape = SubResource("Shape12")
 
 [node name="Mesh" type="MeshInstance3D" parent="ShelterBack"]
 mesh = SubResource("Box12")
 
 [node name="ShelterLeft" type="StaticBody3D" parent="."]
+visible = false
+collision_layer = 0
 position = Vector3(-12, 1.5, -6.5)
 
 [node name="Collider" type="CollisionShape3D" parent="ShelterLeft"]
+disabled = true
 shape = SubResource("Shape13")
 
 [node name="Mesh" type="MeshInstance3D" parent="ShelterLeft"]
 mesh = SubResource("Box13")
 
 [node name="ShelterRight" type="StaticBody3D" parent="."]
+visible = false
+collision_layer = 0
 position = Vector3(-6, 1.5, -6.5)
 
 [node name="Collider" type="CollisionShape3D" parent="ShelterRight"]
+disabled = true
 shape = SubResource("Shape14")
 
 [node name="Mesh" type="MeshInstance3D" parent="ShelterRight"]
 mesh = SubResource("Box14")
 
 [node name="ShelterRoof" type="StaticBody3D" parent="."]
+visible = false
+collision_layer = 0
 position = Vector3(-9, 3.1, -6.5)
 
 [node name="Collider" type="CollisionShape3D" parent="ShelterRoof"]
+disabled = true
 shape = SubResource("Shape15")
 
 [node name="Mesh" type="MeshInstance3D" parent="ShelterRoof"]
@@ -366,22 +395,23 @@ text = "SHELTER"
 outline_size = 8
 
 [node name="Workbench" parent="." instance=ExtResource("Workbench")]
-position = Vector3(-2, 0, -1)
-
-[node name="TargetDummy" parent="." instance=ExtResource("Dummy")]
 position = Vector3(3, 0, -8)
 
+[node name="TargetDummy" parent="." instance=ExtResource("Dummy")]
+position = Vector3(12, 0, -6)
+
 [node name="CollisionTestBlock" type="StaticBody3D" parent="."]
-position = Vector3(7, 0.75, 3)
+position = Vector3(6.8, 0.75, -12.5)
 
 [node name="Collider" type="CollisionShape3D" parent="CollisionTestBlock"]
 shape = SubResource("Shape17")
 
 [node name="Mesh" type="MeshInstance3D" parent="CollisionTestBlock"]
+visible = false
 mesh = SubResource("Box17")
 
 [node name="ObstacleLabel" type="Label3D" parent="."]
-position = Vector3(7, 2.1, 3)
+position = Vector3(6.8, 2.1, -12.5)
 billboard = 1
 font_size = 36
 pixel_size = 0.008
@@ -459,13 +489,13 @@ text = "SPAWN EAST"
 outline_size = 8
 
 [node name="RescueArea" type="Node3D" parent="."]
-position = Vector3(13, 0.05, 10)
+position = Vector3(29, 0.70, 43)
 
 [node name="Mesh" type="MeshInstance3D" parent="RescueArea"]
 mesh = SubResource("Box22")
 
 [node name="RescueLabel" type="Label3D" parent="."]
-position = Vector3(13, 1.2, 10)
+position = Vector3(29, 1.85, 43)
 billboard = 1
 font_size = 36
 pixel_size = 0.008
@@ -473,7 +503,7 @@ text = "RESCUE AREA"
 outline_size = 8
 
 [node name="ShelterLight" type="OmniLight3D" parent="."]
-position = Vector3(-8, 2.6, -5)
+position = Vector3(-13.6, 2.6, -8)
 light_color = Color(1, 0.68, 0.3, 1)
 light_energy = 1.5
 omni_range = 8.0

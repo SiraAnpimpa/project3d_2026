@@ -40,8 +40,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0.0
 	move_and_slide()
 	var facing := -camera_rig.global_basis.z if camera_rig.is_aiming else direction
+	var weapon_controller := get_node_or_null("WeaponController") as WeaponController
+	if weapon_controller != null and not weapon_controller.attack_facing().is_zero_approx():
+		facing = weapon_controller.attack_facing()
 	if not facing.is_zero_approx():
 		# Matt's authored forward is +Z; rotate the visual only, not the physics root.
 		visual.rotation.y = lerp_angle(visual.rotation.y, atan2(facing.x, facing.z),
 			1.0 - exp(-turn_speed * delta))
-	visual.set_motion(Vector2(velocity.x, velocity.z).length() > 0.15, is_sprinting, health.is_dead)
+	visual.set_motion(Vector2(velocity.x, velocity.z).length() > 0.15, is_sprinting, health.is_dead, velocity)

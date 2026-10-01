@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://Asset/Stylized Nature MegaKit.undefined-glb/Mushroom Laetiporus.glb" id="native"]
+
+[node name="PoisonPlantVisual" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("native")]
+position = Vector3(-0.022357773, 0.107909159, -0.150382161)
+scale = Vector3(0.673483195, 0.673483195, 0.673483195)

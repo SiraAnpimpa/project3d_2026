@@ -1,0 +1,25 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: walk from spawn reaches planting prompt with shoulder camera
+Planted Lead Plant.
+PASS: E plants the selected seed through existing farming interaction
+PASS: crop becomes harvestable with live HUD prompt
+Harvested Lead x2.
+PASS: E harvests exactly two Lead and clears plot
+PASS: normal movement with mouse look keeps Walk animation
+PASS: sprint around farm uses Run and consumes stamina
+PASS: stopping returns to Idle
+PASS: aim ray reaches the existing obstacle through the center crosshair
+PASS: rendered center aim still reaches obstacle from player z=12.0
+PASS: rendered center aim still reaches obstacle from player z=20.0
+PASS: left shoulder keeps character facing the aim direction
+PASS: strafing around obstacle with mouse aim keeps facing and placeholder Walk
+PASS: F1 enables the aim point and direction debug display
+PASS: opening bag from aim releases mouse and disables aim/debug marker
+PASS: closing bag resumes normal camera control
+PASS: walking close to existing shelter wall retracts shoulder camera
+PASS: walking away from wall restores normal camera distance
+PASS: day-night and HUD remain active with camera rig
+CAMERA_WALKTHROUGH_RESULT failures=0

@@ -4,9 +4,9 @@ extends Node
 signal changed(current: float, maximum: float)
 
 @export_range(1.0, 10000.0) var max_stamina: float = 100.0
-@export_range(0.0, 1000.0) var drain_rate: float = 22.0
-@export_range(0.0, 1000.0) var recovery_rate: float = 18.0
-@export_range(0.0, 10.0) var recovery_delay: float = 1.2
+@export_range(0.0, 1000.0) var drain_rate: float = 14.0
+@export_range(0.0, 1000.0) var recovery_rate: float = 28.0
+@export_range(0.0, 10.0) var recovery_delay: float = 0.65
 @export_range(0.01, 1.0) var restart_fraction: float = 0.25
 
 var current_stamina: float = 100.0

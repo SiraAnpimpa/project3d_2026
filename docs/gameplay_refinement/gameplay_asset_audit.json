@@ -1,0 +1,6669 @@
+[
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0457843691110611,
+      -0.0437643155455589,
+      -0.263110488653183
+    ],
+    "bounds_size": [
+      0.300591289997101,
+      0.0875286608934402,
+      1.29986977577209
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "000_Axe.png",
+    "materials": [
+      {
+        "name": "Atlas.021",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Axe.glb",
+    "triangle_upper_bound": 313,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Root",
+        "parent": -1
+      },
+      {
+        "name": "Foot.L",
+        "parent": 0
+      },
+      {
+        "name": "Body",
+        "parent": 0
+      },
+      {
+        "name": "Hips",
+        "parent": 2
+      },
+      {
+        "name": "Abdomen",
+        "parent": 3
+      },
+      {
+        "name": "Torso",
+        "parent": 4
+      },
+      {
+        "name": "Neck",
+        "parent": 5
+      },
+      {
+        "name": "Head",
+        "parent": 6
+      },
+      {
+        "name": "Eyelid.L",
+        "parent": 7
+      },
+      {
+        "name": "Eyelid.R",
+        "parent": 7
+      },
+      {
+        "name": "Shoulder.L",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.L",
+        "parent": 10
+      },
+      {
+        "name": "LowerArm.L",
+        "parent": 11
+      },
+      {
+        "name": "Pinky1.L",
+        "parent": 12
+      },
+      {
+        "name": "Pinky2.L",
+        "parent": 13
+      },
+      {
+        "name": "Pinky3.L",
+        "parent": 14
+      },
+      {
+        "name": "Middle1.L",
+        "parent": 12
+      },
+      {
+        "name": "Middle2.L",
+        "parent": 16
+      },
+      {
+        "name": "Middle3.L",
+        "parent": 17
+      },
+      {
+        "name": "Index1.L",
+        "parent": 12
+      },
+      {
+        "name": "Index2.L",
+        "parent": 19
+      },
+      {
+        "name": "Index3.L",
+        "parent": 20
+      },
+      {
+        "name": "Thumb1.L",
+        "parent": 12
+      },
+      {
+        "name": "Thumb2.L",
+        "parent": 22
+      },
+      {
+        "name": "Shoulder.R",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.R",
+        "parent": 24
+      },
+      {
+        "name": "LowerArm.R",
+        "parent": 25
+      },
+      {
+        "name": "Pinky1.R",
+        "parent": 26
+      },
+      {
+        "name": "Pinky2.R",
+        "parent": 27
+      },
+      {
+        "name": "Pinky3.R",
+        "parent": 28
+      },
+      {
+        "name": "Middle1.R",
+        "parent": 26
+      },
+      {
+        "name": "Middle2.R",
+        "parent": 30
+      },
+      {
+        "name": "Middle3.R",
+        "parent": 31
+      },
+      {
+        "name": "Index1.R",
+        "parent": 26
+      },
+      {
+        "name": "Index2.R",
+        "parent": 33
+      },
+      {
+        "name": "Index3.R",
+        "parent": 34
+      },
+      {
+        "name": "Thumb1.R",
+        "parent": 26
+      },
+      {
+        "name": "Thumb2.R",
+        "parent": 36
+      },
+      {
+        "name": "UpperLeg.L",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.L",
+        "parent": 38
+      },
+      {
+        "name": "UpperLeg.R",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.R",
+        "parent": 40
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "Foot.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      }
+    ],
+    "bounds_position": [
+      -1.71974039077759,
+      -0.00174103444442153,
+      -0.506873905658722
+    ],
+    "bounds_size": [
+      2.9842734336853,
+      1.56712162494659,
+      0.641037881374359
+    ],
+    "clips": [
+      {
+        "name": "CharacterArmature|Death",
+        "seconds": 1.29166662693024,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Idle",
+        "seconds": 1.66666662693024,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|No",
+        "seconds": 1.66666662693024,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Punch",
+        "seconds": 1.0,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Run",
+        "seconds": 0.791666686534882,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Run_Arms",
+        "seconds": 0.833333313465118,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Run_Attack",
+        "seconds": 0.833333313465118,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Walk",
+        "seconds": 1.33333337306976,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Wave",
+        "seconds": 2.33333325386047,
+        "tracks": 50
+      },
+      {
+        "name": "CharacterArmature|Yes",
+        "seconds": 1.66666662693024,
+        "tracks": 50
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "001_Big arm.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Big arm.glb",
+    "triangle_upper_bound": 1148,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Root",
+        "parent": -1
+      },
+      {
+        "name": "Foot.L",
+        "parent": 0
+      },
+      {
+        "name": "Body",
+        "parent": 0
+      },
+      {
+        "name": "Hips",
+        "parent": 2
+      },
+      {
+        "name": "Abdomen",
+        "parent": 3
+      },
+      {
+        "name": "Torso",
+        "parent": 4
+      },
+      {
+        "name": "Neck",
+        "parent": 5
+      },
+      {
+        "name": "Head",
+        "parent": 6
+      },
+      {
+        "name": "Shoulder.L",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.L",
+        "parent": 8
+      },
+      {
+        "name": "LowerArm.L",
+        "parent": 9
+      },
+      {
+        "name": "Pinky1.L",
+        "parent": 10
+      },
+      {
+        "name": "Pinky2.L",
+        "parent": 11
+      },
+      {
+        "name": "Pinky3.L",
+        "parent": 12
+      },
+      {
+        "name": "Middle1.L",
+        "parent": 10
+      },
+      {
+        "name": "Middle2.L",
+        "parent": 14
+      },
+      {
+        "name": "Middle3.L",
+        "parent": 15
+      },
+      {
+        "name": "Index1.L",
+        "parent": 10
+      },
+      {
+        "name": "Index2.L",
+        "parent": 17
+      },
+      {
+        "name": "Index3.L",
+        "parent": 18
+      },
+      {
+        "name": "Thumb1.L",
+        "parent": 10
+      },
+      {
+        "name": "Thumb2.L",
+        "parent": 20
+      },
+      {
+        "name": "Shoulder.R",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.R",
+        "parent": 22
+      },
+      {
+        "name": "LowerArm.R",
+        "parent": 23
+      },
+      {
+        "name": "Pinky1.R",
+        "parent": 24
+      },
+      {
+        "name": "Pinky2.R",
+        "parent": 25
+      },
+      {
+        "name": "Pinky3.R",
+        "parent": 26
+      },
+      {
+        "name": "Middle1.R",
+        "parent": 24
+      },
+      {
+        "name": "Middle2.R",
+        "parent": 28
+      },
+      {
+        "name": "Middle3.R",
+        "parent": 29
+      },
+      {
+        "name": "Index1.R",
+        "parent": 24
+      },
+      {
+        "name": "Index2.R",
+        "parent": 31
+      },
+      {
+        "name": "Index3.R",
+        "parent": 32
+      },
+      {
+        "name": "Thumb1.R",
+        "parent": 24
+      },
+      {
+        "name": "Thumb2.R",
+        "parent": 34
+      },
+      {
+        "name": "UpperLeg.L",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.L",
+        "parent": 36
+      },
+      {
+        "name": "UpperLeg.R",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.R",
+        "parent": 38
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "Foot.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      }
+    ],
+    "bounds_position": [
+      -1.00421690940857,
+      -0.00512235937640071,
+      -0.412294209003448
+    ],
+    "bounds_size": [
+      2.00843381881714,
+      1.50776791572571,
+      0.965497612953186
+    ],
+    "clips": [
+      {
+        "name": "CharacterArmature|Death",
+        "seconds": 0.75,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Duck",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Idle",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Idle_Gun",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|No",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Punch",
+        "seconds": 0.75,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Gun",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Slash",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Stab",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Slash",
+        "seconds": 0.833333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Stab",
+        "seconds": 0.833333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Walk",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Walk_Gun",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Wave",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Yes",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "002_Characters Matt.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 2,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Characters Matt.glb",
+    "triangle_upper_bound": 1698,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Body",
+        "parent": -1
+      },
+      {
+        "name": "Back",
+        "parent": 0
+      },
+      {
+        "name": "Torso",
+        "parent": 1
+      },
+      {
+        "name": "Torso2",
+        "parent": 2
+      },
+      {
+        "name": "Torso3",
+        "parent": 3
+      },
+      {
+        "name": "Neck1",
+        "parent": 4
+      },
+      {
+        "name": "Neck2",
+        "parent": 5
+      },
+      {
+        "name": "Neck3",
+        "parent": 6
+      },
+      {
+        "name": "Head",
+        "parent": 7
+      },
+      {
+        "name": "FrontShoulder.L",
+        "parent": 3
+      },
+      {
+        "name": "FrontUpperLeg.L",
+        "parent": 9
+      },
+      {
+        "name": "FrontLowerLeg.L",
+        "parent": 10
+      },
+      {
+        "name": "FrontShoulder.R",
+        "parent": 3
+      },
+      {
+        "name": "FrontUpperLeg.R",
+        "parent": 12
+      },
+      {
+        "name": "FrontLowerLeg.R",
+        "parent": 13
+      },
+      {
+        "name": "Backpack",
+        "parent": 2
+      },
+      {
+        "name": "BackShoulder.L",
+        "parent": 1
+      },
+      {
+        "name": "BackLeg.L",
+        "parent": 16
+      },
+      {
+        "name": "BackUpperLeg.L",
+        "parent": 17
+      },
+      {
+        "name": "BackLowerLeg.L",
+        "parent": 18
+      },
+      {
+        "name": "BackShoulder.R",
+        "parent": 1
+      },
+      {
+        "name": "BackLeg.R",
+        "parent": 20
+      },
+      {
+        "name": "BackUpperLeg.R",
+        "parent": 21
+      },
+      {
+        "name": "BackLowerLeg.R",
+        "parent": 22
+      },
+      {
+        "name": "PoleTargetBack.L",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "PoleTargetBack.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      },
+      {
+        "name": "IKBackLeg.L",
+        "parent": -1
+      },
+      {
+        "name": "FFB.L",
+        "parent": 28
+      },
+      {
+        "name": "IKFrontLeg.L",
+        "parent": -1
+      },
+      {
+        "name": "FF.L",
+        "parent": 30
+      },
+      {
+        "name": "IKBackLeg.R",
+        "parent": -1
+      },
+      {
+        "name": "FFB.R",
+        "parent": 32
+      },
+      {
+        "name": "IKFrontLeg.R",
+        "parent": -1
+      },
+      {
+        "name": "FF.R",
+        "parent": 34
+      }
+    ],
+    "bounds_position": [
+      -0.208812296390533,
+      0.007386130746454,
+      -0.389796644449234
+    ],
+    "bounds_size": [
+      0.435528069734573,
+      0.757304131984711,
+      1.06145131587982
+    ],
+    "clips": [
+      {
+        "name": "AnimalArmature|Attack",
+        "seconds": 1.16666662693024,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Death",
+        "seconds": 1.04166662693024,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Eating",
+        "seconds": 2.66666674613953,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Idle",
+        "seconds": 3.33333325386047,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Idle_2",
+        "seconds": 3.33333325386047,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Idle_2_HeadLow",
+        "seconds": 4.0,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Idle_HitReact_Left",
+        "seconds": 0.666666686534882,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Idle_HitReact_Right",
+        "seconds": 0.666666686534882,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Run",
+        "seconds": 0.541666686534882,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Run_Jump",
+        "seconds": 0.666666686534882,
+        "tracks": 40
+      },
+      {
+        "name": "AnimalArmature|Walk",
+        "seconds": 1.04166662693024,
+        "tracks": 40
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "003_Characters Pug.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 3,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Characters Pug.glb",
+    "triangle_upper_bound": 994,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Root",
+        "parent": -1
+      },
+      {
+        "name": "Foot.L",
+        "parent": 0
+      },
+      {
+        "name": "Body",
+        "parent": 0
+      },
+      {
+        "name": "Hips",
+        "parent": 2
+      },
+      {
+        "name": "Abdomen",
+        "parent": 3
+      },
+      {
+        "name": "Torso",
+        "parent": 4
+      },
+      {
+        "name": "Neck",
+        "parent": 5
+      },
+      {
+        "name": "Head",
+        "parent": 6
+      },
+      {
+        "name": "Shoulder.L",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.L",
+        "parent": 8
+      },
+      {
+        "name": "LowerArm.L",
+        "parent": 9
+      },
+      {
+        "name": "Pinky1.L",
+        "parent": 10
+      },
+      {
+        "name": "Pinky2.L",
+        "parent": 11
+      },
+      {
+        "name": "Pinky3.L",
+        "parent": 12
+      },
+      {
+        "name": "Middle1.L",
+        "parent": 10
+      },
+      {
+        "name": "Middle2.L",
+        "parent": 14
+      },
+      {
+        "name": "Middle3.L",
+        "parent": 15
+      },
+      {
+        "name": "Index1.L",
+        "parent": 10
+      },
+      {
+        "name": "Index2.L",
+        "parent": 17
+      },
+      {
+        "name": "Index3.L",
+        "parent": 18
+      },
+      {
+        "name": "Thumb1.L",
+        "parent": 10
+      },
+      {
+        "name": "Thumb2.L",
+        "parent": 20
+      },
+      {
+        "name": "Shoulder.R",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.R",
+        "parent": 22
+      },
+      {
+        "name": "LowerArm.R",
+        "parent": 23
+      },
+      {
+        "name": "Pinky1.R",
+        "parent": 24
+      },
+      {
+        "name": "Pinky2.R",
+        "parent": 25
+      },
+      {
+        "name": "Pinky3.R",
+        "parent": 26
+      },
+      {
+        "name": "Middle1.R",
+        "parent": 24
+      },
+      {
+        "name": "Middle2.R",
+        "parent": 28
+      },
+      {
+        "name": "Middle3.R",
+        "parent": 29
+      },
+      {
+        "name": "Index1.R",
+        "parent": 24
+      },
+      {
+        "name": "Index2.R",
+        "parent": 31
+      },
+      {
+        "name": "Index3.R",
+        "parent": 32
+      },
+      {
+        "name": "Thumb1.R",
+        "parent": 24
+      },
+      {
+        "name": "Thumb2.R",
+        "parent": 34
+      },
+      {
+        "name": "UpperLeg.L",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.L",
+        "parent": 36
+      },
+      {
+        "name": "UpperLeg.R",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.R",
+        "parent": 38
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "Foot.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      }
+    ],
+    "bounds_position": [
+      -1.02144086360931,
+      -0.00512232864275575,
+      -0.392611593008041
+    ],
+    "bounds_size": [
+      2.04288172721863,
+      1.53035426139832,
+      1.2446768283844
+    ],
+    "clips": [
+      {
+        "name": "CharacterArmature|Death",
+        "seconds": 0.75,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Duck",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Idle",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Idle_Gun",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|No",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Punch",
+        "seconds": 0.75,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Gun",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Slash",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Stab",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Slash",
+        "seconds": 0.833333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Stab",
+        "seconds": 0.833333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Walk",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Walk_Gun",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Wave",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Yes",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "004_Characters Sam.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 2,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Characters Sam.glb",
+    "triangle_upper_bound": 2024,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Root",
+        "parent": -1
+      },
+      {
+        "name": "Foot.L",
+        "parent": 0
+      },
+      {
+        "name": "Body",
+        "parent": 0
+      },
+      {
+        "name": "Hips",
+        "parent": 2
+      },
+      {
+        "name": "Abdomen",
+        "parent": 3
+      },
+      {
+        "name": "Torso",
+        "parent": 4
+      },
+      {
+        "name": "Neck",
+        "parent": 5
+      },
+      {
+        "name": "Head",
+        "parent": 6
+      },
+      {
+        "name": "Shoulder.L",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.L",
+        "parent": 8
+      },
+      {
+        "name": "LowerArm.L",
+        "parent": 9
+      },
+      {
+        "name": "Pinky1.L",
+        "parent": 10
+      },
+      {
+        "name": "Pinky2.L",
+        "parent": 11
+      },
+      {
+        "name": "Pinky3.L",
+        "parent": 12
+      },
+      {
+        "name": "Middle1.L",
+        "parent": 10
+      },
+      {
+        "name": "Middle2.L",
+        "parent": 14
+      },
+      {
+        "name": "Middle3.L",
+        "parent": 15
+      },
+      {
+        "name": "Index1.L",
+        "parent": 10
+      },
+      {
+        "name": "Index2.L",
+        "parent": 17
+      },
+      {
+        "name": "Index3.L",
+        "parent": 18
+      },
+      {
+        "name": "Thumb1.L",
+        "parent": 10
+      },
+      {
+        "name": "Thumb2.L",
+        "parent": 20
+      },
+      {
+        "name": "Shoulder.R",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.R",
+        "parent": 22
+      },
+      {
+        "name": "LowerArm.R",
+        "parent": 23
+      },
+      {
+        "name": "Pinky1.R",
+        "parent": 24
+      },
+      {
+        "name": "Pinky2.R",
+        "parent": 25
+      },
+      {
+        "name": "Pinky3.R",
+        "parent": 26
+      },
+      {
+        "name": "Middle1.R",
+        "parent": 24
+      },
+      {
+        "name": "Middle2.R",
+        "parent": 28
+      },
+      {
+        "name": "Middle3.R",
+        "parent": 29
+      },
+      {
+        "name": "Index1.R",
+        "parent": 24
+      },
+      {
+        "name": "Index2.R",
+        "parent": 31
+      },
+      {
+        "name": "Index3.R",
+        "parent": 32
+      },
+      {
+        "name": "Thumb1.R",
+        "parent": 24
+      },
+      {
+        "name": "Thumb2.R",
+        "parent": 34
+      },
+      {
+        "name": "UpperLeg.L",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.L",
+        "parent": 36
+      },
+      {
+        "name": "UpperLeg.R",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.R",
+        "parent": 38
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "Foot.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      }
+    ],
+    "bounds_position": [
+      -1.00536620616913,
+      -0.00512238126248121,
+      -0.598196983337402
+    ],
+    "bounds_size": [
+      2.01073241233826,
+      1.53426349163055,
+      1.42504215240479
+    ],
+    "clips": [
+      {
+        "name": "CharacterArmature|Death",
+        "seconds": 0.75,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Duck",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Idle",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Idle_Gun",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|No",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Punch",
+        "seconds": 0.75,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Gun",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Slash",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Stab",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Slash",
+        "seconds": 0.833333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Stab",
+        "seconds": 0.833333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Walk",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Walk_Gun",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Wave",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Yes",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "005_Characters Shaun.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 2,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Characters Shaun.glb",
+    "triangle_upper_bound": 2850,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0747825428843498,
+      -0.0393914692103863,
+      -0.137416943907738
+    ],
+    "bounds_size": [
+      0.150569289922714,
+      0.0787827968597412,
+      0.821047961711884
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "006_Knife.png",
+    "materials": [
+      {
+        "name": "Atlas.017",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Knife.glb",
+    "triangle_upper_bound": 309,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Root",
+        "parent": -1
+      },
+      {
+        "name": "Foot.L",
+        "parent": 0
+      },
+      {
+        "name": "Body",
+        "parent": 0
+      },
+      {
+        "name": "Hips",
+        "parent": 2
+      },
+      {
+        "name": "Abdomen",
+        "parent": 3
+      },
+      {
+        "name": "Torso",
+        "parent": 4
+      },
+      {
+        "name": "Neck",
+        "parent": 5
+      },
+      {
+        "name": "Head",
+        "parent": 6
+      },
+      {
+        "name": "Shoulder.L",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.L",
+        "parent": 8
+      },
+      {
+        "name": "LowerArm.L",
+        "parent": 9
+      },
+      {
+        "name": "Pinky1.L",
+        "parent": 10
+      },
+      {
+        "name": "Pinky2.L",
+        "parent": 11
+      },
+      {
+        "name": "Pinky3.L",
+        "parent": 12
+      },
+      {
+        "name": "Middle1.L",
+        "parent": 10
+      },
+      {
+        "name": "Middle2.L",
+        "parent": 14
+      },
+      {
+        "name": "Middle3.L",
+        "parent": 15
+      },
+      {
+        "name": "Index1.L",
+        "parent": 10
+      },
+      {
+        "name": "Index2.L",
+        "parent": 17
+      },
+      {
+        "name": "Index3.L",
+        "parent": 18
+      },
+      {
+        "name": "Thumb1.L",
+        "parent": 10
+      },
+      {
+        "name": "Thumb2.L",
+        "parent": 20
+      },
+      {
+        "name": "Shoulder.R",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.R",
+        "parent": 22
+      },
+      {
+        "name": "LowerArm.R",
+        "parent": 23
+      },
+      {
+        "name": "Pinky1.R",
+        "parent": 24
+      },
+      {
+        "name": "Pinky2.R",
+        "parent": 25
+      },
+      {
+        "name": "Pinky3.R",
+        "parent": 26
+      },
+      {
+        "name": "Middle1.R",
+        "parent": 24
+      },
+      {
+        "name": "Middle2.R",
+        "parent": 28
+      },
+      {
+        "name": "Middle3.R",
+        "parent": 29
+      },
+      {
+        "name": "Index1.R",
+        "parent": 24
+      },
+      {
+        "name": "Index2.R",
+        "parent": 31
+      },
+      {
+        "name": "Index3.R",
+        "parent": 32
+      },
+      {
+        "name": "Thumb1.R",
+        "parent": 24
+      },
+      {
+        "name": "Thumb2.R",
+        "parent": 34
+      },
+      {
+        "name": "UpperLeg.L",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.L",
+        "parent": 36
+      },
+      {
+        "name": "UpperLeg.R",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.R",
+        "parent": 38
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "Foot.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      }
+    ],
+    "bounds_position": [
+      -1.02144193649292,
+      -0.0316196903586388,
+      -0.414448767900467
+    ],
+    "bounds_size": [
+      2.04288148880005,
+      1.74403893947601,
+      1.4432235956192
+    ],
+    "clips": [
+      {
+        "name": "CharacterArmature|Death",
+        "seconds": 0.75,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Duck",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Idle",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Idle_Gun",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|No",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Punch",
+        "seconds": 0.75,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Gun",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Slash",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Run_Stab",
+        "seconds": 0.708333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Slash",
+        "seconds": 0.833333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Stab",
+        "seconds": 0.833333313465118,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Walk",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Walk_Gun",
+        "seconds": 1.0,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Wave",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      },
+      {
+        "name": "CharacterArmature|Yes",
+        "seconds": 1.66666662693024,
+        "tracks": 54
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "007_Lis.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 2,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Lis.glb",
+    "triangle_upper_bound": 2006,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0534182526171207,
+      -0.113882414996624,
+      -0.0960706919431686
+    ],
+    "bounds_size": [
+      0.141224682331085,
+      0.339744538068771,
+      0.976406455039978
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "008_Pistol.png",
+    "materials": [
+      {
+        "name": "Atlas.013",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Pistol.glb",
+    "triangle_upper_bound": 554,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0571877285838127,
+      -0.1967593729496,
+      -0.616997182369232
+    ],
+    "bounds_size": [
+      0.114375442266464,
+      0.51808762550354,
+      1.63633441925049
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "009_Rifle.png",
+    "materials": [
+      {
+        "name": "Atlas.016",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Rifle.glb",
+    "triangle_upper_bound": 903,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0485893338918686,
+      -0.116893999278545,
+      -0.145505338907242
+    ],
+    "bounds_size": [
+      0.0951680690050125,
+      0.338233232498169,
+      1.1129367351532
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "010_Shotgun.png",
+    "materials": [
+      {
+        "name": "Atlas.014",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Shotgun.glb",
+    "triangle_upper_bound": 616,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0753304958343506,
+      -0.196682691574097,
+      -0.200390130281448
+    ],
+    "bounds_size": [
+      0.150661125779152,
+      0.471869319677353,
+      0.993978977203369
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "011_Smg.png",
+    "materials": [
+      {
+        "name": "Atlas.015",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Smg.glb",
+    "triangle_upper_bound": 1144,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0587975271046162,
+      -0.0458673238754272,
+      -0.324285179376602
+    ],
+    "bounds_size": [
+      0.136622101068497,
+      0.153984725475311,
+      2.01127648353577
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "012_Spear.png",
+    "materials": [
+      {
+        "name": "Atlas.020",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Spear.glb",
+    "triangle_upper_bound": 1296,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0978756099939346,
+      -0.0928908139467239,
+      -0.33022665977478
+    ],
+    "bounds_size": [
+      0.184770166873932,
+      0.190940484404564,
+      1.23826897144318
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "013_Wooden Bat Barbed.png",
+    "materials": [
+      {
+        "name": "Atlas.018",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Wooden Bat Barbed.glb",
+    "triangle_upper_bound": 975,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.187489926815033,
+      -0.102810189127922,
+      -0.330226600170136
+    ],
+    "bounds_size": [
+      0.375612020492554,
+      0.205620408058167,
+      1.37257719039917
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "014_Wooden Bat Saw.png",
+    "materials": [
+      {
+        "name": "Atlas.019",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Wooden Bat Saw.glb",
+    "triangle_upper_bound": 599,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Root",
+        "parent": -1
+      },
+      {
+        "name": "Foot.L",
+        "parent": 0
+      },
+      {
+        "name": "Body",
+        "parent": 0
+      },
+      {
+        "name": "Hips",
+        "parent": 2
+      },
+      {
+        "name": "Abdomen",
+        "parent": 3
+      },
+      {
+        "name": "UpperLeg.L",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.L",
+        "parent": 5
+      },
+      {
+        "name": "UpperLeg.R",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.R",
+        "parent": 7
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "Foot.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      }
+    ],
+    "bounds_position": [
+      -0.253277480602264,
+      -0.00512231793254614,
+      -0.303232312202454
+    ],
+    "bounds_size": [
+      0.506554961204529,
+      1.06276607513428,
+      0.425089567899704
+    ],
+    "clips": [
+      {
+        "name": "CharacterArmature|Crawl",
+        "seconds": 1.66666662693024,
+        "tracks": 17
+      },
+      {
+        "name": "CharacterArmature|Death",
+        "seconds": 0.708333313465118,
+        "tracks": 17
+      },
+      {
+        "name": "CharacterArmature|HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 17
+      },
+      {
+        "name": "CharacterArmature|Idle",
+        "seconds": 1.0,
+        "tracks": 17
+      },
+      {
+        "name": "CharacterArmature|Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 17
+      },
+      {
+        "name": "CharacterArmature|Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 17
+      },
+      {
+        "name": "CharacterArmature|Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 17
+      },
+      {
+        "name": "CharacterArmature|Run",
+        "seconds": 0.666666686534882,
+        "tracks": 17
+      },
+      {
+        "name": "CharacterArmature|Walk",
+        "seconds": 1.33333337306976,
+        "tracks": 17
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "015_Zombie half.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Zombie half.glb",
+    "triangle_upper_bound": 1012,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Root",
+        "parent": -1
+      },
+      {
+        "name": "Foot.L",
+        "parent": 0
+      },
+      {
+        "name": "Body",
+        "parent": 0
+      },
+      {
+        "name": "Hips",
+        "parent": 2
+      },
+      {
+        "name": "Abdomen",
+        "parent": 3
+      },
+      {
+        "name": "Torso",
+        "parent": 4
+      },
+      {
+        "name": "Neck",
+        "parent": 5
+      },
+      {
+        "name": "Head",
+        "parent": 6
+      },
+      {
+        "name": "Tongue1",
+        "parent": 7
+      },
+      {
+        "name": "Tongue2",
+        "parent": 8
+      },
+      {
+        "name": "Tongue3",
+        "parent": 9
+      },
+      {
+        "name": "Tongue4",
+        "parent": 10
+      },
+      {
+        "name": "Tongue5",
+        "parent": 11
+      },
+      {
+        "name": "Eyelid.L",
+        "parent": 7
+      },
+      {
+        "name": "Eyelid.R",
+        "parent": 7
+      },
+      {
+        "name": "Shoulder.L",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.L",
+        "parent": 15
+      },
+      {
+        "name": "LowerArm.L",
+        "parent": 16
+      },
+      {
+        "name": "Pinky1.L",
+        "parent": 17
+      },
+      {
+        "name": "Pinky2.L",
+        "parent": 18
+      },
+      {
+        "name": "Pinky3.L",
+        "parent": 19
+      },
+      {
+        "name": "Middle1.L",
+        "parent": 17
+      },
+      {
+        "name": "Middle2.L",
+        "parent": 21
+      },
+      {
+        "name": "Middle3.L",
+        "parent": 22
+      },
+      {
+        "name": "Index1.L",
+        "parent": 17
+      },
+      {
+        "name": "Index2.L",
+        "parent": 24
+      },
+      {
+        "name": "Index3.L",
+        "parent": 25
+      },
+      {
+        "name": "Thumb1.L",
+        "parent": 17
+      },
+      {
+        "name": "Thumb2.L",
+        "parent": 27
+      },
+      {
+        "name": "Shoulder.R",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.R",
+        "parent": 29
+      },
+      {
+        "name": "LowerArm.R",
+        "parent": 30
+      },
+      {
+        "name": "Pinky1.R",
+        "parent": 31
+      },
+      {
+        "name": "Pinky2.R",
+        "parent": 32
+      },
+      {
+        "name": "Pinky3.R",
+        "parent": 33
+      },
+      {
+        "name": "Middle1.R",
+        "parent": 31
+      },
+      {
+        "name": "Middle2.R",
+        "parent": 35
+      },
+      {
+        "name": "Middle3.R",
+        "parent": 36
+      },
+      {
+        "name": "Index1.R",
+        "parent": 31
+      },
+      {
+        "name": "Index2.R",
+        "parent": 38
+      },
+      {
+        "name": "Index3.R",
+        "parent": 39
+      },
+      {
+        "name": "Thumb1.R",
+        "parent": 31
+      },
+      {
+        "name": "Thumb2.R",
+        "parent": 41
+      },
+      {
+        "name": "UpperLeg.L",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.L",
+        "parent": 43
+      },
+      {
+        "name": "UpperLeg.R",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.R",
+        "parent": 45
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "Foot.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      }
+    ],
+    "bounds_position": [
+      -0.944102168083191,
+      -0.00512231793254614,
+      -0.303232342004776
+    ],
+    "bounds_size": [
+      1.88820433616638,
+      1.36150538921356,
+      0.682961702346802
+    ],
+    "clips": [
+      {
+        "name": "CharacterArmature|Crawl",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Death",
+        "seconds": 0.75,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Idle",
+        "seconds": 1.0,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Idle_Attack",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|No",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Punch",
+        "seconds": 0.75,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Run",
+        "seconds": 0.666666686534882,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Run_Arms",
+        "seconds": 0.666666686534882,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Run_Attack",
+        "seconds": 0.666666686534882,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Walk",
+        "seconds": 1.33333337306976,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Wave",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "CharacterArmature|Yes",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "Crawl",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "Death",
+        "seconds": 0.75,
+        "tracks": 55
+      },
+      {
+        "name": "HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 55
+      },
+      {
+        "name": "Idle",
+        "seconds": 1.0,
+        "tracks": 55
+      },
+      {
+        "name": "Idle_Attack",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 55
+      },
+      {
+        "name": "Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 55
+      },
+      {
+        "name": "Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 55
+      },
+      {
+        "name": "No",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "Punch",
+        "seconds": 0.75,
+        "tracks": 55
+      },
+      {
+        "name": "Run",
+        "seconds": 0.666666686534882,
+        "tracks": 55
+      },
+      {
+        "name": "Run_Arms",
+        "seconds": 0.666666686534882,
+        "tracks": 55
+      },
+      {
+        "name": "Run_Attack",
+        "seconds": 0.666666686534882,
+        "tracks": 55
+      },
+      {
+        "name": "Walk",
+        "seconds": 1.33333337306976,
+        "tracks": 55
+      },
+      {
+        "name": "Wave",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      },
+      {
+        "name": "Yes",
+        "seconds": 1.66666662693024,
+        "tracks": 55
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "016_Zombie-VlXjG0N8Eg.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 2,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Zombie-VlXjG0N8Eg.glb",
+    "triangle_upper_bound": 1607,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": true,
+    "bones": [
+      {
+        "name": "Root",
+        "parent": -1
+      },
+      {
+        "name": "Foot.L",
+        "parent": 0
+      },
+      {
+        "name": "Body",
+        "parent": 0
+      },
+      {
+        "name": "Hips",
+        "parent": 2
+      },
+      {
+        "name": "Abdomen",
+        "parent": 3
+      },
+      {
+        "name": "Torso",
+        "parent": 4
+      },
+      {
+        "name": "Neck",
+        "parent": 5
+      },
+      {
+        "name": "Head",
+        "parent": 6
+      },
+      {
+        "name": "TopMouth",
+        "parent": 7
+      },
+      {
+        "name": "BottomMouth",
+        "parent": 7
+      },
+      {
+        "name": "Tongue1",
+        "parent": 9
+      },
+      {
+        "name": "Tongue2",
+        "parent": 10
+      },
+      {
+        "name": "Tongue3",
+        "parent": 11
+      },
+      {
+        "name": "Tongue4",
+        "parent": 12
+      },
+      {
+        "name": "Tongue5",
+        "parent": 13
+      },
+      {
+        "name": "Shoulder.L",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.L",
+        "parent": 15
+      },
+      {
+        "name": "LowerArm.L",
+        "parent": 16
+      },
+      {
+        "name": "Pinky1.L",
+        "parent": 17
+      },
+      {
+        "name": "Pinky2.L",
+        "parent": 18
+      },
+      {
+        "name": "Pinky3.L",
+        "parent": 19
+      },
+      {
+        "name": "Middle1.L",
+        "parent": 17
+      },
+      {
+        "name": "Middle2.L",
+        "parent": 21
+      },
+      {
+        "name": "Middle3.L",
+        "parent": 22
+      },
+      {
+        "name": "Index1.L",
+        "parent": 17
+      },
+      {
+        "name": "Index2.L",
+        "parent": 24
+      },
+      {
+        "name": "Index3.L",
+        "parent": 25
+      },
+      {
+        "name": "Thumb1.L",
+        "parent": 17
+      },
+      {
+        "name": "Thumb2.L",
+        "parent": 27
+      },
+      {
+        "name": "Shoulder.R",
+        "parent": 5
+      },
+      {
+        "name": "UpperArm.R",
+        "parent": 29
+      },
+      {
+        "name": "LowerArm.R",
+        "parent": 30
+      },
+      {
+        "name": "Pinky1.R",
+        "parent": 31
+      },
+      {
+        "name": "Pinky2.R",
+        "parent": 32
+      },
+      {
+        "name": "Pinky3.R",
+        "parent": 33
+      },
+      {
+        "name": "Middle1.R",
+        "parent": 31
+      },
+      {
+        "name": "Middle2.R",
+        "parent": 35
+      },
+      {
+        "name": "Middle3.R",
+        "parent": 36
+      },
+      {
+        "name": "Index1.R",
+        "parent": 31
+      },
+      {
+        "name": "Index2.R",
+        "parent": 38
+      },
+      {
+        "name": "Index3.R",
+        "parent": 39
+      },
+      {
+        "name": "Thumb1.R",
+        "parent": 31
+      },
+      {
+        "name": "Thumb2.R",
+        "parent": 41
+      },
+      {
+        "name": "UpperLeg.L",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.L",
+        "parent": 43
+      },
+      {
+        "name": "UpperLeg.R",
+        "parent": 2
+      },
+      {
+        "name": "LowerLeg.R",
+        "parent": 45
+      },
+      {
+        "name": "PoleTarget.L",
+        "parent": 0
+      },
+      {
+        "name": "Foot.R",
+        "parent": 0
+      },
+      {
+        "name": "PoleTarget.R",
+        "parent": 0
+      }
+    ],
+    "bounds_position": [
+      -1.17630064487457,
+      -0.000901770661585033,
+      -0.462069571018219
+    ],
+    "bounds_size": [
+      2.35260128974915,
+      1.63959610462189,
+      0.774397432804108
+    ],
+    "clips": [
+      {
+        "name": "CharacterArmature|Crawl",
+        "seconds": 1.66666662693024,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Death",
+        "seconds": 0.75,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|HitReact",
+        "seconds": 0.583333313465118,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Idle",
+        "seconds": 1.0,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Idle_Attack",
+        "seconds": 1.66666662693024,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Jump",
+        "seconds": 0.333333343267441,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Jump_Idle",
+        "seconds": 0.5,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Jump_Land",
+        "seconds": 0.333333343267441,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|No",
+        "seconds": 1.66666662693024,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Punch",
+        "seconds": 0.75,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Run",
+        "seconds": 0.708333313465118,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Run_Arms",
+        "seconds": 0.666666686534882,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Run_Attack",
+        "seconds": 0.666666686534882,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Walk",
+        "seconds": 1.33333337306976,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Wave",
+        "seconds": 1.66666662693024,
+        "tracks": 57
+      },
+      {
+        "name": "CharacterArmature|Yes",
+        "seconds": 1.66666662693024,
+        "tracks": 57
+      }
+    ],
+    "collision_nodes": 0,
+    "image": "017_Zombie.png",
+    "materials": [
+      {
+        "name": "Atlas",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 3,
+    "nature": false,
+    "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Zombie.glb",
+    "triangle_upper_bound": 1326,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.923476159572601,
+      -0.234694868326187,
+      -0.974389255046844
+    ],
+    "bounds_size": [
+      1.91484475135803,
+      1.58178579807281,
+      1.96514105796814
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "018_Bush with Flowers.png",
+    "materials": [
+      {
+        "name": "Leaves_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Bush with Flowers.glb",
+    "triangle_upper_bound": 768,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.923476159572601,
+      -0.234694868326187,
+      -0.974389255046844
+    ],
+    "bounds_size": [
+      1.91484475135803,
+      1.58178579807281,
+      1.96514105796814
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "019_Bush.png",
+    "materials": [
+      {
+        "name": "Leaves_TwistedTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Bush.glb",
+    "triangle_upper_bound": 600,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.50229823589325,
+      -0.00235080975107849,
+      -0.472310543060303
+    ],
+    "bounds_size": [
+      0.851128220558167,
+      1.26378548145294,
+      0.836634516716003
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "020_Clover-u5SOgBFiut.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Clover-u5SOgBFiut.glb",
+    "triangle_upper_bound": 144,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.50229823589325,
+      -0.012792251072824,
+      -0.399561941623688
+    ],
+    "bounds_size": [
+      0.796289324760437,
+      1.14473259449005,
+      0.763885915279388
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "021_Clover.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Clover.glb",
+    "triangle_upper_bound": 89,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -3.97053265571594,
+      -0.335555166006088,
+      -4.79723072052002
+    ],
+    "bounds_size": [
+      8.35639381408691,
+      16.4373836517334,
+      8.41326999664307
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "022_Dead Tree-CD4edbPSGm.png",
+    "materials": [
+      {
+        "name": "Bark_DeadTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Dead Tree-CD4edbPSGm.glb",
+    "triangle_upper_bound": 1316,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.3323438167572,
+      -0.335555195808411,
+      -2.52287602424622
+    ],
+    "bounds_size": [
+      6.72961807250977,
+      11.4882316589355,
+      6.37853813171387
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "023_Dead Tree-Mcd2zYqyww.png",
+    "materials": [
+      {
+        "name": "Bark_DeadTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Dead Tree-Mcd2zYqyww.glb",
+    "triangle_upper_bound": 1457,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.59232378005981,
+      -0.335555046796799,
+      -2.90349960327148
+    ],
+    "bounds_size": [
+      6.14893627166748,
+      9.4954776763916,
+      5.74866914749146
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "024_Dead Tree-MlmK5488ou.png",
+    "materials": [
+      {
+        "name": "Bark_DeadTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Dead Tree-MlmK5488ou.glb",
+    "triangle_upper_bound": 1363,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -3.36276841163635,
+      -0.335555255413055,
+      -3.59895038604736
+    ],
+    "bounds_size": [
+      7.96094226837158,
+      12.770977973938,
+      7.73244714736938
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "025_Dead Tree-n8FhMgMldD.png",
+    "materials": [
+      {
+        "name": "Bark_DeadTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Dead Tree-n8FhMgMldD.glb",
+    "triangle_upper_bound": 1333,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -3.84756946563721,
+      -0.335555076599121,
+      -3.38670063018799
+    ],
+    "bounds_size": [
+      6.3875732421875,
+      13.2803859710693,
+      6.43006134033203
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "026_Dead Tree.png",
+    "materials": [
+      {
+        "name": "Bark_DeadTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Dead Tree.glb",
+    "triangle_upper_bound": 1356,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -4.41997528076172,
+      -0.247470900416374,
+      -4.09131574630737
+    ],
+    "bounds_size": [
+      9.04618835449219,
+      2.68877983093262,
+      8.48742485046387
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "027_Fern.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Fern.glb",
+    "triangle_upper_bound": 81,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.931385695934296,
+      -0.0569977313280106,
+      -0.636150419712067
+    ],
+    "bounds_size": [
+      1.78052568435669,
+      2.4867684841156,
+      1.36752915382385
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "028_Flower Group-LqTljN6Wg2.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Group-LqTljN6Wg2.glb",
+    "triangle_upper_bound": 433,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.613601326942444,
+      -0.0345837213099003,
+      -0.801761746406555
+    ],
+    "bounds_size": [
+      1.48847651481628,
+      2.05483555793762,
+      1.59112739562988
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "029_Flower Group.png",
+    "materials": [
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Group.glb",
+    "triangle_upper_bound": 193,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.256916344165802,
+      0.00000114810370632767,
+      -0.228995800018311
+    ],
+    "bounds_size": [
+      0.460239052772522,
+      0.243673339486122,
+      0.454961717128754
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "030_Flower Petal-LqvxG9OBOU.png",
+    "materials": [
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Petal-LqvxG9OBOU.glb",
+    "triangle_upper_bound": 4,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.31499457359314,
+      0.000000153444688066884,
+      -0.273450672626495
+    ],
+    "bounds_size": [
+      0.619483768939972,
+      0.1894850730896,
+      0.606365919113159
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "031_Flower Petal-eVE0j49ux9.png",
+    "materials": [
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Petal-eVE0j49ux9.glb",
+    "triangle_upper_bound": 5,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.143394812941551,
+      -0.000000157332223693629,
+      -0.122296147048473
+    ],
+    "bounds_size": [
+      0.329093277454376,
+      0.252056360244751,
+      0.244452014565468
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "032_Flower Petal-niuBUEJdvM.png",
+    "materials": [
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Petal-niuBUEJdvM.glb",
+    "triangle_upper_bound": 8,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.400946617126465,
+      0.00104368652682751,
+      -0.419551849365234
+    ],
+    "bounds_size": [
+      0.833962619304657,
+      0.288771957159042,
+      0.795213520526886
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "033_Flower Petal-tzG4JcqYWs.png",
+    "materials": [
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Petal-tzG4JcqYWs.glb",
+    "triangle_upper_bound": 5,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.320671617984772,
+      -0.0000000491944405212053,
+      -0.329141348600388
+    ],
+    "bounds_size": [
+      0.673215329647064,
+      0.236060798168182,
+      0.631094694137573
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "034_Flower Petal.png",
+    "materials": [
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Petal.glb",
+    "triangle_upper_bound": 5,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.505006432533264,
+      -0.0304305423051119,
+      -0.401802539825439
+    ],
+    "bounds_size": [
+      1.0722883939743,
+      2.41915917396545,
+      0.772865056991577
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "035_Flower Single-GvfHo0roi3.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Single-GvfHo0roi3.glb",
+    "triangle_upper_bound": 166,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.480738639831543,
+      -0.0183270126581192,
+      -0.520720362663269
+    ],
+    "bounds_size": [
+      0.906609892845154,
+      2.06819367408752,
+      0.877536416053772
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "036_Flower Single.png",
+    "materials": [
+      {
+        "name": "Flowers",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Single.glb",
+    "triangle_upper_bound": 75,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.728043496608734,
+      -0.0857501849532127,
+      -0.582810997962952
+    ],
+    "bounds_size": [
+      1.32218599319458,
+      1.07184708118439,
+      1.20974445343018
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "037_Grass Wispy-Msr9zx66VU.png",
+    "materials": [
+      {
+        "name": "Grass",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Grass Wispy-Msr9zx66VU.glb",
+    "triangle_upper_bound": 157,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.739244699478149,
+      -0.036051943898201,
+      -0.818590581417084
+    ],
+    "bounds_size": [
+      1.54007267951965,
+      1.67180263996124,
+      1.59371614456177
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "038_Grass Wispy.png",
+    "materials": [
+      {
+        "name": "Grass",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Grass Wispy.glb",
+    "triangle_upper_bound": 181,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.355642378330231,
+      -0.0223852582275867,
+      -0.479378283023834
+    ],
+    "bounds_size": [
+      0.638870477676392,
+      1.33410358428955,
+      0.737265706062317
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "039_Grass.png",
+    "materials": [
+      {
+        "name": "Grass",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Grass.glb",
+    "triangle_upper_bound": 51,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.649819076061249,
+      -0.160225465893745,
+      -0.328301191329956
+    ],
+    "bounds_size": [
+      1.36603260040283,
+      0.766958475112915,
+      1.10318267345428
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "040_Mushroom Laetiporus.png",
+    "materials": [
+      {
+        "name": "Mushrooms",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Mushroom Laetiporus.glb",
+    "triangle_upper_bound": 602,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.333375841379166,
+      -0.0174710229039192,
+      -0.445210665464401
+    ],
+    "bounds_size": [
+      0.56370085477829,
+      0.463480830192566,
+      0.779112756252289
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "041_Mushroom.png",
+    "materials": [
+      {
+        "name": "Mushrooms",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Mushroom.glb",
+    "triangle_upper_bound": 185,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.215203464031219,
+      -0.00298023037612438,
+      -0.222273111343384
+    ],
+    "bounds_size": [
+      0.4494768679142,
+      0.0942298024892807,
+      0.411058723926544
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "042_Pebble Round-KYtJ6JNXh2.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Round-KYtJ6JNXh2.glb",
+    "triangle_upper_bound": 36,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.219809055328369,
+      -0.00779800536110997,
+      -0.159612685441971
+    ],
+    "bounds_size": [
+      0.500038743019104,
+      0.0954766124486923,
+      0.36702287197113
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "043_Pebble Round-icVsN3lmVy.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Round-icVsN3lmVy.glb",
+    "triangle_upper_bound": 39,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.21054707467556,
+      -0.00563196511939168,
+      -0.230736762285233
+    ],
+    "bounds_size": [
+      0.406281113624573,
+      0.099398709833622,
+      0.452397704124451
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "044_Pebble Round-kAMfq1uJUY.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Round-kAMfq1uJUY.glb",
+    "triangle_upper_bound": 44,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.216573670506477,
+      -0.00414587929844856,
+      -0.200998961925507
+    ],
+    "bounds_size": [
+      0.418593198060989,
+      0.100826904177666,
+      0.346258282661438
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "045_Pebble Round-nMf8LHOsbM.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Round-nMf8LHOsbM.glb",
+    "triangle_upper_bound": 48,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.227098286151886,
+      -0.001753059332259,
+      -0.221486032009125
+    ],
+    "bounds_size": [
+      0.449691295623779,
+      0.0986224636435509,
+      0.484810322523117
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "046_Pebble Round.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Round.glb",
+    "triangle_upper_bound": 36,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.186651647090912,
+      -0.00811819545924664,
+      -0.166491597890854
+    ],
+    "bounds_size": [
+      0.37333619594574,
+      0.158933401107788,
+      0.318749219179153
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "047_Pebble Square-2YtLzwgsWp.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square-2YtLzwgsWp.glb",
+    "triangle_upper_bound": 34,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.233349561691284,
+      -0.00220229174010456,
+      -0.201875552535057
+    ],
+    "bounds_size": [
+      0.434637278318405,
+      0.129930958151817,
+      0.439643025398254
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "048_Pebble Square-6juX57sLHe.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square-6juX57sLHe.glb",
+    "triangle_upper_bound": 60,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.20063154399395,
+      -0.00516430847346783,
+      -0.119389317929745
+    ],
+    "bounds_size": [
+      0.391095995903015,
+      0.140443965792656,
+      0.280254244804382
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "049_Pebble Square-Mm4RMgwNO8.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square-Mm4RMgwNO8.glb",
+    "triangle_upper_bound": 52,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.215022310614586,
+      -0.0101462639868259,
+      -0.120621077716351
+    ],
+    "bounds_size": [
+      0.462028622627258,
+      0.137774810194969,
+      0.262922078371048
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "050_Pebble Square-l5XiYQj1oD.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square-l5XiYQj1oD.glb",
+    "triangle_upper_bound": 43,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.168563306331635,
+      -0.00795703288167715,
+      -0.227532431483269
+    ],
+    "bounds_size": [
+      0.352031707763672,
+      0.152159675955772,
+      0.450439542531967
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "051_Pebble Square-s71L3q1nXN.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square-s71L3q1nXN.glb",
+    "triangle_upper_bound": 48,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.171219989657402,
+      -0.00277629564516246,
+      -0.157671079039574
+    ],
+    "bounds_size": [
+      0.339943408966064,
+      0.168291166424751,
+      0.290825605392456
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "052_Pebble Square.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square.glb",
+    "triangle_upper_bound": 31,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.11373686790466,
+      -0.235088869929314,
+      -2.29233860969543
+    ],
+    "bounds_size": [
+      3.61139464378357,
+      7.39219951629639,
+      3.99580478668213
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "053_Pine-699sFuLCN2.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_Pine",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pine-699sFuLCN2.glb",
+    "triangle_upper_bound": 1191,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.87183713912964,
+      -0.235089018940926,
+      -2.94590711593628
+    ],
+    "bounds_size": [
+      5.80202436447144,
+      10.2364330291748,
+      5.37084674835205
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "054_Pine-79gmlLnweB.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_Pine",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pine-79gmlLnweB.glb",
+    "triangle_upper_bound": 986,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.89195823669434,
+      -0.235089004039764,
+      -2.69369864463806
+    ],
+    "bounds_size": [
+      5.72808456420898,
+      7.37623882293701,
+      5.22120761871338
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "055_Pine-Zt62gceKXZ.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_Pine",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pine-Zt62gceKXZ.glb",
+    "triangle_upper_bound": 961,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.44881916046143,
+      -0.235088929533958,
+      -2.47693276405334
+    ],
+    "bounds_size": [
+      4.94469833374023,
+      7.31691837310791,
+      4.53840446472168
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "056_Pine-rfnxJv0Rqa.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_Pine",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pine-rfnxJv0Rqa.glb",
+    "triangle_upper_bound": 1004,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.98770618438721,
+      -0.235089018940926,
+      -3.77840423583984
+    ],
+    "bounds_size": [
+      6.42014026641846,
+      8.72380924224854,
+      6.2220025062561
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "057_Pine.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_Pine",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pine.glb",
+    "triangle_upper_bound": 540,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.39412152767181,
+      -0.0560386404395103,
+      -1.65838205814362
+    ],
+    "bounds_size": [
+      2.89045882225037,
+      3.75642609596252,
+      3.12644720077515
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "058_Plant Big-MbhbP7JrTI.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Plant Big-MbhbP7JrTI.glb",
+    "triangle_upper_bound": 120,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.701056718826294,
+      0.0503114424645901,
+      -0.850527942180634
+    ],
+    "bounds_size": [
+      1.31081998348236,
+      0.253432780504227,
+      1.36217403411865
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "059_Plant Big.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Plant Big.glb",
+    "triangle_upper_bound": 42,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.448151230812073,
+      0.0791044905781746,
+      -0.463865876197815
+    ],
+    "bounds_size": [
+      1.04783535003662,
+      0.249514937400818,
+      0.962121069431305
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "060_Plant-xH5gNlQxAZ.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Plant-xH5gNlQxAZ.glb",
+    "triangle_upper_bound": 18,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.710723698139191,
+      -0.0350241027772427,
+      -0.763592064380646
+    ],
+    "bounds_size": [
+      1.27339088916779,
+      1.01357042789459,
+      1.38602757453918
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "061_Plant.png",
+    "materials": [
+      {
+        "name": "Leaves",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Plant.glb",
+    "triangle_upper_bound": 40,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.82427930831909,
+      -0.315644592046738,
+      -0.890462458133698
+    ],
+    "bounds_size": [
+      3.42008447647095,
+      2.31628322601318,
+      3.47611045837402
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "062_Rock Medium-JQxF95498B.png",
+    "materials": [
+      {
+        "name": "Rocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Medium-JQxF95498B.glb",
+    "triangle_upper_bound": 177,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.72728729248047,
+      -0.271131575107574,
+      -1.14988362789154
+    ],
+    "bounds_size": [
+      3.22514843940735,
+      2.25979709625244,
+      2.98913669586182
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "063_Rock Medium-s1OJ3bBzqc.png",
+    "materials": [
+      {
+        "name": "Rocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Medium-s1OJ3bBzqc.glb",
+    "triangle_upper_bound": 117,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.71364176273346,
+      -0.0508418157696724,
+      -1.15912568569183
+    ],
+    "bounds_size": [
+      3.04876041412354,
+      1.89897537231445,
+      2.47907209396362
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "064_Rock Medium.png",
+    "materials": [
+      {
+        "name": "Rocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Medium.glb",
+    "triangle_upper_bound": 83,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.560276389122009,
+      -0.00779806822538376,
+      -0.758797585964203
+    ],
+    "bounds_size": [
+      1.13951945304871,
+      0.104667544364929,
+      1.35428369045258
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "065_Rock Path Round Small-GMttpOEFKT.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Round Small-GMttpOEFKT.glb",
+    "triangle_upper_bound": 715,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.538055181503296,
+      -0.00888273399323225,
+      -0.703344464302063
+    ],
+    "bounds_size": [
+      1.05651390552521,
+      0.112832047045231,
+      1.47635877132416
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "066_Rock Path Round Small-yHEdadj5I0.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Round Small-yHEdadj5I0.glb",
+    "triangle_upper_bound": 638,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.587280929088593,
+      -0.00779807241633534,
+      -0.690271377563477
+    ],
+    "bounds_size": [
+      1.17902994155884,
+      0.109273426234722,
+      1.28999471664429
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "067_Rock Path Round Small.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Round Small.glb",
+    "triangle_upper_bound": 637,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.697072863578796,
+      -0.00886221788823605,
+      -1.08610141277313
+    ],
+    "bounds_size": [
+      1.45735096931458,
+      0.110337637364864,
+      2.08920621871948
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "068_Rock Path Round Thin.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Round Thin.glb",
+    "triangle_upper_bound": 1436,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.04797554016113,
+      -0.00888277497142553,
+      -1.12593162059784
+    ],
+    "bounds_size": [
+      2.11061429977417,
+      0.112832173705101,
+      2.12903642654419
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "069_Rock Path Round Wide.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Round Wide.glb",
+    "triangle_upper_bound": 2228,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.518924355506897,
+      -0.00862291641533375,
+      -0.474319249391556
+    ],
+    "bounds_size": [
+      1.01888430118561,
+      0.149870365858078,
+      0.973852038383484
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "070_Rock Path Square Smal-cI9XBpVijV.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Square Smal-cI9XBpVijV.glb",
+    "triangle_upper_bound": 503,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.497539281845093,
+      -0.0132055347785354,
+      -0.493947505950928
+    ],
+    "bounds_size": [
+      0.992721855640411,
+      0.149335369467735,
+      0.966068148612976
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "071_Rock Path Square Smal-w4TKZMjjcw.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Square Smal-w4TKZMjjcw.glb",
+    "triangle_upper_bound": 363,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.396115750074387,
+      -0.00811825599521399,
+      -0.548754334449768
+    ],
+    "bounds_size": [
+      0.83586061000824,
+      0.173633188009262,
+      1.07628881931305
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "072_Rock Path Square Smal.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Square Smal.glb",
+    "triangle_upper_bound": 368,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.768189609050751,
+      -0.0101464008912444,
+      -1.00225985050201
+    ],
+    "bounds_size": [
+      1.55988049507141,
+      0.176348239183426,
+      1.98693680763245
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "073_Rock Path Square Thin.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Square Thin.glb",
+    "triangle_upper_bound": 1157,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.0236998796463,
+      -0.010146401822567,
+      -0.999931156635284
+    ],
+    "bounds_size": [
+      2.05158090591431,
+      0.176348239183426,
+      1.98693680763245
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "074_Rock Path Square Wide.png",
+    "materials": [
+      {
+        "name": "PathRocks",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Square Wide.glb",
+    "triangle_upper_bound": 1459,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.403567641973495,
+      -0.0313623324036598,
+      -0.479033350944519
+    ],
+    "bounds_size": [
+      0.895089268684387,
+      1.87269532680511,
+      0.993112146854401
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "075_Tall Grass.png",
+    "materials": [
+      {
+        "name": "Grass",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tall Grass.glb",
+    "triangle_upper_bound": 101,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.98646509647369,
+      -0.242772355675697,
+      -2.0609655380249
+    ],
+    "bounds_size": [
+      4.06284618377686,
+      9.42518997192383,
+      4.24107837677002
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "076_Tree-QVOop92WmG.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_NormalTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree-QVOop92WmG.glb",
+    "triangle_upper_bound": 1568,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.22301363945007,
+      -0.242772400379181,
+      -1.85146963596344
+    ],
+    "bounds_size": [
+      4.46430158615112,
+      7.6429967880249,
+      4.27585363388062
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "077_Tree-aVOxaHRPWe.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_NormalTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree-aVOxaHRPWe.glb",
+    "triangle_upper_bound": 1819,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.19445872306824,
+      -0.24277238547802,
+      -2.22451901435852
+    ],
+    "bounds_size": [
+      4.31142282485962,
+      7.26478576660156,
+      4.57771492004395
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "078_Tree-qZtx0AHhcy.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_NormalTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree-qZtx0AHhcy.glb",
+    "triangle_upper_bound": 2214,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.91235458850861,
+      -0.242772325873375,
+      -2.16244792938232
+    ],
+    "bounds_size": [
+      3.67116522789001,
+      7.0062403678894,
+      4.219651222229
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "079_Tree-t9KbsfYdXz.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_NormalTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree-t9KbsfYdXz.glb",
+    "triangle_upper_bound": 1264,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.79709529876709,
+      -0.24277226626873,
+      -2.0796103477478
+    ],
+    "bounds_size": [
+      3.82552576065063,
+      9.43838119506836,
+      3.75537490844727
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "080_Tree.png",
+    "materials": [
+      {
+        "name": "Bark_NormalTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_NormalTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree.glb",
+    "triangle_upper_bound": 1227,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -4.32731962203979,
+      -0.201475352048874,
+      -7.14279460906982
+    ],
+    "bounds_size": [
+      10.3808116912842,
+      18.7382373809814,
+      11.2930889129639
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "081_Twisted Tree-7PDBpElkQr.png",
+    "materials": [
+      {
+        "name": "Bark_TwistedTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_TwistedTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Twisted Tree-7PDBpElkQr.glb",
+    "triangle_upper_bound": 3324,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -4.49001932144165,
+      -0.201475501060486,
+      -6.52009010314941
+    ],
+    "bounds_size": [
+      11.3574953079224,
+      16.0725421905518,
+      11.5056209564209
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "082_Twisted Tree-8oraKn9m0x.png",
+    "materials": [
+      {
+        "name": "Bark_TwistedTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_TwistedTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Twisted Tree-8oraKn9m0x.glb",
+    "triangle_upper_bound": 3399,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.174241065979,
+      -0.201475486159325,
+      -6.72677898406982
+    ],
+    "bounds_size": [
+      13.515754699707,
+      16.7254981994629,
+      11.5493669509888
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "083_Twisted Tree-9aWlx82xUf.png",
+    "materials": [
+      {
+        "name": "Bark_TwistedTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_TwistedTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Twisted Tree-9aWlx82xUf.glb",
+    "triangle_upper_bound": 3133,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -6.61996984481812,
+      -0.201475277543068,
+      -5.54071760177612
+    ],
+    "bounds_size": [
+      10.5628719329834,
+      18.9492034912109,
+      9.2025899887085
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "084_Twisted Tree-GVTsMmuzv7.png",
+    "materials": [
+      {
+        "name": "Bark_TwistedTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_TwistedTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Twisted Tree-GVTsMmuzv7.glb",
+    "triangle_upper_bound": 3016,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -3.74643731117249,
+      -0.20147517323494,
+      -6.33899641036987
+    ],
+    "bounds_size": [
+      9.49471187591553,
+      15.6621761322021,
+      9.38703060150146
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "085_Twisted Tree.png",
+    "materials": [
+      {
+        "name": "Bark_TwistedTree",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Leaves_TwistedTree",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": true,
+    "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Twisted Tree.glb",
+    "triangle_upper_bound": 3603,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.873076796531677,
+      -0.798004150390625,
+      -0.0961666852235794
+    ],
+    "bounds_size": [
+      1.26217651367188,
+      3.25604796409607,
+      0.190221548080444
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "086_Axe.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightGrey",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Red",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Survival Pack-glb/Axe.glb",
+    "triangle_upper_bound": 151,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0919226706027985,
+      0.00234476756304502,
+      -0.0919227227568626
+    ],
+    "bounds_size": [
+      0.183845341205597,
+      0.456800132989883,
+      0.183845400810242
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "087_Battery-MYa3uWdwPU.png",
+    "materials": [
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Orange",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Survival Pack-glb/Battery-MYa3uWdwPU.glb",
+    "triangle_upper_bound": 84,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.147100433707237,
+      0.00234476546756923,
+      -0.157121688127518
+    ],
+    "bounds_size": [
+      0.300071120262146,
+      0.460172742605209,
+      0.300071179866791
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "088_Battery.png",
+    "materials": [
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Orange",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Survival Pack-glb/Battery.glb",
+    "triangle_upper_bound": 63,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.109575986862183,
+      -0.363614171743393,
+      -0.0389064662158489
+    ],
+    "bounds_size": [
+      0.265446990728378,
+      1.56286466121674,
+      0.0778128355741501
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "089_Knife.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightGrey",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Yellow",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Survival Pack-glb/Knife.glb",
+    "triangle_upper_bound": 292,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.835546255111694,
+      -0.152027517557144,
+      -5.88845443725586
+    ],
+    "bounds_size": [
+      1.67109251022339,
+      0.30405592918396,
+      14.8522577285767
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "090_Raft Paddle.png",
+    "materials": [
+      {
+        "name": "Blue",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "BrightYellow",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Survival Pack-glb/Raft Paddle.glb",
+    "triangle_upper_bound": 172,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.35111284255981,
+      -0.0194757636636496,
+      -2.31779050827026
+    ],
+    "bounds_size": [
+      4.64086008071899,
+      1.0935115814209,
+      4.56967258453369
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "091_Wood Log.png",
+    "materials": [
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Survival Pack-glb/Wood Log.glb",
+    "triangle_upper_bound": 137,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.223329693078995,
+      -0.583404898643494,
+      -0.209413349628448
+    ],
+    "bounds_size": [
+      0.457232534885406,
+      2.69059324264526,
+      0.418826371431351
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "092_Wooden Torch.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightGrey",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Yellow",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Survival Pack-glb/Wooden Torch.glb",
+    "triangle_upper_bound": 297,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.55964028835297,
+      -0.7184699177742,
+      -0.171539470553398
+    ],
+    "bounds_size": [
+      5.16881608963013,
+      1.79048228263855,
+      0.346405267715454
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "093_Assault Rifle-Bgvuu4CUMV.png",
+    "materials": [
+      {
+        "name": "Main",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "MainDark",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "MainLight",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Assault Rifle-Bgvuu4CUMV.glb",
+    "triangle_upper_bound": 1229,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.66676139831543,
+      -0.736502468585968,
+      -0.0980105474591255
+    ],
+    "bounds_size": [
+      5.49368667602539,
+      1.60136187076569,
+      0.196021199226379
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "094_Assault Rifle-fpLucho45C.png",
+    "materials": [
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Assault Rifle-fpLucho45C.glb",
+    "triangle_upper_bound": 893,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.60480976104736,
+      -0.741541504859924,
+      -0.0980105400085449
+    ],
+    "bounds_size": [
+      5.42165756225586,
+      1.6013617515564,
+      0.196021199226379
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "095_Assault Rifle.png",
+    "materials": [
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Assault Rifle.glb",
+    "triangle_upper_bound": 836,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.212931960821152,
+      -0.13909524679184,
+      -0.0661274194717407
+    ],
+    "bounds_size": [
+      1.16676461696625,
+      0.234420329332352,
+      0.132254838943481
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "096_Bayonet.png",
+    "materials": [
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightMetal2",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Bayonet.glb",
+    "triangle_upper_bound": 154,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0796407014131546,
+      -1.24309778213501,
+      -0.608110725879669
+    ],
+    "bounds_size": [
+      0.145275965332985,
+      1.3314733505249,
+      1.21622157096863
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "097_Bipod.png",
+    "materials": [
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Bipod.glb",
+    "triangle_upper_bound": 300,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.52885270118713,
+      -0.420916348695755,
+      -0.155142158269882
+    ],
+    "bounds_size": [
+      5.24805927276611,
+      1.5408890247345,
+      0.310284465551376
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "098_Bullpup.png",
+    "materials": [
+      {
+        "name": "MainDark",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "MainLight",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Main",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Bullpup.glb",
+    "triangle_upper_bound": 1676,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.338007509708405,
+      -0.407376438379288,
+      -0.154386147856712
+    ],
+    "bounds_size": [
+      2.4471743106842,
+      1.16155552864075,
+      0.308772146701813
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "099_Pistol-52kQzphmeF.png",
+    "materials": [
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightMetal",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Pistol-52kQzphmeF.glb",
+    "triangle_upper_bound": 1123,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.366820096969604,
+      -0.476826071739197,
+      -0.137178510427475
+    ],
+    "bounds_size": [
+      1.81930720806122,
+      1.1986448764801,
+      0.274356871843338
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "100_Pistol-J3i9KDQ3kt.png",
+    "materials": [
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightMetal",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Pistol-J3i9KDQ3kt.glb",
+    "triangle_upper_bound": 612,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.339643687009811,
+      -0.426101952791214,
+      -0.164360672235489
+    ],
+    "bounds_size": [
+      1.84495210647583,
+      1.293128490448,
+      0.328721195459366
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "101_Pistol-Z7aOjJu583.png",
+    "materials": [
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightMetal",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Pistol-Z7aOjJu583.glb",
+    "triangle_upper_bound": 916,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.339643687009811,
+      -0.407921731472015,
+      -0.161605030298233
+    ],
+    "bounds_size": [
+      1.81940114498138,
+      1.16155576705933,
+      0.323209881782532
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "102_Pistol.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black2",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Pistol.glb",
+    "triangle_upper_bound": 666,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.213104844093323,
+      -0.3351169526577,
+      -0.147194713354111
+    ],
+    "bounds_size": [
+      1.98498618602753,
+      0.982490062713623,
+      0.294356435537338
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "103_Revolver-9C26wSpMS0.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightMetal",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Revolver-9C26wSpMS0.glb",
+    "triangle_upper_bound": 923,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.183274835348129,
+      -0.26229989528656,
+      -0.14719469845295
+    ],
+    "bounds_size": [
+      1.90110516548157,
+      0.962727189064026,
+      0.294356435537338
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "104_Revolver-XrnLUz6kQj.png",
+    "materials": [
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Revolver-XrnLUz6kQj.glb",
+    "triangle_upper_bound": 860,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.241989403963089,
+      -0.316169619560242,
+      -0.147194713354111
+    ],
+    "bounds_size": [
+      1.98189437389374,
+      0.889808356761932,
+      0.294356465339661
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "105_Revolver.png",
+    "materials": [
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightMetal",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Revolver.glb",
+    "triangle_upper_bound": 667,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.00131905078888,
+      -0.0312388800084591,
+      -0.180293932557106
+    ],
+    "bounds_size": [
+      2.07935428619385,
+      0.398224771022797,
+      0.360587298870087
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "106_Scope.png",
+    "materials": [
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Glass",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Scope.glb",
+    "triangle_upper_bound": 303,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.402992635965347,
+      -0.455388933420181,
+      -0.211227625608444
+    ],
+    "bounds_size": [
+      3.68820071220398,
+      1.02013003826141,
+      0.422451794147491
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "107_Shotgun Sawed Off.png",
+    "materials": [
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Shotgun Sawed Off.glb",
+    "triangle_upper_bound": 612,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.42226853966713,
+      -0.426904439926147,
+      -0.123266823589802
+    ],
+    "bounds_size": [
+      4.47126626968384,
+      0.966899871826172,
+      0.246533706784248
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "108_Shotgun Short Stock.png",
+    "materials": [
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Shotgun Short Stock.glb",
+    "triangle_upper_bound": 996,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.47714376449585,
+      -0.563263177871704,
+      -0.123266816139221
+    ],
+    "bounds_size": [
+      5.78490018844604,
+      0.942680656909943,
+      0.246533676981926
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "109_Shotgun-ZmPTnh7njL.png",
+    "materials": [
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Shotgun-ZmPTnh7njL.glb",
+    "triangle_upper_bound": 620,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.43493819236755,
+      -0.568302035331726,
+      -0.123267307877541
+    ],
+    "bounds_size": [
+      5.7849006652832,
+      0.949455499649048,
+      0.24653372168541
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "110_Shotgun.png",
+    "materials": [
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Wood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Shotgun.glb",
+    "triangle_upper_bound": 462,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.04342460632324,
+      -0.787849724292755,
+      -0.154958382248878
+    ],
+    "bounds_size": [
+      7.29463243484497,
+      1.48397254943848,
+      0.459310531616211
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "111_Sniper Rifle-ASOMZIErq3.png",
+    "materials": [
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Green",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Glass",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Sniper Rifle-ASOMZIErq3.glb",
+    "triangle_upper_bound": 866,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.93317699432373,
+      -0.383565872907639,
+      -0.141385123133659
+    ],
+    "bounds_size": [
+      7.24465322494507,
+      1.20078599452972,
+      0.445737421512604
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "112_Sniper Rifle-TKaBjAEofL.png",
+    "materials": [
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Glass",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Green",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Sniper Rifle-TKaBjAEofL.glb",
+    "triangle_upper_bound": 1097,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -2.35793209075928,
+      -0.912703156471252,
+      -0.620067715644836
+    ],
+    "bounds_size": [
+      6.33560752868652,
+      1.8992805480957,
+      1.24785077571869
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "113_Sniper Rifle-i65hEldsw6.png",
+    "materials": [
+      {
+        "name": "LightMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Glass",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Sniper Rifle-i65hEldsw6.glb",
+    "triangle_upper_bound": 1082,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.37754642963409,
+      -0.713718831539154,
+      -0.154958114027977
+    ],
+    "bounds_size": [
+      6.33560800552368,
+      1.34826636314392,
+      0.459310531616211
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "114_Sniper Rifle.png",
+    "materials": [
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Glass",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Sniper Rifle.glb",
+    "triangle_upper_bound": 842,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.87538170814514,
+      -0.751013517379761,
+      -0.159272700548172
+    ],
+    "bounds_size": [
+      3.99758553504944,
+      1.52264070510864,
+      0.318545520305634
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "115_Submachine Gun-nsP3JukU73.png",
+    "materials": [
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Submachine Gun-nsP3JukU73.glb",
+    "triangle_upper_bound": 955,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.79508006572723,
+      -0.860740780830383,
+      -0.159272715449333
+    ],
+    "bounds_size": [
+      4.04394912719727,
+      1.84732413291931,
+      0.318545550107956
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "116_Submachine Gun.png",
+    "materials": [
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Metal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Submachine Gun.glb",
+    "triangle_upper_bound": 803,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.503124475479126,
+      -1.15290021896362,
+      -0.606330573558807
+    ],
+    "bounds_size": [
+      1.31055963039398,
+      1.18089413642883,
+      1.21622157096863
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "117_Tripod.png",
+    "materials": [
+      {
+        "name": "DarkMetal",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate Guns Pack-glb/Tripod.glb",
+    "triangle_upper_bound": 413,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.422927379608154,
+      -0.664176464080811,
+      -0.0677429214119911
+    ],
+    "bounds_size": [
+      0.871198534965515,
+      2.15145635604858,
+      0.135485738515854
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "118_Axe Double.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Axe Double.glb",
+    "triangle_upper_bound": 971,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0728146880865097,
+      -0.655530691146851,
+      -0.0661176666617393
+    ],
+    "bounds_size": [
+      0.623553812503815,
+      1.57450175285339,
+      0.132235288619995
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "119_Axe Small.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Axe Small.glb",
+    "triangle_upper_bound": 609,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.488972812891006,
+      -0.321694105863571,
+      -0.135642841458321
+    ],
+    "bounds_size": [
+      0.977945625782013,
+      6.5946102142334,
+      0.271284997463226
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "120_Claymore.png",
+    "materials": [
+      {
+        "name": "DarkSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkBrown",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightRed",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Red",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Claymore.glb",
+    "triangle_upper_bound": 594,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.150971755385399,
+      -0.309615820646286,
+      -0.0554636418819427
+    ],
+    "bounds_size": [
+      0.297170758247375,
+      1.38919842243195,
+      0.110927179455757
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "121_Dagger.png",
+    "materials": [
+      {
+        "name": "DarkSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Dagger.glb",
+    "triangle_upper_bound": 451,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.579499781131744,
+      -0.826192259788513,
+      -0.214329734444618
+    ],
+    "bounds_size": [
+      1.18078231811523,
+      2.52709436416626,
+      0.429105401039124
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "122_Doublesided Hammer.png",
+    "materials": [
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Doublesided Hammer.glb",
+    "triangle_upper_bound": 1243,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.322000056505203,
+      -0.674764394760132,
+      -0.128183633089066
+    ],
+    "bounds_size": [
+      0.644000113010406,
+      3.10552477836609,
+      0.256367057561874
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "123_Knife.png",
+    "materials": [
+      {
+        "name": "Gold",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Knife.glb",
+    "triangle_upper_bound": 416,
+    "weapon": true
+  },
+  {
+    "accent": true,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.285114169120789,
+      -0.112546779215336,
+      -0.277420729398727
+    ],
+    "bounds_size": [
+      0.587584257125854,
+      0.438020616769791,
+      0.564374089241028
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "124_Mineral.png",
+    "materials": [
+      {
+        "name": "Grey",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Pink",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Mineral.glb",
+    "triangle_upper_bound": 615,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.563436567783356,
+      -2.21546530723572,
+      -0.13853046298027
+    ],
+    "bounds_size": [
+      3.02873253822327,
+      5.58186340332031,
+      0.277060806751251
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "125_Scythe.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Scythe.glb",
+    "triangle_upper_bound": 868,
+    "weapon": true
+  },
+  {
+    "accent": true,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.448764711618423,
+      -0.448559373617172,
+      -0.0504167824983597
+    ],
+    "bounds_size": [
+      0.896166086196899,
+      0.896170735359192,
+      0.100833535194397
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "126_Snowflake.png",
+    "materials": [
+      {
+        "name": "Snowflake",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Snowflake.glb",
+    "triangle_upper_bound": 440,
+    "weapon": false
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.219519302248955,
+      -2.15519452095032,
+      -0.162443026900291
+    ],
+    "bounds_size": [
+      0.53011554479599,
+      9.71707439422607,
+      0.324885427951813
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "127_Spear.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Spear.glb",
+    "triangle_upper_bound": 802,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.267177581787109,
+      -0.382978677749634,
+      -0.0610753037035465
+    ],
+    "bounds_size": [
+      0.534355163574219,
+      2.30206370353699,
+      0.122150421142578
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "128_Sword-9lLmH8Et4K.png",
+    "materials": [
+      {
+        "name": "DarkSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Sword-9lLmH8Et4K.glb",
+    "triangle_upper_bound": 501,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.216566979885101,
+      -0.150530904531479,
+      -0.0506336502730846
+    ],
+    "bounds_size": [
+      0.433133959770203,
+      2.73462533950806,
+      0.101267009973526
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "129_Sword.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Sword.glb",
+    "triangle_upper_bound": 543,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.13958828151226,
+      -0.986851871013641,
+      -0.044183511286974
+    ],
+    "bounds_size": [
+      0.532914042472839,
+      1.97370374202728,
+      0.0883675813674927
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "130_Wooden Bow.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "White",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Wooden Bow.glb",
+    "triangle_upper_bound": 435,
+    "weapon": true
+  }
+]

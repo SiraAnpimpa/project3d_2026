@@ -1,0 +1,744 @@
+--- before/resources/catalog.tres
++++ after/resources/catalog.tres
+@@ -1,4 +1,4 @@
+-[gd_resource type="Resource" script_class="ItemCatalog" load_steps=33 format=3]
++[gd_resource type="Resource" script_class="ItemCatalog" load_steps=34 format=3]
+ [ext_resource type="Script" path="res://scripts/data/item_catalog.gd" id="script"]
+ [ext_resource type="Resource" path="res://resources/items/seed_lead.tres" id="seed_lead"]
+ [ext_resource type="Resource" path="res://resources/items/lead.tres" id="lead"]
+@@ -19,6 +19,7 @@
+ [ext_resource type="Resource" path="res://resources/items/basic_medicine.tres" id="basic_medicine"]
+ [ext_resource type="Resource" path="res://resources/items/metal_component.tres" id="metal_component"]
+ [ext_resource type="Resource" path="res://resources/items/basic_rifle.tres" id="basic_rifle"]
++[ext_resource type="Resource" path="res://resources/items/wooden_bat.tres" id="wooden_bat"]
+ [ext_resource type="Resource" path="res://resources/items/seed_fire_pepper.tres" id="seed_fire_pepper"]
+ [ext_resource type="Resource" path="res://resources/items/fire_essence.tres" id="fire_essence"]
+ [ext_resource type="Resource" path="res://resources/items/fire_ammo.tres" id="fire_ammo"]
+@@ -33,5 +34,5 @@
+ [ext_resource type="Resource" path="res://resources/plants/poison_plant.tres" id="plant_poison_plant"]
+ [resource]
+ script = ExtResource("script")
+-items = Array[Resource]([ExtResource("seed_lead"), ExtResource("lead"), ExtResource("seed_paper"), ExtResource("paper"), ExtResource("seed_iron"), ExtResource("iron"), ExtResource("seed_copper"), ExtResource("copper"), ExtResource("seed_small_herb"), ExtResource("small_herb"), ExtResource("basic_ammo"), ExtResource("basic_medicine"), ExtResource("metal_component"), ExtResource("basic_rifle"), ExtResource("seed_fire_pepper"), ExtResource("fire_essence"), ExtResource("fire_ammo"), ExtResource("seed_ice_plant"), ExtResource("ice_crystal"), ExtResource("ice_ammo"), ExtResource("seed_poison_plant"), ExtResource("poison_extract"), ExtResource("poison_ammo")])
++items = Array[Resource]([ExtResource("seed_lead"), ExtResource("lead"), ExtResource("seed_paper"), ExtResource("paper"), ExtResource("seed_iron"), ExtResource("iron"), ExtResource("seed_copper"), ExtResource("copper"), ExtResource("seed_small_herb"), ExtResource("small_herb"), ExtResource("basic_ammo"), ExtResource("basic_medicine"), ExtResource("metal_component"), ExtResource("basic_rifle"), ExtResource("seed_fire_pepper"), ExtResource("fire_essence"), ExtResource("fire_ammo"), ExtResource("seed_ice_plant"), ExtResource("ice_crystal"), ExtResource("ice_ammo"), ExtResource("seed_poison_plant"), ExtResource("poison_extract"), ExtResource("poison_ammo"), ExtResource("wooden_bat")])
+ plants = Array[Resource]([ExtResource("plant_lead"), ExtResource("plant_paper"), ExtResource("plant_iron"), ExtResource("plant_copper"), ExtResource("plant_small_herb"), ExtResource("plant_fire_pepper"), ExtResource("plant_ice_plant"), ExtResource("plant_poison_plant")])
+--- before/resources/plants/copper.tres
++++ after/resources/plants/copper.tres
+@@ -2,7 +2,7 @@
+ [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+ [ext_resource type="Resource" path="res://resources/items/seed_copper.tres" id="2"]
+ [ext_resource type="Resource" path="res://resources/items/copper.tres" id="3"]
+-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
++[ext_resource type="PackedScene" path="res://scenes/farming/visuals/CopperPlantVisual.tscn" id="4"]
+ [resource]
+ script = ExtResource("1")
+ plant_id = &"copper"
+@@ -16,3 +16,4 @@
+ stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
+ visual_scene = ExtResource("4")
+ produce_color = Color(0.84,0.44,0.2,1)
++show_produce_marker = false
+--- before/resources/plants/fire_pepper.tres
++++ after/resources/plants/fire_pepper.tres
+@@ -2,7 +2,7 @@
+ [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+ [ext_resource type="Resource" path="res://resources/items/seed_fire_pepper.tres" id="2"]
+ [ext_resource type="Resource" path="res://resources/items/fire_essence.tres" id="3"]
+-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
++[ext_resource type="PackedScene" path="res://scenes/farming/visuals/FirePepperPlantVisual.tscn" id="4"]
+ [resource]
+ script = ExtResource("1")
+ plant_id = &"fire_pepper"
+@@ -16,3 +16,4 @@
+ stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
+ visual_scene = ExtResource("4")
+ produce_color = Color(1,0.25,0.08,1)
++show_produce_marker = false
+--- before/resources/plants/ice_plant.tres
++++ after/resources/plants/ice_plant.tres
+@@ -2,7 +2,7 @@
+ [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+ [ext_resource type="Resource" path="res://resources/items/seed_ice_plant.tres" id="2"]
+ [ext_resource type="Resource" path="res://resources/items/ice_crystal.tres" id="3"]
+-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
++[ext_resource type="PackedScene" path="res://scenes/farming/visuals/IcePlantVisual.tscn" id="4"]
+ [resource]
+ script = ExtResource("1")
+ plant_id = &"ice_plant"
+@@ -16,3 +16,4 @@
+ stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
+ visual_scene = ExtResource("4")
+ produce_color = Color(0.2,0.8,1,1)
++show_produce_marker = false
+--- before/resources/plants/iron.tres
++++ after/resources/plants/iron.tres
+@@ -2,7 +2,7 @@
+ [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+ [ext_resource type="Resource" path="res://resources/items/seed_iron.tres" id="2"]
+ [ext_resource type="Resource" path="res://resources/items/iron.tres" id="3"]
+-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
++[ext_resource type="PackedScene" path="res://scenes/farming/visuals/IronPlantVisual.tscn" id="4"]
+ [resource]
+ script = ExtResource("1")
+ plant_id = &"iron"
+@@ -16,3 +16,4 @@
+ stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
+ visual_scene = ExtResource("4")
+ produce_color = Color(0.7,0.76,0.78,1)
++show_produce_marker = false
+--- before/resources/plants/lead.tres
++++ after/resources/plants/lead.tres
+@@ -2,7 +2,7 @@
+ [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+ [ext_resource type="Resource" path="res://resources/items/seed_lead.tres" id="2"]
+ [ext_resource type="Resource" path="res://resources/items/lead.tres" id="3"]
+-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
++[ext_resource type="PackedScene" path="res://scenes/farming/visuals/LeadPlantVisual.tscn" id="4"]
+ [resource]
+ script = ExtResource("1")
+ plant_id = &"lead"
+@@ -16,3 +16,4 @@
+ stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
+ visual_scene = ExtResource("4")
+ produce_color = Color(0.46,0.55,0.69,1)
++show_produce_marker = false
+--- before/resources/plants/paper.tres
++++ after/resources/plants/paper.tres
+@@ -2,7 +2,7 @@
+ [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+ [ext_resource type="Resource" path="res://resources/items/seed_paper.tres" id="2"]
+ [ext_resource type="Resource" path="res://resources/items/paper.tres" id="3"]
+-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
++[ext_resource type="PackedScene" path="res://scenes/farming/visuals/PaperPlantVisual.tscn" id="4"]
+ [resource]
+ script = ExtResource("1")
+ plant_id = &"paper"
+@@ -16,3 +16,4 @@
+ stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
+ visual_scene = ExtResource("4")
+ produce_color = Color(0.95,0.89,0.68,1)
++show_produce_marker = false
+--- before/resources/plants/poison_plant.tres
++++ after/resources/plants/poison_plant.tres
+@@ -2,7 +2,7 @@
+ [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+ [ext_resource type="Resource" path="res://resources/items/seed_poison_plant.tres" id="2"]
+ [ext_resource type="Resource" path="res://resources/items/poison_extract.tres" id="3"]
+-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
++[ext_resource type="PackedScene" path="res://scenes/farming/visuals/PoisonPlantVisual.tscn" id="4"]
+ [resource]
+ script = ExtResource("1")
+ plant_id = &"poison_plant"
+@@ -16,3 +16,4 @@
+ stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
+ visual_scene = ExtResource("4")
+ produce_color = Color(0.65,0.2,0.85,1)
++show_produce_marker = false
+--- before/resources/plants/small_herb.tres
++++ after/resources/plants/small_herb.tres
+@@ -2,7 +2,7 @@
+ [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
+ [ext_resource type="Resource" path="res://resources/items/seed_small_herb.tres" id="2"]
+ [ext_resource type="Resource" path="res://resources/items/small_herb.tres" id="3"]
+-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
++[ext_resource type="PackedScene" path="res://scenes/farming/visuals/SmallHerbPlantVisual.tscn" id="4"]
+ [resource]
+ script = ExtResource("1")
+ plant_id = &"small_herb"
+@@ -16,3 +16,4 @@
+ stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
+ visual_scene = ExtResource("4")
+ produce_color = Color(0.45,0.78,0.26,1)
++show_produce_marker = false
+--- before/resources/weapons/basic_rifle.tres
++++ after/resources/weapons/basic_rifle.tres
+@@ -22,3 +22,6 @@
+ recoil_degrees = 0.0
+ weapon_scene = ExtResource("visual")
+ muzzle_path = NodePath("Muzzle")
++ready_hold_offset = Vector3(-0.18, -0.06, 0.24)
++aim_hold_offset = Vector3(-0.18, 0.04, 0.21)
++ready_pitch_degrees = 32.0
+--- before/scenes/main/GameRoot.tscn
++++ after/scenes/main/GameRoot.tscn
+@@ -1,4 +1,4 @@
+-[gd_scene load_steps=20 format=3]
++[gd_scene load_steps=21 format=3]
+ 
+ [ext_resource type="PackedScene" path="res://scenes/world/MainWorld.tscn" id="1_world"]
+ [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2_player"]
+@@ -19,6 +19,7 @@
+ [ext_resource type="Script" path="res://scripts/crafting/crafting_system.gd" id="crafting_system"]
+ [ext_resource type="PackedScene" path="res://scenes/ui/CraftingUI.tscn" id="crafting_ui"]
+ [ext_resource type="Resource" path="res://resources/items/basic_rifle.tres" id="starter_weapon"]
++[ext_resource type="Resource" path="res://resources/items/wooden_bat.tres" id="fallback_weapon"]
+ [ext_resource type="Script" path="res://scripts/survival/night_wave_manager.gd" id="waves"]
+ [ext_resource type="Script" path="res://scripts/survival/rest_system.gd" id="rest"]
+ [ext_resource type="Resource" path="res://resources/waves/day_1.tres" id="wave_data"]
+@@ -29,6 +30,7 @@
+ catalog = ExtResource("11_catalog")
+ recipe_book = ExtResource("recipe_book")
+ starter_weapon = ExtResource("starter_weapon")
++fallback_weapon = ExtResource("fallback_weapon")
+ 
+ [node name="MainWorld" parent="." instance=ExtResource("1_world")]
+ 
+--- before/scenes/player/Player.tscn
++++ after/scenes/player/Player.tscn
+@@ -1,4 +1,4 @@
+-[gd_scene load_steps=15 format=3]
++[gd_scene load_steps=16 format=3]
+ 
+ [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_player"]
+ [ext_resource type="Script" path="res://scripts/player/camera_rig.gd" id="2_camera"]
+@@ -16,6 +16,7 @@
+ [ext_resource type="Script" path="res://scripts/player/gameplay_mode_controller.gd" id="11_mode"]
+ [ext_resource type="Script" path="res://scripts/weapons/weapon_controller.gd" id="weapon_controller"]
+ [ext_resource type="Resource" path="res://resources/weapons/basic_rifle.tres" id="rifle_data"]
++[ext_resource type="Resource" path="res://resources/weapons/wooden_bat.tres" id="bat_data"]
+ 
+ [sub_resource type="CapsuleShape3D" id="Capsule"]
+ radius = 0.32
+@@ -86,4 +87,4 @@
+ [node name="WeaponController" type="Node3D" parent="."]
+ script = ExtResource("weapon_controller")
+ shot_collision_mask = 13
+-definitions = Array[Resource]([ExtResource("rifle_data")])
++definitions = Array[Resource]([ExtResource("rifle_data"),ExtResource("bat_data")])
+--- before/scenes/weapons/BasicRifle.tscn
++++ after/scenes/weapons/BasicRifle.tscn
+@@ -22,6 +22,9 @@
+ [node name="SupportGrip" type="Marker3D" parent="."]
+ position = Vector3(0, -0.04, 0.2)
+ 
++[node name="SecondaryGrip" type="Marker3D" parent="."]
++position = Vector3(0, -0.04, 0.2)
++
+ [node name="MagazineGrip" type="Marker3D" parent="."]
+ position = Vector3(0, -0.09, 0.04)
+ 
+--- before/scripts/audio/game_audio.gd
++++ after/scripts/audio/game_audio.gd
+@@ -12,7 +12,7 @@
+ 
+ func bind(game: Node3D) -> void:
+ 	process_mode = Node.PROCESS_MODE_ALWAYS
+-	for id in ["shot", "reload", "click", "harvest", "craft", "hurt", "unlock", "rotor", "wind"]:
++	for id in ["shot", "reload", "click", "harvest", "craft", "hurt", "unlock", "rotor", "wind", "bat_swing", "bat_hit"]:
+ 		streams[id] = load("res://assets/audio/%s.wav" % id)
+ 	for index in 6:
+ 		var voice := AudioStreamPlayer.new()
+@@ -27,6 +27,8 @@
+ 	ambience.finished.connect(func() -> void:
+ 		if is_inside_tree() and DisplayServer.get_name() != "headless": ambience.play())
+ 	game.weapons.shot_fired.connect(func() -> void: cue("shot"))
++	game.weapons.melee_started.connect(func() -> void: cue("bat_swing"))
++	game.weapons.melee_hit.connect(func() -> void: cue("bat_hit"))
+ 	game.weapons.state_changed.connect(func() -> void:
+ 		var active: bool = game.weapons.current != null and game.weapons.current.is_reloading
+ 		if active and not _reload_active: cue("reload")
+--- before/scripts/components/stamina_component.gd
++++ after/scripts/components/stamina_component.gd
+@@ -4,9 +4,9 @@
+ signal changed(current: float, maximum: float)
+ 
+ @export_range(1.0, 10000.0) var max_stamina: float = 100.0
+-@export_range(0.0, 1000.0) var drain_rate: float = 22.0
+-@export_range(0.0, 1000.0) var recovery_rate: float = 18.0
+-@export_range(0.0, 10.0) var recovery_delay: float = 1.2
++@export_range(0.0, 1000.0) var drain_rate: float = 14.0
++@export_range(0.0, 1000.0) var recovery_rate: float = 28.0
++@export_range(0.0, 10.0) var recovery_delay: float = 0.65
+ @export_range(0.01, 1.0) var restart_fraction: float = 0.25
+ 
+ var current_stamina: float = 100.0
+--- before/scripts/data/plant_data.gd
++++ after/scripts/data/plant_data.gd
+@@ -15,6 +15,7 @@
+ # Optional replacement meshes/scenes for later artwork, one entry per stage.
+ @export var stage_visuals: Array[PackedScene] = []
+ @export var produce_color := Color(0.65, 0.75, 0.4)
++@export var show_produce_marker: bool = true
+ 
+ 
+ func validation_errors() -> PackedStringArray:
+--- before/scripts/data/weapon_data.gd
++++ after/scripts/data/weapon_data.gd
+@@ -1,7 +1,7 @@
+ class_name WeaponData
+ extends Resource
+ 
+-enum WeaponType { PISTOL, RIFLE, SHOTGUN, SPECIAL }
++enum WeaponType { PISTOL, RIFLE, SHOTGUN, SPECIAL, MELEE }
+ 
+ @export var weapon_id: StringName
+ @export var display_name: String
+@@ -21,30 +21,62 @@
+ @export var muzzle_path: NodePath = ^"Muzzle"
+ @export var icon: Texture2D
+ 
++@export_group("Holding presentation")
++# Offsets are in Somchai visual space, relative to the animated torso.
++@export var ready_hold_offset := Vector3(-0.18, -0.06, 0.24)
++@export var aim_hold_offset := Vector3(-0.18, 0.04, 0.21)
++@export_range(-90.0, 90.0) var ready_pitch_degrees: float = 32.0
++
++@export_group("Melee")
++@export var melee_hit_delay: float = 0.18
++@export var melee_swing_duration: float = 0.48
++@export var melee_radius: float = 0.65
++@export var melee_arc_degrees: float = 55.0
++@export var melee_animation: StringName = &"CharacterArmature|Slash"
++
++
++func is_melee() -> bool:
++	return weapon_type == WeaponType.MELEE
++
+ 
+ func validation_errors() -> PackedStringArray:
+ 	var errors := PackedStringArray()
+ 	if String(weapon_id).strip_edges().is_empty() or display_name.strip_edges().is_empty():
+ 		errors.append("Weapon needs an ID and display name.")
+-	if weapon_type < WeaponType.PISTOL or weapon_type > WeaponType.SPECIAL:
++	if weapon_type < WeaponType.PISTOL or weapon_type > WeaponType.MELEE:
+ 		errors.append("Weapon '%s' has an invalid weapon_type." % weapon_id)
+ 	if weapon_item == null or weapon_item.item_type != ItemData.ItemType.WEAPON or weapon_item.id != weapon_id:
+ 		errors.append("Weapon '%s' needs a matching WEAPON ItemData." % weapon_id)
+-	if ammo_type == null or ammo_type.item_type != ItemData.ItemType.AMMO:
++	if not is_melee() and (ammo_type == null or ammo_type.item_type != ItemData.ItemType.AMMO):
+ 		errors.append("Weapon '%s' needs AMMO ItemData." % weapon_id)
+ 	for item in [weapon_item, ammo_type]:
+ 		if item != null: errors.append_array(item.validation_errors())
+ 	if not is_finite(damage) or damage <= 0 or not is_finite(fire_rate) or fire_rate <= 0 or fire_rate > 60:
+ 		errors.append("Weapon '%s': damage > 0 and fire_rate in (0, 60] required." % weapon_id)
+-	if magazine_size <= 0 or not is_finite(reload_time) or reload_time < 0 or not is_finite(range_meters) or range_meters <= 0:
++	if not is_finite(range_meters) or range_meters <= 0 or (not is_melee() and (magazine_size <= 0 or not is_finite(reload_time) or reload_time < 0)):
+ 		errors.append("Weapon '%s': invalid magazine, reload time or range." % weapon_id)
++	if is_melee():
++		if ammo_type != null or magazine_size != 0 or reload_time != 0 or automatic:
++			errors.append("Melee '%s' must be ammo-free with no magazine/reload or automatic fire." % weapon_id)
++		if not is_finite(melee_hit_delay) or not is_finite(melee_swing_duration) or melee_hit_delay <= 0 or melee_hit_delay >= melee_swing_duration or (fire_rate>0 and melee_swing_duration > 1.0/fire_rate) or melee_animation==&"":
++			errors.append("Melee '%s' needs hit delay < swing duration <= attack interval." % weapon_id)
++		if not is_finite(melee_radius) or melee_radius <= 0 or melee_radius > range_meters or not is_finite(melee_arc_degrees) or melee_arc_degrees <= 0 or melee_arc_degrees > 90:
++			errors.append("Melee '%s' needs a bounded forward hit volume." % weapon_id)
+ 	if not is_finite(spread_degrees) or spread_degrees < 0 or spread_degrees > 45 or not is_finite(recoil_degrees) or recoil_degrees < 0:
+ 		errors.append("Weapon '%s': invalid spread or recoil." % weapon_id)
+-	if weapon_scene == null or muzzle_path.is_empty():
+-		errors.append("Weapon '%s' needs a visual scene and muzzle path." % weapon_id)
++	if not ready_hold_offset.is_finite() or not aim_hold_offset.is_finite() or not is_finite(ready_pitch_degrees):
++		errors.append("Weapon '%s' has invalid holding offsets." % weapon_id)
++	if weapon_scene == null or (not is_melee() and muzzle_path.is_empty()):
++		errors.append("Weapon '%s' needs a visual scene and a muzzle for ranged attacks." % weapon_id)
+ 	else:
+ 		var model := weapon_scene.instantiate()
+-		if not model is Node3D or not model.get_node_or_null(muzzle_path) is Node3D:
++		if not model is Node3D:
++			errors.append("Weapon '%s': visual must be Node3D." % weapon_id)
++		elif is_melee():
++			for marker in ["PrimaryGrip","SecondaryGrip","HitTip"]:
++				if not model.get_node_or_null(marker) is Node3D:
++					errors.append("Melee '%s': missing %s marker." % [weapon_id,marker])
++		elif not model.get_node_or_null(muzzle_path) is Node3D:
+ 			errors.append("Weapon '%s': scene must be Node3D with a muzzle marker." % weapon_id)
+ 		model.free()
+ 	return errors
+--- before/scripts/farming/plant_visual.gd
++++ after/scripts/farming/plant_visual.gd
+@@ -35,4 +35,4 @@
+ 	model_root.scale = Vector3.ONE * data.stage_scales[stage]
+ 	model_root.visible = stage > 0
+ 	seed_marker.visible = stage == 0
+-	produce.visible = stage == data.growth_stages.size() - 1
++	produce.visible = data.show_produce_marker and stage == data.growth_stages.size() - 1
+--- before/scripts/main/game_root.gd
++++ after/scripts/main/game_root.gd
+@@ -8,6 +8,7 @@
+ @export var starter_loadout: InventoryLoadout
+ @export var recipe_book: RecipeBook
+ @export var starter_weapon: ItemData
++@export var fallback_weapon: ItemData
+ @onready var inventory: Inventory = $Player/Inventory
+ @onready var inventory_ui: InventoryUI = $InventoryUI
+ @onready var equipment: EquipmentLoadout = $Player/EquipmentLoadout
+@@ -32,9 +33,13 @@
+ 		push_error("Starter loadout is invalid or inventory is too small.")
+ 	if starter_weapon != null and not inventory.add_item(starter_weapon):
+ 		push_error("Cannot grant starter weapon.")
++	if fallback_weapon != null and not inventory.add_item(fallback_weapon):
++		push_error("Cannot grant fallback weapon.")
+ 	equipment.bind(inventory)
+ 	if starter_weapon != null:
+ 		equipment.equip_weapon(0, starter_weapon)
++	if fallback_weapon != null:
++		equipment.equip_weapon(1, fallback_weapon)
+ 	gameplay_mode.bind(inventory, equipment, player.camera_rig)
+ 	gameplay_mode.mode_changed.connect(func(_mode: GameplayModeController.Mode) -> void: player.interactor.refresh_target())
+ 	inventory_ui.bind(inventory, player)
+--- before/scripts/player/player_controller.gd
++++ after/scripts/player/player_controller.gd
+@@ -40,6 +40,9 @@
+ 		velocity.y = 0.0
+ 	move_and_slide()
+ 	var facing := -camera_rig.global_basis.z if camera_rig.is_aiming else direction
++	var weapon_controller := get_node_or_null("WeaponController") as WeaponController
++	if weapon_controller != null and not weapon_controller.attack_facing().is_zero_approx():
++		facing = weapon_controller.attack_facing()
+ 	if not facing.is_zero_approx():
+ 		# Matt's authored forward is +Z; rotate the visual only, not the physics root.
+ 		visual.rotation.y = lerp_angle(visual.rotation.y, atan2(facing.x, facing.z),
+--- before/scripts/player/player_visual.gd
++++ after/scripts/player/player_visual.gd
+@@ -5,11 +5,16 @@
+ var current_state: StringName = &""
+ var current_clip: StringName = &""
+ var combat_ready := false
++# Matt has a short walk stride. Runtime stance samples favor a modest run cadence;
++# the walk cap avoids frantic steps while reducing drift at the existing speeds.
++var _motion_rate := 1.0
++@export var walk_cycle_speed: float = 1.31
++@export var run_cycle_speed: float = 6.0
+ 
+ 
+ func _ready() -> void:
+ 	animation_player = find_child("AnimationPlayer", true, false) as AnimationPlayer
+-	# Matt ships with a knife; current gameplay only equips the separate rifle.
++	# Matt ships with a knife; gameplay supplies separate equipment visuals.
+ 	var knife := find_child("Knife", true, false) as Node3D
+ 	if knife != null:
+ 		knife.hide()
+@@ -35,14 +40,22 @@
+ 	combat_ready = not dead and mode != null and not mode.is_farming() and equipment != null and equipment.get_selected_weapon() != null
+ 	current_state = state
+ 	if animation_player != null:
+-		var clip := "CharacterArmature|" + String(state) + ("_Gun" if combat_ready else "")
++		var weapons := actor.get_node_or_null("WeaponController") as WeaponController
++		var melee := combat_ready and weapons != null and weapons.current != null and weapons.current.data.is_melee()
++		var clip := "CharacterArmature|" + String(state) + ("_Gun" if combat_ready and not melee else "")
+ 		var speed := Vector2(motion_velocity.x, motion_velocity.z).length()
+-		var rate := clampf(speed / (actor.sprint_speed if sprinting else actor.walk_speed), 0.35, 1.25) if moving and not dead else 1.0
++		var rate := clampf(speed / (run_cycle_speed if sprinting else walk_cycle_speed), 0.1, 2.2) if moving and not dead else 1.0
+ 		# Reversed Walk gives a backward step while the character still faces the target.
+ 		if moving and not sprinting and actor.camera_rig.is_aiming and motion_velocity.dot(global_basis.z) < -0.1:
+ 			rate *= -1.0
+-		animation_player.speed_scale = rate
++		_motion_rate = move_toward(_motion_rate,rate,12.0*actor.get_physics_process_delta_time()) if moving and not dead else 1.0
++		if melee and weapons.current.is_swinging:
++			clip = String(weapons.current.data.melee_animation)
++			current_state = &"Melee"
++			if animation_player.has_animation(clip):
++				_motion_rate = animation_player.get_animation(clip).length/weapons.current.data.melee_swing_duration
++		animation_player.speed_scale = _motion_rate
+ 		if animation_player.has_animation(clip):
+ 			if current_clip != clip:
+ 				current_clip = clip
+-				animation_player.play(clip, 0.16 if state == &"Idle" else 0.1, 1.0, rate < 0)
++				animation_player.play(clip, 0.06 if current_state == &"Melee" else (0.14 if state == &"Idle" else 0.12), 1.0, rate < 0 and current_state != &"Melee")
+--- before/scripts/player/rifle_pose.gd
++++ after/scripts/player/rifle_pose.gd
+@@ -14,15 +14,27 @@
+ var leg_yaw := 0.0
+ var reload_weight := 0.0
+ var _bones: Dictionary = {}
++var _grip_rotations: Dictionary = {}
+ 
+ func setup(controller: WeaponController, player: PlayerController) -> void:
+ 	weapons = controller
+ 	actor = player
+ 	for bone in ["Body","Torso","Foot.L","Foot.R","UpperArm.R","LowerArm.R","Middle1.R","UpperArm.L","LowerArm.L","Middle1.L"]:
+ 		_bones[bone] = get_skeleton().find_bone(bone)
++	# Slash's free left hand is open. Reuse the existing Gun grip rotations for
++	# the bat fingers; only presentation poses change, never imported/rest data.
++	var grip:=player.visual.animation_player.get_animation("CharacterArmature|Idle_Gun")
++	for track in grip.get_track_count():
++		var path:=grip.track_get_path(track)
++		if path.get_subname_count()==0 or grip.track_get_type(track)!=Animation.TYPE_ROTATION_3D: continue
++		var bone:=String(path.get_subname(0))
++		if not (bone.begins_with("Pinky") or bone.begins_with("Middle") or bone.begins_with("Index") or bone.begins_with("Thumb")): continue
++		var index:=get_skeleton().find_bone(bone)
++		if index>=0: _grip_rotations[index]=grip.rotation_track_interpolate(track,0.0)
+ 
+ func tick(delta: float) -> void:
+-	aim_weight = move_toward(aim_weight, 1.0 if actor.camera_rig.is_aiming else 0.0, delta * 12)
++	var melee := weapons.current != null and weapons.current.data.is_melee()
++	aim_weight = move_toward(aim_weight, 1.0 if actor.camera_rig.is_aiming and not melee else 0.0, delta * 12)
+ 	recoil = maxf(0,recoil-delta*9)
+ 	reload_weight = 0
+ 	if weapons.current != null and weapons.current.is_reloading:
+@@ -40,10 +52,15 @@
+ 	recoil = 1.0
+ 
+ func update_socket() -> void:
+-	if actor == null or weapons.visual == null: return
++	if actor == null or weapons.visual == null or weapons.current == null: return
+ 	var skeleton := get_skeleton()
+ 	var torso := actor.visual.to_local(skeleton.global_transform * skeleton.get_bone_global_pose(_bones["Torso"]).origin)
+-	var point := actor.visual.to_global(Vector3(-0.18,torso.y+0.13,torso.z+0.24))
++	var data := weapons.current.data
++	if data.is_melee():
++		_update_melee_socket(data,torso)
++		return
++	var offset := data.ready_hold_offset.lerp(data.aim_hold_offset, aim_weight)
++	var point := actor.visual.to_global(torso + offset)
+ 	var target := actor.aim_ray.aim_point
+ 	var direction := target-point
+ 	# Very near/behind-barrel targets keep a forward hold instead of folding into the body.
+@@ -52,7 +69,7 @@
+ 	var local := actor.visual.global_basis.orthonormalized().inverse() * direction.normalized()
+ 	aim_yaw = clampf(atan2(local.x,local.z),-deg_to_rad(70),deg_to_rad(70))*aim_weight
+ 	aim_pitch = clampf(-atan2(local.y,Vector2(local.x,local.z).length()),-deg_to_rad(45),deg_to_rad(60))*aim_weight
+-	var pitch := lerpf(deg_to_rad(25),aim_pitch,aim_weight) + reload_weight*deg_to_rad(30) - recoil*deg_to_rad(2.5)
++	var pitch := deg_to_rad(data.ready_pitch_degrees)*(1.0-aim_weight) + aim_pitch + reload_weight*deg_to_rad(30) - recoil*deg_to_rad(2.5)
+ 	var basis := actor.visual.global_basis.orthonormalized() * Basis(Vector3.UP,aim_yaw-reload_weight*0.1) * Basis(Vector3.RIGHT,pitch) * Basis(Vector3.FORWARD,reload_weight*0.18)
+ 	# Barrel is above the socket; converge its visible axis on ordinary-distance targets.
+ 	if aim_weight > 0.99 and reload_weight == 0 and recoil == 0 and point.distance_to(target) > 1.2 and absf(atan2(local.x,local.z)) < deg_to_rad(65) and absf(aim_pitch) < deg_to_rad(44):
+@@ -62,18 +79,46 @@
+ 	point -= basis.z*recoil*0.035
+ 	weapons.get_socket().global_transform = Transform3D(basis,point)
+ 
++func _update_melee_socket(data: WeaponData, torso: Vector3) -> void:
++	aim_yaw = 0
++	aim_pitch = 0
++	var pitch := deg_to_rad(data.ready_pitch_degrees)
++	var yaw := deg_to_rad(-15)
++	var state := weapons.current
++	if state.is_swinging:
++		var elapsed := state.swing_elapsed
++		if elapsed <= data.melee_hit_delay:
++			var progress := clampf(elapsed/data.melee_hit_delay,0,1)
++			yaw = lerpf(deg_to_rad(-85),0,progress)
++			pitch = lerpf(deg_to_rad(-35),0,progress)
++		else:
++			var progress := clampf((elapsed-data.melee_hit_delay)/(data.melee_swing_duration-data.melee_hit_delay),0,1)
++			if progress < 0.5:
++				yaw = lerpf(0,deg_to_rad(70),progress*2)
++				pitch = lerpf(0,deg_to_rad(12),progress*2)
++			else:
++				var settle := smoothstep(0.5,1.0,progress)
++				yaw = lerpf(deg_to_rad(70),deg_to_rad(-15),settle)
++				pitch = lerpf(deg_to_rad(12),deg_to_rad(data.ready_pitch_degrees),settle)
++	var basis := actor.visual.global_basis.orthonormalized()*Basis(Vector3.UP,yaw)*Basis(Vector3.RIGHT,pitch)
++	weapons.get_socket().global_transform = Transform3D(basis,actor.visual.to_global(torso+data.ready_hold_offset))
++
+ func _process_modification_with_delta(_delta: float) -> void:
+ 	if actor == null or not actor.visual.combat_ready or not is_instance_valid(weapons.visual): return
+ 	update_socket()
+ 	_pose_body()
++	if weapons.current.data.is_melee():
++		for bone in _grip_rotations:
++			get_skeleton().set_bone_pose_rotation(bone,_grip_rotations[bone])
+ 	var primary := weapons.visual.get_node_or_null("PrimaryGrip") as Node3D
+-	var support := weapons.visual.get_node_or_null("SupportGrip") as Node3D
++	var support := weapons.visual.get_node_or_null("SecondaryGrip") as Node3D
++	if support == null: support = weapons.visual.get_node_or_null("SupportGrip") as Node3D
+ 	if primary == null or support == null: return
+-	_solve_arm("R", primary.global_position, actor.visual.to_global(Vector3(-0.6,0.5,0)))
++	_solve_arm("R", primary.global_position, actor.visual.to_global(Vector3(-0.5,0.6,-0.08)))
+ 	var support_target := support.global_position
+ 	var magazine := weapons.visual.get_node_or_null("MagazineGrip") as Node3D
+ 	if magazine != null: support_target = support_target.lerp(magazine.global_position,reload_weight)
+-	_solve_arm("L", support_target, actor.visual.to_global(Vector3(0.6,0.5,0.1)))
++	_solve_arm("L", support_target, actor.visual.to_global(Vector3(0.5,0.6,0.04)))
+ 	right_error = _point("Middle1.R").distance_to(primary.global_position)
+ 	left_error = _point("Middle1.L").distance_to(support_target)
+ 
+--- before/scripts/ui/presentation_style.gd
++++ after/scripts/ui/presentation_style.gd
+@@ -1,7 +1,7 @@
+ class_name PresentationStyle
+ extends RefCounted
+ 
+-const GUIDE := "Grow your supplies. Survive ten nights.\n\n1. Plant Lead, Paper and Copper; harvest when ready.\n2. Use the Workbench to craft Basic Ammo.\n3. Switch to Combat and reload before nightfall.\n4. Clear the night and rest in the shelter, or survive until dawn.\n\nWASD  Move     Shift  Sprint     Mouse / arrows  Look\nE  Interact     Tab  Bag     Q  Farming / Combat\nWheel  Select seed / equipped weapon     V  Switch shoulder\nRMB  Aim     LMB  Fire while aiming     R  Reload\nN  Wait until night (confirmation)     Esc  Close / Pause\n\nSpecial ammo and medicine are craft-only in this demo."
++const GUIDE := "Grow your supplies. Survive ten nights.\n\n1. Plant Lead, Paper and Copper; harvest when ready.\n2. Use the Workbench to craft Basic Ammo.\n3. Switch to Combat and reload before nightfall.\n4. Clear the night and rest in the shelter, or survive until dawn.\n\nWASD  Move     Shift  Sprint     Mouse / arrows  Look\nE  Interact     Tab  Bag     Q  Farming / Combat\nWheel  Select seed / equipped weapon     V  Switch shoulder\nRMB  Aim rifle     LMB  Fire / swing bat     R  Reload rifle\nN  Wait until night (confirmation)     Esc  Close / Pause\n\nBat: Combat + LMB, no ammo. Special ammo and medicine are craft-only."
+ 
+ static func theme(compact: bool = false) -> Theme:
+ 	var result := Theme.new()
+--- before/scripts/ui/prototype_hud.gd
++++ after/scripts/ui/prototype_hud.gd
+@@ -173,6 +173,9 @@
+ 		ammo_label.text = "No usable weapon equipped"
+ 		return
+ 	var state := weapons.current
++	if state.data.is_melee():
++		ammo_label.text = "%s  [%d]\nNo ammo required  |  Damage %.0f\n%s" % [state.data.display_name,equipment.selected_weapon_slot+1,state.data.damage,"SWINGING..." if state.is_swinging else "LMB Swing  /  Scroll Switch"]
++		return
+ 	ammo_label.text = "%s  [%d]\n%d / %d   |   Magazine / Reserve\n%s" % [state.data.display_name, equipment.selected_weapon_slot + 1,
+ 		state.current_magazine, weapons.reserve_ammo(), "RELOADING..." if state.is_reloading else "RMB Aim  /  LMB Fire  /  R Reload"]
+ 
+--- before/scripts/weapons/weapon_controller.gd
++++ after/scripts/weapons/weapon_controller.gd
+@@ -5,6 +5,8 @@
+ signal state_changed
+ signal feedback(message: String)
+ signal hit_confirmed
++signal melee_started
++signal melee_hit
+ 
+ @export var definitions: Array[WeaponData] = []
+ @export_flags_3d_physics var shot_collision_mask: int = 5
+@@ -17,6 +19,8 @@
+ var last_shot_end := Vector3.ZERO
+ var last_hit: Object
+ var shots_fired: int = 0
++var swings_started: int = 0
++var melee_hits: int = 0
+ var _player: PlayerController
+ var _inventory: Inventory
+ var _equipment: EquipmentLoadout
+@@ -74,7 +78,7 @@
+ 
+ 
+ func reserve_ammo() -> int:
+-	return _inventory.get_item_amount(current.data.ammo_type.id) if current != null else 0
++	return _inventory.get_item_amount(current.data.ammo_type.id) if current != null and not current.data.is_melee() else 0
+ 
+ 
+ func can_control() -> bool:
+@@ -87,7 +91,7 @@
+ 		_fire_held = false
+ 	if not can_control(): return
+ 	if event.is_action_pressed("fire"):
+-		_fire_held = current != null and current.data.automatic and _player.camera_rig.is_aiming
++		_fire_held = current != null and not current.data.is_melee() and current.data.automatic and _player.camera_rig.is_aiming
+ 		try_fire()
+ 		get_viewport().set_input_as_handled()
+ 	elif event.is_action_pressed("reload"):
+@@ -107,6 +111,19 @@
+ 		current.reload_remaining -= delta
+ 		if current.reload_remaining <= 0:
+ 			_finish_reload()
++	if current != null and current.is_swinging:
++		if not can_control():
++			_cancel_actions()
++		else:
++			var state := current
++			state.swing_elapsed += delta
++			if not state.swing_hit_committed and state.swing_elapsed >= state.data.melee_hit_delay:
++				state.swing_hit_committed = true
++				update_weapon_pose()
++				_resolve_melee_hit(state)
++			if state.swing_elapsed >= state.data.melee_swing_duration:
++				state.is_swinging = false
++				state_changed.emit()
+ 	if _fire_held and current != null and current.data.automatic:
+ 		# Preserve the remainder, so fire rate does not round to whole physics ticks.
+ 		while current.fire_cooldown <= 0:
+@@ -130,6 +147,7 @@
+ 
+ 
+ func try_fire() -> bool:
++	if current != null and current.data.is_melee(): return try_swing()
+ 	if _committing or not can_control() or not _player.camera_rig.is_aiming or current == null or not is_instance_valid(muzzle):
+ 		return false
+ 	if current.is_reloading or current.fire_cooldown > 0.000001: return false
+@@ -175,6 +193,70 @@
+ 	return true
+ 
+ 
++func attack_facing() -> Vector3:
++	return current.swing_direction if current != null and current.is_swinging else Vector3.ZERO
++
++
++func try_swing() -> bool:
++	if _committing or not can_control() or current == null or not current.data.is_melee(): return false
++	if current.is_swinging or current.fire_cooldown > 0.000001 or not _inventory.has_item(current.data.weapon_id): return false
++	_fire_held = false
++	current.is_swinging = true
++	current.swing_elapsed = 0
++	current.swing_hit_committed = false
++	current.swing_direction = _player.visual.global_basis.z
++	current.swing_direction.y = 0
++	current.swing_direction = current.swing_direction.normalized()
++	current.fire_cooldown = 1.0/current.data.fire_rate
++	swings_started += 1
++	last_hit = null
++	update_weapon_pose()
++	state_changed.emit()
++	melee_started.emit()
++	return true
++
++
++func _resolve_melee_hit(state: WeaponRuntime) -> void:
++	# One short volume query per swing. Centre-distance, forward arc and cover
++	# checks bound contact to the bat sweep instead of a long camera hitscan.
++	var data := state.data
++	var start := _player.global_position+Vector3.UP*0.85
++	var query := PhysicsShapeQueryParameters3D.new()
++	var shape := SphereShape3D.new()
++	shape.radius = data.melee_radius
++	query.shape = shape
++	query.transform.origin = start+state.swing_direction*(data.range_meters-data.melee_radius)
++	query.collision_mask = shot_collision_mask
++	query.exclude = [_player.get_rid()]
++	var space := get_world_3d().direct_space_state
++	var target: Node3D
++	var closest := INF
++	for hit in space.intersect_shape(query,32):
++		var candidate := hit.get("collider") as Node3D
++		if candidate == null: continue
++		var health := candidate.get_node_or_null("Health") as HealthComponent
++		if health == null or health.is_dead: continue
++		var displacement := candidate.global_position-_player.global_position
++		if absf(displacement.y)>0.85: continue
++		displacement.y=0
++		var distance := displacement.length()
++		if distance > data.range_meters or distance >= closest: continue
++		if distance > 0.001 and displacement.normalized().dot(state.swing_direction) < cos(deg_to_rad(data.melee_arc_degrees)): continue
++		var sight := _ray(start,candidate.global_position+Vector3.UP*0.85)
++		if not sight.is_empty() and sight.get("collider") != candidate: continue
++		target = candidate
++		closest = distance
++	if target == null: return
++	_committing = true
++	last_hit = target
++	var receiver := target.get_node("Health") as HealthComponent
++	receiver.take_damage(data.damage)
++	melee_hits += 1
++	_committing = false
++	hit_confirmed.emit()
++	melee_hit.emit()
++
++
+ func _ray(start: Vector3, end: Vector3) -> Dictionary:
+ 	var query := PhysicsRayQueryParameters3D.create(start, end, shot_collision_mask, [_player.get_rid()])
+ 	query.hit_from_inside = true
+@@ -182,7 +264,7 @@
+ 
+ 
+ func start_reload() -> bool:
+-	if _committing or not can_control() or current == null or current.is_reloading: return false
++	if _committing or not can_control() or current == null or current.data.is_melee() or current.is_reloading: return false
+ 	if current.current_magazine >= current.data.magazine_size or reserve_ammo() <= 0:
+ 		feedback.emit("Magazine full" if current.current_magazine >= current.data.magazine_size else "No reserve ammo — craft Basic Ammo")
+ 		return false
+@@ -211,6 +293,7 @@
+ 	if current != null:
+ 		current.is_reloading = false
+ 		current.reload_remaining = 0
++		current.is_swinging = false
+ 	state_changed.emit()
+ 
+ 
+@@ -249,9 +332,9 @@
+ 			current = runtimes[item.id]
+ 			visual = data.weapon_scene.instantiate() as Node3D
+ 			_socket.add_child(visual)
+-			muzzle = visual.get_node_or_null(data.muzzle_path) as Node3D
++			muzzle = visual.get_node_or_null(data.muzzle_path) as Node3D if not data.is_melee() else null
+ 			_flash = visual.get_node_or_null("Muzzle/Flash") as MeshInstance3D
+-			if muzzle == null: push_error("Weapon '%s' has no muzzle at %s." % [data.weapon_id, data.muzzle_path])
++			if muzzle == null and not data.is_melee(): push_error("Weapon '%s' has no muzzle at %s." % [data.weapon_id, data.muzzle_path])
+ 			break
+ 	update_weapon_pose()
+ 	state_changed.emit()
+--- before/scripts/weapons/weapon_runtime.gd
++++ after/scripts/weapons/weapon_runtime.gd
+@@ -6,6 +6,10 @@
+ var fire_cooldown: float = 0.0
+ var reload_remaining: float = 0.0
+ var is_reloading: bool = false
++var is_swinging: bool = false
++var swing_elapsed: float = 0.0
++var swing_hit_committed: bool = false
++var swing_direction := Vector3.FORWARD
+ 
+ 
+ func _init(definition: WeaponData) -> void:

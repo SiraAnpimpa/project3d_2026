@@ -1,0 +1,25 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: item Resources load and validate
+PASS: add spans multiple stacks
+PASS: stack limits respected
+PASS: slot snapshots cannot mutate inventory
+PASS: full inventory rejects new type atomically
+PASS: full slot count still accepts existing stack space
+PASS: full stacks reject overflow without loss
+PASS: over-removal does not partially remove
+PASS: negative requests rejected
+PASS: zero requests rejected
+PASS: removal spans stacks and releases empty slots
+PASS: seed selection only uses owned seed
+PASS: materials cannot become selected seed
+PASS: seed amount reaches zero without going negative
+PASS: last exhausted seed clears selection and cannot be reselected
+PASS: invalid definition rejected safely
+PASS: conflicting definition for same id rejected
+PASS: entire starter bundle rejects atomically when too large
+PASS: all five starter seed types granted
+PASS: starter quantities come from data
+PHASE_3_INVENTORY_RESULT failures=0

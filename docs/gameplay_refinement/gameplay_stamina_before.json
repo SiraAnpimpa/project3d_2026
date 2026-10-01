@@ -1,0 +1,1934 @@
+{
+  "aim_speed": 2.8,
+  "configured_delay_seconds": 1.2,
+  "drain_per_second": 22.0,
+  "failures": 0,
+  "first_recovery_seconds": 1.21666666666667,
+  "full_recovery_seconds": 6.76666666666667,
+  "maximum": 100.0,
+  "recovery_per_second": 18.0,
+  "restart_fraction": 0.25,
+  "sprint_duration_seconds": 4.56666666666667,
+  "sprint_speed": 7.0,
+  "trace": [
+    {
+      "grounded": true,
+      "hud": 100.0,
+      "sprinting": false,
+      "stamina": 100.0,
+      "tick": 0
+    },
+    {
+      "grounded": true,
+      "hud": 99.63,
+      "sprinting": true,
+      "stamina": 99.6333333333333,
+      "tick": 1
+    },
+    {
+      "grounded": true,
+      "hud": 99.27,
+      "sprinting": true,
+      "stamina": 99.2666666666667,
+      "tick": 2
+    },
+    {
+      "grounded": true,
+      "hud": 98.9,
+      "sprinting": true,
+      "stamina": 98.9,
+      "tick": 3
+    },
+    {
+      "grounded": true,
+      "hud": 98.53,
+      "sprinting": true,
+      "stamina": 98.5333333333334,
+      "tick": 4
+    },
+    {
+      "grounded": true,
+      "hud": 98.17,
+      "sprinting": true,
+      "stamina": 98.1666666666667,
+      "tick": 5
+    },
+    {
+      "grounded": true,
+      "hud": 97.8,
+      "sprinting": true,
+      "stamina": 97.8,
+      "tick": 6
+    },
+    {
+      "grounded": true,
+      "hud": 97.43,
+      "sprinting": true,
+      "stamina": 97.4333333333334,
+      "tick": 7
+    },
+    {
+      "grounded": true,
+      "hud": 97.07,
+      "sprinting": true,
+      "stamina": 97.0666666666667,
+      "tick": 8
+    },
+    {
+      "grounded": true,
+      "hud": 96.7,
+      "sprinting": true,
+      "stamina": 96.7000000000001,
+      "tick": 9
+    },
+    {
+      "grounded": true,
+      "hud": 96.33,
+      "sprinting": true,
+      "stamina": 96.3333333333334,
+      "tick": 10
+    },
+    {
+      "grounded": true,
+      "hud": 95.97,
+      "sprinting": true,
+      "stamina": 95.9666666666667,
+      "tick": 11
+    },
+    {
+      "grounded": true,
+      "hud": 95.6,
+      "sprinting": true,
+      "stamina": 95.6000000000001,
+      "tick": 12
+    },
+    {
+      "grounded": true,
+      "hud": 95.23,
+      "sprinting": true,
+      "stamina": 95.2333333333334,
+      "tick": 13
+    },
+    {
+      "grounded": true,
+      "hud": 94.87,
+      "sprinting": true,
+      "stamina": 94.8666666666668,
+      "tick": 14
+    },
+    {
+      "grounded": true,
+      "hud": 94.5,
+      "sprinting": true,
+      "stamina": 94.5000000000001,
+      "tick": 15
+    },
+    {
+      "grounded": true,
+      "hud": 94.13,
+      "sprinting": true,
+      "stamina": 94.1333333333334,
+      "tick": 16
+    },
+    {
+      "grounded": true,
+      "hud": 93.77,
+      "sprinting": true,
+      "stamina": 93.7666666666668,
+      "tick": 17
+    },
+    {
+      "grounded": true,
+      "hud": 93.4,
+      "sprinting": true,
+      "stamina": 93.4000000000001,
+      "tick": 18
+    },
+    {
+      "grounded": true,
+      "hud": 93.03,
+      "sprinting": true,
+      "stamina": 93.0333333333335,
+      "tick": 19
+    },
+    {
+      "grounded": true,
+      "hud": 92.67,
+      "sprinting": true,
+      "stamina": 92.6666666666668,
+      "tick": 20
+    },
+    {
+      "grounded": true,
+      "hud": 92.3,
+      "sprinting": true,
+      "stamina": 92.3000000000001,
+      "tick": 21
+    },
+    {
+      "grounded": true,
+      "hud": 91.93,
+      "sprinting": true,
+      "stamina": 91.9333333333335,
+      "tick": 22
+    },
+    {
+      "grounded": true,
+      "hud": 91.57,
+      "sprinting": true,
+      "stamina": 91.5666666666668,
+      "tick": 23
+    },
+    {
+      "grounded": true,
+      "hud": 91.2,
+      "sprinting": true,
+      "stamina": 91.2000000000002,
+      "tick": 24
+    },
+    {
+      "grounded": true,
+      "hud": 90.83,
+      "sprinting": true,
+      "stamina": 90.8333333333335,
+      "tick": 25
+    },
+    {
+      "grounded": true,
+      "hud": 90.47,
+      "sprinting": true,
+      "stamina": 90.4666666666668,
+      "tick": 26
+    },
+    {
+      "grounded": true,
+      "hud": 90.1,
+      "sprinting": true,
+      "stamina": 90.1000000000002,
+      "tick": 27
+    },
+    {
+      "grounded": true,
+      "hud": 89.73,
+      "sprinting": true,
+      "stamina": 89.7333333333335,
+      "tick": 28
+    },
+    {
+      "grounded": true,
+      "hud": 89.37,
+      "sprinting": true,
+      "stamina": 89.3666666666669,
+      "tick": 29
+    },
+    {
+      "grounded": true,
+      "hud": 89.0,
+      "sprinting": true,
+      "stamina": 89.0000000000002,
+      "tick": 30
+    },
+    {
+      "grounded": true,
+      "hud": 88.63,
+      "sprinting": true,
+      "stamina": 88.6333333333335,
+      "tick": 31
+    },
+    {
+      "grounded": true,
+      "hud": 88.27,
+      "sprinting": true,
+      "stamina": 88.2666666666669,
+      "tick": 32
+    },
+    {
+      "grounded": true,
+      "hud": 87.9,
+      "sprinting": true,
+      "stamina": 87.9000000000002,
+      "tick": 33
+    },
+    {
+      "grounded": true,
+      "hud": 87.53,
+      "sprinting": true,
+      "stamina": 87.5333333333336,
+      "tick": 34
+    },
+    {
+      "grounded": true,
+      "hud": 87.17,
+      "sprinting": true,
+      "stamina": 87.1666666666669,
+      "tick": 35
+    },
+    {
+      "grounded": true,
+      "hud": 86.8,
+      "sprinting": true,
+      "stamina": 86.8000000000002,
+      "tick": 36
+    },
+    {
+      "grounded": true,
+      "hud": 86.43,
+      "sprinting": true,
+      "stamina": 86.4333333333336,
+      "tick": 37
+    },
+    {
+      "grounded": true,
+      "hud": 86.07,
+      "sprinting": true,
+      "stamina": 86.0666666666669,
+      "tick": 38
+    },
+    {
+      "grounded": true,
+      "hud": 85.7,
+      "sprinting": true,
+      "stamina": 85.7000000000003,
+      "tick": 39
+    },
+    {
+      "grounded": true,
+      "hud": 85.33,
+      "sprinting": true,
+      "stamina": 85.3333333333336,
+      "tick": 40
+    },
+    {
+      "grounded": true,
+      "hud": 84.97,
+      "sprinting": true,
+      "stamina": 84.9666666666669,
+      "tick": 41
+    },
+    {
+      "grounded": true,
+      "hud": 84.6,
+      "sprinting": true,
+      "stamina": 84.6000000000003,
+      "tick": 42
+    },
+    {
+      "grounded": true,
+      "hud": 84.23,
+      "sprinting": true,
+      "stamina": 84.2333333333336,
+      "tick": 43
+    },
+    {
+      "grounded": true,
+      "hud": 83.87,
+      "sprinting": true,
+      "stamina": 83.866666666667,
+      "tick": 44
+    },
+    {
+      "grounded": true,
+      "hud": 83.5,
+      "sprinting": true,
+      "stamina": 83.5000000000003,
+      "tick": 45
+    },
+    {
+      "grounded": true,
+      "hud": 83.13,
+      "sprinting": true,
+      "stamina": 83.1333333333336,
+      "tick": 46
+    },
+    {
+      "grounded": true,
+      "hud": 82.77,
+      "sprinting": true,
+      "stamina": 82.766666666667,
+      "tick": 47
+    },
+    {
+      "grounded": true,
+      "hud": 82.4,
+      "sprinting": true,
+      "stamina": 82.4000000000003,
+      "tick": 48
+    },
+    {
+      "grounded": true,
+      "hud": 82.03,
+      "sprinting": true,
+      "stamina": 82.0333333333337,
+      "tick": 49
+    },
+    {
+      "grounded": true,
+      "hud": 81.67,
+      "sprinting": true,
+      "stamina": 81.666666666667,
+      "tick": 50
+    },
+    {
+      "grounded": true,
+      "hud": 81.3,
+      "sprinting": true,
+      "stamina": 81.3000000000003,
+      "tick": 51
+    },
+    {
+      "grounded": true,
+      "hud": 80.93,
+      "sprinting": true,
+      "stamina": 80.9333333333337,
+      "tick": 52
+    },
+    {
+      "grounded": true,
+      "hud": 80.57,
+      "sprinting": true,
+      "stamina": 80.566666666667,
+      "tick": 53
+    },
+    {
+      "grounded": true,
+      "hud": 80.2,
+      "sprinting": true,
+      "stamina": 80.2000000000004,
+      "tick": 54
+    },
+    {
+      "grounded": true,
+      "hud": 79.83,
+      "sprinting": true,
+      "stamina": 79.8333333333337,
+      "tick": 55
+    },
+    {
+      "grounded": true,
+      "hud": 79.47,
+      "sprinting": true,
+      "stamina": 79.466666666667,
+      "tick": 56
+    },
+    {
+      "grounded": true,
+      "hud": 79.1,
+      "sprinting": true,
+      "stamina": 79.1000000000004,
+      "tick": 57
+    },
+    {
+      "grounded": true,
+      "hud": 78.73,
+      "sprinting": true,
+      "stamina": 78.7333333333337,
+      "tick": 58
+    },
+    {
+      "grounded": true,
+      "hud": 78.37,
+      "sprinting": true,
+      "stamina": 78.3666666666671,
+      "tick": 59
+    },
+    {
+      "grounded": true,
+      "hud": 78.0,
+      "sprinting": true,
+      "stamina": 78.0000000000004,
+      "tick": 60
+    },
+    {
+      "grounded": true,
+      "hud": 77.63,
+      "sprinting": true,
+      "stamina": 77.6333333333337,
+      "tick": 61
+    },
+    {
+      "grounded": true,
+      "hud": 77.27,
+      "sprinting": true,
+      "stamina": 77.2666666666671,
+      "tick": 62
+    },
+    {
+      "grounded": true,
+      "hud": 76.9,
+      "sprinting": true,
+      "stamina": 76.9000000000004,
+      "tick": 63
+    },
+    {
+      "grounded": true,
+      "hud": 76.53,
+      "sprinting": true,
+      "stamina": 76.5333333333338,
+      "tick": 64
+    },
+    {
+      "grounded": true,
+      "hud": 76.17,
+      "sprinting": true,
+      "stamina": 76.1666666666671,
+      "tick": 65
+    },
+    {
+      "grounded": true,
+      "hud": 75.8,
+      "sprinting": true,
+      "stamina": 75.8000000000004,
+      "tick": 66
+    },
+    {
+      "grounded": true,
+      "hud": 75.43,
+      "sprinting": true,
+      "stamina": 75.4333333333338,
+      "tick": 67
+    },
+    {
+      "grounded": true,
+      "hud": 75.07,
+      "sprinting": true,
+      "stamina": 75.0666666666671,
+      "tick": 68
+    },
+    {
+      "grounded": true,
+      "hud": 74.7,
+      "sprinting": true,
+      "stamina": 74.7000000000005,
+      "tick": 69
+    },
+    {
+      "grounded": true,
+      "hud": 74.33,
+      "sprinting": true,
+      "stamina": 74.3333333333338,
+      "tick": 70
+    },
+    {
+      "grounded": true,
+      "hud": 73.97,
+      "sprinting": true,
+      "stamina": 73.9666666666671,
+      "tick": 71
+    },
+    {
+      "grounded": true,
+      "hud": 73.6,
+      "sprinting": true,
+      "stamina": 73.6000000000005,
+      "tick": 72
+    },
+    {
+      "grounded": true,
+      "hud": 73.23,
+      "sprinting": true,
+      "stamina": 73.2333333333338,
+      "tick": 73
+    },
+    {
+      "grounded": true,
+      "hud": 72.87,
+      "sprinting": true,
+      "stamina": 72.8666666666672,
+      "tick": 74
+    },
+    {
+      "grounded": true,
+      "hud": 72.5,
+      "sprinting": true,
+      "stamina": 72.5000000000005,
+      "tick": 75
+    },
+    {
+      "grounded": true,
+      "hud": 72.13,
+      "sprinting": true,
+      "stamina": 72.1333333333338,
+      "tick": 76
+    },
+    {
+      "grounded": true,
+      "hud": 71.77,
+      "sprinting": true,
+      "stamina": 71.7666666666672,
+      "tick": 77
+    },
+    {
+      "grounded": true,
+      "hud": 71.4,
+      "sprinting": true,
+      "stamina": 71.4000000000005,
+      "tick": 78
+    },
+    {
+      "grounded": true,
+      "hud": 71.03,
+      "sprinting": true,
+      "stamina": 71.0333333333339,
+      "tick": 79
+    },
+    {
+      "grounded": true,
+      "hud": 70.67,
+      "sprinting": true,
+      "stamina": 70.6666666666672,
+      "tick": 80
+    },
+    {
+      "grounded": true,
+      "hud": 70.3,
+      "sprinting": true,
+      "stamina": 70.3000000000005,
+      "tick": 81
+    },
+    {
+      "grounded": true,
+      "hud": 69.93,
+      "sprinting": true,
+      "stamina": 69.9333333333339,
+      "tick": 82
+    },
+    {
+      "grounded": true,
+      "hud": 69.57,
+      "sprinting": true,
+      "stamina": 69.5666666666672,
+      "tick": 83
+    },
+    {
+      "grounded": true,
+      "hud": 69.2,
+      "sprinting": true,
+      "stamina": 69.2000000000006,
+      "tick": 84
+    },
+    {
+      "grounded": true,
+      "hud": 68.83,
+      "sprinting": true,
+      "stamina": 68.8333333333339,
+      "tick": 85
+    },
+    {
+      "grounded": true,
+      "hud": 68.47,
+      "sprinting": true,
+      "stamina": 68.4666666666672,
+      "tick": 86
+    },
+    {
+      "grounded": true,
+      "hud": 68.1,
+      "sprinting": true,
+      "stamina": 68.1000000000006,
+      "tick": 87
+    },
+    {
+      "grounded": true,
+      "hud": 67.73,
+      "sprinting": true,
+      "stamina": 67.7333333333339,
+      "tick": 88
+    },
+    {
+      "grounded": true,
+      "hud": 67.37,
+      "sprinting": true,
+      "stamina": 67.3666666666673,
+      "tick": 89
+    },
+    {
+      "grounded": true,
+      "hud": 67.0,
+      "sprinting": true,
+      "stamina": 67.0000000000006,
+      "tick": 90
+    },
+    {
+      "grounded": true,
+      "hud": 66.63,
+      "sprinting": true,
+      "stamina": 66.6333333333339,
+      "tick": 91
+    },
+    {
+      "grounded": true,
+      "hud": 66.27,
+      "sprinting": true,
+      "stamina": 66.2666666666673,
+      "tick": 92
+    },
+    {
+      "grounded": true,
+      "hud": 65.9,
+      "sprinting": true,
+      "stamina": 65.9000000000006,
+      "tick": 93
+    },
+    {
+      "grounded": true,
+      "hud": 65.53,
+      "sprinting": true,
+      "stamina": 65.533333333334,
+      "tick": 94
+    },
+    {
+      "grounded": true,
+      "hud": 65.17,
+      "sprinting": true,
+      "stamina": 65.1666666666673,
+      "tick": 95
+    },
+    {
+      "grounded": true,
+      "hud": 64.8,
+      "sprinting": true,
+      "stamina": 64.8000000000006,
+      "tick": 96
+    },
+    {
+      "grounded": true,
+      "hud": 64.43,
+      "sprinting": true,
+      "stamina": 64.433333333334,
+      "tick": 97
+    },
+    {
+      "grounded": true,
+      "hud": 64.07,
+      "sprinting": true,
+      "stamina": 64.0666666666673,
+      "tick": 98
+    },
+    {
+      "grounded": true,
+      "hud": 63.7,
+      "sprinting": true,
+      "stamina": 63.7000000000006,
+      "tick": 99
+    },
+    {
+      "grounded": true,
+      "hud": 63.33,
+      "sprinting": true,
+      "stamina": 63.333333333334,
+      "tick": 100
+    },
+    {
+      "grounded": true,
+      "hud": 62.97,
+      "sprinting": true,
+      "stamina": 62.9666666666673,
+      "tick": 101
+    },
+    {
+      "grounded": true,
+      "hud": 62.6,
+      "sprinting": true,
+      "stamina": 62.6000000000006,
+      "tick": 102
+    },
+    {
+      "grounded": true,
+      "hud": 62.23,
+      "sprinting": true,
+      "stamina": 62.233333333334,
+      "tick": 103
+    },
+    {
+      "grounded": true,
+      "hud": 61.87,
+      "sprinting": true,
+      "stamina": 61.8666666666673,
+      "tick": 104
+    },
+    {
+      "grounded": true,
+      "hud": 61.5,
+      "sprinting": true,
+      "stamina": 61.5000000000006,
+      "tick": 105
+    },
+    {
+      "grounded": true,
+      "hud": 61.13,
+      "sprinting": true,
+      "stamina": 61.133333333334,
+      "tick": 106
+    },
+    {
+      "grounded": true,
+      "hud": 60.77,
+      "sprinting": true,
+      "stamina": 60.7666666666673,
+      "tick": 107
+    },
+    {
+      "grounded": true,
+      "hud": 60.4,
+      "sprinting": true,
+      "stamina": 60.4000000000006,
+      "tick": 108
+    },
+    {
+      "grounded": true,
+      "hud": 60.03,
+      "sprinting": true,
+      "stamina": 60.033333333334,
+      "tick": 109
+    },
+    {
+      "grounded": true,
+      "hud": 59.67,
+      "sprinting": true,
+      "stamina": 59.6666666666673,
+      "tick": 110
+    },
+    {
+      "grounded": true,
+      "hud": 59.3,
+      "sprinting": true,
+      "stamina": 59.3000000000006,
+      "tick": 111
+    },
+    {
+      "grounded": true,
+      "hud": 58.93,
+      "sprinting": true,
+      "stamina": 58.933333333334,
+      "tick": 112
+    },
+    {
+      "grounded": true,
+      "hud": 58.57,
+      "sprinting": true,
+      "stamina": 58.5666666666673,
+      "tick": 113
+    },
+    {
+      "grounded": true,
+      "hud": 58.2,
+      "sprinting": true,
+      "stamina": 58.2000000000006,
+      "tick": 114
+    },
+    {
+      "grounded": true,
+      "hud": 57.83,
+      "sprinting": true,
+      "stamina": 57.833333333334,
+      "tick": 115
+    },
+    {
+      "grounded": true,
+      "hud": 57.47,
+      "sprinting": true,
+      "stamina": 57.4666666666673,
+      "tick": 116
+    },
+    {
+      "grounded": true,
+      "hud": 57.1,
+      "sprinting": true,
+      "stamina": 57.1000000000006,
+      "tick": 117
+    },
+    {
+      "grounded": true,
+      "hud": 56.73,
+      "sprinting": true,
+      "stamina": 56.733333333334,
+      "tick": 118
+    },
+    {
+      "grounded": true,
+      "hud": 56.37,
+      "sprinting": true,
+      "stamina": 56.3666666666673,
+      "tick": 119
+    },
+    {
+      "grounded": true,
+      "hud": 56.0,
+      "sprinting": true,
+      "stamina": 56.0000000000006,
+      "tick": 120
+    },
+    {
+      "grounded": true,
+      "hud": 55.63,
+      "sprinting": true,
+      "stamina": 55.633333333334,
+      "tick": 121
+    },
+    {
+      "grounded": true,
+      "hud": 55.27,
+      "sprinting": true,
+      "stamina": 55.2666666666673,
+      "tick": 122
+    },
+    {
+      "grounded": true,
+      "hud": 54.9,
+      "sprinting": true,
+      "stamina": 54.9000000000006,
+      "tick": 123
+    },
+    {
+      "grounded": true,
+      "hud": 54.53,
+      "sprinting": true,
+      "stamina": 54.533333333334,
+      "tick": 124
+    },
+    {
+      "grounded": true,
+      "hud": 54.17,
+      "sprinting": true,
+      "stamina": 54.1666666666673,
+      "tick": 125
+    },
+    {
+      "grounded": true,
+      "hud": 53.8,
+      "sprinting": true,
+      "stamina": 53.8000000000006,
+      "tick": 126
+    },
+    {
+      "grounded": true,
+      "hud": 53.43,
+      "sprinting": true,
+      "stamina": 53.433333333334,
+      "tick": 127
+    },
+    {
+      "grounded": true,
+      "hud": 53.07,
+      "sprinting": true,
+      "stamina": 53.0666666666673,
+      "tick": 128
+    },
+    {
+      "grounded": true,
+      "hud": 52.7,
+      "sprinting": true,
+      "stamina": 52.7000000000006,
+      "tick": 129
+    },
+    {
+      "grounded": true,
+      "hud": 52.33,
+      "sprinting": true,
+      "stamina": 52.333333333334,
+      "tick": 130
+    },
+    {
+      "grounded": true,
+      "hud": 51.97,
+      "sprinting": true,
+      "stamina": 51.9666666666673,
+      "tick": 131
+    },
+    {
+      "grounded": true,
+      "hud": 51.6,
+      "sprinting": true,
+      "stamina": 51.6000000000006,
+      "tick": 132
+    },
+    {
+      "grounded": true,
+      "hud": 51.23,
+      "sprinting": true,
+      "stamina": 51.233333333334,
+      "tick": 133
+    },
+    {
+      "grounded": true,
+      "hud": 50.87,
+      "sprinting": true,
+      "stamina": 50.8666666666673,
+      "tick": 134
+    },
+    {
+      "grounded": true,
+      "hud": 50.5,
+      "sprinting": true,
+      "stamina": 50.5000000000006,
+      "tick": 135
+    },
+    {
+      "grounded": true,
+      "hud": 50.13,
+      "sprinting": true,
+      "stamina": 50.133333333334,
+      "tick": 136
+    },
+    {
+      "grounded": true,
+      "hud": 49.77,
+      "sprinting": true,
+      "stamina": 49.7666666666673,
+      "tick": 137
+    },
+    {
+      "grounded": true,
+      "hud": 49.4,
+      "sprinting": true,
+      "stamina": 49.4000000000006,
+      "tick": 138
+    },
+    {
+      "grounded": true,
+      "hud": 49.03,
+      "sprinting": true,
+      "stamina": 49.033333333334,
+      "tick": 139
+    },
+    {
+      "grounded": true,
+      "hud": 48.67,
+      "sprinting": true,
+      "stamina": 48.6666666666673,
+      "tick": 140
+    },
+    {
+      "grounded": true,
+      "hud": 48.3,
+      "sprinting": true,
+      "stamina": 48.3000000000006,
+      "tick": 141
+    },
+    {
+      "grounded": true,
+      "hud": 47.93,
+      "sprinting": true,
+      "stamina": 47.933333333334,
+      "tick": 142
+    },
+    {
+      "grounded": true,
+      "hud": 47.57,
+      "sprinting": true,
+      "stamina": 47.5666666666673,
+      "tick": 143
+    },
+    {
+      "grounded": true,
+      "hud": 47.2,
+      "sprinting": true,
+      "stamina": 47.2000000000006,
+      "tick": 144
+    },
+    {
+      "grounded": true,
+      "hud": 46.83,
+      "sprinting": true,
+      "stamina": 46.833333333334,
+      "tick": 145
+    },
+    {
+      "grounded": true,
+      "hud": 46.47,
+      "sprinting": true,
+      "stamina": 46.4666666666673,
+      "tick": 146
+    },
+    {
+      "grounded": true,
+      "hud": 46.1,
+      "sprinting": true,
+      "stamina": 46.1000000000006,
+      "tick": 147
+    },
+    {
+      "grounded": true,
+      "hud": 45.73,
+      "sprinting": true,
+      "stamina": 45.733333333334,
+      "tick": 148
+    },
+    {
+      "grounded": true,
+      "hud": 45.37,
+      "sprinting": true,
+      "stamina": 45.3666666666673,
+      "tick": 149
+    },
+    {
+      "grounded": true,
+      "hud": 45.0,
+      "sprinting": true,
+      "stamina": 45.0000000000006,
+      "tick": 150
+    },
+    {
+      "grounded": true,
+      "hud": 44.63,
+      "sprinting": true,
+      "stamina": 44.633333333334,
+      "tick": 151
+    },
+    {
+      "grounded": true,
+      "hud": 44.27,
+      "sprinting": true,
+      "stamina": 44.2666666666673,
+      "tick": 152
+    },
+    {
+      "grounded": true,
+      "hud": 43.9,
+      "sprinting": true,
+      "stamina": 43.9000000000006,
+      "tick": 153
+    },
+    {
+      "grounded": true,
+      "hud": 43.53,
+      "sprinting": true,
+      "stamina": 43.533333333334,
+      "tick": 154
+    },
+    {
+      "grounded": true,
+      "hud": 43.17,
+      "sprinting": true,
+      "stamina": 43.1666666666673,
+      "tick": 155
+    },
+    {
+      "grounded": true,
+      "hud": 42.8,
+      "sprinting": true,
+      "stamina": 42.8000000000006,
+      "tick": 156
+    },
+    {
+      "grounded": true,
+      "hud": 42.43,
+      "sprinting": true,
+      "stamina": 42.433333333334,
+      "tick": 157
+    },
+    {
+      "grounded": true,
+      "hud": 42.07,
+      "sprinting": true,
+      "stamina": 42.0666666666673,
+      "tick": 158
+    },
+    {
+      "grounded": true,
+      "hud": 41.7,
+      "sprinting": true,
+      "stamina": 41.7000000000006,
+      "tick": 159
+    },
+    {
+      "grounded": true,
+      "hud": 41.33,
+      "sprinting": true,
+      "stamina": 41.333333333334,
+      "tick": 160
+    },
+    {
+      "grounded": true,
+      "hud": 40.97,
+      "sprinting": true,
+      "stamina": 40.9666666666673,
+      "tick": 161
+    },
+    {
+      "grounded": true,
+      "hud": 40.6,
+      "sprinting": true,
+      "stamina": 40.6000000000006,
+      "tick": 162
+    },
+    {
+      "grounded": true,
+      "hud": 40.23,
+      "sprinting": true,
+      "stamina": 40.233333333334,
+      "tick": 163
+    },
+    {
+      "grounded": true,
+      "hud": 39.87,
+      "sprinting": true,
+      "stamina": 39.8666666666673,
+      "tick": 164
+    },
+    {
+      "grounded": true,
+      "hud": 39.5,
+      "sprinting": true,
+      "stamina": 39.5000000000006,
+      "tick": 165
+    },
+    {
+      "grounded": true,
+      "hud": 39.13,
+      "sprinting": true,
+      "stamina": 39.133333333334,
+      "tick": 166
+    },
+    {
+      "grounded": true,
+      "hud": 38.77,
+      "sprinting": true,
+      "stamina": 38.7666666666673,
+      "tick": 167
+    },
+    {
+      "grounded": true,
+      "hud": 38.4,
+      "sprinting": true,
+      "stamina": 38.4000000000006,
+      "tick": 168
+    },
+    {
+      "grounded": true,
+      "hud": 38.03,
+      "sprinting": true,
+      "stamina": 38.033333333334,
+      "tick": 169
+    },
+    {
+      "grounded": true,
+      "hud": 37.67,
+      "sprinting": true,
+      "stamina": 37.6666666666673,
+      "tick": 170
+    },
+    {
+      "grounded": true,
+      "hud": 37.3,
+      "sprinting": true,
+      "stamina": 37.3000000000006,
+      "tick": 171
+    },
+    {
+      "grounded": true,
+      "hud": 36.93,
+      "sprinting": true,
+      "stamina": 36.9333333333339,
+      "tick": 172
+    },
+    {
+      "grounded": true,
+      "hud": 36.57,
+      "sprinting": true,
+      "stamina": 36.5666666666673,
+      "tick": 173
+    },
+    {
+      "grounded": true,
+      "hud": 36.2,
+      "sprinting": true,
+      "stamina": 36.2000000000006,
+      "tick": 174
+    },
+    {
+      "grounded": true,
+      "hud": 35.83,
+      "sprinting": true,
+      "stamina": 35.8333333333339,
+      "tick": 175
+    },
+    {
+      "grounded": true,
+      "hud": 35.47,
+      "sprinting": true,
+      "stamina": 35.4666666666673,
+      "tick": 176
+    },
+    {
+      "grounded": true,
+      "hud": 35.1,
+      "sprinting": true,
+      "stamina": 35.1000000000006,
+      "tick": 177
+    },
+    {
+      "grounded": true,
+      "hud": 34.73,
+      "sprinting": true,
+      "stamina": 34.7333333333339,
+      "tick": 178
+    },
+    {
+      "grounded": true,
+      "hud": 34.37,
+      "sprinting": true,
+      "stamina": 34.3666666666673,
+      "tick": 179
+    },
+    {
+      "grounded": true,
+      "hud": 34.0,
+      "sprinting": true,
+      "stamina": 34.0000000000006,
+      "tick": 180
+    },
+    {
+      "grounded": true,
+      "hud": 33.63,
+      "sprinting": true,
+      "stamina": 33.6333333333339,
+      "tick": 181
+    },
+    {
+      "grounded": true,
+      "hud": 33.27,
+      "sprinting": true,
+      "stamina": 33.2666666666673,
+      "tick": 182
+    },
+    {
+      "grounded": true,
+      "hud": 32.9,
+      "sprinting": true,
+      "stamina": 32.9000000000006,
+      "tick": 183
+    },
+    {
+      "grounded": true,
+      "hud": 32.53,
+      "sprinting": true,
+      "stamina": 32.5333333333339,
+      "tick": 184
+    },
+    {
+      "grounded": true,
+      "hud": 32.17,
+      "sprinting": true,
+      "stamina": 32.1666666666673,
+      "tick": 185
+    },
+    {
+      "grounded": true,
+      "hud": 31.8,
+      "sprinting": true,
+      "stamina": 31.8000000000006,
+      "tick": 186
+    },
+    {
+      "grounded": true,
+      "hud": 31.43,
+      "sprinting": true,
+      "stamina": 31.4333333333339,
+      "tick": 187
+    },
+    {
+      "grounded": true,
+      "hud": 31.07,
+      "sprinting": true,
+      "stamina": 31.0666666666673,
+      "tick": 188
+    },
+    {
+      "grounded": true,
+      "hud": 30.7,
+      "sprinting": true,
+      "stamina": 30.7000000000006,
+      "tick": 189
+    },
+    {
+      "grounded": true,
+      "hud": 30.33,
+      "sprinting": true,
+      "stamina": 30.3333333333339,
+      "tick": 190
+    },
+    {
+      "grounded": true,
+      "hud": 29.97,
+      "sprinting": true,
+      "stamina": 29.9666666666673,
+      "tick": 191
+    },
+    {
+      "grounded": true,
+      "hud": 29.6,
+      "sprinting": true,
+      "stamina": 29.6000000000006,
+      "tick": 192
+    },
+    {
+      "grounded": true,
+      "hud": 29.23,
+      "sprinting": true,
+      "stamina": 29.2333333333339,
+      "tick": 193
+    },
+    {
+      "grounded": true,
+      "hud": 28.87,
+      "sprinting": true,
+      "stamina": 28.8666666666673,
+      "tick": 194
+    },
+    {
+      "grounded": true,
+      "hud": 28.5,
+      "sprinting": true,
+      "stamina": 28.5000000000006,
+      "tick": 195
+    },
+    {
+      "grounded": true,
+      "hud": 28.13,
+      "sprinting": true,
+      "stamina": 28.1333333333339,
+      "tick": 196
+    },
+    {
+      "grounded": true,
+      "hud": 27.77,
+      "sprinting": true,
+      "stamina": 27.7666666666673,
+      "tick": 197
+    },
+    {
+      "grounded": true,
+      "hud": 27.4,
+      "sprinting": true,
+      "stamina": 27.4000000000006,
+      "tick": 198
+    },
+    {
+      "grounded": true,
+      "hud": 27.03,
+      "sprinting": true,
+      "stamina": 27.0333333333339,
+      "tick": 199
+    },
+    {
+      "grounded": true,
+      "hud": 26.67,
+      "sprinting": true,
+      "stamina": 26.6666666666673,
+      "tick": 200
+    },
+    {
+      "grounded": true,
+      "hud": 26.3,
+      "sprinting": true,
+      "stamina": 26.3000000000006,
+      "tick": 201
+    },
+    {
+      "grounded": true,
+      "hud": 25.93,
+      "sprinting": true,
+      "stamina": 25.9333333333339,
+      "tick": 202
+    },
+    {
+      "grounded": true,
+      "hud": 25.57,
+      "sprinting": true,
+      "stamina": 25.5666666666673,
+      "tick": 203
+    },
+    {
+      "grounded": true,
+      "hud": 25.2,
+      "sprinting": true,
+      "stamina": 25.2000000000006,
+      "tick": 204
+    },
+    {
+      "grounded": true,
+      "hud": 24.83,
+      "sprinting": true,
+      "stamina": 24.8333333333339,
+      "tick": 205
+    },
+    {
+      "grounded": true,
+      "hud": 24.47,
+      "sprinting": true,
+      "stamina": 24.4666666666673,
+      "tick": 206
+    },
+    {
+      "grounded": true,
+      "hud": 24.1,
+      "sprinting": true,
+      "stamina": 24.1000000000006,
+      "tick": 207
+    },
+    {
+      "grounded": true,
+      "hud": 23.73,
+      "sprinting": true,
+      "stamina": 23.7333333333339,
+      "tick": 208
+    },
+    {
+      "grounded": true,
+      "hud": 23.37,
+      "sprinting": true,
+      "stamina": 23.3666666666673,
+      "tick": 209
+    },
+    {
+      "grounded": true,
+      "hud": 23.0,
+      "sprinting": true,
+      "stamina": 23.0000000000006,
+      "tick": 210
+    },
+    {
+      "grounded": true,
+      "hud": 22.63,
+      "sprinting": true,
+      "stamina": 22.6333333333339,
+      "tick": 211
+    },
+    {
+      "grounded": true,
+      "hud": 22.27,
+      "sprinting": true,
+      "stamina": 22.2666666666673,
+      "tick": 212
+    },
+    {
+      "grounded": true,
+      "hud": 21.9,
+      "sprinting": true,
+      "stamina": 21.9000000000006,
+      "tick": 213
+    },
+    {
+      "grounded": true,
+      "hud": 21.53,
+      "sprinting": true,
+      "stamina": 21.5333333333339,
+      "tick": 214
+    },
+    {
+      "grounded": true,
+      "hud": 21.17,
+      "sprinting": true,
+      "stamina": 21.1666666666673,
+      "tick": 215
+    },
+    {
+      "grounded": true,
+      "hud": 20.8,
+      "sprinting": true,
+      "stamina": 20.8000000000006,
+      "tick": 216
+    },
+    {
+      "grounded": true,
+      "hud": 20.43,
+      "sprinting": true,
+      "stamina": 20.4333333333339,
+      "tick": 217
+    },
+    {
+      "grounded": true,
+      "hud": 20.07,
+      "sprinting": true,
+      "stamina": 20.0666666666673,
+      "tick": 218
+    },
+    {
+      "grounded": true,
+      "hud": 19.7,
+      "sprinting": true,
+      "stamina": 19.7000000000006,
+      "tick": 219
+    },
+    {
+      "grounded": true,
+      "hud": 19.33,
+      "sprinting": true,
+      "stamina": 19.3333333333339,
+      "tick": 220
+    },
+    {
+      "grounded": true,
+      "hud": 18.97,
+      "sprinting": true,
+      "stamina": 18.9666666666673,
+      "tick": 221
+    },
+    {
+      "grounded": true,
+      "hud": 18.6,
+      "sprinting": true,
+      "stamina": 18.6000000000006,
+      "tick": 222
+    },
+    {
+      "grounded": true,
+      "hud": 18.23,
+      "sprinting": true,
+      "stamina": 18.2333333333339,
+      "tick": 223
+    },
+    {
+      "grounded": true,
+      "hud": 17.87,
+      "sprinting": true,
+      "stamina": 17.8666666666673,
+      "tick": 224
+    },
+    {
+      "grounded": true,
+      "hud": 17.5,
+      "sprinting": true,
+      "stamina": 17.5000000000006,
+      "tick": 225
+    },
+    {
+      "grounded": true,
+      "hud": 17.13,
+      "sprinting": true,
+      "stamina": 17.1333333333339,
+      "tick": 226
+    },
+    {
+      "grounded": true,
+      "hud": 16.77,
+      "sprinting": true,
+      "stamina": 16.7666666666673,
+      "tick": 227
+    },
+    {
+      "grounded": true,
+      "hud": 16.4,
+      "sprinting": true,
+      "stamina": 16.4000000000006,
+      "tick": 228
+    },
+    {
+      "grounded": true,
+      "hud": 16.03,
+      "sprinting": true,
+      "stamina": 16.0333333333339,
+      "tick": 229
+    },
+    {
+      "grounded": true,
+      "hud": 15.67,
+      "sprinting": true,
+      "stamina": 15.6666666666673,
+      "tick": 230
+    },
+    {
+      "grounded": true,
+      "hud": 15.3,
+      "sprinting": true,
+      "stamina": 15.3000000000006,
+      "tick": 231
+    },
+    {
+      "grounded": true,
+      "hud": 14.93,
+      "sprinting": true,
+      "stamina": 14.9333333333339,
+      "tick": 232
+    },
+    {
+      "grounded": true,
+      "hud": 14.57,
+      "sprinting": true,
+      "stamina": 14.5666666666673,
+      "tick": 233
+    },
+    {
+      "grounded": true,
+      "hud": 14.2,
+      "sprinting": true,
+      "stamina": 14.2000000000006,
+      "tick": 234
+    },
+    {
+      "grounded": true,
+      "hud": 13.83,
+      "sprinting": true,
+      "stamina": 13.8333333333339,
+      "tick": 235
+    },
+    {
+      "grounded": true,
+      "hud": 13.47,
+      "sprinting": true,
+      "stamina": 13.4666666666673,
+      "tick": 236
+    },
+    {
+      "grounded": true,
+      "hud": 13.1,
+      "sprinting": true,
+      "stamina": 13.1000000000006,
+      "tick": 237
+    },
+    {
+      "grounded": true,
+      "hud": 12.73,
+      "sprinting": true,
+      "stamina": 12.7333333333339,
+      "tick": 238
+    },
+    {
+      "grounded": true,
+      "hud": 12.37,
+      "sprinting": true,
+      "stamina": 12.3666666666673,
+      "tick": 239
+    },
+    {
+      "grounded": true,
+      "hud": 12.0,
+      "sprinting": true,
+      "stamina": 12.0000000000006,
+      "tick": 240
+    },
+    {
+      "grounded": true,
+      "hud": 11.63,
+      "sprinting": true,
+      "stamina": 11.6333333333339,
+      "tick": 241
+    },
+    {
+      "grounded": true,
+      "hud": 11.27,
+      "sprinting": true,
+      "stamina": 11.2666666666672,
+      "tick": 242
+    },
+    {
+      "grounded": true,
+      "hud": 10.9,
+      "sprinting": true,
+      "stamina": 10.9000000000006,
+      "tick": 243
+    },
+    {
+      "grounded": true,
+      "hud": 10.53,
+      "sprinting": true,
+      "stamina": 10.5333333333339,
+      "tick": 244
+    },
+    {
+      "grounded": true,
+      "hud": 10.17,
+      "sprinting": true,
+      "stamina": 10.1666666666672,
+      "tick": 245
+    },
+    {
+      "grounded": true,
+      "hud": 9.8,
+      "sprinting": true,
+      "stamina": 9.80000000000058,
+      "tick": 246
+    },
+    {
+      "grounded": true,
+      "hud": 9.43,
+      "sprinting": true,
+      "stamina": 9.43333333333391,
+      "tick": 247
+    },
+    {
+      "grounded": true,
+      "hud": 9.07,
+      "sprinting": true,
+      "stamina": 9.06666666666725,
+      "tick": 248
+    },
+    {
+      "grounded": true,
+      "hud": 8.7,
+      "sprinting": true,
+      "stamina": 8.70000000000058,
+      "tick": 249
+    },
+    {
+      "grounded": true,
+      "hud": 8.33,
+      "sprinting": true,
+      "stamina": 8.33333333333391,
+      "tick": 250
+    },
+    {
+      "grounded": true,
+      "hud": 7.97,
+      "sprinting": true,
+      "stamina": 7.96666666666725,
+      "tick": 251
+    },
+    {
+      "grounded": true,
+      "hud": 7.6,
+      "sprinting": true,
+      "stamina": 7.60000000000058,
+      "tick": 252
+    },
+    {
+      "grounded": true,
+      "hud": 7.23,
+      "sprinting": true,
+      "stamina": 7.23333333333391,
+      "tick": 253
+    },
+    {
+      "grounded": true,
+      "hud": 6.87,
+      "sprinting": true,
+      "stamina": 6.86666666666725,
+      "tick": 254
+    },
+    {
+      "grounded": true,
+      "hud": 6.5,
+      "sprinting": true,
+      "stamina": 6.50000000000058,
+      "tick": 255
+    },
+    {
+      "grounded": true,
+      "hud": 6.13,
+      "sprinting": true,
+      "stamina": 6.13333333333391,
+      "tick": 256
+    },
+    {
+      "grounded": true,
+      "hud": 5.77,
+      "sprinting": true,
+      "stamina": 5.76666666666725,
+      "tick": 257
+    },
+    {
+      "grounded": true,
+      "hud": 5.4,
+      "sprinting": true,
+      "stamina": 5.40000000000058,
+      "tick": 258
+    },
+    {
+      "grounded": true,
+      "hud": 5.03,
+      "sprinting": true,
+      "stamina": 5.03333333333392,
+      "tick": 259
+    },
+    {
+      "grounded": true,
+      "hud": 4.67,
+      "sprinting": true,
+      "stamina": 4.66666666666725,
+      "tick": 260
+    },
+    {
+      "grounded": true,
+      "hud": 4.3,
+      "sprinting": true,
+      "stamina": 4.30000000000058,
+      "tick": 261
+    },
+    {
+      "grounded": true,
+      "hud": 3.93,
+      "sprinting": true,
+      "stamina": 3.93333333333392,
+      "tick": 262
+    },
+    {
+      "grounded": true,
+      "hud": 3.57,
+      "sprinting": true,
+      "stamina": 3.56666666666725,
+      "tick": 263
+    },
+    {
+      "grounded": true,
+      "hud": 3.2,
+      "sprinting": true,
+      "stamina": 3.20000000000058,
+      "tick": 264
+    },
+    {
+      "grounded": true,
+      "hud": 2.83,
+      "sprinting": true,
+      "stamina": 2.83333333333392,
+      "tick": 265
+    },
+    {
+      "grounded": true,
+      "hud": 2.47,
+      "sprinting": true,
+      "stamina": 2.46666666666725,
+      "tick": 266
+    },
+    {
+      "grounded": true,
+      "hud": 2.1,
+      "sprinting": true,
+      "stamina": 2.10000000000058,
+      "tick": 267
+    },
+    {
+      "grounded": true,
+      "hud": 1.73,
+      "sprinting": true,
+      "stamina": 1.73333333333392,
+      "tick": 268
+    },
+    {
+      "grounded": true,
+      "hud": 1.37,
+      "sprinting": true,
+      "stamina": 1.36666666666725,
+      "tick": 269
+    },
+    {
+      "grounded": true,
+      "hud": 1.0,
+      "sprinting": true,
+      "stamina": 1.00000000000058,
+      "tick": 270
+    },
+    {
+      "grounded": true,
+      "hud": 0.63,
+      "sprinting": true,
+      "stamina": 0.633333333333916,
+      "tick": 271
+    },
+    {
+      "grounded": true,
+      "hud": 0.27,
+      "sprinting": true,
+      "stamina": 0.266666666667249,
+      "tick": 272
+    },
+    {
+      "grounded": true,
+      "hud": 0.0,
+      "sprinting": false,
+      "stamina": 0.0,
+      "tick": 273
+    }
+  ],
+  "walk_speed": 4.0
+}

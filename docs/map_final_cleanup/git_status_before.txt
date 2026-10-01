@@ -1,0 +1,123 @@
+ M ASSET_ANALYSIS.md
+ M ASSET_CREDITS.md
+ M ASSET_GAMEPLAY_MAPPING.md
+ M CONTROLS.md
+ M DEVELOPMENT_PLAN.md
+ M KNOWN_ISSUES.md
+ M PROGRESS.md
+ M PROJECT_ARCHITECTURE.md
+ M README.md
+ M assets/audio/click.wav.import
+ M assets/audio/craft.wav.import
+ M assets/audio/harvest.wav.import
+ M assets/audio/hurt.wav.import
+ M assets/audio/reload.wav.import
+ M assets/audio/rotor.wav.import
+ M assets/audio/shot.wav.import
+ M assets/audio/unlock.wav.import
+ M assets/audio/wind.wav.import
+ M assets/ui/items/fire_ammo.svg.import
+ M assets/ui/items/fire_essence.svg.import
+ M assets/ui/items/ice_ammo.svg.import
+ M assets/ui/items/ice_crystal.svg.import
+ M assets/ui/items/poison_ammo.svg.import
+ M assets/ui/items/poison_extract.svg.import
+ M assets/ui/items/seed_fire_pepper.svg.import
+ M assets/ui/items/seed_ice_plant.svg.import
+ M assets/ui/items/seed_poison_plant.svg.import
+ M assets/ui/menu_landscape.svg.import
+ M export_presets.cfg
+ M project.godot
+ M resources/navigation/prototype_navigation.tres
+ M scenes/main/GameRoot.tscn
+ M scenes/weapons/BasicRifle.tscn
+ M scenes/world/MainWorld.tscn
+ M scripts/main/game_root.gd
+ M scripts/player/player_controller.gd
+ M scripts/player/player_visual.gd
+ M scripts/presentation/game_presentation.gd
+ M scripts/ui/presentation_style.gd
+ M scripts/weapons/weapon_controller.gd
+ M scripts/world/world_presentation.gd
+ M tests/README.md
+ M tests/phase_10_campaign_test.gd
+ M tests/phase_4_crafting_test.gd
+ M tests/phase_5_weapon_test.gd
+ M tests/phase_7_full_day_test.gd
+ M tests/phase_9_presentation_test.gd
+ M tests/run_tests.ps1
+ M tests/stage_1_test.gd
+ M tools/bake_prototype_navigation.gd
+?? Asset/Cabin.glb
+?? Asset/game_sounds/
+?? ENVIRONMENT_ASSET_INVENTORY.md
+?? MAP_ASSET_USAGE.md
+?? MAP_BEAUTIFICATION_REPORT.md
+?? MAP_REDESIGN_REPORT.md
+?? POST_PRODUCTION_REFINEMENT_1.md
+?? docs/map_beautification/
+?? docs/map_redesign/
+?? docs/refinement1/
+?? scripts/player/rifle_pose.gd
+?? scripts/player/rifle_pose.gd.uid
+?? scripts/ui/skip_night_dialog.gd
+?? scripts/ui/skip_night_dialog.gd.uid
+?? scripts/world/environment_assets.gd
+?? scripts/world/environment_assets.gd.uid
+?? scripts/world/farm_dressing.gd
+?? scripts/world/farm_dressing.gd.uid
+?? scripts/world/rural_environment.gd
+?? scripts/world/rural_environment.gd.uid
+?? scripts/world/rural_terrain.gd
+?? scripts/world/rural_terrain.gd.uid
+?? tests/beautification_acceptance.gd
+?? tests/beautification_acceptance.gd.uid
+?? tests/beautification_cabin_probe.gd
+?? tests/beautification_cabin_probe.gd.uid
+?? tests/beautification_full_day.gd
+?? tests/beautification_full_day.gd.uid
+?? tests/beautification_metrics.gd
+?? tests/beautification_metrics.gd.uid
+?? tests/beautification_path_probe.gd
+?? tests/beautification_path_probe.gd.uid
+?? tests/beautification_rescue_capture.gd
+?? tests/beautification_rescue_capture.gd.uid
+?? tests/beautification_routes.gd
+?? tests/beautification_routes.gd.uid
+?? tests/beautification_survey.gd
+?? tests/beautification_survey.gd.uid
+?? tests/map_redesign_acceptance.gd
+?? tests/map_redesign_acceptance.gd.uid
+?? tests/map_redesign_capture.gd
+?? tests/map_redesign_capture.gd.uid
+?? tests/map_redesign_metrics.gd
+?? tests/map_redesign_metrics.gd.uid
+?? tests/refinement_aim_test.gd
+?? tests/refinement_aim_test.gd.uid
+?? tests/refinement_campaign_test.gd
+?? tests/refinement_campaign_test.gd.uid
+?? tests/refinement_full_day_test.gd
+?? tests/refinement_full_day_test.gd.uid
+?? tests/refinement_holding_test.gd
+?? tests/refinement_holding_test.gd.uid
+?? tests/refinement_map_capture.gd
+?? tests/refinement_map_capture.gd.uid
+?? tests/refinement_map_test.gd
+?? tests/refinement_map_test.gd.uid
+?? tests/refinement_movement_test.gd
+?? tests/refinement_movement_test.gd.uid
+?? tests/refinement_pose_capture.gd
+?? tests/refinement_pose_capture.gd.uid
+?? tests/refinement_shelter_probe.gd
+?? tests/refinement_shelter_probe.gd.uid
+?? tests/refinement_skip_test.gd
+?? tests/refinement_skip_test.gd.uid
+?? tests/run_beautification_tests.ps1
+?? tools/audit_cabin.gd
+?? tools/audit_cabin.gd.uid
+?? tools/audit_navigation_edges.gd
+?? tools/audit_navigation_edges.gd.uid
+?? tools/environment_asset_audit.gd
+?? tools/environment_asset_audit.gd.uid
+?? tools/inspect_player_rig.gd
+?? tools/inspect_player_rig.gd.uid

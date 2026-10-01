@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-01",
+  "report_sections": 18,
+  "report_local_links_checked": 21,
+  "missing_report_links": [],
+  "source_hashes_checked": 190,
+  "source_hash_mismatches": [],
+  "git_diff_check_exit": 0,
+  "head_unchanged": "6a0859c1a161069f2e7b77f8d7522fe042495ff0",
+  "remaining_newline_only_sidecars_restored": 10
+}

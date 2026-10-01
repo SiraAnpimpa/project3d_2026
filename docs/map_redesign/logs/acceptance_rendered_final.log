@@ -1,0 +1,351 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: North entry is screened from farm centre by terrain/landmark
+SPAWN_ENTRY North point=(-10.0, 4.449977, -37.0) distance=44.3711700439453 screened=true
+PASS: East entry is screened from farm centre by terrain/landmark
+SPAWN_ENTRY East point=(44.0, 2.236382, -20.0) distance=51.1566276550293 screened=true
+PASS: South entry is screened from farm centre by terrain/landmark
+SPAWN_ENTRY South point=(18.0, 0.253896, 39.0) distance=37.590747833252 screened=true
+PASS: West entry is screened from farm centre by terrain/landmark
+SPAWN_ENTRY West point=(-39.0, 4.179758, 12.0) distance=39.6795768737793 screened=true
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot01
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot02
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot03
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot04
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot05
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot06
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot07
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot08
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot09
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot10
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot11
+Planted Lead Plant.
+PASS: actual E planting remains easy at Plot12
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot01
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot02
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot03
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot04
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot05
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot06
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot07
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot08
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot09
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot10
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot11
+Harvested Lead x2.
+PASS: actual E harvest remains easy at Plot12
+PASS: navigation connects zone destination (-9.0, 0.0, -6.0)
+PASS: actual player reaches zone destination (-9.0, 0.0, -6.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (-4.5, 0.0, 0.1)
+PASS: actual player reaches zone destination (-4.5, 0.0, 0.1)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (12.0, 0.0, 4.0)
+PASS: actual player reaches zone destination (12.0, 0.0, 4.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (-36.0, 3.389951, 11.0)
+PASS: actual player reaches zone destination (-36.0, 3.389951, 11.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (-47.0, 3.135718, 29.0)
+PASS: actual player reaches zone destination (-47.0, 3.135718, 29.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (-10.0, 4.854568, -40.0)
+PASS: actual player reaches zone destination (-10.0, 4.854568, -40.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (4.0, 1.815848, -26.0)
+PASS: actual player reaches zone destination (4.0, 1.815848, -26.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (31.0, 1.566556, -12.0)
+PASS: actual player reaches zone destination (31.0, 1.566556, -12.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (45.0, 2.041739, -16.0)
+PASS: actual player reaches zone destination (45.0, 2.041739, -16.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (28.0, -1.540593, 16.0)
+PASS: actual player reaches zone destination (28.0, -1.540593, 16.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (18.0, 0.153896, 39.0)
+PASS: actual player reaches zone destination (18.0, 0.153896, 39.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (22.0, 0.362976, 52.0)
+PASS: actual player reaches zone destination (22.0, 0.362976, 52.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (13.0, 0.0, 10.0)
+PASS: actual player reaches zone destination (13.0, 0.0, 10.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (-8.0, 0.0, 4.6)
+PASS: actual player reaches zone destination (-8.0, 0.0, 4.6)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (-10.0, 4.349977, -37.0)
+PASS: actual player reaches zone destination (-10.0, 4.349977, -37.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (44.0, 2.136382, -20.0)
+PASS: actual player reaches zone destination (44.0, 2.136382, -20.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (18.0, 0.153896, 39.0)
+PASS: actual player reaches zone destination (18.0, 0.153896, 39.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (-39.0, 4.079758, 12.0)
+PASS: actual player reaches zone destination (-39.0, 4.079758, 12.0)
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (0.0, 2.403629, -54.0)
+PASS: actual player reaches zone destination (0.0, 2.403629, -54.0)
+PASS: real character reaches outer safety collision and cannot leave terrain
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (54.0, 0.715645, 36.0)
+PASS: actual player reaches zone destination (54.0, 0.715645, 36.0)
+PASS: real character reaches outer safety collision and cannot leave terrain
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (20.0, 0.213833, 54.0)
+PASS: actual player reaches zone destination (20.0, 0.213833, 54.0)
+PASS: real character reaches outer safety collision and cannot leave terrain
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: navigation connects zone destination (-54.0, 2.834434, 0.0)
+PASS: actual player reaches zone destination (-54.0, 2.834434, 0.0)
+PASS: real character reaches outer safety collision and cannot leave terrain
+PASS: player is grounded without floating/sliding through terrain
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: shoulder camera clears slope/trees/zone collision
+PASS: combat fixture safely spawns Normal at North
+PASS: saved rendered image: combat_Normal_North
+PASS: actual rifle combat kills Normal from North across terrain/LOS
+PASS: combat fixture safely spawns Normal at East
+PASS: saved rendered image: combat_Normal_East
+PASS: actual rifle combat kills Normal from East across terrain/LOS
+PASS: combat fixture safely spawns Normal at South
+PASS: saved rendered image: combat_Normal_South
+PASS: actual rifle combat kills Normal from South across terrain/LOS
+PASS: combat fixture safely spawns Normal at West
+PASS: saved rendered image: combat_Normal_West
+PASS: actual rifle combat kills Normal from West across terrain/LOS
+PASS: combat fixture safely spawns Runner at North
+PASS: saved rendered image: combat_Runner_North
+PASS: actual rifle combat kills Runner from North across terrain/LOS
+PASS: combat fixture safely spawns Runner at East
+PASS: saved rendered image: combat_Runner_East
+PASS: actual rifle combat kills Runner from East across terrain/LOS
+PASS: combat fixture safely spawns Runner at South
+PASS: saved rendered image: combat_Runner_South
+PASS: actual rifle combat kills Runner from South across terrain/LOS
+PASS: combat fixture safely spawns Runner at West
+PASS: saved rendered image: combat_Runner_West
+PASS: actual rifle combat kills Runner from West across terrain/LOS
+PASS: combat fixture safely spawns Tank at North
+PASS: saved rendered image: combat_Tank_North
+PASS: actual rifle combat kills Tank from North across terrain/LOS
+PASS: combat fixture safely spawns Tank at East
+PASS: saved rendered image: combat_Tank_East
+PASS: actual rifle combat kills Tank from East across terrain/LOS
+PASS: combat fixture safely spawns Tank at South
+PASS: saved rendered image: combat_Tank_South
+PASS: actual rifle combat kills Tank from South across terrain/LOS
+PASS: combat fixture safely spawns Tank at West
+PASS: saved rendered image: combat_Tank_West
+PASS: actual rifle combat kills Tank from West across terrain/LOS
+PASS: ordinary night cadence safely spawns all six Day 1 enemies
+PASS: ordinary night wave uses all four real environment approaches
+PASS: every observed ordinary-wave spawn starts on the terrain rather than midair
+PASS: saved rendered image: wave_North
+PASS: saved rendered image: wave_East
+PASS: saved rendered image: wave_South
+PASS: saved rendered image: wave_West
+MAP_REDESIGN_ACCEPTANCE_RESULT failures=0

@@ -1,0 +1,34 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: empty seed list handles scroll safely
+PASS: three empty weapon slots have no selected weapon and safely ignore wheel
+PASS: selector orders by tier then display_order, independent of name or insertion
+PASS: multiple stacks aggregate as one selectable seed
+PASS: nonplantable seeds and other types are excluded
+PASS: wheel up wraps to last seed
+PASS: wheel down wraps to first seed
+PASS: partial depletion preserves selection
+PASS: depleting selected seed removes it and chooses next progression entry
+PASS: depleting last sorted seed wraps to first valid seed
+PASS: depleting final seed clears selection without invalid indices
+PASS: newly acquired seed auto-selects when list was empty
+PASS: equal tier/order uses stable ID tie-break
+PASS: dynamic selector exceeds both three equipment slots and a 24-slot hotbar
+PASS: invalid tier and display order fail data validation
+PASS: out-of-range equipment slots fail safely
+PASS: only owned weapon items can be equipped
+PASS: owned weapons equip into chosen slots
+PASS: first equipped weapon becomes selected
+PASS: combat cycle skips empty slots and excludes unequipped owned weapons
+PASS: equipping and cycling never consume inventory quantities
+PASS: moving an equipped weapon preserves its selection without duplicates
+PASS: replacing slot leaves previous weapon owned
+PASS: unequip selected slot advances to next occupied slot without removing ownership
+PASS: losing ownership clears equipment and repairs selection
+PASS: slot count is configurable beyond the demo default
+PASS: shrinking slots keeps inventory ownership and repairs selected index
+PASS: invalid slot count is rejected
+PASS: clearing inventory reconciles both selectors
+INPUT_SELECTION_DATA_RESULT failures=0

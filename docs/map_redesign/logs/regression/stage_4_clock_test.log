@@ -1,0 +1,18 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: initial state is Day 1 at 06:00
+PASS: 600 real seconds reaches night at 18:00
+PASS: night transition emits once
+PASS: night updates environment lighting
+PASS: midnight stays in survival Day 1
+PASS: dawn increments day exactly once
+PASS: dawn restores daylight
+PASS: zero delta does not repeat transition
+PASS: debug x20 reaches half-day in 30 seconds
+PASS: pause stops clock advance
+PASS: large skips preserve every dawn and dusk event
+PASS: debug rewind clamps to start
+PASS: fractional frame steps complete a full day without duplicate transitions
+STAGE_4_CLOCK_RESULT failures=0

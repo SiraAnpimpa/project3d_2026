@@ -1,0 +1,13 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: Farming keeps authored relaxed Idle
+PASS: Walk responds and playback reaches speed-matched rate
+PASS: Run and stamina respond immediately to sprint
+PASS: braking returns to Idle
+PASS: Combat enters actual imported Gun ready clip
+PASS: aim backward uses reversed Gun Walk at aim speed
+PASS: Farming returns to relaxed stance with rifle hidden
+PASS: imported43bones retained; physics root stays upright
+REFINEMENT_MOVEMENT_RESULT failures=0

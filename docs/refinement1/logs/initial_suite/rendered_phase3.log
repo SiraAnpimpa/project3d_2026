@@ -1,0 +1,34 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: normal farming loop runs with debug disabled and default time scale
+PASS: mouse selects starter Lead Seed in paused inventory
+PASS: movement actions walk from spawn to farm through the player controller
+PASS: existing interactor reaches a farm plot and HUD shows live seed prompt
+Planted Lead Plant.
+PASS: physical E plants and removes a seed
+PASS: same target changes from plant action to growth feedback immediately
+PASS: opening inventory freezes both crop and clock
+GROWTH_RUNTIME wall_seconds=30.397 physics_ticks=1824 realtime=true
+PASS: normal clock grows planted seed through all four stages without debug skips
+PASS: default Lead growth completes in approximately 30 real seconds
+PASS: ready state refreshes existing HUD prompt
+PASS: saved rendered image: phase3_ready
+Harvested Lead x2.
+PASS: physical E harvests exact yield into inventory and clears plot
+PASS: harvest reports the item and amount
+PASS: harvested material and quantity appear in inventory UI
+PASS: saved rendered image: phase3_inventory
+Planted Lead Plant.
+PASS: the same plot is reusable with another physical E press
+PASS: accelerated clock grows crops through existing F10 control
+PASS: saved rendered image: phase3_farm
+PASS: saved rendered image: phase3_night
+PASS: farming and day-night HUD remain integrated
+PASS: farming debug controls are visible only when enabled
+PASS: saved rendered image: phase3_debug_inventory
+PASS: restart creates fresh inventory and resets menu pause
+PASS: restart clears runtime plants without a save system
+PHASE_3_INTEGRATION_RESULT failures=0

@@ -1,0 +1,266 @@
+[
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 24.2333333333333,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 24.2,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 18.7833333333333,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 20.8166666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 10.8,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 10.85,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 8.36666666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 9.26666666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 32.35,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 32.2166666666667,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 25.05,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 27.7333333333333,
+    "target": [
+      3.0,
+      0.0500000007450581,
+      5.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 19.65,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 28.7,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 26.7666666666667,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 17.8,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Normal"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 8.76666666666667,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 12.85,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 11.9166666666667,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 7.93333333333333,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Runner"
+  },
+  {
+    "entry": "North",
+    "reached": true,
+    "simulated_seconds": 26.1666666666667,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "East",
+    "reached": true,
+    "simulated_seconds": 38.2166666666667,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "South",
+    "reached": true,
+    "simulated_seconds": 35.6833333333333,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Tank"
+  },
+  {
+    "entry": "West",
+    "reached": true,
+    "simulated_seconds": 23.7166666666667,
+    "target": [
+      -9.0,
+      0.0500000007450581,
+      -6.0
+    ],
+    "variant": "Tank"
+  }
+]

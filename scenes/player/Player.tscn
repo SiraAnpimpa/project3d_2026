@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="Script" path="res://scripts/player/player_controller.gd" id="1_player"]
 [ext_resource type="Script" path="res://scripts/player/camera_rig.gd" id="2_camera"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/player/gameplay_mode_controller.gd" id="11_mode"]
 [ext_resource type="Script" path="res://scripts/weapons/weapon_controller.gd" id="weapon_controller"]
 [ext_resource type="Resource" path="res://resources/weapons/basic_rifle.tres" id="rifle_data"]
+[ext_resource type="Resource" path="res://resources/weapons/wooden_bat.tres" id="bat_data"]
 
 [sub_resource type="CapsuleShape3D" id="Capsule"]
 radius = 0.32
@@ -86,4 +87,4 @@ script = ExtResource("11_mode")
 [node name="WeaponController" type="Node3D" parent="."]
 script = ExtResource("weapon_controller")
 shot_collision_mask = 13
-definitions = Array[Resource]([ExtResource("rifle_data")])
+definitions = Array[Resource]([ExtResource("rifle_data"),ExtResource("bat_data")])

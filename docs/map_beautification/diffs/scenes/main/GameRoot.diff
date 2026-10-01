@@ -1,0 +1,11 @@
+--- before/scenes/main/GameRoot.tscn
++++ after/scenes/main/GameRoot.tscn
+@@ -36,7 +36,7 @@
+ position = Vector3(0, 0.15, 6)
+ 
+ [node name="TestInteractable" parent="." instance=ExtResource("3_test")]
+-position = Vector3(0, 0, -1)
++position = Vector3(7.4, 0, -9.5)
+ 
+ [node name="TimeController" type="Node" parent="."]
+ script = ExtResource("5_clock")

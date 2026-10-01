@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://Asset/Stylized Nature MegaKit.undefined-glb/Plant Big.glb" id="native"]
+
+[node name="LeadPlantVisual" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("native")]
+position = Vector3(0.036861222, -0.040628132, 0.136829078)
+scale = Vector3(0.807532644, 0.807532644, 0.807532644)

@@ -1,0 +1,45 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: daytime action visible by clock with distinct N binding
+PASS: N opens confirmation without skipping even with zero ammunition
+PASS: Cancel gets default keyboard focus
+PASS: confirmation releases mouse and locks camera/interactor
+PASS: modal blocks background movement/time/fire/aim/interact/bag
+PASS: saved rendered image: skip_confirmation
+PASS: Escape cancels with no time/day/wave change and no nested Pause
+PASS: cancel restores captured mouse and gameplay
+PASS: default Enter is Cancel
+PASS: repeated open/N/cancel cannot duplicate modal or advance time
+PASS: 06:00 Confirm reaches same-day18:00 and starts night exactly once despite spam
+PASS: skip gives no healing/stamina/rest/reload reward
+PASS: normal manager starts production Day1 wave
+PASS: night hides action and rejects reopening
+PASS: HUD and lighting share the new clock phase
+PASS: saved rendered image: skip_night_started
+Planted Lead Plant.
+PASS: E plants before midday/late skip
+PASS: Cancel preserves plant timestamp and progress
+PASS: skipped elapsed minutes correctly advance Lead growth
+PASS: growing never auto-harvests or grants resources
+PASS: midday/17:55 fractional skip reaches exactly one dusk
+Planted Lead Plant.
+PASS: E plants before midday/late skip
+PASS: Cancel preserves plant timestamp and progress
+PASS: skipped elapsed minutes correctly advance Lead growth
+PASS: growing never auto-harvests or grants resources
+PASS: midday/17:55 fractional skip reaches exactly one dusk
+PASS: bag owns input; no overlapping confirmation
+PASS: workbench owns input; no overlapping confirmation
+PASS: Pause owns input; no overlapping confirmation
+PASS: critical reload must finish before waiting
+PASS: opening from Combat cancels aim safely
+PASS: death while confirming closes ownership and prevents skip
+PASS: Day10 warns explicitly about the final night
+PASS: saved rendered image: skip_final_night
+PASS: Day10 uses existing final wave once
+PASS: ending rejects skip
+PASS: stale day confirmation aborts safely
+REFINEMENT_SKIP_RESULT failures=0

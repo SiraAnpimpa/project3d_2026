@@ -1,0 +1,21 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+SCRIPT ERROR: Parse Error: Identifier "EnvironmentAssets" not declared in the current scope.
+   at: GDScript::reload (res://scripts/world/rural_environment.gd:185)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/map_redesign_capture.gd:6)
+ERROR: Failed to load script "res://scripts/world/rural_environment.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/map_redesign_capture.gd:6)
+PASS: saved rendered image: map_overview
+PASS: saved rendered image: farmstead
+PASS: saved rendered image: north_ridge
+PASS: saved rendered image: forest
+PASS: saved rendered image: abandoned
+PASS: saved rendered image: rescue_road
+PASS: saved rendered image: night_farmstead
+MAP_REDESIGN_CAPTURE_RESULT failures=0

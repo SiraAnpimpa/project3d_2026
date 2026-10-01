@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/crafting/workbench.gd" id="1"]
 
 [sub_resource type="StandardMaterial3D" id="Wood"]
-albedo_color = Color(0.61, 0.42, 0.23, 1)
+albedo_color = Color(0.38, 0.31, 0.22, 1)
 roughness = 0.9
 
 [sub_resource type="BoxMesh" id="Top"]
@@ -12,6 +12,41 @@ material = SubResource("Wood")
 
 [sub_resource type="BoxShape3D" id="Shape"]
 size = Vector3(1.8, 1.0, 1.0)
+
+[sub_resource type="BoxMesh" id="Leg"]
+size = Vector3(0.18, 0.79, 0.18)
+material = SubResource("Wood")
+
+[sub_resource type="BoxMesh" id="Shelf"]
+size = Vector3(1.6, 0.1, 0.78)
+material = SubResource("Wood")
+
+[sub_resource type="BoxMesh" id="Brace"]
+size = Vector3(1.65, 0.1, 0.1)
+material = SubResource("Wood")
+
+[sub_resource type="StandardMaterial3D" id="Iron"]
+albedo_color = Color(0.23, 0.26, 0.24, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="ViseBase"]
+size = Vector3(0.36, 0.055, 0.25)
+material = SubResource("Iron")
+
+[sub_resource type="BoxMesh" id="ViseJaw"]
+size = Vector3(0.09, 0.16, 0.25)
+material = SubResource("Iron")
+
+[sub_resource type="CylinderMesh" id="ViseHandle"]
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.33
+radial_segments = 8
+material = SubResource("Iron")
+
+[sub_resource type="BoxMesh" id="Stock"]
+size = Vector3(0.55, 0.06, 0.16)
+material = SubResource("Iron")
 
 [node name="Workbench" type="StaticBody3D"]
 collision_layer = 5
@@ -26,6 +61,55 @@ shape = SubResource("Shape")
 [node name="Top" type="MeshInstance3D" parent="."]
 position = Vector3(0, 0.9, 0)
 mesh = SubResource("Top")
+
+[node name="LegFrontLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-0.72, 0.395, 0.33)
+mesh = SubResource("Leg")
+
+[node name="LegFrontRight" type="MeshInstance3D" parent="."]
+position = Vector3(0.72, 0.395, 0.33)
+mesh = SubResource("Leg")
+
+[node name="LegBackLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-0.72, 0.395, -0.33)
+mesh = SubResource("Leg")
+
+[node name="LegBackRight" type="MeshInstance3D" parent="."]
+position = Vector3(0.72, 0.395, -0.33)
+mesh = SubResource("Leg")
+
+[node name="LowerShelf" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.19, 0)
+mesh = SubResource("Shelf")
+
+[node name="BackBrace" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.3, -0.37)
+mesh = SubResource("Brace")
+
+[node name="ViseBase" type="MeshInstance3D" parent="."]
+position = Vector3(0.5, 1.0375, -0.12)
+mesh = SubResource("ViseBase")
+
+[node name="ViseJawLeft" type="MeshInstance3D" parent="."]
+position = Vector3(0.38, 1.145, -0.12)
+mesh = SubResource("ViseJaw")
+
+[node name="ViseJawRight" type="MeshInstance3D" parent="."]
+position = Vector3(0.65, 1.145, -0.12)
+mesh = SubResource("ViseJaw")
+
+[node name="ViseHandle" type="MeshInstance3D" parent="."]
+position = Vector3(0.82, 1.14, -0.12)
+rotation = Vector3(0, 0, 1.5707964)
+mesh = SubResource("ViseHandle")
+
+[node name="MetalStockLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-0.25, 0.27, -0.16)
+mesh = SubResource("Stock")
+
+[node name="MetalStockRight" type="MeshInstance3D" parent="."]
+position = Vector3(-0.25, 0.27, 0.12)
+mesh = SubResource("Stock")
 
 [node name="Label" type="Label3D" parent="."]
 position = Vector3(0, 1.55, 0)

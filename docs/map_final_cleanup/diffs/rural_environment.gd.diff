@@ -1,0 +1,245 @@
+--- before/scripts/world/rural_environment.gd
++++ after/scripts/world/rural_environment.gd
+@@ -34,27 +34,16 @@
+ 	# Main farm home: supplied Cabin; static open doorway, no door gameplay.
+ 	prop("Cabin","House",Vector2(-12,-10),9.5,0,true,-0.276)
+ 	# The workshop has its own yard across the house's eastern breathing space.
+-	box("Workshop",Vector3(3,1.45,-12.4),Vector3(5.5,2.9,0.15),Color("686c5a"),true)
+-	var roof := box("Workshop",Vector3(3,3.0,-10.1),Vector3(6.0,0.16,5.0),Color("595447"))
+-	roof.rotation.x = deg_to_rad(6)
+-	for x in [0.25,5.75]: box("Workshop",Vector3(x,1.4,-7.8),Vector3(0.14,2.8,0.14),Color("74634a"),true)
++	build_workshop_frame()
+ 	prop("Water Tower","House",Vector2(-21,-18),5.0,10,true,0,12.5)
+ 	# F: recognizable abandoned depot on the raised eastern old field.
+ 	prop("Container Green","Abandoned",Vector2(35,-23),8.5,18,true)
+ 	prop("Container Red","Abandoned",Vector2(43,-23),7.4,65,true)
+ 	prop("Jeep","Abandoned",Vector2(26,-22),4.4,-25,true)
+ 	prop("Ambulance Car","Abandoned",Vector2(41,-32),4.8,15,true)
+-	for p in [Vector2(25,-14),Vector2(32,-14),Vector2(25,-19)]:
+-		box("Ruins",RuralTerrain.ground_point(p.x,p.y,1.6),Vector3(0.28,3.2,0.28),Color("706951"),true)
+-	box("Ruins",RuralTerrain.ground_point(28.5,-19,2),Vector3(7.4,4,0.22),Color("72725e"),true)
+-	var broken_roof := box("Ruins",RuralTerrain.ground_point(30,-16,3.7),Vector3(3.8,0.18,5.5),Color("665646"))
+-	broken_roof.rotation.z = 0.16
+-	# G: curved approach past a stopped supply truck and the broken road gate.
++	build_depot_frame()
++	# G: a stopped supply truck supplies the clearing; no isolated asphalt/gateway.
+ 	prop("Truck","Road",Vector2(18,42),5.3,-9,true)
+-	prop("Town Sign","Road",Vector2(15,49),6.0,0)
+-	prop("Traffic Barrier-nugx3heueH","Road",Vector2(18,47),3.4,7,true)
+-	prop("Street Straight Crack","Road",Vector2(16,49),6.0,0,false,0.025)
+-	prop("Street Light","Road",Vector2(20,47),1.0,25,false,0,6.7)
+ 	# E/N: large silhouettes create remembered approach directions and hide entry pockets.
+ 	prop("Tree-qZtx0AHhcy","Forest",Vector2(-31,4),7,10,true,0,11)
+ 	prop("Dead Tree-Mcd2zYqyww","Forest",Vector2(-41,-8),5,25,true,0,8.5)
+@@ -66,40 +55,81 @@
+ 		rock_cluster(p,4.5,"Boundary",p.x*7)
+ 	# Fence fragments belong to farm edges and the old western pasture, never a perimeter square.
+ 	for z in [3.5,7.8,12.0]: fence(Vector2(-24,z),Vector2(-24,z+2.6),false,true)
+-	for z in [-22,-17,-12,-7]: fence(Vector2(-50,z),Vector2(-49,z+3.2),true)
++	# The two middle pasture fragments intersected the boundary boulder/satellite stones.
++	for z in [-22,-7]: fence(Vector2(-50,z),Vector2(-49,z+3.2),true)
+ 	for x in [24,29,34]: fence(Vector2(x,-9),Vector2(x+3.2,-9.5),true)
+ 	# Storage models match the retained bodies relocated into the utility zone.
+ 	prop("Chest","Workshop",Vector2(6.8,-12.5),1.8,0)
+-	prop("Chest-RfSBvgcZUD","Workshop",Vector2(6.8,-12.5),1.3,8,false,0.9)
++	prop("Chest-RfSBvgcZUD","Workshop",Vector2(6.8,-12.5),1.3,0,false,model_height("Chest",1.8))
+ 	prop("Chest","Workshop",Vector2(7.4,-9.5),1.4,0)
+ 	var station := get_parent().get_parent().get_node_or_null("TestInteractable/Mesh")
+ 	if station != null: station.hide()
+ 
++func build_workshop_frame() -> void:
++	# The original footprint/pitched roof remains; a continuous load path finishes the shed.
++	var pitch := deg_to_rad(6)
++	var front := 3.0-tan(pitch)*2.3-0.08/cos(pitch)
++	var back := 3.0+tan(pitch)*2.3-0.08/cos(pitch)
++	box("WorkshopWall",Vector3(3,(back-0.2)*0.5,-12.4),Vector3(5.5,back-0.2,0.15),Color("625c49"),true)
++	var roof := box("WorkshopRoof",Vector3(3,3.0,-10.1),Vector3(6.0,0.16,5.0),Color("514d40"))
++	roof.rotation.x = pitch
++	for z in [-7.8,-12.4]:
++		var underside: float = front if z == -7.8 else back
++		for x in [0.25,5.75]:
++			var ground := RuralTerrain.height_at(x,z)
++			var top := underside-0.2
++			box("WorkshopPost",Vector3(x,(ground-0.06+top)*0.5,z),Vector3(0.2,top-ground+0.06,0.2),Color("6c5b43"),true)
++		box("WorkshopEave",Vector3(3,underside-0.1,z),Vector3(5.7,0.2,0.2),Color("6c5b43"))
++	for x in [0.25,3.0,5.75]:
++		beam("WorkshopRafter",Vector3(x,front-0.075,-7.8),Vector3(x,back-0.075,-12.4),0.15,Color("6c5b43"))
++	# Narrow timber seams break up the retained solid back wall without adding obstacles.
++	for x in [0.8,1.7,2.6,3.5,4.4,5.3]:
++		box("WorkshopBatten",Vector3(x,(back-0.25)*0.5,-12.31),Vector3(0.045,back-0.25,0.035),Color("756952"))
++
++func build_depot_frame() -> void:
++	# A roofless left bay and supported surviving right roof read as damage, not unbuilt parts.
++	var pitch := deg_to_rad(6)
++	var ground := RuralTerrain.height_at(28.5,-19)
++	var front := ground+3.7-tan(pitch)*2.5-0.09/cos(pitch)
++	var back := ground+3.7+tan(pitch)*2.5-0.09/cos(pitch)
++	box("DepotWall",Vector3(28.5,ground+(back-0.22-ground)*0.5,-19),Vector3(7.4,back-0.22-ground,0.22),Color("6c6c57"),true)
++	for z in [-14.0,-19.0]:
++		var underside: float = front if z == -14.0 else back
++		for x in [25.0,32.0]:
++			var foot := RuralTerrain.height_at(x,z)-0.06
++			box("DepotPost",Vector3(x,(foot+underside-0.22)*0.5,z),Vector3(0.28,underside-0.22-foot,0.28),Color("70654e"),true)
++		box("DepotEave",Vector3(28.5,underside-0.11,z),Vector3(7.3,0.22,0.25),Color("70654e"))
++	for x in [25.0,28.2,32.0]:
++		beam("DepotRafter",Vector3(x,front-0.075,-14),Vector3(x,back-0.075,-19),0.15,Color("70654e"))
++	var roof := box("DepotRoof",Vector3(30,ground+3.7,-16.5),Vector3(3.8,0.18,5.6),Color("5e5444"))
++	roof.rotation.x = pitch
++
++func model_height(key: String, width: float) -> float:
++	var bounds: AABB = model_info(key).bounds
++	return bounds.size.y*width/maxf(bounds.size.x,bounds.size.z)
++
+ func build_clusters() -> void:
+-	# Domestic cache in the cabin's right room; left room / entry / rest lane stay open.
++	# A small domestic cache shares the native furnished right room; entry/rest lane stay open.
+ 	prop("Chest","House",Vector2(-10.3,-12.2),1.05,0,true,0)
+-	prop("Survival_Radio","House",Vector2(-10.3,-12.2),0.32,0,false,0.67)
+-	prop("Survival_First Aid Kit","House",Vector2(-10.8,-12.2),0.32,-8,false,0.67)
+-	prop("Survival_Backpack","House",Vector2(-10,-11),0.6,0,false,0)
+-	prop("Survival_Water Bottle","House",Vector2(-10,-12.2),0.13,0,false,0.67)
+-	prop("RPG_Book","House",Vector2(-10.2,-12.4),0.2,30,false,0.67)
++	var cache_top := model_height("Chest",1.05)
++	prop("Survival_Radio","House",Vector2(-10.45,-12.2),0.32,0,false,cache_top)
++	prop("Survival_First Aid Kit","House",Vector2(-10.03,-12.2),0.32,-8,false,cache_top)
+ 	# Utility materials: stock against the back wall, tools by the side post.
+ 	prop("Barrel","Workshop",Vector2(5,-11.4),0.72,0,true)
+ 	prop("Chest-RfSBvgcZUD","Workshop",Vector2(3.9,-11.5),0.85,0,true)
+-	prop("Survival_Gas Can","Workshop",Vector2(3.9,-11.5),0.3,10,false,0.53)
++	prop("Survival_Gas Can","Workshop",Vector2(4.45,-11.65),0.3,10)
+ 	prop("Survival_Propane Tank","Workshop",Vector2(5.6,-11.4),0.37,0)
+ 	prop("Pallet","Workshop",Vector2(6.6,-14),1.4,0)
+-	prop("Survival_Shovel","Workshop",Vector2(0.8,-11.6),0.4,0,false,0,1.7)
+-	prop("Survival_Axe","Workshop",Vector2(0.8,-11.1),0.4,25,false,0,1.0)
+-	prop("RPG_Scythe","Workshop",Vector2(5.1,-12),0.75,0,false,0,1.7)
+-	prop("RPG_Bag","Workshop",Vector2(4.4,-11.5),0.3,15)
+-	prop("RPG_Padlock","Workshop",Vector2(3.9,-11.09),0.06,0,false,0.25)
++	prop("Survival_Shovel","Workshop",Vector2(0.8,-11.95),0.4,0,false,0,1.7,-12)
++	prop("Survival_Axe","Workshop",Vector2(1.35,-12.1),0.4,0,false,0,1.0,-13)
+ 	# Heavy firewood/storage belongs behind the utility shed, not the farm front.
+ 	prop("Barrel","Workshop",Vector2(0.7,-14.0),0.8,0,true)
+ 	prop("Survival_Shovel","Farm",Vector2(-24,3),0.3,0,false,0,1.4)
+-	for i in 5: prop("Survival_Wood Log","Workshop",Vector2(1.8+i*0.32,-14.0),1.8,90,false,(i%2)*0.23)
+-	prop("Survival_Pan","Workshop",Vector2(2.7,-8),0.4,35,false,0.88)
+-	prop("Survival_Pot","Workshop",Vector2(3.35,-8),0.32,0,false,0.88)
++	var log_diameter := model_height("Survival_Wood Log",1.8)
++	var log_spacing := log_diameter*0.94
++	for i in 3: prop("Survival_Wood Log","Workshop",Vector2(2.44+(i-1)*log_spacing,-14),1.8,90,false,-0.025)
++	var stack_rise := sqrt(log_diameter*log_diameter-pow(log_spacing*0.5,2))
++	for i in 2: prop("Survival_Wood Log","Workshop",Vector2(2.44+(i-0.5)*log_spacing,-14),1.8,90,false,stack_rise-0.025)
+ 	# E: an abandoned forester's camp in a distinct clearing.
+ 	prop("Survival_Tent","Forest",Vector2(-34,21),4.4,30,true)
+ 	prop("Survival_Bonfire","Forest",Vector2(-31,20),0.85,0)
+@@ -118,19 +148,15 @@
+ 	prop("Cinder Block","Abandoned",Vector2(26,-13),0.5,20)
+ 	prop("Fire Hydrant","Abandoned",Vector2(44,-28),0.45,0)
+ 	prop("Traffic Barrier","Abandoned",Vector2(40,-11),3.4,-10,true)
+-	# Road and dry drainage: displaced supplies, culvert and bank stones.
+-	prop("Traffic Cone","Road",Vector2(23,38),0.45,0)
++	# A grouped aid/radio cache stays next to the truck, outside rotor clearance.
+ 	prop("Survival_Gas Can","Road",Vector2(18,39),0.35,15)
+ 	prop("Chest","Road",Vector2(19,39),0.9,15)
+-	# A small aid/radio cache by the checkpoint, outside rotor clearance.
+-	prop("Survival_Radio","Rescue",Vector2(19,39),0.32,0,false,0.58)
+-	prop("Survival_First Aid Kit","Rescue",Vector2(18.8,38.9),0.32,0,false,0.58)
++	var aid_top := model_height("Chest",0.9)
++	prop("Survival_Radio","Rescue",Vector2(19.2,39),0.32,0,false,aid_top)
++	prop("Survival_First Aid Kit","Rescue",Vector2(18.8,39),0.32,0,false,aid_top)
+ 	for point in [Vector2(23.5,39),Vector2(34.5,39),Vector2(23.5,47),Vector2(34.5,47)]:
+ 		prop("Traffic Cone","Rescue",point,0.4,0)
+-	prop("Pipes","Drainage",Vector2(28,18),2.8,90)
+-	var bank_stones := [Vector2(27.5,11.5),Vector2(29.2,13.8),Vector2(27.6,24),Vector2(25.8,27.8)]
+-	for i in bank_stones.size():
+-		prop("Rock Path Round Wide" if i%2 == 0 else "Rock Path Square Thin","Drainage",bank_stones[i],2.1+i*0.15,13+i*47)
++	# Dry drainage remains natural ground: detached paving samples/pipe bundle removed.
+ 
+ func build_vegetation() -> void:
+ 	var clusters := [
+@@ -193,19 +219,28 @@
+ 	# Roadside outcrop belongs to the reveal shoulder and screens the southern entry.
+ 	rock_cluster(Vector2(10,31),3.5,"Road shoulder",-20)
+ 
+-func prop(key: String, zone: String, point: Vector2, width: float, yaw: float, solid: bool = false, lift: float = 0, height: float = 0) -> void:
++func prop(key: String, zone: String, point: Vector2, width: float, yaw: float, solid: bool = false, lift: float = 0, height: float = 0, pitch: float = 0) -> void:
+ 	var info := model_info(key)
+ 	var bounds: AABB = info.bounds
+ 	var scale_factor := height/bounds.size.y if height > 0 else width/maxf(bounds.size.x,bounds.size.z)
+ 	var position := RuralTerrain.ground_point(point.x,point.y,lift)
+ 	var orientation := Basis(Vector3.UP,deg_to_rad(yaw))
+-	if key.begins_with("Rock Path"):
++	if pitch != 0: orientation *= Basis(Vector3.RIGHT,deg_to_rad(pitch))
++	if key.begins_with("Rock Medium"):
+ 		var dx := RuralTerrain.height_at(point.x+0.1,point.y)-RuralTerrain.height_at(point.x-0.1,point.y)
+ 		var dz := RuralTerrain.height_at(point.x,point.y+0.1)-RuralTerrain.height_at(point.x,point.y-0.1)
+ 		var normal := Vector3(-dx/0.2,1,-dz/0.2).normalized()
+-		orientation = Basis(Quaternion(Vector3.UP,normal))*orientation
++		# Embedded bases follow most of the local slope without making the outcrop over-tilted.
++		orientation = Basis(Quaternion.IDENTITY.slerp(Quaternion(Vector3.UP,normal),0.65))*orientation
++	var normalization := Transform3D(Basis.IDENTITY.scaled(Vector3.ONE*scale_factor),-Vector3(bounds.get_center().x,bounds.position.y,bounds.get_center().z)*scale_factor)
++	if pitch != 0:
++		# Lean tools against the wall while keeping their actual lowest mesh vertex on earth.
++		var lowest := INF
++		for part in info.parts:
++			for vertex: Vector3 in part.mesh.get_faces():
++				lowest = minf(lowest,(orientation*(normalization*(part.transform*vertex))).y)
++		position.y -= lowest
+ 	var transform := Transform3D(orientation,position)
+-	var normalization := Transform3D(Basis.IDENTITY.scaled(Vector3.ONE*scale_factor),-Vector3(bounds.get_center().x,bounds.position.y,bounds.get_center().z)*scale_factor)
+ 	if key in ["Water Tower","Cabin"]:
+ 		# Preserve the landmark's imported scene/material behavior; other static props batch.
+ 		var anchor := Node3D.new()
+@@ -323,16 +358,24 @@
+ 		collider(zone,visual.transform,shape)
+ 	return visual
+ 
++func beam(zone: String, a: Vector3, b: Vector3, thickness: float, color: Color) -> MeshInstance3D:
++	var visual := box(zone,(a+b)*0.5,Vector3(thickness,thickness,a.distance_to(b)),color)
++	visual.look_at(b)
++	return visual
++
+ func fence(a: Vector2, b: Vector2, broken: bool, low: bool = false) -> void:
+ 	var height := 1.0 if low else 1.7
+ 	var start := RuralTerrain.ground_point(a.x,a.y,height*0.5)
+ 	var finish := RuralTerrain.ground_point(b.x,b.y,height*0.5)
+-	box("Fence",start,Vector3(0.15,height,0.15),Color("6a604a"))
+-	box("Fence",finish,Vector3(0.15,height,0.15),Color("6a604a"))
++	box("FencePost",start-Vector3.UP*0.04,Vector3(0.15,height+0.08,0.15),Color("6a604a"))
++	box("FencePost",finish-Vector3.UP*0.04,Vector3(0.15,height+0.08,0.15),Color("6a604a"))
+ 	for y in [-0.19,0.19] if low else [-0.25,0.25]:
+-		var rail := box("Fence",(start+finish)*0.5+Vector3.UP*y,Vector3(0.12,0.14,start.distance_to(finish)),Color("8a8064"))
+-		rail.look_at(finish)
+-		if broken and y > 0: rail.rotation.x += 0.16
++		var rail_start: Vector3 = start+Vector3.UP*y
++		var rail_end: Vector3 = finish+Vector3.UP*y
++		if broken and y > 0:
++			# One surviving upper section is attached to its post; the free end shows damage.
++			rail_end = rail_start.lerp(rail_end,0.62)-Vector3.UP*0.22
++		beam("FenceRail",rail_start,rail_end,0.12,Color("8a8064"))
+ 
+ func rock_cluster(center: Vector2, width: float, zone: String, yaw: float) -> void:
+ 	# Embed the dominant stone; smaller satellites and understorey join its base to earth.
+@@ -383,6 +426,24 @@
+ 	# Apply identical transforms to render and collision; keep the source GLB untouched.
+ 	for part: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+ 		var label := str(part.name)
++		# Copy only exterior surface materials; never modify the furnished source asset.
++		var finishes := {
++			"group1586743875":{"mat22":Color("635846")}, # continuous floor / veranda
++			"group14942143":{"mat21":Color("756d5c"),"mat15":Color("57554b")}, # chimney
++			"group690343594":{"mat15":Color("7c715a")}, # fascia
++			"group1249612197":{"mat15":Color("68604e")}, # porch roof edge
++			"group155880449":{"mat17":Color("394a44")},
++			"group385332886":{"mat17":Color("394a44")}
++		}
++		if finishes.has(label):
++			for surface in part.mesh.get_surface_count():
++				var source := part.mesh.surface_get_material(surface) as StandardMaterial3D
++				if source == null or not finishes[label].has(str(source.resource_name)): continue
++				var finish := source.duplicate() as StandardMaterial3D
++				finish.albedo_color = finishes[label][str(source.resource_name)]
++				finish.metallic = 0.0
++				finish.roughness = 0.95
++				part.set_surface_override_material(surface,finish)
+ 		if label in ["group2096568958","group1499761262"]:
+ 			part.hide()
+ 			continue

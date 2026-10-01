@@ -1,0 +1,53 @@
+--- before/scripts/world/world_presentation.gd
++++ after/scripts/world/world_presentation.gd
+@@ -9,17 +9,17 @@
+ 		var label := world.get_node_or_null(label_name) as Label3D
+ 		if label != null: label.hide()
+ 	world.get_node("RescueArea/Mesh").hide()
+-	# Low plot edging stays flush with soil and has no physical/nav footprint.
+-	box(Vector3(-8, 0.03, 0.8), Vector3(12, 0.06, 0.12), Color("b3a078"))
+-	box(Vector3(-8, 0.03, 8.5), Vector3(12, 0.06, 0.12), Color("b3a078"))
+-	for x in [-13.9, -2.1]: box(Vector3(x, 0.03, 4.65), Vector3(0.12, 0.06, 7.7), Color("b3a078"))
+-	# Landing markings are ground decals made from unlit thin meshes.
+-	for x in [11.8, 14.2]: box(Vector3(x, 0.018, 10), Vector3(0.22, 0.01, 3.8), Color("d9d2a3"))
+-	box(Vector3(13, 0.02, 10), Vector3(2.6, 0.01, 0.22), Color("d9d2a3"))
+-	sign_at(Vector3(-13.5, 1.15, 0), "FARM\nGROW / HARVEST")
+-	sign_at(Vector3(-9, 2.2, -4.1), "SHELTER\nREST AFTER CLEAR")
+-	sign_at(Vector3(15.8, 0.8, 12.8), "RESCUE LANDING\nAFTER NIGHT 10")
+-	for point in [Vector3(-8, 2.2, 0), Vector3(-4.5, 2.4, -1), Vector3(13, 1.5, 12.8)]:
++	# Short low markers identify two soil beds without boxing the entire farm.
++	for x in [-22.5,-4.4]:
++		for z in [2.2,15.0]: box(RuralTerrain.ground_point(x,z,0.25),Vector3(0.12,0.5,0.12),Color("776549"))
++	# Relocated landing marks follow the map's single evacuation anchor.
++	var landing: Vector3 = world.get_node("RescueArea").global_position - Vector3.UP*0.05
++	for x in [-1.2,1.2]: box(landing+Vector3(x,0.018,0),Vector3(0.22,0.01,3.8),Color("d9d2a3"))
++	box(landing+Vector3(0,0.02,0),Vector3(2.6,0.01,0.22),Color("d9d2a3"))
++	sign_at(Vector3(-23, 1.15, 2), "FARM\nGROW / HARVEST")
++	sign_at(Vector3(-9.7, 1.5, -6.5), "SHELTER\nREST AFTER CLEAR")
++	sign_at(landing+Vector3(-5, 1.25, -7.5), "RESCUE LANDING\nAFTER NIGHT 10")
++	for point in [Vector3(-12, 2.2, -1), Vector3(3, 2.4, -8), landing+Vector3(-7, 2.4, 5)]:
+ 		var lamp := OmniLight3D.new()
+ 		lamp.position = point
+ 		lamp.light_color = Color("ffe2a2")
+@@ -27,7 +27,8 @@
+ 		lamp.shadow_enabled = false
+ 		add_child(lamp)
+ 		lamps.append(lamp)
+-		box(Vector3(point.x, point.y * 0.5, point.z), Vector3(0.06, point.y, 0.06), Color("514b3d"))
++		var ground := RuralTerrain.height_at(point.x,point.z)
++		box(Vector3(point.x, (point.y+ground)*0.5, point.z), Vector3(0.06, point.y-ground, 0.06), Color("514b3d"))
+ 		box(point, Vector3(0.15, 0.2, 0.15), Color("f4d78f"))
+ 	clock.time_changed.connect(func(_day: int, _hour: int, _minute: int, daytime: bool) -> void:
+ 		for lamp in lamps: lamp.light_energy = 0.1 if daytime else 1.5)
+@@ -49,6 +50,11 @@
+ 	add_child(mesh)
+ 
+ func sign_at(point: Vector3, text: String) -> void:
++	# Static timber supports give the existing boards physical ground contact.
++	for offset in [-0.78,0.78]:
++		var ground := RuralTerrain.height_at(point.x+offset,point.z)
++		var height := point.y-ground
++		box(Vector3(point.x+offset,ground+height*0.5,point.z),Vector3(0.07,height,0.07),Color("74634a"))
+ 	box(point, Vector3(2.1, 0.85, 0.08), Color("233b33"))
+ 	var label := Label3D.new()
+ 	label.text = text

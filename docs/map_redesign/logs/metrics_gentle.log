@@ -1,0 +1,37 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: terrain has substantial raised and lowered areas
+PASS: all sampled playable slopes stay below actor/nav limits
+PASS: downward terrain ray has collision at (0.0, 6.0)
+TERRAIN_RAY (0.0, 6.0) y=0.0 expected=0.0
+PASS: downward terrain ray has collision at (-9.0, -6.0)
+TERRAIN_RAY (-9.0, -6.0) y=3.24999952316284 expected=0.0
+PASS: downward terrain ray has collision at (13.0, 10.0)
+TERRAIN_RAY (13.0, 10.0) y=0.0 expected=0.0
+PASS: downward terrain ray has collision at (-39.0, 12.0)
+TERRAIN_RAY (-39.0, 12.0) y=4.06697750091553 expected=4.07975817698333
+PASS: downward terrain ray has collision at (-10.0, -37.0)
+TERRAIN_RAY (-10.0, -37.0) y=4.3466157913208 expected=4.34997715627464
+PASS: downward terrain ray has collision at (39.0, 5.0)
+TERRAIN_RAY (39.0, 5.0) y=0.53726577758789 expected=0.54871701236348
+PASS: downward terrain ray has collision at (18.0, 39.0)
+TERRAIN_RAY (18.0, 39.0) y=0.15295219421387 expected=0.15389613977306
+PASS: downward terrain ray has collision at (28.0, 16.0)
+TERRAIN_RAY (28.0, 16.0) y=-1.54059410095215 expected=-1.54059329205709
+MAP_METRICS low=-1.78689084274275 high=5.06505500658334 slope_degrees=28.9720117254201 unique_assets=68 nodes=768
+MESH_AUDIT Water Tower node=WaterTower determinant=1000000.0 mesh_size=(0.026457, 0.093798, 0.027085) override=<Object#null>
+MESH_MATERIAL 0 assigned=Atlas.049 (res://Asset/Post Apocolypse Pack.undefined-glb/Water Tower.glb::StandardMaterial3D_4ouxq):<StandardMaterial3D#-9223372006974552553> active=Atlas.049 (res://Asset/Post Apocolypse Pack.undefined-glb/Water Tower.glb::StandardMaterial3D_4ouxq):<StandardMaterial3D#-9223372006974552553>
+MESH_AUDIT Tree node=CommonTree_4 determinant=1.0 mesh_size=(3.825526, 9.438381, 3.755373) override=<Object#null>
+MESH_MATERIAL 0 assigned=Bark_NormalTree (res://Asset/Stylized Nature MegaKit.undefined-glb/Tree.glb::StandardMaterial3D_gvx7c):<StandardMaterial3D#-9223372000565655911> active=Bark_NormalTree (res://Asset/Stylized Nature MegaKit.undefined-glb/Tree.glb::StandardMaterial3D_gvx7c):<StandardMaterial3D#-9223372000565655911>
+MESH_MATERIAL 1 assigned=Leaves_NormalTree (res://Asset/Stylized Nature MegaKit.undefined-glb/Tree.glb::StandardMaterial3D_3tsem):<StandardMaterial3D#-9223372000498547043> active=Leaves_NormalTree (res://Asset/Stylized Nature MegaKit.undefined-glb/Tree.glb::StandardMaterial3D_3tsem):<StandardMaterial3D#-9223372000498547043>
+MESH_AUDIT Truck node=Scout_Car determinant=88.1565475463867 mesh_size=(0.124815, 3.999597, 0.434136) override=<Object#null>
+MESH_MATERIAL 0 assigned=Orange_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_hsdhj):<StandardMaterial3D#-9223371985751373863> active=Orange_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_hsdhj):<StandardMaterial3D#-9223371985751373863>
+MESH_MATERIAL 1 assigned=Black_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_qa6tq):<StandardMaterial3D#-9223371985734596646> active=Black_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_qa6tq):<StandardMaterial3D#-9223371985734596646>
+MESH_MATERIAL 2 assigned=DarkGreen_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_6q0jg):<StandardMaterial3D#-9223371985717819429> active=DarkGreen_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_6q0jg):<StandardMaterial3D#-9223371985717819429>
+MESH_MATERIAL 3 assigned=DarkRed_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_fucoo):<StandardMaterial3D#-9223371985701042212> active=DarkRed_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_fucoo):<StandardMaterial3D#-9223371985701042212>
+MESH_MATERIAL 4 assigned=Windows_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_s7hpy):<StandardMaterial3D#-9223371985684264995> active=Windows_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_s7hpy):<StandardMaterial3D#-9223371985684264995>
+MESH_MATERIAL 5 assigned=CarHandle_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_m2mhs):<StandardMaterial3D#-9223371985667487778> active=CarHandle_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_m2mhs):<StandardMaterial3D#-9223371985667487778>
+MESH_MATERIAL 6 assigned=Gray_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_2xc2u):<StandardMaterial3D#-9223371985650710561> active=Gray_ScoutCar (res://Asset/Low Poly Military Vehicles-glb/Truck.glb::StandardMaterial3D_2xc2u):<StandardMaterial3D#-9223371985650710561>
+MAP_REDESIGN_METRICS_RESULT failures=0

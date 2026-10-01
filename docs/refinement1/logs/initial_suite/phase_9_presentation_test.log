@@ -1,0 +1,42 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: main menu has free mouse and unpaused tree
+PASS: main menu guide opens through actual click
+PASS: Escape closes guide and returns button focus
+PASS: Play starts fresh Day1 with hidden debug markers
+Planted Lead Plant.
+Harvested Lead x2.
+PASS: input plants and harvests seed_lead
+Planted Paper Plant.
+Harvested Paper x3.
+PASS: input plants and harvests seed_paper
+Planted Copper Plant.
+Harvested Copper x2.
+PASS: input plants and harvests seed_copper
+Workbench opened
+PASS: Workbench UI crafts farmed ammo
+PASS: inventory owns input and pause
+PASS: pause freezes movement, clock and shooting
+PASS: pause guide opens without resuming
+PASS: Escape guide returns to pause
+PASS: night combat hits, kills and emits bounded audio cues
+PASS: cleared wave permits existing rest
+PASS: rest visibly fades with gameplay paused
+PASS: rest fade returns to morning with controls restored
+PASS: game-over buttons get free mouse
+PASS: game-over returns to main menu without stuck pause
+PASS: final-night warning is distinct
+PASS: final night has distinctive HUD and stronger ambience
+PASS: ending starts once and blocks gameplay/damage
+PASS: rescue camera and arriving helicopter visible after threat cleanup
+PASS: sequence reaches ending screen
+PASS: ending panel stays within 1920x1080
+PASS: ending screen returns to usable main menu
+PASS: new play after ending resets day, unlocks and damage gate
+PASS: death on final night cannot trigger rescue
+PASS: ending Play Again button restarts cleanly
+PASS: pause Restart releases pause and resets campaign
+PASS: pause Main Menu returns safely
+PHASE_9_PRESENTATION_RESULT failures=0

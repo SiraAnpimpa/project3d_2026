@@ -1,0 +1,10 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: saved rendered image: map_overview
+PASS: saved rendered image: map_base
+PASS: saved rendered image: map_combat
+PASS: saved rendered image: map_night
+REFINEMENT_MAP_CAPTURE_RESULT failures=0

@@ -1,0 +1,32 @@
+[
+  {
+    "alive": 0,
+    "draw_calls": 2372.0,
+    "frames": 600,
+    "max_ms": 19.298,
+    "mean_ms": 15.0095283333333,
+    "navigation_ms": 0.00675833333333322,
+    "nodes": 1229,
+    "p95_ms": 17.238,
+    "p99_ms": 18.183,
+    "physics_ms": 0.598464999999998,
+    "process_ms": 17.6048499999999,
+    "scenario": "day_full_farm_1080p",
+    "static_memory": 89755053.0
+  },
+  {
+    "alive": 12,
+    "draw_calls": 2496.0,
+    "frames": 600,
+    "max_ms": 21.691,
+    "mean_ms": 16.1514133333333,
+    "navigation_ms": 0.0070466666666666,
+    "nodes": 1793,
+    "p95_ms": 19.673,
+    "p99_ms": 20.697,
+    "physics_ms": 2.44605000000001,
+    "process_ms": 18.3583366666668,
+    "scenario": "night_12_alive_full_farm_1080p",
+    "static_memory": 97682461.0
+  }
+]

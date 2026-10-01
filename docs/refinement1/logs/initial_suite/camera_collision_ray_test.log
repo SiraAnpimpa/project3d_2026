@@ -1,0 +1,24 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: unobstructed boom reaches normal distance
+PASS: rear wall retracts the camera without clipping its collision volume
+PASS: stationary wall contact has less than 1mm camera variation
+PASS: clearing an obstruction eases boom outward
+PASS: boom fully restores after wall clearance
+PASS: side wall clamps the shoulder offset before sweeping backward
+PASS: orbiting along an inside corner clears both walls immediately and after physics
+PASS: upward look prevents camera boom passing through ground
+PASS: center ray hits correct target face at 3.0m
+PASS: aim target projects to exact crosshair center at 3.0m
+PASS: center ray hits correct target face at 9.0m
+PASS: aim target projects to exact crosshair center at 9.0m
+PASS: center ray hits correct target face at 25.0m
+PASS: aim target projects to exact crosshair center at 25.0m
+PASS: center ray hits correct target face at 80.0m
+PASS: aim target projects to exact crosshair center at 80.0m
+PASS: ray miss returns origin plus forward times max distance
+PASS: aim ray excludes player's own collider
+PASS: aim ray follows viewport center after resize
+CAMERA_COLLISION_RAY_RESULT jitter_m=0.0 failures=0

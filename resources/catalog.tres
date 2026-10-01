@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemCatalog" load_steps=33 format=3]
+[gd_resource type="Resource" script_class="ItemCatalog" load_steps=34 format=3]
 [ext_resource type="Script" path="res://scripts/data/item_catalog.gd" id="script"]
 [ext_resource type="Resource" path="res://resources/items/seed_lead.tres" id="seed_lead"]
 [ext_resource type="Resource" path="res://resources/items/lead.tres" id="lead"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" path="res://resources/items/basic_medicine.tres" id="basic_medicine"]
 [ext_resource type="Resource" path="res://resources/items/metal_component.tres" id="metal_component"]
 [ext_resource type="Resource" path="res://resources/items/basic_rifle.tres" id="basic_rifle"]
+[ext_resource type="Resource" path="res://resources/items/wooden_bat.tres" id="wooden_bat"]
 [ext_resource type="Resource" path="res://resources/items/seed_fire_pepper.tres" id="seed_fire_pepper"]
 [ext_resource type="Resource" path="res://resources/items/fire_essence.tres" id="fire_essence"]
 [ext_resource type="Resource" path="res://resources/items/fire_ammo.tres" id="fire_ammo"]
@@ -33,5 +34,5 @@
 [ext_resource type="Resource" path="res://resources/plants/poison_plant.tres" id="plant_poison_plant"]
 [resource]
 script = ExtResource("script")
-items = Array[Resource]([ExtResource("seed_lead"), ExtResource("lead"), ExtResource("seed_paper"), ExtResource("paper"), ExtResource("seed_iron"), ExtResource("iron"), ExtResource("seed_copper"), ExtResource("copper"), ExtResource("seed_small_herb"), ExtResource("small_herb"), ExtResource("basic_ammo"), ExtResource("basic_medicine"), ExtResource("metal_component"), ExtResource("basic_rifle"), ExtResource("seed_fire_pepper"), ExtResource("fire_essence"), ExtResource("fire_ammo"), ExtResource("seed_ice_plant"), ExtResource("ice_crystal"), ExtResource("ice_ammo"), ExtResource("seed_poison_plant"), ExtResource("poison_extract"), ExtResource("poison_ammo")])
+items = Array[Resource]([ExtResource("seed_lead"), ExtResource("lead"), ExtResource("seed_paper"), ExtResource("paper"), ExtResource("seed_iron"), ExtResource("iron"), ExtResource("seed_copper"), ExtResource("copper"), ExtResource("seed_small_herb"), ExtResource("small_herb"), ExtResource("basic_ammo"), ExtResource("basic_medicine"), ExtResource("metal_component"), ExtResource("basic_rifle"), ExtResource("seed_fire_pepper"), ExtResource("fire_essence"), ExtResource("fire_ammo"), ExtResource("seed_ice_plant"), ExtResource("ice_crystal"), ExtResource("ice_ammo"), ExtResource("seed_poison_plant"), ExtResource("poison_extract"), ExtResource("poison_ammo"), ExtResource("wooden_bat")])
 plants = Array[Resource]([ExtResource("plant_lead"), ExtResource("plant_paper"), ExtResource("plant_iron"), ExtResource("plant_copper"), ExtResource("plant_small_herb"), ExtResource("plant_fire_pepper"), ExtResource("plant_ice_plant"), ExtResource("plant_poison_plant")])

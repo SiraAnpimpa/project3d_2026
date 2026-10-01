@@ -47,6 +47,10 @@ func select_seed(id: StringName) -> void:
 	check(game.inventory.selected_seed_id == id, "wheel selects %s" % id)
 
 
+func wait_for_night() -> void:
+	while game.clock.is_daytime: await frames(30)
+
+
 func run() -> void:
 	root.size = Vector2i(1280, 720)
 	var start_ticks := Time.get_ticks_msec()
@@ -66,7 +70,7 @@ func run() -> void:
 		await walk(plot.position + Vector3(0, 0, 0.9))
 		key(KEY_E)
 		check(plot.state == FarmPlot.State.EMPTY, "E harvests naturally grown crop %d" % i)
-	await walk(Vector3(-2, 0, 0.1))
+	await walk(game.get_node("MainWorld/Workbench").position + Vector3(0, 0, 1.1))
 	key(KEY_E)
 	await frames(3)
 	check(game.crafting_ui.is_open, "E opens workbench after harvest")
@@ -91,8 +95,8 @@ func run() -> void:
 	key(KEY_R)
 	await frames(95)
 	check(game.weapons.current.current_magazine == 10 and game.weapons.reserve_ammo() == 30, "prepare rifle using only crafted ammunition")
-	while game.clock.is_daytime: await frames(30)
-	check(game.waves.state == NightWaveManager.State.ACTIVE and not game.debug_controls.active, "natural 18:00 starts production wave with debug disabled")
+	await wait_for_night()
+	check(game.waves.state == NightWaveManager.State.ACTIVE and not game.debug_controls.active, "18:00 starts production wave with debug disabled")
 	mouse(MOUSE_BUTTON_RIGHT, true)
 	await frames(12)
 	var combat_ticks := 0
@@ -130,7 +134,7 @@ func run() -> void:
 	# Second complete day: unprepared, receives damage and kites until natural dawn.
 	await new_game()
 	await walk(Vector3(14, 0, 14))
-	while game.clock.is_daytime: await frames(30)
+	await wait_for_night()
 	while player.health.current_hp == 100 and not player.health.is_dead: await frames(1)
 	var corners := [Vector3(16, 0, 16), Vector3(-16, 0, 16), Vector3(-16, 0, -16), Vector3(16, 0, -16)]
 	var corner := 0

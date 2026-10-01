@@ -1,0 +1,41 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: death closes UI and enters GameOver: day
+PASS: death releases mouse/cancels weapon: day
+PASS: dead player cannot trigger rescue: day
+PASS: R restart resets campaign: day
+PASS: death closes UI and enters GameOver: night
+PASS: death releases mouse/cancels weapon: night
+PASS: dead player cannot trigger rescue: night
+PASS: R restart resets campaign: night
+PASS: death closes UI and enters GameOver: aim
+PASS: death releases mouse/cancels weapon: aim
+PASS: dead player cannot trigger rescue: aim
+PASS: R restart resets campaign: aim
+PASS: death closes UI and enters GameOver: reload
+PASS: death releases mouse/cancels weapon: reload
+PASS: dead player cannot trigger rescue: reload
+PASS: R restart resets campaign: reload
+PASS: death closes UI and enters GameOver: inventory
+PASS: death releases mouse/cancels weapon: inventory
+PASS: dead player cannot trigger rescue: inventory
+PASS: R restart resets campaign: inventory
+PASS: death closes UI and enters GameOver: crafting
+PASS: death releases mouse/cancels weapon: crafting
+PASS: dead player cannot trigger rescue: crafting
+PASS: R restart resets campaign: crafting
+PASS: death closes UI and enters GameOver: pause
+PASS: death releases mouse/cancels weapon: pause
+PASS: dead player cannot trigger rescue: pause
+PASS: R restart resets campaign: pause
+PASS: death closes UI and enters GameOver: near_dawn
+PASS: death releases mouse/cancels weapon: near_dawn
+PASS: dead player cannot trigger rescue: near_dawn
+PASS: R restart resets campaign: near_dawn
+PASS: death closes UI and enters GameOver: night10
+PASS: death releases mouse/cancels weapon: night10
+PASS: dead player cannot trigger rescue: night10
+PASS: R restart resets campaign: night10
+PHASE_10_DEATH_MATRIX_RESULT failures=0

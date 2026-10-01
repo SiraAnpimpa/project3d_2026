@@ -2,7 +2,7 @@
 [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
 [ext_resource type="Resource" path="res://resources/items/seed_fire_pepper.tres" id="2"]
 [ext_resource type="Resource" path="res://resources/items/fire_essence.tres" id="3"]
-[ext_resource type="PackedScene" path="res://scenes/farming/NaturePlantVisual.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/farming/visuals/FirePepperPlantVisual.tscn" id="4"]
 [resource]
 script = ExtResource("1")
 plant_id = &"fire_pepper"
@@ -16,3 +16,4 @@ stage_thresholds = PackedFloat32Array(0, 0.25, 0.65, 1)
 stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
 visual_scene = ExtResource("4")
 produce_color = Color(1,0.25,0.08,1)
+show_produce_marker = false

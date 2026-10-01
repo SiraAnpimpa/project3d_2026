@@ -1,0 +1,1063 @@
+{
+  "unique_models": 69,
+  "placements": 709,
+  "broad_environment_candidates": 197,
+  "coverage_percent": 35.025380710659896,
+  "scope": "RuralEnvironment decoration; retained crop/actor/weapon/rescue-helicopter gameplay assets are separate. Broad denominator includes inspected fantasy/RPG candidates.",
+  "assets": [
+    {
+      "key": "Ambulance Car",
+      "path": "res://Asset/Low Poly Military Vehicles-glb/Ambulance Car.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Vehicles left at an evacuated rural supply depot",
+      "source_triangles": 2096,
+      "source_bounds_m": [
+        1.49235606193542,
+        2.13166284561157,
+        4.23673915863037
+      ]
+    },
+    {
+      "key": "Barrel",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Barrel.glb",
+      "zones": [
+        "Workshop",
+        "Farm"
+      ],
+      "instances": 2,
+      "purpose": "Farm water/material storage off circulation lanes",
+      "source_triangles": 882,
+      "source_bounds_m": [
+        0.704117774963379,
+        1.14490830898285,
+        0.704117894172668
+      ]
+    },
+    {
+      "key": "Bush",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Bush.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 4,
+      "purpose": "Understorey along canopy edges and vegetation reclaiming the depot",
+      "source_triangles": 900,
+      "source_bounds_m": [
+        1.91484475135803,
+        1.58178579807281,
+        1.96514105796814
+      ]
+    },
+    {
+      "key": "Bush with Flowers",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Bush with Flowers.glb",
+      "zones": [
+        "Forest edge",
+        "Abandoned"
+      ],
+      "instances": 121,
+      "purpose": "Understorey along canopy edges and vegetation reclaiming the depot",
+      "source_triangles": 1368,
+      "source_bounds_m": [
+        1.91484475135803,
+        1.58178579807281,
+        1.96514105796814
+      ]
+    },
+    {
+      "key": "Chest",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Chest.glb",
+      "zones": [
+        "Combat",
+        "Workshop",
+        "House",
+        "Road"
+      ],
+      "instances": 4,
+      "purpose": "Grouped materials/supplies and the retained combat cover body",
+      "source_triangles": 3190,
+      "source_bounds_m": [
+        0.639617085456848,
+        0.406169652938843,
+        0.482949763536453
+      ]
+    },
+    {
+      "key": "Chest-RfSBvgcZUD",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Chest-RfSBvgcZUD.glb",
+      "zones": [
+        "Combat",
+        "Workshop"
+      ],
+      "instances": 2,
+      "purpose": "Grouped materials/supplies and the retained combat cover body",
+      "source_triangles": 3422,
+      "source_bounds_m": [
+        0.852392971515656,
+        0.406169652938843,
+        0.482949733734131
+      ]
+    },
+    {
+      "key": "Cinder Block",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Cinder Block.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Grouped damage, evacuation debris and disused depot utility",
+      "source_triangles": 368,
+      "source_bounds_m": [
+        0.471553713083267,
+        0.227379530668259,
+        0.214526534080505
+      ]
+    },
+    {
+      "key": "Clover",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Clover.glb",
+      "zones": [
+        "Transition"
+      ],
+      "instances": 22,
+      "purpose": "Sparse ground transitions; keep plot, aim and path lanes open",
+      "source_triangles": 379,
+      "source_bounds_m": [
+        0.796289324760437,
+        1.14473259449005,
+        0.763885915279388
+      ]
+    },
+    {
+      "key": "Container Green",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Container Green.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Abandoned depot mass, supply history and screened eastern approach",
+      "source_triangles": 1336,
+      "source_bounds_m": [
+        5.70853185653687,
+        2.60346126556396,
+        2.56060552597046
+      ]
+    },
+    {
+      "key": "Container Red",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Container Red.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Abandoned depot mass, supply history and screened eastern approach",
+      "source_triangles": 1032,
+      "source_bounds_m": [
+        5.70799255371094,
+        2.60346102714539,
+        2.55940628051758
+      ]
+    },
+    {
+      "key": "Damaged Couch",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Damaged Couch.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Grouped damage, evacuation debris and disused depot utility",
+      "source_triangles": 3078,
+      "source_bounds_m": [
+        3.01317715644836,
+        1.2440493106842,
+        1.21358931064606
+      ]
+    },
+    {
+      "key": "Dead Tree",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Dead Tree.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 1,
+      "purpose": "Western woodland/camp silhouette and outbreak neglect",
+      "source_triangles": 5802,
+      "source_bounds_m": [
+        6.3875732421875,
+        13.2803859710693,
+        6.43006134033203
+      ]
+    },
+    {
+      "key": "Dead Tree-Mcd2zYqyww",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Dead Tree-Mcd2zYqyww.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 1,
+      "purpose": "Western woodland/camp silhouette and outbreak neglect",
+      "source_triangles": 6557,
+      "source_bounds_m": [
+        6.72961807250977,
+        11.4882316589355,
+        6.37853813171387
+      ]
+    },
+    {
+      "key": "Fern",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Fern.glb",
+      "zones": [
+        "Forest edge"
+      ],
+      "instances": 117,
+      "purpose": "Understorey along canopy edges and vegetation reclaiming the depot",
+      "source_triangles": 288,
+      "source_bounds_m": [
+        9.04618835449219,
+        2.68877983093262,
+        8.48742485046387
+      ]
+    },
+    {
+      "key": "Fire Hydrant",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Fire Hydrant.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Grouped damage, evacuation debris and disused depot utility",
+      "source_triangles": 976,
+      "source_bounds_m": [
+        0.515098869800568,
+        0.772359490394592,
+        0.399162769317627
+      ]
+    },
+    {
+      "key": "Flower Group",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Group.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 4,
+      "purpose": "Small forest clearing detail",
+      "source_triangles": 755,
+      "source_bounds_m": [
+        1.48847651481628,
+        2.05483555793762,
+        1.59112739562988
+      ]
+    },
+    {
+      "key": "Grass",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Grass.glb",
+      "zones": [
+        "Transition"
+      ],
+      "instances": 28,
+      "purpose": "Sparse ground transitions; keep plot, aim and path lanes open",
+      "source_triangles": 155,
+      "source_bounds_m": [
+        0.638870477676392,
+        1.33410358428955,
+        0.737265706062317
+      ]
+    },
+    {
+      "key": "Grass Wispy",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Grass Wispy.glb",
+      "zones": [
+        "Transition"
+      ],
+      "instances": 28,
+      "purpose": "Sparse ground transitions; keep plot, aim and path lanes open",
+      "source_triangles": 622,
+      "source_bounds_m": [
+        1.54007267951965,
+        1.67180263996124,
+        1.59371614456177
+      ]
+    },
+    {
+      "key": "Jeep",
+      "path": "res://Asset/Low Poly Military Vehicles-glb/Jeep.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Vehicles left at an evacuated rural supply depot",
+      "source_triangles": 1942,
+      "source_bounds_m": [
+        2.03946685791016,
+        2.32993578910828,
+        4.55639553070068
+      ]
+    },
+    {
+      "key": "Mushroom",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Mushroom.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 4,
+      "purpose": "Small forest clearing detail",
+      "source_triangles": 880,
+      "source_bounds_m": [
+        0.56370085477829,
+        0.463480830192566,
+        0.779112756252289
+      ]
+    },
+    {
+      "key": "Pallet",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Pallet.glb",
+      "zones": [
+        "Workshop"
+      ],
+      "instances": 1,
+      "purpose": "Workshop materials and discarded depot stock",
+      "source_triangles": 240,
+      "source_bounds_m": [
+        0.892534852027893,
+        0.140047356486321,
+        1.21696352958679
+      ]
+    },
+    {
+      "key": "Pallet Broken",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Pallet Broken.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Workshop materials and discarded depot stock",
+      "source_triangles": 216,
+      "source_bounds_m": [
+        0.917297601699829,
+        0.163934350013733,
+        1.22211360931396
+      ]
+    },
+    {
+      "key": "Pebble Round",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Round.glb",
+      "zones": [
+        "Road"
+      ],
+      "instances": 4,
+      "purpose": "Small roadside stone clusters",
+      "source_triangles": 128,
+      "source_bounds_m": [
+        0.449691295623779,
+        0.0986224636435509,
+        0.484810322523117
+      ]
+    },
+    {
+      "key": "Pebble Square",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square.glb",
+      "zones": [
+        "Road"
+      ],
+      "instances": 4,
+      "purpose": "Small roadside stone clusters",
+      "source_triangles": 48,
+      "source_bounds_m": [
+        0.339943408966064,
+        0.168291166424751,
+        0.290825605392456
+      ]
+    },
+    {
+      "key": "Pine",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pine.glb",
+      "zones": [
+        "Forest edge",
+        "Background"
+      ],
+      "instances": 70,
+      "purpose": "Authored forest clusters, approach gaps and layered background canopy",
+      "source_triangles": 1646,
+      "source_bounds_m": [
+        6.42014026641846,
+        8.72380924224854,
+        6.2220025062561
+      ]
+    },
+    {
+      "key": "Pine-699sFuLCN2",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pine-699sFuLCN2.glb",
+      "zones": [
+        "Forest edge",
+        "Background"
+      ],
+      "instances": 67,
+      "purpose": "Authored forest clusters, approach gaps and layered background canopy",
+      "source_triangles": 4964,
+      "source_bounds_m": [
+        3.61139464378357,
+        7.39219951629639,
+        3.99580478668213
+      ]
+    },
+    {
+      "key": "Pine-79gmlLnweB",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Pine-79gmlLnweB.glb",
+      "zones": [
+        "Forest edge",
+        "Background"
+      ],
+      "instances": 63,
+      "purpose": "Authored forest clusters, approach gaps and layered background canopy",
+      "source_triangles": 3370,
+      "source_bounds_m": [
+        5.80202436447144,
+        10.2364330291748,
+        5.37084674835205
+      ]
+    },
+    {
+      "key": "Pipes",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Pipes.glb",
+      "zones": [
+        "Abandoned",
+        "Drainage"
+      ],
+      "instances": 2,
+      "purpose": "Depot utility debris and dry drainage culvert hint",
+      "source_triangles": 1496,
+      "source_bounds_m": [
+        0.748185753822327,
+        0.671347320079803,
+        3.35533952713013
+      ]
+    },
+    {
+      "key": "RPG_Bag",
+      "path": "res://Asset/Ultimate RPG Items Bundle-glb/Bag.glb",
+      "zones": [
+        "Workshop"
+      ],
+      "instances": 1,
+      "purpose": "Bag/lock detail for workshop storage",
+      "source_triangles": 1232,
+      "source_bounds_m": [
+        0.80171400308609,
+        0.627382457256317,
+        0.486668467521667
+      ]
+    },
+    {
+      "key": "RPG_Book",
+      "path": "res://Asset/Ultimate RPG Items Bundle-glb/Book.glb",
+      "zones": [
+        "House"
+      ],
+      "instances": 1,
+      "purpose": "Domestic/survival supplies in and around the shelter",
+      "source_triangles": 668,
+      "source_bounds_m": [
+        0.207405999302864,
+        0.806768417358398,
+        0.602804183959961
+      ]
+    },
+    {
+      "key": "RPG_Padlock",
+      "path": "res://Asset/Ultimate RPG Items Bundle-glb/Padlock.glb",
+      "zones": [
+        "Workshop"
+      ],
+      "instances": 1,
+      "purpose": "Bag/lock detail for workshop storage",
+      "source_triangles": 584,
+      "source_bounds_m": [
+        0.615318775177002,
+        0.968571960926056,
+        0.311717450618744
+      ]
+    },
+    {
+      "key": "RPG_Scythe",
+      "path": "res://Asset/Ultimate RPG Items Bundle-glb/Scythe.glb",
+      "zones": [
+        "Workshop"
+      ],
+      "instances": 1,
+      "purpose": "Farm/workshop tools, displayed beside their working area",
+      "source_triangles": 1310,
+      "source_bounds_m": [
+        3.02873253822327,
+        5.58186340332031,
+        0.277060806751251
+      ]
+    },
+    {
+      "key": "Rock Medium",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Medium.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 1,
+      "purpose": "Ridge/bank mass, natural boundary and approach screening",
+      "source_triangles": 244,
+      "source_bounds_m": [
+        3.04876041412354,
+        1.89897537231445,
+        2.47907209396362
+      ]
+    },
+    {
+      "key": "Rock Medium-JQxF95498B",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Medium-JQxF95498B.glb",
+      "zones": [
+        "Ridge"
+      ],
+      "instances": 3,
+      "purpose": "Ridge/bank mass, natural boundary and approach screening",
+      "source_triangles": 522,
+      "source_bounds_m": [
+        3.42008447647095,
+        2.31628322601318,
+        3.47611045837402
+      ]
+    },
+    {
+      "key": "Rock Medium-s1OJ3bBzqc",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Medium-s1OJ3bBzqc.glb",
+      "zones": [
+        "Boundary"
+      ],
+      "instances": 5,
+      "purpose": "Ridge/bank mass, natural boundary and approach screening",
+      "source_triangles": 342,
+      "source_bounds_m": [
+        3.22514843940735,
+        2.25979709625244,
+        2.98913669586182
+      ]
+    },
+    {
+      "key": "Rock Path Round Wide",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Round Wide.glb",
+      "zones": [
+        "Drainage"
+      ],
+      "instances": 2,
+      "purpose": "Two irregular dry-drainage bank stone groups",
+      "source_triangles": 3500,
+      "source_bounds_m": [
+        2.11061429977417,
+        0.112832173705101,
+        2.12903642654419
+      ]
+    },
+    {
+      "key": "Rock Path Square Thin",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Rock Path Square Thin.glb",
+      "zones": [
+        "Drainage"
+      ],
+      "instances": 2,
+      "purpose": "Two irregular dry-drainage bank stone groups",
+      "source_triangles": 1793,
+      "source_bounds_m": [
+        1.55988049507141,
+        0.176348239183426,
+        1.98693680763245
+      ]
+    },
+    {
+      "key": "Street Light",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Street Light.glb",
+      "zones": [
+        "Road"
+      ],
+      "instances": 1,
+      "purpose": "Existing roadside utility silhouette; no added real light",
+      "source_triangles": 426,
+      "source_bounds_m": [
+        0.364288568496704,
+        6.64279842376709,
+        2.92528605461121
+      ]
+    },
+    {
+      "key": "Street Straight Crack",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Street Straight Crack.glb",
+      "zones": [
+        "Road"
+      ],
+      "instances": 1,
+      "purpose": "One damaged paved gate threshold; dirt road remains dominant",
+      "source_triangles": 576,
+      "source_bounds_m": [
+        8.0,
+        0.285168528556824,
+        8.0
+      ]
+    },
+    {
+      "key": "Survival_Axe",
+      "path": "res://Asset/Survival Pack-glb/Axe.glb",
+      "zones": [
+        "Workshop"
+      ],
+      "instances": 1,
+      "purpose": "Farm/workshop tools, displayed beside their working area",
+      "source_triangles": 236,
+      "source_bounds_m": [
+        1.26217651367188,
+        3.25604796409607,
+        0.190221548080444
+      ]
+    },
+    {
+      "key": "Survival_Backpack",
+      "path": "res://Asset/Survival Pack-glb/Backpack.glb",
+      "zones": [
+        "House"
+      ],
+      "instances": 1,
+      "purpose": "Domestic/survival supplies in and around the shelter",
+      "source_triangles": 1748,
+      "source_bounds_m": [
+        3.34286618232727,
+        3.11931657791138,
+        1.74567186832428
+      ]
+    },
+    {
+      "key": "Survival_Bonfire",
+      "path": "res://Asset/Survival Pack-glb/Bonfire.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 1,
+      "purpose": "Abandoned forester camp in a woodland clearing",
+      "source_triangles": 704,
+      "source_bounds_m": [
+        2.1755895614624,
+        2.31127238273621,
+        1.98410940170288
+      ]
+    },
+    {
+      "key": "Survival_Can",
+      "path": "res://Asset/Survival Pack-glb/Can.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 1,
+      "purpose": "Abandoned forester camp in a woodland clearing",
+      "source_triangles": 428,
+      "source_bounds_m": [
+        0.473346143960953,
+        0.637495815753937,
+        0.473346173763275
+      ]
+    },
+    {
+      "key": "Survival_Can Broken",
+      "path": "res://Asset/Survival Pack-glb/Can Broken.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 1,
+      "purpose": "Abandoned forester camp in a woodland clearing",
+      "source_triangles": 428,
+      "source_bounds_m": [
+        0.473346143960953,
+        0.637495815753937,
+        0.473346173763275
+      ]
+    },
+    {
+      "key": "Survival_First Aid Kit",
+      "path": "res://Asset/Survival Pack-glb/First Aid Kit.glb",
+      "zones": [
+        "House"
+      ],
+      "instances": 1,
+      "purpose": "Domestic/survival supplies in and around the shelter",
+      "source_triangles": 268,
+      "source_bounds_m": [
+        1.88372004032135,
+        1.2770756483078,
+        0.676999151706696
+      ]
+    },
+    {
+      "key": "Survival_Gas Can",
+      "path": "res://Asset/Survival Pack-glb/Gas Can.glb",
+      "zones": [
+        "Workshop",
+        "Road"
+      ],
+      "instances": 2,
+      "purpose": "Grouped workshop/road fuel supplies",
+      "source_triangles": 788,
+      "source_bounds_m": [
+        1.87746739387512,
+        2.47294306755066,
+        0.615340828895569
+      ]
+    },
+    {
+      "key": "Survival_Pan",
+      "path": "res://Asset/Survival Pack-glb/Pan.glb",
+      "zones": [
+        "House"
+      ],
+      "instances": 1,
+      "purpose": "Domestic/survival supplies in and around the shelter",
+      "source_triangles": 246,
+      "source_bounds_m": [
+        1.72298038005829,
+        0.342025309801102,
+        2.82462930679321
+      ]
+    },
+    {
+      "key": "Survival_Pot",
+      "path": "res://Asset/Survival Pack-glb/Pot.glb",
+      "zones": [
+        "House"
+      ],
+      "instances": 1,
+      "purpose": "Domestic/survival supplies in and around the shelter",
+      "source_triangles": 326,
+      "source_bounds_m": [
+        1.72298038005829,
+        1.04019868373871,
+        2.03065586090088
+      ]
+    },
+    {
+      "key": "Survival_Propane Tank",
+      "path": "res://Asset/Survival Pack-glb/Propane Tank.glb",
+      "zones": [
+        "Workshop"
+      ],
+      "instances": 1,
+      "purpose": "Grouped workshop/road fuel supplies",
+      "source_triangles": 516,
+      "source_bounds_m": [
+        2.15518164634705,
+        2.8909707069397,
+        2.04970026016235
+      ]
+    },
+    {
+      "key": "Survival_Radio",
+      "path": "res://Asset/Survival Pack-glb/Radio.glb",
+      "zones": [
+        "House"
+      ],
+      "instances": 1,
+      "purpose": "Domestic/survival supplies in and around the shelter",
+      "source_triangles": 481,
+      "source_bounds_m": [
+        1.68563771247864,
+        2.10224676132202,
+        0.570119857788086
+      ]
+    },
+    {
+      "key": "Survival_Shovel",
+      "path": "res://Asset/Survival Pack-glb/Shovel.glb",
+      "zones": [
+        "Workshop",
+        "Farm"
+      ],
+      "instances": 2,
+      "purpose": "Farm/workshop tools, displayed beside their working area",
+      "source_triangles": 322,
+      "source_bounds_m": [
+        0.80464506149292,
+        3.87365412712097,
+        0.183741316199303
+      ]
+    },
+    {
+      "key": "Survival_Tent",
+      "path": "res://Asset/Survival Pack-glb/Tent.glb",
+      "zones": [
+        "Forest"
+      ],
+      "instances": 1,
+      "purpose": "Abandoned forester camp in a woodland clearing",
+      "source_triangles": 784,
+      "source_bounds_m": [
+        14.5804901123047,
+        10.3244438171387,
+        24.8681945800781
+      ]
+    },
+    {
+      "key": "Survival_Water Bottle",
+      "path": "res://Asset/Survival Pack-glb/Water Bottle.glb",
+      "zones": [
+        "House"
+      ],
+      "instances": 1,
+      "purpose": "Domestic/survival supplies in and around the shelter",
+      "source_triangles": 288,
+      "source_bounds_m": [
+        0.499460250139236,
+        1.43503201007843,
+        0.499460399150848
+      ]
+    },
+    {
+      "key": "Survival_Wood Log",
+      "path": "res://Asset/Survival Pack-glb/Wood Log.glb",
+      "zones": [
+        "Farm",
+        "Forest"
+      ],
+      "instances": 6,
+      "purpose": "Farm wood pile and abandoned forester camp",
+      "source_triangles": 202,
+      "source_bounds_m": [
+        4.64086008071899,
+        1.0935115814209,
+        4.56967258453369
+      ]
+    },
+    {
+      "key": "Tall Grass",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tall Grass.glb",
+      "zones": [
+        "Transition"
+      ],
+      "instances": 22,
+      "purpose": "Sparse ground transitions; keep plot, aim and path lanes open",
+      "source_triangles": 326,
+      "source_bounds_m": [
+        0.895089268684387,
+        1.87269532680511,
+        0.993112146854401
+      ]
+    },
+    {
+      "key": "Town Sign",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Town Sign.glb",
+      "zones": [
+        "Road"
+      ],
+      "instances": 1,
+      "purpose": "Road gate silhouette and direction toward the wider world",
+      "source_triangles": 1397,
+      "source_bounds_m": [
+        5.98476934432983,
+        5.35167932510376,
+        1.7352020740509
+      ]
+    },
+    {
+      "key": "Traffic Barrier",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Traffic Barrier.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Broken depot/road access restriction and directional framing",
+      "source_triangles": 364,
+      "source_bounds_m": [
+        1.5553297996521,
+        0.802322864532471,
+        0.780104041099548
+      ]
+    },
+    {
+      "key": "Traffic Barrier-nugx3heueH",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Traffic Barrier-nugx3heueH.glb",
+      "zones": [
+        "Road"
+      ],
+      "instances": 1,
+      "purpose": "Broken depot/road access restriction and directional framing",
+      "source_triangles": 732,
+      "source_bounds_m": [
+        1.5553297996521,
+        1.11198353767395,
+        0.88062196969986
+      ]
+    },
+    {
+      "key": "Traffic Cone",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Traffic Cone.glb",
+      "zones": [
+        "Road"
+      ],
+      "instances": 1,
+      "purpose": "Old roadside interruption near the supply truck",
+      "source_triangles": 134,
+      "source_bounds_m": [
+        0.521626710891724,
+        0.67327606678009,
+        0.521626710891724
+      ]
+    },
+    {
+      "key": "Trash Bag",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Trash Bag.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Grouped damage, evacuation debris and disused depot utility",
+      "source_triangles": 1044,
+      "source_bounds_m": [
+        0.496876835823059,
+        0.563711583614349,
+        0.503335475921631
+      ]
+    },
+    {
+      "key": "Trash Bags",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Trash Bags.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Grouped damage, evacuation debris and disused depot utility",
+      "source_triangles": 2088,
+      "source_bounds_m": [
+        0.906091213226318,
+        0.530014455318451,
+        0.524317264556885
+      ]
+    },
+    {
+      "key": "Tree",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree.glb",
+      "zones": [
+        "Forest edge",
+        "Background"
+      ],
+      "instances": 21,
+      "purpose": "Authored forest clusters, approach gaps and layered background canopy",
+      "source_triangles": 4066,
+      "source_bounds_m": [
+        3.82552576065063,
+        9.43838119506836,
+        3.75537490844727
+      ]
+    },
+    {
+      "key": "Tree-QVOop92WmG",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree-QVOop92WmG.glb",
+      "zones": [
+        "Forest edge",
+        "Background"
+      ],
+      "instances": 19,
+      "purpose": "Authored forest clusters, approach gaps and layered background canopy",
+      "source_triangles": 3505,
+      "source_bounds_m": [
+        4.06284618377686,
+        9.42518997192383,
+        4.24107837677002
+      ]
+    },
+    {
+      "key": "Tree-aVOxaHRPWe",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree-aVOxaHRPWe.glb",
+      "zones": [
+        "Forest edge",
+        "Background"
+      ],
+      "instances": 20,
+      "purpose": "Authored forest clusters, approach gaps and layered background canopy",
+      "source_triangles": 5648,
+      "source_bounds_m": [
+        4.46430158615112,
+        7.6429967880249,
+        4.27585363388062
+      ]
+    },
+    {
+      "key": "Tree-qZtx0AHhcy",
+      "path": "res://Asset/Stylized Nature MegaKit.undefined-glb/Tree-qZtx0AHhcy.glb",
+      "zones": [
+        "Forest",
+        "Forest edge",
+        "Background"
+      ],
+      "instances": 19,
+      "purpose": "Authored forest clusters, approach gaps and layered background canopy",
+      "source_triangles": 6265,
+      "source_bounds_m": [
+        4.31142282485962,
+        7.26478576660156,
+        4.57771492004395
+      ]
+    },
+    {
+      "key": "Truck",
+      "path": "res://Asset/Low Poly Military Vehicles-glb/Truck.glb",
+      "zones": [
+        "Road"
+      ],
+      "instances": 1,
+      "purpose": "Stopped supply truck on rescue road; southern approach screen",
+      "source_triangles": 1820,
+      "source_bounds_m": [
+        1.93579578399658,
+        2.22763395309448,
+        4.43057727813721
+      ]
+    },
+    {
+      "key": "Water Tower",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Water Tower.glb",
+      "zones": [
+        "House"
+      ],
+      "instances": 1,
+      "purpose": "12.5 m farm skyline landmark and utility history",
+      "source_triangles": 1158,
+      "source_bounds_m": [
+        2.64570331573486,
+        9.37979602813721,
+        2.70848202705383
+      ]
+    },
+    {
+      "key": "Wheel",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Wheel.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Grouped damage, evacuation debris and disused depot utility",
+      "source_triangles": 608,
+      "source_bounds_m": [
+        0.572982549667358,
+        0.204142808914185,
+        0.572982549667358
+      ]
+    },
+    {
+      "key": "Wheels Stack",
+      "path": "res://Asset/Post Apocolypse Pack.undefined-glb/Wheels Stack.glb",
+      "zones": [
+        "Abandoned"
+      ],
+      "instances": 1,
+      "purpose": "Grouped damage, evacuation debris and disused depot utility",
+      "source_triangles": 1824,
+      "source_bounds_m": [
+        0.657568514347076,
+        0.611376821994781,
+        0.571869254112244
+      ]
+    }
+  ],
+  "full_source_triangle_estimate": 1379387
+}

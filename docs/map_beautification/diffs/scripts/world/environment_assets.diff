@@ -1,0 +1,10 @@
+--- before/scripts/world/environment_assets.gd
++++ after/scripts/world/environment_assets.gd
+@@ -2,6 +2,7 @@
+ extends RefCounted
+ 
+ const SCENES := {
++	"Cabin": preload("res://Asset/Cabin.glb"),
+ 	"Barrel": preload("res://Asset/Post Apocolypse Pack.undefined-glb/Barrel.glb"),
+ 	"Chest": preload("res://Asset/Post Apocolypse Pack.undefined-glb/Chest.glb"),
+ 	"Chest-RfSBvgcZUD": preload("res://Asset/Post Apocolypse Pack.undefined-glb/Chest-RfSBvgcZUD.glb"),

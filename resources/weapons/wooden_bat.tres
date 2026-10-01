@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="script"]
+[ext_resource type="Resource" path="res://resources/items/wooden_bat.tres" id="item"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/WoodenBat.tscn" id="visual"]
+
+[resource]
+script = ExtResource("script")
+weapon_id = &"wooden_bat"
+display_name = "Wooden Bat"
+description = "Short two-handed swing using the existing barbed wooden bat model."
+weapon_type = 4
+weapon_item = ExtResource("item")
+damage = 10.0
+fire_rate = 1.17647058823529
+magazine_size = 0
+reload_time = 0.0
+range_meters = 1.6
+automatic = false
+weapon_scene = ExtResource("visual")
+muzzle_path = NodePath("")
+ready_hold_offset = Vector3(-0.16, 0, 0.3)
+aim_hold_offset = Vector3(-0.16, 0, 0.3)
+ready_pitch_degrees = -50.0
+melee_hit_delay = 0.18
+melee_swing_duration = 0.48
+melee_radius = 0.65
+melee_arc_degrees = 55.0
+melee_animation = &"CharacterArmature|Slash"

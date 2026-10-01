@@ -1,0 +1,21 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: saved rendered image: pose_farming
+PASS: saved rendered image: pose_ready
+PASS: saved rendered image: pose_aim
+PASS: saved rendered image: pose_aim_up
+PASS: saved rendered image: pose_aim_down
+POSE_BONE Head (0.00037, 0.948518, 0.074093)
+POSE_BONE Torso (0.00037, 0.722237, 0.178542)
+POSE_BONE UpperArm.R (0.20821, 0.81741, 0.135457)
+POSE_BONE LowerArm.R (0.383641, 0.635288, 0.174906)
+POSE_BONE Middle1.R (0.580097, 0.343631, 0.119174)
+POSE_BONE UpperArm.L (-0.20821, 0.81741, 0.135457)
+POSE_BONE LowerArm.L (-0.25108, 0.813638, -0.116831)
+POSE_BONE Middle1.L (-0.261931, 0.807791, -0.472657)
+POSE_BONE Foot.R (0.147469, 0.023851, 0.162488)
+POSE_BONE Foot.L (-0.171543, 0.023851, 0.162488)
+REFINEMENT_POSE_CAPTURE_RESULT failures=0

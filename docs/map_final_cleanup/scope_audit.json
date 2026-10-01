@@ -1,0 +1,90 @@
+{
+  "baseline": "current dirty source before cleanup, not HEAD or older phase",
+  "snapshot_files": 927,
+  "protected_core_files": 197,
+  "source_glbs": 244,
+  "preexisting_assets_files": 571,
+  "supplied_audio_files": 24,
+  "supplied_audio_source_files": 12,
+  "production_modified": [
+    "resources/navigation/prototype_navigation.tres",
+    "scenes/interactables/Workbench.tscn",
+    "scripts/world/environment_assets.gd",
+    "scripts/world/rural_environment.gd",
+    "scripts/world/rural_terrain.gd",
+    "scripts/world/world_presentation.gd"
+  ],
+  "documentation_modified": [
+    "ASSET_ANALYSIS.md",
+    "ASSET_GAMEPLAY_MAPPING.md",
+    "ENVIRONMENT_ASSET_INVENTORY.md",
+    "KNOWN_ISSUES.md",
+    "MAP_ASSET_USAGE.md",
+    "PROGRESS.md",
+    "PROJECT_ARCHITECTURE.md",
+    "README.md",
+    "tests/README.md"
+  ],
+  "unexpected_modified": [],
+  "new_test_files": [
+    "tests/cleanup_acceptance.gd",
+    "tests/cleanup_acceptance.gd.uid",
+    "tests/cleanup_finish_views.gd",
+    "tests/cleanup_finish_views.gd.uid",
+    "tests/cleanup_full_day.gd",
+    "tests/cleanup_full_day.gd.uid",
+    "tests/cleanup_geometry.gd",
+    "tests/cleanup_geometry.gd.uid",
+    "tests/cleanup_metrics.gd",
+    "tests/cleanup_metrics.gd.uid",
+    "tests/cleanup_night.gd",
+    "tests/cleanup_night.gd.uid",
+    "tests/cleanup_rescue_capture.gd",
+    "tests/cleanup_rescue_capture.gd.uid",
+    "tests/cleanup_routes.gd",
+    "tests/cleanup_routes.gd.uid",
+    "tests/cleanup_survey.gd",
+    "tests/cleanup_survey.gd.uid",
+    "tests/run_cleanup_tests.ps1"
+  ],
+  "unexpected_new": [],
+  "checks": {
+    "snapshot_unchanged_outside_authorized_files": true,
+    "only_six_existing_production_files_changed": true,
+    "core_files_byte_identical": true,
+    "all_source_glbs_byte_identical": true,
+    "all_preexisting_assets_byte_identical": true,
+    "all_supplied_game_sounds_byte_identical": true,
+    "config_and_bake_tool_byte_identical": true,
+    "terrain_heights_trails_mesh_and_collision_unchanged": true,
+    "vegetation_generation_unchanged": true,
+    "workbench_physics_interaction_and_label_unchanged": true,
+    "new_files_only_focused_tests": true
+  },
+  "terrain_function_checks": {
+    "_ready": true,
+    "mound": true,
+    "height_at": true,
+    "ground_point": true,
+    "trail_distance": true,
+    "build_patch": true,
+    "constants_and_trails": true
+  },
+  "vegetation_function_checks": {
+    "build_vegetation": true,
+    "grass_patch": true,
+    "grass_allowed": true,
+    "rock_cluster": true
+  },
+  "workbench_section_checks": {
+    "[ext_resource type=\"Script\" path=\"res://scripts/crafting/workbench.gd\" id=\"1\"]": true,
+    "[sub_resource type=\"BoxShape3D\" id=\"Shape\"]": true,
+    "[sub_resource type=\"BoxMesh\" id=\"Top\"]": true,
+    "[node name=\"Workbench\" type=\"StaticBody3D\"]": true,
+    "[node name=\"Collider\" type=\"CollisionShape3D\" parent=\".\"]": true,
+    "[node name=\"Top\" type=\"MeshInstance3D\" parent=\".\"]": true,
+    "[node name=\"Label\" type=\"Label3D\" parent=\".\"]": true,
+    "same_physics_node_count": true
+  },
+  "failures": 0
+}

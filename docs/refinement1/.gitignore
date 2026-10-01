@@ -1,0 +1,2 @@
+# Preserve the reviewed QA evidence despite the project's global *.log ignore.
+!*.log

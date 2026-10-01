@@ -1,0 +1,40 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+POSE_AIM pitch=-60 dot=0.99976336956024 errors=0.00000095553514/0.00000050926229
+PASS: vertical aim leaves physics capsule upright
+PASS: bounded vertical pose keeps hands on grips
+PASS: visible barrel follows crosshair direction within constrained range
+POSE_AIM pitch=-30 dot=0.99999988079071 errors=0.00000049151248/0.00000135001562
+PASS: vertical aim leaves physics capsule upright
+PASS: bounded vertical pose keeps hands on grips
+PASS: visible barrel follows crosshair direction within constrained range
+POSE_AIM pitch=0 dot=1.0 errors=0.00000143051147/0.00000011920929
+PASS: vertical aim leaves physics capsule upright
+PASS: bounded vertical pose keeps hands on grips
+PASS: visible barrel follows crosshair direction within constrained range
+POSE_AIM pitch=30 dot=1.0 errors=0.00000134869913/0.00000017881393
+PASS: vertical aim leaves physics capsule upright
+PASS: bounded vertical pose keeps hands on grips
+PASS: visible barrel follows crosshair direction within constrained range
+POSE_AIM pitch=44 dot=0.99999940395355 errors=0.00000116800777/0.00000097029329
+PASS: vertical aim leaves physics capsule upright
+PASS: bounded vertical pose keeps hands on grips
+PASS: visible barrel follows crosshair direction within constrained range
+PASS: upper body faces target during move_left
+PASS: lower-body pose matches move_left
+PASS: moving aim keeps both grips
+PASS: upper body faces target during move_right
+PASS: lower-body pose matches move_right
+PASS: moving aim keeps both grips
+PASS: upper body faces target during move_backward
+PASS: lower-body pose matches move_backward
+PASS: moving aim keeps both grips
+PASS: reload starts with existing production timer
+PASS: procedural magazine hand dip follows reload midpoint without early ammo
+PASS: reload pose and ammo finish together at1.5s
+PASS: shot applies immediately and starts presentation recoil
+PASS: visual recoil recovers before next5Hz shot
+PASS: close target has a bounded forward weapon pose
+REFINEMENT_AIM_RESULT failures=0

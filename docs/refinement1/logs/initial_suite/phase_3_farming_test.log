@@ -1,0 +1,30 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: 12 reusable farm plot instances exist
+PASS: empty plot guides seed selection
+PASS: no selection cannot consume seed
+PASS: selected seed appears in empty prompt
+PASS: planting consumes exactly one seed
+PASS: synchronous inventory callbacks cannot reenter planting transaction
+PASS: plant scene and planted timestamp initialize at seed stage
+PASS: interaction spam cannot plant twice
+PASS: sprout at 25 percent
+PASS: growth stage and visual advance together
+PASS: paused clock freezes crop growth
+PASS: time scale advances crop to ready
+PASS: ready crop displays yield prompt
+PASS: full inventory preserves ready crop and all produce
+PASS: partial stack space cannot partially harvest
+PASS: successful harvest adds exact yield and empties plot
+PASS: harvest transaction rejects reentrant harvest
+PASS: harvest spam cannot duplicate produce
+PASS: zero seeds cannot plant
+PASS: invalid seed mapping fails without consumption
+PASS: debug rewind never reverses growth stages
+PASS: all five plant types grow across dusk and harvest their own data-defined yields
+PASS: harvested plot can be replanted
+PASS: crop persists and grows while player is far away
+PASS: dead player cannot harvest
+PHASE_3_FARMING_RESULT failures=0

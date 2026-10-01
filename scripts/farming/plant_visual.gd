@@ -35,4 +35,4 @@ func set_stage(value: int) -> void:
 	model_root.scale = Vector3.ONE * data.stage_scales[stage]
 	model_root.visible = stage > 0
 	seed_marker.visible = stage == 0
-	produce.visible = stage == data.growth_stages.size() - 1
+	produce.visible = data.show_produce_marker and stage == data.growth_stages.size() - 1

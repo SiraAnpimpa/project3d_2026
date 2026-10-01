@@ -1,0 +1,44 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: 06:00 starts in DAY with no wave
+PASS: daytime rest is rejected
+PASS: disabled debug cannot skip to night
+PASS: clock crosses 18:00 and automatically begins one wave
+PASS: night does not force Combat mode
+PASS: duplicate night event does not duplicate spawns; count includes pending
+PASS: active wave blocks rest
+PASS: wave spawn respects minimum distance and pursues beyond local detection
+PASS: zero alive cannot clear while five are pending
+PASS: wave distributes six spawns across different directions
+PASS: all spawned and dead emits clear exactly once
+PASS: clear HUD advertises rest
+Planted Lead Plant.
+PASS: plant exists before sleep time skip
+Resting until morning...
+PASS: E at bed begins rest and locks aim/control
+PASS: rest cannot repeat and firing is blocked
+PASS: rest advances to Day 2 06:00 exactly once
+PASS: rest fully restores existing stats and returns controls
+PASS: morning resets wave and corpse references
+PASS: sleep advances plant timestamp growth without resetting farm
+PASS: natural dawn enters Day 2 with unfinished wave
+PASS: no-rest dawn does not restore HP or stamina
+PASS: dawn cleanup resets tracking without awarding clear
+PASS: dawn disables AI and collision before deferred removal
+PASS: dawn disables AI and collision before deferred removal
+PASS: dawn cannot retroactively rest
+PASS: unexpected removal becomes pending replacement
+PASS: blocked spawn points retain pending enemies
+PASS: unblocked points retry successfully
+PASS: game over stops wave spawning and clock and cleans enemies
+PASS: dead player cannot rest and sees game over
+PASS: R restart resets day time stats wave and zombies
+PASS: restart creates fresh farm state
+PASS: cleared wave accepts rest for interruption test
+PASS: death during rest cancels recovery and releases pause without advancing day
+PASS: backward debug seek does not replay an already started night
+PASS: Day 2 uses progression wave with seven normal zombies
+PASS: invalid wave interval is rejected
+PHASE_7_LIFECYCLE_RESULT failures=0

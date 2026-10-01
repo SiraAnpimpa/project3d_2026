@@ -1,0 +1,11 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PERFORMANCE_SAMPLE {"alive":0,"draw_calls":541.0,"frames":600,"max_ms":2.827,"mean_ms":1.36629833333333,"navigation_ms":0.00661499999999999,"nodes":812,"p95_ms":1.92,"p99_ms":2.501,"physics_ms":0.512689999999997,"process_ms":3.90571166666665,"scenario":"day_720p","static_memory":61007205.0}
+PERFORMANCE_SAMPLE {"alive":12,"draw_calls":652.0,"frames":600,"max_ms":5.791,"mean_ms":3.02797166666667,"navigation_ms":0.00748833333333334,"nodes":1376,"p95_ms":4.011,"p99_ms":4.714,"physics_ms":1.1836,"process_ms":5.17891000000004,"scenario":"final_night_12_alive_720p","static_memory":69032553.0}
+PERFORMANCE_SAMPLE {"alive":12,"draw_calls":652.0,"frames":600,"max_ms":5.527,"mean_ms":2.57466,"navigation_ms":0.00719666666666664,"nodes":1376,"p95_ms":3.804,"p99_ms":4.544,"physics_ms":1.90094499999998,"process_ms":4.19095666666669,"scenario":"final_night_12_alive_1080p","static_memory":70512081.0}
+PERFORMANCE_SAMPLE {"alive":0,"draw_calls":535.0,"frames":600,"max_ms":2.485,"mean_ms":1.330215,"navigation_ms":0.0110000000000001,"nodes":825,"p95_ms":2.009,"p99_ms":2.33,"physics_ms":0.128,"process_ms":3.40100000000002,"scenario":"ending_1080p","static_memory":66210293.0}
+PASS: stress wave cleans up for ending
+PHASE_10_PERFORMANCE_RESULT failures=0

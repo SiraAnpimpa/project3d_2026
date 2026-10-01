@@ -1,0 +1,242 @@
+[
+  {
+    "plant": "lead",
+    "source": "res://Asset/Stylized Nature MegaKit.undefined-glb/Plant Big.glb",
+    "scene": "res://scenes/farming/visuals/LeadPlantVisual.tscn",
+    "source_bounds_position": [
+      -0.701056718826294,
+      0.0503114424645901,
+      -0.850527942180634
+    ],
+    "source_bounds_size": [
+      1.31081998348236,
+      0.253432780504227,
+      1.36217403411865
+    ],
+    "scale": 0.8075326444698523,
+    "model_position": [
+      0.03686122223443571,
+      -0.04062813218052327,
+      0.1368290783446289
+    ],
+    "ready_bounds_size": [
+      1.0585299276854383,
+      0.20465524343592606,
+      1.1
+    ],
+    "mesh_parts": 1,
+    "material_count": 1,
+    "triangle_upper_bound": 42,
+    "note": "Low purple mineral rosette, many pointed leaves"
+  },
+  {
+    "plant": "paper",
+    "source": "res://Asset/Stylized Nature MegaKit.undefined-glb/Clover.glb",
+    "scene": "res://scenes/farming/visuals/PaperPlantVisual.tscn",
+    "source_bounds_position": [
+      -0.50229823589325,
+      -0.012792251072824,
+      -0.399561941623688
+    ],
+    "source_bounds_size": [
+      0.796289324760437,
+      1.14473259449005,
+      0.763885915279388
+    ],
+    "scale": 0.5940251926721133,
+    "model_position": [
+      0.06186984657356762,
+      0.007598919408244325,
+      0.010466120355778931
+    ],
+    "ready_bounds_size": [
+      0.4730159195635656,
+      0.68,
+      0.45376747800335204
+    ],
+    "mesh_parts": 1,
+    "material_count": 1,
+    "triangle_upper_bound": 89,
+    "note": "Two broad leaf stems, tall paper-like canopy"
+  },
+  {
+    "plant": "iron",
+    "source": "res://Asset/Stylized Nature MegaKit.undefined-glb/Plant Big-MbhbP7JrTI.glb",
+    "scene": "res://scenes/farming/visuals/IronPlantVisual.tscn",
+    "source_bounds_position": [
+      -1.39412152767181,
+      -0.0560386404395103,
+      -1.65838205814362
+    ],
+    "source_bounds_size": [
+      2.89045882225037,
+      3.75642609596252,
+      3.12644720077515
+    ],
+    "scale": 0.22894101415287918,
+    "model_position": [
+      -0.011700690669022856,
+      0.012829543173970035,
+      0.021785673823892838
+    ],
+    "ready_bounds_size": [
+      0.6617445741331365,
+      0.86,
+      0.7157719928408931
+    ],
+    "mesh_parts": 1,
+    "material_count": 1,
+    "triangle_upper_bound": 120,
+    "note": "Tall narrow blade tuft, orange native tips"
+  },
+  {
+    "plant": "copper",
+    "source": "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Single-GvfHo0roi3.glb",
+    "scene": "res://scenes/farming/visuals/CopperPlantVisual.tscn",
+    "source_bounds_position": [
+      -0.505006432533264,
+      -0.0304305423051119,
+      -0.401802539825439
+    ],
+    "source_bounds_size": [
+      1.0722883939743,
+      2.41915917396545,
+      0.772865056991577
+    ],
+    "scale": 0.3306934114172619,
+    "model_position": [
+      -0.010297053551162696,
+      0.010063179846154763,
+      0.005082761480124086
+    ],
+    "ready_bounds_size": [
+      0.3545987070264982,
+      0.8,
+      0.25558138226174115
+    ],
+    "mesh_parts": 1,
+    "material_count": 2,
+    "triangle_upper_bound": 166,
+    "note": "Slender stem with hanging yellow pods"
+  },
+  {
+    "plant": "small_herb",
+    "source": "res://Asset/Stylized Nature MegaKit.undefined-glb/Fern.glb",
+    "scene": "res://scenes/farming/visuals/SmallHerbPlantVisual.tscn",
+    "source_bounds_position": [
+      -4.41997528076172,
+      -0.247470900416374,
+      -4.09131574630737
+    ],
+    "source_bounds_size": [
+      9.04618835449219,
+      2.68877983093262,
+      8.48742485046387
+    ],
+    "scale": 0.12159817559555434,
+    "model_position": [
+      -0.012539069681926822,
+      0.03009201000362019,
+      -0.01853115812404857
+    ],
+    "ready_bounds_size": [
+      1.1,
+      0.3269507220195296,
+      1.0320553773207772
+    ],
+    "mesh_parts": 1,
+    "material_count": 1,
+    "triangle_upper_bound": 81,
+    "note": "Low radial green fern fronds"
+  },
+  {
+    "plant": "fire_pepper",
+    "source": "res://Asset/Stylized Nature MegaKit.undefined-glb/Bush.glb",
+    "scene": "res://scenes/farming/visuals/FirePepperPlantVisual.tscn",
+    "source_bounds_position": [
+      -0.923476159572601,
+      -0.234694868326187,
+      -0.974389255046844
+    ],
+    "source_bounds_size": [
+      1.91484475135803,
+      1.58178579807281,
+      1.96514105796814
+    ],
+    "scale": 0.46782566950695154,
+    "model_position": [
+      -0.0158809112772108,
+      0.10979628390454427,
+      -0.0038274099571025304
+    ],
+    "ready_bounds_size": [
+      0.8958135278059426,
+      0.74,
+      0.9193434311195442
+    ],
+    "mesh_parts": 1,
+    "material_count": 1,
+    "triangle_upper_bound": 600,
+    "note": "Rounded red native foliage; fantasy pepper analogue"
+  },
+  {
+    "plant": "ice_plant",
+    "source": "res://Asset/Stylized Nature MegaKit.undefined-glb/Mushroom.glb",
+    "scene": "res://scenes/farming/visuals/IcePlantVisual.tscn",
+    "source_bounds_position": [
+      -0.333375841379166,
+      -0.0174710229039192,
+      -0.445210665464401
+    ],
+    "source_bounds_size": [
+      0.56370085477829,
+      0.463480830192566,
+      0.779112756252289
+    ],
+    "scale": 1.2193357025364566,
+    "model_position": [
+      0.06282677686600399,
+      0.02130304198658084,
+      0.06786125955075882
+    ],
+    "ready_bounds_size": [
+      0.6873405777814874,
+      0.5651387236950326,
+      0.95
+    ],
+    "mesh_parts": 1,
+    "material_count": 1,
+    "triangle_upper_bound": 185,
+    "note": "Pale three-umbrella cluster; fantasy ice analogue"
+  },
+  {
+    "plant": "poison_plant",
+    "source": "res://Asset/Stylized Nature MegaKit.undefined-glb/Mushroom Laetiporus.glb",
+    "scene": "res://scenes/farming/visuals/PoisonPlantVisual.tscn",
+    "source_bounds_position": [
+      -0.649819076061249,
+      -0.160225465893745,
+      -0.328301191329956
+    ],
+    "source_bounds_size": [
+      1.36603260040283,
+      0.766958475112915,
+      1.10318267345428
+    ],
+    "scale": 0.6734831948583809,
+    "model_position": [
+      -0.022357772574348775,
+      0.10790915866779194,
+      -0.15038216050248787
+    ],
+    "ready_bounds_size": [
+      0.92,
+      0.516533644142758,
+      0.7429749914303985
+    ],
+    "mesh_parts": 1,
+    "material_count": 1,
+    "triangle_upper_bound": 602,
+    "note": "Layered shelf fungus with an unusual tiered silhouette"
+  }
+]

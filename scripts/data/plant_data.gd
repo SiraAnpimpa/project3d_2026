@@ -15,6 +15,7 @@ extends Resource
 # Optional replacement meshes/scenes for later artwork, one entry per stage.
 @export var stage_visuals: Array[PackedScene] = []
 @export var produce_color := Color(0.65, 0.75, 0.4)
+@export var show_produce_marker: bool = true
 
 
 func validation_errors() -> PackedStringArray:

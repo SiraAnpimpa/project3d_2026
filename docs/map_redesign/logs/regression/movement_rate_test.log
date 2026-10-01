@@ -1,0 +1,5 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+MOVEMENT_RATE_RESULT 30Hz=3.73332977294922m 120Hz=3.68335294723511m pass=true

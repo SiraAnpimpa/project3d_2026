@@ -1,0 +1,73 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: six catalog-backed recipes load and validate
+PASS: recipe list comes from recipe resources
+PASS: interactor targets plot 0
+Planted Lead Plant.
+PASS: E plants crop 0
+PASS: interactor targets plot 1
+Planted Paper Plant.
+PASS: E plants crop 1
+PASS: interactor targets plot 2
+Planted Copper Plant.
+PASS: E plants crop 2
+PASS: interactor targets plot 3
+Planted Iron Plant.
+PASS: E plants crop 3
+PASS: interactor targets plot 4
+Planted Small Herb.
+PASS: E plants crop 4
+PASS: interactor targets plot 5
+Planted Small Herb.
+PASS: E plants crop 5
+PASS: crop 0 grows and becomes interactable
+Harvested Lead x2.
+PASS: E harvests crop 0
+PASS: crop 1 grows and becomes interactable
+Harvested Paper x3.
+PASS: E harvests crop 1
+PASS: crop 2 grows and becomes interactable
+Harvested Copper x2.
+PASS: E harvests crop 2
+PASS: crop 3 grows and becomes interactable
+Harvested Iron x2.
+PASS: E harvests crop 3
+PASS: crop 4 grows and becomes interactable
+Harvested Small Herb x1.
+PASS: E harvests crop 4
+PASS: crop 5 grows and becomes interactable
+Harvested Small Herb x1.
+PASS: E harvests crop 5
+PASS: harvested material quantities enter existing inventory
+PASS: existing interactor displays workbench prompt
+Workbench opened
+PASS: E opens workbench modal, pauses world and releases cursor
+PASS: crafting modal blocks bag, clock and mode input
+PASS: sufficient materials enable craft button
+PASS: Basic Ammo craft consumes each material once and grants ten ammo
+PASS: craft success appears in UI
+PASS: Medicine selection reads same inventory
+PASS: Basic Medicine consumes two herbs and enters inventory
+PASS: Metal Component consumes iron and copper
+PASS: Esc closes crafting only and restores prior gameplay mode
+PASS: Combat can aim before workbench interaction
+Workbench opened
+PASS: workbench cancels aim without changing Combat mode
+PASS: closing workbench restores Combat without stale aim
+PASS: Tab bag shows crafted stack
+PASS: full bag rejects output when consumed stack remains occupied
+PASS: failed craft preserves all resources
+PASS: craft button and feedback reflect full inventory
+PASS: consuming an entire stack frees its slot for output
+PASS: first spam craft succeeds
+PASS: synchronous callback cannot reenter crafting
+PASS: repeat craft stacks output without free crafts
+PASS: fourth spam press fails without duplicate output
+PASS: new resource-only recipe appears in UI and validates
+PASS: future-day recipe is visible but locked on Day 1
+PASS: new recipe crafts both outputs without changing crafting code
+PASS: duplicate recipe IDs are rejected
+PASS: missing recipe ID and nonpositive output quantity are diagnosed
+PHASE_4_CRAFTING_RESULT failures=0

@@ -1,0 +1,285 @@
+[
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.415143311023712,
+      -0.532530784606934,
+      -0.303772032260895
+    ],
+    "bounds_size": [
+      2.50526571273804,
+      1.65623092651367,
+      0.603282690048218
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "extra_000_Flare Gun.png",
+    "materials": [
+      {
+        "name": "Red",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Black",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Survival Pack-glb/Flare Gun.glb",
+    "triangle_upper_bound": 350,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.0806989744305611,
+      -0.727992296218872,
+      -0.0730026438832283
+    ],
+    "bounds_size": [
+      0.126900404691696,
+      1.45598459243774,
+      0.146005287766457
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "extra_001_Arrow.png",
+    "materials": [
+      {
+        "name": "DarkRed",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Arrow.glb",
+    "triangle_upper_bound": 147,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.04928028583527,
+      -2.26717710494995,
+      -0.706369042396545
+    ],
+    "bounds_size": [
+      2.09856057167053,
+      4.28017663955688,
+      1.41273808479309
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "extra_002_Shield Celtic Golden.png",
+    "materials": [
+      {
+        "name": "Gold",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightBlue",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Green",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightGold",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Shield Celtic Golden.glb",
+    "triangle_upper_bound": 523,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.0025075674057,
+      -1.30249428749084,
+      -0.293711870908737
+    ],
+    "bounds_size": [
+      2.0050151348114,
+      2.563725233078,
+      0.597042798995972
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "extra_003_Shield Heater-xoHSnOjsBG.png",
+    "materials": [
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Shield Heater-xoHSnOjsBG.glb",
+    "triangle_upper_bound": 1127,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.0025075674057,
+      -1.49976933002472,
+      -0.150708749890327
+    ],
+    "bounds_size": [
+      2.0050151348114,
+      2.56372499465942,
+      0.598658442497253
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "extra_004_Shield Heater.png",
+    "materials": [
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Shield Heater.glb",
+    "triangle_upper_bound": 706,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -1.0,
+      -1.0,
+      -0.372440457344055
+    ],
+    "bounds_size": [
+      2.0,
+      2.0,
+      0.603677451610565
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "extra_005_Shield Round-lWajrVXcnA.png",
+    "materials": [
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Shield Round-lWajrVXcnA.glb",
+    "triangle_upper_bound": 682,
+    "weapon": true
+  },
+  {
+    "accent": false,
+    "actor": false,
+    "bones": [],
+    "bounds_position": [
+      -0.99999988079071,
+      -1.0,
+      -0.372440427541733
+    ],
+    "bounds_size": [
+      2.0,
+      2.0,
+      0.603677570819855
+    ],
+    "clips": [],
+    "collision_nodes": 0,
+    "image": "extra_006_Shield Round.png",
+    "materials": [
+      {
+        "name": "Steel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "DarkWood",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightSteel",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "White",
+        "type": "StandardMaterial3D"
+      },
+      {
+        "name": "LightWood",
+        "type": "StandardMaterial3D"
+      }
+    ],
+    "mesh_parts": 1,
+    "nature": false,
+    "path": "res://Asset/Ultimate RPG Items Bundle-glb/Shield Round.glb",
+    "triangle_upper_bound": 781,
+    "weapon": true
+  }
+]

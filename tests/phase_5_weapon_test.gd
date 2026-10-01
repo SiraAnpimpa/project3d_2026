@@ -69,7 +69,7 @@ func run() -> void:
 		await frames(8)
 		key(KEY_E)
 		check(plot.state == FarmPlot.State.EMPTY, "E harvests ammunition crop %d" % index)
-	player.position = Vector3(-2, 0.05, 0.7)
+	player.position = game.get_node("MainWorld/Workbench").position + Vector3(0, 0.05, 1.1)
 	await frames(10)
 	key(KEY_E)
 	await frames(2)
@@ -182,7 +182,7 @@ func run() -> void:
 	await frames(95)
 	check(not rifle.is_reloading and weapons.reserve_ammo() == 3, "Pause cancels reload without moving reserve ammo")
 	key(KEY_ESCAPE)
-	player.position = Vector3(-2, 0.05, 0.7)
+	player.position = game.get_node("MainWorld/Workbench").position + Vector3(0, 0.05, 1.1)
 	player.velocity = Vector3.ZERO
 	await frames(10)
 	key(KEY_E)

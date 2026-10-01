@@ -173,6 +173,9 @@ func _refresh_ammo() -> void:
 		ammo_label.text = "No usable weapon equipped"
 		return
 	var state := weapons.current
+	if state.data.is_melee():
+		ammo_label.text = "%s  [%d]\nNo ammo required  |  Damage %.0f\n%s" % [state.data.display_name,equipment.selected_weapon_slot+1,state.data.damage,"SWINGING..." if state.is_swinging else "LMB Swing  /  Scroll Switch"]
+		return
 	ammo_label.text = "%s  [%d]\n%d / %d   |   Magazine / Reserve\n%s" % [state.data.display_name, equipment.selected_weapon_slot + 1,
 		state.current_magazine, weapons.reserve_ammo(), "RELOADING..." if state.is_reloading else "RMB Aim  /  LMB Fire  /  R Reload"]
 

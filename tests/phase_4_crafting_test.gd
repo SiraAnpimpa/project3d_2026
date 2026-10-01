@@ -58,7 +58,7 @@ func run() -> void:
 		key(KEY_E)
 		check(plot.state == FarmPlot.State.EMPTY, "E harvests crop %d" % index)
 	check(inventory.get_item_amount(&"lead") == 2 and inventory.get_item_amount(&"paper") == 3 and inventory.get_item_amount(&"copper") == 2 and inventory.get_item_amount(&"iron") == 2 and inventory.get_item_amount(&"small_herb") == 2, "harvested material quantities enter existing inventory")
-	player.position = Vector3(-2, 0.05, 0.7)
+	player.position = game.get_node("MainWorld/Workbench").position + Vector3(0, 0.05, 1.1)
 	player.velocity = Vector3.ZERO
 	await frames(10)
 	check(player.interactor.target is Workbench and game.get_node("HUD").prompt_label.text.contains("[E]  Use Workbench"), "existing interactor displays workbench prompt")

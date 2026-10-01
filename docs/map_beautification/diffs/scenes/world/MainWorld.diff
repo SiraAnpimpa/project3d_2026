@@ -1,0 +1,167 @@
+--- before/scenes/world/MainWorld.tscn
++++ after/scenes/world/MainWorld.tscn
+@@ -180,7 +180,7 @@
+ navigation_mesh = ExtResource("nav")
+ 
+ [node name="Bed" parent="." instance=ExtResource("bed")]
+-position = Vector3(-10.5, 0, -7)
++position = Vector3(-14.3, 0.14, -12)
+ 
+ [node name="WaveSpawnPoints" type="Node3D" parent="."]
+ 
+@@ -295,40 +295,40 @@
+ [node name="FarmArea" type="Node3D" parent="."]
+ 
+ [node name="Plot01" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-4.0, 0.025, 2.0)
++position = Vector3(-7.0, 0.025, 4.5)
+ 
+ [node name="Plot02" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-6.6, 0.025, 2.0)
++position = Vector3(-10.8, 0.025, 4.5)
+ 
+ [node name="Plot03" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-9.2, 0.025, 2.0)
++position = Vector3(-16.0, 0.025, 4.5)
+ 
+ [node name="Plot04" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-11.8, 0.025, 2.0)
++position = Vector3(-19.8, 0.025, 4.5)
+ 
+ [node name="Plot05" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-4.0, 0.025, 4.6)
++position = Vector3(-7.0, 0.025, 8.5)
+ 
+ [node name="Plot06" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-6.6, 0.025, 4.6)
++position = Vector3(-10.8, 0.025, 8.5)
+ 
+ [node name="Plot07" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-9.2, 0.025, 4.6)
++position = Vector3(-16.0, 0.025, 8.5)
+ 
+ [node name="Plot08" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-11.8, 0.025, 4.6)
++position = Vector3(-19.8, 0.025, 8.5)
+ 
+ [node name="Plot09" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-4.0, 0.025, 7.2)
++position = Vector3(-7.0, 0.025, 12.5)
+ 
+ [node name="Plot10" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-6.6, 0.025, 7.2)
++position = Vector3(-10.8, 0.025, 12.5)
+ 
+ [node name="Plot11" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-9.2, 0.025, 7.2)
++position = Vector3(-16.0, 0.025, 12.5)
+ 
+ [node name="Plot12" parent="FarmArea" instance=ExtResource("FarmPlot")]
+-position = Vector3(-11.8, 0.025, 7.2)
++position = Vector3(-19.8, 0.025, 12.5)
+ 
+ [node name="FarmLabel" type="Label3D" parent="."]
+ position = Vector3(-9, 1.5, 0)
+@@ -339,36 +339,48 @@
+ outline_size = 8
+ 
+ [node name="ShelterBack" type="StaticBody3D" parent="."]
++visible = false
++collision_layer = 0
+ position = Vector3(-9, 1.5, -9)
+ 
+ [node name="Collider" type="CollisionShape3D" parent="ShelterBack"]
++disabled = true
+ shape = SubResource("Shape12")
+ 
+ [node name="Mesh" type="MeshInstance3D" parent="ShelterBack"]
+ mesh = SubResource("Box12")
+ 
+ [node name="ShelterLeft" type="StaticBody3D" parent="."]
++visible = false
++collision_layer = 0
+ position = Vector3(-12, 1.5, -6.5)
+ 
+ [node name="Collider" type="CollisionShape3D" parent="ShelterLeft"]
++disabled = true
+ shape = SubResource("Shape13")
+ 
+ [node name="Mesh" type="MeshInstance3D" parent="ShelterLeft"]
+ mesh = SubResource("Box13")
+ 
+ [node name="ShelterRight" type="StaticBody3D" parent="."]
++visible = false
++collision_layer = 0
+ position = Vector3(-6, 1.5, -6.5)
+ 
+ [node name="Collider" type="CollisionShape3D" parent="ShelterRight"]
++disabled = true
+ shape = SubResource("Shape14")
+ 
+ [node name="Mesh" type="MeshInstance3D" parent="ShelterRight"]
+ mesh = SubResource("Box14")
+ 
+ [node name="ShelterRoof" type="StaticBody3D" parent="."]
++visible = false
++collision_layer = 0
+ position = Vector3(-9, 3.1, -6.5)
+ 
+ [node name="Collider" type="CollisionShape3D" parent="ShelterRoof"]
++disabled = true
+ shape = SubResource("Shape15")
+ 
+ [node name="Mesh" type="MeshInstance3D" parent="ShelterRoof"]
+@@ -383,24 +395,23 @@
+ outline_size = 8
+ 
+ [node name="Workbench" parent="." instance=ExtResource("Workbench")]
+-position = Vector3(-4.5, 0, -1)
++position = Vector3(3, 0, -8)
+ 
+ [node name="TargetDummy" parent="." instance=ExtResource("Dummy")]
+-position = Vector3(3, 0, -8)
++position = Vector3(12, 0, -6)
+ 
+ [node name="CollisionTestBlock" type="StaticBody3D" parent="."]
+-position = Vector3(7, 0.75, 3)
++position = Vector3(6.8, 0.75, -12.5)
+ 
+ [node name="Collider" type="CollisionShape3D" parent="CollisionTestBlock"]
+ shape = SubResource("Shape17")
+ 
+ [node name="Mesh" type="MeshInstance3D" parent="CollisionTestBlock"]
+ visible = false
+-visible = false
+ mesh = SubResource("Box17")
+ 
+ [node name="ObstacleLabel" type="Label3D" parent="."]
+-position = Vector3(7, 2.1, 3)
++position = Vector3(6.8, 2.1, -12.5)
+ billboard = 1
+ font_size = 36
+ pixel_size = 0.008
+@@ -478,13 +489,13 @@
+ outline_size = 8
+ 
+ [node name="RescueArea" type="Node3D" parent="."]
+-position = Vector3(13, 0.05, 10)
++position = Vector3(29, 0.70, 43)
+ 
+ [node name="Mesh" type="MeshInstance3D" parent="RescueArea"]
+ mesh = SubResource("Box22")
+ 
+ [node name="RescueLabel" type="Label3D" parent="."]
+-position = Vector3(13, 1.2, 10)
++position = Vector3(29, 1.85, 43)
+ billboard = 1
+ font_size = 36
+ pixel_size = 0.008
+@@ -492,7 +503,7 @@
+ outline_size = 8
+ 
+ [node name="ShelterLight" type="OmniLight3D" parent="."]
+-position = Vector3(-8, 2.6, -5)
++position = Vector3(-13.6, 2.6, -8)
+ light_color = Color(1, 0.68, 0.3, 1)
+ light_energy = 1.5
+ omni_range = 8.0

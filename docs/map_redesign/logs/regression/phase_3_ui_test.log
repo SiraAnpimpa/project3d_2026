@@ -1,0 +1,16 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: starter seeds and Phase 5 rifle appear once in game
+PASS: Tab opens inventory and pauses world
+PASS: UI displays capacity, quantity and icon
+PASS: keyboard selects seed and updates feedback
+PASS: inventory pauses time, movement, stamina and camera
+PASS: gameplay debug keys do not leak through menu
+PASS: Escape closes and resumes world
+PASS: Tab toggles closed
+PASS: close preserves an existing debug clock pause
+PASS: inventory signal updates displayed stack
+PASS: inventory cannot open while dead
+PHASE_3_UI_RESULT failures=0

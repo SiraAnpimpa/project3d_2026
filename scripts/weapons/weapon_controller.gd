@@ -5,6 +5,8 @@ signal shot_fired
 signal state_changed
 signal feedback(message: String)
 signal hit_confirmed
+signal melee_started
+signal melee_hit
 
 @export var definitions: Array[WeaponData] = []
 @export_flags_3d_physics var shot_collision_mask: int = 5
@@ -17,12 +19,14 @@ var last_shot_origin := Vector3.ZERO
 var last_shot_end := Vector3.ZERO
 var last_hit: Object
 var shots_fired: int = 0
+var swings_started: int = 0
+var melee_hits: int = 0
 var _player: PlayerController
 var _inventory: Inventory
 var _equipment: EquipmentLoadout
 var _mode: GameplayModeController
 var _socket: Node3D
-var _hand_anchor: BoneAttachment3D
+var pose_driver: RiflePose
 var _fire_held := false
 var _committing := false
 var _valid := false
@@ -36,13 +40,13 @@ func bind(player: PlayerController, inventory: Inventory, equipment: EquipmentLo
 	_equipment = equipment
 	_mode = mode
 	_socket = player.get_node("Visual/WeaponSocket")
-	# The imported skeleton uses a scale of 100. Follow only its hand position;
-	# the scene socket keeps unit scale and aims the weapon independently of idle arms.
+	# Post-animation arm pose follows the unit-scale socket and its two grip markers.
 	for skeleton in player.visual.find_children("*", "Skeleton3D", true, false):
 		if skeleton.find_bone("Middle1.R") >= 0:
-			_hand_anchor = BoneAttachment3D.new()
-			skeleton.add_child(_hand_anchor)
-			_hand_anchor.bone_name = "Middle1.R"
+			pose_driver = RiflePose.new()
+			pose_driver.name = "RiflePose"
+			skeleton.add_child(pose_driver)
+			pose_driver.setup(self, player)
 			break
 	var errors := validation_errors(catalog)
 	_valid = errors.is_empty()
@@ -74,7 +78,7 @@ func validation_errors(catalog: ItemCatalog) -> PackedStringArray:
 
 
 func reserve_ammo() -> int:
-	return _inventory.get_item_amount(current.data.ammo_type.id) if current != null else 0
+	return _inventory.get_item_amount(current.data.ammo_type.id) if current != null and not current.data.is_melee() else 0
 
 
 func can_control() -> bool:
@@ -87,7 +91,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_fire_held = false
 	if not can_control(): return
 	if event.is_action_pressed("fire"):
-		_fire_held = current != null and current.data.automatic and _player.camera_rig.is_aiming
+		_fire_held = current != null and not current.data.is_melee() and current.data.automatic and _player.camera_rig.is_aiming
 		try_fire()
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("reload"):
@@ -97,6 +101,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if _player == null: return
+	if pose_driver != null: pose_driver.tick(delta)
 	update_weapon_pose()
 	for state in runtimes.values():
 		state.fire_cooldown -= delta
@@ -106,6 +111,19 @@ func _physics_process(delta: float) -> void:
 		current.reload_remaining -= delta
 		if current.reload_remaining <= 0:
 			_finish_reload()
+	if current != null and current.is_swinging:
+		if not can_control():
+			_cancel_actions()
+		else:
+			var state := current
+			state.swing_elapsed += delta
+			if not state.swing_hit_committed and state.swing_elapsed >= state.data.melee_hit_delay:
+				state.swing_hit_committed = true
+				update_weapon_pose()
+				_resolve_melee_hit(state)
+			if state.swing_elapsed >= state.data.melee_swing_duration:
+				state.is_swinging = false
+				state_changed.emit()
 	if _fire_held and current != null and current.data.automatic:
 		# Preserve the remainder, so fire rate does not round to whole physics ticks.
 		while current.fire_cooldown <= 0:
@@ -120,15 +138,16 @@ func update_weapon_pose() -> void:
 	if not is_instance_valid(visual): return
 	visual.visible = not _mode.is_farming() and not _player.health.is_dead
 	if visual.visible:
-		if _hand_anchor != null:
-			_socket.global_position = _hand_anchor.global_position
 		_player.aim_ray.update_aim()
-		var target := _player.aim_ray.aim_point
-		if _socket.global_position.distance_squared_to(target) > 0.001:
-			_socket.look_at(target, Vector3.UP, true)
+		if pose_driver != null: pose_driver.update_socket()
+
+
+func get_socket() -> Node3D:
+	return _socket
 
 
 func try_fire() -> bool:
+	if current != null and current.data.is_melee(): return try_swing()
 	if _committing or not can_control() or not _player.camera_rig.is_aiming or current == null or not is_instance_valid(muzzle):
 		return false
 	if current.is_reloading or current.fire_cooldown > 0.000001: return false
@@ -170,7 +189,72 @@ func try_fire() -> bool:
 	_committing = false
 	state_changed.emit()
 	shot_fired.emit()
+	if pose_driver != null: pose_driver.kick()
 	return true
+
+
+func attack_facing() -> Vector3:
+	return current.swing_direction if current != null and current.is_swinging else Vector3.ZERO
+
+
+func try_swing() -> bool:
+	if _committing or not can_control() or current == null or not current.data.is_melee(): return false
+	if current.is_swinging or current.fire_cooldown > 0.000001 or not _inventory.has_item(current.data.weapon_id): return false
+	_fire_held = false
+	current.is_swinging = true
+	current.swing_elapsed = 0
+	current.swing_hit_committed = false
+	current.swing_direction = _player.visual.global_basis.z
+	current.swing_direction.y = 0
+	current.swing_direction = current.swing_direction.normalized()
+	current.fire_cooldown = 1.0/current.data.fire_rate
+	swings_started += 1
+	last_hit = null
+	update_weapon_pose()
+	state_changed.emit()
+	melee_started.emit()
+	return true
+
+
+func _resolve_melee_hit(state: WeaponRuntime) -> void:
+	# One short volume query per swing. Centre-distance, forward arc and cover
+	# checks bound contact to the bat sweep instead of a long camera hitscan.
+	var data := state.data
+	var start := _player.global_position+Vector3.UP*0.85
+	var query := PhysicsShapeQueryParameters3D.new()
+	var shape := SphereShape3D.new()
+	shape.radius = data.melee_radius
+	query.shape = shape
+	query.transform.origin = start+state.swing_direction*(data.range_meters-data.melee_radius)
+	query.collision_mask = shot_collision_mask
+	query.exclude = [_player.get_rid()]
+	var space := get_world_3d().direct_space_state
+	var target: Node3D
+	var closest := INF
+	for hit in space.intersect_shape(query,32):
+		var candidate := hit.get("collider") as Node3D
+		if candidate == null: continue
+		var health := candidate.get_node_or_null("Health") as HealthComponent
+		if health == null or health.is_dead: continue
+		var displacement := candidate.global_position-_player.global_position
+		if absf(displacement.y)>0.85: continue
+		displacement.y=0
+		var distance := displacement.length()
+		if distance > data.range_meters or distance >= closest: continue
+		if distance > 0.001 and displacement.normalized().dot(state.swing_direction) < cos(deg_to_rad(data.melee_arc_degrees)): continue
+		var sight := _ray(start,candidate.global_position+Vector3.UP*0.85)
+		if not sight.is_empty() and sight.get("collider") != candidate: continue
+		target = candidate
+		closest = distance
+	if target == null: return
+	_committing = true
+	last_hit = target
+	var receiver := target.get_node("Health") as HealthComponent
+	receiver.take_damage(data.damage)
+	melee_hits += 1
+	_committing = false
+	hit_confirmed.emit()
+	melee_hit.emit()
 
 
 func _ray(start: Vector3, end: Vector3) -> Dictionary:
@@ -180,7 +264,7 @@ func _ray(start: Vector3, end: Vector3) -> Dictionary:
 
 
 func start_reload() -> bool:
-	if _committing or not can_control() or current == null or current.is_reloading: return false
+	if _committing or not can_control() or current == null or current.data.is_melee() or current.is_reloading: return false
 	if current.current_magazine >= current.data.magazine_size or reserve_ammo() <= 0:
 		feedback.emit("Magazine full" if current.current_magazine >= current.data.magazine_size else "No reserve ammo — craft Basic Ammo")
 		return false
@@ -209,6 +293,7 @@ func _cancel_actions() -> void:
 	if current != null:
 		current.is_reloading = false
 		current.reload_remaining = 0
+		current.is_swinging = false
 	state_changed.emit()
 
 
@@ -247,9 +332,9 @@ func _select_weapon() -> void:
 			current = runtimes[item.id]
 			visual = data.weapon_scene.instantiate() as Node3D
 			_socket.add_child(visual)
-			muzzle = visual.get_node_or_null(data.muzzle_path) as Node3D
+			muzzle = visual.get_node_or_null(data.muzzle_path) as Node3D if not data.is_melee() else null
 			_flash = visual.get_node_or_null("Muzzle/Flash") as MeshInstance3D
-			if muzzle == null: push_error("Weapon '%s' has no muzzle at %s." % [data.weapon_id, data.muzzle_path])
+			if muzzle == null and not data.is_melee(): push_error("Weapon '%s' has no muzzle at %s." % [data.weapon_id, data.muzzle_path])
 			break
 	update_weapon_pose()
 	state_changed.emit()

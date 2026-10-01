@@ -1,0 +1,632 @@
+{
+  "failures": 0,
+  "fence_posts": 16,
+  "fence_rails": 16,
+  "observations": [
+    {
+      "gap": -0.0600000619888306,
+      "kind": "workshop_foot",
+      "point": [
+        0.25,
+        -0.0600000619888306,
+        -7.80000019073486
+      ]
+    },
+    {
+      "gap": -0.0600000619888306,
+      "kind": "workshop_foot",
+      "point": [
+        5.75,
+        -0.0600000619888306,
+        -7.80000019073486
+      ]
+    },
+    {
+      "gap": -0.0600000619888306,
+      "kind": "workshop_foot",
+      "point": [
+        0.25,
+        -0.0600000619888306,
+        -12.3999996185303
+      ]
+    },
+    {
+      "gap": -0.0600000619888306,
+      "kind": "workshop_foot",
+      "point": [
+        5.75,
+        -0.0600000619888306,
+        -12.3999996185303
+      ]
+    },
+    {
+      "connected_parts": 17,
+      "kind": "workshop_frame",
+      "parts": 17,
+      "posts": 4
+    },
+    {
+      "gap": -0.0600000619888306,
+      "kind": "depot_foot",
+      "point": [
+        25.0,
+        1.78999996185303,
+        -14.0
+      ]
+    },
+    {
+      "gap": -0.0600000619888306,
+      "kind": "depot_foot",
+      "point": [
+        32.0,
+        1.78999996185303,
+        -14.0
+      ]
+    },
+    {
+      "gap": -0.059999942779541,
+      "kind": "depot_foot",
+      "point": [
+        25.0,
+        1.79000008106232,
+        -19.0
+      ]
+    },
+    {
+      "gap": -0.059999942779541,
+      "kind": "depot_foot",
+      "point": [
+        32.0,
+        1.79000008106232,
+        -19.0
+      ]
+    },
+    {
+      "connected_parts": 11,
+      "kind": "depot_frame",
+      "parts": 11,
+      "posts": 4
+    },
+    {
+      "gap": -0.080001026391983,
+      "kind": "fence_foot",
+      "point": [
+        -24.0,
+        -0.0749816000461578,
+        3.5
+      ]
+    },
+    {
+      "gap": -0.0800006091594696,
+      "kind": "fence_foot",
+      "point": [
+        -24.0,
+        -0.0750760734081268,
+        6.09999990463257
+      ]
+    },
+    {
+      "gap": -0.080001026391983,
+      "kind": "fence_foot",
+      "point": [
+        -24.0,
+        -0.0751198828220367,
+        7.80000019073486
+      ]
+    },
+    {
+      "gap": -0.080001026391983,
+      "kind": "fence_foot",
+      "point": [
+        -24.0,
+        -0.0751581490039825,
+        10.3999996185303
+      ]
+    },
+    {
+      "gap": -0.0799999535083771,
+      "kind": "fence_foot",
+      "point": [
+        -24.0,
+        -0.075168639421463,
+        12.0
+      ]
+    },
+    {
+      "gap": -0.0799985826015472,
+      "kind": "fence_foot",
+      "point": [
+        -24.0,
+        -0.075179785490036,
+        14.6000003814697
+      ]
+    },
+    {
+      "gap": -0.0800000429153442,
+      "kind": "fence_foot",
+      "point": [
+        -50.0,
+        1.92404186725616,
+        -22.0
+      ]
+    },
+    {
+      "gap": -0.0701322555541992,
+      "kind": "fence_foot",
+      "point": [
+        -49.0,
+        2.23079299926758,
+        -18.7999992370605
+      ]
+    },
+    {
+      "gap": -0.0809290409088135,
+      "kind": "fence_foot",
+      "point": [
+        -50.0,
+        2.95495796203613,
+        -7.0
+      ]
+    },
+    {
+      "gap": -0.0685038566589355,
+      "kind": "fence_foot",
+      "point": [
+        -49.0,
+        3.37650966644287,
+        -3.79999995231628
+      ]
+    },
+    {
+      "gap": -0.00000655651092529297,
+      "kind": "fence_foot",
+      "point": [
+        24.0,
+        1.48267424106598,
+        -9.0
+      ]
+    },
+    {
+      "gap": -0.00581610202789307,
+      "kind": "fence_foot",
+      "point": [
+        27.2000007629395,
+        1.66677057743073,
+        -9.5
+      ]
+    },
+    {
+      "gap": 0.0195409059524536,
+      "kind": "fence_foot",
+      "point": [
+        29.0,
+        1.59569680690765,
+        -9.0
+      ]
+    },
+    {
+      "gap": -0.041667103767395,
+      "kind": "fence_foot",
+      "point": [
+        32.2000007629395,
+        1.7301687002182,
+        -9.5
+      ]
+    },
+    {
+      "gap": -0.0396627187728882,
+      "kind": "fence_foot",
+      "point": [
+        34.0,
+        1.69923317432404,
+        -9.0
+      ]
+    },
+    {
+      "gap": -0.0525108575820923,
+      "kind": "fence_foot",
+      "point": [
+        37.2000007629395,
+        1.75114595890045,
+        -9.5
+      ]
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 1,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 1,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 1,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 1,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 2,
+      "kind": "fence_rail"
+    },
+    {
+      "attached_ends": 1,
+      "kind": "fence_rail"
+    },
+    {
+      "gap": 0.0,
+      "kind": "bench_foot",
+      "point": [
+        2.27999997138977,
+        0.0,
+        -7.67000007629395
+      ]
+    },
+    {
+      "gap": 0.0,
+      "kind": "bench_foot",
+      "point": [
+        3.72000002861023,
+        0.0,
+        -7.67000007629395
+      ]
+    },
+    {
+      "gap": 0.0,
+      "kind": "bench_foot",
+      "point": [
+        2.27999997138977,
+        0.0,
+        -8.32999992370605
+      ]
+    },
+    {
+      "gap": 0.0,
+      "kind": "bench_foot",
+      "point": [
+        3.72000002861023,
+        0.0,
+        -8.32999992370605
+      ]
+    },
+    {
+      "batch": "Rock Medium-JQxF95498B",
+      "instance": 0,
+      "kind": "rock",
+      "max_ground_separation": 2.00059954549471,
+      "min_ground_separation": -0.315600380518695
+    },
+    {
+      "batch": "Rock Medium-JQxF95498B",
+      "instance": 1,
+      "kind": "rock",
+      "max_ground_separation": 2.00059954549471,
+      "min_ground_separation": -0.315600380518695
+    },
+    {
+      "batch": "Rock Medium-JQxF95498B",
+      "instance": 2,
+      "kind": "rock",
+      "max_ground_separation": 2.00059954549471,
+      "min_ground_separation": -0.315600380518695
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 0,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 1,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 2,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 3,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 4,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 5,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 6,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 7,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 8,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 9,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 10,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 11,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 12,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 13,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 14,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 15,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 16,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 17,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 18,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 19,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 20,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 21,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 22,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 23,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium-s1OJ3bBzqc",
+      "instance": 24,
+      "kind": "rock",
+      "max_ground_separation": 1.98869917397751,
+      "min_ground_separation": -0.27110006418274
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 0,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 1,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 2,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 3,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 4,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 5,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 6,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 7,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 8,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 9,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 10,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "batch": "Rock Medium",
+      "instance": 11,
+      "kind": "rock",
+      "max_ground_separation": 1.84809981265508,
+      "min_ground_separation": -0.0508002451936877
+    },
+    {
+      "asset": "Survival_Shovel",
+      "kind": "tool_foot",
+      "min_ground_separation": 0.0000000596034460817876
+    },
+    {
+      "asset": "Survival_Shovel",
+      "kind": "tool_foot",
+      "min_ground_separation": -0.00203217721943074
+    },
+    {
+      "asset": "Survival_Axe",
+      "kind": "tool_foot",
+      "min_ground_separation": -0.0000000149022588779435
+    }
+  ],
+  "rock_instances": 40,
+  "visible_rotor_intrusions": 0
+}

@@ -1,0 +1,58 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: debug disabled blocks test spawning; no automatic enemies
+PASS: bag debug button spawns three safe reusable zombies
+PASS: saved rendered image: phase6_debug_spawn
+PASS: test spawner caps at five
+PASS: debug labels turn off independently of AI
+PASS: spawner rejects occupied obstacle
+PASS: NormalZombie uses valid data and existing Health
+PASS: out of detection range remains idle
+PASS: actual imported idle walk punch death clips exist
+PASS: enter detection range starts chase
+PASS: chase speed about two metres per second
+PASS: visual smoothly faces movement with authored positive Z forward
+PASS: enter attack stops movement and starts windup without immediate damage
+PASS: windup applies one ten-point hit through Player Health
+PASS: cooldown prevents damage every frame
+PASS: next interval applies exactly one additional hit
+PASS: path target refresh is throttled
+PASS: leaving attack range resumes chase
+PASS: escaping during windup avoids damage
+PASS: navigation detours around block side -1.0 without crossing its collider
+PASS: zombie remains grounded after detour
+PASS: navigation detours around block side 1.0 without crossing its collider
+PASS: zombie remains grounded after detour
+PASS: player sprints away beside obstacle using movement input
+PASS: navigation refresh follows moving player around obstacle
+PASS: navigation rounds shelter walls and enters through open front
+PASS: melee cannot damage through a thin wall
+PASS: inventory reload completes during live zombie chase
+PASS: saved rendered image: phase6_combat
+PASS: same generic rifle damage receiver hits zombie at close melee range
+PASS: zombie hit flash and shared hit marker confirm damage
+PASS: saved rendered image: phase6_hit
+PASS: five rifle hits kill normal zombie
+PASS: death stops motion and collision and plays Death
+PASS: death feedback persists without further attack or navigation
+PASS: saved rendered image: phase6_death
+PASS: dead zombie removes safely after delay
+PASS: zombie death leaves ammo accounting intact
+PASS: zombie crosses farm plots and chases at night
+PASS: inventory pause freezes AI and melee timers
+PASS: 3 concurrent zombies detect chase attack with independent cooldowns
+PASS: saved rendered image: phase6_pack3
+PASS: 3 zombies killed through live rifle and reload loop clean up safely
+PASS: 5 concurrent zombies detect chase attack with independent cooldowns
+PASS: saved rendered image: phase6_pack5
+PASS: 5 zombies killed through live rifle and reload loop clean up safely
+PASS: zombie kills player and existing game over disables controls
+PASS: player death stops chase and attack without repeated hits
+PASS: missing target reference is safe
+PASS: explicit target rebind reacquires a restored player
+PASS: lethal damage emits death once and cancels pending melee hit
+PASS: invalid timing data is rejected
+PHASE_6_ZOMBIE_RESULT failures=0

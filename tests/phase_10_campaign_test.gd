@@ -31,7 +31,7 @@ func run() -> void:
 				await walk(plot.position + Vector3(0, 0, 0.9))
 				key(KEY_E)
 				check(plot.state == FarmPlot.State.EMPTY, "campaign harvests naturally")
-		await walk(Vector3(-2, 0, 0.1))
+		await walk(game.get_node("MainWorld/Workbench").position + Vector3(0, 0, 1.1))
 		key(KEY_E)
 		await frames(3)
 		var recipe: CraftRecipe = game.recipe_book.get_recipe(&"basic_ammo")

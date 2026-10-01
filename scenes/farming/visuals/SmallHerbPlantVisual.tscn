@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://Asset/Stylized Nature MegaKit.undefined-glb/Fern.glb" id="native"]
+
+[node name="SmallHerbPlantVisual" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("native")]
+position = Vector3(-0.012539070, 0.030092010, -0.018531158)
+scale = Vector3(0.121598176, 0.121598176, 0.121598176)

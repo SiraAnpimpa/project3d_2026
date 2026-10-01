@@ -1,0 +1,61 @@
+--- before/scripts/world/world_presentation.gd
++++ after/scripts/world/world_presentation.gd
+@@ -4,7 +4,7 @@
+ var lamps: Array[OmniLight3D] = []
+ 
+ func bind(world: Node3D, clock: GameClock) -> void:
+-	# RuralTerrain and RuralEnvironment own the map; this node owns base lights and signs.
++	# RuralTerrain and RuralEnvironment own the map; this node owns sparse marks and lights.
+ 	for label_name in ["FarmLabel", "ShelterLabel", "RescueLabel", "ObstacleLabel"]:
+ 		var label := world.get_node_or_null(label_name) as Label3D
+ 		if label != null: label.hide()
+@@ -16,10 +16,11 @@
+ 	var landing: Vector3 = world.get_node("RescueArea").global_position - Vector3.UP*0.05
+ 	for x in [-1.2,1.2]: box(landing+Vector3(x,0.018,0),Vector3(0.22,0.01,3.8),Color("d9d2a3"))
+ 	box(landing+Vector3(0,0.02,0),Vector3(2.6,0.01,0.22),Color("d9d2a3"))
+-	sign_at(Vector3(-23, 1.15, 2), "FARM\nGROW / HARVEST")
+-	sign_at(Vector3(-9.7, 1.5, -6.5), "SHELTER\nREST AFTER CLEAR")
+-	sign_at(landing+Vector3(-5, 1.25, -7.5), "RESCUE LANDING\nAFTER NIGHT 10")
+-	for point in [Vector3(-12, 2.2, -1), Vector3(3, 2.4, -8), landing+Vector3(-7, 2.4, 5)]:
++	# Redundant freestanding boards removed. Actual interaction prompts remain in their scenes.
++	# Yard light clears the entry sightline; workshop light mounts on its existing front post.
++	var light_points := [Vector3(-17.6,2.2,-4.2),Vector3(5.75,2.28,-7.6),landing+Vector3(-7,2.4,5)]
++	for index in light_points.size():
++		var point: Vector3 = light_points[index]
+ 		var lamp := OmniLight3D.new()
+ 		lamp.position = point
+ 		lamp.light_color = Color("ffe2a2")
+@@ -28,8 +29,13 @@
+ 		add_child(lamp)
+ 		lamps.append(lamp)
+ 		var ground := RuralTerrain.height_at(point.x,point.z)
+-		box(Vector3(point.x, (point.y+ground)*0.5, point.z), Vector3(0.06, point.y-ground, 0.06), Color("514b3d"))
+-		box(point, Vector3(0.15, 0.2, 0.15), Color("f4d78f"))
++		if index != 1:
++			box(Vector3(point.x,(point.y+ground)*0.5,point.z),Vector3(0.08,point.y-ground+0.04,0.08),Color("514b3d"))
++		else:
++			box(point+Vector3(0,0,-0.11),Vector3(0.055,0.08,0.12),Color("514b3d"))
++		box(point,Vector3(0.15,0.2,0.15),Color("c6b887"))
++		box(point+Vector3.UP*0.12,Vector3(0.22,0.045,0.22),Color("514b3d"))
++		box(point-Vector3.UP*0.12,Vector3(0.18,0.035,0.18),Color("514b3d"))
+ 	clock.time_changed.connect(func(_day: int, _hour: int, _minute: int, daytime: bool) -> void:
+ 		for lamp in lamps: lamp.light_energy = 0.1 if daytime else 1.5)
+ 	for lamp in lamps: lamp.light_energy = 0.1
+@@ -49,17 +55,3 @@
+ 	mesh.position = point
+ 	add_child(mesh)
+ 
+-func sign_at(point: Vector3, text: String) -> void:
+-	# Static timber supports give the existing boards physical ground contact.
+-	for offset in [-0.78,0.78]:
+-		var ground := RuralTerrain.height_at(point.x+offset,point.z)
+-		var height := point.y-ground
+-		box(Vector3(point.x+offset,ground+height*0.5,point.z),Vector3(0.07,height,0.07),Color("74634a"))
+-	box(point, Vector3(2.1, 0.85, 0.08), Color("233b33"))
+-	var label := Label3D.new()
+-	label.text = text
+-	label.position = point + Vector3(0, 0, 0.05)
+-	label.font_size = 32
+-	label.pixel_size = 0.007
+-	label.modulate = Color("f1e5b9")
+-	add_child(label)

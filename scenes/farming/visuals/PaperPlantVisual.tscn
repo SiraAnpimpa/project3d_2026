@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://Asset/Stylized Nature MegaKit.undefined-glb/Clover.glb" id="native"]
+
+[node name="PaperPlantVisual" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("native")]
+position = Vector3(0.061869847, 0.007598919, 0.010466120)
+scale = Vector3(0.594025193, 0.594025193, 0.594025193)

@@ -1,0 +1,198 @@
+ M ASSET_ANALYSIS.md
+ M ASSET_CREDITS.md
+ M ASSET_GAMEPLAY_MAPPING.md
+ M CONTROLS.md
+ M DEVELOPMENT_PLAN.md
+ M FINAL_BALANCE.md
+ M KNOWN_ISSUES.md
+ M PROGRESS.md
+ M PROJECT_ARCHITECTURE.md
+ M README.md
+ M assets/audio/click.wav.import
+ M assets/audio/craft.wav.import
+ M assets/audio/harvest.wav.import
+ M assets/audio/hurt.wav.import
+ M assets/audio/reload.wav.import
+ M assets/audio/rotor.wav.import
+ M assets/audio/shot.wav.import
+ M assets/audio/unlock.wav.import
+ M assets/audio/wind.wav.import
+ M assets/ui/items/fire_ammo.svg.import
+ M assets/ui/items/fire_essence.svg.import
+ M assets/ui/items/ice_ammo.svg.import
+ M assets/ui/items/ice_crystal.svg.import
+ M assets/ui/items/poison_ammo.svg.import
+ M assets/ui/items/poison_extract.svg.import
+ M assets/ui/items/seed_fire_pepper.svg.import
+ M assets/ui/items/seed_ice_plant.svg.import
+ M assets/ui/items/seed_poison_plant.svg.import
+ M assets/ui/menu_landscape.svg.import
+ M export_presets.cfg
+ M project.godot
+ M resources/catalog.tres
+ M resources/navigation/prototype_navigation.tres
+ M resources/plants/copper.tres
+ M resources/plants/fire_pepper.tres
+ M resources/plants/ice_plant.tres
+ M resources/plants/iron.tres
+ M resources/plants/lead.tres
+ M resources/plants/paper.tres
+ M resources/plants/poison_plant.tres
+ M resources/plants/small_herb.tres
+ M resources/weapons/basic_rifle.tres
+ M scenes/interactables/Workbench.tscn
+ M scenes/main/GameRoot.tscn
+ M scenes/player/Player.tscn
+ M scenes/weapons/BasicRifle.tscn
+ M scenes/world/MainWorld.tscn
+ M scripts/audio/game_audio.gd
+ M scripts/components/stamina_component.gd
+ M scripts/data/plant_data.gd
+ M scripts/data/weapon_data.gd
+ M scripts/farming/plant_visual.gd
+ M scripts/main/game_root.gd
+ M scripts/player/player_controller.gd
+ M scripts/player/player_visual.gd
+ M scripts/presentation/game_presentation.gd
+ M scripts/ui/presentation_style.gd
+ M scripts/ui/prototype_hud.gd
+ M scripts/weapons/weapon_controller.gd
+ M scripts/weapons/weapon_runtime.gd
+ M scripts/world/world_presentation.gd
+ M tests/README.md
+ M tests/phase_10_campaign_test.gd
+ M tests/phase_4_crafting_test.gd
+ M tests/phase_5_weapon_test.gd
+ M tests/phase_7_full_day_test.gd
+ M tests/phase_9_presentation_test.gd
+ M tests/run_tests.ps1
+ M tests/stage_1_test.gd
+ M tools/bake_prototype_navigation.gd
+?? Asset/Cabin.glb
+?? Asset/game_sounds/
+?? ENVIRONMENT_ASSET_INVENTORY.md
+?? GAMEPLAY_REFINEMENT_REPORT.md
+?? MAP_ASSET_USAGE.md
+?? MAP_BEAUTIFICATION_REPORT.md
+?? MAP_FINAL_CLEANUP_REPORT.md
+?? MAP_REDESIGN_REPORT.md
+?? PLANT_VISUAL_ASSET_MAPPING.md
+?? POST_PRODUCTION_REFINEMENT_1.md
+?? assets/audio/bat_hit.wav
+?? assets/audio/bat_hit.wav.import
+?? assets/audio/bat_swing.wav
+?? assets/audio/bat_swing.wav.import
+?? assets/ui/items/wooden_bat.svg
+?? assets/ui/items/wooden_bat.svg.import
+?? docs/gameplay_refinement/
+?? docs/map_beautification/
+?? docs/map_final_cleanup/
+?? docs/map_redesign/
+?? docs/refinement1/
+?? resources/items/wooden_bat.tres
+?? resources/weapons/wooden_bat.tres
+?? scenes/farming/visuals/
+?? scenes/weapons/WoodenBat.tscn
+?? scripts/player/rifle_pose.gd
+?? scripts/player/rifle_pose.gd.uid
+?? scripts/ui/skip_night_dialog.gd
+?? scripts/ui/skip_night_dialog.gd.uid
+?? scripts/world/environment_assets.gd
+?? scripts/world/environment_assets.gd.uid
+?? scripts/world/farm_dressing.gd
+?? scripts/world/farm_dressing.gd.uid
+?? scripts/world/rural_environment.gd
+?? scripts/world/rural_environment.gd.uid
+?? scripts/world/rural_terrain.gd
+?? scripts/world/rural_terrain.gd.uid
+?? tests/beautification_acceptance.gd
+?? tests/beautification_acceptance.gd.uid
+?? tests/beautification_cabin_probe.gd
+?? tests/beautification_cabin_probe.gd.uid
+?? tests/beautification_full_day.gd
+?? tests/beautification_full_day.gd.uid
+?? tests/beautification_metrics.gd
+?? tests/beautification_metrics.gd.uid
+?? tests/beautification_path_probe.gd
+?? tests/beautification_path_probe.gd.uid
+?? tests/beautification_rescue_capture.gd
+?? tests/beautification_rescue_capture.gd.uid
+?? tests/beautification_routes.gd
+?? tests/beautification_routes.gd.uid
+?? tests/beautification_survey.gd
+?? tests/beautification_survey.gd.uid
+?? tests/cleanup_acceptance.gd
+?? tests/cleanup_acceptance.gd.uid
+?? tests/cleanup_finish_views.gd
+?? tests/cleanup_finish_views.gd.uid
+?? tests/cleanup_full_day.gd
+?? tests/cleanup_full_day.gd.uid
+?? tests/cleanup_geometry.gd
+?? tests/cleanup_geometry.gd.uid
+?? tests/cleanup_metrics.gd
+?? tests/cleanup_metrics.gd.uid
+?? tests/cleanup_night.gd
+?? tests/cleanup_night.gd.uid
+?? tests/cleanup_rescue_capture.gd
+?? tests/cleanup_rescue_capture.gd.uid
+?? tests/cleanup_routes.gd
+?? tests/cleanup_routes.gd.uid
+?? tests/cleanup_survey.gd
+?? tests/cleanup_survey.gd.uid
+?? tests/gameplay_bat_test.gd
+?? tests/gameplay_bat_test.gd.uid
+?? tests/gameplay_character_capture.gd
+?? tests/gameplay_character_capture.gd.uid
+?? tests/gameplay_movement_test.gd
+?? tests/gameplay_movement_test.gd.uid
+?? tests/gameplay_night_test.gd
+?? tests/gameplay_night_test.gd.uid
+?? tests/gameplay_plant_performance.gd
+?? tests/gameplay_plant_performance.gd.uid
+?? tests/gameplay_plants_test.gd
+?? tests/gameplay_plants_test.gd.uid
+?? tests/gameplay_stamina_measure.gd
+?? tests/gameplay_stamina_measure.gd.uid
+?? tests/gameplay_stride_measure.gd
+?? tests/gameplay_stride_measure.gd.uid
+?? tests/map_redesign_acceptance.gd
+?? tests/map_redesign_acceptance.gd.uid
+?? tests/map_redesign_capture.gd
+?? tests/map_redesign_capture.gd.uid
+?? tests/map_redesign_metrics.gd
+?? tests/map_redesign_metrics.gd.uid
+?? tests/refinement_aim_test.gd
+?? tests/refinement_aim_test.gd.uid
+?? tests/refinement_campaign_test.gd
+?? tests/refinement_campaign_test.gd.uid
+?? tests/refinement_full_day_test.gd
+?? tests/refinement_full_day_test.gd.uid
+?? tests/refinement_holding_test.gd
+?? tests/refinement_holding_test.gd.uid
+?? tests/refinement_map_capture.gd
+?? tests/refinement_map_capture.gd.uid
+?? tests/refinement_map_test.gd
+?? tests/refinement_map_test.gd.uid
+?? tests/refinement_movement_test.gd
+?? tests/refinement_movement_test.gd.uid
+?? tests/refinement_pose_capture.gd
+?? tests/refinement_pose_capture.gd.uid
+?? tests/refinement_shelter_probe.gd
+?? tests/refinement_shelter_probe.gd.uid
+?? tests/refinement_skip_test.gd
+?? tests/refinement_skip_test.gd.uid
+?? tests/run_beautification_tests.ps1
+?? tests/run_cleanup_tests.ps1
+?? tests/run_gameplay_refinement.ps1
+?? tools/audit_cabin.gd
+?? tools/audit_cabin.gd.uid
+?? tools/audit_navigation_edges.gd
+?? tools/audit_navigation_edges.gd.uid
+?? tools/environment_asset_audit.gd
+?? tools/environment_asset_audit.gd.uid
+?? tools/gameplay_asset_audit.gd
+?? tools/gameplay_asset_audit.gd.uid
+?? tools/gameplay_stride_audit.gd
+?? tools/gameplay_stride_audit.gd.uid
+?? tools/inspect_player_rig.gd
+?? tools/inspect_player_rig.gd.uid

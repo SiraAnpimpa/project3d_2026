@@ -1,0 +1,27 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+PASS: Normal uses shared controller with valid data
+PASS: Normal measured movement matches configured speed
+PASS: Normal movement clip exists (Runner uses Run)
+PASS: Normal applies per-instance HP
+PASS: Normal navigates into melee and lands data-driven damage
+PASS: Runner uses shared controller with valid data
+PASS: Runner measured movement matches configured speed
+PASS: Runner movement clip exists (Runner uses Run)
+PASS: Runner applies per-instance HP
+PASS: Runner navigates into melee and lands data-driven damage
+PASS: Tank uses shared controller with valid data
+PASS: Tank measured movement matches configured speed
+PASS: Tank movement clip exists (Runner uses Run)
+PASS: Tank applies per-instance HP
+PASS: Tank navigates into melee and lands data-driven damage
+PASS: Tank routes around solid obstacle without floating
+PASS: Tank collider navigates shelter front
+PASS: player sprint outruns three Runners without unavoidable damage
+PASS: mixed pack navigates, collides and independently attacks
+PASS: reload works while all variants attack
+PASS: mixed rifle fight: five hits per Normal, three Runner, fifteen Tank; all clean up
+MIXED_COMBAT hits={ &"normal_zombie": 10, &"runner_zombie": 3, &"tank_zombie": 15 } reserve=30 magazine=2
+PHASE_8_VARIANTS_RESULT failures=0

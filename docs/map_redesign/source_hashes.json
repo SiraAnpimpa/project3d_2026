@@ -1,0 +1,16 @@
+{
+  "scenes/world/MainWorld.tscn": "16e45401f1b480bd1383d4ba4999bf57b2775d10b191aead34f55441765c94ca",
+  "resources/navigation/prototype_navigation.tres": "90330ffbac19e630f3cf0a4e6b300a559caffcce53b42bb379fc16b992b0b517",
+  "scripts/world/rural_terrain.gd": "acfb70d231b95b5b4d305296a2922415182d93cc71ac102af2cd0b54001c36ef",
+  "scripts/world/rural_environment.gd": "e21e852166e16f1753de24212ba1f923382730b4d3335fd52ea8511a778ff03f",
+  "scripts/world/environment_assets.gd": "5b39f8190918c35238af957a4f7b5413f1365f451a916318aed749b27e067ceb",
+  "scripts/world/world_presentation.gd": "970e9b8ad31b08d3bf2d2222530b613cfd2a6c789bf768a0b1f429188cc4ac5a",
+  "export_presets.cfg": "ff7d6157e8bcb9e41c95a5a04d35d2737179b49685f6e6a621422bb852c1d35f",
+  "tests/map_redesign_metrics.gd": "a1a0fd74016e66f38ddcacdbcfc5d6e7da460c2e56a5bdf6d968a826db5c9c10",
+  "tests/map_redesign_acceptance.gd": "db6d86a5011ce1fff79a18aaa61e56baa4b92a928352c793706c97b1d8724cd3",
+  "tests/map_redesign_capture.gd": "18790594fdb88426769bfafc7807f1f23a3bccb32b2f965353d42e8fbf1e48b0",
+  "tests/refinement_map_test.gd": "48361df40927a55e37499c2937025a9d541a7087c0c23898851be15d44337d1b",
+  "tests/stage_1_test.gd": "c643e856e276c1d1c352d8499829d989b2d38d7164396fe7979cc1dc69c88ad4",
+  "tests/run_tests.ps1": "f82c09f52e1dbb05ecf3f4747cfa3cca87c4dd0f679446cb7729697bc051ab33",
+  "tools/environment_asset_audit.gd": "f26b2a511ba94809469eb96968b7ea67155eeb9b63f8b6dc25cf2e916cf89b94"
+}
