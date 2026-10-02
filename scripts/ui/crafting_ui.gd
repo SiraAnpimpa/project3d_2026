@@ -2,9 +2,7 @@ class_name CraftingUI
 extends CanvasLayer
 
 signal opened_changed(is_open: bool)
-
 const CATEGORY_NAMES := ["AMMO", "MEDICINE", "WEAPON", "UTILITY", "DEFENSE", "MATERIAL"]
-
 var crafting: CraftingSystem
 var inventory_ui: InventoryUI
 var pause_menu: PauseMenu
@@ -13,22 +11,63 @@ var is_open := false
 var selected_recipe: CraftRecipe
 var _previous_pause := false
 var _buttons: Dictionary = {}
-
-@onready var screen: Control = $Screen
-@onready var recipe_list: VBoxContainer = %RecipeList
-@onready var detail_title: Label = %DetailTitle
-@onready var description: Label = %Description
-@onready var ingredients: VBoxContainer = %Ingredients
-@onready var outputs: Label = %Outputs
-@onready var feedback: Label = %Feedback
-@onready var craft_button: Button = %Craft
-
+var screen: Control
+var recipe_list: VBoxContainer
+var detail_title: Label
+var description: Label
+var ingredients: VBoxContainer
+var outputs: Label
+var feedback: Label
+var craft_button: Button
+var _close_button: Button
+var _preview: VBoxContainer
+var _panel: PanelContainer
 
 func _ready() -> void:
+	screen = PresentationStyle.screen(self)
+	_panel = PresentationStyle.center_panel(screen, Vector2(970, 568))
+	var rows := PresentationStyle.box(_panel, true, 16)
+	var header := PresentationStyle.box(rows, false, 12)
+	PresentationStyle.icon(header, UiIcons.get_icon("workbench"), 26)
+	PresentationStyle.label(header, "Workbench", 28).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_close_button = PresentationStyle.button(header, "Esc", func() -> void: set_open(false), "close")
+	rows.add_child(HSeparator.new())
+	var columns := PresentationStyle.box(rows, false, 28)
+	columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var materials := PresentationStyle.box(columns, true, 14)
+	materials.custom_minimum_size.x = 254
+	PresentationStyle.label(materials, "MATERIALS", 14).modulate = PresentationStyle.MUTED
+	ingredients = PresentationStyle.box(materials, true, 16) as VBoxContainer
+	var recipes := PresentationStyle.box(columns, true, 8)
+	recipes.custom_minimum_size.x = 282
+	PresentationStyle.label(recipes, "RECIPES", 14).modulate = PresentationStyle.MUTED
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(282, 382)
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	recipes.add_child(scroll)
+	recipe_list = PresentationStyle.box(scroll, true, 6) as VBoxContainer
+	recipe_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var result := PresentationStyle.box(columns, true, 12)
+	result.custom_minimum_size.x = 282
+	result.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	PresentationStyle.label(result, "RESULT", 14).modulate = PresentationStyle.MUTED
+	detail_title = PresentationStyle.label(result, "", 24)
+	detail_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_preview = PresentationStyle.box(result, true, 6) as VBoxContainer
+	outputs = PresentationStyle.label(result, "", 20)
+	outputs.modulate = PresentationStyle.SAGE
+	description = PresentationStyle.label(result, "", 17)
+	description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	description.modulate = PresentationStyle.MUTED
+	var spacer := Control.new()
+	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	result.add_child(spacer)
+	feedback = PresentationStyle.label(result, "", 17)
+	feedback.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	feedback.custom_minimum_size.y = 46
+	craft_button = PresentationStyle.button(result, "Craft", _craft_selected, "workbench")
 	screen.hide()
-	%Close.pressed.connect(func() -> void: set_open(false))
-	craft_button.pressed.connect(_craft_selected)
-
 
 func bind(system: CraftingSystem, bag: InventoryUI, pause: PauseMenu, actor: PlayerController) -> void:
 	crafting = system
@@ -40,18 +79,14 @@ func bind(system: CraftingSystem, bag: InventoryUI, pause: PauseMenu, actor: Pla
 	_build_recipe_list()
 	refresh()
 
-
 func _input(event: InputEvent) -> void:
 	if is_open and not event.is_echo() and event.is_action_pressed("pause"):
 		set_open(false)
 		get_viewport().set_input_as_handled()
 
-
 func set_open(value: bool) -> void:
-	if value == is_open:
-		return
-	if value and (crafting == null or player.health.is_dead or inventory_ui.is_open or pause_menu.is_open or get_tree().paused):
-		return
+	if value == is_open: return
+	if value and (crafting == null or player.health.is_dead or inventory_ui.is_open or pause_menu.is_open or get_tree().paused): return
 	is_open = value
 	screen.visible = value
 	if value:
@@ -59,58 +94,48 @@ func set_open(value: bool) -> void:
 		get_tree().paused = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		refresh()
-		if craft_button.disabled:
-			%Close.grab_focus()
-		else:
-			craft_button.grab_focus()
+		PresentationStyle.appear(_panel)
+		if craft_button.disabled: _close_button.grab_focus()
+		else: craft_button.grab_focus()
 	else:
 		get_tree().paused = _previous_pause
 		get_viewport().gui_release_focus()
 	opened_changed.emit(value)
 
-
 func _build_recipe_list() -> void:
-	for child in recipe_list.get_children():
-		child.queue_free()
+	_clear(recipe_list)
 	_buttons.clear()
-	if crafting == null:
-		return
+	if crafting == null: return
 	for category in CATEGORY_NAMES.size():
 		var heading_added := false
 		for recipe in crafting.get_recipes():
-			if recipe == null or recipe.category != category:
-				continue
+			if recipe == null or recipe.category != category: continue
 			if not heading_added:
-				var heading := Label.new()
-				heading.text = CATEGORY_NAMES[category]
-				heading.add_theme_color_override("font_color", Color(0.75, 0.87, 0.51))
-				recipe_list.add_child(heading)
+				PresentationStyle.label(recipe_list, CATEGORY_NAMES[category], 14).modulate = PresentationStyle.MUTED
 				heading_added = true
-			var button := Button.new()
-			button.text = recipe.display_name
+			var button := PresentationStyle.button(recipe_list, recipe.display_name, _select_recipe.bind(recipe))
 			button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-			button.pressed.connect(_select_recipe.bind(recipe))
-			recipe_list.add_child(button)
+			button.expand_icon = true
+			button.add_theme_constant_override("icon_max_width", 28)
+			button.add_theme_font_size_override("font_size", 17)
 			_buttons[recipe] = button
-	if selected_recipe == null and not crafting.get_recipes().is_empty():
-		selected_recipe = crafting.get_recipes()[0]
-
+	if selected_recipe == null and not crafting.get_recipes().is_empty(): selected_recipe = crafting.get_recipes()[0]
 
 func _select_recipe(recipe: CraftRecipe) -> void:
 	selected_recipe = recipe
 	refresh()
 
-
 func refresh() -> void:
-	if crafting == null:
-		return
-	for recipe in _buttons:
+	if crafting == null: return
+	for recipe: CraftRecipe in _buttons:
 		var button: Button = _buttons[recipe]
-		button.text = ("> " if recipe == selected_recipe else "  ") + recipe.display_name
-		if not crafting.is_unlocked(recipe):
-			button.text += "  [LOCKED]"
-	for child in ingredients.get_children():
-		child.queue_free()
+		var unlocked := crafting.is_unlocked(recipe)
+		button.text = recipe.display_name
+		button.icon = UiIcons.item_icon(recipe.outputs[0].item) if unlocked else UiIcons.get_icon("lock")
+		button.tooltip_text = recipe.display_name if unlocked else "Unlocks on day %d" % recipe.unlock_day
+		button.add_theme_stylebox_override("normal", PresentationStyle.flat(Color("354333") if recipe == selected_recipe else Color("28332b"), PresentationStyle.SAGE if recipe == selected_recipe else Color("3b473a"), 2 if recipe == selected_recipe else 1))
+	_clear(ingredients)
+	_clear(_preview)
 	if selected_recipe == null:
 		detail_title.text = "No recipes"
 		description.text = ""
@@ -119,32 +144,47 @@ func refresh() -> void:
 		craft_button.disabled = true
 		return
 	detail_title.text = selected_recipe.display_name
-	description.text = selected_recipe.description
 	for entry in selected_recipe.ingredients:
-		if entry == null or entry.item == null:
-			continue
+		if entry == null or entry.item == null: continue
 		var owned := crafting.inventory.get_item_amount(entry.item.id)
 		var required := entry.quantity * selected_recipe.craft_amount
-		var label := Label.new()
-		label.text = "%s     %d / %d%s" % [entry.item.display_name, owned, required, "  MISSING" if owned < required else ""]
-		label.add_theme_color_override("font_color", Color(1.0, 0.56, 0.46) if owned < required else Color(0.9, 0.95, 0.84))
-		ingredients.add_child(label)
+		var row := PresentationStyle.box(ingredients, false, 12)
+		PresentationStyle.icon(row, UiIcons.item_icon(entry.item), 42)
+		var copy := PresentationStyle.box(row, true, 1)
+		PresentationStyle.label(copy, entry.item.display_name, 18)
+		PresentationStyle.label(copy, "%d / %d" % [owned, required], 22).modulate = PresentationStyle.RED if owned < required else PresentationStyle.SAGE
 	var output_names := PackedStringArray()
 	for entry in selected_recipe.outputs:
 		if entry != null and entry.item != null:
-			output_names.append("%s x%d" % [entry.item.display_name, entry.quantity * selected_recipe.craft_amount])
-	outputs.text = "Output: " + ", ".join(output_names)
+			PresentationStyle.icon(_preview, UiIcons.item_icon(entry.item), 94)
+			output_names.append("×%d %s" % [entry.quantity * selected_recipe.craft_amount, entry.item.display_name])
+	outputs.text = "\n".join(output_names)
+	description.text = UiIcons.use_text(selected_recipe.outputs[0].item)
+	description.tooltip_text = selected_recipe.description
 	var reason := crafting.failure_reason(selected_recipe)
 	craft_button.disabled = not reason.is_empty()
-	feedback.text = reason if not reason.is_empty() else "Ready to craft"
-
+	feedback.tooltip_text = reason
+	feedback.modulate = PresentationStyle.RED if craft_button.disabled else PresentationStyle.SAGE
+	if not crafting.is_unlocked(selected_recipe):
+		feedback.text = "Unlocks on day %d" % selected_recipe.unlock_day
+	elif reason.to_lower().contains("full") or reason.to_lower().contains("space"):
+		feedback.text = "Bag full · Make room first"
+	elif not reason.is_empty():
+		feedback.text = "More materials needed"
+	else:
+		feedback.text = "Ready to craft"
 
 func _craft_selected() -> void:
 	var result := crafting.craft(selected_recipe)
 	refresh()
 	feedback.text = result
+	feedback.modulate = PresentationStyle.SAGE if result.begins_with("Crafted") else PresentationStyle.RED
+	PresentationStyle.appear(feedback)
 
+func _clear(node: Node) -> void:
+	for child in node.get_children():
+		node.remove_child(child)
+		child.queue_free()
 
 func _exit_tree() -> void:
-	if is_open:
-		get_tree().paused = _previous_pause
+	if is_open: get_tree().paused = _previous_pause

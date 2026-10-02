@@ -32,7 +32,7 @@ func bind(target_player: PlayerController, aim_ray: CameraAimRay, label: Label) 
 
 func refresh() -> void:
 	visible = rig.can_control() and rig.is_combat_enabled()
-	debug_label.visible = ray.debug_visible()
+	debug_label.visible = OS.is_debug_build() and ray.debug_visible()
 	if debug_label.visible:
 		var distance := ray.aim_origin.distance_to(ray.aim_point)
 		debug_label.text = "AIM %s  /  %.1f m\nCamera forward: %.2f, %.2f, %.2f\nPlayer forward: %.2f, %.2f, %.2f" % [
@@ -49,11 +49,11 @@ func _draw() -> void:
 	var tint := Color(1, 0.97, 0.85, 1.0 if rig.is_aiming else 0.32)
 	if not rig.is_aiming:
 		draw_circle(center, 2.0, tint)
-		return
-	for direction in [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]:
-		draw_line(center + direction * 5, center + direction * 12, Color(0.05, 0.07, 0.06, 0.9), 4.0)
-		draw_line(center + direction * 5, center + direction * 12, tint, 2.0)
-	draw_circle(center, 1.5, tint)
+	else:
+		for direction in [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]:
+			draw_line(center + direction * 5, center + direction * 12, Color(0.05, 0.07, 0.06, 0.9), 4.0)
+			draw_line(center + direction * 5, center + direction * 12, tint, 2.0)
+		draw_circle(center, 1.5, tint)
 	if hit_time > 0:
 		for direction in [Vector2(1, 1), Vector2(-1, 1), Vector2(1, -1), Vector2(-1, -1)]:
-			draw_line(center + direction * 7, center + direction * 13, Color(1, 0.5, 0.2), 3)
+			draw_line(center + direction * 7, center + direction * 13, PresentationStyle.GOLD, 2)

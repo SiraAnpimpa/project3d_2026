@@ -1,0 +1,8058 @@
+[
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Alarm 256 px.png",
+    "bytes": 2644,
+    "extension": ".png",
+    "sha256": "bd5847ca5790949cccb4d06fe1b3e5c51b0165b479a05d9f636da20a153de798",
+    "width": 256,
+    "height": 191,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      191
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Apple 256 px.png",
+    "bytes": 4730,
+    "extension": ".png",
+    "sha256": "d50503c2a3e3d5d8ae315bd894683ef562a89c65abd9f800e4281e751b6f4cd8",
+    "width": 220,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      220,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Back 2 256 px.png",
+    "bytes": 4265,
+    "extension": ".png",
+    "sha256": "c9ce33957ca2c5798f04686561b4e023ea470bf0d60070d61b552023a4808790",
+    "width": 222,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      222,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Back 256 px.png",
+    "bytes": 2773,
+    "extension": ".png",
+    "sha256": "a0ce14e1936e1d5423a726f1495e3a04c1db23c0966bf1ed45b1180e6fa09bf3",
+    "width": 207,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      207,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Battery - full 256 px.png",
+    "bytes": 1552,
+    "extension": ".png",
+    "sha256": "c3ce0d940e3bcfba2d2b932e3a44d8bf8d88a178a44b4227b1c1ae676d4680e9",
+    "width": 256,
+    "height": 143,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      143
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Before 256 px.png",
+    "bytes": 2413,
+    "extension": ".png",
+    "sha256": "5a9ddba26d3a577ebf504bbd514e89152f8c5fdcd9fc18a3b6608a55e8bf708c",
+    "width": 207,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      207,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/bone head 256 px.png",
+    "bytes": 3907,
+    "extension": ".png",
+    "sha256": "08df815d9b67ac1cf20c53734253a8e0f6a3bae21f72277745cf6ef80e991326",
+    "width": 251,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      251,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Button  256 px.png",
+    "bytes": 2033,
+    "extension": ".png",
+    "sha256": "46e470129f04cc652f2f3ccc133bc84d007025e42b97f2a1c36d645bd1ddd85e",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/camera 1 256 px.png",
+    "bytes": 2947,
+    "extension": ".png",
+    "sha256": "c57197d97dac885390e752b5d56b3fcc615dca5a5e72c2a13bc9ba5dc982597c",
+    "width": 256,
+    "height": 213,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      213
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/camera 2 256 px.png",
+    "bytes": 2720,
+    "extension": ".png",
+    "sha256": "9f6639f615fe85516c637ed054318521cac21c2f3abdc843f0a872d259a88bef",
+    "width": 256,
+    "height": 214,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      214
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Click - left 256 px.png",
+    "bytes": 1791,
+    "extension": ".png",
+    "sha256": "37894ae64daf78044ca16595e7aee43fe5d4c6a8ef1d9b5517eaa28e99c3753d",
+    "width": 167,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      167,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Click - middle  256 px.png",
+    "bytes": 1562,
+    "extension": ".png",
+    "sha256": "e68cbd688ca321188dcff1883ba45cd5f6ac4a492fa3ed8eae2403ebd2ff3620",
+    "width": 167,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      167,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Click - right 256 px.png",
+    "bytes": 1807,
+    "extension": ".png",
+    "sha256": "bdf3abeb15668cdcfbe7a05dab6f9c0e7e07bf07879a41ac6d4566287ca1a980",
+    "width": 167,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      167,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Cross 256 px.png",
+    "bytes": 4020,
+    "extension": ".png",
+    "sha256": "9ce7d59dc7078c3079a424cbf31ac7ee47730e0aa384af9831e44eaa1dd96654",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Danger sign 1 256 px.png",
+    "bytes": 3216,
+    "extension": ".png",
+    "sha256": "76bfa9ff80160cd8bcf54ef0a4fb4b89f18359582e37349b2e0abf9370f30304",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Danger sign 2 256 px.png",
+    "bytes": 4113,
+    "extension": ".png",
+    "sha256": "b03a7b722b17a51baa4cf28fdb731ea4108ca751bf560952f9a96e99d7f52fb2",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Delete 256 px.png",
+    "bytes": 2020,
+    "extension": ".png",
+    "sha256": "104163d584bdfc29cb46024179ac5f1f851de85ae5cc8917a60da0ee641c15ef",
+    "width": 174,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      174,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/divide  256 px.png",
+    "bytes": 1563,
+    "extension": ".png",
+    "sha256": "497989ebff9cc9e12292c94688e38d4c900cba4cfd69285e54c801f0b1118f29",
+    "width": 256,
+    "height": 183,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      183
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Download  256 px.png",
+    "bytes": 1995,
+    "extension": ".png",
+    "sha256": "4c8a7cbb0e4d6036eefcf17f5d28a284be8a4ed2f7dfebc968bd02d9e9e627ec",
+    "width": 245,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      245,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Empty battery  256 px.png",
+    "bytes": 3257,
+    "extension": ".png",
+    "sha256": "cad88865322a717a348a3e7ba712cf6295437afc803bc5a858460bb77e0d6889",
+    "width": 256,
+    "height": 229,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      229
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Equal 256 px.png",
+    "bytes": 991,
+    "extension": ".png",
+    "sha256": "0d262694ab2b67115a7c24f3624db29ce86b2777e4a7ebc4894fbb01b7aa9f31",
+    "width": 256,
+    "height": 132,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      132
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Exclamation sign 2 256 px.png",
+    "bytes": 977,
+    "extension": ".png",
+    "sha256": "42b5b26e0bdd862d2f7516326758cd26db2f8d406090ef6993a65c080c3e2cc0",
+    "width": 48,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      48,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Exclamation sign 256 px.png",
+    "bytes": 957,
+    "extension": ".png",
+    "sha256": "224a5b3485068cb036bf1bc2b416cf69c118a57781e571cd1f4f5ed6d1da1335",
+    "width": 48,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      48,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/F  256 px.png",
+    "bytes": 1624,
+    "extension": ".png",
+    "sha256": "b00d526fa16e00ee519ab1aa096b42f013583e247582ad85f2c44d54310b9071",
+    "width": 137,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      137,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Gamepad 1 256 px.png",
+    "bytes": 3744,
+    "extension": ".png",
+    "sha256": "df0e4ed0d355f7a5ecf753562c51a24a0557b07980bde335a3fae98d81b1fb60",
+    "width": 256,
+    "height": 184,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      184
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Gamepad 2 256 px.png",
+    "bytes": 3735,
+    "extension": ".png",
+    "sha256": "c4ff9d6bec8e11aa3eac8d66fa0353f9536a826436872991b64c432e30343b7c",
+    "width": 256,
+    "height": 184,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      184
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Gift 256 px.png",
+    "bytes": 4393,
+    "extension": ".png",
+    "sha256": "1446befdaa2b91013521e381b77e0e9f85486f99c2fc69a12f58f4bf4091e7e4",
+    "width": 225,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      225,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/House 256 px.png",
+    "bytes": 3423,
+    "extension": ".png",
+    "sha256": "10c0f10a00b8877307e2df8c8861c9ab17e7881873631d211c170c57445a673b",
+    "width": 256,
+    "height": 242,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      242
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Key 256 px.png",
+    "bytes": 4120,
+    "extension": ".png",
+    "sha256": "75d30cbe98f0743240d7541a6772f7f65a1cc665f5e98dedbb567187ecb1b1bf",
+    "width": 249,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      249,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Keyboard 256 px.png",
+    "bytes": 2970,
+    "extension": ".png",
+    "sha256": "3c7b5bed3a3eb4bb782a41b3cadc4ea22ed8b43fa687cd28f603380800f95b40",
+    "width": 256,
+    "height": 139,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      139
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Like 256 px.png",
+    "bytes": 3573,
+    "extension": ".png",
+    "sha256": "fb153fe6ded54691a2bf675da56b0fa69183ff70594dc289e152a6441ec2fa88",
+    "width": 233,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      233,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Link 256 px.png",
+    "bytes": 4788,
+    "extension": ".png",
+    "sha256": "c4d6824fe11b6db326684386e574e22838ac96eae13faaa5548e809dfa0e484d",
+    "width": 248,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      248,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Lock 256 px.png",
+    "bytes": 2412,
+    "extension": ".png",
+    "sha256": "3421b1e11efa73fb02ea4503b03eae3318e406166592ef63c167bdc1307538a4",
+    "width": 213,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      213,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Low battery 256 px.png",
+    "bytes": 1898,
+    "extension": ".png",
+    "sha256": "8277df0180b22f35097e179dec1f2217ad3e61693fb7ababde9a2e1deae37619",
+    "width": 256,
+    "height": 143,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      143
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/magnifier  256 px.png",
+    "bytes": 2291,
+    "extension": ".png",
+    "sha256": "41f8e07f37e954cc8fd1a388ec7dc0ba6f3335a0e7fcb4c4f7ef359e847e847b",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Mail 256 px.png",
+    "bytes": 4677,
+    "extension": ".png",
+    "sha256": "0ba1841eb022af338c5f891abda2cf99fe566adcb1dd4eff203a46fb4a5a191b",
+    "width": 256,
+    "height": 182,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      182
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Map 256 px.png",
+    "bytes": 2871,
+    "extension": ".png",
+    "sha256": "1b8551a074c0cc547421aa42fedfe740e1fb972ae1f93fc1a586b7fec9291142",
+    "width": 177,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      177,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Market 256 px.png",
+    "bytes": 3620,
+    "extension": ".png",
+    "sha256": "cd95024e5d871962f0209ee1882e38167171fccfc21d48a175ec42f7348e7961",
+    "width": 256,
+    "height": 227,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      227
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/medal 1 256 px.png",
+    "bytes": 4510,
+    "extension": ".png",
+    "sha256": "e47dff5129b658214862b010003029c5a683e4ac1ee5469b92a954c62a2c2b55",
+    "width": 200,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      200,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/medal 2 256 px.png",
+    "bytes": 3911,
+    "extension": ".png",
+    "sha256": "a78c86c2c3b7ee7633f25f0fd074819920b739baf559ae6e5486c9fcfcb07e29",
+    "width": 199,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      199,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/medal 3 256 px.png",
+    "bytes": 3300,
+    "extension": ".png",
+    "sha256": "7353800d581fec5e3dcaa801976a936c4eb6b57c5eb8de135e38035c52eab2d2",
+    "width": 204,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      204,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Menu 1 256 px.png",
+    "bytes": 3048,
+    "extension": ".png",
+    "sha256": "e9505946dc95c093e128b6caf35572a87891965907961ebe4c4ebfa8950d1e8f",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Menu 2 256 px.png",
+    "bytes": 1816,
+    "extension": ".png",
+    "sha256": "fb93b1c45c90927c850d641fbe8b3499f1f91b97ff50044c7c7f6b4c2f956d74",
+    "width": 256,
+    "height": 172,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      172
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Menu 256 px.png",
+    "bytes": 4346,
+    "extension": ".png",
+    "sha256": "718abc7deb84682b67febd01c69027988e3eb1b149285352e5434ea4320fb051",
+    "width": 256,
+    "height": 252,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      252
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Message 256 px.png",
+    "bytes": 2419,
+    "extension": ".png",
+    "sha256": "51efdb0d9c3d31923b15463c1f68868dc4cd351f8cae2439b050955930f02b02",
+    "width": 256,
+    "height": 226,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      226
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Money  256 px.png",
+    "bytes": 2446,
+    "extension": ".png",
+    "sha256": "2fafb10e55df2c79f6f859620273b7c30593f6580dcadd0507b693cf1ab88b08",
+    "width": 169,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      169,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Monitor 256 px.png",
+    "bytes": 1904,
+    "extension": ".png",
+    "sha256": "a2fb2db5bf918b23c7b4fa01aaba880a0547ab01d527305e6c9f137db69e9ae1",
+    "width": 256,
+    "height": 241,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      241
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Mouse  256 px.png",
+    "bytes": 1639,
+    "extension": ".png",
+    "sha256": "cc60c306494105e2adaf6ec13a79df37825b09b37a86acac5407ae125bb4bd18",
+    "width": 167,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      167,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Musick note 256 px.png",
+    "bytes": 2020,
+    "extension": ".png",
+    "sha256": "e44e71efbc6ed57ff745767a437c91ec19d03d92a8c50a6cf37090878f24d154",
+    "width": 256,
+    "height": 214,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      214
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Mute 2 256 px.png",
+    "bytes": 3456,
+    "extension": ".png",
+    "sha256": "49982edb05fe3a555f195114ae8b179a57c63f1715cc1ee602d0ccec8aa604e4",
+    "width": 256,
+    "height": 167,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      167
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Mute 256 px.png",
+    "bytes": 4151,
+    "extension": ".png",
+    "sha256": "d80eec32337f40f0fabf188a6baacc261deb85ddf47ee9a3f432720596b01e3a",
+    "width": 256,
+    "height": 243,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      243
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Negative  256 px.png",
+    "bytes": 469,
+    "extension": ".png",
+    "sha256": "7b22455e9d36e80fc948e269c68cab0cd592d3fccf28fd69f692a8cf3df12415",
+    "width": 256,
+    "height": 45,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      45
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Network  256 px.png",
+    "bytes": 9796,
+    "extension": ".png",
+    "sha256": "2010caae4c05c498048a4bb66285eb86162f31ed5ed428c09b313e07a8a59d90",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Network 2 256 px.png",
+    "bytes": 1226,
+    "extension": ".png",
+    "sha256": "03c96bc8b35f0889a634497baa977c0a3828e4ced1670b12cb90099c112f0e58",
+    "width": 256,
+    "height": 247,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      247
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Next - Speed Up 256 px.png",
+    "bytes": 3828,
+    "extension": ".png",
+    "sha256": "33b469c5890bbdd07541d5a5da67b449ec8ed0cc1603a6b904382b66dac6e3f1",
+    "width": 256,
+    "height": 198,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      198
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Next 256 px.png",
+    "bytes": 2343,
+    "extension": ".png",
+    "sha256": "ff91a6be49278c57a1587835af68676a22b5cfb9f372708299ce84116608e8d4",
+    "width": 207,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      207,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/No wifi 256 px.png",
+    "bytes": 6758,
+    "extension": ".png",
+    "sha256": "b2d8d82999b7384158d6613b7c27e9b553d3c786d5a9987c39389192be2554b9",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Pause 256 px.png",
+    "bytes": 1238,
+    "extension": ".png",
+    "sha256": "45892a8a64e3bd336c73d1447506f19c44d0cf79efe65473bb742e1cde8d279e",
+    "width": 161,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      161,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Play - Puse 256 px.png",
+    "bytes": 3188,
+    "extension": ".png",
+    "sha256": "323918e2f390c0e5cdd609da809c33566a27eeae3b5137c953c0848dd4cf9a00",
+    "width": 233,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      233,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Play 256 px.png",
+    "bytes": 3130,
+    "extension": ".png",
+    "sha256": "23ceab761ee311becbed10b3ff846af965d0fbe668db0abca389f5a5e80868b7",
+    "width": 185,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      185,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Plus 256 px.png",
+    "bytes": 1526,
+    "extension": ".png",
+    "sha256": "6c724b71c2627778166d29b586bba36b4437b27f84855041674262beb0afb78e",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Power plug 256 px.png",
+    "bytes": 1662,
+    "extension": ".png",
+    "sha256": "7c4d8ec662a432e277b149a08f78be6e535c90d7bb902ac735c3a5202d7bd8b7",
+    "width": 174,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      174,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Power sign 256 px.png",
+    "bytes": 2795,
+    "extension": ".png",
+    "sha256": "143808101610311ab85571f717cd5c01afb13dfe9e3048c7c252994fc060144e",
+    "width": 204,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      204,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Question 256 px.png",
+    "bytes": 1982,
+    "extension": ".png",
+    "sha256": "6574fd1e3a781741bb77ac4d900f7e983207c837733cda4cc38073f0380e725e",
+    "width": 160,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      160,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Ranking 256 px.png",
+    "bytes": 1757,
+    "extension": ".png",
+    "sha256": "5c2461a2c570f7196f9b619f8be81e7b4ec142d247b82511262c31b88ea8a35e",
+    "width": 256,
+    "height": 181,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      181
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Reply  256 px.png",
+    "bytes": 3053,
+    "extension": ".png",
+    "sha256": "a90c0b4fd90069c409222cb13a00f3925ede627909e4bba8f6b69e6a9f552b3f",
+    "width": 207,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      207,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Rotate phone 1 256 px.png",
+    "bytes": 4536,
+    "extension": ".png",
+    "sha256": "49f2841cbcc360c59a53c2f4c48ba1a1e9c4210f665a6399dc8c0bd0fecbfc0c",
+    "width": 256,
+    "height": 173,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      173
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Rotate phone 2 256 px.png",
+    "bytes": 2153,
+    "extension": ".png",
+    "sha256": "15f31cc783c9a37fb32ad77df8f2cd18121774503f8d0f659754087975ee4584",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Save 256 px.png",
+    "bytes": 2482,
+    "extension": ".png",
+    "sha256": "a6b8b516ae9b8df0f1cb08b55d82dcc4b89a09f6ebc740a002e6141c115ab076",
+    "width": 243,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      243,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Setting 1 256 px.png",
+    "bytes": 3294,
+    "extension": ".png",
+    "sha256": "5c304d5e485497a8648815dbc4deda96f15652a143a30edb6ebbf6c32f540527",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Setting 2 256 px.png",
+    "bytes": 5246,
+    "extension": ".png",
+    "sha256": "6c7efbf8665d4b66f6b65628c2b237ca53baa44b9eeeb36799f4d15d069208ee",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Share 1 256 px.png",
+    "bytes": 3538,
+    "extension": ".png",
+    "sha256": "e505d48df8d33f29b489a0aecf01ec518902febdfa5626a05a9ef870b72c6307",
+    "width": 177,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      177,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Share 2 256 px.png",
+    "bytes": 2976,
+    "extension": ".png",
+    "sha256": "ba3e9e3d62f7565b277ae82c3fa2af4d7a6228a96359d33128a378ced34a1431",
+    "width": 169,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      169,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Star 256 px.png",
+    "bytes": 4493,
+    "extension": ".png",
+    "sha256": "4ac79358538807114841a920c6a2efb1863cce3bf277e35b35dd2c7fbcf39015",
+    "width": 256,
+    "height": 245,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      245
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Steam 256 px.png",
+    "bytes": 8838,
+    "extension": ".png",
+    "sha256": "394041f8c1c8bd7a96ffb9ffcd67aabb4c7335ebc402d3fa1034be21234a2787",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Twitch 256 px.png",
+    "bytes": 2681,
+    "extension": ".png",
+    "sha256": "3543461493580288333379b67cc8a6002fad03e573ede8970f51e5768199d0db",
+    "width": 239,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      239,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Unlock  256 px.png",
+    "bytes": 2449,
+    "extension": ".png",
+    "sha256": "5da95d8779259161c0cefdfc530a640b22e3a94f0c6930f2e7ac7b33c697e51c",
+    "width": 212,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      212,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Upload 256 px.png",
+    "bytes": 1991,
+    "extension": ".png",
+    "sha256": "15b81770d340fa484b83e7e009739b0868ceb99371a1e3575f502bf98d4dfaee",
+    "width": 245,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      245,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/video cam 256 px.png",
+    "bytes": 2992,
+    "extension": ".png",
+    "sha256": "39883c0ffde267d72dd007fc4591ef16f3646dd45862f56bf4e3130969daf793",
+    "width": 256,
+    "height": 223,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      223
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Volume 256 px.png",
+    "bytes": 2634,
+    "extension": ".png",
+    "sha256": "66c414f6bfd5dbeac60c28e26656aa78d1043b5346080cde4a2354416ff542cf",
+    "width": 256,
+    "height": 181,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      181
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Waving 256 px.png",
+    "bytes": 5312,
+    "extension": ".png",
+    "sha256": "90f93aafe78d86ce809bc2d70eabb66c1f4fb2cd83c16ca33958bddf2323a1e0",
+    "width": 256,
+    "height": 241,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      241
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Wi Fi 256 px.png",
+    "bytes": 6692,
+    "extension": ".png",
+    "sha256": "9206ef59ecd06dd6fb4671ea011a7edf089793c15b475061799ade25e9c14862",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Wi Fi allert 256 px.png",
+    "bytes": 6281,
+    "extension": ".png",
+    "sha256": "bcc26fc0a292a703d65c22f01767d403e73e8b642992a41a5ec4e1fa406f68ad",
+    "width": 242,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      242,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Wrench 1 256 px.png",
+    "bytes": 4940,
+    "extension": ".png",
+    "sha256": "8a00f7b04344c5f1e9f2d41ae9b19102d2a8fec75e6c3e7ebfb134de9d695c82",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Wrench 2 256 px.png",
+    "bytes": 3422,
+    "extension": ".png",
+    "sha256": "52b06b488ef8cb8e9c1534eb78f9dfb518c09fffd9eacb2d20b8ab042cc3d4c5",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Wrench 3 256 px.png",
+    "bytes": 4445,
+    "extension": ".png",
+    "sha256": "6a12eaefce4732c506443c867b95f92fa5ab621cde4b65a3152fc44206a9b023",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/Youtube - video play 256 px.png",
+    "bytes": 2644,
+    "extension": ".png",
+    "sha256": "e52381fa640d4cb12fc5eb1e96187470441485fe5100d0b06b4dc8d0ff74cbbe",
+    "width": 256,
+    "height": 181,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      181
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/zoom in 256 px.png",
+    "bytes": 2708,
+    "extension": ".png",
+    "sha256": "1a7a9946a0d393a278965b136e57911103ef25a4d5f7ae3c7fd40f912bb7a57c",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/0.5x/zoom out 256 px.png",
+    "bytes": 2451,
+    "extension": ".png",
+    "sha256": "319673d2cb180bef86bf4674af23c2017ed5a1668d903960f28a5d0596060dc9",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Alarm 512 px.png",
+    "bytes": 5100,
+    "extension": ".png",
+    "sha256": "17b25e096ed5cb25610997f9c3d31b7c1674563acc5695ba3a59bf28e12101a5",
+    "width": 512,
+    "height": 383,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      383
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Apple 512 px.png",
+    "bytes": 10458,
+    "extension": ".png",
+    "sha256": "f5ede855e2bb2289522e7f2442d2bfc17a2bdf575eca52523859a4a2cdd7df65",
+    "width": 441,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      441,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Back 2 512 px.png",
+    "bytes": 9168,
+    "extension": ".png",
+    "sha256": "144a5559195567943b7436b1da859c2bcaaba8240d4997ee4da1c62a54fcb1fa",
+    "width": 443,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      443,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Back 512 px.png",
+    "bytes": 6330,
+    "extension": ".png",
+    "sha256": "d32d9f08a03b75287b3755b2aa7b9705f1b103f663ec6d62c9a710b22d2d5fdd",
+    "width": 415,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      415,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Battery - full 512 px.png",
+    "bytes": 3141,
+    "extension": ".png",
+    "sha256": "325dbcc746eb349a2086c6617929df0a43e2bd618ed62bb3a0b7452912a979b8",
+    "width": 512,
+    "height": 285,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      285
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Before 512 px.png",
+    "bytes": 5555,
+    "extension": ".png",
+    "sha256": "59762bddd82a51409fe5961bc0e8eb41dbe3ac990043d706078e6bcf0447dc7c",
+    "width": 414,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      414,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/bone head 512 px.png",
+    "bytes": 8227,
+    "extension": ".png",
+    "sha256": "ade702bb779e33e9bae32f362c8a34ef3f7370c1d715e3830486e5045180c4ea",
+    "width": 502,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      502,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/camera 1 512 px.png",
+    "bytes": 6223,
+    "extension": ".png",
+    "sha256": "d8950244b7e8fa90316a90cb684c0d620c79dde6b1c3e08b449c26061e62c0e4",
+    "width": 512,
+    "height": 427,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      427
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/camera 2 512 px.png",
+    "bytes": 5619,
+    "extension": ".png",
+    "sha256": "5a16c05047b9bb92e2aede55e87d1b735f5996f4a9a53724d267dcc21b8aa318",
+    "width": 512,
+    "height": 427,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      427
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Click - left 512 px.png",
+    "bytes": 3524,
+    "extension": ".png",
+    "sha256": "c17dae0889c350dff5427e6b087ae046e20746c031ee9036ecb2649ac9519ebe",
+    "width": 333,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      333,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Click - middle  512 px.png",
+    "bytes": 3177,
+    "extension": ".png",
+    "sha256": "96dd50f6a2dca0411e3089a96f7a0f151fba7b60439cce7710557c1698357ed3",
+    "width": 333,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      333,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Click - right 512 px.png",
+    "bytes": 3531,
+    "extension": ".png",
+    "sha256": "5e8f6c1e923271701f506b76ad369486108aa945ee5d6d5adef90e3a7cad3457",
+    "width": 333,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      333,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Cross 512 px.png",
+    "bytes": 10846,
+    "extension": ".png",
+    "sha256": "ea9c9729860efb95c505bff305f1e14d75a23e627830d726232c57f387507fcb",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Danger sign 1 512 px.png",
+    "bytes": 7987,
+    "extension": ".png",
+    "sha256": "41e7ec12893344b22d0fe57bcc4edebb5563a22735093e740a176081eb1c75a4",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Danger sign 2 512 px.png",
+    "bytes": 11934,
+    "extension": ".png",
+    "sha256": "097f68f410611d7ccd52f1b23dbfdce54574b3f9988bc0f3435b50bc484ac3f8",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Delete 512 px.png",
+    "bytes": 4252,
+    "extension": ".png",
+    "sha256": "b490ed04381d15a705da57a1f965db9f94e468569ab6464ae05b6b5e83a31dbd",
+    "width": 348,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      348,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/divide  512 px.png",
+    "bytes": 3321,
+    "extension": ".png",
+    "sha256": "0a67ed30e5030f4fe13a842a190a259aecc7750a037f3f96f257e081e1b7fb8a",
+    "width": 512,
+    "height": 366,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      366
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Download  512 px.png",
+    "bytes": 4840,
+    "extension": ".png",
+    "sha256": "63052166dd28bbc50e0d7c103069e0a4b12372241a7dd5b052df811a1faae172",
+    "width": 491,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      491,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Empty battery  512 px.png",
+    "bytes": 8807,
+    "extension": ".png",
+    "sha256": "c66fa76fe687208a481b7a2284766515a4cc11c509fc818f863d4dd83b2fef8a",
+    "width": 512,
+    "height": 459,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      459
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Equal 512 px.png",
+    "bytes": 2217,
+    "extension": ".png",
+    "sha256": "b2f91893908fb3cc5b53b6caf0f444f94bb6dc88bfee769ea48bf2e225ce4b09",
+    "width": 512,
+    "height": 264,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      264
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Exclamation sign 2 512 px.png",
+    "bytes": 2361,
+    "extension": ".png",
+    "sha256": "da43beb84fff6c90d02d324d07517190002525dcabe421ca70c6762ca1ecf776",
+    "width": 97,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      97,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Exclamation sign 512 px.png",
+    "bytes": 2368,
+    "extension": ".png",
+    "sha256": "ddb003563a9e38d8a7342b718790eb5fe18e2783c3b91f40385f03e862bf0e29",
+    "width": 97,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      97,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/F  512 px.png",
+    "bytes": 3437,
+    "extension": ".png",
+    "sha256": "a3de1285966deb0801990fd6871d5a756c747e2aa9311304397c0f96c7dbb68d",
+    "width": 273,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      273,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Gamepad 1 512 px.png",
+    "bytes": 7788,
+    "extension": ".png",
+    "sha256": "4a851285634d90c64fba197316c2e5f3fbac3371c2d61e6ef6e9b1e32d5a3328",
+    "width": 512,
+    "height": 367,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      367
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Gamepad 2 512 px.png",
+    "bytes": 7874,
+    "extension": ".png",
+    "sha256": "2e9924a619ce6c054b78103e552aae181d7dc78b1edb19b1cbabf00a778f0008",
+    "width": 512,
+    "height": 367,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      367
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Gift 512 px.png",
+    "bytes": 9710,
+    "extension": ".png",
+    "sha256": "ddc0b1d96517a4f535dd63c843b714b8e6bd0cfecfb5bf2062442e1da9af9593",
+    "width": 450,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      450,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/House 512 px.png",
+    "bytes": 7649,
+    "extension": ".png",
+    "sha256": "91920890e8a6d51befc3beca9fd92bc87fadfad518de8fee81ddcb1b86aa6abe",
+    "width": 512,
+    "height": 484,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      484
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Key 512 px.png",
+    "bytes": 9886,
+    "extension": ".png",
+    "sha256": "bd8aadd22ea40c8b409cd08e963fb4ab30e451bfe7a72a0f37fe1c98a3534d66",
+    "width": 498,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      498,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Keyboard 512 px.png",
+    "bytes": 5877,
+    "extension": ".png",
+    "sha256": "5e5a3aa7bb6f4b9403040c58c5c4f05f9bf1cfc4eecebe0e9f8d0e56a6bb654b",
+    "width": 512,
+    "height": 277,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      277
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Like 512 px.png",
+    "bytes": 7893,
+    "extension": ".png",
+    "sha256": "084d1edf8cdf8f7cc044386d1f4b829577c2fab305dfdea4518503be96646057",
+    "width": 467,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      467,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Link 512 px.png",
+    "bytes": 12886,
+    "extension": ".png",
+    "sha256": "23ac9a7435aba40c64207b5974002618b01a94a1a2ca8fa4a5b4f4e98866112b",
+    "width": 497,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      497,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Lock 512 px.png",
+    "bytes": 5230,
+    "extension": ".png",
+    "sha256": "c387343f9208bc6228c04879edba004d20bd8b098c77056f2a65a9c4bcc4cf7d",
+    "width": 426,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      426,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Low battery 512 px.png",
+    "bytes": 3971,
+    "extension": ".png",
+    "sha256": "ee9fcecb56ee68403b0d25656b0ba40db9fb6f2ffdc2f6f24cfd294323fed100",
+    "width": 512,
+    "height": 285,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      285
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/magnifier  512 px.png",
+    "bytes": 5559,
+    "extension": ".png",
+    "sha256": "8995e613111dca56cedd84f71aefa5c920415fdab9282b2eb33bf33c269746a6",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Mail 512 px.png",
+    "bytes": 12089,
+    "extension": ".png",
+    "sha256": "523a2ede9757bf9876b65f6115097bbc8fa4904806984f2efeb669afea935279",
+    "width": 512,
+    "height": 365,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      365
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Map 512 px.png",
+    "bytes": 6258,
+    "extension": ".png",
+    "sha256": "3319a38332d8de5e8cdf71e5253761ad83421c19bc8383503fec6b47131a059c",
+    "width": 354,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      354,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Market 512 px.png",
+    "bytes": 8284,
+    "extension": ".png",
+    "sha256": "33c38e923489f7c4805d6dfdf06ea12d54a3fcee0acb1a8066cf50985bf83d24",
+    "width": 512,
+    "height": 453,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      453
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/medal 1 512 px.png",
+    "bytes": 9472,
+    "extension": ".png",
+    "sha256": "490da064463cf355b7fddde35c2e9e5b3d559b68013f6d38e8f679f19c07cfdf",
+    "width": 399,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      399,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/medal 2 512 px.png",
+    "bytes": 8662,
+    "extension": ".png",
+    "sha256": "cfa15e0c5e0a28bfaf90e0fbc84bbbcb7f8fce9523ffa9af21efb325bf6916fb",
+    "width": 398,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      398,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/medal 3 512 px.png",
+    "bytes": 7306,
+    "extension": ".png",
+    "sha256": "409c4dc4f17730bfd6716b3674a43467cb66593c352ad1d8d52ec7bbe26bcd77",
+    "width": 408,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      408,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Menu 1 512 px.png",
+    "bytes": 6508,
+    "extension": ".png",
+    "sha256": "dba1fb571a5b477e0f7b4d526de21a7c6c95cc9252571c2039d9b512dda34cff",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Menu 2 512 px.png",
+    "bytes": 3784,
+    "extension": ".png",
+    "sha256": "1f13c89c7016c7dc1edbf07bbd557b4069c8e253181f7e17457983e0ffc895f5",
+    "width": 512,
+    "height": 344,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      344
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Menu 512 px.png",
+    "bytes": 9480,
+    "extension": ".png",
+    "sha256": "3d27ea4149a68c8e969f242351bd962bca2255e092818988d437956d164107cc",
+    "width": 512,
+    "height": 505,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      505
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Message 512 px.png",
+    "bytes": 5176,
+    "extension": ".png",
+    "sha256": "81e840a964b4f806eab4a9c0a71808cbcebcfa3f71fbec0853f67c6a67de63c6",
+    "width": 512,
+    "height": 452,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      452
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Money  512 px.png",
+    "bytes": 4973,
+    "extension": ".png",
+    "sha256": "dc0b41f5ff04a2aa3b5494e93191458863813619e0c9d9f96dcc453c07b0885c",
+    "width": 337,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      337,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Monitor 512 px.png",
+    "bytes": 3821,
+    "extension": ".png",
+    "sha256": "2316d23f3e166c7807e81a13c6d4d00ceb5cd55f4f3f5c992c15fac39e920215",
+    "width": 512,
+    "height": 482,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      482
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Mouse  512 px.png",
+    "bytes": 3272,
+    "extension": ".png",
+    "sha256": "06b54b71d9ab112a60715ee485f5f61ec8ab3396c95980e72334081f8d2da90f",
+    "width": 333,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      333,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Musick note 512 px.png",
+    "bytes": 4219,
+    "extension": ".png",
+    "sha256": "088bfe1dd763c8419fb91721a7bdc41c03967e94587ada9305f644b365bfa711",
+    "width": 512,
+    "height": 428,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      428
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Mute 2 512 px.png",
+    "bytes": 8029,
+    "extension": ".png",
+    "sha256": "a9a0781ba555cdbfcdcdcf193b501f8f1f84660cf3825bdec489de8ad09ad00c",
+    "width": 512,
+    "height": 334,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      334
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Mute 512 px.png",
+    "bytes": 12671,
+    "extension": ".png",
+    "sha256": "38fbea13d33dc67362ab79b629102f6148d235797844e5b0c483485a244e480b",
+    "width": 512,
+    "height": 487,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      487
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Negative  512 px.png",
+    "bytes": 951,
+    "extension": ".png",
+    "sha256": "dc67cf19caeae45c7c0364ffce8b362c11322c5ab8bdfef35f3e8da2f73246c6",
+    "width": 512,
+    "height": 89,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      89
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Network  512 px.png",
+    "bytes": 21437,
+    "extension": ".png",
+    "sha256": "df708037f07c87118e3e60cb8098c3b1dcbc3dc2f3a6b1567e01fd4122f7f22f",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Network 2 512 px.png",
+    "bytes": 2687,
+    "extension": ".png",
+    "sha256": "414a6a68fa93536c30a62dfae674b03c2a1064f0cb131a8caa7f41e2cd0ff7cf",
+    "width": 512,
+    "height": 494,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      494
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Next - Speed Up 512 px.png",
+    "bytes": 8509,
+    "extension": ".png",
+    "sha256": "aa7694328a8b192f16348471ddf4cb12247084f69f9c0228d62d3fba0af60fa5",
+    "width": 512,
+    "height": 396,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      396
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Next 512 px.png",
+    "bytes": 5488,
+    "extension": ".png",
+    "sha256": "7d7f6c4d691edda741e894c86017acedf116d46fcce5b527645c13c5fc16ef64",
+    "width": 414,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      414,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/No wifi 512 px.png",
+    "bytes": 17465,
+    "extension": ".png",
+    "sha256": "251b144840c222f852ee092018e07fc8b5b3985c8f45c3971e37d824b6ab8408",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Pause 512 px.png",
+    "bytes": 2680,
+    "extension": ".png",
+    "sha256": "26c6cfca2762f883ef64fc498d83f3ea565f22be19b45809fab17fff22c417ad",
+    "width": 322,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      322,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Play - Puse 512 px.png",
+    "bytes": 7235,
+    "extension": ".png",
+    "sha256": "d36d48b5b684a1ddece8c56581ef81572423e209ac24a3ba5375f74d1858a010",
+    "width": 466,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      466,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Play 512 px.png",
+    "bytes": 6868,
+    "extension": ".png",
+    "sha256": "8ed95e7565401bb33b1137f853e186744a8d5b46b34522628f630defdc544348",
+    "width": 370,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      370,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Plus 512 px.png",
+    "bytes": 3482,
+    "extension": ".png",
+    "sha256": "a4f82420fe1ce6665f0af150e64b1239e36fbd88b3c822e7462a7983ffe934b9",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Power plug 512 px.png",
+    "bytes": 3496,
+    "extension": ".png",
+    "sha256": "16ade645c27be6d7c6eae8a1f1b4f40a96475064e48bd93197c3c2a88cbe21d7",
+    "width": 348,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      348,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Power sign 512 px.png",
+    "bytes": 6046,
+    "extension": ".png",
+    "sha256": "5f534579f7f9755dfc4ec3571b6ffd2e88626848cd9d344e188b8b0415c131de",
+    "width": 409,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      409,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Question 512 px.png",
+    "bytes": 4154,
+    "extension": ".png",
+    "sha256": "48caa5dc6061cc86f0e87ff9c864ebaaaec50fcd37f01aeeada8214636114161",
+    "width": 320,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      320,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Ranking 512 px.png",
+    "bytes": 3772,
+    "extension": ".png",
+    "sha256": "9653e3dbab91b9c212389000a0a417cd50b061eec37e0e0e43df1ef83aa08534",
+    "width": 512,
+    "height": 363,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      363
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Reply  512 px.png",
+    "bytes": 7008,
+    "extension": ".png",
+    "sha256": "62c5ae7768ccbfe8def7f348df2578aa7c4eb1778610c8a2d7301208f839ad4c",
+    "width": 415,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      415,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Rotate phone 1 512 px.png",
+    "bytes": 9682,
+    "extension": ".png",
+    "sha256": "b0e7ae39ee9c99f67d8d3beb9139bc223faf338b09872d55bac9f9924294fa03",
+    "width": 512,
+    "height": 347,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      347
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Rotate phone 2 512 px.png",
+    "bytes": 4516,
+    "extension": ".png",
+    "sha256": "40fd20bf60d661c18d2c9da8fcf5fe95f780c69b7d7b34f488b6fdbcd84c9544",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Save 512 px.png",
+    "bytes": 5210,
+    "extension": ".png",
+    "sha256": "a6a28c9208d21be71a5676919823ff27d055c8fb500d5abd38891dd6422cab29",
+    "width": 486,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      486,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Setting 1 512 px.png",
+    "bytes": 7510,
+    "extension": ".png",
+    "sha256": "b00b8f0553a2e9108e6553b96bae70ebbcfad8f634e2121b6c701bd591aaa34e",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Setting 2 512 px.png",
+    "bytes": 11683,
+    "extension": ".png",
+    "sha256": "76da3853ad6323dd501c9ef0fa9409c6453af30b9aab86087b9e009c318d67bc",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Share 1 512 px.png",
+    "bytes": 7228,
+    "extension": ".png",
+    "sha256": "6ef241f3ff2b4972e23e7c757bd60abf0e246b0307473b2f375dec0b96967221",
+    "width": 353,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      353,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Share 2 512 px.png",
+    "bytes": 6050,
+    "extension": ".png",
+    "sha256": "cc27842e2518e0db87850c9898fdbe7311a31973a29de8c134f3f45c9bf230ae",
+    "width": 337,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      337,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Star 512 px.png",
+    "bytes": 10428,
+    "extension": ".png",
+    "sha256": "9ce1b945b6fb9382fd2b6d9b7949d42e556d579e07efac1cf12c28c2db987f6e",
+    "width": 512,
+    "height": 490,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      490
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Steam 512 px.png",
+    "bytes": 19691,
+    "extension": ".png",
+    "sha256": "1c457cbda6f95c680b3f38ff564200eeee9ea75634ed851b8a0c0c8b8d6a2aaa",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Twitch 512 px.png",
+    "bytes": 6203,
+    "extension": ".png",
+    "sha256": "de9fd2b8eb29889f52777a29c4e54acdf54cae397cf0a3fe831ad0206b307d7e",
+    "width": 479,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      479,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Unlock  512 px.png",
+    "bytes": 5347,
+    "extension": ".png",
+    "sha256": "2da5f01fa709d704dfe920a737e7657949c511490211fc6491ca362298ce7c9f",
+    "width": 425,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      425,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Upload 512 px.png",
+    "bytes": 4841,
+    "extension": ".png",
+    "sha256": "555f4a6fe245371db16e4d1744945667e0ca2c5d28897aefaea718554503aee3",
+    "width": 491,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      491,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/video cam 512 px.png",
+    "bytes": 6226,
+    "extension": ".png",
+    "sha256": "efc1c0c06e676a09de05181aa22830da487742bf0d22b19af49512019d5e1c3d",
+    "width": 512,
+    "height": 445,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      445
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Volume 512 px.png",
+    "bytes": 5377,
+    "extension": ".png",
+    "sha256": "8bf88974ab821f0aa2abbe1f6772444ce85769526248cd5cc2a92fb882cef153",
+    "width": 512,
+    "height": 362,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      362
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Waving 512 px.png",
+    "bytes": 10644,
+    "extension": ".png",
+    "sha256": "219faba37c7a508fb3305995b638f2ed27f0b3481952050016acf3af75aa2158",
+    "width": 512,
+    "height": 481,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      481
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Wi Fi 512 px.png",
+    "bytes": 14890,
+    "extension": ".png",
+    "sha256": "0cc0ee0e094d90c162671b84d0e0c6bcc3321efbb07cc24e68e3875527a1cc8c",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Wi Fi allert 512 px.png",
+    "bytes": 13622,
+    "extension": ".png",
+    "sha256": "a26e81ca94871818bb23425991ac80ed1a34053c8c2d10e4c8506ff7cc8a8cb2",
+    "width": 483,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      483,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Wrench 1 512 px.png",
+    "bytes": 11574,
+    "extension": ".png",
+    "sha256": "099d3842549794538e646889611d052589084a6d69d29e1ec479fc72ac26cc97",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Wrench 2 512 px.png",
+    "bytes": 8460,
+    "extension": ".png",
+    "sha256": "2a43d5f53509314d8467fd6996750b840556cc0501aa039a2f6381429c50044e",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Wrench 3 512 px.png",
+    "bytes": 10799,
+    "extension": ".png",
+    "sha256": "37d9bb71a393823276876f4f93ad1ff7ff48fcec7ebbad1888846ca5951e6bde",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/Youtube - video play 512 px.png",
+    "bytes": 5901,
+    "extension": ".png",
+    "sha256": "fce2dea161f1e461e592f522ef5ae63a5989b1103223f6b767e5511e1cebffc3",
+    "width": 512,
+    "height": 363,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      363
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/zoom in 512 px.png",
+    "bytes": 6234,
+    "extension": ".png",
+    "sha256": "eee1c59889748e8e6d0ed99bd794bddd261fc6d15d985c35fea91a7db7d0b76f",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/1x/zoom out 512 px.png",
+    "bytes": 5830,
+    "extension": ".png",
+    "sha256": "a623d67c8b67e7acda1ce1f2c10dad134a42ba8d0fe051d06841bb20afede75f",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Alarm.png",
+    "bytes": 12234,
+    "extension": ".png",
+    "sha256": "6c93bed087d99c2bba3279f7fb8b790d628e65fcd66a4927c345fb6ec20412ab",
+    "width": 1024,
+    "height": 765,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      765
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Apple.png",
+    "bytes": 25638,
+    "extension": ".png",
+    "sha256": "ffffab6966370cd51ea462378242449b73d16baf4cf8d086769a18d5f475abbd",
+    "width": 881,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      881,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Back 2.png",
+    "bytes": 23683,
+    "extension": ".png",
+    "sha256": "aab0ed0e28bf2bdc99a1f0474b68bc61c3d3971a192dc5b1c2eef67d2e880fcf",
+    "width": 886,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      886,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Back.png",
+    "bytes": 16383,
+    "extension": ".png",
+    "sha256": "737fb93636bacea2f6c86e2d391d369bfd13a2126f30a0465d448782e24aa9ba",
+    "width": 829,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      829,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Battery - full.png",
+    "bytes": 7857,
+    "extension": ".png",
+    "sha256": "29d515fb380708cc72c18ab3785d805e7ed5f3df6ec47fcc9493a10b4ff4fde0",
+    "width": 1024,
+    "height": 570,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      570
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Before.png",
+    "bytes": 15456,
+    "extension": ".png",
+    "sha256": "27c0ca6506727eb0231845fe2b3509a4e650a3721307e7bb5d7d0e495a8a0f57",
+    "width": 828,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      828,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/bone head.png",
+    "bytes": 20058,
+    "extension": ".png",
+    "sha256": "36f4c6c5708addf15a4c999402e9742d6b54298fb8885a124eb9566c0e0ba80a",
+    "width": 1004,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1004,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Button_.png",
+    "bytes": 11705,
+    "extension": ".png",
+    "sha256": "d669f8e225ec7bd856a17074cf728f7f63e84f20b51155b40f5b50d962ff79c8",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/camera 1.png",
+    "bytes": 15283,
+    "extension": ".png",
+    "sha256": "fd2567ce9b0d1ef99a3c3de2379fe58eee8f79914c41b9b52c9986047e9719c5",
+    "width": 1024,
+    "height": 853,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      853
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/camera 2.png",
+    "bytes": 14187,
+    "extension": ".png",
+    "sha256": "9b1882fd1495a6b6c4f7cc9600afd85f2cb7a44221e1de074f498af78f7d6ae9",
+    "width": 1024,
+    "height": 854,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      854
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Click - left.png",
+    "bytes": 8799,
+    "extension": ".png",
+    "sha256": "cf4c8f91f0f45c2fe4d540fb82c7c03f5baabe5e7c29683b1813b6b0fab4f88f",
+    "width": 666,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      666,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Click - middle_.png",
+    "bytes": 8141,
+    "extension": ".png",
+    "sha256": "f2370e24e28c727ef546ab42352edb65904820de1540d4e3b1b73f94f365499b",
+    "width": 666,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      666,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Click - right.png",
+    "bytes": 8777,
+    "extension": ".png",
+    "sha256": "4d026cc9e3d0051b51fb806e231b25b37bf6e2a6c9a92b9d6974edacf7c88b8f",
+    "width": 666,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      666,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Cross.png",
+    "bytes": 33866,
+    "extension": ".png",
+    "sha256": "349b409ffdbea3680d2b82a08d5925f477d3d93eba63af0f11f655f35ed6bde1",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Danger sign 1.png",
+    "bytes": 22076,
+    "extension": ".png",
+    "sha256": "4ad812c145e1eebb0e5ee69c044d018c53f7b400a04cc8a20af41e5bb71be921",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Danger sign 2.png",
+    "bytes": 36359,
+    "extension": ".png",
+    "sha256": "3780a38925666ae65eeba8dd4c53be082ffd3089e5e536dda574468d9c65c94b",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Delete.png",
+    "bytes": 10264,
+    "extension": ".png",
+    "sha256": "e4bbf27d2535a04c359240a784fc53eda94d0a01f3a9e0695ff82cb94ba6aa1b",
+    "width": 696,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      696,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/divide_.png",
+    "bytes": 8486,
+    "extension": ".png",
+    "sha256": "c12b7463a80ed2616f80fe4e68e2b3a394497356e312fb21c1bc9ee4702c9b33",
+    "width": 1024,
+    "height": 732,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      732
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Download_.png",
+    "bytes": 13053,
+    "extension": ".png",
+    "sha256": "33b3972ecf950d0b8b83b1cf8bf863bfe58a51653347a52c024a87067c199e89",
+    "width": 981,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      981,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Empty battery_.png",
+    "bytes": 23453,
+    "extension": ".png",
+    "sha256": "766bb2fd7ec0e09a105ca3da37d03f6ad4c2d26d0055002b35dfc5c3c2ccd1d0",
+    "width": 1024,
+    "height": 917,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      917
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Equal.png",
+    "bytes": 5789,
+    "extension": ".png",
+    "sha256": "e6dfa203b50f00d4196526ace473cf72a7994774f69a3f09d81ed8e0926817c4",
+    "width": 1024,
+    "height": 527,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      527
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Exclamation sign 2.png",
+    "bytes": 5397,
+    "extension": ".png",
+    "sha256": "fd09470149a4f0c92ff8e53aa22805780dc1688fb3d1b2c7b8bad67268f9d5cc",
+    "width": 193,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      193,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Exclamation sign.png",
+    "bytes": 5375,
+    "extension": ".png",
+    "sha256": "f6153c5dc6aad06e9607228561081805650090ffc562bd4c78c72e3db3408523",
+    "width": 193,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      193,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/F_.png",
+    "bytes": 8249,
+    "extension": ".png",
+    "sha256": "2f432e961750a704a72fb5536c60729035849b9ff1fc23b34f8e0fd46ac4993c",
+    "width": 546,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      546,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Gamepad 1.png",
+    "bytes": 19108,
+    "extension": ".png",
+    "sha256": "99fd49a4ff8a76bf72baa0c2d4ac3708de8e0144f75db8566447d5a35dcb2660",
+    "width": 1024,
+    "height": 734,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      734
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Gamepad 2.png",
+    "bytes": 19101,
+    "extension": ".png",
+    "sha256": "a955df2f89662c54edadee1fdac6b38868dc209955adef236f3692adc8460785",
+    "width": 1024,
+    "height": 734,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      734
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Gift.png",
+    "bytes": 23930,
+    "extension": ".png",
+    "sha256": "919312e59ab8561108f10207351efc63127a1277d3766c00f52063774a3f0503",
+    "width": 899,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      899,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/House.png",
+    "bytes": 18505,
+    "extension": ".png",
+    "sha256": "4b6d0d1340a15dd88a9ed8500c9e4d13c401f15577ed3e67b349aff37c33cb23",
+    "width": 1024,
+    "height": 967,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      967
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Key.png",
+    "bytes": 30160,
+    "extension": ".png",
+    "sha256": "ee2eaf11481ffc51f2fa3b8c20fa35e014acc50e82754f2a9f183a4c9b5ed5ce",
+    "width": 996,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      996,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Keyboard.png",
+    "bytes": 13385,
+    "extension": ".png",
+    "sha256": "e7d57146ab01ccee4977e8afdfc63b3843fedf023201e114ffe9fd934f3ed00a",
+    "width": 1024,
+    "height": 554,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      554
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Like.png",
+    "bytes": 19669,
+    "extension": ".png",
+    "sha256": "06455a3553adf9e3277f2afabf3ff7f10e2ae4f5cafd099755ae0426e5b8d72b",
+    "width": 933,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      933,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Link.png",
+    "bytes": 35687,
+    "extension": ".png",
+    "sha256": "f9b2385d0fa64825d69e8637092c9fa568a0da0c1d147b7255004afadcf72571",
+    "width": 993,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      993,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Lock.png",
+    "bytes": 12843,
+    "extension": ".png",
+    "sha256": "2bb7b629abb0edfc2e93bf1c87381acac6b9bc9bf80cc0d24d8f573fd6e6eaf0",
+    "width": 851,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      851,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Low battery.png",
+    "bytes": 9552,
+    "extension": ".png",
+    "sha256": "51d12304802dce18ee5b469e2cfcb7d8dadaafac6320b99020c8afb99cb9fe60",
+    "width": 1024,
+    "height": 570,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      570
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/magnifier_.png",
+    "bytes": 15275,
+    "extension": ".png",
+    "sha256": "b9912140b9c901e53636adcdd04d0692b137886cc5ce6be8de03a6aaae22484c",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Mail.png",
+    "bytes": 31632,
+    "extension": ".png",
+    "sha256": "c4b70af705fd99dd0c27b9aad8bc69bdd6468e16269b314679b7d68a3200f193",
+    "width": 1024,
+    "height": 729,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      729
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Map.png",
+    "bytes": 14658,
+    "extension": ".png",
+    "sha256": "3c95e46ee238961d6d3afcabcd0c56bad1d72080cbce07716c10981a77d92da0",
+    "width": 707,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      707,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Market.png",
+    "bytes": 20265,
+    "extension": ".png",
+    "sha256": "c2b7c9610fcd3329736f565770aed1d98d82c2713b6e01f52406ff6737b4cb22",
+    "width": 1024,
+    "height": 906,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      906
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/medal 1.png",
+    "bytes": 24404,
+    "extension": ".png",
+    "sha256": "d5d2d43f82699d165106b6eb023dfd8ca8618ceaf61969ae485fd181cf06fc75",
+    "width": 798,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      798,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/medal 2.png",
+    "bytes": 22680,
+    "extension": ".png",
+    "sha256": "acba4e9363470a36b78116b621d8491509d7140f464e6e6f3af20477933921a0",
+    "width": 796,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      796,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/medal 3.png",
+    "bytes": 19533,
+    "extension": ".png",
+    "sha256": "38ee3a68447e18196eb18a08dbf19ad8f365b73b91f15f9217a8c16541f42633",
+    "width": 816,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      816,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Menu 1.png",
+    "bytes": 15880,
+    "extension": ".png",
+    "sha256": "21f4e2f30468f85e44fa7eb182a18d64199c238d735ae81540ae4756baabfd47",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Menu 2.png",
+    "bytes": 9523,
+    "extension": ".png",
+    "sha256": "7a26f1554c15a2dc9206c21fd9905403da7d2e8253d58dd3d40819ec4d3cf1ca",
+    "width": 1024,
+    "height": 687,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      687
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Menu.png",
+    "bytes": 23202,
+    "extension": ".png",
+    "sha256": "265e3909ea2d867cc2f5a9d5efede9a4ee29ae9220fea8c99eefd1f35e7df019",
+    "width": 1024,
+    "height": 1009,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1009
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Message.png",
+    "bytes": 12818,
+    "extension": ".png",
+    "sha256": "0490e7c8e243a32056d301c92cfd7a781dc4e457efe1cb8009b0fb4737e8d633",
+    "width": 1024,
+    "height": 903,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      903
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Money_.png",
+    "bytes": 11873,
+    "extension": ".png",
+    "sha256": "ba7a05b6814c65af774a3277b8d182c3e55709e61b7e7b3a651b82b30e00b0b0",
+    "width": 674,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      674,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Monitor.png",
+    "bytes": 10031,
+    "extension": ".png",
+    "sha256": "204a5ef8489e57160d239734703f24bb811808dbc6c9d8e3c4efc347a6013090",
+    "width": 1024,
+    "height": 963,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      963
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Mouse_.png",
+    "bytes": 8321,
+    "extension": ".png",
+    "sha256": "d37bc15f1cab10f7bbede062edb019cc947140e66a2699751694746b0ea75639",
+    "width": 666,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      666,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Musick note.png",
+    "bytes": 10945,
+    "extension": ".png",
+    "sha256": "35b8cd735831f4965a60b11c9f4e2e8e46df95e8bbf2c31096f89b0ee27ee4aa",
+    "width": 1024,
+    "height": 855,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      855
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Mute 2.png",
+    "bytes": 20488,
+    "extension": ".png",
+    "sha256": "056a608dde4deb90f1411d401b17680a5b09557e7074e2f83a8b2aed62308c0b",
+    "width": 1024,
+    "height": 667,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      667
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Mute.png",
+    "bytes": 37284,
+    "extension": ".png",
+    "sha256": "801677ecf23820077195575ec884ac3a647017a37c0728d7d9380046a4f6d729",
+    "width": 1024,
+    "height": 973,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      973
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Negative_.png",
+    "bytes": 2438,
+    "extension": ".png",
+    "sha256": "d6df4e385003b65c6f1b2692b05f904a78c2d6b8b44c97a07b11ff93f8f7a8a2",
+    "width": 1024,
+    "height": 178,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      178
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Network 2.png",
+    "bytes": 7049,
+    "extension": ".png",
+    "sha256": "11ed59a7561ec2de5e94065c9571da5c54998aa4ae54eb0bdf08905e42829f6f",
+    "width": 1024,
+    "height": 987,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      987
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Network_.png",
+    "bytes": 53737,
+    "extension": ".png",
+    "sha256": "9fc5a5bb808de2cbce4e0cc276f656e731096b58a04c196a485e05fcc33273a8",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Next - Speed Up.png",
+    "bytes": 20801,
+    "extension": ".png",
+    "sha256": "295c6f2df6f0e2ccf43b6400550d96dc1f0f9be77fde038e77d0cb26976032e2",
+    "width": 1024,
+    "height": 791,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      791
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Next.png",
+    "bytes": 15396,
+    "extension": ".png",
+    "sha256": "74c61999e6568ecdda1e1f12ce53b6349324106c02f833cbdb530515e109996f",
+    "width": 828,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      828,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/No wifi.png",
+    "bytes": 51114,
+    "extension": ".png",
+    "sha256": "f25302a6147facfe1907ddd1e09dd7490f781ef0d2f726816042ffc694948bdf",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Pause.png",
+    "bytes": 6895,
+    "extension": ".png",
+    "sha256": "c5d2d8ba7f0bb1f6b89271777e54e234925f306531ab02bf8fa35bba9db42a27",
+    "width": 644,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      644,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Play - Puse.png",
+    "bytes": 17588,
+    "extension": ".png",
+    "sha256": "fe6bb5dc073d1eda5918247241d987cb705f807b7479197056e2a7d650d6a48e",
+    "width": 931,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      931,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Play.png",
+    "bytes": 17000,
+    "extension": ".png",
+    "sha256": "4efb64abf4bc52d56c395bcbe0e3966162caf7a869956024665e4175d7cfdca7",
+    "width": 740,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      740,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Plus.png",
+    "bytes": 9202,
+    "extension": ".png",
+    "sha256": "8103a087973536366642b0d18771ff93fac3c3ee9275cb41152262aba58647bd",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Power plug.png",
+    "bytes": 8623,
+    "extension": ".png",
+    "sha256": "2c533fcd767f2945acbe86cad8d0e27983269ff61d1afa7b616899ad90b7e37a",
+    "width": 696,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      696,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Power sign.png",
+    "bytes": 14829,
+    "extension": ".png",
+    "sha256": "8c1cff32662298b86e85823a15b5cbc2d4592acf1831782ac4566c97fea8e762",
+    "width": 817,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      817,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Question.png",
+    "bytes": 10341,
+    "extension": ".png",
+    "sha256": "a2a3929de1e82266757b06933e018bcfcf1114cd83346f3d78779c2f8a5b96de",
+    "width": 640,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      640,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Ranking.png",
+    "bytes": 9474,
+    "extension": ".png",
+    "sha256": "95ec536f4b002a24a688cb3cc7dba6e0751ea2c76ef041325be7227589a181f6",
+    "width": 1024,
+    "height": 725,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      725
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Reply_.png",
+    "bytes": 17791,
+    "extension": ".png",
+    "sha256": "0f1e5b538ece78dde115890c03437681405100f7546e888370b5101e3f5870c3",
+    "width": 829,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      829,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Rotate phone 1.png",
+    "bytes": 24383,
+    "extension": ".png",
+    "sha256": "875bb50d07f018b9a58b3f5cce0c970d90ef89ca4bf6c74b9032833db249e1cc",
+    "width": 1024,
+    "height": 693,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      693
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Rotate phone 2.png",
+    "bytes": 11595,
+    "extension": ".png",
+    "sha256": "fe287999ccc8c52d82f44e6b21bb609c51fcda756d664bbdbba4764c9f5db6a7",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Save.png",
+    "bytes": 13131,
+    "extension": ".png",
+    "sha256": "f81ac3208775673a019445e9f576c112cf6090c5e4a6f96cd646d6e7cb3cde74",
+    "width": 972,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      972,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Setting 1.png",
+    "bytes": 20367,
+    "extension": ".png",
+    "sha256": "44d6dae4ea2c30549112cbd5e3e793c8bd3ea0b3daf5c04c52a4ad14c111c342",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Setting 2.png",
+    "bytes": 30455,
+    "extension": ".png",
+    "sha256": "c7f3f45b2a97f5d60a9cc7cd4d32be74e0d189b92974cdf996586491314ec7bc",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Share 1.png",
+    "bytes": 18549,
+    "extension": ".png",
+    "sha256": "5d85bbd1f71707fbc5919d3b6d028633e139245929132cbd093f82780db3c738",
+    "width": 706,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      706,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Share 2.png",
+    "bytes": 15649,
+    "extension": ".png",
+    "sha256": "ae3cd7f4aa38ae84dc1734190bdc8d531602a1860a5237ae96411e64af78a35c",
+    "width": 674,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      674,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Star.png",
+    "bytes": 25727,
+    "extension": ".png",
+    "sha256": "50f2539c054c3f5ed391e1247a556be5316add50cac49de9c1b6527c443ac5a5",
+    "width": 1024,
+    "height": 979,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      979
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Steam.png",
+    "bytes": 49030,
+    "extension": ".png",
+    "sha256": "456f216cc3de0ca763159a382209879c4c23a668f644225b64d9a4df2fb9e9dc",
+    "width": 1023,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1023,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Twitch.png",
+    "bytes": 16838,
+    "extension": ".png",
+    "sha256": "5a4ec4710422680954bd7084fcb68c14e8db1bc280700662666c10e94f7a7137",
+    "width": 957,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      957,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Unlock_.png",
+    "bytes": 13192,
+    "extension": ".png",
+    "sha256": "51ed52316a569e5ea1fc9ffc405aa2ce67a619646b746480eb664d5aff4f6477",
+    "width": 849,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      849,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Upload.png",
+    "bytes": 13126,
+    "extension": ".png",
+    "sha256": "a4e8208eee825bfe3040b6e418f8966d201498d7b4fb4a05a1d2e58e2db6abda",
+    "width": 981,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      981,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/video cam.png",
+    "bytes": 16681,
+    "extension": ".png",
+    "sha256": "c28279eb0a55060ecad19cf6b1842a05cc0944d8e827f8fe02295949494051cd",
+    "width": 1024,
+    "height": 890,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      890
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Volume.png",
+    "bytes": 13175,
+    "extension": ".png",
+    "sha256": "0ec1eed7eefaf6dc9b4f104267e5e8cffc71ec9078ac251b03bdb8a065fa8449",
+    "width": 1024,
+    "height": 723,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      723
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Waving.png",
+    "bytes": 33794,
+    "extension": ".png",
+    "sha256": "380db9255bc5d0ea068b82f4bf6683134f0330d73e738b432116a7df25fb34dd",
+    "width": 1024,
+    "height": 962,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      962
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Wi Fi allert.png",
+    "bytes": 34325,
+    "extension": ".png",
+    "sha256": "659cc69c1bd2ec1e4185e47e7361fc73fe9a5fc457d2a73b1b1ca01aaa1b7f0a",
+    "width": 966,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      966,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Wi Fi.png",
+    "bytes": 37259,
+    "extension": ".png",
+    "sha256": "5e3c2012d0c58914e84a6bc2b5407cc0b69e94639885990aa9cb9b3656379584",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Wrench 1.png",
+    "bytes": 30572,
+    "extension": ".png",
+    "sha256": "605873d3e88bbb973ef0d7cf10636be8a86c7011ecab06983c9fcf43b87c4c24",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Wrench 2.png",
+    "bytes": 25719,
+    "extension": ".png",
+    "sha256": "f8436d7e530e6dd386104c3ea3fe31381bcea28aa71de3a218350fcb725cc34f",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Wrench 3.png",
+    "bytes": 27873,
+    "extension": ".png",
+    "sha256": "45c232e0f21df295d5eecedb4beaae2b3bd929d0520f1fcec46fdde5cd215205",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/Youtube - video play.png",
+    "bytes": 14730,
+    "extension": ".png",
+    "sha256": "435be5bf54a429cbf0c161c7f3861ee360987a42a73cb9a660efb57ad4fdee55",
+    "width": 1024,
+    "height": 725,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      725
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/zoom in.png",
+    "bytes": 16369,
+    "extension": ".png",
+    "sha256": "98ea2ce340382170fbc4da5e461262c26f948fd7ddecc1e65446b87288e225f5",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/2x/zoom out.png",
+    "bytes": 15719,
+    "extension": ".png",
+    "sha256": "92b2592b2f1c0056263ccc2970faec58f86458f64ac6a51e8eac4ac3093ce387",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Alarm x256.png",
+    "bytes": 2624,
+    "extension": ".png",
+    "sha256": "1fa3277f160db540081eff403f7331c25cc942d43bc6f21c0a68f99a81682b28",
+    "width": 256,
+    "height": 191,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      191
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Apple x256.png",
+    "bytes": 4478,
+    "extension": ".png",
+    "sha256": "80da00ef3f49a60e1dfd12983083623acf80aacf4461e5d9404b6411c2c00138",
+    "width": 220,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      220,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Back 2 x256.png",
+    "bytes": 3944,
+    "extension": ".png",
+    "sha256": "22a32c62d083b69c060932d6799bb060c01fd0d6b7353c3f6278688dcbd75ef7",
+    "width": 222,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      222,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Back x256.png",
+    "bytes": 2781,
+    "extension": ".png",
+    "sha256": "b79a03dc66e3ad50ec00560a7784f349637d67a326d9f53fc3c639f89cbb3074",
+    "width": 207,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      207,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Battery - full x256.png",
+    "bytes": 1531,
+    "extension": ".png",
+    "sha256": "98127cd2cc398e7b90aa03727a89f5c98da547a9423f1ee96119f075c59b7b0c",
+    "width": 256,
+    "height": 143,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      143
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Before x256.png",
+    "bytes": 2428,
+    "extension": ".png",
+    "sha256": "b4cc51092fac4dbbdb91eb0729d46bb537efcc6fbffc56fa07e0c262b9dfb7ed",
+    "width": 207,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      207,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/bone head x256.png",
+    "bytes": 3838,
+    "extension": ".png",
+    "sha256": "609b26311a10c7962f5b61901b72e916d2af51ef7ca83dbf17bea085496d762c",
+    "width": 251,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      251,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Button  x256.png",
+    "bytes": 2022,
+    "extension": ".png",
+    "sha256": "0341e975daea87fb014d7ba695d656eb8b6b0d4a9fcb78902eecb0f0be31baf6",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/camera 1 x256.png",
+    "bytes": 2926,
+    "extension": ".png",
+    "sha256": "174b6104b33fc143e77f95b5526d53403fbc205cc414a79be74796b98d822545",
+    "width": 256,
+    "height": 213,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      213
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/camera 2 x256.png",
+    "bytes": 2673,
+    "extension": ".png",
+    "sha256": "5da0f1e2c382c026c821bf943a4ea595ad155cb77fbf69e9001263380cf4b27a",
+    "width": 256,
+    "height": 214,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      214
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Click - left x256.png",
+    "bytes": 1735,
+    "extension": ".png",
+    "sha256": "8a8f804054a9d1015072feec6632290948c0d3b62db578ed7d8569849c66fbdc",
+    "width": 167,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      167,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Click - middle  x256.png",
+    "bytes": 1462,
+    "extension": ".png",
+    "sha256": "48a74261a1bb5a9017fae886fb8790786e23fcf40e8a5aea717efb5a1ef25502",
+    "width": 167,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      167,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Click - right x256.png",
+    "bytes": 1735,
+    "extension": ".png",
+    "sha256": "98ebe44a2912a9d99dcbc57f311ce4be2b6c19c396322c165b2c2b63cfaff7ec",
+    "width": 167,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      167,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Cross x256.png",
+    "bytes": 3322,
+    "extension": ".png",
+    "sha256": "552b25712c6f3e2663ae9f20858f81fe18b9b36ff527be92265d220a3a3e36f2",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Danger sign 1 x256.png",
+    "bytes": 2939,
+    "extension": ".png",
+    "sha256": "d62d0012ed21086046ef2fd5428212d2fb1830cb70d92c8de3aa75535b00c51f",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Danger sign 2 x256.png",
+    "bytes": 3464,
+    "extension": ".png",
+    "sha256": "ced7e386f066d1a58e2c32df0b22d3d41810acae9bf85a91367814946b15109b",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Delete x256.png",
+    "bytes": 1963,
+    "extension": ".png",
+    "sha256": "2fc918012ed6c3bfc306d9f5421d48a3afbd3230284e3fb539fa2d1403f1c2ee",
+    "width": 174,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      174,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/divide  x256.png",
+    "bytes": 1362,
+    "extension": ".png",
+    "sha256": "8f1e3fe6b453668a4dbef8ab232dbd1e25200efa5df7b1f25f785a550f1225e2",
+    "width": 256,
+    "height": 183,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      183
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Download  x256.png",
+    "bytes": 1751,
+    "extension": ".png",
+    "sha256": "3bc538308bb591e03d168d5ec1e02bcd9fad1b54902317941dac380af3013a1d",
+    "width": 245,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      245,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Empty battery  x256.png",
+    "bytes": 2861,
+    "extension": ".png",
+    "sha256": "b8f2c18a0e49c880226cb03deda241d9212b2cf5cccea0b8b09f49340b294f1b",
+    "width": 256,
+    "height": 229,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      229
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Equal x256.png",
+    "bytes": 898,
+    "extension": ".png",
+    "sha256": "9d8c588ed6ed6e8092ccc805ba9b9304f8a321d93a7d647306cb69bef82ac6f0",
+    "width": 256,
+    "height": 132,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      132
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Exclamation sign 2 x256.png",
+    "bytes": 889,
+    "extension": ".png",
+    "sha256": "14e416b7f850e286d6ee4cc857785e0066eedc4f23c20665f934425d83ab9ccc",
+    "width": 48,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      48,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Exclamation sign x256.png",
+    "bytes": 859,
+    "extension": ".png",
+    "sha256": "a680a016c8a6e0d3b99cfcca007d2939da39e5753caac7da1035c0674104743a",
+    "width": 48,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      48,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/F  x256.png",
+    "bytes": 1596,
+    "extension": ".png",
+    "sha256": "2d9c3ecdb00acdcd81a7cee73e68f01f9c0dba94cf405d44d26a1c3da71413dc",
+    "width": 137,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      137,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Gamepad 1 x256.png",
+    "bytes": 3726,
+    "extension": ".png",
+    "sha256": "11d1aacbe328736b593d30d629d16a703cefee07185a7d1cd06af8d4cc239736",
+    "width": 256,
+    "height": 184,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      184
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Gamepad 2 x256.png",
+    "bytes": 3652,
+    "extension": ".png",
+    "sha256": "578cc1673e0b61e0d0876851d5ca46224a3b442fe3bb81575a2cdb6a473078a1",
+    "width": 256,
+    "height": 184,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      184
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Gift x256.png",
+    "bytes": 3791,
+    "extension": ".png",
+    "sha256": "246af922ad8f1e11b0b6d356fae4d8b81941e44ae5fe817e36cc152af78e5c33",
+    "width": 225,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      225,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/House x256.png",
+    "bytes": 3314,
+    "extension": ".png",
+    "sha256": "064b05776c02b0d44d24eb1759178ac1430551436e77c3dd7f8e409721c9657e",
+    "width": 256,
+    "height": 242,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      242
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Key x256.png",
+    "bytes": 3042,
+    "extension": ".png",
+    "sha256": "827a2e87b05712a2081f9b503ac9a4b2585600fc2e5be406d72e0120fcf42e17",
+    "width": 249,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      249,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Keyboard x256.png",
+    "bytes": 2890,
+    "extension": ".png",
+    "sha256": "0e2a3858369cfd940c0824b70cba988052b4c8da24674ceb8ee2bfb36a2498f1",
+    "width": 256,
+    "height": 139,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      139
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Like x256.png",
+    "bytes": 3498,
+    "extension": ".png",
+    "sha256": "60084ab715140040fff1abb267aced0c4fb5d5f8487ddb5226850cdb09d71250",
+    "width": 233,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      233,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Link x256.png",
+    "bytes": 3625,
+    "extension": ".png",
+    "sha256": "225f5e63b183862fde73d8f4b98f1970f4e7e03e11fce5b7e92e2c64533cb024",
+    "width": 248,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      248,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Lock x256.png",
+    "bytes": 2385,
+    "extension": ".png",
+    "sha256": "fef5815a70463a5ba16e7b25e2c34a094dd57c2ff4ef76b63ef6768568cdd56e",
+    "width": 213,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      213,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Low battery x256.png",
+    "bytes": 1884,
+    "extension": ".png",
+    "sha256": "08ae70c9afb40ec00e856a0587bbd05bdd8d362cbb29d366161ffd3afb6847f9",
+    "width": 256,
+    "height": 143,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      143
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/magnifier  x256.png",
+    "bytes": 2115,
+    "extension": ".png",
+    "sha256": "18223d0da8cfa7df94e7659e44b88f23e3a3ff8c9c14cd5978bb7f93116ef631",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Mail x256.png",
+    "bytes": 4326,
+    "extension": ".png",
+    "sha256": "0b40905075a396bbb68996b2424d7c66d2a7edb04fede2841a2d68b4036fc42d",
+    "width": 256,
+    "height": 182,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      182
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Map x256.png",
+    "bytes": 2450,
+    "extension": ".png",
+    "sha256": "a4c7585e7fd3dc05634d47db99f34e83f02af8135cf59597e757026408da0f6d",
+    "width": 177,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      177,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Market x256.png",
+    "bytes": 3416,
+    "extension": ".png",
+    "sha256": "579c4184ec2d11459c4aaed6b4a93f2c7e7c47df4dfafa578f159ec5c8d28161",
+    "width": 256,
+    "height": 227,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      227
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/medal 1 x256.png",
+    "bytes": 3932,
+    "extension": ".png",
+    "sha256": "34e8d19afc21b2a2bac70c3db4c6d06d013600aa67537097d7b9777b83c82251",
+    "width": 200,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      200,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/medal 2 x256.png",
+    "bytes": 3526,
+    "extension": ".png",
+    "sha256": "cbd0f99edeba0bc9f4ce9bb81406e238511cd89159f63c6c13253a6849611a2e",
+    "width": 199,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      199,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/medal 3 x256.png",
+    "bytes": 3028,
+    "extension": ".png",
+    "sha256": "592991a111e2d01d3f10ec8fe64d4a4468ce1a453b738c8d1fd2c2e390e809d3",
+    "width": 204,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      204,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Menu 1 x256.png",
+    "bytes": 2550,
+    "extension": ".png",
+    "sha256": "566349b949273feb245a01c602180a910c0000cfca90e8ce55ebe7a7b8509e5e",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Menu 2 x256.png",
+    "bytes": 1663,
+    "extension": ".png",
+    "sha256": "093c25fa388eb5649af86ebe6b3d77a0ec9e031204d9c3c1c3e27581bf7fa2a1",
+    "width": 256,
+    "height": 172,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      172
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Menu x256.png",
+    "bytes": 3788,
+    "extension": ".png",
+    "sha256": "a26a995802f18fcf36ad962f9a5d38e928067994ba2d947bdd39265bc2aa8a8b",
+    "width": 256,
+    "height": 252,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      252
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Message x256.png",
+    "bytes": 2324,
+    "extension": ".png",
+    "sha256": "782646411469a906a0b8f903271a99ac18727d6547052ac5383cc8d129576557",
+    "width": 256,
+    "height": 226,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      226
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Money  x256.png",
+    "bytes": 2340,
+    "extension": ".png",
+    "sha256": "67f69975761ba029268fb743e6f9291c0db71e040bb992b81f4e4ad288fa4d64",
+    "width": 169,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      169,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Monitor x256.png",
+    "bytes": 1847,
+    "extension": ".png",
+    "sha256": "b3addbe61d6079634def96cc32770638fa7262f704399f860e3e5f0ec8e5d603",
+    "width": 256,
+    "height": 241,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      241
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Mouse  x256.png",
+    "bytes": 1553,
+    "extension": ".png",
+    "sha256": "9914ab8456f263fdf4db27d3d314e89d561f0bdc78a055a7401b93a8fe9eed6a",
+    "width": 167,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      167,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Musick note x256.png",
+    "bytes": 1937,
+    "extension": ".png",
+    "sha256": "ed3b5f895ba312f466d6e8e4562b9e5c7d8b8e45b1750091fcc6bcf36b991344",
+    "width": 256,
+    "height": 214,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      214
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Mute 2 x256.png",
+    "bytes": 3218,
+    "extension": ".png",
+    "sha256": "e1fa870fab0e4e973f922b1d6f201eec4a583fc329441c76ffe2094b55888c74",
+    "width": 256,
+    "height": 167,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      167
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Mute x256.png",
+    "bytes": 3879,
+    "extension": ".png",
+    "sha256": "1df314f0e51e540dcf01dde9cab9e6d802ca968041ba2c058c906df244827615",
+    "width": 256,
+    "height": 243,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      243
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Negative  x256.png",
+    "bytes": 471,
+    "extension": ".png",
+    "sha256": "756a365118ccc75053679d1e3011c3e4879ec8aee32c387c6100e6a6f6e1d8c1",
+    "width": 256,
+    "height": 45,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      45
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Network  x256.png",
+    "bytes": 9305,
+    "extension": ".png",
+    "sha256": "e4d920ae0f182684a82e82390a642a84a53d75a5e106bdc69fda0182222ca93c",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Network 2 x256.png",
+    "bytes": 1222,
+    "extension": ".png",
+    "sha256": "f37cc3b924912eb4ceec4e6863f783f6a4a40c25dcced4849f9be1b16ae6dc4e",
+    "width": 256,
+    "height": 247,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      247
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Next - Speed Up x256.png",
+    "bytes": 3791,
+    "extension": ".png",
+    "sha256": "e8f2db3ba194e62bc1d13df22e0a500ff25c544e1248f2026cac730c4a9cc6a8",
+    "width": 256,
+    "height": 198,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      198
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Next x256.png",
+    "bytes": 2372,
+    "extension": ".png",
+    "sha256": "761286d6f925523094c02980ff5288cbee34ae1f039b0bb8312d0d40de9f971b",
+    "width": 207,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      207,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/No wifi x256.png",
+    "bytes": 5632,
+    "extension": ".png",
+    "sha256": "71bc163cc4c92ff4d6015cd665f91cf8f31283f0cd51c2263b2eba854f5bcb8e",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Pause x256.png",
+    "bytes": 1168,
+    "extension": ".png",
+    "sha256": "40e62249fd301d85113b3f1a98275dd8a6a168c437d9132264571c8a8d08924a",
+    "width": 161,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      161,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Play - Puse x256.png",
+    "bytes": 3138,
+    "extension": ".png",
+    "sha256": "1f3acbbcdbd9081fd57db7824986dc298d2c26268859d4ee579a3af1b2142ec5",
+    "width": 233,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      233,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Play x256.png",
+    "bytes": 2923,
+    "extension": ".png",
+    "sha256": "28b8b1296b7842182cb4bc87fdab21c9992f15a88d08107ad625c3a2f704bfdb",
+    "width": 185,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      185,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Plus x256.png",
+    "bytes": 1490,
+    "extension": ".png",
+    "sha256": "2d4b2631e83000efea31931c38d10d14c320ef6efdb07bc8448e89fc1736780f",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Power plug x256.png",
+    "bytes": 1592,
+    "extension": ".png",
+    "sha256": "1b00569fb00a7ef52e78ff69456ec3c32861697fac62bc7ac719ba19216fe548",
+    "width": 174,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      174,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Power sign x256.png",
+    "bytes": 2702,
+    "extension": ".png",
+    "sha256": "b92bccad5b22ac9154114985a489784d9616e7f55820b6fd0c3489da53d8299c",
+    "width": 204,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      204,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Question x256.png",
+    "bytes": 1867,
+    "extension": ".png",
+    "sha256": "c5f3ce13fe15cd301d4d10683d9fca2b3a1c637db1f3fe6f39f4337eaa700c44",
+    "width": 160,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      160,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Ranking x256.png",
+    "bytes": 1735,
+    "extension": ".png",
+    "sha256": "5913da2aae415800cdac17fc8076ea642108de8fabe2d580e4ae32e5db73a9a3",
+    "width": 256,
+    "height": 181,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      181
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Reply  x256.png",
+    "bytes": 3052,
+    "extension": ".png",
+    "sha256": "39b4a6988d5f176a9a71360df09f2c3f0ad31091f4edd5e092307150f1ac5b07",
+    "width": 207,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      207,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Rotate phone 1 x256.png",
+    "bytes": 4540,
+    "extension": ".png",
+    "sha256": "b2385a1b05d0de0b0259515eb4ec4db79abfc233f847c270c2e1d03406e0e54e",
+    "width": 256,
+    "height": 173,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      173
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Rotate phone 2 x256.png",
+    "bytes": 2153,
+    "extension": ".png",
+    "sha256": "b62431d3a1317df95c7e690dde93cb57993d8c876984f4fd7fc8357b8e61bc71",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Save x256.png",
+    "bytes": 2452,
+    "extension": ".png",
+    "sha256": "65d448d1bc3dcf557313d1cc02f14bbc2ae575a30b89a9eba30b337bb100d43b",
+    "width": 243,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      243,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Setting 1 x256.png",
+    "bytes": 3183,
+    "extension": ".png",
+    "sha256": "3da5197a3ea2510579f50025d103b32a2f3d9436c3232eaf5b93d250a80f913f",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Setting 2 x256.png",
+    "bytes": 4803,
+    "extension": ".png",
+    "sha256": "ec278eec62ace4fe54dad827ca24759f529113163f9b16bf56fb1af5a211d73f",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Share 1 x256.png",
+    "bytes": 2939,
+    "extension": ".png",
+    "sha256": "79b88081e7f73233a0b17f80976d5b792981b5c429381ddbe977f2c5b441f98d",
+    "width": 177,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      177,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Share 2 x256.png",
+    "bytes": 2501,
+    "extension": ".png",
+    "sha256": "33d5b79f14da6615afb126025970fd3e399b004ff394fa2e843790dd7194131d",
+    "width": 169,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      169,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Star x256.png",
+    "bytes": 3916,
+    "extension": ".png",
+    "sha256": "69a7089d5dcc7434fd0d6fb12812c1978192da7b2f309353ba3e78524364d792",
+    "width": 256,
+    "height": 245,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      245
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Steam x256.png",
+    "bytes": 7669,
+    "extension": ".png",
+    "sha256": "b2e4cf9e7fe101d78b1007518234c0e3828ac284e1470257b2017245da35f149",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Twitch x256.png",
+    "bytes": 2659,
+    "extension": ".png",
+    "sha256": "5671224d1f729ff11df45f5ce96ea8f848ea2a81f24f81e87e2dd7d306416cf4",
+    "width": 239,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      239,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Unlock  x256.png",
+    "bytes": 2410,
+    "extension": ".png",
+    "sha256": "de89cb4595fea30b43ab35507ad131d6e5fb96e236855f2f08fcd812f8d8a33d",
+    "width": 212,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      212,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Upload x256.png",
+    "bytes": 1746,
+    "extension": ".png",
+    "sha256": "12bbab84a8f9a663f9cfcf08fda0a94c8adf9a6d9be2acde7a5b6ec76817643e",
+    "width": 245,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      245,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/video cam x256.png",
+    "bytes": 2685,
+    "extension": ".png",
+    "sha256": "2bddfd9f5f610234b339388d158510b48e03d8e20a314c1750bb04a95e157240",
+    "width": 256,
+    "height": 223,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      223
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Volume x256.png",
+    "bytes": 2559,
+    "extension": ".png",
+    "sha256": "da3fa828f43a736c4528635a11d842a864b51cef9d591abbb835f0c343c1eda5",
+    "width": 256,
+    "height": 181,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      181
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Waving x256.png",
+    "bytes": 5315,
+    "extension": ".png",
+    "sha256": "a08940501ba3e7438d6ac676743d4e1ee8ad04665253068b03848e4bef88a1fb",
+    "width": 256,
+    "height": 241,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      241
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Wi Fi allert x256.png",
+    "bytes": 6090,
+    "extension": ".png",
+    "sha256": "36496b306c71a1346d875822ffd3ed8dde34bcd326971f32e3583788fd19f1d0",
+    "width": 242,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      242,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Wi Fi x256.png",
+    "bytes": 5925,
+    "extension": ".png",
+    "sha256": "ba0d00bf40b25f3cef639eba1c44a1e24dd89f23c4089cff324455e64ff93036",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Wrench 1 x256.png",
+    "bytes": 4025,
+    "extension": ".png",
+    "sha256": "cb4dd1ef4bf2ff1fb998848cf17d54b196806186b0b3296ec931eddf55d00c99",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Wrench 2 x256.png",
+    "bytes": 2709,
+    "extension": ".png",
+    "sha256": "0f87ab372a7823c17a53ab626b2869487492452d3b7b3906e8683fd8bbac00a3",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Wrench 3 x256.png",
+    "bytes": 3370,
+    "extension": ".png",
+    "sha256": "a8a92b24a13792269d1ebd22b03e5738d27f234903756564bbff27004163e7e6",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/Youtube - video play x256.png",
+    "bytes": 2664,
+    "extension": ".png",
+    "sha256": "a1577a1fb70c58cee24bbefbce0e84393fd0b2dcfb32188ccfd01a97451e8870",
+    "width": 256,
+    "height": 181,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      181
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/zoom in x256.png",
+    "bytes": 2536,
+    "extension": ".png",
+    "sha256": "3b3d6ae64c97a5cee2b92d60c25f596b1e72d4a10f6dd3c12899dc0d111f7e97",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/0.5x/zoom out x256.png",
+    "bytes": 2268,
+    "extension": ".png",
+    "sha256": "940a8186bc3b7e2635b24fc5a37f21c22a19273a47378dea0a124eba1e28e308",
+    "width": 256,
+    "height": 256,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      256,
+      256
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Alarm x512.png",
+    "bytes": 5119,
+    "extension": ".png",
+    "sha256": "dc56aabb9690089ff4e0b4a692f041ba1886f41c5948b70d72376d13ef797d61",
+    "width": 512,
+    "height": 383,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      383
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Apple x512.png",
+    "bytes": 10341,
+    "extension": ".png",
+    "sha256": "b79d1fcd8819ef2e83a1c3cbbbb7fffd231d619a56dd268cc88465d90c28ec92",
+    "width": 441,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      441,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Back 2 x512.png",
+    "bytes": 8867,
+    "extension": ".png",
+    "sha256": "6d8dda16a81b8e09ff0b7af62e354ef0be196493e3132502e37ac8d9c740d2e0",
+    "width": 443,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      443,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Back x512.png",
+    "bytes": 6339,
+    "extension": ".png",
+    "sha256": "1ed0a11acc572d9cc838cd75ee9d98a01f5301ae4bba58724f34df1dd335874b",
+    "width": 415,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      415,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Battery - full x512.png",
+    "bytes": 3124,
+    "extension": ".png",
+    "sha256": "db645af584a5363ed04e76fa80770139016f5cc45dfe61c44a95847b626ce568",
+    "width": 512,
+    "height": 285,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      285
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Before x512.png",
+    "bytes": 5602,
+    "extension": ".png",
+    "sha256": "b8ec3f77a8f55e2d564d5958b35ca87fe4d018be019d8d38c5387a5857a705b2",
+    "width": 414,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      414,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/bone head x512.png",
+    "bytes": 8192,
+    "extension": ".png",
+    "sha256": "acfd5a245c4b4a8ca1ec05efa5a7676ddaabe02059f4ccf4ea50d54d98858afd",
+    "width": 502,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      502,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Button  x512.png",
+    "bytes": 4556,
+    "extension": ".png",
+    "sha256": "689a217ef662b6c622c691f3ae8fe01b09a144124ecd885e9a93876c80763270",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/camera 1 x512.png",
+    "bytes": 6201,
+    "extension": ".png",
+    "sha256": "eadf1cdfc82a3f4c32707abe1d3af7362107dc7fc6ee36425ef785057276004b",
+    "width": 512,
+    "height": 427,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      427
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/camera 2 x512.png",
+    "bytes": 5654,
+    "extension": ".png",
+    "sha256": "131178f61cb9804c0d59f2a04e81d35555821244b8b6ddbe982b309eb5420168",
+    "width": 512,
+    "height": 427,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      427
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Click - left x512.png",
+    "bytes": 3472,
+    "extension": ".png",
+    "sha256": "f00d8aefc7439d15ee63b68d720e15538bb88027e47a4cc02984771172aa53b7",
+    "width": 333,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      333,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Click - middle  x512.png",
+    "bytes": 3135,
+    "extension": ".png",
+    "sha256": "02e2df128eafc68f028299bbd7b53ddd7533bb7af8726a57a87b5bfb39a37586",
+    "width": 333,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      333,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Click - right x512.png",
+    "bytes": 3492,
+    "extension": ".png",
+    "sha256": "6398a94c8243711da8201a8d9ba2fd8f72eb398504eec20dfe6712867aace6b7",
+    "width": 333,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      333,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Cross x512.png",
+    "bytes": 9161,
+    "extension": ".png",
+    "sha256": "f5c4cbfc73b58e118c19dab22cca9641585724fcc684d5325b816353d324175f",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Danger sign 1 x512.png",
+    "bytes": 7769,
+    "extension": ".png",
+    "sha256": "810a4da7dfc835a163186a98909a8e0110114141c152ab535f8bf459c2beb7a3",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Danger sign 2 x512.png",
+    "bytes": 10038,
+    "extension": ".png",
+    "sha256": "963b6711dcd20866b6bd1201c8398896440fe99862a788d156604b8a4ea3b887",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Delete x512.png",
+    "bytes": 4154,
+    "extension": ".png",
+    "sha256": "860ba174aaa306c3c9e617c0a7790f9a351004804e4d82e6a3b78594bc2a173f",
+    "width": 348,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      348,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/divide  x512.png",
+    "bytes": 3065,
+    "extension": ".png",
+    "sha256": "c89e1e2f97d8ff080433407c0f95884f5ac1514eb7746e8beda02840ba429ede",
+    "width": 512,
+    "height": 366,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      366
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Download  x512.png",
+    "bytes": 4189,
+    "extension": ".png",
+    "sha256": "1138abe006c97ecc943a8b9eb0e9986ee5178c58a38247d978566439c1b12379",
+    "width": 491,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      491,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Empty battery  x512.png",
+    "bytes": 7822,
+    "extension": ".png",
+    "sha256": "893ecb0e3f9669fb9561681727f026af975ca1d7f9095f0f03c8a54796c7f0fe",
+    "width": 512,
+    "height": 459,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      459
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Equal x512.png",
+    "bytes": 2023,
+    "extension": ".png",
+    "sha256": "c1ed856587eeed80310017385279bb92ef2fc3bff8dece1af9a16a8ffaa3d5f6",
+    "width": 512,
+    "height": 264,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      264
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Exclamation sign 2 x512.png",
+    "bytes": 2099,
+    "extension": ".png",
+    "sha256": "9f241d50781f9bf7b92bf2c7d60f4ef5e412abbb1217401984c0fbb4f0e86d7a",
+    "width": 97,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      97,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Exclamation sign x512.png",
+    "bytes": 2093,
+    "extension": ".png",
+    "sha256": "f383235af77d8a07785b200c54f7242620c08d411d966fe97a8af17e1d087124",
+    "width": 97,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      97,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/F  x512.png",
+    "bytes": 3445,
+    "extension": ".png",
+    "sha256": "7744aa3bfcd1220e925c3b84626a32045b035e36ddcc8d88a3c8503eea64b4f9",
+    "width": 273,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      273,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Gamepad 1 x512.png",
+    "bytes": 7712,
+    "extension": ".png",
+    "sha256": "6c709213bae1b270af82ab50b203b8be9deb6f0ea3a9da8e2b2abaf2ea48a727",
+    "width": 512,
+    "height": 367,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      367
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Gamepad 2 x512.png",
+    "bytes": 7742,
+    "extension": ".png",
+    "sha256": "26eb8ff0a41e5896048245eb0a3d303bc442974332306a7592f869d3013f68b9",
+    "width": 512,
+    "height": 367,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      367
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Gift x512.png",
+    "bytes": 8691,
+    "extension": ".png",
+    "sha256": "895c805e1189126992e347d9fd5d3bbe53f6bd2dac8e38721f5e9da44760f335",
+    "width": 450,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      450,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/House x512.png",
+    "bytes": 7444,
+    "extension": ".png",
+    "sha256": "dba98cbc45744f5630bebc4144961c5aac5b2898dc79a5f6a0139e981fa56f63",
+    "width": 512,
+    "height": 484,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      484
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Key x512.png",
+    "bytes": 9093,
+    "extension": ".png",
+    "sha256": "ff683a3d87ad21f9a6d41e036383a5f050ea7ce5b654dc6029d3ad620c68b263",
+    "width": 498,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      498,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Keyboard x512.png",
+    "bytes": 5602,
+    "extension": ".png",
+    "sha256": "77f458537489fda235d8151796bf62144d2238371d5c0a9fe59cde30f2587633",
+    "width": 512,
+    "height": 277,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      277
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Like x512.png",
+    "bytes": 7945,
+    "extension": ".png",
+    "sha256": "08c7d579b98b2c78f78d067203249e58d53c9c587cf1136664cf4dbbeab941d0",
+    "width": 467,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      467,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Link x512.png",
+    "bytes": 11200,
+    "extension": ".png",
+    "sha256": "7fcff77f2b8bdbabb7d89ebfb55c1c62910f86cfc7bf6dc4b6824563b5f81885",
+    "width": 497,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      497,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Lock x512.png",
+    "bytes": 5243,
+    "extension": ".png",
+    "sha256": "a85b58b7ba9e29924bfd010cef9e639261c84920c17424d7fa3f2175c4560276",
+    "width": 426,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      426,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Low battery x512.png",
+    "bytes": 3952,
+    "extension": ".png",
+    "sha256": "9aa7204d16fb6740b6d41c66c23a35a1bd90ff60ee17127178cb645d31c55e82",
+    "width": 512,
+    "height": 285,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      285
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/magnifier  x512.png",
+    "bytes": 5293,
+    "extension": ".png",
+    "sha256": "d1acd12b074f01e6b7a4388392309fd6ff3df4a75dd052a53360a2b86c5046f2",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Mail x512.png",
+    "bytes": 11941,
+    "extension": ".png",
+    "sha256": "0cce6268392352ae6ed8ede0b8317f67d0695c12626c162642011ff396a40c21",
+    "width": 512,
+    "height": 365,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      365
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Map x512.png",
+    "bytes": 6420,
+    "extension": ".png",
+    "sha256": "203a3c22dc2e14f7722a63e1307219c9fc0fa8a0cc14909c53c2279db0cb14f9",
+    "width": 354,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      354,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Market x512.png",
+    "bytes": 8198,
+    "extension": ".png",
+    "sha256": "3b8c0fdde34781d3ab93f741320dc89558e202f8dd858f5ff1ffe9050031e30e",
+    "width": 512,
+    "height": 453,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      453
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/medal 1 x512.png",
+    "bytes": 9467,
+    "extension": ".png",
+    "sha256": "5241d99bd511dd17558290836a9e6f75c89e08d0217cb0be6867db4520b8c482",
+    "width": 399,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      399,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/medal 2 x512.png",
+    "bytes": 8397,
+    "extension": ".png",
+    "sha256": "8bc29096a62cb413ab38e28e2095b5170adac4c716633cc9e1a188418562d55e",
+    "width": 398,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      398,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/medal 3 x512.png",
+    "bytes": 7251,
+    "extension": ".png",
+    "sha256": "888a419ac2b2c070b4b49389a58821feb0cdd0c6d507da45cffda028da5bce73",
+    "width": 408,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      408,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Menu 1 x512.png",
+    "bytes": 5433,
+    "extension": ".png",
+    "sha256": "c4d11f26137299b73dc49c46708fc1b7c8418958928439f86aaee559ff51f108",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Menu 2 x512.png",
+    "bytes": 3503,
+    "extension": ".png",
+    "sha256": "7ff9261489a9edc851c81b378dbe61471b92931df9a1cdfb244377d6b3d3c6f7",
+    "width": 512,
+    "height": 344,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      344
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Menu x512.png",
+    "bytes": 8491,
+    "extension": ".png",
+    "sha256": "e6d2c43f947280abd6992011b181a81b39f34cc439cbefd9e7d1d37e03f01da3",
+    "width": 512,
+    "height": 505,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      505
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Message x512.png",
+    "bytes": 5049,
+    "extension": ".png",
+    "sha256": "4d64bb9f6da1e06b2813ebd3b70ed69a17434d6dbfdaf188ef8c5ac952f406a3",
+    "width": 512,
+    "height": 452,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      452
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Money  x512.png",
+    "bytes": 4834,
+    "extension": ".png",
+    "sha256": "3280d5a7d7a113aaaec63fabf801993a97ef99d481141cb3b84d7c8f8c36a324",
+    "width": 337,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      337,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Monitor x512.png",
+    "bytes": 3775,
+    "extension": ".png",
+    "sha256": "fede5693ed0f8b385c7e133f12633e437a41c446a599615d660ca92356e83561",
+    "width": 512,
+    "height": 482,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      482
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Mouse  x512.png",
+    "bytes": 3232,
+    "extension": ".png",
+    "sha256": "74fc2578397120fc7c3ec055e1d9edfebc8d4abb9cf5b82ee4ac9387ed01fddc",
+    "width": 333,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      333,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Musick note x512.png",
+    "bytes": 4205,
+    "extension": ".png",
+    "sha256": "2aea42f5130e36635ac139281e3d3c4ded572448b23b3be0145c5e227b3d33f7",
+    "width": 512,
+    "height": 428,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      428
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Mute 2 x512.png",
+    "bytes": 7677,
+    "extension": ".png",
+    "sha256": "be6f8418bddb40bee143df5c258b986c6a2ea7a23d0c72802c44dfa49c3da08f",
+    "width": 512,
+    "height": 334,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      334
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Mute x512.png",
+    "bytes": 11680,
+    "extension": ".png",
+    "sha256": "18863d6276709a23d93ec6afdbc15fe8025f94fdea2a3b404134828ad1bf83b1",
+    "width": 512,
+    "height": 487,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      487
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Negative  x512.png",
+    "bytes": 964,
+    "extension": ".png",
+    "sha256": "0b186f1abfb222e31b3fd25d58c047aba1cc23e8a926eebb4a3b06e872aca57a",
+    "width": 512,
+    "height": 89,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      89
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Network  x512.png",
+    "bytes": 20565,
+    "extension": ".png",
+    "sha256": "1c129929dd58e8b16d2ae5e2fbd242d498abdb937d9cab2b2428247ad37f0ef2",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Network 2 x512.png",
+    "bytes": 2682,
+    "extension": ".png",
+    "sha256": "f3a72fab22b0090dad415cbde74f866dd73eec0aaf711bb7d14f78fddc35504d",
+    "width": 512,
+    "height": 494,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      494
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Next - Speed Up x512.png",
+    "bytes": 8439,
+    "extension": ".png",
+    "sha256": "1405bd5372020f4e2e0b4f3821eede3930220414f3a662f1d00bff3895edcc25",
+    "width": 512,
+    "height": 396,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      396
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Next x512.png",
+    "bytes": 5521,
+    "extension": ".png",
+    "sha256": "a0e02f639969b9fb083ff494946c0f3fd4e767c22dd51265a56baa9df5bff53f",
+    "width": 414,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      414,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/No wifi x512.png",
+    "bytes": 15165,
+    "extension": ".png",
+    "sha256": "caa7a7ad92921bf1075b66d79caf155afd1fc5399f47bb04ff448fe97602fcd6",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Pause x512.png",
+    "bytes": 2510,
+    "extension": ".png",
+    "sha256": "6a5e446a0eabbfb1e650bf50bc89dbbcb2513748e217b2aee6f02a05db864c29",
+    "width": 322,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      322,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Play - Puse x512.png",
+    "bytes": 7139,
+    "extension": ".png",
+    "sha256": "5e578618b9a5c2393d318cfbf894b384a3ffa60e09f3b656a9cb21282dc9791b",
+    "width": 466,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      466,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Play x512.png",
+    "bytes": 6697,
+    "extension": ".png",
+    "sha256": "b5e2cadbfef2f65fbde0fa692901172b7434f6cb23e1bad89c336dc768b38c5b",
+    "width": 370,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      370,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Plus x512.png",
+    "bytes": 3457,
+    "extension": ".png",
+    "sha256": "da6bb8b52aa509eef0c693937cafc7052e6f02066d7622517b414957556ea568",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Power Plug x512.png",
+    "bytes": 3481,
+    "extension": ".png",
+    "sha256": "68b8a06e94886644e60697cb4b0a118199611559e5a4a5f95a1dee3aa0572b6c",
+    "width": 348,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      348,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Power sign x512.png",
+    "bytes": 5964,
+    "extension": ".png",
+    "sha256": "b1fd7b418ad7a47724d85b7b9a6035d4ef956017d963920ca493ff5fb83cbdeb",
+    "width": 409,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      409,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Question x512.png",
+    "bytes": 4178,
+    "extension": ".png",
+    "sha256": "6681dfe13f82eed962720ea35bad14d44b59016098d66a4d1167c17717784913",
+    "width": 320,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      320,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Ranking x512.png",
+    "bytes": 3776,
+    "extension": ".png",
+    "sha256": "41c7efdbfc41110e0bd674b3fc7712f1fa0220cc3e3ae762305884d71a25995d",
+    "width": 512,
+    "height": 363,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      363
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Reply  x512.png",
+    "bytes": 7024,
+    "extension": ".png",
+    "sha256": "5ff5ce6ab960a7c822502f5ac97892b8660f479ba052c4b3b75a9e2f6519699e",
+    "width": 415,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      415,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Rotate phone 1 x512.png",
+    "bytes": 9717,
+    "extension": ".png",
+    "sha256": "a2e48f0e3356c545e9907e92656cf8f4f15533897b3c417cda1d4d9f58801e4e",
+    "width": 512,
+    "height": 347,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      347
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Rotate phone 2 x512.png",
+    "bytes": 4522,
+    "extension": ".png",
+    "sha256": "4214457c5a1dbd5927eb2ccfacc6dd344f44ce528dc1254196e0d07a2dcd4811",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Save x512.png",
+    "bytes": 5215,
+    "extension": ".png",
+    "sha256": "d04572cbdde69065e0ea52ba760ebe5ac9e5b23b8a2d5b0dc82a29dd2d6ad972",
+    "width": 486,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      486,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Setting 1 x512.png",
+    "bytes": 7452,
+    "extension": ".png",
+    "sha256": "f18fdc40df50d0eda0157aa7d5432778df5aeba09fab22367bf2b7d95a2124a7",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Setting 2 x512.png",
+    "bytes": 11038,
+    "extension": ".png",
+    "sha256": "34242fb5603fa0d22eec1b147d257e295727b1ac06870d96a114f7ec24ccee67",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Share 1 x512.png",
+    "bytes": 6943,
+    "extension": ".png",
+    "sha256": "1570a0015c0a90f11a93bbc87f95ac68df6db5873ce5f3a9bf2a9a213ef93ecc",
+    "width": 353,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      353,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Share 2 x512.png",
+    "bytes": 5869,
+    "extension": ".png",
+    "sha256": "17269668dcae592f0bc5f9664487d75f2a9a4b4503140431557b30f61108e6a9",
+    "width": 337,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      337,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Star x512.png",
+    "bytes": 9836,
+    "extension": ".png",
+    "sha256": "580651c81435cf7986e6d53bd474d2729def033305967bae2fd7dd0a7dd9619f",
+    "width": 512,
+    "height": 490,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      490
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Steam x512.png",
+    "bytes": 18705,
+    "extension": ".png",
+    "sha256": "638c9b14b6dc495710032f90b33f8794182faa849be949b9d391617f147dff65",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Twitch x512.png",
+    "bytes": 6135,
+    "extension": ".png",
+    "sha256": "bc2c1bcb6b3ce0d8184bebc122ee2a7a980935d69dc5da323056c89e8f28e6ed",
+    "width": 479,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      479,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Unlock  x512.png",
+    "bytes": 5352,
+    "extension": ".png",
+    "sha256": "0f59ab318e9b9ee653135d7965ca31fc546db49304e953024d9d866f9c6c8b5f",
+    "width": 425,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      425,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Upload x512.png",
+    "bytes": 4389,
+    "extension": ".png",
+    "sha256": "d28f557ae081ad75acc355c45e816affb21035d98b7adbab4bb5ea95b39747f5",
+    "width": 491,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      491,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/video cam x512.png",
+    "bytes": 5727,
+    "extension": ".png",
+    "sha256": "6793fbb375867f51c8b2ac6301ea7b714c56f51a8d78546a48546d5294b3cbc0",
+    "width": 512,
+    "height": 445,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      445
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Volume x512.png",
+    "bytes": 5249,
+    "extension": ".png",
+    "sha256": "3077d39acc83152268d5711628a96c3a97abf1ce24289e51a5f1f421f4dda426",
+    "width": 512,
+    "height": 362,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      362
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Waving x512.png",
+    "bytes": 10667,
+    "extension": ".png",
+    "sha256": "c8b3075adfbf994f396d6e356aa3fdf7a0b6c08719b71e7be2839cd62b65f41d",
+    "width": 512,
+    "height": 481,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      481
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Wi Fi allert x512.png",
+    "bytes": 13513,
+    "extension": ".png",
+    "sha256": "d4dd81d306c9fcb185e7ec1b42900ae10d026c04dd2b4f59a9ceddfc101ce729",
+    "width": 483,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      483,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Wi Fi x512.png",
+    "bytes": 14154,
+    "extension": ".png",
+    "sha256": "6dd953dbaf254401003fb45865b5bc8ddf0d3e3006ac6bb0690a024cdc7d3e9a",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Wrench 1 x512.png",
+    "bytes": 10894,
+    "extension": ".png",
+    "sha256": "32c4844a244b72f5a2fcb1c64d4a04ea4d30e02ad0ade55e3d2f20dbfcb5b606",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Wrench 2 x512.png",
+    "bytes": 7820,
+    "extension": ".png",
+    "sha256": "5babac1c3ff7d849cb787d0adf9aecd7a9cd6a77fa36287740216f31280dfe13",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Wrench 3 x512.png",
+    "bytes": 10081,
+    "extension": ".png",
+    "sha256": "40fbb216e2762f92a9c20f1aa29f6e1fa16513af1d3071c697a72fa156c04b52",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/Youtube - video play x512.png",
+    "bytes": 5969,
+    "extension": ".png",
+    "sha256": "03cd7181d136c65ba8a8ce2950a1a72abf480eb5fa52a2eb6f8f143478330633",
+    "width": 512,
+    "height": 363,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      363
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/zoom in x512.png",
+    "bytes": 5949,
+    "extension": ".png",
+    "sha256": "a706a82826a9dd85f3c0b6ceeb23da461cd1e9fb1c0b31946fb3367d852d2f05",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/1x/zoom out x512.png",
+    "bytes": 5552,
+    "extension": ".png",
+    "sha256": "e31a75114529cb5e935913f1970e79fca6d215ee1d7110c6b55b8fe55df77a23",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      512,
+      512
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Alarm .png",
+    "bytes": 12269,
+    "extension": ".png",
+    "sha256": "71bb6f8ed674f01eecd9ef6cead66f6c3738df31e6e25b52c03a59970954fb7c",
+    "width": 1024,
+    "height": 765,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      765
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Alarm.png",
+    "bytes": 12319,
+    "extension": ".png",
+    "sha256": "6a4628867c2dd7d21bf00570d805e460690881773e37039879c9cdba14d7ecb3",
+    "width": 1024,
+    "height": 765,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      765
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Apple.png",
+    "bytes": 26064,
+    "extension": ".png",
+    "sha256": "fdc03c2c89a42ca15529f33c038c38ee4c93d374dd7166cf5a50a6a1b8863f84",
+    "width": 881,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      881,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Back 2.png",
+    "bytes": 24177,
+    "extension": ".png",
+    "sha256": "cdcca00b5611fe7c2eedaafb4913ac82754c4cec70ddc967dbcc1efb2b94e299",
+    "width": 886,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      886,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Back.png",
+    "bytes": 16755,
+    "extension": ".png",
+    "sha256": "82a4d4f081b23aee8b4e6a89da08b62a55265a201f5d33336783aa7d2a64fad5",
+    "width": 829,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      829,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Battery - full.png",
+    "bytes": 7898,
+    "extension": ".png",
+    "sha256": "860b8ebb67c575802fa6e36e9e54ccc773d9c623768f925862258251b3a0ef43",
+    "width": 1024,
+    "height": 570,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      570
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Before.png",
+    "bytes": 15824,
+    "extension": ".png",
+    "sha256": "2067c91d5795188e5701428763754c4cc4437dfab7aeeca1cdaffb4dd13f04a5",
+    "width": 828,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      828,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/bone head.png",
+    "bytes": 20325,
+    "extension": ".png",
+    "sha256": "d715e8ebc1f13926d285c7387b81b7906e7feb1f8b15fb3a258495dc5902ac06",
+    "width": 1004,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1004,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Button_.png",
+    "bytes": 11459,
+    "extension": ".png",
+    "sha256": "33aaa8a263646641014b1308a10985eef28efb9d027b3a6164870f9601f37e93",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/camera 1.png",
+    "bytes": 15382,
+    "extension": ".png",
+    "sha256": "630bf64793f27dbc51334bb5dacf7df0360f64ddf4bde221cceccec01c8a622d",
+    "width": 1024,
+    "height": 853,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      853
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/camera 2.png",
+    "bytes": 14367,
+    "extension": ".png",
+    "sha256": "6c90f9a06aa16c5fff84d4b4034b9dbdc2bf693f33f6af90cde1e7b4c8170506",
+    "width": 1024,
+    "height": 854,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      854
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Click - left.png",
+    "bytes": 8838,
+    "extension": ".png",
+    "sha256": "70f2ff41f48bd50bdb66da15d2d2bb3de29f1742886f5db71cb324eb0deea38c",
+    "width": 666,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      666,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Click - middle_.png",
+    "bytes": 8184,
+    "extension": ".png",
+    "sha256": "de5982b138993bfaf0b6549f37774c521de9591fba3d8d4192b963a1ca29e9fc",
+    "width": 666,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      666,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Click - right.png",
+    "bytes": 8799,
+    "extension": ".png",
+    "sha256": "698ec69d27a2dec426cf7df05c2aaa259a54a717e29927c25571eb0fe83e8454",
+    "width": 666,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      666,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Cross.png",
+    "bytes": 34660,
+    "extension": ".png",
+    "sha256": "1fd370fa29b1f35373de44e3b385cfb71da225f5e924a94cf8c265cb7de62302",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Danger sign 1.png",
+    "bytes": 22268,
+    "extension": ".png",
+    "sha256": "b45d50aa99e1e15a5eaa461c2247ec4f076f1f572c41aacb5b637dbb792a2c3f",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Danger sign 2.png",
+    "bytes": 35561,
+    "extension": ".png",
+    "sha256": "beaeed5c74b3631eb12bf1ddd3acd326d1494f78cb24b4b2fc8cf49cff58e79a",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Delete.png",
+    "bytes": 10257,
+    "extension": ".png",
+    "sha256": "f0c8cf59e78f81861948f5d65006b83f0dcb42d95c4428f882bb1391f74cb109",
+    "width": 696,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      696,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/divide_.png",
+    "bytes": 8886,
+    "extension": ".png",
+    "sha256": "a7b2be2270841eda239f90a59ed0c06f1f99fc6604d0bb82dc2753ad4f3140f7",
+    "width": 1024,
+    "height": 732,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      732
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Download_.png",
+    "bytes": 13361,
+    "extension": ".png",
+    "sha256": "6e898f4b54266caf67421ec9e9c61bdb34500b867b50d03e73883b19b1bf792f",
+    "width": 981,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      981,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Empty battery_.png",
+    "bytes": 24021,
+    "extension": ".png",
+    "sha256": "885ee2cc00634c67040d4592fa46953beb4e9b43a14f4165f4d57d92f93b542b",
+    "width": 1024,
+    "height": 917,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      917
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Equal.png",
+    "bytes": 5442,
+    "extension": ".png",
+    "sha256": "acd1c21ff876d4d8d428f98f120ec2a74ae7ef8c1a8a60a4fcbd2d48916d3e52",
+    "width": 1024,
+    "height": 527,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      527
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Exclamation sign 2.png",
+    "bytes": 5231,
+    "extension": ".png",
+    "sha256": "c98858062bae8aa30e332ab3beedf2f820a4a518dc14e0a5b883855c1a00526e",
+    "width": 193,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      193,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Exclamation sign.png",
+    "bytes": 5211,
+    "extension": ".png",
+    "sha256": "1e5118f59b434ba8d7a31d1b08afac5504c3f2977bc1941ad5ee4344efd098cb",
+    "width": 193,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      193,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/F_.png",
+    "bytes": 8393,
+    "extension": ".png",
+    "sha256": "203852748b14a75e208cfacbe0c9e4663910ebf184d7a1611e54838556ec7331",
+    "width": 546,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      546,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Gamepad 1.png",
+    "bytes": 19197,
+    "extension": ".png",
+    "sha256": "60b131db8710bcefdd2da63a2dd5ed21b55e2efa247beff752775226d1f42cdf",
+    "width": 1024,
+    "height": 734,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      734
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Gamepad 2.png",
+    "bytes": 19200,
+    "extension": ".png",
+    "sha256": "bc78a9e5b7365d191935afedf5006185efffe548d8676e38bf6916bd53665b1f",
+    "width": 1024,
+    "height": 734,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      734
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Gift.png",
+    "bytes": 22878,
+    "extension": ".png",
+    "sha256": "c6222cd7cb81e2d9ad057f9497f280cf0532b74b0fd49960102d866ac5cd84c8",
+    "width": 899,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      899,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/House.png",
+    "bytes": 19138,
+    "extension": ".png",
+    "sha256": "b621d68fe3e8e7eb99c5292cc05e26f9160585511d41d7d125ba1826b5d4201a",
+    "width": 1024,
+    "height": 967,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      967
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Key.png",
+    "bytes": 31431,
+    "extension": ".png",
+    "sha256": "40ef9e5bb64415f2e2d68dcfe41f331a2dd770a92f393f239be239023b6dd94d",
+    "width": 996,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      996,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Keyboard.png",
+    "bytes": 12998,
+    "extension": ".png",
+    "sha256": "ead2d39b4d06ce65a5bf099fc57840482aec26f75bc35c9f0906bd9e4d7de83f",
+    "width": 1024,
+    "height": 554,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      554
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Like.png",
+    "bytes": 20122,
+    "extension": ".png",
+    "sha256": "6f72b190db03e23787b23f7a8b26f55fc14a4a620b0736709a5b9563209f26e7",
+    "width": 933,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      933,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Link.png",
+    "bytes": 36311,
+    "extension": ".png",
+    "sha256": "f0fd9f0035a24a9f910c7723f422265b30e8e367b47c864a4c2c7d29e53029d5",
+    "width": 993,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      993,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Lock.png",
+    "bytes": 13080,
+    "extension": ".png",
+    "sha256": "5159946efea56e7c4cf407b4aa4bf5cf3c3538c0ab27fe0b9dcbbab98d97121f",
+    "width": 851,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      851,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Low battery.png",
+    "bytes": 9610,
+    "extension": ".png",
+    "sha256": "cc6141982d856d90cd5a997114367987b1e27f38add2b4e61a803c2f88efe6b4",
+    "width": 1024,
+    "height": 570,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      570
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/magnifier_.png",
+    "bytes": 15762,
+    "extension": ".png",
+    "sha256": "1e1f7a0370f9301a35e68b5d27172e7bacbaea8c9d30ef102298ce0336528580",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Mail.png",
+    "bytes": 32856,
+    "extension": ".png",
+    "sha256": "a477b1b2c3d2b796d6b25d553db07f2493a0da6a9750b15460cc591b5ce240a1",
+    "width": 1024,
+    "height": 729,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      729
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Map.png",
+    "bytes": 14798,
+    "extension": ".png",
+    "sha256": "8cc17205d45d2f9c99a9f3b9df0ebcbaebfdd6e5d1784c3b335a9d8c9171fa24",
+    "width": 707,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      707,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Market.png",
+    "bytes": 20831,
+    "extension": ".png",
+    "sha256": "fcb32697389f49a6c5ba3e62676d904debf6ef0a90f05ab729768d019a5d371b",
+    "width": 1024,
+    "height": 906,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      906
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/medal 1.png",
+    "bytes": 25796,
+    "extension": ".png",
+    "sha256": "f0806686f03149caf6addaba65c93f3d3e35c3839dbf1cee5124a0d8d0d1171c",
+    "width": 798,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      798,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/medal 2.png",
+    "bytes": 24001,
+    "extension": ".png",
+    "sha256": "32c427709bbbb48212320a96d34d6ff33a506be084a035d21c56b28e0819fc12",
+    "width": 796,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      796,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/medal 3.png",
+    "bytes": 20510,
+    "extension": ".png",
+    "sha256": "5e056acd578fe9f89482450b843187b4e0bfecb7a4be76210dff9eea13138c7c",
+    "width": 816,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      816,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Menu 1.png",
+    "bytes": 16594,
+    "extension": ".png",
+    "sha256": "5c69a6174e278729ee40cae08912ff46c27d8035de5cff99ad99b6a24442b1ef",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Menu 2.png",
+    "bytes": 9124,
+    "extension": ".png",
+    "sha256": "9666dcd4386acea07ba7282f5208491bf00fb5e40eabc3e56fc698045e4fd31c",
+    "width": 1024,
+    "height": 687,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      687
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Menu.png",
+    "bytes": 24444,
+    "extension": ".png",
+    "sha256": "cf47986703f4c3b1704e5e4bb68da7ec4290fc19e1ea2292c9f51faf319a06d2",
+    "width": 1024,
+    "height": 1009,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1009
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Message.png",
+    "bytes": 13150,
+    "extension": ".png",
+    "sha256": "8cbe87b81b637b543f5ad827cec5a4c9f1607f0181abb44d7f8519e06ce2c757",
+    "width": 1024,
+    "height": 903,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      903
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Money_.png",
+    "bytes": 11862,
+    "extension": ".png",
+    "sha256": "75af2568193cd447ae8c63702a5a62f848e541b12e7847415e2d2bfa2d702b13",
+    "width": 674,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      674,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Monitor.png",
+    "bytes": 10105,
+    "extension": ".png",
+    "sha256": "da696a5afc67d9364561831fb7ab167d69dbb9323a0f3b28a49d306a7ffbe06e",
+    "width": 1024,
+    "height": 963,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      963
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Mouse_.png",
+    "bytes": 8356,
+    "extension": ".png",
+    "sha256": "d27bb86fb2649387c4e93640a3ae480985607697605a3ddc1b87b988098e80ba",
+    "width": 666,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      666,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Musick note.png",
+    "bytes": 11092,
+    "extension": ".png",
+    "sha256": "dd162172ed82e5349810e28370bcaaef8130c8598000995118f720606f5599e5",
+    "width": 1024,
+    "height": 855,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      855
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Mute 2.png",
+    "bytes": 20844,
+    "extension": ".png",
+    "sha256": "1466629705367d0f888ced06e629075a7114714e2709c57bce79d45242be034d",
+    "width": 1024,
+    "height": 667,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      667
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Mute.png",
+    "bytes": 38010,
+    "extension": ".png",
+    "sha256": "8cd2026f7ef2c57a649458eff822b8b216142ae6113d6de5e9d737b7da0ed393",
+    "width": 1024,
+    "height": 973,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      973
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Negative_.png",
+    "bytes": 2487,
+    "extension": ".png",
+    "sha256": "c73e045df0413480fc8a19d546a99fbdc23c0e880064dc59ec0dd7e0066d4a8d",
+    "width": 1024,
+    "height": 178,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      178
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Network 2.png",
+    "bytes": 7086,
+    "extension": ".png",
+    "sha256": "fff18f13092f127d26831f976c1c12a033a15b68e420ce4aed91373d2c6d28a5",
+    "width": 1024,
+    "height": 987,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      987
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Network_.png",
+    "bytes": 54268,
+    "extension": ".png",
+    "sha256": "2d369f58ec4b1fa9c9bbe4e5b8d24f28083d585847d03ffbea6df86187299276",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Next - Speed Up.png",
+    "bytes": 20983,
+    "extension": ".png",
+    "sha256": "dde32236086b264b98fff2bea1c7e708a59280d57636e729dfc9babe6e10eba8",
+    "width": 1024,
+    "height": 791,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      791
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Next.png",
+    "bytes": 15675,
+    "extension": ".png",
+    "sha256": "2660df477ce6b6de52c77f2e29d89e9d5d3e39250e2f1daaad4492cf73e38f98",
+    "width": 828,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      828,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/No wifi.png",
+    "bytes": 52931,
+    "extension": ".png",
+    "sha256": "27c6025dcc784ad2e9a2c70b6b43c93d2f61f2f90a944c5b572c924c65aec19c",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Pause.png",
+    "bytes": 6982,
+    "extension": ".png",
+    "sha256": "8d3cfc068889042bbb54ef5040aa0308f758bf40d8e5d25debd8db345e266b1a",
+    "width": 644,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      644,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Play - Puse.png",
+    "bytes": 17722,
+    "extension": ".png",
+    "sha256": "c697d8230408709fef94ef133e162bcf09143750bb98da73536c55b0baf4ea1d",
+    "width": 931,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      931,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Play.png",
+    "bytes": 17142,
+    "extension": ".png",
+    "sha256": "db9b8083ab8d29cdf48faa26a0327fa28c3946b1ddfdd1b6feb5331dfacc82e2",
+    "width": 740,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      740,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Plus.png",
+    "bytes": 9462,
+    "extension": ".png",
+    "sha256": "ff37b6d8cbb762b6b336936ee310abb0ae86adaa016ce58c81002183f6a61eca",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Power plug.png",
+    "bytes": 8702,
+    "extension": ".png",
+    "sha256": "1988eac20e215fd26e96207dc8378d9f13eab342b50c5e98065b23095c89f195",
+    "width": 696,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      696,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Power sign.png",
+    "bytes": 14980,
+    "extension": ".png",
+    "sha256": "21ff31b4824e4935e326b5e5cec27d83e572a2e24cffeef0361b23b5c2eb5811",
+    "width": 817,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      817,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Question.png",
+    "bytes": 10558,
+    "extension": ".png",
+    "sha256": "16362f6efea8f8a3cf9a43bc9e0683b546be38796ab3bcf7bddebfa3e1e30a66",
+    "width": 640,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      640,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Ranking.png",
+    "bytes": 9650,
+    "extension": ".png",
+    "sha256": "75c5962e88d3aa4e8a33eb75c56ba2fa56a65ff3892befc8f1db48a6b236e65c",
+    "width": 1024,
+    "height": 725,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      725
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Reply_.png",
+    "bytes": 18250,
+    "extension": ".png",
+    "sha256": "e83b235f30c616e254afafe2d83d7d08eb1c3df86845fca48b532242193a260d",
+    "width": 829,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      829,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Rotate phone 1.png",
+    "bytes": 24464,
+    "extension": ".png",
+    "sha256": "2414023da63453d2277c29afeb497752fe280e9623218bfc7b7f985b50a61d7a",
+    "width": 1024,
+    "height": 693,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      693
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Rotate phone 2.png",
+    "bytes": 11659,
+    "extension": ".png",
+    "sha256": "b0ee77eb4717724767e64b7c753360a41ad4138862fb24d3fffac49d8dae8389",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Save.png",
+    "bytes": 13228,
+    "extension": ".png",
+    "sha256": "9be0fcbccc0e3db89dbc754c4b2aaaad90bc5245b5db96c3713d00287b3a0892",
+    "width": 972,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      972,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Setting 1.png",
+    "bytes": 20646,
+    "extension": ".png",
+    "sha256": "32e3419b27d1140a6f5642298c0f3c06ea63359c411e91faa7d0ef338d750792",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Setting 2.png",
+    "bytes": 31957,
+    "extension": ".png",
+    "sha256": "7d2609f25d59b0605d7095aeaec12d9c310f93506f47254c744c3eb70b100150",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Share 1.png",
+    "bytes": 19089,
+    "extension": ".png",
+    "sha256": "7080e7c4cacf762e997ea800a83ff95b0aba2382de8f4514296c630ad7175c2d",
+    "width": 706,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      706,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Share 2.png",
+    "bytes": 15995,
+    "extension": ".png",
+    "sha256": "9dab48da9c8a1829c976f47e07c9ea372b9fdebcf1b5d731db28c5521ccf2cea",
+    "width": 674,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      674,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Star.png",
+    "bytes": 26926,
+    "extension": ".png",
+    "sha256": "0d14694717fbff75db341094c9ff90fe4c4e9bcb4bc551508c8815ea3aa7da9b",
+    "width": 1024,
+    "height": 979,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      979
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Steam.png",
+    "bytes": 50414,
+    "extension": ".png",
+    "sha256": "7296f494dd6a6b0227558fbcceac57427b609cd5ffe64f0680d81b5e00fb0a02",
+    "width": 1023,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1023,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Twitch.png",
+    "bytes": 16935,
+    "extension": ".png",
+    "sha256": "d76bbdc6d455ee669ac9973c0a3339efc45d4f33529ac06e035d8a2924422ff7",
+    "width": 957,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      957,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Unlock_.png",
+    "bytes": 13441,
+    "extension": ".png",
+    "sha256": "02dd6439697766c0e6d656a9b9e4e7bbcf3c22f36c90299027f5baf739e41df1",
+    "width": 849,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      849,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Upload.png",
+    "bytes": 13540,
+    "extension": ".png",
+    "sha256": "005dd5cbffc6aa9a7036f0c11563f349b7f032ab3ded7a3086e3e8b6de58bf40",
+    "width": 981,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      981,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/video cam.png",
+    "bytes": 17247,
+    "extension": ".png",
+    "sha256": "8f8bfdeaa4132fb32f562c7467688b5757db54bf30b778134f6912c1255a956f",
+    "width": 1024,
+    "height": 890,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      890
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Volume.png",
+    "bytes": 13382,
+    "extension": ".png",
+    "sha256": "18691aa7b7682539ab42f923fb97b3c852386e0a3ac28ee14591c6c42bbbd212",
+    "width": 1024,
+    "height": 723,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      723
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Waving.png",
+    "bytes": 33869,
+    "extension": ".png",
+    "sha256": "7378d8a20d206b4818bb5958d1b3df2c4416ff39da73abc2b587a8b2b212b33b",
+    "width": 1024,
+    "height": 962,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      962
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Wi Fi allert.png",
+    "bytes": 34513,
+    "extension": ".png",
+    "sha256": "9cb75184f415dce806ece86620967ada35cf3b0933d6a2b181ab7dff0eece988",
+    "width": 966,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      966,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Wi Fi.png",
+    "bytes": 38167,
+    "extension": ".png",
+    "sha256": "7eb397c6fbe3fcf2bb9a6a58efa7c9259e95ce29113b967f058f2b2980f721f2",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Wrench 1.png",
+    "bytes": 31185,
+    "extension": ".png",
+    "sha256": "af6c1d2fcd8ca31db2dad2803f36c74ecd48d05bb3093a57567bfeaf55df3b42",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Wrench 2.png",
+    "bytes": 26082,
+    "extension": ".png",
+    "sha256": "fc0b3e4152df4584a0cc6986ee9071a7e5ff75697d06344252da8a7d1031c711",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Wrench 3.png",
+    "bytes": 28279,
+    "extension": ".png",
+    "sha256": "0f5aebdb381a671b10145a82fb34064483e77ad5643f24c4fd9e89990b0f6153",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/Youtube - video play.png",
+    "bytes": 15078,
+    "extension": ".png",
+    "sha256": "5e8b0499d20da32eaa4b398aa412bbcab17d81675f594130b5d9459929d5d00a",
+    "width": 1024,
+    "height": 725,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      725
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/zoom in.png",
+    "bytes": 16853,
+    "extension": ".png",
+    "sha256": "659294f6f111d55efcb1c6cf45bb18bd6cf16c7896373e347d95092df5bb0b16",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/2x/zoom out.png",
+    "bytes": 16224,
+    "extension": ".png",
+    "sha256": "d234089eeb1db4f1190b1fe700dfeddbe76f21226aac9ed825b71723f378f42b",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      0,
+      0,
+      1024,
+      1024
+    ]
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/Untitled-11.ai",
+    "bytes": 729644,
+    "extension": ".ai",
+    "sha256": "f81bbaad7eeaedc4276e4483e94f37558526ba3a36be34957747f55cdcf3bdb6",
+    "source_header": "%PDF-1.5\r%����\r\n1 0 obj\r<</Metadata 2 0 R/OCProperties<</D<</ON[5 0 R]/Order 6 0 R/RBGroups[]>>/OCGs[5 0 R]>>/Pages 3 0 R/Type/Catalog>>\rendobj\r2 0 obj\r<</Length 42320/Subtype/XML/Type/Metadata>>stream\r\n<?xpacket begin=\"﻿\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n<x:xmpmeta xmlns:x=\"adobe:ns:meta/\" x:xmptk=\"Adobe XMP Core 5.6-c143 79.161356, 2017/09/07-01:11:22        \">\n   <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n      <rdf:Description rdf:about=\"\"\n            xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n            xmlns:xmp=\"http://ns.adobe.com/xap/1.0/\"\n            xmlns:xmp"
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Dark Icons/Untitled-11.psd",
+    "bytes": 7753936,
+    "extension": ".psd",
+    "sha256": "ee24ca7d4b5b8bb0ceeffdd6740089233e02f3a23d2303287fafc9fd53d8cc5c",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA"
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/icons set 1 copy.svg",
+    "bytes": 147479,
+    "extension": ".svg",
+    "sha256": "a71e9b93b1dc74f1c89ad94ec08353fb1fc44d1449191db66aeae54be0d51a60",
+    "source_header": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\r\n<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t viewBox=\"0 0 2000 2000\" style=\"enable-background:new 0 0 2000 2000;\" xml:space=\"preserve\">\r\n<style type=\"text/css\">\r\n\t.st0{fill:#1B2638;}\r\n\t.st1{fill:#FFFFFF;}\r\n</style>\r\n<g id=\"Layer_3\">\r\n\t<rect class=\"st0\" width=\"2000\" height=\"2000\"/>\r\n</g>\r\n<g id=\"Layer_1\">\r\n\t<g>\r\n\t\t<path class=\"st1\" d=\"M230,246h-92c-5.5,0-10-4.5-10-10v-92c0-5.5,4.5-10,10-10h9"
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/icons set 1.eps",
+    "bytes": 5903046,
+    "extension": ".eps",
+    "sha256": "6dfeafb7f70593640dda0ffba9f742c2231a172b5c0b8d58e12da5ffd6a559ec",
+    "source_header": "���� \u0000\u0000\u0000\t�\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000)�\n\u0000�VO\u0000��\u0000\u0000%!PS-Adobe-3.1 EPSF-3.0\r\n%ADO_DSC_Encoding: Windows Roman\r\n%%Title: icons set 1.eps\r\n%%Creator: Adobe Illustrator(R) 22.1\r\n%%For: lenovo\r\n%%CreationDate: 4/11/2022\r\n%%BoundingBox: 0 0 2000 2000\r\n%%HiResBoundingBox: 0 0 2000 2000\r\n%%CropBox: 0 0 2000 2000\r\n%%LanguageLevel: 2\r\n%%DocumentData: Clean7Bit\r\n%ADOBeginClientInjection: DocumentHeader \"AI11EPS\"\r\n%%AI8_CreatorVersion: 22.1.0\r%AI9_PrintingDataBegin\r%ADO_BuildNumber: Adobe Illustrator(R) 22.1.0 x312 R agm 4.7767 ct 5.4352\r%ADO_ContainsXMP: MainFirst\r\r\n%ADOEndClientInjection: DocumentHeader \"AI11EPS\"\r\n%%Pages"
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Untitled-11.psd",
+    "bytes": 7753936,
+    "extension": ".psd",
+    "sha256": "ee24ca7d4b5b8bb0ceeffdd6740089233e02f3a23d2303287fafc9fd53d8cc5c",
+    "width": 1024,
+    "height": 1024,
+    "mode": "RGBA"
+  },
+  {
+    "path": "Asset/FREE version/Icon set 1/Untitled-4.ai",
+    "bytes": 1722840,
+    "extension": ".ai",
+    "sha256": "3fafb5e404d0eb2b4cd147734906f4ad983b092ac9ec9d731077e1b48d9c48b0",
+    "source_header": "%PDF-1.5\r%����\r\n1 0 obj\r<</Metadata 2 0 R/OCProperties<</D<</ON[5 0 R 6 0 R 7 0 R]/Order 8 0 R/RBGroups[]>>/OCGs[5 0 R 6 0 R 7 0 R]>>/Pages 3 0 R/Type/Catalog>>\rendobj\r2 0 obj\r<</Length 50135/Subtype/XML/Type/Metadata>>stream\r\n<?xpacket begin=\"﻿\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>\n<x:xmpmeta xmlns:x=\"adobe:ns:meta/\" x:xmptk=\"Adobe XMP Core 5.6-c143 79.161356, 2017/09/07-01:11:22        \">\n   <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n      <rdf:Description rdf:about=\"\"\n            xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n            xmlns:xmp=\"http://ns.adobe.com/xap/1.0"
+  }
+]

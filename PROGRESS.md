@@ -1,3 +1,21 @@
+# Current: UI/UX POLISH COMPLETE — STOP (2026-10-02)
+
+- Completed all requested sections: asset audit, pre-edit classification, HUD, icon prompts, bag/details/loadout, three-column crafting, Farming/Combat separation, menus/guide/wait, debug visibility, short feedback and bounded animations.
+- Assets:14 FREE white symbols plus the existing white button graphic; existing item SVGs; only missing clock/rifle/basic-ammo vectors added; existing farmstead capture reused. All540 supplied FREE source files preserved. Mapping complete for all24 items.
+- UI changed: scenes/ui/{HUD,InventoryUI,CraftingUI,PauseMenu}.tscn and scripts/ui/{prototype_hud,inventory_ui,crafting_ui,main_menu,pause_menu,presentation_style,skip_night_dialog,aim_crosshair}.gd. New UiIcons/UiItemSlot,3 UI vectors, menu background and button importer setting. No gameplay/data/map/character/animation/camera/AI/balance changes.
+- HUD: top day/clock; left HP/stamina; right seed OR weapon/ammo/slot; short centered prompt; night-only skull/count; no constant instructions/daytime forecast/mode popup/floating plot labels.
+- Inventory: icon/count/badge/selected border; material inspection preserves seed; owned weapons separate; equip/unequip uses existing APIs. Craft: materials left, recipes center, preview right, disabled/missing/locked/full/success states.
+- Final checks:9 check runs all PASS;518 assertions. Actual E cabin rest/workbench/plant/harvest; shoot/reload/bat/live zombie attack; all8 crops; exact stamina/HUD; input/pause/selection/equipment; night/wait/death/ending.
+- Visual:27 before /51 final captures inspected.1280×720,960×540,1920×1080,1024×768; visible panel bounds pass. Texture slicing/safe inset/prior-mode toast/guide height repaired.
+- Performance:600-frame profiles perHUD/bag/craft. Mean~4.50–4.53ms; p99≤8.87ms; max≤10.12ms. Nodes+182 and static memory~+1.6–1.7MiB. Results/limits in report.
+- Files/report: UI_POLISH_REPORT.md (10 required topics), UI_ICON_MAPPING.md, UI_CURRENT_STRUCTURE.md, architecture/asset summaries and docs/ui_polish (captures/logs/inventory/scope/performance).
+- Remaining: no blocking UI issue. Settings not found; existing craft-only special ammo/medicine stays labelled. Only listed desktop resolutions/keyboard/mouse verified; no new release export.
+- Next action: user review in Godot. Requested pass is COMPLETE. STOP; do not begin another phase without a new request.
+
+---
+
+## Previous pass records
+
 ## Current: GAMEPLAY & CHARACTER REFINEMENT COMPLETE — STOP FOR USER REVIEW (2026-10-02)
 
 - CURRENT STAGE: A→B/C→D→E→F complete. Root only. Requested runtime checks/documentation/evidence/scope audit completed; no implementation remains in this pass.

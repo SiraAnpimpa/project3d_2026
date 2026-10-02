@@ -1,0 +1,47 @@
+[
+  {
+    "alive": 0,
+    "draw_calls": 2125.0,
+    "frames": 600,
+    "max_ms": 9.408,
+    "mean_ms": 4.50037833333333,
+    "navigation_ms": 0.0073116666666667,
+    "nodes": 1315,
+    "p95_ms": 7.771,
+    "p99_ms": 8.869,
+    "physics_ms": 0.757451666666674,
+    "process_ms": 8.76384333333331,
+    "scenario": "hud_720p",
+    "static_memory": 90470669.0
+  },
+  {
+    "alive": 0,
+    "draw_calls": 2188.0,
+    "frames": 600,
+    "max_ms": 10.118,
+    "mean_ms": 4.53464166666666,
+    "navigation_ms": 0.0066716666666666,
+    "nodes": 1315,
+    "p95_ms": 7.721,
+    "p99_ms": 8.57,
+    "physics_ms": 0.0576233333333341,
+    "process_ms": 8.67781833333343,
+    "scenario": "inventory_720p",
+    "static_memory": 90727459.0
+  },
+  {
+    "alive": 0,
+    "draw_calls": 2151.0,
+    "frames": 600,
+    "max_ms": 9.175,
+    "mean_ms": 4.50451,
+    "navigation_ms": 0.0121133333333332,
+    "nodes": 1315,
+    "p95_ms": 7.866,
+    "p99_ms": 8.791,
+    "physics_ms": 0.0712449999999998,
+    "process_ms": 9.71196999999995,
+    "scenario": "crafting_720p",
+    "static_memory": 90792211.0
+  }
+]

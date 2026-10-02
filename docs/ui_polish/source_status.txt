@@ -1,0 +1,17 @@
+ M ASSET_ANALYSIS.md
+ M ASSET_CREDITS.md
+ M PROGRESS.md
+ M PROJECT_ARCHITECTURE.md
+ M scenes/ui/CraftingUI.tscn
+ M scenes/ui/HUD.tscn
+ M scenes/ui/InventoryUI.tscn
+ M scenes/ui/PauseMenu.tscn
+ M scripts/ui/aim_crosshair.gd
+ M scripts/ui/crafting_ui.gd
+ M scripts/ui/inventory_ui.gd
+ M scripts/ui/main_menu.gd
+ M scripts/ui/pause_menu.gd
+ M scripts/ui/presentation_style.gd
+ M scripts/ui/prototype_hud.gd
+ M scripts/ui/skip_night_dialog.gd
+ M tests/gameplay_bat_test.gd

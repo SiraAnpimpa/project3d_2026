@@ -1,6 +1,10 @@
 # PROJECT_ARCHITECTURE — Somchai's Last Harvest
 
-## Current: Gameplay & Character Refinement
+## Current: UI/UX polish complete
+
+Presentation-only pass. Shared cached PresentationStyle theme/helpers construct HUD/inventory/crafting/pause layouts. UiIcons is a read-only ItemData display adapter; UiItemSlot renders image/count/selected state. Existing GameRoot bindings, InputMap, crafting/inventory/equipment services and pause ownership remain. HUD hides floating interaction labels at presentation time; no map or farming source changes. GamePresentation remains byte-identical and inherits menu styles. Current paths and data flow: UI_CURRENT_STRUCTURE.md. Validation/evidence: UI_POLISH_REPORT.md / docs/ui_polish/README.md.
+
+## Historical: Gameplay & Character Refinement
 
 StaminaComponent retains its drain/recovery algorithm; only drain14/s, recovery28/s and delay0.65s change. PlayerVisual retains Matt's existing clips, blending with speed-correlated cadence and a native Slash for melee. RiflePose extends the existing local SkeletonModifier3D for low-ready/aim, two grip markers, bounded torso motion, timer-driven recoil/reload and bat sweep. WeaponData/weapon scenes own per-weapon hold transforms; no new animation/IK framework. Physics movement remains4/7/2.8m/s and upright.
 

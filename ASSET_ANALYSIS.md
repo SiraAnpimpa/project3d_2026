@@ -1,6 +1,10 @@
 # ASSET_ANALYSIS — Somchai's Last Harvest
 
-## Current: Gameplay & Character Refinement
+## Current: UI/UX asset pass complete
+
+All540 FREE version sources audited before production changes:534 PNG,2 AI,2 PSD,1 EPS,1 SVG; roughly89 repeated UI symbols. Reuse14 white symbols and the white button base (32px import/nine-slice), plus existing item SVGs. No font/frame kit/crop/rifle/cartridge icon exists in the supplied set. Only missing clock/rifle/basic-ammo vectors were added; display corrections do not edit ItemData. Existing farmstead capture supplies menu scenery. Raw540 sources,244 GLBs and prior item art are unchanged. Exact inventory/mapping: UI_ICON_MAPPING.md / docs/ui_polish/free_asset_inventory.json.
+
+## Historical: Gameplay & Character Refinement
 
 Actual imported/rendered audit covers138 candidates: all68 Nature sources,59 weapon-related candidates (including two Battery filename false positives),nine actors and two optional fantasy accents. All other supplied GLB names were checked for vegetation candidates. Matt has43 bones/20 usable native clips; no authored crop growth sets or dedicated aim/shoot/reload/strafe/backward/bat clip. Reuse Wooden Bat Barbed.glb and eight distinct vegetation models, preserving native source GLBs/materials. [Full Nature selection table](PLANT_VISUAL_ASSET_MAPPING.md), [animation/bat audit](GAMEPLAY_REFINEMENT_REPORT.md), [rendered evidence](docs/gameplay_refinement/README.md). Prior environment source counts below are historical and are not crop/weapon totals.
 

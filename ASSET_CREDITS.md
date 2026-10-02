@@ -26,3 +26,7 @@ Only referenced models are selected for export; the full unused asset library is
 Runtime: Godot 4.7.2 official Windows release template, obtained from godotengine/godot-builds GitHub release. Godot is provided separately under its own license; retain engine attribution/license text supplied with the build process where applicable. No code-signing certificate is configured.
 
 Engine license and third-party notices from the matching official 4.7.2-stable source tag are included in docs/phase10/GODOT_LICENSE.txt and GODOT_COPYRIGHT.txt and copied into the candidate folder. Godot uses the MIT license; these files retain the full notices.
+
+## UI/UX polish assets — 2026-10-02
+
+FREE version/Icon set1 is supplied by the user.14 light symbols and its white button graphic are referenced unchanged; source/author/license text is not included in the folder. Exact sources: UI_ICON_MAPPING.md / docs/ui_polish/free_asset_inventory.json. The importer resizes only the button texture to32px. Existing item SVGs are retained. New clock/rifle/basic-cartridge vectors and UI code are project work; no external image generation/download. Menu background is an unchanged copy of the existing project farmstead capture and has the same underlying environment provenance. Godot’s bundled font remains in use. No public license is invented for these additions.

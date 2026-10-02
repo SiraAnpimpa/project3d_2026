@@ -1,0 +1,74 @@
+[
+  {
+    "name": "ui_import_final",
+    "result": "Import completed",
+    "pass_assertions": 0,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  },
+  {
+    "name": "ui_contracts_final",
+    "result": "UI_POLISH_TEST_RESULT failures=0",
+    "pass_assertions": 66,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  },
+  {
+    "name": "ui_visual_final",
+    "result": "UI_POLISH_CAPTURE_RESULT failures=0",
+    "pass_assertions": 177,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  },
+  {
+    "name": "ui_stamina",
+    "result": "GAMEPLAY_STAMINA_MEASURE_RESULT failures=0",
+    "pass_assertions": 3,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  },
+  {
+    "name": "ui_bat",
+    "result": "GAMEPLAY_BAT_RESULT failures=0",
+    "pass_assertions": 83,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  },
+  {
+    "name": "ui_night",
+    "result": "GAMEPLAY_NIGHT_RESULT failures=0 final_hp=30.0",
+    "pass_assertions": 28,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  },
+  {
+    "name": "ui_plants",
+    "result": "GAMEPLAY_PLANTS_RESULT failures=0",
+    "pass_assertions": 125,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  },
+  {
+    "name": "ui_wait",
+    "result": "REFINEMENT_SKIP_RESULT failures=0",
+    "pass_assertions": 36,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  },
+  {
+    "name": "ui_performance_after",
+    "result": "UI_POLISH_PERFORMANCE_RESULT failures=0",
+    "pass_assertions": 0,
+    "errors": [],
+    "known_environment_messages": 1,
+    "status": "PASS"
+  }
+]

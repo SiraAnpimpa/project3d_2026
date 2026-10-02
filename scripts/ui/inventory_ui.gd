@@ -14,34 +14,93 @@ var selected_owned_weapon: ItemData
 var equipment_buttons: Array[Button] = []
 var unequip_buttons: Array[Button] = []
 var crafting_ui: CraftingUI
-
-@onready var screen: Control = $Screen
-@onready var grid: GridContainer = %Slots
-@onready var capacity_label: Label = %Capacity
-@onready var selection_label: Label = %Selection
-
+var screen: Control
+var grid: GridContainer
+var capacity_label: Label
+var selection_label: Label
+var inspected_item: ItemData
+var _detail_icon: TextureRect
+var _detail_info: VBoxContainer
+var _owned_weapons: HBoxContainer
+var _catalog: ItemCatalog
+var _panel: PanelContainer
 
 func _ready() -> void:
+	screen = PresentationStyle.screen(self)
+	_panel = PresentationStyle.center_panel(screen, Vector2(980, 612))
+	var rows := PresentationStyle.box(_panel, true, 14)
+	var header := PresentationStyle.box(rows, false, 12)
+	PresentationStyle.icon(header, UiIcons.get_icon("bag"), 26)
+	PresentationStyle.label(header, "Somchai’s bag", 28).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	capacity_label = PresentationStyle.label(header, "", 17)
+	capacity_label.modulate = PresentationStyle.MUTED
+	PresentationStyle.button(header, "Esc", func() -> void: set_open(false), "close").tooltip_text = "Close bag · Tab / Esc"
+	rows.add_child(HSeparator.new())
+	var content := PresentationStyle.box(rows, false, 28)
+	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var left := PresentationStyle.box(content, true, 8)
+	left.custom_minimum_size.x = 496
+	PresentationStyle.label(left, "SEEDS & SUPPLIES", 14).modulate = PresentationStyle.MUTED
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.custom_minimum_size = Vector2(496, 292)
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	left.add_child(scroll)
+	grid = GridContainer.new()
+	grid.columns = 6
+	grid.add_theme_constant_override("h_separation", 8)
+	grid.add_theme_constant_override("v_separation", 8)
+	scroll.add_child(grid)
+	var detail := PresentationStyle.box(content, true, 10)
+	detail.custom_minimum_size.x = 380
+	detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var detail_header := PresentationStyle.box(detail, false, 14)
+	_detail_icon = PresentationStyle.icon(detail_header, null, 64)
+	selection_label = PresentationStyle.label(detail_header, "", 24)
+	selection_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	selection_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_detail_info = PresentationStyle.box(detail, true, 12) as VBoxContainer
+	var spacer := Control.new()
+	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	detail.add_child(spacer)
+	PresentationStyle.label(detail, "OWNED WEAPONS", 14).modulate = PresentationStyle.MUTED
+	_owned_weapons = PresentationStyle.box(detail, false, 8) as HBoxContainer
+	rows.add_child(HSeparator.new())
+	var equipment_hint := PresentationStyle.label(rows, "WEAPON SLOTS", 16)
+	_named(equipment_hint, "EquipmentHint")
+	var equipment_slots := GridContainer.new()
+	equipment_slots.columns = 3
+	equipment_slots.add_theme_constant_override("h_separation", 14)
+	rows.add_child(equipment_slots)
+	_named(equipment_slots, "EquipmentSlots")
+	var debug_scroll := ScrollContainer.new()
+	debug_scroll.custom_minimum_size.y = 0
+	rows.add_child(debug_scroll)
+	var debug_rows := VBoxContainer.new()
+	debug_scroll.add_child(debug_rows)
+	_named(debug_rows, "DebugActions")
+	debug_rows.visibility_changed.connect(func() -> void: debug_scroll.custom_minimum_size.y = 100 if debug_rows.visible else 0)
 	screen.hide()
-	%Close.pressed.connect(func() -> void: set_open(false))
 
+func _named(node: Node, title: String) -> void:
+	node.name = title
+	node.owner = self
+	node.unique_name_in_owner = true
 
 func bind(target_inventory: Inventory, target_player: PlayerController) -> void:
 	inventory = target_inventory
 	player = target_player
+	_catalog = player.get_parent().get("catalog") as ItemCatalog
 	inventory.inventory_changed.connect(refresh)
 	inventory.selection_changed.connect(refresh)
 	player.health.died.connect(func() -> void: set_open(false))
 	refresh()
 
-
 func bind_crafting(menu: CraftingUI) -> void:
 	crafting_ui = menu
 
-
 func _input(event: InputEvent) -> void:
-	if event.is_echo():
-		return
+	if event.is_echo(): return
 	if event.is_action_pressed("toggle_inventory"):
 		if (not get_tree().paused or is_open) and (crafting_ui == null or not crafting_ui.is_open):
 			set_open(not is_open)
@@ -50,17 +109,18 @@ func _input(event: InputEvent) -> void:
 		set_open(false)
 		get_viewport().set_input_as_handled()
 
-
 func set_open(value: bool) -> void:
-	if value == is_open or (value and (player == null or player.health.is_dead)):
-		return
+	if value == is_open or (value and (player == null or player.health.is_dead)): return
 	is_open = value
 	screen.visible = value
 	if value:
 		_previous_pause = get_tree().paused
 		get_tree().paused = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		inspected_item = inventory.get_selected_seed()
+		selected_owned_weapon = null
 		refresh()
+		PresentationStyle.appear(_panel)
 		for button in slot_buttons:
 			if not button.disabled:
 				button.grab_focus()
@@ -70,64 +130,103 @@ func set_open(value: bool) -> void:
 		get_viewport().gui_release_focus()
 	opened_changed.emit(value)
 
-
 func refresh() -> void:
-	if inventory == null:
-		return
+	if inventory == null: return
 	while slot_buttons.size() < inventory.capacity:
-		var button := Button.new()
-		button.custom_minimum_size = Vector2(142, 75)
-		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		button.expand_icon = true
-		button.add_theme_constant_override("icon_max_width", 32)
-		button.add_theme_font_size_override("font_size", 15)
-		button.add_theme_color_override("font_disabled_color", Color(0.86, 0.89, 0.85))
-		button.add_theme_color_override("icon_disabled_color", Color.WHITE)
-		button.pressed.connect(_select_slot.bind(slot_buttons.size()))
-		grid.add_child(button)
-		slot_buttons.append(button)
+		var cell := UiItemSlot.new()
+		cell.pressed.connect(_select_slot.bind(slot_buttons.size()))
+		grid.add_child(cell)
+		slot_buttons.append(cell)
 	var slots := inventory.get_slots()
+	if inspected_item != null and not inventory.has_item(inspected_item.id): inspected_item = null
+	if inspected_item == null: inspected_item = inventory.get_selected_seed()
 	for index in slot_buttons.size():
-		var button := slot_buttons[index]
-		button.visible = index < inventory.capacity
-		button.icon = null
-		button.tooltip_text = "Empty slot"
-		button.text = "-"
-		button.disabled = true
-		button.modulate = Color.WHITE
-		if index >= slots.size():
-			continue
-		var slot := slots[index]
-		button.icon = slot.item.icon
-		button.text = "%s\nx%d" % [slot.item.display_name, slot.quantity]
-		if slot.item.item_type == ItemData.ItemType.SEED:
-			button.text = "%s\nSeed x%d" % [slot.item.display_name.trim_suffix(" Seed"), slot.quantity]
-		button.tooltip_text = "%s\n%s\nStack %d / %d" % [slot.item.display_name, slot.item.description, slot.quantity, slot.item.max_stack]
-		if slot.item.item_type == ItemData.ItemType.SEED:
-			button.tooltip_text += "\nTier %d / Order %d / %s" % [slot.item.tier, slot.item.display_order, "Plantable" if slot.item.plantable else "Not plantable"]
-		button.disabled = not ((slot.item.item_type == ItemData.ItemType.SEED and slot.item.plantable) or slot.item.item_type == ItemData.ItemType.WEAPON)
-		if slot.item.id == inventory.selected_seed_id:
-			button.modulate = Color(0.78, 1.0, 0.56)
-		if slot.item == selected_owned_weapon:
-			button.modulate = Color(0.58, 0.86, 1.0)
-	capacity_label.text = "%d / %d slots used" % [slots.size(), inventory.capacity]
-	var seed := inventory.get_selected_seed()
-	selection_label.text = "No plantable seed selected. Use Q for Farming after closing the bag."
-	if seed != null:
-		selection_label.text = "Selected: %s  (x%d)  |  Farming: close bag, approach a plot, press E." % [seed.display_name, inventory.get_item_amount(seed.id)]
+		var cell := slot_buttons[index] as UiItemSlot
+		cell.visible = index < inventory.capacity
+		var item: ItemData = slots[index].item if index < slots.size() else null
+		var destination: Node = _owned_weapons if item != null and item.item_type == ItemData.ItemType.WEAPON else grid
+		if cell.get_parent() != destination: cell.reparent(destination)
+		destination.move_child(cell, -1)
+		var plant: PlantData = _catalog.get_plant(item.plant_id) if item != null and item.item_type == ItemData.ItemType.SEED and _catalog != null else null
+		cell.display(item, slots[index].quantity if item != null else 0, item != null and item == inspected_item, plant)
+	capacity_label.text = "%d / %d" % [slots.size(), inventory.capacity]
+	capacity_label.tooltip_text = "Occupied bag slots"
+	_refresh_detail()
 	_refresh_equipment()
 
+func _refresh_detail() -> void:
+	for node in _detail_info.get_children():
+		_detail_info.remove_child(node)
+		node.queue_free()
+	_detail_icon.texture = UiIcons.item_icon(inspected_item)
+	selection_label.text = inspected_item.display_name if inspected_item != null else "Empty bag"
+	if inspected_item == null:
+		PresentationStyle.label(_detail_info, "Harvest materials to fill your bag.", 17)
+		return
+	var count := inventory.get_item_amount(inspected_item.id)
+	PresentationStyle.label(_detail_info, "×%d owned" % count, 17).modulate = PresentationStyle.MUTED
+	if inspected_item.item_type == ItemData.ItemType.SEED and _catalog != null:
+		var plant := _catalog.get_plant(inspected_item.plant_id)
+		if plant == null: return
+		var growth := PresentationStyle.box(_detail_info, false, 10)
+		PresentationStyle.icon(growth, UiIcons.get_icon("clock"), 22)
+		PresentationStyle.label(growth, "%.0f game min to grow" % plant.growth_minutes, 17)
+		var harvest := PresentationStyle.box(_detail_info, false, 10)
+		PresentationStyle.icon(harvest, UiIcons.item_icon(plant.harvest_item), 30)
+		PresentationStyle.label(harvest, "%s  ×%d" % [plant.harvest_item.display_name, plant.harvest_amount], 18)
+		PresentationStyle.label(_detail_info, "Empty plot · Farming mode\nNo tool required", 17).modulate = PresentationStyle.MUTED
+		PresentationStyle.label(_detail_info, "Selected for planting", 17).modulate = PresentationStyle.SAGE
+	else:
+		var copy := PresentationStyle.label(_detail_info, UiIcons.use_text(inspected_item), 17)
+		copy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 func _select_slot(index: int) -> void:
 	var slots := inventory.get_slots()
-	if index < 0 or index >= slots.size():
-		return
-	var item := slots[index].item
-	if item.item_type == ItemData.ItemType.WEAPON:
-		selected_owned_weapon = item
-		refresh()
-	else:
+	if index < 0 or index >= slots.size(): return
+	var item: ItemData = slots[index].item
+	inspected_item = item
+	selected_owned_weapon = item if item.item_type == ItemData.ItemType.WEAPON else null
+	if item.item_type == ItemData.ItemType.SEED and item.plantable:
 		inventory.select_seed(item.id)
+	refresh()
+
+func bind_equipment(loadout: EquipmentLoadout) -> void:
+	equipment = loadout
+	loadout.equipment_changed.connect(_refresh_equipment)
+	_refresh_equipment()
+
+func _refresh_equipment() -> void:
+	if equipment == null: return
+	if selected_owned_weapon != null and not inventory.has_item(selected_owned_weapon.id): selected_owned_weapon = null
+	%EquipmentHint.text = "WEAPON SLOTS  ·  Select an owned weapon to equip"
+	if selected_owned_weapon != null:
+		%EquipmentHint.text = "Equip %s  →  Choose a slot" % selected_owned_weapon.display_name
+	while equipment_buttons.size() < equipment.weapon_slot_count:
+		var index := equipment_buttons.size()
+		var row := PresentationStyle.box(%EquipmentSlots, false, 4)
+		row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var equip := PresentationStyle.button(row, "", func() -> void: equipment.equip_weapon(index, selected_owned_weapon))
+		equip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		equip.custom_minimum_size = Vector2(242, 48)
+		equip.expand_icon = true
+		equip.add_theme_constant_override("icon_max_width", 40)
+		equipment_buttons.append(equip)
+		var clear := PresentationStyle.button(row, "", func() -> void: equipment.unequip_weapon(index), "close")
+		clear.custom_minimum_size.x = 40
+		clear.tooltip_text = "Unequip · keep weapon in bag"
+		unequip_buttons.append(clear)
+	for index in equipment_buttons.size():
+		var button := equipment_buttons[index]
+		button.get_parent().visible = index < equipment.weapon_slot_count
+		var weapon := equipment.get_equipped_weapon(index)
+		button.icon = UiIcons.item_icon(weapon)
+		button.text = "Slot %d" % (index + 1) if weapon != null else "Slot %d · Empty" % (index + 1)
+		button.disabled = selected_owned_weapon == null
+		button.tooltip_text = "%s · Select an owned weapon, then this slot" % (weapon.display_name if weapon != null else "Empty")
+		unequip_buttons[index].disabled = weapon == null
+
+func _exit_tree() -> void:
+	if is_open: get_tree().paused = _previous_pause
 
 
 func bind_debug(debug: DebugControls) -> void:
@@ -192,52 +291,6 @@ func bind_debug(debug: DebugControls) -> void:
 	debug_message.text = "Development only. Changes apply to this run."
 	debug_message.add_theme_font_size_override("font_size", 13)
 	container.add_child(debug_message)
-	container.visible = debug.active
-	debug.status_changed.connect(func(active: bool, _summary: String) -> void: container.visible = active)
+	container.visible = debug.active and OS.is_debug_build()
+	debug.status_changed.connect(func(active: bool, _summary: String) -> void: container.visible = active and OS.is_debug_build())
 	debug.message_posted.connect(func(message: String) -> void: debug_message.text = message)
-
-
-func _exit_tree() -> void:
-	if is_open:
-		get_tree().paused = _previous_pause
-
-
-func bind_equipment(loadout: EquipmentLoadout) -> void:
-	equipment = loadout
-	loadout.equipment_changed.connect(_refresh_equipment)
-	_refresh_equipment()
-
-
-func _refresh_equipment() -> void:
-	if equipment == null:
-		return
-	if selected_owned_weapon != null and not inventory.has_item(selected_owned_weapon.id):
-		selected_owned_weapon = null
-	%EquipmentHint.text = "EQUIPPED WEAPONS  /  Select an owned weapon above, then a slot."
-	if selected_owned_weapon != null:
-		%EquipmentHint.text = "EQUIP %s  /  Choose a slot below." % selected_owned_weapon.display_name
-	while equipment_buttons.size() < equipment.weapon_slot_count:
-		var index := equipment_buttons.size()
-		var row := HBoxContainer.new()
-		row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		%EquipmentSlots.add_child(row)
-		var equip := Button.new()
-		equip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		equip.add_theme_font_size_override("font_size", 14)
-		equip.pressed.connect(func() -> void: equipment.equip_weapon(index, selected_owned_weapon))
-		row.add_child(equip)
-		equipment_buttons.append(equip)
-		var clear := Button.new()
-		clear.text = "×"
-		clear.tooltip_text = "Unequip this slot (keep the weapon in your bag)"
-		clear.pressed.connect(func() -> void: equipment.unequip_weapon(index))
-		row.add_child(clear)
-		unequip_buttons.append(clear)
-	for index in equipment_buttons.size():
-		var button := equipment_buttons[index]
-		button.get_parent().visible = index < equipment.weapon_slot_count
-		var weapon := equipment.get_equipped_weapon(index)
-		button.text = "[%d] %s" % [index + 1, weapon.display_name if weapon != null else "Empty"]
-		button.disabled = selected_owned_weapon == null
-		button.tooltip_text = "Equip the selected owned weapon in slot %d" % (index + 1)
-		unequip_buttons[index].disabled = weapon == null

@@ -46,7 +46,7 @@ func run() -> void:
 	await frames(10)
 	check(weapons.current.data.is_melee() and not player.camera_rig.is_aiming,"real Combat wheel equips bat without RMB")
 	check(weapons.current.data.damage==10 and weapons.current.current_magazine==0 and weapons.reserve_ammo()==0 and not weapons.start_reload(),"bat damage10 needs neither ammunition nor magazine nor reload")
-	check(game.hud.ammo_label.text.contains("No ammo required") and weapons.muzzle==null,"bat HUD and scene do not pretend to be a gun")
+	check(game.hud.ammo_label.text == "Swing" and game.hud._selected_icon.texture == UiIcons.item_icon(game.equipment.get_selected_weapon()) and weapons.muzzle==null,"bat HUD and scene do not pretend to be a gun")
 	await capture("bat_ready")
 	var enemy := target_at("Normal",Vector3(0,0,-1.2))
 	await frames(3)

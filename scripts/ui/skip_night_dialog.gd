@@ -20,11 +20,11 @@ func bind(root_game: Node3D) -> void:
 	game = root_game
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 25
-	action_button = PresentationStyle.button(game.hud.get_node("Root"), "[N]  Skip to Night", request_open)
+	action_button = PresentationStyle.button(game.hud.get_node("Root"), "N", request_open, "wait")
 	action_button.name = "SkipToNight"
 	action_button.theme = PresentationStyle.theme(true)
-	action_button.custom_minimum_size.y = 32
-	action_button.position = Vector2(282,68)
+	action_button.custom_minimum_size = Vector2(62, 44)
+	action_button.position = Vector2(232,31)
 	action_button.add_theme_font_size_override("font_size",15)
 	action_button.focus_mode = Control.FOCUS_NONE
 	action_button.tooltip_text = "Press N to review and confirm waiting until 18:00."
@@ -42,22 +42,22 @@ func bind(root_game: Node3D) -> void:
 	screen.add_child(center)
 	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	center.add_child(panel)
-	panel.custom_minimum_size = Vector2(580,360)
+	panel.custom_minimum_size = Vector2(580,340)
 	var rows := VBoxContainer.new()
 	rows.add_theme_constant_override("separation",18)
 	panel.add_child(rows)
-	title = PresentationStyle.label(rows,"Skip to Night?",30)
+	title = PresentationStyle.label(rows,"Wait until night?",30)
 	time_summary = PresentationStyle.label(rows,"",19)
 	time_summary.modulate = Color("e9c774")
-	var text := PresentationStyle.label(rows,"Time will advance to 18:00 and the night wave will begin.\n\nPlants will grow for the skipped time.\nNo automatic harvest, crafting, reload or healing.",18)
+	var text := PresentationStyle.label(rows,"The night wave begins at 18:00.\nPlants grow during the wait.\n\nHarvest, craft and reload before you leave.\nWaiting does not restore health.",18)
 	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.custom_minimum_size.x = 532
 	text.size_flags_vertical = Control.SIZE_FILL
 	var buttons := HBoxContainer.new()
 	buttons.add_theme_constant_override("separation",14)
 	rows.add_child(buttons)
-	cancel_button = PresentationStyle.button(buttons,"CANCEL  [Esc]",cancel)
-	confirm_button = PresentationStyle.button(buttons,"CONFIRM",confirm_skip)
+	cancel_button = PresentationStyle.button(buttons,"Cancel  ·  Esc",cancel)
+	confirm_button = PresentationStyle.button(buttons,"Wait until 18:00",confirm_skip, "wait")
 	for button in [cancel_button,confirm_button]: button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	cancel_button.focus_neighbor_right = cancel_button.get_path_to(confirm_button)
 	confirm_button.focus_neighbor_left = confirm_button.get_path_to(cancel_button)
@@ -81,11 +81,12 @@ func request_open() -> bool:
 	game.player.interactor.enabled = false
 	game.player.camera_rig.set_menu_open(true)
 	get_tree().paused = true
-	title.text = "Begin the Final Night?" if _opened_day == 10 else "Skip to Night?"
-	confirm_button.text = "BEGIN FINAL NIGHT" if _opened_day == 10 else "CONFIRM"
+	title.text = "Begin the Final Night?" if _opened_day == 10 else "Wait until night?"
+	confirm_button.text = "BEGIN FINAL NIGHT" if _opened_day == 10 else "Wait until 18:00"
 	confirm_button.disabled = false
 	time_summary.text = "DAY %d / 10     %02d:%02d  →  18:00" % [_opened_day,game.clock.current_hour,game.clock.current_minute]
 	screen.show()
+	PresentationStyle.appear(screen)
 	cancel_button.grab_focus()
 	_refresh()
 	return true
@@ -127,7 +128,7 @@ func _process(_delta: float) -> void:
 
 func _refresh() -> void:
 	if game == null: return
-	action_button.visible = game.clock.is_daytime and game.clock.current_day <= 10 and not game.player.health.is_dead and not game.presentation.ending_started
+	action_button.visible = game.gameplay_mode.is_farming() and game.player.camera_rig.can_control() and game.clock.is_daytime and game.clock.current_day <= 10 and not game.player.health.is_dead and not game.presentation.ending_started
 	action_button.disabled = not can_open()
 
 func _input(event: InputEvent) -> void:

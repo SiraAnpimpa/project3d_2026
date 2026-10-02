@@ -2,33 +2,35 @@ class_name PauseMenu
 extends CanvasLayer
 
 signal opened_changed(is_open: bool)
-
 var is_open := false
-var guide: Label
+var guide: Control
 var help_button: Button
 var _inventory_ui: InventoryUI
 var _health: HealthComponent
 var _crafting_ui: CraftingUI
 var _previous_pause := false
 
-
 func _ready() -> void:
-	$Screen.hide()
-	%Resume.pressed.connect(func() -> void: set_open(false))
-	var panel: PanelContainer = $Screen/Panel
-	panel.offset_top = -265
-	panel.offset_bottom = 265
-	panel.offset_left = -450
-	panel.offset_right = 450
-	var rows: VBoxContainer = $Screen/Panel/Rows
-	rows.add_theme_constant_override("separation", 10)
-	guide = PresentationStyle.label(rows, PresentationStyle.GUIDE, 17)
+	var screen := PresentationStyle.screen(self)
+	var panel := PresentationStyle.center_panel(screen, Vector2(440, 436))
+	panel.name = "Panel"
+	var rows := PresentationStyle.box(panel, true, 12)
+	rows.name = "Rows"
+	PresentationStyle.label(rows, "Paused", 30).name = "Title"
+	var hint := PresentationStyle.label(rows, "The farm can wait.", 17)
+	hint.name = "Hint"
+	hint.modulate = PresentationStyle.MUTED
+	var resume := PresentationStyle.button(rows, "Resume  ·  Esc", func() -> void: set_open(false), "play")
+	resume.name = "Resume"
+	resume.owner = self
+	resume.unique_name_in_owner = true
+	guide = PresentationStyle.guide_content(rows)
 	guide.hide()
-	help_button = PresentationStyle.button(rows, "HOW TO PLAY", _toggle_guide)
-	PresentationStyle.button(rows, "RESTART", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn")).name = "Restart"
-	PresentationStyle.button(rows, "MAIN MENU", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/MainMenu.tscn")).name = "MainMenu"
-	PresentationStyle.button(rows, "QUIT", func() -> void: get_tree().quit()).name = "Quit"
-
+	help_button = PresentationStyle.button(rows, "How to play", _toggle_guide, "help")
+	PresentationStyle.button(rows, "Restart", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn")).name = "Restart"
+	PresentationStyle.button(rows, "Main menu", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/MainMenu.tscn"), "rest").name = "MainMenu"
+	PresentationStyle.button(rows, "Quit", func() -> void: get_tree().quit(), "quit").name = "Quit"
+	screen.hide()
 
 func bind(inventory_ui: InventoryUI, health: HealthComponent) -> void:
 	_inventory_ui = inventory_ui
@@ -67,6 +69,7 @@ func set_open(value: bool) -> void:
 		_previous_pause = get_tree().paused
 		get_tree().paused = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		PresentationStyle.appear($Screen/Panel)
 		%Resume.grab_focus()
 	else:
 		get_tree().paused = _previous_pause
@@ -80,6 +83,10 @@ func _exit_tree() -> void:
 
 func _toggle_guide() -> void:
 	guide.visible = not guide.visible
-	help_button.text = "BACK" if guide.visible else "HOW TO PLAY"
-	for name in ["Resume", "Hint", "Restart", "MainMenu", "Quit"]:
-		$Screen/Panel/Rows.get_node(name).visible = not guide.visible
+	help_button.text = "Back  ·  Esc" if guide.visible else "How to play"
+	help_button.icon = UiIcons.get_icon("close" if guide.visible else "help")
+	$Screen/Panel/Rows/Title.text = "How to survive" if guide.visible else "Paused"
+	for node_name in ["Resume", "Hint", "Restart", "MainMenu", "Quit"]:
+		$Screen/Panel/Rows.get_node(node_name).visible = not guide.visible
+	PresentationStyle.fit_panel($Screen/Panel, Vector2(928, 640) if guide.visible else Vector2(440, 436))
+	help_button.grab_focus()
