@@ -1,5 +1,13 @@
 # Somchai's Last Harvest
 
+## Play in your browser (latest build)
+
+The latest game, including the UI polish pass, is exported to `docs/index.html`.
+After pushing the files, enable GitHub Pages using **main /docs**.
+Play URL after deployment: **https://siraanpimpa.github.io/project3d_2026/**.
+[Publishing and rebuild instructions](docs/WEB_README.md).
+
+
 ## Current: Gameplay & Character Refinement
 
 **Complete — STOP for user review.** Open current `project.godot` in Godot4.7 /Compatibility and press F5. Sprint lasts7.17s instead of4.57s; stamina starts recovering after0.67s. Existing Matt locomotion, low-ready rifle hold and vertical aim are refined. Day1 includes an ammo-free Wooden Bat: Q to Combat, wheel to bat, LMB to swing without RMB. Damage10, range1.6m, interval0.85s. Eight existing crops now use eight distinct native models and their existing growth stages.
