@@ -1,0 +1,115 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2060
+
+PASS: seed emitter off 0
+PASS: seed emitter off 1
+PASS: seed emitter off 2
+PASS: seed emitter off 3
+PASS: seed emitter off 4
+PASS: seed emitter off 5
+PASS: seed emitter off 6
+PASS: seed emitter off 7
+PASS: seed emitter off 8
+PASS: seed emitter off 9
+PASS: seed emitter off 10
+PASS: seed emitter off 11
+PASS: growth reuses emitter with stage emission 0/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 1/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 2/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 3/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 4/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 5/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 6/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 7/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 8/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 9/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 10/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 11/1
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 0/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 1/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 2/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 3/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 4/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 5/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 6/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 7/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 8/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 9/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 10/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 11/2
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 0/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 1/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 2/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 3/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 4/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 5/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 6/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 7/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 8/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 9/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 10/3
+PASS: bounded count and growth scale
+PASS: growth reuses emitter with stage emission 11/3
+PASS: bounded count and growth scale
+PASS: saved rendered image: fire_pepper_day
+PASS: saved rendered image: ice_plant_day
+PASS: saved rendered image: poison_plant_day
+PASS: saved rendered image: fire_pepper_night
+PASS: saved rendered image: ice_plant_night
+PASS: saved rendered image: poison_plant_night
+PASS: saved rendered image: basic_impact
+PASS: basic impact expires
+PASS: saved rendered image: fire_impact
+PASS: fire impact expires
+PASS: saved rendered image: ice_impact
+PASS: ice impact expires
+PASS: saved rendered image: poison_impact
+PASS: poison impact expires
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: harvest frees owned emitter
+PASS: basic crop has no elemental emitter
+ELEMENTAL VFX failures: 0

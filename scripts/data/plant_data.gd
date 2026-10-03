@@ -12,6 +12,8 @@ extends Resource
 @export var stage_thresholds := PackedFloat32Array([0.0, 0.25, 0.65, 1.0])
 @export var stage_scales := PackedFloat32Array([0.15, 0.35, 0.7, 1.0])
 @export var visual_scene: PackedScene
+@export var ambient_vfx: PackedScene
+@export var ambient_vfx_offset := Vector3(0, 0.48, 0)
 # Optional replacement meshes/scenes for later artwork, one entry per stage.
 @export var stage_visuals: Array[PackedScene] = []
 @export var produce_color := Color(0.65, 0.75, 0.4)

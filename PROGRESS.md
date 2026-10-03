@@ -1,3 +1,15 @@
+# Current: ELEMENTAL VFX CHECKPOINT ? 2026-10-04
+
+- Continued against current e3007f6, including newer map/gameplay/UI work. Full special-ammo/status target is not complete: elemental ammunition remains craft-only; no Burn/Slow/DOT runtime exists. Pending scope clarification before adding gameplay.
+- Completed: seven reusable scenes under scenes/effects/elemental (three plant emitters, four impact bursts); shared original mesh/alpha particle material setup. PlantData ambient_vfx/offset selects Fire/Ice/Poison, growth0/1 off,2 faint,3 full,12 motes maximum; harvest owns cleanup. Mature offsets fit current crop wrappers.
+- Ammo: ItemData.impact_vfx maps Basic/Fire/Ice/Poison. Basic Rifle actual ray hits instantiate the mapped burst at hit position/normal after unchanged damage. Special mappings are preview-ready only. No zombie AI element branches, statuses, Electric or Water gameplay added.
+- Rendered functional tests: elemental_vfx_test 111 checks (12 plots, stages, scale/count, day/night, four burst lifetimes, harvest); elemental_impact_test15 checks (Basic shots on Normal/Runner/Tank, damage20, exact hit position, pause/resume, target death cleanup). All final checks pass. Ten fixture images and logs in docs/elemental_vfx. Performance results and limits in ELEMENTAL_VFX_REPORT.md.
+- Files: PlantData/ItemData/PlantVisual/WeaponController; three plant and four ammo resources; shared elemental_particles.gd; seven scenes; three tests; ELEMENTAL_VFX_REPORT.md and VFX_MAPPING.md. No core economy, damage, AI, map, UI or progression rewrite.
+- Existing Windows and Web exports are unchanged; use current Godot source. Geometric particles are intentionally simple. No status/crowd-elemental, human, low-end or packaged-build certification.
+- Next exact action: user specifies whether to add usable special ammunition/status gameplay, or provides an implementation to integrate. Preserve this verified checkpoint; do not repeat completed plant work.
+
+---
+
 # Current: UI/UX POLISH COMPLETE — STOP (2026-10-02)
 
 - Completed all requested sections: asset audit, pre-edit classification, HUD, icon prompts, bag/details/loadout, three-column crafting, Farming/Combat separation, menus/guide/wait, debug visibility, short feedback and bounded animations.

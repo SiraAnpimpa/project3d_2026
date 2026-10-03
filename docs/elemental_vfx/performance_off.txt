@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2060
+
+PERFORMANCE_SAMPLE {"alive":0,"draw_calls":2295.0,"frames":600,"max_ms":15.588,"mean_ms":8.75195333333334,"navigation_ms":0.0120199999999999,"nodes":1412,"p95_ms":10.965,"p99_ms":13.872,"physics_ms":1.07316333333334,"process_ms":11.8313466666667,"scenario":"day_full_farm_1080p","static_memory":92223839.0}
+PERFORMANCE_SAMPLE {"alive":12,"draw_calls":2407.0,"frames":600,"max_ms":20.176,"mean_ms":10.92033,"navigation_ms":0.00893666666666655,"nodes":1976,"p95_ms":13.916,"p99_ms":17.411,"physics_ms":3.62117666666668,"process_ms":13.5014099999999,"scenario":"night_12_alive_full_farm_1080p","static_memory":100595227.0}
+ELEMENTAL_PERFORMANCE_RESULT failures=0

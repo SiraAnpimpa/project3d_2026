@@ -7,6 +7,7 @@ enum ItemType { SEED, MATERIAL, CONSUMABLE, TOOL, WEAPON, AMMO }
 @export var display_name: String
 @export_multiline var description: String
 @export var icon: Texture2D
+@export var impact_vfx: PackedScene
 @export_range(1, 9999) var max_stack: int = 99
 @export var item_type: ItemType = ItemType.MATERIAL
 # Stable ID avoids circular Resource references: PlantData holds seed_item.

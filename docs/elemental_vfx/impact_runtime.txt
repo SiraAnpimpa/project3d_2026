@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2060
+
+PASS: Normal real shot accepted
+PASS: Normal unchanged damage
+PASS: Normal VFX at real hit position
+PASS: pause retains transient until gameplay resumes
+PASS: impact expires after target death and resume
+PASS: Runner real shot accepted
+PASS: Runner unchanged damage
+PASS: Runner VFX at real hit position
+PASS: pause retains transient until gameplay resumes
+PASS: impact expires after target death and resume
+PASS: Tank real shot accepted
+PASS: Tank unchanged damage
+PASS: Tank VFX at real hit position
+PASS: pause retains transient until gameplay resumes
+PASS: impact expires after target death and resume
+ELEMENTAL IMPACT failures: 0

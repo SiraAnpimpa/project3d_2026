@@ -1,0 +1,12 @@
+{
+  "plant_runtime": {
+    "passed_assertions": 111,
+    "failed_assertions": 0,
+    "script_errors": 0
+  },
+  "impact_runtime": {
+    "passed_assertions": 15,
+    "failed_assertions": 0,
+    "script_errors": 0
+  }
+}

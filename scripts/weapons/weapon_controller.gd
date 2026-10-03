@@ -182,6 +182,14 @@ func try_fire() -> bool:
 		if receiver != null and not receiver.is_dead:
 			receiver.take_damage(state.data.damage)
 			hit_confirmed.emit()
+		if state.data.ammo_type.impact_vfx != null:
+			var impact := state.data.ammo_type.impact_vfx.instantiate() as Node3D
+			if impact != null:
+				get_tree().current_scene.add_child(impact)
+				impact.global_position = last_shot_end
+				var normal: Vector3 = hit.get("normal", Vector3.UP)
+				if not normal.is_zero_approx():
+					impact.quaternion = Quaternion(Vector3.UP, normal.normalized())
 	_flash_time = 0.07
 	if is_instance_valid(_flash): _flash.show()
 	if state.data.recoil_degrees > 0:
