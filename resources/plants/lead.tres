@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="PlantData" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="PlantData" load_steps=6 format=3]
 [ext_resource type="Script" path="res://scripts/data/plant_data.gd" id="1"]
 [ext_resource type="Resource" path="res://resources/items/seed_lead.tres" id="2"]
 [ext_resource type="Resource" path="res://resources/items/lead.tres" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/farming/visuals/LeadPlantVisual.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/farming/harvest/lead_harvest.tscn" id="harvest_visual"]
 [resource]
 script = ExtResource("1")
 plant_id = &"lead"
@@ -15,5 +16,6 @@ growth_stages = PackedStringArray("Seed", "Sprout", "Growing", "Ready")
 stage_thresholds = PackedFloat32Array(0, 0.25, 0.65, 1)
 stage_scales = PackedFloat32Array(0.15, 0.35, 0.7, 1)
 visual_scene = ExtResource("4")
+harvest_visual_scene = ExtResource("harvest_visual")
 produce_color = Color(0.46,0.55,0.69,1)
 show_produce_marker = false

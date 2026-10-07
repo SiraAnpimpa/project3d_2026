@@ -7,7 +7,9 @@
 script = ExtResource("1")
 id = &"basic_medicine"
 display_name = "Basic Medicine"
-description = "Crafted medicine. Item use is planned for a later phase."
+description = "Restores 30 HP. Close menus and press F to use. Not consumed at full health."
 icon = ExtResource("2")
+heal_amount = 30.0
+consume_on_use = true
 max_stack = 20
 item_type = 2

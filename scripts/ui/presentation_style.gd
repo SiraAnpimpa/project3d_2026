@@ -232,16 +232,16 @@ static func guide_content(parent: Node) -> HBoxContainer:
 	label(farm, "Grow by day", 25).modulate = SAGE
 	label(farm, "Plant, harvest, craft.\nStock ammunition before nightfall.", 18)
 	farm.add_child(HSeparator.new())
-	for row in [["WASD", "Move"], ["Shift", "Sprint"], ["Mouse / arrows", "Look"], ["E", "Interact / Skip Night at Cabin"], ["Tab", "Bag and equipment"], ["Wheel", "Select seed or weapon"]]:
+	for row in [["WASD", "Move"], ["Shift", "Sprint"], ["Mouse / arrows", "Look"], ["E", "Interact"], ["Tab", "Bag and equipment"], ["Wheel", "Select seed or weapon"]]:
 		guide_row(farm, row[0], row[1])
 	var combat := box(columns, true, 8)
 	combat.custom_minimum_size.x = 340
 	combat.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	eyebrow(combat, "02 / HOLD YOUR GROUND")
 	label(combat, "Survive the night", 25).modulate = GOLD
-	label(combat, "Clear the wave, then rest.\nSurvive ten nights for rescue.", 18)
+	label(combat, "Clear the night, then at the cabin:\nE — Rest until Morning. Recover HP/stamina.", 18)
 	combat.add_child(HSeparator.new())
-	for row in [["Q", "Farming / Combat"], ["RMB / LMB", "Aim / fire or swing bat"], ["R / C", "Reload / cycle ammo"], ["V", "Switch shoulder"], ["N", "Skip to Day (after clearing)"], ["Esc", "Close / pause"]]:
+	for row in [["Q", "Farming / Combat"], ["RMB / LMB", "Aim / fire or swing bat"], ["R / C", "Reload / cycle ammo"], ["F", "Use Medicine · restores 30 HP"], ["V", "Switch shoulder"], ["X", "Skip to Night during daytime"], ["Esc", "Close / pause"]]:
 		guide_row(combat, row[0], row[1])
 	return columns
 

@@ -4,5 +4,5 @@
 [node name="PoisonPlantVisual" type="Node3D"]
 
 [node name="Model" parent="." instance=ExtResource("native")]
-position = Vector3(-0.022357773, 0.107909159, -0.150382161)
-scale = Vector3(0.673483195, 0.673483195, 0.673483195)
+position = Vector3(-0.013414664, 0.064745495, -0.330229297)
+scale = Vector3(0.404089917, 0.404089917, 0.404089917)

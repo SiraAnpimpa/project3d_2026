@@ -1,4 +1,5 @@
 from pathlib import Path
+from build_weapon_icons import write_weapon_icons
 
 root = Path(__file__).resolve().parents[1]
 out = root/'assets/ui/items'
@@ -42,4 +43,5 @@ for seed,(material,accent) in seeds.items():
 assert len(art)==24
 for name,body in art.items():
     (out/f'{name}.svg').write_text(svg(body),encoding='utf-8')
-print('Drew',len(art),'transparent, original SVG item illustrations.')
+write_weapon_icons(root)
+print('Drew',len(art) + 5,'transparent, original SVG item illustrations (7 weapons).')

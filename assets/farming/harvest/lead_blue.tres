@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "lead_blue"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.33333334, 0.3647059, 0.46666667, 1)
+metallic = 0.19
+roughness = 0.81

@@ -4,5 +4,5 @@
 [node name="LeadPlantVisual" type="Node3D"]
 
 [node name="Model" parent="." instance=ExtResource("native")]
-position = Vector3(0.036861222, -0.040628132, 0.136829078)
-scale = Vector3(0.807532644, 0.807532644, 0.807532644)
+position = Vector3(0.022853958, -0.025189442, 0.084834028)
+scale = Vector3(0.500670239, 0.500670239, 0.500670239)

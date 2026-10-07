@@ -25,7 +25,7 @@ func run() -> void:
 		if is_instance_valid(loader._game):
 			if preparation_frames%30 == 0:
 				check(loader._game.process_mode == Node.PROCESS_MODE_DISABLED, "gameplay stays disabled throughout preparation/fade")
-			for code in [KEY_Q, KEY_TAB, KEY_ESCAPE, KEY_E, KEY_N, KEY_C, KEY_R]: key(code)
+			for code in [KEY_Q, KEY_TAB, KEY_ESCAPE, KEY_E, KEY_X, KEY_C, KEY_R]: key(code)
 			if not loading_snapshot and DisplayServer.get_name() != "headless":
 				await capture("loading_preparation_720")
 				loading_snapshot = true

@@ -63,6 +63,13 @@ var _stamina_title: Label
 var _slot_cards: Array[PanelContainer] = []
 var _slot_icons: Array[TextureRect] = []
 var _control_hints: HBoxContainer
+var consumables: ConsumableUse
+var _medicine_row: HBoxContainer
+var _medicine_icon: TextureRect
+var _medicine_count: Label
+var _medicine_hint: Label
+var _medicine_discovered := false
+var _medicine_hint_pending := false
 
 func _ready() -> void:
 	$Root.theme = PresentationStyle.theme(true).duplicate()
@@ -97,6 +104,19 @@ func _ready() -> void:
 	stamina_bar = stamina[0]
 	stamina_label = stamina[1]
 	_stamina_title = stamina[2]
+	_medicine_row = PresentationStyle.box($Root, false, 7) as HBoxContainer
+	_medicine_row.name = "MedicineHint"
+	_medicine_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_medicine_row.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	_medicine_row.offset_left = 26
+	_medicine_row.offset_top = -188
+	_medicine_row.offset_right = 242
+	_medicine_row.offset_bottom = -160
+	_medicine_icon = PresentationStyle.icon(_medicine_row, null, 22)
+	_medicine_count = PresentationStyle.label(_medicine_row, "", 14)
+	_hint_key(_medicine_row, _key_hint("use_medicine"))
+	_medicine_hint = PresentationStyle.label(_medicine_row, "Use Medicine", 12)
+	_medicine_row.hide()
 	_control_hints = PresentationStyle.box($Root, false, 10) as HBoxContainer
 	_control_hints.name = "ControlHints"
 	_control_hints.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
@@ -203,7 +223,7 @@ func _ready() -> void:
 	prompt_panel.hide()
 	_wave_panel.hide()
 	# Decorative HUD containers must leave mouse input available to the game.
-	for panel: Control in [_clock_panel, _stats_panel, _equipment_panel, prompt_panel, _wave_panel, _objective_panel, _toast_panel, _control_hints]:
+	for panel: Control in [_clock_panel, _stats_panel, _equipment_panel, prompt_panel, _wave_panel, _objective_panel, _toast_panel, _control_hints, _medicine_row]:
 		for control: Control in panel.find_children("*", "Control", true, false): control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_hide_world_labels.call_deferred()
 
@@ -319,12 +339,52 @@ func bind_survival(manager: NightWaveManager) -> void:
 	if waves.progression != null: waves.progression.changed.connect(_refresh_survival)
 	_refresh_survival()
 
+func bind_consumables(controller: ConsumableUse, crafting: CraftingSystem) -> void:
+	consumables = controller
+	inventory.inventory_changed.connect(_refresh_medicine)
+	controller.state_changed.connect(_refresh_medicine)
+	controller.feedback.connect(show_message)
+	controller.used.connect(_on_consumable_used)
+	crafting.craft_completed.connect(_on_medicine_crafted)
+	_refresh_medicine()
+
+func _refresh_medicine() -> void:
+	if consumables == null or consumables.quick_use_item == null: return
+	var item := consumables.quick_use_item
+	var count := inventory.get_item_amount(item.id)
+	_medicine_row.visible = _ready_to_show and count > 0
+	_medicine_icon.texture = item.icon
+	_medicine_count.text = "×%d" % count
+	var full := player.health.current_hp >= player.health.max_hp
+	var cooling := consumables.cooldown_remaining > 0
+	_medicine_hint.text = "HP Full" if full else "Recovering…" if cooling else "Use Medicine"
+	_medicine_hint.modulate = PresentationStyle.MUTED if full or cooling else PresentationStyle.PAPER
+	_medicine_row.tooltip_text = "%s · +%s HP · %s" % [item.display_name, str(item.heal_amount), _key_hint("use_medicine")]
+
+func _on_consumable_used(item: ItemData, restored_hp: float) -> void:
+	show_message("+%s HP · %s used" % [String.num(restored_hp, 1).trim_suffix(".0"), item.display_name])
+	_toast_icon.texture = item.icon
+	_toast_icon.modulate = PresentationStyle.SAGE
+
+func _on_medicine_crafted(recipe: CraftRecipe) -> void:
+	if _medicine_discovered: return
+	for entry in recipe.outputs:
+		if entry.item == consumables.quick_use_item:
+			_medicine_discovered = true
+			_medicine_hint_pending = true
+			return
+
 func _sync_visibility() -> void:
 	_ready_to_show = player != null and player.camera_rig.can_control() and not player.health.is_dead and not _completed
 	for control in [_clock_panel, _stats_panel, _equipment_panel, _control_hints]: control.visible = _ready_to_show
 	_toast_panel.visible = _ready_to_show and not toast_label.text.is_empty()
 	_refresh_prompt()
 	_refresh_survival()
+	_refresh_medicine()
+	if _ready_to_show and _medicine_hint_pending:
+		_medicine_hint_pending = false
+		show_message("Medicine crafted · [%s] Use Medicine" % _key_hint("use_medicine"))
+		_toast_icon.texture = consumables.quick_use_item.icon
 
 func _refresh_survival() -> void:
 	if waves == null: return
@@ -336,7 +396,7 @@ func _refresh_survival() -> void:
 	_night_title.text = "FINAL NIGHT / 10" if waves.clock.current_day == 10 else "NIGHT %d / 10" % waves.clock.current_day
 	_wave_label.text = "Area cleared" if cleared else "%d remaining" % waves.remaining_zombies
 	_wave_label.modulate = PresentationStyle.SAGE if cleared else PresentationStyle.PAPER
-	_night_copy.text = "Cabin: Skip Night + recover" if cleared else "Stay alive · Watch for incoming"
+	_night_copy.text = "Cabin: Rest until Morning" if cleared else "Stay alive · Watch for incoming"
 	_wave_panel.tooltip_text = "Night cleared" if cleared else "Zombies remaining, including incoming"
 
 func _on_health_changed(current: float, maximum: float) -> void:
@@ -349,6 +409,7 @@ func _on_health_changed(current: float, maximum: float) -> void:
 	hp_bar.value = current
 	hp_label.text = str(ceili(current))
 	hp_bar.tooltip_text = "Health %d / %d" % [ceili(current), ceili(maximum)]
+	_refresh_medicine()
 	if not player.health.is_dead:
 		death_panel.hide()
 		_death_shade.hide()
@@ -399,7 +460,7 @@ func _refresh_prompt() -> void:
 	elif _prompt_target is ShelterBed:
 		_prompt_icon.texture = UiIcons.get_icon("rest")
 		if waves != null and waves.state == NightWaveManager.State.CLEARED:
-			prompt_label.text = "Skip Night"
+			prompt_label.text = "Rest until Morning"
 		else:
 			_prompt_key.hide()
 			prompt_label.text = "Zombies remaining: %d" % waves.remaining_zombies if waves != null and waves.state == NightWaveManager.State.ACTIVE else "Clear the night first"
@@ -499,6 +560,7 @@ func show_message(message: String) -> void:
 	toast_label.tooltip_text = message
 	toast_label.text = text if text.length() <= 58 else text.left(55) + "…"
 	_toast_icon.texture = UiIcons.get_icon(symbol)
+	_toast_icon.modulate = Color.WHITE
 	if _toast_tween != null and _toast_tween.is_valid(): _toast_tween.kill()
 	_toast_panel.modulate.a = 1
 	_toast_panel.visible = _ready_to_show

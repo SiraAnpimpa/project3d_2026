@@ -9,6 +9,9 @@ enum AmmoEffect { NONE, BURN, SLOW, POISON }
 @export_multiline var description: String
 @export var icon: Texture2D
 @export var impact_vfx: PackedScene
+@export_group("Consumable")
+@export_range(0.0, 10000.0) var heal_amount: float = 0.0
+@export var consume_on_use: bool = true
 @export_group("Ammo effect")
 @export var ammo_effect: AmmoEffect = AmmoEffect.NONE
 @export_range(0.0, 30.0) var effect_duration: float = 0.0
@@ -35,6 +38,10 @@ func validation_errors() -> PackedStringArray:
 		errors.append("Item '%s': max_stack must be greater than zero." % id)
 	if item_type < ItemType.SEED or item_type > ItemType.AMMO:
 		errors.append("Item '%s': unknown item_type." % id)
+	if not is_finite(heal_amount) or heal_amount < 0 or heal_amount > 10000:
+		errors.append("Item '%s': invalid heal_amount." % id)
+	if heal_amount > 0 and item_type != ItemType.CONSUMABLE:
+		errors.append("Item '%s': healing requires CONSUMABLE." % id)
 	if item_type == ItemType.SEED and plant_id == &"":
 		errors.append("Seed '%s' needs a plant_id." % id)
 	if tier < 1 or display_order < 0:

@@ -12,7 +12,7 @@ func bind(system: RestSystem) -> void:
 func get_interaction_text(_actor: Node3D, key_hint: String) -> String:
 	if rest == null: return "Rest unavailable"
 	match rest.waves.state:
-		NightWaveManager.State.CLEARED: return "[%s] Skip Night" % key_hint
+		NightWaveManager.State.CLEARED: return "[%s] Rest until Morning" % key_hint
 		NightWaveManager.State.ACTIVE: return "Zombies remaining: %d" % rest.waves.remaining_zombies
 		NightWaveManager.State.RESTING: return "Resting..."
 		_: return "Rest available after clearing the night"

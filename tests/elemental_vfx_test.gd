@@ -26,7 +26,7 @@ func run() -> void:
 		for index in plots.size():
 			var visual: PlantVisual = plots[index].plant_visual
 			var particle := particles[index]
-			check(visual.ambient_particles == particle and particle.emitting == (visual.stage >= 2), "growth reuses emitter with stage emission %d/%d" % [index,visual.stage])
+			check(visual.ambient_particles == particle and particle.emitting == (visual.stage == visual.data.growth_stages.size()-1), "growth reuses emitter with stage emission %d/%d" % [index,visual.stage])
 			check(particle.amount == 12 and particle.scale.is_equal_approx(Vector3.ONE * visual.data.stage_scales[visual.stage]), "bounded count and growth scale")
 	var camera := Camera3D.new()
 	game.add_child(camera)

@@ -37,4 +37,4 @@ Gameplay services own resource transfers, damage and wave completion. UI observe
 - `tools/`: asset authoring, export and world utilities.
 - `docs/`: [Web build and hosting instructions](docs/WEB_README.md), engine notices and supporting captures/data.
 
-See [gameplay tuning](FINAL_BALANCE.md), [asset roles](ASSET_GAMEPLAY_MAPPING.md) and [game limitations](KNOWN_ISSUES.md).
+See the [main README](README.md) for gameplay, crop rewards, crafting, controls and current game limitations.

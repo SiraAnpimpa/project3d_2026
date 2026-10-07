@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96"><g stroke="#23382e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M9 46 28 37 34 43H72V57H33L20 68H9Z" fill="#61786e"/><path d="M70 45H87V52H70Z" fill="#b1c2bf"/><path d="M48 56 44 80H57L60 56Z" fill="#798b85"/><path d="M29 53 25 68H35L39 54Z" fill="#c08a56"/><path d="M34 42V34H67V42Z" fill="#dee0cd"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96"><defs>
+<linearGradient id="steel" x1="0" y1="0" x2="0.7" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#e7eee5"/><stop offset=".45" stop-color="#9fbbb3"/><stop offset="1" stop-color="#516e68"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4b57a"/><stop offset=".45" stop-color="#b78050"/><stop offset="1" stop-color="#78503b"/></linearGradient>
+<linearGradient id="olive" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a2ae8c"/><stop offset="1" stop-color="#536956"/></linearGradient>
+<linearGradient id="blade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#7e9d99"/><stop offset=".47" stop-color="#bdd3cc"/><stop offset=".5" stop-color="#f3f3da"/><stop offset="1" stop-color="#a0bbb4"/></linearGradient>
+</defs><g stroke="#21372e" stroke-linejoin="round" stroke-linecap="round"><g transform="rotate(-27 48 48)" stroke-width="1.8">
+<path d="M7 43H27V50H14V61H7Z" fill="#526d60"/>
+<path d="M11 45H26M11 49V56" fill="none" stroke="#b9c8ae" stroke-width="1.5"/>
+<path d="M26 39H66L73 44V54H28Z" fill="url(#olive)"/>
+<path d="M29 39V35H62V39" fill="#344e44"/>
+<path d="M35 35V30H42V35" fill="#9aaf95"/>
+<path d="M68 43H85V49H68Z" fill="url(#steel)"/>
+<path d="M83 40H90V52H83Z" fill="#526d63"/>
+<path d="M30 54 27 66H36L40 54" fill="#8c7650"/>
+<path d="M40 54V61H47V54" fill="none" stroke="#cbd7bd" stroke-width="2"/>
+<path d="M48 54 46 76 58 78 61 54Z" fill="url(#steel)"/>
+<path d="M50 58 49 72M55 58 54 73" stroke="#405b53" stroke-width="1.5"/>
+<path d="M60 42H72V53H60Z" fill="#576f54"/>
+<path d="M63 44V50M67 44V50" stroke="#abb78f" stroke-width="1.4"/>
+<path d="M31 43H55" stroke="#d9dfbf" stroke-width="1.5"/>
+<path d="M43 47H54" stroke="#344d43" stroke-width="2.5"/>
+</g></g></svg>

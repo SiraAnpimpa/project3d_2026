@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "ice_cyan"
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.7411765, 0.7411765, 0.7411765, 1)
+roughness = 0.37
+emission_enabled = true
+emission = Color(0.35, 0.35, 0.35, 1)
+emission_energy_multiplier = 0.09

@@ -43,7 +43,7 @@ func run() -> void:
 	check(not paused and hud._stats_panel.visible, "close returns input and HUD without stuck pause")
 	key(KEY_Q)
 	await frames(3)
-	check(not hud.seed_label.visible and hud.ammo_label.visible and not hud.prompt_panel.visible and not game.skip_day.action_button.visible, "combat hides farming, craft prompt and daytime wait button")
+	check(not hud.seed_label.visible and hud.ammo_label.visible and not hud.prompt_panel.visible and game.skip_night.action_button.visible, "combat hides farming/craft prompts and retains the daytime Skip to Night action")
 	check(hud.toast_label.text.is_empty(), "mode switch clears prior farming notification")
 	check(hud._selected_icon.texture == UiIcons.get_icon("rifle"), "rifle uses weapon art, not an iron ingot")
 	game.player.health.take_damage(80)
@@ -92,7 +92,7 @@ func run() -> void:
 	game.player.velocity = Vector3.ZERO
 	game.player.camera_rig.rotation.y = 0
 	await frames(20)
-	check(game.player.interactor.target == bed and hud.prompt_label.text == "Skip Night","rest prompt identifies the actual cabin target")
+	check(game.player.interactor.target == bed and hud.prompt_label.text == "Rest until Morning","rest prompt identifies the actual cabin target")
 	game.player.health.take_damage(20)
 	key(KEY_E)
 	check(game.rest.is_resting and paused and not game.player.camera_rig.can_control(),"actual E starts existing rest and fade ownership")

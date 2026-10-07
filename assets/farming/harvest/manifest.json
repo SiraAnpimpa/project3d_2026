@@ -1,0 +1,215 @@
+[
+  {
+    "bounds": {
+      "position": "Vector3(-0.5156608, 0, -0.51189065)",
+      "size": "Vector3(1.0213437, 0.4249187, 1.0335444)"
+    },
+    "collision": false,
+    "pickup_logic": false,
+    "plant": "paper",
+    "provenance": "Source supplied GLB geometry terms: ASSET_CREDITS.md. Native mesh derivatives and new sheet/pepper/ice/mushroom geometry authored with this offline SurfaceTool builder; no downloads or generated raster images.",
+    "revision": "2026-10-07 harvest asset polish",
+    "scene": "res://scenes/farming/harvest/paper_harvest.tscn",
+    "sources": [
+      "res://Asset/Ultimate RPG Items Bundle-glb/Scroll.glb",
+      "authored folded solid paper_sheet.tres"
+    ],
+    "technical_frame": {
+      "camera": "third-person; 1600x900 acceptance capture; 1280x720 game viewport",
+      "detail": "broad low-poly facets, restrained accents, no labels",
+      "engine": "Godot 4.7 Compatibility / Web",
+      "pivot": "soil contact, Y up",
+      "soil_width_m": 1.65,
+      "textures": "none added; shared native meshes and vertex pigments"
+    },
+    "variation": "fixed authored anchors; no runtime construction",
+    "visual_read": "Cream folded rectangles with thin darker edges; two clear foreground sheets, one smaller rear sheet and a restrained scroll.",
+    "approval_status": "Runtime inspected: day/night gameplay camera and geometry checks; original harvest tests pass."
+  },
+  {
+    "bounds": {
+      "position": "Vector3(-0.55485547, -1.2962431e-10, -0.4440714)",
+      "size": "Vector3(1.0390973, 0.29, 0.95324534)"
+    },
+    "collision": false,
+    "pickup_logic": false,
+    "plant": "iron",
+    "provenance": "Source supplied GLB geometry terms: ASSET_CREDITS.md. Native mesh derivatives and new sheet/pepper/ice/mushroom geometry authored with this offline SurfaceTool builder; no downloads or generated raster images.",
+    "revision": "2026-10-07 harvest asset polish",
+    "scene": "res://scenes/farming/harvest/iron_harvest.tscn",
+    "sources": [
+      "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square.glb",
+      "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Square-s71L3q1nXN.glb"
+    ],
+    "technical_frame": {
+      "camera": "third-person; 1600x900 acceptance capture; 1280x720 game viewport",
+      "detail": "broad low-poly facets, restrained accents, no labels",
+      "engine": "Godot 4.7 Compatibility / Web",
+      "pivot": "soil contact, Y up",
+      "soil_width_m": 1.65,
+      "textures": "none added; shared native meshes and vertex pigments"
+    },
+    "variation": "fixed authored anchors; no runtime construction",
+    "visual_read": "Broad angular steel-gray chunks; restrained metal response, sparse facet pigment variation and air between all three.",
+    "approval_status": "Runtime inspected: day/night gameplay camera and geometry checks; original harvest tests pass."
+  },
+  {
+    "bounds": {
+      "position": "Vector3(-0.56872785, 0.0007137731, -0.026774388)",
+      "size": "Vector3(1.059015, 0.35928625, 0.5135488)"
+    },
+    "collision": false,
+    "pickup_logic": false,
+    "plant": "copper",
+    "provenance": "Source supplied GLB geometry terms: ASSET_CREDITS.md. Native mesh derivatives and new sheet/pepper/ice/mushroom geometry authored with this offline SurfaceTool builder; no downloads or generated raster images.",
+    "revision": "2026-10-07 harvest asset polish",
+    "scene": "res://scenes/farming/harvest/copper_harvest.tscn",
+    "sources": [
+      "res://Asset/Ultimate RPG Items Bundle-glb/Mineral.glb"
+    ],
+    "technical_frame": {
+      "camera": "third-person; 1600x900 acceptance capture; 1280x720 game viewport",
+      "detail": "broad low-poly facets, restrained accents, no labels",
+      "engine": "Godot 4.7 Compatibility / Web",
+      "pivot": "soil contact, Y up",
+      "soil_width_m": 1.65,
+      "textures": "none added; shared native meshes and vertex pigments"
+    },
+    "variation": "fixed authored anchors; no runtime construction",
+    "visual_read": "Two squat warm copper clusters; tighter broad points distinguish ore from tall cold ice needles.",
+    "approval_status": "Runtime inspected: day/night gameplay camera and geometry checks; original harvest tests pass."
+  },
+  {
+    "bounds": {
+      "position": "Vector3(-0.56880844, -7.515766e-11, -0.44565588)",
+      "size": "Vector3(1.0876021, 0.23499998, 0.9640725)"
+    },
+    "collision": false,
+    "pickup_logic": false,
+    "plant": "lead",
+    "provenance": "Source supplied GLB geometry terms: ASSET_CREDITS.md. Native mesh derivatives and new sheet/pepper/ice/mushroom geometry authored with this offline SurfaceTool builder; no downloads or generated raster images.",
+    "revision": "2026-10-07 harvest asset polish",
+    "scene": "res://scenes/farming/harvest/lead_harvest.tscn",
+    "sources": [
+      "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Round.glb",
+      "res://Asset/Stylized Nature MegaKit.undefined-glb/Pebble Round-KYtJ6JNXh2.glb"
+    ],
+    "technical_frame": {
+      "camera": "third-person; 1600x900 acceptance capture; 1280x720 game viewport",
+      "detail": "broad low-poly facets, restrained accents, no labels",
+      "engine": "Godot 4.7 Compatibility / Web",
+      "pivot": "soil contact, Y up",
+      "soil_width_m": 1.65,
+      "textures": "none added; shared native meshes and vertex pigments"
+    },
+    "variation": "fixed authored anchors; no runtime construction",
+    "visual_read": "Low rounded dense blue-violet nodules with matte facets, clearly flatter than Iron and separated from the purple base foliage.",
+    "approval_status": "Runtime inspected: day/night gameplay camera and geometry checks; original harvest tests pass."
+  },
+  {
+    "bounds": {
+      "position": "Vector3(-0.39359754, -9.0312646e-11, -0.08267901)",
+      "size": "Vector3(0.70997775, 0.43, 0.48535803)"
+    },
+    "collision": false,
+    "pickup_logic": false,
+    "plant": "small_herb",
+    "provenance": "Source supplied GLB geometry terms: ASSET_CREDITS.md. Native mesh derivatives and new sheet/pepper/ice/mushroom geometry authored with this offline SurfaceTool builder; no downloads or generated raster images.",
+    "revision": "2026-10-07 harvest asset polish",
+    "scene": "res://scenes/farming/harvest/small_herb_harvest.tscn",
+    "sources": [
+      "res://Asset/Stylized Nature MegaKit.undefined-glb/Clover-u5SOgBFiut.glb",
+      "res://Asset/Stylized Nature MegaKit.undefined-glb/Flower Single.glb"
+    ],
+    "technical_frame": {
+      "camera": "third-person; 1600x900 acceptance capture; 1280x720 game viewport",
+      "detail": "broad low-poly facets, restrained accents, no labels",
+      "engine": "Godot 4.7 Compatibility / Web",
+      "pivot": "soil contact, Y up",
+      "soil_width_m": 1.65,
+      "textures": "none added; shared native meshes and vertex pigments"
+    },
+    "variation": "fixed authored anchors; no runtime construction",
+    "visual_read": "Broad matte olive-green herb leaves and one small flower; lower detail density and no glow.",
+    "approval_status": "Runtime inspected: day/night gameplay camera and geometry checks; original harvest tests pass."
+  },
+  {
+    "bounds": {
+      "position": "Vector3(-0.3627742, 0.037611388, -0.451865)",
+      "size": "Vector3(0.75225794, 0.5079268, 0.9047178)"
+    },
+    "collision": false,
+    "pickup_logic": false,
+    "plant": "fire_pepper",
+    "provenance": "Source supplied GLB geometry terms: ASSET_CREDITS.md. Native mesh derivatives and new sheet/pepper/ice/mushroom geometry authored with this offline SurfaceTool builder; no downloads or generated raster images.",
+    "revision": "2026-10-07 harvest asset polish",
+    "scene": "res://scenes/farming/harvest/fire_pepper_harvest.tscn",
+    "sources": [
+      "authored tapered pepper_fruit.tres with green calyx",
+      "support stems; existing fire base and particles unchanged"
+    ],
+    "technical_frame": {
+      "camera": "third-person; 1600x900 acceptance capture; 1280x720 game viewport",
+      "detail": "broad low-poly facets, restrained accents, no labels",
+      "engine": "Godot 4.7 Compatibility / Web",
+      "pivot": "soil contact, Y up",
+      "soil_width_m": 1.65,
+      "textures": "none added; shared native meshes and vertex pigments"
+    },
+    "variation": "fixed authored anchors; no runtime construction",
+    "visual_read": "Three hanging tapered deep red peppers with warm facets, pointed curved tails and green calyx/stem connections; no floating fruit.",
+    "approval_status": "Runtime inspected: day/night gameplay camera and geometry checks; original harvest tests pass."
+  },
+  {
+    "bounds": {
+      "position": "Vector3(-0.4452937, 0, -0.46885768)",
+      "size": "Vector3(0.8693124, 0.67274, 0.9485711)"
+    },
+    "collision": false,
+    "pickup_logic": false,
+    "plant": "ice_plant",
+    "provenance": "Source supplied GLB geometry terms: ASSET_CREDITS.md. Native mesh derivatives and new sheet/pepper/ice/mushroom geometry authored with this offline SurfaceTool builder; no downloads or generated raster images.",
+    "revision": "2026-10-07 harvest asset polish",
+    "scene": "res://scenes/farming/harvest/ice_plant_harvest.tscn",
+    "sources": [
+      "authored ice_shard.tres; visual family based on existing Mineral.glb"
+    ],
+    "technical_frame": {
+      "camera": "third-person; 1600x900 acceptance capture; 1280x720 game viewport",
+      "detail": "broad low-poly facets, restrained accents, no labels",
+      "engine": "Godot 4.7 Compatibility / Web",
+      "pivot": "soil contact, Y up",
+      "soil_width_m": 1.65,
+      "textures": "none added; shared native meshes and vertex pigments"
+    },
+    "variation": "fixed authored anchors; no runtime construction",
+    "visual_read": "Three clean six-sided pale cyan shards, primary/secondary/tertiary heights, broad readable cold facets and minimal emission.",
+    "approval_status": "Runtime inspected: day/night gameplay camera and geometry checks; original harvest tests pass."
+  },
+  {
+    "bounds": {
+      "position": "Vector3(-0.50938165, 0, -0.04969132)",
+      "size": "Vector3(1.0488812, 0.59, 0.65938264)"
+    },
+    "collision": false,
+    "pickup_logic": false,
+    "plant": "poison_plant",
+    "provenance": "Source supplied GLB geometry terms: ASSET_CREDITS.md. Native mesh derivatives and new sheet/pepper/ice/mushroom geometry authored with this offline SurfaceTool builder; no downloads or generated raster images.",
+    "revision": "2026-10-07 harvest asset polish",
+    "scene": "res://scenes/farming/harvest/poison_plant_harvest.tscn",
+    "sources": [
+      "authored poison_mushroom.tres; existing mushroom base and spores unchanged"
+    ],
+    "technical_frame": {
+      "camera": "third-person; 1600x900 acceptance capture; 1280x720 game viewport",
+      "detail": "broad low-poly facets, restrained accents, no labels",
+      "engine": "Godot 4.7 Compatibility / Web",
+      "pivot": "soil contact, Y up",
+      "soil_width_m": 1.65,
+      "textures": "none added; shared native meshes and vertex pigments"
+    },
+    "variation": "fixed authored anchors; no runtime construction",
+    "visual_read": "Two stout mushrooms with broad green umbrella caps, pale sage stems and a few restrained cap markings; visible cap/stem contrast instead of flat uniform green shapes.",
+    "approval_status": "Runtime inspected: day/night gameplay camera and geometry checks; original harvest tests pass."
+  }
+]

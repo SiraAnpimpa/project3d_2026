@@ -33,11 +33,13 @@ static func category(item: ItemData) -> String:
 		ItemData.ItemType.SEED: return "PLANTABLE SEED"
 		ItemData.ItemType.WEAPON: return "OWNED WEAPON"
 		ItemData.ItemType.AMMO: return "AMMUNITION"
-		ItemData.ItemType.CONSUMABLE: return "CRAFTED SUPPLY"
+		ItemData.ItemType.CONSUMABLE: return "CONSUMABLE"
 	return "CRAFTING MATERIAL"
 
 static func use_text(item: ItemData) -> String:
 	if item == null: return "Select an item to inspect."
+	if item.item_type == ItemData.ItemType.CONSUMABLE and item.heal_amount > 0:
+		return "Close menus · F Use Medicine\nRestores %s HP · No waste at full health" % str(item.heal_amount)
 	if item.item_type == ItemData.ItemType.AMMO:
 		var effect := "Standard rounds"
 		match item.ammo_effect:
@@ -48,5 +50,4 @@ static func use_text(item: ItemData) -> String:
 	match item.id:
 		&"basic_rifle": return "RMB Aim · LMB Fire\nR Reload"
 		&"wooden_bat": return "LMB Swing · No ammo"
-		&"basic_medicine": return "Crafted supply · Use unavailable."
 	return item.description if not item.description.is_empty() else "Material for the workbench."
