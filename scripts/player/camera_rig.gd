@@ -3,6 +3,7 @@ extends Node3D
 
 signal aim_changed(aiming: bool)
 signal controls_changed(enabled: bool)
+signal capture_wait_requested
 signal pose_updated
 
 @export_group("Look")
@@ -39,6 +40,8 @@ var _player_alive := true
 var _cursor_released := false
 var _window_focused := true
 var _capture_frame := -1
+var _web_capture_confirmed := false
+var _discard_capture_motion := false
 var _query := PhysicsShapeQueryParameters3D.new()
 var _shape := SphereShape3D.new()
 
@@ -64,12 +67,12 @@ func _ready() -> void:
 
 
 func can_control() -> bool:
-	return _player_alive and not _menu_open and not _cursor_released and _window_focused and not get_tree().paused
+	return _player_alive and not _menu_open and not _cursor_released and _window_focused and not get_tree().paused and (not is_web_build() or (_web_capture_confirmed and has_pointer_capture()))
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("capture_mouse") and _cursor_released:
-		capture_mouse()
+	if event.is_action_pressed("capture_mouse") and (_cursor_released or (is_web_build() and not has_pointer_capture())):
+		capture_mouse_from_gesture()
 		get_viewport().set_input_as_handled()
 		return
 	if not can_control():
@@ -84,7 +87,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseMotion:
 		# Cursor motion in UI/free-cursor mode is never camera input. Discard
 		# buffered/warp motion in the frame that re-enters pointer capture.
-		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED or Engine.get_process_frames() <= _capture_frame:
+		if not has_pointer_capture() or Engine.get_process_frames() <= _capture_frame:
+			return
+		if _discard_capture_motion:
+			_discard_capture_motion = false
 			return
 		# Raw relative motion is already a displacement: never multiply it by delta.
 		var sensitivity := mouse_sensitivity * CameraPreferences.get_sensitivity()
@@ -133,6 +139,7 @@ func set_menu_open(value: bool) -> void:
 	_aim_held = false
 	_refresh_aim()
 	if value:
+		_web_capture_confirmed = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		capture_mouse()
@@ -150,22 +157,60 @@ func set_player_alive(value: bool) -> void:
 	controls_changed.emit(can_control())
 
 
+func is_web_build() -> bool:
+	return OS.has_feature("web")
+
+
+func has_pointer_capture() -> bool:
+	# On Web this queries document.pointerLockElement through Godot's backend.
+	return Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+
+
 func capture_mouse() -> void:
 	_cursor_released = false
-	if can_control():
+	if is_web_build():
+		# Loading, focus and unpause callbacks have no browser user activation.
+		# The always-processing pause UI waits for a fresh click instead.
+		_web_capture_confirmed = false
+		capture_wait_requested.emit()
+	elif can_control():
 		_capture_pointer()
+	controls_changed.emit(can_control())
+
+
+func capture_mouse_from_gesture() -> void:
+	if not _player_alive or _menu_open or not _window_focused:
+		return
+	_cursor_released = false
+	_capture_pointer()
+	controls_changed.emit(can_control())
+
+
+func sync_web_capture() -> void:
+	if not is_web_build():
+		return
+	var captured := has_pointer_capture() and not _menu_open and _window_focused and _player_alive
+	if captured == _web_capture_confirmed:
+		return
+	_web_capture_confirmed = captured
+	_aim_held = false
+	if captured:
+		_cursor_released = false
+		_capture_frame = Engine.get_process_frames()
+		_discard_capture_motion = true
+	_refresh_aim()
 	controls_changed.emit(can_control())
 
 
 func _capture_pointer() -> void:
 	_capture_frame = Engine.get_process_frames()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	# _capture_frame gates callbacks dispatched by this flush, so UI deltas
-	# cannot escape the modal boundary when the cursor is captured again.
+	# Web capture is asynchronous; sync_web_capture gates from confirmation too.
 	Input.flush_buffered_events()
 
 
 func release_mouse() -> void:
+	_web_capture_confirmed = false
 	_cursor_released = true
 	_aim_held = false
 	_refresh_aim()
@@ -221,13 +266,14 @@ func _notification(what: int) -> void:
 		return
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_PAUSED:
 		if what == NOTIFICATION_APPLICATION_FOCUS_OUT: _window_focused = false
+		_web_capture_confirmed = false
 		_aim_held = false
 		_refresh_aim()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		controls_changed.emit(false)
 	elif what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_UNPAUSED:
 		if what == NOTIFICATION_APPLICATION_FOCUS_IN: _window_focused = true
-		if can_control(): _capture_pointer()
+		if not is_web_build() and can_control(): _capture_pointer()
 		controls_changed.emit(can_control())
 
 

@@ -11,6 +11,12 @@ var _inventory_ui: InventoryUI
 var _health: HealthComponent
 var _crafting_ui: CraftingUI
 var _previous_pause := false
+var _web_game: Node3D
+var _web_camera: ThirdPersonCamera
+var _web_capture_screen: Control
+var _web_capture_waiting := false
+var _web_previous_pause := false
+var _web_had_capture := false
 
 func _ready() -> void:
 	var screen := PresentationStyle.screen(self)
@@ -23,7 +29,7 @@ func _ready() -> void:
 	var hint := PresentationStyle.label(rows, "The farm can wait.", 17)
 	hint.name = "Hint"
 	hint.modulate = PresentationStyle.MUTED
-	var resume := PresentationStyle.button(rows, "Resume  ·  Esc", func() -> void: set_open(false), "play")
+	var resume := PresentationStyle.button(rows, "Resume  ·  Esc", _resume_from_button, "play")
 	resume.theme_type_variation = "PrimaryButton"
 	resume.custom_minimum_size.y = 50
 	resume.name = "Resume"
@@ -61,6 +67,15 @@ func bind_crafting(menu: CraftingUI) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if _web_capture_waiting:
+		if event.is_action_pressed("capture_mouse"):
+			_web_camera.capture_mouse_from_gesture()
+		elif event.is_action_pressed("pause") and not event.is_echo():
+			_finish_web_capture_wait()
+			set_open(true)
+		# The engagement click must never also shoot, plant, or select HUD items.
+		get_viewport().set_input_as_handled()
+		return
 	if event.is_echo() or not event.is_action_pressed("pause"):
 		return
 	if is_open and settings.visible:
@@ -102,6 +117,8 @@ func set_open(value: bool) -> void:
 
 
 func _exit_tree() -> void:
+	if _web_capture_waiting:
+		get_tree().paused = _web_previous_pause
 	if is_open:
 		get_tree().paused = _previous_pause
 
@@ -122,3 +139,79 @@ func _open_settings() -> void:
 func _close_settings() -> void:
 	$Screen/Panel.show()
 	settings_button.grab_focus()
+
+
+func bind_web_capture(game: Node3D) -> void:
+	if not game.player.camera_rig.is_web_build():
+		return
+	_web_game = game
+	_web_camera = game.player.camera_rig
+	_web_camera.capture_wait_requested.connect(_begin_web_capture_wait)
+	%Resume.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
+	_web_capture_screen = PresentationStyle.screen(self)
+	_web_capture_screen.name = "WebCaptureScreen"
+	var panel := PresentationStyle.center_panel(_web_capture_screen, Vector2(444, 220))
+	var rows := PresentationStyle.box(panel, true, 12)
+	PresentationStyle.eyebrow(rows, "SOMCHAI’S FARM / READY")
+	PresentationStyle.label(rows, "Click to return to the farm", 26)
+	PresentationStyle.label(rows, "Click anywhere to enable mouse look.\nEsc opens the pause menu.", 17)
+	for control: Control in _web_capture_screen.find_children("*", "Control", true, false):
+		control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_web_capture_screen.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_web_capture_screen.hide()
+
+
+func _resume_from_button() -> void:
+	set_open(false)
+	if _web_camera != null:
+		# The pressed edge is a browser engagement gesture (unlike deferred loading).
+		_web_camera.capture_mouse_from_gesture()
+
+
+func _begin_web_capture_wait() -> void:
+	if _web_capture_waiting or not _web_game_ready() or _web_camera._menu_open or _web_camera.has_pointer_capture() or get_tree().paused:
+		return
+	_web_previous_pause = get_tree().paused
+	_web_capture_waiting = true
+	_web_had_capture = false
+	get_tree().paused = true
+	_web_capture_screen.show()
+	get_viewport().gui_release_focus()
+
+
+func _finish_web_capture_wait() -> void:
+	if not _web_capture_waiting:
+		return
+	_web_capture_waiting = false
+	_web_capture_screen.hide()
+	get_tree().paused = _web_previous_pause
+
+
+func _web_game_ready() -> bool:
+	return is_instance_valid(_web_game) and _web_game.preparation_complete and get_tree().current_scene == _web_game and _web_game.process_mode != Node.PROCESS_MODE_DISABLED and _web_camera._player_alive
+
+
+func _process(_delta: float) -> void:
+	if _web_camera == null:
+		return
+	_web_camera.sync_web_capture()
+	if not _web_game_ready():
+		if _web_camera.has_pointer_capture(): _web_camera.release_mouse()
+		_finish_web_capture_wait()
+		_web_had_capture = false
+		return
+	if _web_camera._menu_open or (get_tree().paused and not _web_capture_waiting):
+		# An asynchronous request may finish after Esc, death or another menu.
+		# Never leave a late lock over UI that needs a visible cursor.
+		if _web_camera.has_pointer_capture(): _web_camera.release_mouse()
+		_web_had_capture = false
+		return
+	if _web_camera.has_pointer_capture() and _web_camera._window_focused:
+		_web_had_capture = true
+		_finish_web_capture_wait()
+	elif _web_had_capture:
+		# Browsers may consume Esc before Godot sees it. Observe the actual unlock.
+		_web_had_capture = false
+		set_open(true)
+	else:
+		_begin_web_capture_wait()

@@ -4,7 +4,7 @@
 
 Use a desktop browser with WebGL 2, a keyboard and a mouse. Serve the game over HTTP/HTTPS; opening `index.html` directly from the filesystem is unsupported. Keep all generated `index*` files together under their original names.
 
-Click the canvas to capture the mouse. Escape may release it; click the canvas again to resume mouse control. See [how to play](../README.md) and [controls](../CONTROLS.md).
+After loading, click the game to hide the cursor and enable mouse look. Gameplay waits until the browser confirms capture. Escape opens Pause even when the browser consumes the key to unlock the mouse. In Settings, Escape returns to Pause; click Resume to play again. Closing a menu with Escape or Tab shows a click-to-resume prompt. Switching away from the browser also pauses the game. See [how to play](../README.md) and [controls](../CONTROLS.md).
 
 ## GitHub Pages
 

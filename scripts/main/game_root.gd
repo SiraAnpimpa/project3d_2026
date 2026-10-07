@@ -142,6 +142,7 @@ func _ready() -> void:
 		$MainWorld/TargetDummy.queue_free()
 	gameplay_mode.mode_changed.connect(func(mode: GameplayModeController.Mode) -> void:
 		hud.show_message("FARMING MODE" if mode == GameplayModeController.Mode.FARMING else "COMBAT MODE"))
+	pause_menu.bind_web_capture(self)
 	preparation_complete = true
 	game_ready.emit()
 
