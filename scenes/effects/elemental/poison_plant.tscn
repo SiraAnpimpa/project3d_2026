@@ -1,12 +1,52 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
+
 [ext_resource type="Script" path="res://scripts/effects/elemental_particles.gd" id="1"]
-[node name="PoisonPlantParticles" type="GPUParticles3D"]
+
+[sub_resource type="Gradient" id="Gradient_e5s2g"]
+offsets = PackedFloat32Array(0, 0.15, 0.7, 1)
+colors = PackedColorArray(0.64, 0.85, 0.22, 0, 0.64, 0.85, 0.22, 0.85, 0.64, 0.85, 0.22, 0.65, 0.64, 0.85, 0.22, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r61ct"]
+gradient = SubResource("Gradient_e5s2g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o2djo"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 1, 0)
+spread = 35.0
+initial_velocity_min = 0.05
+initial_velocity_max = 0.1
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+gravity = Vector3(0.025, 0.025, 0)
+color_ramp = SubResource("GradientTexture1D_r61ct")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0p4s8"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_hqhbw"]
+material = SubResource("StandardMaterial3D_0p4s8")
+radius = 0.0225
+height = 0.045
+radial_segments = 6
+rings = 3
+
+[node name="PoisonPlantParticles" type="GPUParticles3D" unique_id=1247266821]
+cast_shadow = 0
+visibility_range_end = 22.0
+visibility_range_end_margin = 2.0
 emitting = false
 amount = 12
 lifetime = 1.8
+visibility_aabb = AABB(-0.8, -0.5, -0.8, 1.6, 2, 1.6)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_o2djo")
+draw_pass_1 = SubResource("SphereMesh_hqhbw")
 script = ExtResource("1")
-tint = Color(0.64,0.85,0.22,1)
-drift = Vector3(0.025,0.025,0)
-speed = 0.10
-mote_size = Vector3(0.045,0.045,0.045)
+tint = Color(0.64, 0.85, 0.22, 1)
+drift = Vector3(0.025, 0.025, 0)
+speed = 0.1
+mote_size = Vector3(0.045, 0.045, 0.045)
 rounded = true

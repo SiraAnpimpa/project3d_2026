@@ -232,7 +232,7 @@ static func guide_content(parent: Node) -> HBoxContainer:
 	label(farm, "Grow by day", 25).modulate = SAGE
 	label(farm, "Plant, harvest, craft.\nStock ammunition before nightfall.", 18)
 	farm.add_child(HSeparator.new())
-	for row in [["WASD", "Move"], ["Shift", "Sprint"], ["Mouse / arrows", "Look"], ["E", "Plant / harvest / interact"], ["Tab", "Bag and equipment"], ["Wheel", "Select seed or weapon"]]:
+	for row in [["WASD", "Move"], ["Shift", "Sprint"], ["Mouse / arrows", "Look"], ["E", "Interact / Skip Night at Cabin"], ["Tab", "Bag and equipment"], ["Wheel", "Select seed or weapon"]]:
 		guide_row(farm, row[0], row[1])
 	var combat := box(columns, true, 8)
 	combat.custom_minimum_size.x = 340
@@ -241,7 +241,7 @@ static func guide_content(parent: Node) -> HBoxContainer:
 	label(combat, "Survive the night", 25).modulate = GOLD
 	label(combat, "Clear the wave, then rest.\nSurvive ten nights for rescue.", 18)
 	combat.add_child(HSeparator.new())
-	for row in [["Q", "Farming / Combat"], ["RMB / LMB", "Aim / fire or swing bat"], ["R", "Reload rifle"], ["V", "Switch shoulder"], ["N", "Wait until night (confirm)"], ["Esc", "Close / pause"]]:
+	for row in [["Q", "Farming / Combat"], ["RMB / LMB", "Aim / fire or swing bat"], ["R / C", "Reload / cycle ammo"], ["V", "Switch shoulder"], ["N", "Skip to Day (after clearing)"], ["Esc", "Close / pause"]]:
 		guide_row(combat, row[0], row[1])
 	return columns
 
@@ -254,5 +254,7 @@ static func guide_row(parent: Node, key: String, action: String) -> void:
 static func go_to(tree: SceneTree, path: String) -> void:
 	tree.paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if path.ends_with("GameRoot.tscn"): tree.set_meta("normal_play", true)
+	if path.ends_with("GameRoot.tscn"):
+		tree.set_meta("normal_play", true)
+		path = "res://scenes/main/Loading.tscn"
 	tree.change_scene_to_file(path)

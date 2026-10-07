@@ -21,7 +21,7 @@ var selection_label: Label
 var inspected_item: ItemData
 var _detail_icon: TextureRect
 var _detail_info: VBoxContainer
-var _owned_weapons: HBoxContainer
+var _owned_weapons: GridContainer
 var _catalog: ItemCatalog
 var _panel: PanelContainer
 
@@ -76,7 +76,16 @@ func _ready() -> void:
 	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	detail.add_child(spacer)
 	PresentationStyle.label(detail, "OWNED WEAPONS", 14).modulate = PresentationStyle.MUTED
-	_owned_weapons = PresentationStyle.box(detail, false, 8) as HBoxContainer
+	var weapon_scroll := ScrollContainer.new()
+	weapon_scroll.custom_minimum_size.y = 80
+	weapon_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	weapon_scroll.follow_focus = true
+	detail.add_child(weapon_scroll)
+	_owned_weapons = GridContainer.new()
+	_owned_weapons.columns = 3
+	_owned_weapons.add_theme_constant_override("h_separation",8)
+	_owned_weapons.add_theme_constant_override("v_separation",8)
+	weapon_scroll.add_child(_owned_weapons)
 	rows.add_child(HSeparator.new())
 	var equipment_hint := PresentationStyle.label(rows, "LOADOUT", 14)
 	equipment_hint.modulate = PresentationStyle.MUTED

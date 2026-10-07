@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CraftRecipe" load_steps=9 format=3]
+[ext_resource type="Script" path="res://scripts/data/craft_recipe.gd" id="recipe"]
+[ext_resource type="Script" path="res://scripts/data/recipe_entry.gd" id="entry"]
+[ext_resource type="Resource" path="res://resources/items/knife.tres" id="output"]
+[ext_resource type="Resource" path="res://resources/items/metal_component.tres" id="metal_component"]
+[ext_resource type="Resource" path="res://resources/items/paper.tres" id="paper"]
+[sub_resource type="Resource" id="metal_component_entry"]
+script = ExtResource("entry")
+item = ExtResource("metal_component")
+quantity = 1
+[sub_resource type="Resource" id="paper_entry"]
+script = ExtResource("entry")
+item = ExtResource("paper")
+quantity = 1
+[sub_resource type="Resource" id="output_entry"]
+script = ExtResource("entry")
+item = ExtResource("output")
+quantity = 1
+[resource]
+script = ExtResource("recipe")
+recipe_id = &"knife"
+display_name = "Knife"
+description = "LMB Slash · No ammo\nVery short reach · Fast attacks"
+icon = null
+category = 2
+ingredients = Array[Resource]([SubResource("metal_component_entry"), SubResource("paper_entry")])
+outputs = Array[Resource]([SubResource("output_entry")])
+unlock_day = 1

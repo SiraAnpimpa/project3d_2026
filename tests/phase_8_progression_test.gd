@@ -20,7 +20,7 @@ func run() -> void:
 		game.debug_controls.set_active(true)
 		game.debug_controls.execute(StringName("debug_set_day_%d" % day))
 		await frames(3)
-		check(game.clock.current_day == day and progression.current.day == day and game.hud.day_label.text.contains("%d / 10" % day), "debug day %d updates config and HUD" % day)
+		check(game.clock.current_day == day and progression.current.day == day and game.hud.day_label.text == "Day %d" % day and game.hud._phase_label.text.contains("/ 10"), "debug day %d updates config and HUD" % day)
 		if day in [3, 7, 10]: await capture("phase8_day%d" % day)
 		var before: int = game.inventory.get_item_amount(&"seed_lead")
 		var notices: int = notifications[0]

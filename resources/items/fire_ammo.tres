@@ -7,7 +7,10 @@ script = ExtResource("1")
 icon = ExtResource("icon")
 id = &"fire_ammo"
 display_name = "Fire Ammo"
-description = "Special ammo crafting foundation. Not compatible with the Basic Rifle yet."
+description = "Basic Rifle ammunition. Burns zombies for 3 seconds; repeated hits refresh the burn."
+ammo_effect = 1
+effect_duration = 3.0
+effect_damage_per_second = 3.0
 item_type = 5
 tier = 2
 

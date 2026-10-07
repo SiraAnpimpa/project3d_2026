@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=8 format=3]
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="script"]
+[ext_resource type="Resource" path="res://resources/items/marksman_rifle.tres" id="item"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/MarksmanRifle.tscn" id="visual"]
+[ext_resource type="Resource" path="res://resources/items/basic_ammo.tres" id="basic_ammo"]
+[ext_resource type="Resource" path="res://resources/items/fire_ammo.tres" id="fire_ammo"]
+[ext_resource type="Resource" path="res://resources/items/ice_ammo.tres" id="ice_ammo"]
+[ext_resource type="Resource" path="res://resources/items/poison_ammo.tres" id="poison_ammo"]
+[resource]
+script = ExtResource("script")
+weapon_id = &"marksman_rifle"
+display_name = "Marksman Rifle"
+description = "RMB Aim · LMB Single shot\nHigh damage · 5-round magazine"
+weapon_type = 1
+weapon_item = ExtResource("item")
+damage = 60.0
+fire_rate = 1.2
+range_meters = 85
+magazine_size = 5
+reload_time = 2.3
+automatic = false
+weapon_scene = ExtResource("visual")
+two_handed = true
+ammo_type = ExtResource("basic_ammo")
+compatible_ammo_types = Array[Resource]([ExtResource("basic_ammo"), ExtResource("fire_ammo"), ExtResource("ice_ammo"), ExtResource("poison_ammo")])
+spread_degrees = 0.2
+recoil_degrees = 1.1
+muzzle_path = NodePath("Muzzle")

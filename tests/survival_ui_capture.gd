@@ -71,11 +71,19 @@ func run() -> void:
  key(KEY_E)
  await frames(4)
  check(plot.state == FarmPlot.State.EMPTY, "original plant and harvest input still completes")
+ game.clock.skip_to_night()
+ for _tick in 100:
+  game.waves._spawn_wait = 0
+  game.waves.debug_kill_active()
+  await frames(2)
+  if game.waves.state == NightWaveManager.State.CLEARED: break
+ await frames(3)
  key(KEY_N)
  await frames(15)
- check(game.skip_night.is_open and paused and game.skip_night.cancel_button.has_focus(), "wait confirmation retains safe initial focus")
+ check(game.skip_day.is_open and paused and game.skip_day.cancel_button.has_focus(), "wait confirmation retains safe initial focus")
  await capture("13_wait_confirmation")
  key(KEY_ESCAPE)
+ game.waves.debug_set_day(1)
  key(KEY_ESCAPE)
  await frames(15)
  check(game.pause_menu.is_open and not hud._stats_panel.visible, "pause hides gameplay HUD")
@@ -121,7 +129,7 @@ func run() -> void:
   game.waves.debug_kill_active()
   await frames(2)
   if game.waves.state == NightWaveManager.State.CLEARED: break
- check(game.waves.state == NightWaveManager.State.CLEARED and hud._wave_label.text == "Area cleared" and hud._night_copy.text.contains("cabin"), "cleared night identifies rest destination")
+ check(game.waves.state == NightWaveManager.State.CLEARED and hud._wave_label.text == "Area cleared" and hud._night_copy.text.to_lower().contains("cabin"), "cleared night identifies rest destination")
  await capture("16_night_cleared")
  game.player.health.take_damage(100)
  await frames(15)

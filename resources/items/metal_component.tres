@@ -7,7 +7,7 @@
 script = ExtResource("1")
 id = &"metal_component"
 display_name = "Metal Component"
-description = "Crafted component for future equipment recipes."
+description = "Crafted metalwork for Knife, Sword, Pistol, SMG and Marksman Rifle."
 icon = ExtResource("2")
 max_stack = 99
 item_type = 1

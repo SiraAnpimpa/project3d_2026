@@ -21,6 +21,7 @@ var last_hit: Object
 var shots_fired: int = 0
 var swings_started: int = 0
 var melee_hits: int = 0
+var ammo_selection_used := false
 var _player: PlayerController
 var _inventory: Inventory
 var _equipment: EquipmentLoadout
@@ -74,11 +75,39 @@ func validation_errors(catalog: ItemCatalog) -> PackedStringArray:
 		ids[data.weapon_id] = true
 		if catalog == null or (data.weapon_item != null and catalog.get_item(data.weapon_item.id) != data.weapon_item) or (data.ammo_type != null and catalog.get_item(data.ammo_type.id) != data.ammo_type):
 			errors.append("Weapon '%s' references an item outside the catalog." % data.weapon_id)
+		for ammo in data.get_compatible_ammo():
+			if catalog == null or catalog.get_item(ammo.id) != ammo:
+				errors.append("Weapon '%s' references compatible ammo outside the catalog." % data.weapon_id)
 	return errors
 
 
-func reserve_ammo() -> int:
-	return _inventory.get_item_amount(current.data.ammo_type.id) if current != null and not current.data.is_melee() else 0
+func reserve_ammo(ammo: ItemData = null) -> int:
+	if current == null or current.data.is_melee(): return 0
+	if ammo == null: ammo = current.selected_ammo_type
+	return _inventory.get_item_amount(ammo.id) if ammo != null else 0
+
+
+func available_ammo() -> Array[ItemData]:
+	var result: Array[ItemData] = []
+	if current == null or current.data.is_melee(): return result
+	for ammo in current.data.get_compatible_ammo():
+		if reserve_ammo(ammo) > 0 or (current.current_magazine > 0 and current.magazine_ammo_type == ammo):
+			result.append(ammo)
+	return result
+
+
+func cycle_ammo() -> bool:
+	if _committing or not can_control() or current == null or current.data.is_melee() or current.is_reloading: return false
+	var choices := available_ammo()
+	if choices.is_empty() or (choices.size() == 1 and choices[0] == current.selected_ammo_type): return false
+	var next := choices[posmod(choices.find(current.selected_ammo_type) + 1, choices.size())]
+	current.selected_ammo_type = next
+	ammo_selection_used = true
+	feedback.emit(next.display_name)
+	state_changed.emit()
+	# Swaps use the same timed reload and commit path. Cancellation keeps old rounds.
+	start_reload()
+	return true
 
 
 func can_control() -> bool:
@@ -96,6 +125,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("reload"):
 		start_reload()
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("cycle_ammo"):
+		cycle_ammo()
 		get_viewport().set_input_as_handled()
 
 
@@ -157,6 +189,7 @@ func try_fire() -> bool:
 	_committing = true
 	update_weapon_pose()
 	var state := current
+	var ammo := state.magazine_ammo_type
 	state.current_magazine -= 1
 	state.fire_cooldown += 1.0 / state.data.fire_rate
 	shots_fired += 1
@@ -181,9 +214,11 @@ func try_fire() -> bool:
 		var receiver := (last_hit as Node).get_node_or_null("Health") as HealthComponent
 		if receiver != null and not receiver.is_dead:
 			receiver.take_damage(state.data.damage)
+			if (last_hit as Node).has_method("apply_ammo_effect"):
+				last_hit.apply_ammo_effect(ammo)
 			hit_confirmed.emit()
-		if state.data.ammo_type.impact_vfx != null:
-			var impact := state.data.ammo_type.impact_vfx.instantiate() as Node3D
+		if ammo != null and ammo.impact_vfx != null:
+			var impact := ammo.impact_vfx.instantiate() as Node3D
 			if impact != null:
 				get_tree().current_scene.add_child(impact)
 				impact.global_position = last_shot_end
@@ -273,11 +308,24 @@ func _ray(start: Vector3, end: Vector3) -> Dictionary:
 
 func start_reload() -> bool:
 	if _committing or not can_control() or current == null or current.data.is_melee() or current.is_reloading: return false
-	if current.current_magazine >= current.data.magazine_size or reserve_ammo() <= 0:
-		feedback.emit("Magazine full" if current.current_magazine >= current.data.magazine_size else "No reserve ammo — craft Basic Ammo")
+	if current.current_magazine == 0 and reserve_ammo() == 0 and current.selected_ammo_type != current.data.ammo_type and reserve_ammo(current.data.ammo_type) > 0:
+		current.selected_ammo_type = current.data.ammo_type
+		feedback.emit("Switched to " + current.selected_ammo_type.display_name)
+	var ammo := current.selected_ammo_type
+	if not current.data.supports_ammo(ammo): return false
+	var swapping := current.magazine_ammo_type != ammo
+	if (not swapping and current.current_magazine >= current.data.magazine_size) or reserve_ammo() <= 0:
+		feedback.emit("Magazine full" if not swapping and current.current_magazine >= current.data.magazine_size else "Out of " + ammo.display_name)
+		state_changed.emit()
+		return false
+	var amount := mini(current.data.magazine_size if swapping else current.data.magazine_size - current.current_magazine, reserve_ammo())
+	if swapping and current.current_magazine > 0 and not _inventory.can_exchange_items({ammo: amount}, {current.magazine_ammo_type: current.current_magazine}):
+		feedback.emit("Bag full — cannot return loaded ammo")
+		state_changed.emit()
 		return false
 	_fire_held = false
 	current.is_reloading = true
+	current.reload_ammo_type = ammo
 	current.reload_remaining = current.data.reload_time
 	state_changed.emit()
 	return true
@@ -289,9 +337,21 @@ func _finish_reload() -> void:
 	_committing = true
 	state.is_reloading = false
 	state.reload_remaining = 0
-	var amount := mini(state.data.magazine_size - state.current_magazine, reserve_ammo())
-	if amount > 0 and _inventory.remove_item(state.data.ammo_type.id, amount):
-		state.current_magazine += amount
+	var ammo := state.reload_ammo_type
+	state.reload_ammo_type = null
+	var swapping := state.magazine_ammo_type != ammo
+	var amount := mini(state.data.magazine_size if swapping else state.data.magazine_size - state.current_magazine, reserve_ammo(ammo))
+	var transferred := false
+	if amount > 0 and state.data.supports_ammo(ammo):
+		if swapping and state.current_magazine > 0:
+			transferred = _inventory.exchange_items({ammo: amount}, {state.magazine_ammo_type: state.current_magazine})
+		else:
+			transferred = _inventory.remove_item(ammo.id, amount)
+	if transferred:
+		state.current_magazine = amount if swapping else state.current_magazine + amount
+		state.magazine_ammo_type = ammo
+	else:
+		feedback.emit("Ammo swap unavailable — loaded ammo kept" if swapping else "Out of " + ammo.display_name)
 	_committing = false
 	state_changed.emit()
 
@@ -301,6 +361,7 @@ func _cancel_actions() -> void:
 	if current != null:
 		current.is_reloading = false
 		current.reload_remaining = 0
+		current.reload_ammo_type = null
 		current.is_swinging = false
 	state_changed.emit()
 

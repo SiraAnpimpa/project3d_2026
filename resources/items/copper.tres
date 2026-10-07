@@ -7,7 +7,7 @@
 script = ExtResource("1")
 id = &"copper"
 display_name = "Copper"
-description = "Farm-grown material. Keep it for a later phase."
+description = "Farm-grown conductor for ammunition, Metal Components and firearms."
 icon = ExtResource("2")
 max_stack = 99
 item_type = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/data/item_data.gd" id="script"]
+[ext_resource type="Texture2D" path="res://assets/ui/items/sword.svg" id="icon"]
+[resource]
+script = ExtResource("script")
+id = &"sword"
+display_name = "Sword"
+description = "LMB Slash · No ammo\nStrong melee · Moderate speed"
+icon = ExtResource("icon")
+max_stack = 1
+item_type = 4

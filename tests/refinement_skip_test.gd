@@ -1,150 +1,154 @@
 extends "res://tests/phase_6_zombie_test.gd"
+## Reuse production wave, clock, modal and cabin rest for the N dawn action.
 
-var nights := 0
 var dawns := 0
 
-func fresh(day: int = 1, hour: int = 6, minute: int = 0) -> void:
+func fresh(day: int = 1) -> void:
 	if is_instance_valid(game):
 		game.queue_free()
 		await frames(3)
 	game = load("res://scenes/main/GameRoot.tscn").instantiate()
 	root.add_child(game)
 	current_scene = game
-	await frames(15)
+	await frames(20)
 	player = game.player
+	player.health.damage_enabled = false
 	game.clock.set_process(false)
 	game.waves.debug_set_day(day)
-	game.clock.seek(day,hour,minute)
 	game.debug_controls.set_active(false)
-	nights = 0
 	dawns = 0
-	game.clock.night_started.connect(func(_day: int) -> void: nights+=1)
-	game.clock.new_day_started.connect(func(_day: int) -> void: dawns+=1)
+	game.clock.new_day_started.connect(func(_day: int) -> void: dawns += 1)
+
+func clear_night() -> void:
+	game.clock.skip_to_night()
+	for _tick in 100:
+		game.waves._spawn_wait = 0
+		game.waves.debug_kill_active()
+		await frames(2)
+		if game.waves.state == NightWaveManager.State.CLEARED: break
+	check(game.waves.state == NightWaveManager.State.CLEARED, "real wave is cleared before dawn skip")
+	await frames(3)
 
 func run() -> void:
-	root.size = Vector2i(1280,720)
+	root.size = Vector2i(1280, 720)
 	await fresh()
-	check(game.skip_night.action_button.visible and not game.skip_night.action_button.disabled,"daytime action visible by clock with distinct N binding")
-	# Empty ammo never blocks the player's preparation decision.
+	check(InputMap.has_action("skip_to_day") and not InputMap.has_action("skip_to_night"), "N has one unambiguous dawn action")
 	key(KEY_N)
-	check(game.skip_night.is_open and paused and game.clock.current_hour == 6 and nights == 0,"N opens confirmation without skipping even with zero ammunition")
-	check(game.skip_night.cancel_button.has_focus(),"Cancel gets default keyboard focus")
-	check(Input.mouse_mode == Input.MOUSE_MODE_VISIBLE and not player.camera_rig.can_control() and not player.interactor.enabled,"confirmation releases mouse and locks camera/interactor")
+	check(not game.skip_day.is_open and not game.skip_day.action_button.visible, "daytime hides and rejects Skip to Day")
+	game.clock.skip_to_night()
+	await frames(10)
+	var bed: ShelterBed = game.get_node("MainWorld/Bed")
+	await place_player(bed.global_position + Vector3(0, 0.25, 1.35))
+	check(player.interactor.target == bed and game.hud.prompt_label.text.contains("Zombies remaining"), "cabin shows concise blocked condition")
+	key(KEY_E)
+	key(KEY_N)
+	check(not game.rest.is_resting and not game.skip_day.is_open and not game.skip_day.action_button.visible, "E and N cannot bypass remaining or incoming zombies")
+	await clear_night()
+	check(game.hud.prompt_panel.visible and game.hud.prompt_label.text == "Skip Night" and game.skip_day.action_button.visible, "cabin E and contextual N have explicit distinct labels")
+	game.gameplay_mode.set_mode(GameplayModeController.Mode.COMBAT)
+	await frames(3)
+	check(game.hud.prompt_panel.visible and game.skip_day.action_button.visible, "cabin and dawn actions remain visible in Combat")
+	await capture("skip_actions_cabin")
+	key(KEY_N)
+	check(game.skip_day.is_open and paused and game.skip_day.cancel_button.has_focus(), "N opens reused confirmation with Cancel focused")
 	var before: float = game.clock.get_elapsed_minutes()
-	var point := player.position
+	var position: Vector3 = player.position
 	key(KEY_Q)
 	key(KEY_E)
 	key(KEY_TAB)
-	mouse(MOUSE_BUTTON_RIGHT,true)
-	# An explicit point outside the dialog avoids activating a focused UI button.
-	for down in [true,false]:
-		var event := InputEventMouseButton.new()
-		event.button_index = MOUSE_BUTTON_LEFT
-		event.position = Vector2(1200,650)
-		event.global_position = event.position
-		event.pressed = down
-		root.push_input(event)
+	mouse(MOUSE_BUTTON_RIGHT, true)
 	Input.action_press("move_forward")
 	await frames(10)
 	Input.action_release("move_forward")
-	check(game.clock.get_elapsed_minutes()==before and player.position==point and not player.camera_rig.is_aiming and game.weapons.shots_fired==0 and not game.inventory_ui.is_open,"modal blocks background movement/time/fire/aim/interact/bag")
-	await capture("skip_confirmation")
-	var panel: Control = game.skip_night.screen.find_child("Confirmation",true,false)
-	check(root.get_visible_rect().encloses(panel.get_global_rect()),"confirmation and both buttons fit720p viewport")
+	check(player.position == position and not player.camera_rig.is_aiming and game.clock.get_elapsed_minutes() == before and not game.inventory_ui.is_open, "modal blocks movement, aim, interact, inventory and time")
+	await capture("skip_day_confirmation")
+	var panel: Control = game.skip_day.screen.find_child("Confirmation", true, false)
+	check(root.get_visible_rect().encloses(panel.get_global_rect()), "dawn dialog fits 720p")
 	key(KEY_ESCAPE)
-	check(not game.skip_night.is_open and not paused and not game.pause_menu.is_open and game.clock.get_elapsed_minutes()==before and nights==0,"Escape cancels with no time/day/wave change and no nested Pause")
-	check((DisplayServer.get_name()=="headless" or Input.mouse_mode==Input.MOUSE_MODE_CAPTURED) and player.camera_rig.can_control(),"cancel restores gameplay and captured mouse in windowed runs")
-	# Enter on the initially focused Cancel must cancel, not confirm.
+	check(not paused and not game.skip_day.is_open and not game.pause_menu.is_open and dawns == 0, "Escape cancels without a nested pause or dawn")
 	key(KEY_N)
 	key(KEY_ENTER)
 	await frames(2)
-	check(not game.skip_night.is_open and nights==0,"default Enter is Cancel")
-	for attempt in 5:
+	check(not game.skip_day.is_open and dawns == 0, "default Enter cancels")
+	for _attempt in 5:
 		key(KEY_N)
 		key(KEY_N)
-		game.skip_night.cancel_button.pressed.emit()
-	check(not paused and game.clock.get_elapsed_minutes()==before and nights==0,"repeated open/N/cancel cannot duplicate modal or advance time")
-	# Real button Confirm, exactly one boundary notification, no free HP/stamina/ammo.
+		game.skip_day.cancel_button.pressed.emit()
+	check(not paused and dawns == 0, "repeated open/cancel has one modal owner")
+	# Plant at cleared night, then use normal clock timestamps for overnight growth.
+	game.gameplay_mode.set_mode(GameplayModeController.Mode.FARMING)
+	var plot: FarmPlot = game.get_node("MainWorld/FarmArea/Plot01")
+	await place_player(plot.global_position + Vector3(0, 0.05, 0.9))
+	key(KEY_E)
+	check(plot.state == FarmPlot.State.PLANTED, "production E plants before the dawn skip")
+	var seeds: int = game.inventory.get_item_amount(&"seed_lead")
+	player.health.damage_enabled = true
 	player.health.take_damage(35)
+	player.health.damage_enabled = false
 	player.stamina.current_stamina = 42
 	key(KEY_N)
-	click_button(game.skip_night.confirm_button)
-	for attempt in 8: game.skip_night.confirm_skip()
-	check(game.clock.current_day==1 and game.clock.current_hour==18 and game.clock.current_minute==0 and nights==1 and dawns==0,"06:00 Confirm reaches same-day18:00 and starts night exactly once despite spam")
-	check(player.health.current_hp==65 and player.stamina.current_stamina==42 and not game.rest.is_resting and game.weapons.current.current_magazine==0,"skip gives no healing/stamina/rest/reload reward")
-	await frames(8)
-	check(game.waves.state==NightWaveManager.State.ACTIVE and game.waves.total_zombies==6 and game.waves.spawned_zombies==1,"normal manager starts production Day1 wave")
-	check(not game.skip_night.action_button.visible and not game.skip_night.request_open(),"night hides action and rejects reopening")
-	check(game.hud.time_label.text.contains("18:00") and is_equal_approx(game.lighting.sun.light_energy,game.lighting.night_energy),"HUD and lighting share the new clock phase")
-	await capture("skip_night_started")
-	# Midday and near-dusk growth use timestamp delta, including a fractional minute.
-	for time in [Vector2i(12,34),Vector2i(17,55)]:
-		await fresh(1,time.x,time.y)
-		var plot: FarmPlot = game.get_node("MainWorld/FarmArea/Plot01")
-		await place_player(plot.position + Vector3(0,0.05,0.9))
-		key(KEY_E)
-		check(plot.state==FarmPlot.State.PLANTED,"E plants before midday/late skip")
-		game.clock.advance_game_minutes(0.25)
-		var growth: float = plot.growth_progress
-		var timestamp: float = game.clock.get_elapsed_minutes()
-		var seed_count: int = game.inventory.get_item_amount(&"seed_lead")
-		key(KEY_N)
-		await frames(8)
-		game.skip_night.cancel()
-		check(plot.growth_progress==growth and game.clock.get_elapsed_minutes()==timestamp,"Cancel preserves plant timestamp and progress")
-		key(KEY_N)
-		game.skip_night.confirm_skip()
-		var expected := clampf(float(18*60-(time.x*60+time.y))/36.0,0,1)
-		check(is_equal_approx(plot.growth_progress,expected),"skipped elapsed minutes correctly advance Lead growth")
-		check(game.inventory.get_item_amount(&"seed_lead")==seed_count and game.inventory.get_item_amount(&"lead")==0,"growing never auto-harvests or grants resources")
-		check(nights==1 and dawns==0 and game.clock.current_day==1 and game.clock.current_hour==18 and game.clock.current_minute==0,"midday/17:55 fractional skip reaches exactly one dusk")
-	# Menu ownership and critical timed action gates.
+	game.skip_day.confirm_button.pressed.emit()
+	for _attempt in 8: game.skip_day.confirm_skip()
+	check(game.clock.current_day == 2 and game.clock.current_hour == 6 and game.clock.current_minute == 0 and dawns == 1, "confirm reaches next-day 06:00 exactly once")
+	check(player.health.current_hp == 65 and player.stamina.current_stamina == 42 and not game.rest.is_resting, "N grants no remote cabin healing or stamina")
+	check(plot.state == FarmPlot.State.READY and game.inventory.get_item_amount(&"lead") == 0, "elapsed skip grows plants without auto-harvest")
+	var next_day: DayConfig = game.progression.data.get_day(2)
+	var expected_seeds := seeds + (next_day.supply_quantity if &"seed_lead" in next_day.supply_seed_ids else 0)
+	check(game.inventory.get_item_amount(&"seed_lead") == expected_seeds, "dawn preserves the existing daily seed supply reward")
+	await frames(3)
+	check(not game.skip_day.action_button.visible and not game.skip_day.request_open() and game.waves.state == NightWaveManager.State.DAY, "dawn hides hint and retains normal day lifecycle")
+	# Paused screens, reloading, aim and stale/night-state transitions.
 	await fresh()
-	key(KEY_TAB)
-	key(KEY_N)
-	check(game.inventory_ui.is_open and not game.skip_night.is_open,"bag owns input; no overlapping confirmation")
-	key(KEY_TAB)
-	game.crafting_ui.set_open(true)
-	key(KEY_N)
-	check(game.crafting_ui.is_open and not game.skip_night.is_open,"workbench owns input; no overlapping confirmation")
-	key(KEY_ESCAPE)
-	key(KEY_ESCAPE)
-	key(KEY_N)
-	check(game.pause_menu.is_open and not game.skip_night.is_open,"Pause owns input; no overlapping confirmation")
-	key(KEY_ESCAPE)
-	key(KEY_Q)
-	game.inventory.add_item(game.catalog.get_item(&"basic_ammo"),10)
+	await clear_night()
+	for ui in [game.inventory_ui, game.crafting_ui, game.pause_menu]:
+		ui.set_open(true)
+		key(KEY_N)
+		check(not game.skip_day.is_open and not game.skip_day.action_button.is_visible_in_tree(), "other modal owns input and hides N hint")
+		ui.set_open(false)
+		await frames(3)
+	game.gameplay_mode.set_mode(GameplayModeController.Mode.COMBAT)
+	game.inventory.add_item(game.catalog.get_item(&"basic_ammo"), 10)
 	game.weapons.start_reload()
 	key(KEY_N)
-	check(game.weapons.current.is_reloading and not game.skip_night.is_open,"critical reload must finish before waiting")
-	await frames(95)
-	mouse(MOUSE_BUTTON_RIGHT,true)
-	await frames(5)
+	check(game.weapons.current.is_reloading and not game.skip_day.is_open, "reload blocks skip")
+	await frames(120)
+	mouse(MOUSE_BUTTON_RIGHT, true)
 	key(KEY_N)
-	check(game.skip_night.is_open and not player.camera_rig.is_aiming,"opening from Combat cancels aim safely")
+	check(game.skip_day.is_open and not player.camera_rig.is_aiming, "opening N from aim cancels aim safely")
+	game.waves.state = NightWaveManager.State.ACTIVE
+	game.skip_day.confirm_skip()
+	check(not paused and not game.skip_day.is_open and dawns == 0, "lost clear condition aborts stale confirmation")
+	game.waves.state = NightWaveManager.State.CLEARED
+	key(KEY_N)
 	player.health.die()
 	await frames(3)
-	check(not paused and not game.skip_night.is_open and not game.skip_night.request_open() and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"death while confirming closes ownership and prevents skip")
-	# Final night wording and terminal exclusion.
-	await fresh(10,17,55)
-	key(KEY_N)
-	check(game.skip_night.title.text=="Begin the Final Night?" and game.skip_night.confirm_button.text=="BEGIN FINAL NIGHT","Day10 warns explicitly about the final night")
-	await capture("skip_final_night")
-	root.size = Vector2i(1920,1080)
-	await frames(3)
-	await capture("skip_final_night_1080")
-	panel = game.skip_night.screen.find_child("Confirmation",true,false)
-	check(root.get_visible_rect().encloses(panel.get_global_rect()),"final confirmation fits1080p viewport")
-	game.skip_night.confirm_skip()
-	check(nights==1 and game.waves.total_zombies==24 and game.clock.current_day==10,"Day10 uses existing final wave once")
-	game.clock.advance_game_minutes(720)
-	await frames(3)
-	check(game.presentation.ending_started and not game.skip_night.action_button.visible and not game.skip_night.request_open(),"ending rejects skip")
-	# External day invalidation while a modal is open cannot confirm a stale decision.
+	check(not paused and not game.skip_day.is_open and not game.skip_day.request_open(), "death closes confirmation and blocks skip")
+	# Cabin E still restores HP/Stamina via the unchanged RestSystem.
 	await fresh()
+	await clear_night()
+	bed = game.get_node("MainWorld/Bed")
+	await place_player(bed.global_position + Vector3(0, 0.25, 1.35))
+	player.health.damage_enabled = true
+	player.health.take_damage(20)
+	player.health.damage_enabled = false
+	player.stamina.current_stamina = 42
+	var yaw: float = player.camera_rig.rotation.y
+	key(KEY_E)
+	check(game.rest.is_resting and paused, "E starts the existing cabin rest")
+	await frames(60)
+	check(game.clock.current_day == 2 and player.health.current_hp == 100 and player.stamina.current_stamina == 100 and not paused and player.camera_rig.rotation.y == yaw, "cabin preserves healing/dawn and camera orientation")
+	# Final-night dawn still runs the original rescue.
+	await fresh(10)
+	await clear_night()
 	key(KEY_N)
-	game.clock.seek(2,6,0)
-	game.skip_night.confirm_skip()
-	check(not game.skip_night.is_open and not paused and game.clock.current_hour==6 and nights==0,"stale day confirmation aborts safely")
-	print("REFINEMENT_SKIP_RESULT failures=",failures)
-	quit(1 if failures else 0)
+	check(game.skip_day.title.text == "Skip to rescue morning?", "final night identifies rescue dawn")
+	root.size = Vector2i(1920, 1080)
+	await frames(3)
+	panel = game.skip_day.screen.find_child("Confirmation", true, false)
+	check(root.get_visible_rect().encloses(panel.get_global_rect()), "dawn dialog fits 1080p")
+	await capture("skip_day_rescue_1080p")
+	game.skip_day.confirm_skip()
+	await frames(3)
+	check(game.presentation.ending_started and not game.skip_day.action_button.visible and not game.skip_day.request_open(), "final dawn reaches original rescue and disables skip")
+	print("REFINEMENT_SKIP_RESULT failures=", failures)
+	quit(failures)

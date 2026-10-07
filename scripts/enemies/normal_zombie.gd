@@ -25,6 +25,10 @@ var _flash_time := 0.0
 var _previous_hp := 0.0
 var _meshes: Array[MeshInstance3D] = []
 var _hit_material: StandardMaterial3D
+var _status_material: StandardMaterial3D
+var _status_materials: Dictionary = {}
+# Per-zombie timers; repeated hits refresh one effect, never stack its strength.
+var ammo_effects: Dictionary = {}
 
 
 func _ready() -> void:
@@ -42,10 +46,18 @@ func _ready() -> void:
 	visual.add_child(model)
 	model.scale = Vector3.ONE * data.visual_scale
 	animation_player = model.find_child("AnimationPlayer", true, false) as AnimationPlayer
-	# Duplicate animation resources: loop settings must not mutate the imported asset.
+	# Only four clips change loop settings. Deep-copying every imported clip was
+	# a measured ~7 ms spawn setup; share untouched clips and copy those we edit.
 	if animation_player != null:
 		for library_name in animation_player.get_animation_library_list():
-			var library := animation_player.get_animation_library(library_name).duplicate(true) as AnimationLibrary
+			var source := animation_player.get_animation_library(library_name)
+			var library := AnimationLibrary.new()
+			for animation_name in source.get_animation_list():
+				var clip_name := StringName(str(animation_name) if library_name == &"" else str(library_name)+"/"+str(animation_name))
+				var animation := source.get_animation(animation_name)
+				if clip_name in [data.idle_animation, data.walk_animation, data.attack_animation, data.death_animation]:
+					animation = animation.duplicate() as Animation
+				library.add_animation(animation_name, animation)
 			animation_player.remove_animation_library(library_name)
 			animation_player.add_animation_library(library_name, library)
 		for clip in [data.idle_animation, data.walk_animation]:
@@ -65,6 +77,11 @@ func _ready() -> void:
 					mesh.set_surface_override_material(surface, tinted)
 	_hit_material = StandardMaterial3D.new()
 	_hit_material.albedo_color = Color(1, 0.3, 0.12)
+	for kind in [ItemData.AmmoEffect.BURN, ItemData.AmmoEffect.SLOW, ItemData.AmmoEffect.POISON]:
+		var material := StandardMaterial3D.new()
+		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		material.albedo_color = Color(1.0, 0.38, 0.08, 0.55) if kind == ItemData.AmmoEffect.BURN else Color(0.25, 0.7, 1.0, 0.55) if kind == ItemData.AmmoEffect.SLOW else Color(0.45, 0.85, 0.18, 0.55)
+		_status_materials[kind] = material
 	_play(data.idle_animation)
 	label.hide()
 	_refresh_label()
@@ -80,10 +97,12 @@ func _physics_process(delta: float) -> void:
 		_death_time -= delta
 		if _death_time <= 0: queue_free()
 		return
+	_tick_ammo_effects(delta)
+	if health.is_dead: return
 	_cooldown = maxf(0, _cooldown - delta)
 	_flash_time = maxf(0, _flash_time - delta)
 	for mesh in _meshes:
-		mesh.material_overlay = _hit_material if _flash_time > 0 else null
+		mesh.material_overlay = _status_material if not ammo_effects.is_empty() else _hit_material if _flash_time > 0 else null
 	velocity.x = 0
 	velocity.z = 0
 	if not is_on_floor(): velocity.y -= 20.0 * delta
@@ -134,14 +153,43 @@ func _chase(delta: float) -> void:
 	direction.y = 0
 	if direction.length_squared() < 0.001: return
 	direction = direction.normalized()
-	velocity.x = direction.x * data.move_speed
-	velocity.z = direction.z * data.move_speed
+	velocity.x = direction.x * data.move_speed * ammo_speed_multiplier()
+	velocity.z = direction.z * data.move_speed * ammo_speed_multiplier()
 	_face(direction, delta)
 
 
 func _face(direction: Vector3, delta: float) -> void:
 	if Vector2(direction.x, direction.z).length_squared() > 0.001:
 		visual.rotation.y = lerp_angle(visual.rotation.y, atan2(direction.x, direction.z), 1.0 - exp(-data.rotation_speed * delta))
+
+
+func apply_ammo_effect(ammo: ItemData) -> void:
+	if health.is_dead or ammo == null or ammo.ammo_effect == ItemData.AmmoEffect.NONE: return
+	ammo_effects[ammo.ammo_effect] = {"remaining": ammo.effect_duration, "ammo": ammo}
+
+
+func ammo_speed_multiplier() -> float:
+	var multiplier := 1.0
+	for effect in ammo_effects.values():
+		var ammo: ItemData = effect.ammo
+		multiplier = minf(multiplier, ammo.effect_speed_multiplier)
+	return multiplier
+
+
+func _tick_ammo_effects(delta: float) -> void:
+	for kind in ammo_effects.keys():
+		var effect: Dictionary = ammo_effects[kind]
+		var ammo: ItemData = effect.ammo
+		var elapsed := minf(delta, effect.remaining)
+		effect.remaining -= elapsed
+		health.take_damage(ammo.effect_damage_per_second * elapsed)
+		if health.is_dead: return
+		if effect.remaining <= 0: ammo_effects.erase(kind)
+	_status_material = null
+	for kind in _status_materials:
+		if ammo_effects.has(kind):
+			_status_material = _status_materials[kind]
+			break
 
 
 func _clear_melee_line() -> bool:
@@ -177,6 +225,7 @@ func _refresh_label() -> void:
 
 func _die() -> void:
 	if state == State.DEAD: return
+	ammo_effects.clear()
 	_set_state(State.DEAD)
 	_windup = -1
 	velocity = Vector3.ZERO
@@ -192,6 +241,8 @@ func _die() -> void:
 
 func despawn() -> void:
 	# Administrative cleanup is not a combat death and grants no kill credit.
+	ammo_effects.clear()
+	for mesh in _meshes: mesh.material_overlay = null
 	set_physics_process(false)
 	_windup = -1
 	velocity = Vector3.ZERO

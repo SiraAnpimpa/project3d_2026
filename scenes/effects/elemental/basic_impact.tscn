@@ -1,12 +1,49 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
+
 [ext_resource type="Script" path="res://scripts/effects/elemental_particles.gd" id="1"]
-[node name="Impact" type="GPUParticles3D"]
+
+[sub_resource type="Gradient" id="Gradient_ql7lf"]
+offsets = PackedFloat32Array(0, 0.15, 0.7, 1)
+colors = PackedColorArray(0.8, 0.76, 0.64, 0, 0.8, 0.76, 0.64, 0.85, 0.8, 0.76, 0.64, 0.65, 0.8, 0.76, 0.64, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dkwm0"]
+gradient = SubResource("Gradient_ql7lf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e3ahk"]
+emission_shape = 1
+emission_sphere_radius = 0.025
+direction = Vector3(0, 1, 0)
+spread = 75.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+gravity = Vector3(0, -0.3, 0)
+color_ramp = SubResource("GradientTexture1D_dkwm0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hbmu"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_xww1r"]
+material = SubResource("StandardMaterial3D_5hbmu")
+size = Vector3(0.018, 0.035, 0.018)
+
+[node name="Impact" type="GPUParticles3D" unique_id=1090462203]
+cast_shadow = 0
+visibility_range_end = 22.0
+visibility_range_end_margin = 2.0
 amount = 16
 lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-0.8, -0.5, -0.8, 1.6, 2, 1.6)
+process_material = SubResource("ParticleProcessMaterial_e3ahk")
+draw_pass_1 = SubResource("BoxMesh_xww1r")
 script = ExtResource("1")
 tint = Color(0.8, 0.76, 0.64, 1)
-speed = 1.0
 drift = Vector3(0, -0.3, 0)
+speed = 1.0
 mote_size = Vector3(0.018, 0.035, 0.018)
-rounded = false
 burst = true

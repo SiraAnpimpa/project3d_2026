@@ -34,6 +34,9 @@ func _ready() -> void:
 	PresentationStyle.eyebrow(_home, "A RURAL SURVIVAL STORY  /  TEN NIGHTS")
 	PresentationStyle.label(_home, "SOMCHAI’S\nLAST HARVEST", 54)
 	PresentationStyle.label(_home, "Grow by day. Survive the night.", 19).modulate = PresentationStyle.MUTED
+	if get_tree().has_meta("loading_failed"):
+		get_tree().remove_meta("loading_failed")
+		PresentationStyle.label(_home, "Could not load the farm. Please try again.", 16)
 	var gap := Control.new()
 	gap.custom_minimum_size.y = 8
 	_home.add_child(gap)

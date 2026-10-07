@@ -15,6 +15,9 @@ var debug_panel: PanelContainer
 var debug_status: Label
 var death_panel: PanelContainer
 var ammo_label: Label
+var ammo_type_label: Label
+var _ammo_type_row: HBoxContainer
+var _ammo_icon: TextureRect
 var seed_label: Label
 var damage_flash: ColorRect
 var player: PlayerController
@@ -111,6 +114,10 @@ func _ready() -> void:
 	_mode_label = PresentationStyle.label(mode_row, "FARMING", 12)
 	_mode_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_hint_key(mode_row, _key_hint("switch_mode"))
+	_ammo_type_row = PresentationStyle.box(selection, false, 6) as HBoxContainer
+	_ammo_icon = PresentationStyle.icon(_ammo_type_row, null, 22)
+	ammo_type_label = PresentationStyle.label(_ammo_type_row, "", 14)
+	_ammo_type_row.hide()
 	var item_row := PresentationStyle.box(selection, false, 12)
 	_selected_icon = PresentationStyle.icon(item_row, null, 44)
 	var counts := PresentationStyle.box(item_row, true, 0)
@@ -329,7 +336,7 @@ func _refresh_survival() -> void:
 	_night_title.text = "FINAL NIGHT / 10" if waves.clock.current_day == 10 else "NIGHT %d / 10" % waves.clock.current_day
 	_wave_label.text = "Area cleared" if cleared else "%d remaining" % waves.remaining_zombies
 	_wave_label.modulate = PresentationStyle.SAGE if cleared else PresentationStyle.PAPER
-	_night_copy.text = "Rest at cabin until morning" if cleared else "Stay alive · Watch for incoming"
+	_night_copy.text = "Cabin: Skip Night + recover" if cleared else "Stay alive · Watch for incoming"
 	_wave_panel.tooltip_text = "Night cleared" if cleared else "Zombies remaining, including incoming"
 
 func _on_health_changed(current: float, maximum: float) -> void:
@@ -367,7 +374,7 @@ func _on_target_changed(target: Interactable) -> void:
 	_refresh_prompt()
 
 func _refresh_prompt() -> void:
-	prompt_panel.visible = _ready_to_show and is_instance_valid(_prompt_target) and (gameplay_mode == null or gameplay_mode.is_farming())
+	prompt_panel.visible = _ready_to_show and is_instance_valid(_prompt_target) and (_prompt_target is ShelterBed or gameplay_mode == null or gameplay_mode.is_farming())
 	if not prompt_panel.visible: return
 	_prompt_key.text = _key_hint("interact")
 	_prompt_key.show()
@@ -392,10 +399,10 @@ func _refresh_prompt() -> void:
 	elif _prompt_target is ShelterBed:
 		_prompt_icon.texture = UiIcons.get_icon("rest")
 		if waves != null and waves.state == NightWaveManager.State.CLEARED:
-			prompt_label.text = "Rest until morning"
+			prompt_label.text = "Skip Night"
 		else:
 			_prompt_key.hide()
-			prompt_label.text = "Clear the night to rest"
+			prompt_label.text = "Zombies remaining: %d" % waves.remaining_zombies if waves != null and waves.state == NightWaveManager.State.ACTIVE else "Clear the night first"
 	else:
 		prompt_label.text = "Interact"
 
@@ -404,6 +411,7 @@ func _refresh_seed() -> void:
 	var farming := gameplay_mode == null or gameplay_mode.is_farming()
 	seed_label.visible = farming
 	ammo_label.visible = not farming
+	_ammo_type_row.visible = false
 	_mode_label.text = "FARMING" if farming else "COMBAT"
 	_mode_label.modulate = PresentationStyle.SAGE if farming else PresentationStyle.GOLD
 	_slots_row.visible = not farming
@@ -425,6 +433,7 @@ func _refresh_seed() -> void:
 func _refresh_ammo() -> void:
 	var combat := weapons != null and gameplay_mode != null and not gameplay_mode.is_farming()
 	ammo_label.visible = combat
+	_ammo_type_row.hide()
 	if not combat: return
 	_refresh_slots()
 	var item := equipment.get_selected_weapon()
@@ -436,14 +445,21 @@ func _refresh_ammo() -> void:
 		_equipment_hint.text = "TAB · EQUIP FROM YOUR BAG"
 		return
 	var state := weapons.current
+	_equipment_hint.text = "MOUSE WHEEL · CHANGE WEAPON"
 	if state.data.is_melee():
 		ammo_label.hide()
 		ammo_label.text = "Swing"
 		_count_caption.text = "MELEE WEAPON"
 		_slot_label.text = item.display_name
 	else:
-		_count_caption.text = "RELOADING" if state.is_reloading else "LOADED / RESERVE"
-		ammo_label.text = "%d / %d" % [state.current_magazine, weapons.reserve_ammo()]
+		var loaded := state.magazine_ammo_type if state.current_magazine > 0 else state.selected_ammo_type
+		_ammo_type_row.show()
+		_ammo_icon.texture = UiIcons.item_icon(loaded)
+		ammo_type_label.text = loaded.display_name
+		_count_caption.text = "RELOADING " + state.selected_ammo_type.display_name if state.is_reloading else "NEXT: %s · R" % state.selected_ammo_type.display_name if loaded != state.selected_ammo_type else "LOADED / RESERVE"
+		ammo_label.text = "%d / %d" % [state.current_magazine, weapons.reserve_ammo(loaded)]
+		if not weapons.ammo_selection_used and weapons.available_ammo().any(func(ammo: ItemData) -> bool: return ammo != state.selected_ammo_type):
+			_equipment_hint.text = "%s · SWITCH AMMO" % _key_hint("cycle_ammo")
 		ammo_label.modulate = PresentationStyle.RED if state.current_magazine == 0 else PresentationStyle.PAPER
 		_slot_label.text = "Reloading…" if state.is_reloading else "R  Reload" if state.current_magazine == 0 else item.display_name
 		_slot_label.show()
@@ -519,7 +535,7 @@ func show_completion() -> void:
 	panel.name = "CompletionPanel"
 	var rows := PresentationStyle.box(panel)
 	PresentationStyle.label(rows, "YOU SURVIVED\n10 NIGHTS", 32)
-	PresentationStyle.button(rows, "Play again", func() -> void: get_tree().reload_current_scene()).grab_focus()
+	PresentationStyle.button(rows, "Play again", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn")).grab_focus()
 
 func _process(delta: float) -> void:
 	_hurt_remaining = maxf(0, _hurt_remaining - delta)

@@ -14,6 +14,7 @@ func load_menu() -> void:
 func start_play() -> void:
 	await click_scaled(current_scene.play_button)
 	await frames(20)
+	await wait_for_gameplay()
 	game = current_scene
 	game.clock.set_process(false)
 
@@ -119,7 +120,7 @@ func run() -> void:
 	check(game.hud.toast_label.text.contains("FINAL NIGHT"), "final-night warning is distinct")
 	game.clock.skip_to_night()
 	await frames(5)
-	check(game.hud.get_node("Root/NightLabel").text.contains("FINAL NIGHT") and game.audio.target_volume == -26, "final night has distinctive HUD and stronger ambience")
+	check(game.hud._night_title.text.contains("FINAL NIGHT") and game.audio.target_volume == -26, "final night has distinctive HUD and stronger ambience")
 	await capture("phase9_final_night")
 	game.clock.skip_to_day()
 	await frames(3)
@@ -156,6 +157,7 @@ func run() -> void:
 	await frames(3)
 	await click_scaled(game.hud.death_panel.find_child("Restart", true, false))
 	await frames(20)
+	await wait_for_gameplay()
 	game = current_scene
 	game.clock.set_process(false)
 	game.waves.debug_set_day(10)
@@ -164,12 +166,14 @@ func run() -> void:
 	await frames(500)
 	await click_scaled(game.presentation.ending_panel.find_child("PlayAgain", true, false))
 	await frames(20)
+	await wait_for_gameplay()
 	game = current_scene
 	check(game.clock.current_day == 1 and not game.presentation.ending_started, "ending Play Again button restarts cleanly")
 	key(KEY_ESCAPE)
 	await frames(3)
 	await click_scaled(game.pause_menu.get_node("Screen/Panel/Rows/Restart"))
 	await frames(20)
+	await wait_for_gameplay()
 	game = current_scene
 	check(not paused and game.clock.current_day == 1, "pause Restart releases pause and resets campaign")
 	key(KEY_ESCAPE)

@@ -7,7 +7,10 @@ script = ExtResource("1")
 icon = ExtResource("icon")
 id = &"ice_ammo"
 display_name = "Ice Ammo"
-description = "Special ammo crafting foundation. Not compatible with the Basic Rifle yet."
+description = "Basic Rifle ammunition. Slows zombie movement by 50% for 3 seconds."
+ammo_effect = 2
+effect_duration = 3.0
+effect_speed_multiplier = 0.5
 item_type = 5
 tier = 3
 

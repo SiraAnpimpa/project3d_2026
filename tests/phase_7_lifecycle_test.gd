@@ -17,6 +17,14 @@ func fresh() -> void:
 	player = game.player
 	game.clock.set_process(false)
 	game.debug_controls.set_active(false)
+	# Modern map registration is asynchronous; wait for the actual baked route
+	# before testing spawn timing, rather than assuming a fixed import duration.
+	var map := game.get_world_3d().navigation_map
+	var farm_point: Vector3 = game.get_node("MainWorld/FarmArea/Plot01").global_position
+	for _tick in 600:
+		if NavigationServer3D.map_get_path(map, player.global_position, farm_point, true).size() >= 2: break
+		await frames(1)
+	check(NavigationServer3D.map_get_path(map, player.global_position, farm_point, true).size() >= 2, "navigation is synchronized before lifecycle fixture")
 
 
 func run() -> void:
@@ -31,7 +39,9 @@ func run() -> void:
 	check(waves.state == NightWaveManager.State.ACTIVE and game.clock.is_nighttime, "clock crosses 18:00 and automatically begins one wave")
 	check(game.gameplay_mode.is_farming(), "night does not force Combat mode")
 	game.clock.night_started.emit(1)
-	await frames(4)
+	for _tick in 180:
+		await frames(1)
+		if waves.spawned_zombies > 0: break
 	check(waves.total_zombies == 6 and waves.spawned_zombies == 1 and waves.remaining_zombies == 6, "duplicate night event does not duplicate spawns; count includes pending")
 	check(not game.rest.request_rest(player), "active wave blocks rest")
 	var first: NormalZombie = waves.alive.values()[0]
@@ -49,16 +59,16 @@ func run() -> void:
 			enemy.health.take_damage(100)
 	check(positions.size() == 6 and positions[0].distance_to(positions[1]) > 10, "wave distributes six spawns across different directions")
 	check(waves.state == NightWaveManager.State.CLEARED and clears[0] == 1 and waves.remaining_zombies == 0, "all spawned and dead emits clear exactly once")
-	check(game.hud.get_node("Root/NightLabel").text.contains("NIGHT CLEARED"), "clear HUD advertises rest")
+	check(game.hud._wave_label.text == "Area cleared" and game.hud._night_copy.text.contains("Cabin"), "clear HUD advertises cabin skip")
 	await capture("phase7_cleared")
 	# Plant near the end of the night so the rest time skip is the growth source.
 	game.clock.seek(1, 22, 0)
-	player.position = Vector3(-4, 0.05, 3.1)
+	var plot: FarmPlot = game.get_node("MainWorld/FarmArea/Plot01")
+	player.position = plot.global_position + Vector3(0, 0.05, 0.9)
 	await frames(6)
 	key(KEY_E)
-	var plot: FarmPlot = game.get_node("MainWorld/FarmArea/Plot01")
 	check(plot.state == FarmPlot.State.PLANTED, "plant exists before sleep time skip")
-	player.position = Vector3(-9, 0.05, -6.7)
+	player.position = game.get_node("MainWorld/Bed").global_position + Vector3(0, 0.25, 1.35)
 	await frames(6)
 	player.health.take_damage(35)
 	player.stamina.drain(50)
@@ -100,7 +110,9 @@ func run() -> void:
 	# Unexpected deletion returns an enemy to pending rather than counting it as a kill.
 	await fresh()
 	game.clock.skip_to_night()
-	await frames(3)
+	for _tick in 180:
+		await frames(1)
+		if waves.spawned_zombies > 0: break
 	first = waves.alive.values()[0]
 	first.queue_free()
 	await frames(3)

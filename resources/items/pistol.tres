@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/data/item_data.gd" id="script"]
+[ext_resource type="Texture2D" path="res://assets/ui/items/pistol.svg" id="icon"]
+[resource]
+script = ExtResource("script")
+id = &"pistol"
+display_name = "Pistol"
+description = "RMB Aim · LMB Single shot\n12 rounds · Quick reload"
+icon = ExtResource("icon")
+max_stack = 1
+item_type = 4

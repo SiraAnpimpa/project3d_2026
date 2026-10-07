@@ -1,9 +1,12 @@
 extends Node3D
 
+signal game_ready
+var preparation_complete := false
+
 var presentation: GamePresentation
 var audio: GameAudio
 var progression: ProgressionManager
-var skip_night: SkipNightDialog
+var skip_day: SkipDayDialog
 @export var catalog: ItemCatalog
 @export var starter_loadout: InventoryLoadout
 @export var recipe_book: RecipeBook
@@ -28,6 +31,17 @@ var skip_night: SkipNightDialog
 
 
 func _ready() -> void:
+	# Establish the final fog/light shader configuration before scenery renders.
+	# Applying it after all batches existed recompiled the entire visible world
+	# in one measured ~550 ms Compatibility render frame.
+	lighting.bind_clock(clock)
+	var scenery := WorldPresentation.new()
+	$MainWorld.add_child(scenery)
+	scenery.bind($MainWorld, clock)
+	# The loading scene keeps gameplay disabled while the existing world builders
+	# yield. Direct editor/test entry still prepares synchronously.
+	for builder in [$MainWorld/Terrain, $MainWorld/RuralEnvironment]:
+		if not builder.preparation_complete: await builder.prepared
 	player.global_transform = $MainWorld/PlayerSpawn.global_transform
 	if starter_loadout == null or not starter_loadout.give_to(inventory):
 		push_error("Starter loadout is invalid or inventory is too small.")
@@ -51,7 +65,6 @@ func _ready() -> void:
 	inventory_ui.opened_changed.connect(player.camera_rig.set_menu_open)
 	crafting_ui.opened_changed.connect(player.camera_rig.set_menu_open)
 	player.health.changed.connect(func(hp: float, _maximum: float) -> void: player.camera_rig.set_player_alive(hp > 0))
-	lighting.bind_clock(clock)
 	hud.bind(player, clock, debug_controls)
 	debug_controls.bind(player, clock)
 	debug_controls.zombie_spawner = $MainWorld/ZombieTestSpawner
@@ -109,13 +122,10 @@ func _ready() -> void:
 	presentation.name = "Presentation"
 	add_child(presentation)
 	presentation.bind(self)
-	var scenery := WorldPresentation.new()
-	$MainWorld.add_child(scenery)
-	scenery.bind($MainWorld, clock)
-	skip_night = SkipNightDialog.new()
-	skip_night.name = "SkipNightDialog"
-	add_child(skip_night)
-	skip_night.bind(self)
+	skip_day = SkipDayDialog.new()
+	skip_day.name = "SkipDayDialog"
+	add_child(skip_day)
+	skip_day.bind(self)
 	for screen in [inventory_ui.screen, crafting_ui.screen, pause_menu.get_node("Screen")]:
 		screen.theme = PresentationStyle.theme(screen == crafting_ui.screen)
 	if get_tree().has_meta("normal_play") or not OS.is_debug_build():
@@ -125,11 +135,16 @@ func _ready() -> void:
 		$MainWorld/TargetDummy.queue_free()
 	gameplay_mode.mode_changed.connect(func(mode: GameplayModeController.Mode) -> void:
 		hud.show_message("FARMING MODE" if mode == GameplayModeController.Mode.FARMING else "COMBAT MODE"))
+	preparation_complete = true
+	game_ready.emit()
+
+func wait_until_ready() -> void:
+	if not preparation_complete: await game_ready
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart") and (player.health.is_dead or waves.state == NightWaveManager.State.GAME_COMPLETED):
-		get_tree().reload_current_scene()
+		PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn")
 
 
 func _update_spawn_debug(active: bool, _summary: String) -> void:

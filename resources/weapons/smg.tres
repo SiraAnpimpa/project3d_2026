@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=8 format=3]
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="script"]
+[ext_resource type="Resource" path="res://resources/items/smg.tres" id="item"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/SMG.tscn" id="visual"]
+[ext_resource type="Resource" path="res://resources/items/basic_ammo.tres" id="basic_ammo"]
+[ext_resource type="Resource" path="res://resources/items/fire_ammo.tres" id="fire_ammo"]
+[ext_resource type="Resource" path="res://resources/items/ice_ammo.tres" id="ice_ammo"]
+[ext_resource type="Resource" path="res://resources/items/poison_ammo.tres" id="poison_ammo"]
+[resource]
+script = ExtResource("script")
+weapon_id = &"smg"
+display_name = "SMG"
+description = "RMB Aim · Hold LMB Fire\n30 rounds · Fast ammo use"
+weapon_type = 1
+weapon_item = ExtResource("item")
+damage = 12.0
+fire_rate = 10.0
+range_meters = 35
+magazine_size = 30
+reload_time = 1.8
+automatic = true
+weapon_scene = ExtResource("visual")
+two_handed = true
+ammo_type = ExtResource("basic_ammo")
+compatible_ammo_types = Array[Resource]([ExtResource("basic_ammo"), ExtResource("fire_ammo"), ExtResource("ice_ammo"), ExtResource("poison_ammo")])
+spread_degrees = 1.5
+recoil_degrees = 0.18
+muzzle_path = NodePath("Muzzle")

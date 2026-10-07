@@ -152,12 +152,17 @@ func _process_modification_with_delta(_delta: float) -> void:
 	_apply_presentation()
 	if weapons.current.data.is_melee():
 		for bone in _grip_rotations:
+			if not weapons.current.data.two_handed and get_skeleton().get_bone_name(bone).ends_with(".L"): continue
 			get_skeleton().set_bone_pose_rotation(bone,_grip_rotations[bone])
 	var primary := weapons.visual.get_node_or_null("PrimaryGrip") as Node3D
 	var support := weapons.visual.get_node_or_null("SecondaryGrip") as Node3D
 	if support == null: support = weapons.visual.get_node_or_null("SupportGrip") as Node3D
-	if primary == null or support == null: return
+	if primary == null: return
 	_solve_arm("R", primary.global_position, actor.visual.to_global(Vector3(-0.5,0.6,-0.08)))
+	right_error = _point("Middle1.R").distance_to(primary.global_position)
+	if not weapons.current.data.two_handed or support == null:
+		left_error = 0.0
+		return
 	var support_target := support.global_position
 	var magazine := weapons.visual.get_node_or_null("MagazineGrip") as Node3D
 	if magazine != null:
@@ -187,7 +192,7 @@ func _pose_body() -> void:
 	pitch += hurt*0.10
 	var twist := 0.0
 	if weapons.current != null and weapons.current.data.is_melee() and weapons.current.is_swinging:
-		var t := weapons.current.swing_elapsed
+		var t := weapons.current.swing_elapsed*0.48/weapons.current.data.melee_swing_duration
 		if t < 0.08: twist = lerpf(0.0,-0.13,smoothstep(0.0,0.08,t))
 		elif t < 0.18: twist = lerpf(-0.13,0.16,smoothstep(0.08,0.18,t))
 		elif t < 0.30: twist = lerpf(0.16,0.23,smoothstep(0.18,0.30,t))

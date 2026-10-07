@@ -1,4 +1,4 @@
-class_name SkipNightDialog
+class_name SkipDayDialog
 extends CanvasLayer
 ## Confirmation owns a single pause. The existing GameClock alone advances time.
 
@@ -20,17 +20,26 @@ func bind(root_game: Node3D) -> void:
 	game = root_game
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 25
-	action_button = PresentationStyle.button(game.hud._clock_actions, "N  Wait", request_open)
-	action_button.name = "SkipToNight"
+	action_button = PresentationStyle.button(game.hud._clock_actions, "", request_open)
+	action_button.name = "SkipToDay"
 	action_button.theme = PresentationStyle.theme(true)
 	action_button.theme_type_variation = "QuietButton"
-	action_button.custom_minimum_size = Vector2(58, 28)
+	action_button.custom_minimum_size = Vector2(174, 36)
 	action_button.add_theme_font_size_override("font_size",12)
 	var wait_style := PresentationStyle.flat(Color(0,0,0,0))
 	wait_style.set_content_margin_all(4)
 	action_button.add_theme_stylebox_override("normal", wait_style)
 	action_button.focus_mode = Control.FOCUS_NONE
-	action_button.tooltip_text = "Press N to review and confirm waiting until 18:00."
+	action_button.tooltip_text = "Press N to confirm skipping to 06:00 after clearing the night. Rest at the cabin to recover HP and stamina."
+	var action_row := PresentationStyle.box(action_button, false, 8)
+	action_row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	action_row.offset_left = 4
+	action_row.offset_right = -4
+	action_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	game.hud._hint_key(action_row, "N")
+	PresentationStyle.label(action_row, "Skip to Day", 14)
+	for control: Control in action_row.find_children("*", "Control", true, false): control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	action_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	screen = Control.new()
 	add_child(screen)
 	screen.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -49,11 +58,11 @@ func bind(root_game: Node3D) -> void:
 	var rows := VBoxContainer.new()
 	rows.add_theme_constant_override("separation",18)
 	panel.add_child(rows)
-	PresentationStyle.eyebrow(rows, "BEFORE THE SUN GOES DOWN")
-	title = PresentationStyle.label(rows,"Wait until night?",30)
+	PresentationStyle.eyebrow(rows, "THE NIGHT IS CLEAR")
+	title = PresentationStyle.label(rows,"Skip to Day?",30)
 	time_summary = PresentationStyle.label(rows,"",19)
 	time_summary.modulate = Color("e9c774")
-	var text := PresentationStyle.label(rows,"Plants keep growing as time passes.\nZombies arrive at 18:00.\n\nCheck your supplies before waiting.",18)
+	var text := PresentationStyle.label(rows,"Skip to 06:00. Plants keep growing as time passes.\n\nThis does not restore HP or stamina.\nRest at the cabin to recover before morning.",18)
 	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.custom_minimum_size.x = 532
 	text.size_flags_vertical = Control.SIZE_FILL
@@ -61,7 +70,7 @@ func bind(root_game: Node3D) -> void:
 	buttons.add_theme_constant_override("separation",14)
 	rows.add_child(buttons)
 	cancel_button = PresentationStyle.button(buttons,"Cancel  ·  Esc",cancel)
-	confirm_button = PresentationStyle.button(buttons,"Wait until 18:00",confirm_skip, "wait")
+	confirm_button = PresentationStyle.button(buttons,"Skip to Day",confirm_skip, "wait")
 	confirm_button.theme_type_variation = "PrimaryButton"
 	for button in [cancel_button,confirm_button]: button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	cancel_button.focus_neighbor_right = cancel_button.get_path_to(confirm_button)
@@ -72,7 +81,7 @@ func bind(root_game: Node3D) -> void:
 	_refresh()
 
 func _eligible() -> bool:
-	return game != null and game.clock.current_day >= 1 and game.clock.current_day <= 10 and game.clock.is_daytime and not game.clock.paused and game.waves.enabled and game.waves.state == NightWaveManager.State.DAY and not game.player.health.is_dead and not game.rest.is_resting and not game.presentation.ending_started
+	return game != null and game.clock.current_day >= 1 and game.clock.current_day <= 10 and game.clock.is_nighttime and not game.clock.paused and game.waves.enabled and game.waves.state == NightWaveManager.State.CLEARED and not game.player.health.is_dead and not game.rest.is_resting and not game.presentation.ending_started
 
 func can_open() -> bool:
 	return not is_open and not transitioning and _eligible() and not get_tree().paused and not game.inventory_ui.is_open and not game.crafting_ui.is_open and not game.pause_menu.is_open and (game.weapons.current == null or not game.weapons.current.is_reloading) and game.player.camera_rig.can_control()
@@ -86,10 +95,10 @@ func request_open() -> bool:
 	game.player.interactor.enabled = false
 	game.player.camera_rig.set_menu_open(true)
 	get_tree().paused = true
-	title.text = "Begin the Final Night?" if _opened_day == 10 else "Wait until night?"
-	confirm_button.text = "BEGIN FINAL NIGHT" if _opened_day == 10 else "Wait until 18:00"
+	title.text = "Skip to rescue morning?" if _opened_day == 10 else "Skip to Day?"
+	confirm_button.text = "Skip to Day"
 	confirm_button.disabled = false
-	time_summary.text = "DAY %d / 10     %02d:%02d  →  18:00" % [_opened_day,game.clock.current_hour,game.clock.current_minute]
+	time_summary.text = "DAY %d · %02d:%02d  →  DAY %d · 06:00" % [_opened_day,game.clock.current_hour,game.clock.current_minute,_opened_day+1]
 	screen.show()
 	PresentationStyle.appear(screen)
 	cancel_button.grab_focus()
@@ -110,7 +119,7 @@ func confirm_skip() -> void:
 	confirm_button.disabled = true
 	var before: float = game.clock.get_elapsed_minutes()
 	_close()
-	game.clock.skip_to_night()
+	game.clock.skip_to_day()
 	skipped.emit(game.clock.get_elapsed_minutes()-before)
 	_finish_transition.call_deferred()
 
@@ -133,11 +142,11 @@ func _process(_delta: float) -> void:
 
 func _refresh() -> void:
 	if game == null: return
-	action_button.visible = game.gameplay_mode.is_farming() and game.player.camera_rig.can_control() and game.clock.is_daytime and game.clock.current_day <= 10 and not game.player.health.is_dead and not game.presentation.ending_started
+	action_button.visible = can_open()
 	action_button.disabled = not can_open()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("skip_to_night"):
+	if event.is_action_pressed("skip_to_day"):
 		if not event.is_echo(): request_open()
 		get_viewport().set_input_as_handled()
 	elif is_open:

@@ -7,7 +7,7 @@
 script = ExtResource("1")
 id = &"lead"
 display_name = "Lead"
-description = "Farm-grown material. Keep it for a later phase."
+description = "Farm-grown projectile material for Basic Ammo."
 icon = ExtResource("2")
 max_stack = 99
 item_type = 1

@@ -7,7 +7,7 @@
 script = ExtResource("1")
 id = &"small_herb"
 display_name = "Small Herb"
-description = "Farm-grown material. Keep it for a later phase."
+description = "Farm-grown ingredient for Basic Medicine."
 icon = ExtResource("2")
 max_stack = 99
 item_type = 1

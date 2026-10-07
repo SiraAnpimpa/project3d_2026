@@ -1,17 +1,21 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=8 format=3]
 [ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="script"]
 [ext_resource type="Resource" path="res://resources/items/basic_rifle.tres" id="item"]
 [ext_resource type="Resource" path="res://resources/items/basic_ammo.tres" id="ammo"]
+[ext_resource type="Resource" path="res://resources/items/fire_ammo.tres" id="fire"]
+[ext_resource type="Resource" path="res://resources/items/ice_ammo.tres" id="ice"]
+[ext_resource type="Resource" path="res://resources/items/poison_ammo.tres" id="poison"]
 [ext_resource type="PackedScene" path="res://scenes/weapons/BasicRifle.tscn" id="visual"]
 
 [resource]
 script = ExtResource("script")
 weapon_id = &"basic_rifle"
 display_name = "Basic Rifle"
-description = "A simple automatic rifle using farm-crafted Basic Ammo."
+description = "An automatic rifle using farm-crafted Basic, Fire, Ice or Poison Ammo."
 weapon_type = 1
 weapon_item = ExtResource("item")
 ammo_type = ExtResource("ammo")
+compatible_ammo_types = Array[Resource]([ExtResource("ammo"), ExtResource("fire"), ExtResource("ice"), ExtResource("poison")])
 damage = 20.0
 fire_rate = 5.0
 magazine_size = 10

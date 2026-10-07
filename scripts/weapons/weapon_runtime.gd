@@ -3,6 +3,9 @@ extends RefCounted
 
 var data: WeaponData
 var current_magazine: int = 0
+var selected_ammo_type: ItemData
+var magazine_ammo_type: ItemData
+var reload_ammo_type: ItemData
 var fire_cooldown: float = 0.0
 var reload_remaining: float = 0.0
 var is_reloading: bool = false
@@ -14,3 +17,5 @@ var swing_direction := Vector3.FORWARD
 
 func _init(definition: WeaponData) -> void:
 	data = definition
+	selected_ammo_type = definition.ammo_type
+	magazine_ammo_type = definition.ammo_type

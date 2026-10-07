@@ -1,12 +1,48 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
+
 [ext_resource type="Script" path="res://scripts/effects/elemental_particles.gd" id="1"]
-[node name="FirePlantParticles" type="GPUParticles3D"]
+
+[sub_resource type="Gradient" id="Gradient_pm336"]
+offsets = PackedFloat32Array(0, 0.15, 0.7, 1)
+colors = PackedColorArray(1, 0.34, 0.055, 0, 1, 0.34, 0.055, 0.85, 1, 0.34, 0.055, 0.65, 1, 0.34, 0.055, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iw6qj"]
+gradient = SubResource("Gradient_pm336")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0oa71"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 1, 0)
+spread = 35.0
+initial_velocity_min = 0.175
+initial_velocity_max = 0.35
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+gravity = Vector3(0, 0.18, 0)
+color_ramp = SubResource("GradientTexture1D_iw6qj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yww5"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6rqa"]
+material = SubResource("StandardMaterial3D_0yww5")
+size = Vector3(0.022, 0.065, 0.022)
+
+[node name="FirePlantParticles" type="GPUParticles3D" unique_id=2114438200]
+cast_shadow = 0
+visibility_range_end = 22.0
+visibility_range_end_margin = 2.0
 emitting = false
 amount = 12
 lifetime = 0.9
+visibility_aabb = AABB(-0.8, -0.5, -0.8, 1.6, 2, 1.6)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0oa71")
+draw_pass_1 = SubResource("BoxMesh_d6rqa")
 script = ExtResource("1")
-tint = Color(1,0.34,0.055,1)
-drift = Vector3(0,0.18,0)
+tint = Color(1, 0.34, 0.055, 1)
+drift = Vector3(0, 0.18, 0)
 speed = 0.35
-mote_size = Vector3(0.022,0.065,0.022)
-rounded = false
+mote_size = Vector3(0.022, 0.065, 0.022)

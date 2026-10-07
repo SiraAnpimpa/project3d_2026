@@ -22,14 +22,20 @@ var _stone_footprints: Array = []
 var _fence_sites: Array[Vector2] = []
 const FOLIAGE_CELL_SIZE := 32.0
 var rng := RandomNumberGenerator.new()
+signal prepared
+var preparation_complete := false
+var _spread_preparation := false
+var _slice_end := 0
 
 func _ready() -> void:
+	_spread_preparation = not Engine.is_editor_hint() and get_tree().has_meta("loading_world")
+	_slice_end = Time.get_ticks_usec()+8000
 	rng.seed = 20261001
-	build_structures()
-	build_clusters()
-	build_vegetation()
-	build_landscape_details()
-	flush_batches()
+	await build_structures()
+	await build_clusters()
+	await build_vegetation()
+	await build_landscape_details()
+	await flush_batches()
 	for marker in get_parent().get_node("WaveSpawnPoints").get_children():
 		marker.position.y = RuralTerrain.height_at(marker.position.x,marker.position.z)+0.1
 		# Retained debug helpers describe the real approach, rather than the old arena.
@@ -39,39 +45,46 @@ func _ready() -> void:
 		if debug_marker != null: debug_marker.position = marker.position
 		var debug_label := get_parent().get_node_or_null(str(marker.name)+"SpawnLabel")
 		if debug_label != null: debug_label.position = marker.position+Vector3.UP*1.2
+	preparation_complete = true
+	prepared.emit()
+
+func _preparation_slice() -> void:
+	if _spread_preparation and Time.get_ticks_usec() >= _slice_end:
+		await get_tree().process_frame
+		_slice_end = Time.get_ticks_usec()+8000
 
 func build_structures() -> void:
 	# Main farm home: supplied Cabin; static open doorway, no door gameplay.
-	prop("Cabin","House",Vector2(-12,-10),9.5,0,true,-0.276)
+	await prop("Cabin","House",Vector2(-12,-10),9.5,0,true,-0.276)
 	# The workshop has its own yard across the house's eastern breathing space.
 	build_workshop_frame()
-	prop("Water Tower","House",Vector2(-21,-18),5.0,10,true,0,12.5)
+	await prop("Water Tower","House",Vector2(-21,-18),5.0,10,true,0,12.5)
 	# F: recognizable abandoned depot on the raised eastern old field.
-	prop("Container Green","Abandoned",Vector2(35,-23),8.5,18,true)
-	prop("Container Red","Abandoned",Vector2(43,-23),7.4,65,true)
-	prop("Jeep","Abandoned",Vector2(26,-22),4.4,-25,true)
-	prop("Ambulance Car","Abandoned",Vector2(41,-32),4.8,15,true)
+	await prop("Container Green","Abandoned",Vector2(35,-23),8.5,18,true)
+	await prop("Container Red","Abandoned",Vector2(43,-23),7.4,65,true)
+	await prop("Jeep","Abandoned",Vector2(26,-22),4.4,-25,true)
+	await prop("Ambulance Car","Abandoned",Vector2(41,-32),4.8,15,true)
 	build_depot_frame()
 	# G: a stopped supply truck supplies the clearing; no isolated asphalt/gateway.
-	prop("Truck","Road",Vector2(18,42),5.3,-9,true)
+	await prop("Truck","Road",Vector2(18,42),5.3,-9,true)
 	# E/N: large silhouettes create remembered approach directions and hide entry pockets.
-	prop("Tree-qZtx0AHhcy","Forest",Vector2(-31,4),7,10,true,0,11)
-	prop("Dead Tree-Mcd2zYqyww","Forest",Vector2(-41,-8),5,25,true,0,8.5)
-	rock_cluster(Vector2(-3,-29),4.1,"Ridge",15)
-	rock_cluster(Vector2(7,-32),5.8,"Ridge",62)
-	rock_cluster(Vector2(-10,-32),4.8,"Ridge",-17)
-	rock_cluster(Vector2(-31,11),4.4,"Forest",15)
+	await prop("Tree-qZtx0AHhcy","Forest",Vector2(-31,4),7,10,true,0,11)
+	await prop("Dead Tree-Mcd2zYqyww","Forest",Vector2(-41,-8),5,25,true,0,8.5)
+	await rock_cluster(Vector2(-3,-29),4.1,"Ridge",15)
+	await rock_cluster(Vector2(7,-32),5.8,"Ridge",62)
+	await rock_cluster(Vector2(-10,-32),4.8,"Ridge",-17)
+	await rock_cluster(Vector2(-31,11),4.4,"Forest",15)
 	for p in [Vector2(38,14),Vector2(44,9),Vector2(-49,-11),Vector2(-48,22),Vector2(2,-50)]:
-		rock_cluster(p,4.5,"Boundary",p.x*7)
+		await rock_cluster(p,4.5,"Boundary",p.x*7)
 	# Fence fragments belong to farm edges and the old western pasture, never a perimeter square.
 	for z in [3.5,7.8,12.0]: fence(Vector2(-24,z),Vector2(-24,z+2.6),false,true)
 	# The two middle pasture fragments intersected the boundary boulder/satellite stones.
 	for z in [-22,-7]: fence(Vector2(-50,z),Vector2(-49,z+3.2),true)
 	for x in [24,29,34]: fence(Vector2(x,-9),Vector2(x+3.2,-9.5),true)
 	# Storage models match the retained bodies relocated into the utility zone.
-	prop("Chest","Workshop",Vector2(6.8,-12.5),1.8,0)
-	prop("Chest-RfSBvgcZUD","Workshop",Vector2(6.8,-12.5),1.3,0,false,model_height("Chest",1.8))
-	prop("Chest","Workshop",Vector2(7.4,-9.5),1.4,0)
+	await prop("Chest","Workshop",Vector2(6.8,-12.5),1.8,0)
+	await prop("Chest-RfSBvgcZUD","Workshop",Vector2(6.8,-12.5),1.3,0,false,model_height("Chest",1.8))
+	await prop("Chest","Workshop",Vector2(7.4,-9.5),1.4,0)
 	var station := get_parent().get_parent().get_node_or_null("TestInteractable/Mesh")
 	if station != null: station.hide()
 
@@ -120,52 +133,52 @@ func model_height(key: String, width: float) -> float:
 
 func build_clusters() -> void:
 	# A small domestic cache shares the native furnished right room; entry/rest lane stay open.
-	prop("Chest","House",Vector2(-10.3,-12.2),1.05,0,true,0)
+	await prop("Chest","House",Vector2(-10.3,-12.2),1.05,0,true,0)
 	var cache_top := model_height("Chest",1.05)
-	prop("Survival_Radio","House",Vector2(-10.45,-12.2),0.32,0,false,cache_top)
-	prop("Survival_First Aid Kit","House",Vector2(-10.03,-12.2),0.32,-8,false,cache_top)
+	await prop("Survival_Radio","House",Vector2(-10.45,-12.2),0.32,0,false,cache_top)
+	await prop("Survival_First Aid Kit","House",Vector2(-10.03,-12.2),0.32,-8,false,cache_top)
 	# Utility materials: stock against the back wall, tools by the side post.
-	prop("Barrel","Workshop",Vector2(5,-11.4),0.72,0,true)
-	prop("Chest-RfSBvgcZUD","Workshop",Vector2(3.9,-11.5),0.85,0,true)
-	prop("Survival_Gas Can","Workshop",Vector2(4.45,-11.65),0.3,10)
-	prop("Survival_Propane Tank","Workshop",Vector2(5.6,-11.4),0.37,0)
-	prop("Pallet","Workshop",Vector2(6.6,-14),1.25,-8)
-	prop("Survival_Shovel","Workshop",Vector2(0.8,-11.95),0.4,0,false,0,1.7,-12)
-	prop("Survival_Axe","Workshop",Vector2(1.35,-12.1),0.4,0,false,0,1.0,-13)
+	await prop("Barrel","Workshop",Vector2(5,-11.4),0.72,0,true)
+	await prop("Chest-RfSBvgcZUD","Workshop",Vector2(3.9,-11.5),0.85,0,true)
+	await prop("Survival_Gas Can","Workshop",Vector2(4.45,-11.65),0.3,10)
+	await prop("Survival_Propane Tank","Workshop",Vector2(5.6,-11.4),0.37,0)
+	await prop("Pallet","Workshop",Vector2(6.6,-14),1.25,-8)
+	await prop("Survival_Shovel","Workshop",Vector2(0.8,-11.95),0.4,0,false,0,1.7,-12)
+	await prop("Survival_Axe","Workshop",Vector2(1.35,-12.1),0.4,0,false,0,1.0,-13)
 	# Heavy firewood/storage belongs behind the utility shed, not the farm front.
-	prop("Barrel","Workshop",Vector2(0.7,-14.0),0.8,0,true)
-	prop("Survival_Shovel","Farm",Vector2(-24,3),0.3,0,false,0,1.4)
+	await prop("Barrel","Workshop",Vector2(0.7,-14.0),0.8,0,true)
+	await prop("Survival_Shovel","Farm",Vector2(-24,3),0.3,0,false,0,1.4)
 	var log_diameter := model_height("Survival_Wood Log",1.8)
 	var log_spacing := log_diameter*0.94
-	for i in 3: prop("Survival_Wood Log","Workshop",Vector2(2.44+(i-1)*log_spacing,-14),1.8,90,false,-0.025)
+	for i in 3: await prop("Survival_Wood Log","Workshop",Vector2(2.44+(i-1)*log_spacing,-14),1.8,90,false,-0.025)
 	var stack_rise := sqrt(log_diameter*log_diameter-pow(log_spacing*0.5,2))
-	for i in 2: prop("Survival_Wood Log","Workshop",Vector2(2.44+(i-0.5)*log_spacing,-14),1.8,90,false,stack_rise-0.025)
+	for i in 2: await prop("Survival_Wood Log","Workshop",Vector2(2.44+(i-0.5)*log_spacing,-14),1.8,90,false,stack_rise-0.025)
 	# E: an abandoned forester's camp in a distinct clearing.
-	prop("Survival_Tent","Forest",Vector2(-34,21),4.4,30,true)
-	prop("Survival_Bonfire","Forest",Vector2(-31,20),0.85,0)
-	prop("Survival_Can","Forest",Vector2(-30.7,19.5),0.12,0)
-	prop("Survival_Can Broken","Forest",Vector2(-31.5,19.5),0.12,80)
-	prop("Survival_Wood Log","Forest",Vector2(-32,22.5),2.4,5)
-	prop("Dead Tree","Forest",Vector2(-37,25),3.0,15,true,0,6.0)
+	await prop("Survival_Tent","Forest",Vector2(-34,21),4.4,30,true)
+	await prop("Survival_Bonfire","Forest",Vector2(-31,20),0.85,0)
+	await prop("Survival_Can","Forest",Vector2(-30.7,19.5),0.12,0)
+	await prop("Survival_Can Broken","Forest",Vector2(-31.5,19.5),0.12,80)
+	await prop("Survival_Wood Log","Forest",Vector2(-32,22.5),2.4,5)
+	await prop("Dead Tree","Forest",Vector2(-37,25),3.0,15,true,0,6.0)
 	# F: damaged lounge, discarded tires and materials tell a depot evacuation story.
-	prop("Damaged Couch","Abandoned",Vector2(28,-16),2.2,-20,true)
-	prop("Wheels Stack","Abandoned",Vector2(32,-21),1.0,0,true)
-	prop("Wheel","Abandoned",Vector2(31.1,-21.2),0.52,68)
-	prop("Pallet Broken","Abandoned",Vector2(32.8,-17.7),1.45,-17)
-	prop("Pipes","Abandoned",Vector2(32.5,-18.4),1.7,-3)
-	prop("Trash Bags","Abandoned",Vector2(36,-19),1.1,0)
-	prop("Trash Bag","Abandoned",Vector2(37,-19),0.6,60)
-	prop("Cinder Block","Abandoned",Vector2(26.7,-17),0.42,-7)
-	prop("Fire Hydrant","Abandoned",Vector2(44,-28),0.45,0)
-	prop("Traffic Barrier","Abandoned",Vector2(40,-11),3.4,-10,true)
+	await prop("Damaged Couch","Abandoned",Vector2(28,-16),2.2,-20,true)
+	await prop("Wheels Stack","Abandoned",Vector2(32,-21),1.0,0,true)
+	await prop("Wheel","Abandoned",Vector2(31.1,-21.2),0.52,68)
+	await prop("Pallet Broken","Abandoned",Vector2(32.8,-17.7),1.45,-17)
+	await prop("Pipes","Abandoned",Vector2(32.5,-18.4),1.7,-3)
+	await prop("Trash Bags","Abandoned",Vector2(36,-19),1.1,0)
+	await prop("Trash Bag","Abandoned",Vector2(37,-19),0.6,60)
+	await prop("Cinder Block","Abandoned",Vector2(26.7,-17),0.42,-7)
+	await prop("Fire Hydrant","Abandoned",Vector2(44,-28),0.45,0)
+	await prop("Traffic Barrier","Abandoned",Vector2(40,-11),3.4,-10,true)
 	# A grouped aid/radio cache stays next to the truck, outside rotor clearance.
-	prop("Survival_Gas Can","Road",Vector2(18,39),0.35,15)
-	prop("Chest","Road",Vector2(19,39),0.9,15)
+	await prop("Survival_Gas Can","Road",Vector2(18,39),0.35,15)
+	await prop("Chest","Road",Vector2(19,39),0.9,15)
 	var aid_top := model_height("Chest",0.9)
-	prop("Survival_Radio","Rescue",Vector2(19.2,39),0.32,0,false,aid_top)
-	prop("Survival_First Aid Kit","Rescue",Vector2(18.8,39),0.32,0,false,aid_top)
+	await prop("Survival_Radio","Rescue",Vector2(19.2,39),0.32,0,false,aid_top)
+	await prop("Survival_First Aid Kit","Rescue",Vector2(18.8,39),0.32,0,false,aid_top)
 	for point in [Vector2(23.5,39),Vector2(34.5,39),Vector2(23.5,47),Vector2(34.5,47)]:
-		prop("Traffic Cone","Rescue",point,0.4,0)
+		await prop("Traffic Cone","Rescue",point,0.4,0)
 	# Dry drainage remains natural ground: detached paving samples/pipe bundle removed.
 
 func build_vegetation() -> void:
@@ -200,15 +213,15 @@ func build_vegetation() -> void:
 			var background := maxf(absf(point.x),absf(point.y)) > RuralTerrain.PLAY_HALF
 			var edge := clampf(point.distance_to(center)/radius,0.0,1.0)
 			var height := lerpf(10.2,7.2,edge)*rng.randf_range(0.88,1.10)
-			prop(key,"Background" if background else "Forest edge",point,4.5,rng.randf()*360,false,0,height)
+			await prop(key,"Background" if background else "Forest edge",point,4.5,rng.randf()*360,false,0,height)
 			if not background: trunk(point)
 			if not background:
 				var angle := rng.randf()*TAU
 				var bush_point := point+Vector2(cos(angle),sin(angle))*rng.randf_range(1.6,2.2)
-				if understorey_allowed(bush_point,0.9): prop("Bush with Flowers","Forest edge",bush_point,rng.randf_range(0.95,1.65),rng.randf()*360)
+				if understorey_allowed(bush_point,0.9): await prop("Bush with Flowers","Forest edge",bush_point,rng.randf_range(0.95,1.65),rng.randf()*360)
 				var fern_point := point+Vector2(cos(angle+1.1),sin(angle+1.1))*1.2
-				if understorey_allowed(fern_point,0.4): prop("Fern","Forest edge",fern_point,rng.randf_range(0.5,0.8),rng.randf()*360)
-				grass_patch(point+Vector2(1.2,1.6),Vector2(2.0,1.6),14,"Forest floor",0.45,0.85)
+				if understorey_allowed(fern_point,0.4): await prop("Fern","Forest edge",fern_point,rng.randf_range(0.5,0.8),rng.randf()*360)
+				await grass_patch(point+Vector2(1.2,1.6),Vector2(2.0,1.6),14,"Forest floor",0.45,0.85)
 	# Fixed meadow/forest patches have dense, thinner and empty intervals.
 	# One batch per existing mesh variant; no per-blade scene nodes or grass collision.
 	var patches := [
@@ -231,20 +244,20 @@ func build_vegetation() -> void:
 	for patch in patches:
 		var zone: String = patch[3]
 		var short_grass := zone in ["Combat edge","Yard edge"]
-		grass_patch(patch[0],patch[1],patch[2],zone,0.23 if short_grass else 0.45,0.4 if short_grass else 0.85)
+		await grass_patch(patch[0],patch[1],patch[2],zone,0.23 if short_grass else 0.45,0.4 if short_grass else 0.85)
 	# Sparse short growth along farm soil edges and the yard; active beds stay bare.
 	for center in [Vector2(-22.4,6),Vector2(-22.6,12),Vector2(-4.0,12),Vector2(-11,16.4),Vector2(-18,1),Vector2(-8,-2)]:
-		grass_patch(center,Vector2(2.8,1.8),40,"Yard edge",0.16,0.28)
+		await grass_patch(center,Vector2(2.8,1.8),40,"Yard edge",0.16,0.28)
 	# Reclamation follows unused depot corners; the central bay and vehicle silhouettes stay open.
 	for item in [[Vector2(34.0,-28.3),1.0,24.0],[Vector2(34.9,-29.1),0.75,137.0],[Vector2(38.0,-27.2),1.25,78.0],[Vector2(38.7,-28.0),0.8,219.0],[Vector2(45.5,-24.5),0.9,311.0],[Vector2(46.2,-25.7),1.15,43.0]]:
-		prop("Bush" if item[1] < 1.0 else "Bush with Flowers","Abandoned",item[0],item[1],item[2])
+		await prop("Bush" if item[1] < 1.0 else "Bush with Flowers","Abandoned",item[0],item[1],item[2])
 	for item in [[Vector2(-36.3,23.1),0.22,14.0],[Vector2(-36.7,23.5),0.32,120.0],[Vector2(-32.9,24.7),0.25,211.0],[Vector2(-32.3,25.2),0.40,54.0],[Vector2(-29.8,23.3),0.28,300.0]]:
-		prop("Mushroom" if item[1] < 0.3 else "Flower Group","Forest",item[0],item[1],item[2])
+		await prop("Mushroom" if item[1] < 0.3 else "Flower Group","Forest",item[0],item[1],item[2])
 	var road_stones := [Vector2(12.2,25.7),Vector2(13.5,27.1),Vector2(16.4,31.8),Vector2(17.9,32.6),Vector2(19.2,31.0),Vector2(21.3,38.6),Vector2(23.1,39.2),Vector2(22.6,40.4)]
 	for i in road_stones.size():
-		prop("Pebble Round" if i%2 else "Pebble Square","Road",road_stones[i],0.45+(i%3)*0.09,i*65)
+		await prop("Pebble Round" if i%2 else "Pebble Square","Road",road_stones[i],0.45+(i%3)*0.09,i*65)
 	# Roadside outcrop belongs to the reveal shoulder and screens the southern entry.
-	rock_cluster(Vector2(10,31),3.5,"Road shoulder",-20)
+	await rock_cluster(Vector2(10,31),3.5,"Road shoulder",-20)
 
 func prop(key: String, zone: String, point: Vector2, width: float, yaw: float, solid: bool = false, lift: float = 0, height: float = 0, pitch: float = 0) -> void:
 	var info := model_info(key)
@@ -302,6 +315,17 @@ func prop(key: String, zone: String, point: Vector2, width: float, yaw: float, s
 		var model := (EnvironmentAssets.SCENES[key] as PackedScene).instantiate() as Node3D
 		anchor.add_child(model)
 		if key == "Cabin": prepare_cabin_model(model)
+		if _spread_preparation:
+			# Upload the furnished landmark's many meshes across render frames.
+			var parts := model.find_children("*", "MeshInstance3D", true, false).filter(func(part: Node3D) -> bool: return part.is_visible_in_tree())
+			for part in parts: part.hide()
+			await get_tree().process_frame
+			var revealed := 0
+			for part in parts:
+				part.show()
+				revealed += 1
+				if revealed%8 == 0: await get_tree().process_frame
+			_slice_end = Time.get_ticks_usec()+8000
 	else:
 		if not _batches.has(key): _batches[key] = []
 		_batches[key].append(transform*normalization)
@@ -327,6 +351,7 @@ func prop(key: String, zone: String, point: Vector2, width: float, yaw: float, s
 			trunk(point)
 		else:
 			collider(zone,transform*Transform3D(Basis.IDENTITY,Vector3.UP*shape.size.y*0.5),shape)
+	await _preparation_slice()
 
 func model_info(key: String) -> Dictionary:
 	if _models.has(key): return _models[key]
@@ -334,6 +359,12 @@ func model_info(key: String) -> Dictionary:
 	if key == "Cabin": prepare_cabin_model(source)
 	var info := {"bounds":GamePresentation.model_bounds(source),"parts":[],"vertices":PackedVector3Array(),"support":PackedVector3Array(),"foot_center":Vector3.ZERO,"footprint":PackedVector3Array()}
 	collect_parts(source,Transform3D.IDENTITY,info.parts)
+	# Landmarks use their authored foundation, not per-vertex terrain fitting.
+	# The furnished cabin's support extraction was a measured ~120 ms stall.
+	if key in ["Cabin", "Water Tower"]:
+		source.free()
+		_models[key] = info
+		return info
 	var unique: Dictionary = {}
 	var all_faces := PackedVector3Array()
 	var bottom := INF
@@ -373,20 +404,20 @@ func build_landscape_details() -> void:
 			var offset: Vector2 = [Vector2(-0.65,0.15),Vector2(0.05,-0.3),Vector2(0.45,0.2),Vector2(0.1,0.65)][i]
 			var point: Vector2 = center+offset+Vector2(detail_rng.randf_range(-0.12,0.12),detail_rng.randf_range(-0.1,0.1))
 			if not understorey_allowed(point,0.3): continue
-			prop("Flower Group" if i == 0 else "Clover","Garden border",point,0.55,detail_rng.randf()*360,false,0,detail_rng.randf_range(0.24,0.33))
+			await prop("Flower Group" if i == 0 else "Clover","Garden border",point,0.55,detail_rng.randf()*360,false,0,detail_rng.randf_range(0.24,0.33))
 		if RuralTerrain.trail_distance(center) > 2.8:
-			prop("Bush with Flowers","Garden border",center,0.85,center.x*19,false,0,0.48)
+			await prop("Bush with Flowers","Garden border",center,0.85,center.x*19,false,0,0.48)
 	# Leafy woodland pockets and dry weeds tell the camp/depot apart at player eye height.
 	for center in [Vector2(-29,24.5),Vector2(-38,18),Vector2(-39,26),Vector2(-32,28),Vector2(-28,18.5)]:
 		for i in 3:
 			var point: Vector2 = center+Vector2(detail_rng.randf_range(-0.8,0.8),detail_rng.randf_range(-0.55,0.55))
 			if not understorey_allowed(point,0.4): continue
-			prop("Fern" if i == 0 else "Mushroom","Camp edge",point,0.5,detail_rng.randf()*360,false,0,detail_rng.randf_range(0.34,0.46) if i == 0 else detail_rng.randf_range(0.12,0.20))
+			await prop("Fern" if i == 0 else "Mushroom","Camp edge",point,0.5,detail_rng.randf()*360,false,0,detail_rng.randf_range(0.34,0.46) if i == 0 else detail_rng.randf_range(0.12,0.20))
 	for center in [Vector2(25,-10),Vector2(35,-11),Vector2(46,-26),Vector2(37,-34),Vector2(31,-28)]:
 		for i in 3:
 			var point: Vector2 = center+Vector2(detail_rng.randf_range(-0.6,0.6),detail_rng.randf_range(-0.45,0.45))
 			if not understorey_allowed(point,0.2): continue
-			prop("Grass Wispy","Depot verge",point,0.45,detail_rng.randf()*360,false,0,detail_rng.randf_range(0.23,0.35))
+			await prop("Grass Wispy","Depot verge",point,0.45,detail_rng.randf()*360,false,0,detail_rng.randf_range(0.23,0.35))
 	# Slim painted roadside stakes form a repeated visual cue to the clearing.
 	# Use both margins at the two bends: no signage boards or new physical gates.
 	for item in [
@@ -407,9 +438,10 @@ func build_landscape_details() -> void:
 	for center in [Vector2(-18,-17.8),Vector2(-24,-18),Vector2(6.4,-8.3),Vector2(23.7,-13)]:
 		for i in 5:
 			var point: Vector2 = center+Vector2(detail_rng.randf_range(-0.85,0.85),detail_rng.randf_range(-0.5,0.5))
-			prop("Pebble Round","Foundation edge",point,detail_rng.randf_range(0.15,0.26),detail_rng.randf()*360,false,0,detail_rng.randf_range(0.08,0.13))
+			await prop("Pebble Round","Foundation edge",point,detail_rng.randf_range(0.15,0.26),detail_rng.randf()*360,false,0,detail_rng.randf_range(0.08,0.13))
 
 func flush_batches() -> void:
+	var uploaded := 0
 	for key in _batches:
 		# Partition the high instance-count ground cover: a MultiMesh culls as a group.
 		# Measured tree partitioning increased surface/shadow draw calls on this small map.
@@ -423,6 +455,12 @@ func flush_batches() -> void:
 		for cell in groups:
 			for part in _models[key].parts:
 				add_batch(key,part,groups[cell],cell,is_foliage)
+				uploaded += 1
+				# Limit first-render mesh/material uploads as well as script time.
+				if _spread_preparation and uploaded%8 == 0:
+					await get_tree().process_frame
+					_slice_end = Time.get_ticks_usec()+8000
+			await _preparation_slice()
 
 func add_batch(key: String, part: Dictionary, placements: Array, cell: Vector2i, is_foliage: bool) -> void:
 	var multi := MultiMesh.new()
@@ -556,7 +594,7 @@ func fence(a: Vector2, b: Vector2, broken: bool, low: bool = false) -> void:
 func rock_cluster(center: Vector2, width: float, zone: String, yaw: float) -> void:
 	# An asymmetric large/medium/small grouping leaves a clear side facing the route.
 	var dominant := "Rock Medium-JQxF95498B" if zone == "Ridge" else "Rock Medium-s1OJ3bBzqc" if zone == "Boundary" else "Rock Medium"
-	prop(dominant,zone,center,width,yaw,true,-0.38)
+	await prop(dominant,zone,center,width,yaw,true,-0.38)
 	for i in 3:
 		var offset: Vector2 = [Vector2(-0.43,0.38),Vector2(-0.72,0.06),Vector2(0.48,-0.23)][i]
 		var satellite_width: float = [2.05,1.25,0.88][i]*clampf(width/4.4,0.85,1.2)
@@ -564,17 +602,17 @@ func rock_cluster(center: Vector2, width: float, zone: String, yaw: float) -> vo
 		for attempt in 12:
 			if RuralTerrain.trail_distance(point) >= 1.8+satellite_width*0.45: break
 			point = center+offset.rotated(deg_to_rad(yaw+31*(attempt+1)))*width
-		prop("Rock Medium" if i%2 else "Rock Medium-s1OJ3bBzqc",zone,point,satellite_width,yaw+37+i*71,false,-0.1)
+		await prop("Rock Medium" if i%2 else "Rock Medium-s1OJ3bBzqc",zone,point,satellite_width,yaw+37+i*71,false,-0.1)
 	for i in 5:
 		var offset: Vector2 = [Vector2(-0.5,0.65),Vector2(-0.73,0.42),Vector2(-0.94,0.18),Vector2(0.58,-0.3),Vector2(0.77,-0.14)][i]
 		var point := center+offset.rotated(deg_to_rad(yaw))*width
 		if RuralTerrain.trail_distance(point) < 2.4: continue
-		prop("Pebble Round" if i%2 else "Pebble Square",zone,point,0.2+(i%3)*0.09,yaw+i*47,false,-0.02)
+		await prop("Pebble Round" if i%2 else "Pebble Square",zone,point,0.2+(i%3)*0.09,yaw+i*47,false,-0.02)
 	var bush_point := center+Vector2(-width*0.55,width*0.5)
 	var fern_point := center+Vector2(width*0.62,0.8)
-	if understorey_allowed(bush_point,0.5): prop("Bush with Flowers",zone,bush_point,1.1,yaw)
-	if understorey_allowed(fern_point,0.35): prop("Fern",zone,fern_point,0.7,yaw+55)
-	grass_patch(center,Vector2(width*0.9,width*0.7),65,"Rock edge",0.35,0.65)
+	if understorey_allowed(bush_point,0.5): await prop("Bush with Flowers",zone,bush_point,1.1,yaw)
+	if understorey_allowed(fern_point,0.35): await prop("Fern",zone,fern_point,0.7,yaw+55)
+	await grass_patch(center,Vector2(width*0.9,width*0.7),65,"Rock edge",0.35,0.65)
 
 func grass_patch(center: Vector2, radius: Vector2, count: int, zone: String, low: float, high: float) -> void:
 	for i in count:
@@ -589,7 +627,7 @@ func grass_patch(center: Vector2, radius: Vector2, count: int, zone: String, low
 		var key := "Grass" if i%10 < 6 else "Tall Grass" if i%10 < 8 else "Grass Wispy" if i%10 == 8 else "Clover"
 		var height := rng.randf_range(low,high)
 		if key == "Clover": height *= 0.55
-		prop(key,zone,point,0.5,rng.randf()*360,false,-0.018,height)
+		await prop(key,zone,point,0.5,rng.randf()*360,false,-0.018,height)
 		grass_counts[zone] = grass_counts.get(zone,0)+1
 
 func reserve_grass_site(point: Vector2) -> bool:

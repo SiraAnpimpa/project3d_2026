@@ -13,6 +13,17 @@ func _ready() -> void:
 	visibility_range_end_margin = 2.0
 	local_coords = true
 	visibility_aabb = AABB(Vector3(-0.8,-0.5,-0.8), Vector3(1.6,2.0,1.6))
+	# Authored scenes carry immutable mesh/motion resources shared by instances.
+	# Rebuilding ParticleProcessMaterial per shot caused repeated shader stalls.
+	if draw_pass_1 == null or process_material == null: _build_resources()
+	if burst:
+		local_coords = false
+		one_shot = true
+		explosiveness = 1.0
+		finished.connect(queue_free)
+		restart()
+
+func _build_resources() -> void:
 	var material := StandardMaterial3D.new()
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -49,10 +60,5 @@ func _ready() -> void:
 	motion.color_ramp = ramp
 	process_material = motion
 	if burst:
-		local_coords = false
 		motion.emission_sphere_radius = 0.025
 		motion.spread = 75.0
-		one_shot = true
-		explosiveness = 1.0
-		finished.connect(queue_free)
-		restart()

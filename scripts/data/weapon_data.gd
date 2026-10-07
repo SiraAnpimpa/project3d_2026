@@ -9,6 +9,8 @@ enum WeaponType { PISTOL, RIFLE, SHOTGUN, SPECIAL, MELEE }
 @export var weapon_type: WeaponType = WeaponType.RIFLE
 @export var weapon_item: ItemData
 @export var ammo_type: ItemData
+# Empty keeps older weapon definitions compatible with their default ammo only.
+@export var compatible_ammo_types: Array[ItemData] = []
 @export var damage: float = 20.0
 @export var fire_rate: float = 5.0 # Shots per second.
 @export var magazine_size: int = 10
@@ -22,6 +24,7 @@ enum WeaponType { PISTOL, RIFLE, SHOTGUN, SPECIAL, MELEE }
 @export var icon: Texture2D
 
 @export_group("Holding presentation")
+@export var two_handed: bool = true
 # Offsets are in Somchai visual space, relative to the animated torso.
 @export var ready_hold_offset := Vector3(-0.18, -0.06, 0.24)
 @export var aim_hold_offset := Vector3(-0.18, 0.04, 0.21)
@@ -39,6 +42,19 @@ func is_melee() -> bool:
 	return weapon_type == WeaponType.MELEE
 
 
+func get_compatible_ammo() -> Array[ItemData]:
+	var result: Array[ItemData] = []
+	if is_melee(): return result
+	if ammo_type != null: result.append(ammo_type)
+	for item in compatible_ammo_types:
+		if item != null and not result.has(item): result.append(item)
+	return result
+
+
+func supports_ammo(item: ItemData) -> bool:
+	return item != null and get_compatible_ammo().has(item)
+
+
 func validation_errors() -> PackedStringArray:
 	var errors := PackedStringArray()
 	if String(weapon_id).strip_edges().is_empty() or display_name.strip_edges().is_empty():
@@ -51,12 +67,20 @@ func validation_errors() -> PackedStringArray:
 		errors.append("Weapon '%s' needs AMMO ItemData." % weapon_id)
 	for item in [weapon_item, ammo_type]:
 		if item != null: errors.append_array(item.validation_errors())
+	var ammo_ids := {}
+	for item in compatible_ammo_types:
+		if item == null or item.item_type != ItemData.ItemType.AMMO:
+			errors.append("Weapon '%s' has invalid compatible ammo." % weapon_id)
+			continue
+		errors.append_array(item.validation_errors())
+		if ammo_ids.has(item.id): errors.append("Weapon '%s' has duplicate compatible ammo." % weapon_id)
+		ammo_ids[item.id] = true
 	if not is_finite(damage) or damage <= 0 or not is_finite(fire_rate) or fire_rate <= 0 or fire_rate > 60:
 		errors.append("Weapon '%s': damage > 0 and fire_rate in (0, 60] required." % weapon_id)
 	if not is_finite(range_meters) or range_meters <= 0 or (not is_melee() and (magazine_size <= 0 or not is_finite(reload_time) or reload_time < 0)):
 		errors.append("Weapon '%s': invalid magazine, reload time or range." % weapon_id)
 	if is_melee():
-		if ammo_type != null or magazine_size != 0 or reload_time != 0 or automatic:
+		if ammo_type != null or not compatible_ammo_types.is_empty() or magazine_size != 0 or reload_time != 0 or automatic:
 			errors.append("Melee '%s' must be ammo-free with no magazine/reload or automatic fire." % weapon_id)
 		if not is_finite(melee_hit_delay) or not is_finite(melee_swing_duration) or melee_hit_delay <= 0 or melee_hit_delay >= melee_swing_duration or (fire_rate>0 and melee_swing_duration > 1.0/fire_rate) or melee_animation==&"":
 			errors.append("Melee '%s' needs hit delay < swing duration <= attack interval." % weapon_id)

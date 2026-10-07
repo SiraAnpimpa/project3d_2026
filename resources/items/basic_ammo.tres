@@ -8,7 +8,7 @@
 script = ExtResource("1")
 id = &"basic_ammo"
 display_name = "Basic Ammo"
-description = "Crafted ammunition. Shooting is planned for a later phase."
+description = "Standard ammunition for compatible firearms."
 icon = ExtResource("2")
 max_stack = 99
 item_type = 5

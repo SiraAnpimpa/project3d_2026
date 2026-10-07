@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://Asset/Ultimate RPG Items Bundle-glb/Sword.glb" id="model"]
+
+[node name="Sword" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("model")]
+
+rotation = Vector3(1.5707963, 0, 0)
+
+scale = Vector3(0.4, 0.4, 0.4)
+
+[node name="PrimaryGrip" type="Marker3D" parent="."]
+
+[node name="SecondaryGrip" type="Marker3D" parent="."]
+
+position = Vector3(0, 0, 0.04)
+
+[node name="HitTip" type="Marker3D" parent="."]
+
+position = Vector3(0, 0, 1.03)

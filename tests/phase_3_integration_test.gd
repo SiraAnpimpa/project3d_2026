@@ -23,6 +23,16 @@ func check(ok: bool, description: String) -> void:
 func frames(count: int) -> void:
 	for _i in count: await physics_frame
 
+func wait_for_gameplay() -> void:
+	# Scene loading is asynchronous; wait for its real completion, not a frame guess.
+	var deadline := Time.get_ticks_msec()+30000
+	while current_scene == null or current_scene.scene_file_path != "res://scenes/main/GameRoot.tscn":
+		if Time.get_ticks_msec() > deadline:
+			check(false, "gameplay preparation finishes within 30 seconds")
+			return
+		await process_frame
+	await current_scene.wait_until_ready()
+
 
 func key_event(code: Key, down: bool) -> void:
 	var event := InputEventKey.new()

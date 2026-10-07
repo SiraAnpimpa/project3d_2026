@@ -9,6 +9,10 @@ const VISUAL_HALF := 120.0
 const RESCUE := Vector2(29,43)
 const RESCUE_HEIGHT := 0.65
 const GROUND_SHADER := preload("res://assets/shaders/rural_ground.gdshader")
+signal prepared
+var preparation_complete := false
+var _spread_preparation := false
+var _slice_end := 0
 const TRAILS := [
 	[Vector2(0,-4),Vector2(2,-13),Vector2(4,-22),Vector2(-1,-28),Vector2(-10,-37)],
 	[Vector2(4,2),Vector2(13,-1),Vector2(22,3),Vector2(32,0),Vector2(39,5)],
@@ -24,10 +28,19 @@ const TRAILS := [
 ]
 
 func _ready() -> void:
-	build_patch("PlayableTerrain", PLAY_HALF, 2.0, true)
-	build_patch("DistantTerrain", VISUAL_HALF, 4.0, false)
+	_spread_preparation = not Engine.is_editor_hint() and get_tree().has_meta("loading_world")
+	_slice_end = Time.get_ticks_usec()+4000
+	await build_patch("PlayableTerrain", PLAY_HALF, 2.0, true)
+	await build_patch("DistantTerrain", VISUAL_HALF, 4.0, false)
 	# Beyond the original backdrop, low detail ground fades into the depth fog.
-	build_patch("HorizonTerrain",360.0,12.0,false,VISUAL_HALF)
+	await build_patch("HorizonTerrain",360.0,12.0,false,VISUAL_HALF)
+	preparation_complete = true
+	prepared.emit()
+
+func _preparation_slice() -> void:
+	if _spread_preparation and Time.get_ticks_usec() >= _slice_end:
+		await get_tree().process_frame
+		_slice_end = Time.get_ticks_usec()+4000
 
 static func mound(x: float, z: float, cx: float, cz: float, rx: float, rz: float) -> float:
 	return exp(-pow((x-cx)/rx,2)-pow((z-cz)/rz,2))
@@ -116,22 +129,38 @@ func build_patch(label: String, half: float, step: float, solid: bool, inner_hal
 	var normals := PackedVector3Array()
 	var colors := PackedColorArray()
 	var cells := int(half*2/step)
+	# Adjacent triangles share lattice samples. Keep the original flat normals and
+	# triangle order, but evaluate the authored height/color only once per point.
+	var points := PackedVector3Array()
+	var point_colors := PackedColorArray()
+	var row_size := cells+1
+	points.resize(row_size*row_size)
+	point_colors.resize(row_size*row_size)
+	for iz in row_size:
+		for ix in row_size:
+			var x := -half+ix*step
+			var z := -half+iz*step
+			var index := iz*row_size+ix
+			points[index] = ground_point(x,z)
+			point_colors[index] = ground_color(x,z)
+		await _preparation_slice()
 	for iz in cells:
 		for ix in cells:
 			var x := -half+ix*step
 			var z := -half+iz*step
 			if not solid and x >= -inner_half and x < inner_half and z >= -inner_half and z < inner_half: continue
-			var a := ground_point(x,z)
-			var b := ground_point(x+step,z)
-			var c := ground_point(x,z+step)
-			var d := ground_point(x+step,z+step)
+			var a := iz*row_size+ix
+			var b := a+1
+			var c := a+row_size
+			var d := c+1
 			# Godot front faces are clockwise. Terrain faces must be visible from above.
 			for triangle in [[a,b,c],[b,d,c]]:
-				var normal: Vector3 = -(triangle[1]-triangle[0]).cross(triangle[2]-triangle[0]).normalized()
-				for point: Vector3 in triangle:
-					vertices.append(point)
+				var normal: Vector3 = -(points[triangle[1]]-points[triangle[0]]).cross(points[triangle[2]]-points[triangle[0]]).normalized()
+				for index: int in triangle:
+					vertices.append(points[index])
 					normals.append(normal)
-					colors.append(ground_color(point.x,point.z))
+					colors.append(point_colors[index])
+		await _preparation_slice()
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices

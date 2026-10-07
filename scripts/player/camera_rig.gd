@@ -38,6 +38,7 @@ var _menu_open := false
 var _player_alive := true
 var _cursor_released := false
 var _window_focused := true
+var _capture_frame := -1
 var _query := PhysicsShapeQueryParameters3D.new()
 var _shape := SphereShape3D.new()
 
@@ -81,8 +82,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		shoulder_side *= -1.0
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion:
+		# Cursor motion in UI/free-cursor mode is never camera input. Discard
+		# buffered/warp motion in the frame that re-enters pointer capture.
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED or Engine.get_process_frames() <= _capture_frame:
+			return
 		# Raw relative motion is already a displacement: never multiply it by delta.
-		orbit(-event.screen_relative.x * mouse_sensitivity, -event.screen_relative.y * mouse_sensitivity)
+		var sensitivity := mouse_sensitivity * CameraPreferences.get_sensitivity()
+		orbit(-event.screen_relative.x * sensitivity, -event.screen_relative.y * sensitivity)
 
 
 func _physics_process(delta: float) -> void:
@@ -147,8 +153,16 @@ func set_player_alive(value: bool) -> void:
 func capture_mouse() -> void:
 	_cursor_released = false
 	if can_control():
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		_capture_pointer()
 	controls_changed.emit(can_control())
+
+
+func _capture_pointer() -> void:
+	_capture_frame = Engine.get_process_frames()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# _capture_frame gates callbacks dispatched by this flush, so UI deltas
+	# cannot escape the modal boundary when the cursor is captured again.
+	Input.flush_buffered_events()
 
 
 func release_mouse() -> void:
@@ -213,7 +227,7 @@ func _notification(what: int) -> void:
 		controls_changed.emit(false)
 	elif what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_UNPAUSED:
 		if what == NOTIFICATION_APPLICATION_FOCUS_IN: _window_focused = true
-		if can_control(): Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if can_control(): _capture_pointer()
 		controls_changed.emit(can_control())
 
 

@@ -94,11 +94,19 @@ func run() -> void:
 	await capture("14_pause_guide")
 	key(KEY_ESCAPE)
 	key(KEY_ESCAPE)
+	game.clock.skip_to_night()
+	for _tick in 100:
+		game.waves._spawn_wait = 0
+		game.waves.debug_kill_active()
+		await frames(2)
+		if game.waves.state == NightWaveManager.State.CLEARED: break
+	await frames(3)
 	key(KEY_N)
 	await frames(15)
-	check(game.skip_night.is_open,"N opens confirmation")
+	check(game.skip_day.is_open,"N opens confirmation")
 	await capture("15_wait_confirmation")
 	key(KEY_ESCAPE)
+	game.waves.debug_set_day(1)
 	key(KEY_Q)
 	await frames(15)
 	await capture("16_rifle_hud")
@@ -254,7 +262,7 @@ func capture(label: String) -> void:
 	if is_instance_valid(game) and current_scene == game:
 		for panel: Control in [game.hud._clock_panel,game.hud._stats_panel,game.hud._equipment_panel,game.hud._wave_panel,game.hud.prompt_panel,game.inventory_ui._panel,game.crafting_ui._panel,game.pause_menu.get_node("Screen/Panel"),game.hud.death_panel]:
 			if panel.is_visible_in_tree(): candidates.append(panel)
-		if game.skip_night.is_open: candidates.append(game.skip_night.screen.find_child("Confirmation",true,false))
+		if game.skip_day.is_open: candidates.append(game.skip_day.screen.find_child("Confirmation",true,false))
 		if game.presentation.ending_finished: candidates.append(game.presentation.ending_panel)
 		if game.pause_menu.settings.visible: candidates.append(game.pause_menu.settings)
 	elif current_scene != null and current_scene.get("guide") != null:

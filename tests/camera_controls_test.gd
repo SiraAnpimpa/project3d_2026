@@ -61,7 +61,10 @@ func run() -> void:
 	var yaw := rig.rotation.y
 	var pitch := rig.pitch_pivot.rotation.x
 	motion(Vector2(100, -50))
-	check(is_equal_approx(rig.rotation.y - yaw, -0.3) and is_equal_approx(rig.pitch_pivot.rotation.x - pitch, 0.15), "raw mouse displacement rotates yaw and pitch without delta scaling")
+	if DisplayServer.get_name() == "headless":
+		check(rig.rotation.y == yaw and rig.pitch_pivot.rotation.x == pitch, "headless visible cursor cannot rotate camera")
+	else:
+		check(is_equal_approx(rig.rotation.y - yaw, -0.3 * CameraPreferences.get_sensitivity()) and is_equal_approx(rig.pitch_pivot.rotation.x - pitch, 0.15 * CameraPreferences.get_sensitivity()), "captured mouse displacement rotates yaw and pitch without delta scaling")
 	rig.orbit(0, -100)
 	check(is_equal_approx(rig.pitch_pivot.rotation.x, deg_to_rad(-65)), "downward pitch clamps at -65 degrees")
 	rig.orbit(0, 100)

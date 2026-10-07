@@ -7,7 +7,7 @@
 script = ExtResource("1")
 id = &"paper"
 display_name = "Paper"
-description = "Farm-grown material. Keep it for a later phase."
+description = "Farm-grown wrapping for ammunition and weapon grips."
 icon = ExtResource("2")
 max_stack = 99
 item_type = 1

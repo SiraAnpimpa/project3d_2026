@@ -38,11 +38,15 @@ static func category(item: ItemData) -> String:
 
 static func use_text(item: ItemData) -> String:
 	if item == null: return "Select an item to inspect."
+	if item.item_type == ItemData.ItemType.AMMO:
+		var effect := "Standard rounds"
+		match item.ammo_effect:
+			ItemData.AmmoEffect.BURN: effect = "Burn: %s HP/s · %ss" % [str(item.effect_damage_per_second), str(item.effect_duration)]
+			ItemData.AmmoEffect.SLOW: effect = "Slow: %d%% · %ss" % [roundi((1.0 - item.effect_speed_multiplier) * 100), str(item.effect_duration)]
+			ItemData.AmmoEffect.POISON: effect = "Poison: %s HP/s · %ss" % [str(item.effect_damage_per_second), str(item.effect_duration)]
+		return "C Switch ammo · R Reload\n" + effect
 	match item.id:
 		&"basic_rifle": return "RMB Aim · LMB Fire\nR Reload"
 		&"wooden_bat": return "LMB Swing · No ammo"
-		&"basic_ammo": return "Reloads the Basic Rifle."
 		&"basic_medicine": return "Crafted supply · Use unavailable."
-		&"metal_component": return "Component for future equipment."
-		&"fire_ammo", &"ice_ammo", &"poison_ammo": return "Craft-only · Not equippable."
-	return "Material for the workbench."
+	return item.description if not item.description.is_empty() else "Material for the workbench."

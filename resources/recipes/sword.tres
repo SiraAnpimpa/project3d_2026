@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CraftRecipe" load_steps=11 format=3]
+[ext_resource type="Script" path="res://scripts/data/craft_recipe.gd" id="recipe"]
+[ext_resource type="Script" path="res://scripts/data/recipe_entry.gd" id="entry"]
+[ext_resource type="Resource" path="res://resources/items/sword.tres" id="output"]
+[ext_resource type="Resource" path="res://resources/items/metal_component.tres" id="metal_component"]
+[ext_resource type="Resource" path="res://resources/items/iron.tres" id="iron"]
+[ext_resource type="Resource" path="res://resources/items/paper.tres" id="paper"]
+[sub_resource type="Resource" id="metal_component_entry"]
+script = ExtResource("entry")
+item = ExtResource("metal_component")
+quantity = 3
+[sub_resource type="Resource" id="iron_entry"]
+script = ExtResource("entry")
+item = ExtResource("iron")
+quantity = 2
+[sub_resource type="Resource" id="paper_entry"]
+script = ExtResource("entry")
+item = ExtResource("paper")
+quantity = 2
+[sub_resource type="Resource" id="output_entry"]
+script = ExtResource("entry")
+item = ExtResource("output")
+quantity = 1
+[resource]
+script = ExtResource("recipe")
+recipe_id = &"sword"
+display_name = "Sword"
+description = "LMB Slash · No ammo\nStrong melee · Moderate speed"
+icon = null
+category = 2
+ingredients = Array[Resource]([SubResource("metal_component_entry"), SubResource("iron_entry"), SubResource("paper_entry")])
+outputs = Array[Resource]([SubResource("output_entry")])
+unlock_day = 3
