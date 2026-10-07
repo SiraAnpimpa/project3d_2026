@@ -1,0 +1,19 @@
+{
+  "baseline_files": 1905,
+  "unchanged_baseline_files": 1902,
+  "changed_existing_runtime_files": [
+    "assets/ui/menu_background.png",
+    "resources/navigation/prototype_navigation.tres",
+    "scripts/world/rural_environment.gd"
+  ],
+  "new_runtime_files": [
+    "scripts/world/scenery_grounding.gd",
+    "scripts/world/scenery_grounding.gd.uid"
+  ],
+  "unchanged_source_glbs": 244,
+  "terrain_source_unchanged": true,
+  "gameplay_and_UI_sources_unchanged": true,
+  "windows_preset_unchanged": true,
+  "navigation_rebaked": true,
+  "scope": "Compared with the working tree at the start of this placement request, including earlier UI, map and VFX changes. New capture/audit fixtures and reports are outside the runtime hash set."
+}

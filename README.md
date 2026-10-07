@@ -1,84 +1,93 @@
-# Somchai's Last Harvest
+# Somchai’s Last Harvest
 
-## Play in your browser (latest build)
+**ปลูกในตอนกลางวัน เอาชีวิตรอดในตอนกลางคืน**
 
-The latest game, including the UI polish pass, is exported to `docs/index.html`.
-After pushing the files, enable GitHub Pages using **main /docs**.
-Play URL after deployment: **https://siraanpimpa.github.io/project3d_2026/**.
-[Publishing and rebuild instructions](docs/WEB_README.md).
+![ฟาร์มใน Somchai’s Last Harvest](assets/ui/menu_background.png)
 
+เกมผู้เล่นคนเดียวแนว **3D Farming Survival Shooter** มุมมองบุคคลที่สาม ในบรรยากาศฟาร์มชนบทแบบ Low Poly คุณรับบทเป็นสมชายที่ต้องปลูกพืชทรัพยากร นำผลผลิตมาคราฟต์กระสุน และต่อสู้กับฝูงซอมบี้ที่บุกมาตอนกลางคืน
 
-## Current: Gameplay & Character Refinement
+เป้าหมายคือ **เอาชีวิตรอดให้ครบ 10 คืน** เพื่อรอเฮลิคอปเตอร์ช่วยเหลือในเช้าวันที่ 11 ความพร้อมในแต่ละคืนขึ้นอยู่กับการวางแผนปลูกพืชและสะสมกระสุนของคุณ
 
-**Complete — STOP for user review.** Open current `project.godot` in Godot4.7 /Compatibility and press F5. Sprint lasts7.17s instead of4.57s; stamina starts recovering after0.67s. Existing Matt locomotion, low-ready rifle hold and vertical aim are refined. Day1 includes an ammo-free Wooden Bat: Q to Combat, wheel to bat, LMB to swing without RMB. Damage10, range1.6m, interval0.85s. Eight existing crops now use eight distinct native models and their existing growth stages.
+## เริ่มเล่น
 
-![Eight distinct crops from the player camera](docs/gameplay_refinement/contact/plants_qa.png)
+- [เปิดเกมผ่าน GitHub Pages](https://siraanpimpa.github.io/project3d_2026/) เมื่อเปิดใช้งานและเผยแพร่ Pages ของโปรเจกต์แล้ว
+- ใช้คอมพิวเตอร์พร้อมคีย์บอร์ดและเมาส์ และเบราว์เซอร์ที่รองรับ WebGL 2
+- ที่เมนูหลักเลือก **Begin the harvest** เพื่อเริ่ม หรือ **How to play** เพื่อดูวิธีเล่นในเกม
+- หากเมาส์หลุดจากหน้าจอเกม ให้คลิกพื้นที่เกมอีกครั้ง
 
-[GAMEPLAY_REFINEMENT_REPORT.md](GAMEPLAY_REFINEMENT_REPORT.md) covers all15 requested topics, measured before/after results, animation asset status, bat balance, tests and remaining visual limits. [Plant mapping and all68 Nature sources](PLANT_VISUAL_ASSET_MAPPING.md), [evidence](docs/gameplay_refinement/README.md), [current test instructions](tests/README.md). Inventory/farming/crafting/AI/waves/clock/progression/map cores are preserved. The historical EXE/PCK is older; it has not been regenerated.
+## รูปแบบการเล่น
 
-## Historical: Final environment cleanup
+### กลางวัน — ปลูก เก็บเกี่ยว และเตรียมตัว
 
-**Complete — STOP for map review.** Open this source project in Godot 4.7 /Compatibility and press F5. The 112×112 m playable rural world keeps its home/farm/workshop/forest/depot and separate southeast rescue clearing. Finished roof/wall/support connections, muted Cabin exterior, grounded bench/tools/stock, curated props, no forced landing asphalt/gantry, blended earth edges. 56 decorative model sources /11,707 placements; gameplay and major layout preserved.
+ฟาร์มมีแปลงปลูก 12 แปลง กด **Q** เข้าสู่โหมด Farming แล้วใช้ล้อเมาส์เลือกเมล็ด หรือเปิดกระเป๋าด้วย **Tab** เพื่อเลือกเมล็ดที่มีอยู่ เดินเข้าใกล้แปลงว่างแล้วกด **E** เพื่อปลูก
 
-![Finished farmstead](docs/map_final_cleanup/after/farmstead.png)
+พืชเติบโตตามเวลา เมื่อพร้อมเก็บเกี่ยว ให้กด **E** ที่แปลงนั้นเพื่อรับผลผลิต นำวัตถุดิบไปที่ **Workbench** แล้วกด **E** เปิดหน้าคราฟต์ เลือกสูตรและคราฟต์เมื่อมีวัตถุดิบครบ
 
-[MAP_FINAL_CLEANUP_REPORT.md](MAP_FINAL_CLEANUP_REPORT.md) covers all twelve requested topics, before/after views, interactions/routes/night/ending, performance variation and source preservation. [Asset usage](MAP_ASSET_USAGE.md), [evidence](docs/map_final_cleanup/README.md), [test instructions](tests/README.md). Historical exported EXE/PCK uses an older map.
+สูตรสำคัญสำหรับเริ่มต้น:
 
-## Earlier phase records
+| ผลลัพธ์ | วัตถุดิบต่อครั้ง |
+|---|---|
+| Basic Ammo ×10 | Lead ×1 + Paper ×1 + Copper ×1 |
+| Basic Medicine ×1 | Small Herb ×2 |
+| Metal Component ×1 | Iron ×2 + Copper ×1 |
 
-The following sections preserve earlier versions and their stated counts; current source/evidence is described above.
+**Basic Ammo เป็นกระสุนที่ใช้กับปืนได้** ส่วนยาและกระสุนธาตุคราฟต์เก็บได้ แต่ยังไม่มีการใช้ยาและยิงกระสุนธาตุในเกมเวอร์ชันนี้
 
-## Historical source: Map Beautification & Spatial Recomposition
+### กลางคืน — ต่อสู้และรักษาระยะ
 
-112×112 m playable rural world /240×240 m visual scenery. Furnished Cabin home, spacious twelve-plot farm and independent workshop; dense varied forest/grass edges; curved road to a separate southeast evacuation clearing.70 model sources reused, including the supplied Cabin. Open current source in Godot4.7 /Compatibility and press F5.
+กลางคืนเริ่มเวลา **18:00** และสิ้นสุดเวลา **06:00** กด **Q** เข้าโหมด Combat ใช้ล้อเมาส์สลับระหว่างอาวุธที่สวมใส่
 
-Read [MAP_BEAUTIFICATION_REPORT.md](MAP_BEAUTIFICATION_REPORT.md) for before/after images, actual movement/farming/night/navigation/ending checks, scope verification and measured performance. [MAP_ASSET_USAGE.md](MAP_ASSET_USAGE.md) maps models to purpose and zone. **Complete — STOP for map review.** The historical exported EXE/PCK still contains an earlier world.
+- **Basic Rifle:** กด **R** บรรจุกระสุน คลิกขวาค้างเพื่อเล็ง แล้วคลิกซ้ายยิง แม็กกาซีนบรรจุได้ 10 นัด
+- **Wooden Bat:** คลิกซ้ายเพื่อฟาดในระยะประชิด ไม่ต้องเล็งและไม่ใช้กระสุน เหมาะเป็นอาวุธสำรอง แต่การเข้าใกล้ศัตรูมีความเสี่ยง
+- ดูค่า **HP**, **Stamina**, กระสุน และจำนวนศัตรูบน HUD ใช้การวิ่งเพื่อรักษาระยะและเผื่อ Stamina สำหรับหนี
 
-![Current farmstead](docs/map_beautification/after/farmstead.png)
+ศัตรูเพิ่มขึ้นตามวัน มีทั้ง Normal, Runner ที่เริ่มพบตั้งแต่วันที่ 3 และ Tank ตั้งแต่วันที่ 7
 
-The preceding [Major Map Redesign](MAP_REDESIGN_REPORT.md) and [Refinement Pass1](POST_PRODUCTION_REFINEMENT_1.md) reports/evidence remain historical records.
+### ผ่านคืนและเตรียมรอบถัดไป
 
-## Refinement pass1 source update
+เมื่อกำจัดศัตรูของคืนนั้นหมดแล้ว สามารถกลับไปที่เตียงในกระท่อมและกด **E** เพื่อพักจนเช้า พร้อมฟื้น HP และ Stamina หากรอจนเช้าตามปกติ เกมจะขึ้นวันใหม่โดยไม่ฟื้น HP ให้
 
-Current source adds a more readable farm/base/approach map, improved rifle/character poses and **N: Skip to Night** with mandatory confirmation. Plants grow over the skipped time; HP, ammo and day are not rewarded. Read [POST_PRODUCTION_REFINEMENT_1.md](POST_PRODUCTION_REFINEMENT_1.md) for current tests and limits.
+ช่วงกลางวันกด **N** และยืนยันเพื่อรอจนถึง 18:00 ของวันเดียวกัน พืชจะเติบโตตามเวลาที่ผ่านไป ควรเก็บผลผลิต คราฟต์ และบรรจุกระสุนให้พร้อมก่อนใช้คำสั่งนี้
 
-Run current source with Godot4.7/Compatibility (F5). The packaged v0.1.0-demo below is the historical Phase10 candidate and has not been regenerated by this source refinement pass. Current verification uses4.7.stable on RTX4060Laptop; do not attribute old release performance to the new source.
+## แนะนำสำหรับวันแรก
 
-**v0.1.0-demo** - a third-person farming and survival shooter built with Godot4.7.2 / Compatibility.
+1. ปลูก **Lead, Paper และ Copper** เพื่อเตรียมวัตถุดิบกระสุน
+2. รอให้พืชโตแล้วเก็บเกี่ยวด้วย **E**
+3. ไปที่ Workbench และคราฟต์ **Basic Ammo** ให้เพียงพอ
+4. สลับเป็น Combat แล้วกด **R** ปืนเริ่มต้นยังไม่มีกระสุนในแม็กกาซีน
+5. ต่อสู้โดยรักษาระยะ ใช้ไม้เมื่อจำเป็น และกลับไปพักหลังเคลียร์ฝูงซอมบี้
 
-Grow supplies during the day, craft ammunition, survive ten nights of zombies and reach the rescue helicopter on the morning of Day11.
+## ปุ่มควบคุม
 
-## Run the Windows candidate
+| ปุ่ม | การใช้งาน |
+|---|---|
+| W / A / S / D | เดิน |
+| Shift | วิ่ง ใช้ Stamina |
+| เมาส์ / ปุ่มลูกศร | หมุนมุมมอง |
+| E | ปลูก เก็บเกี่ยว ใช้โต๊ะคราฟต์ หรือพักที่เตียง |
+| Tab | เปิดกระเป๋าและจัดอุปกรณ์ |
+| Q | สลับโหมด Farming / Combat |
+| ล้อเมาส์ | เลือกเมล็ดในโหมด Farming / สลับอาวุธที่สวมใส่ในโหมด Combat |
+| คลิกขวาค้าง | เล็งปืนในโหมด Combat |
+| คลิกซ้าย | ยิงขณะเล็งปืน / ฟาดไม้ในโหมด Combat |
+| R | บรรจุกระสุนปืน |
+| V | สลับไหล่กล้อง |
+| N | ช่วงกลางวัน: เปิดหน้าต่างยืนยันรอจนถึงกลางคืน |
+| Esc | ปิดหน้าต่างปัจจุบัน / หยุดเกม / ย้อนกลับ |
 
-Open `release/SomchaisLastHarvest_v0.1.0_demo/SomchaisLastHarvest.exe`. Keep the `.pck` beside it. The release folder and ZIP are local build artifacts, excluded from Git. The source repository contains the export preset and reproducible QA tooling.
+เปิดกระเป๋าด้วย **Tab** เพื่อดูวัตถุดิบ เลือกเมล็ด และจัดอาวุธลงช่องอุปกรณ์ การเลื่อนล้อเมาส์ในโหมด Combat จะเลือกเฉพาะอาวุธที่สวมใส่ไว้ [คู่มือควบคุมเพิ่มเติม](CONTROLS.md)
 
-Main Menu offers Play, How To Play and Quit. Pause provides Resume, guide, Restart and Main Menu. There is no save: restarting or closing loses the current campaign.
+## ข้อมูลที่ควรรู้ก่อนเล่น
 
-## Play
+- เกมเป็นเดโมผู้เล่นคนเดียว และยังไม่มีระบบบันทึกความคืบหน้า การเริ่มใหม่หรือปิดเกมทำให้เริ่มรอบใหม่
+- มีเมล็ดและสูตรคราฟต์ปลดล็อกตามวัน เมล็ดพื้นฐานได้รับเพิ่มเมื่อขึ้นวันใหม่ หากกระเป๋าเต็มควรเคลียร์พื้นที่เพื่อรับของ
+- กล่อง เครื่องมือ และเสบียงที่ใช้ตกแต่งฉากไม่ได้เป็นจุดเก็บไอเทมทุกชิ้น ให้ดูข้อความโต้ตอบก่อนกด **E**
+- เมนู **Settings** ใช้ปรับระดับเสียงและลดการเคลื่อนไหวของ UI ได้
 
-1. Select Lead/Paper/Copper seeds with the mouse wheel and press E at empty plots.
-2. Harvest ready crops, go to Workbench, then craft Basic Ammo.
-3. Q switches to Combat. R reloads the rifle, hold RMB to aim and LMB to fire. Wheel to Wooden Bat and LMB to swing without ammo or RMB.
-4. Prepare before18:00; move away from attackers while reloading. Clear the wave and use the shelter bed for full recovery, or survive to dawn without healing.
-5. Survive Night10 to see rescue, then Play Again or return to Main Menu.
+## เปิดโปรเจกต์ใน Godot
 
-WASD moves, Shift sprints, Tab opens inventory, Esc closes the current panel/pauses, V changes shoulder. See [CONTROLS.md](CONTROLS.md).
+1. ใช้ **Godot 4.7** และนำเข้าไฟล์ `project.godot` ที่โฟลเดอร์หลัก
+2. เปิดโปรเจกต์แล้วกด **F5** เพื่อรันเกม
+3. เลือก **Begin the harvest** ที่เมนูหลัก
 
-Current source has Basic Rifle/Basic Ammo and the Wooden Bat fallback. Medicine and elemental ammo are craft-only. Crops/recipes unlock on Days3/5/7; daily basic seed supplies grow with the difficulty curve. See [FINAL_BALANCE.md](FINAL_BALANCE.md).
-
-## Source and export
-
-Import `project.godot` into Godot4.7.2, then F5. Install the matching Windows x86_64 export templates. Export the **Windows Desktop** release preset. Runtime needs no Godot editor installation. Tested on Windows with i5-9300H and RTX2060; minimum hardware and other operating systems are not certified.
-
-```powershell
-./tests/run_tests.ps1 -Godot 'PATH_TO_GODOT_CONSOLE.exe' -WithRendering
-# Optional sustained campaign and profiling:
-./tests/run_tests.ps1 -Godot 'PATH_TO_GODOT_CONSOLE.exe' -WithCampaign -WithProfiling
-python tools/export_qa.py 'PATH_TO_GODOT_CONSOLE.exe' campaign
-```
-
-`export_qa.py` creates an isolated release-template QA entry scene and restores project settings in `finally`. Gameplay resources match the candidate; normal release excludes test scripts and uses Main Menu. QA variants are not the submission build. The release executable does not support the editor's `--script` switch.
-
-## Delivery notes
-
-[FINAL_QA_REPORT.md](FINAL_QA_REPORT.md) records results and test boundaries. [KNOWN_ISSUES.md](KNOWN_ISSUES.md) lists actual limitations. [ASSET_CREDITS.md](ASSET_CREDITS.md) records asset provenance and missing pack licenses. Godot engine license/notices are bundled. Confirm the original GLB pack distribution rights before publishing or submitting where those rights are required. Team member information was not supplied and is not invented.
+คู่มือเพิ่มเติม: [เปิดและส่งออกเวอร์ชันเว็บ](docs/WEB_README.md) · [โครงสร้างโปรเจกต์](PROJECT_ARCHITECTURE.md) · [เครดิตทรัพยากร](ASSET_CREDITS.md)

@@ -1,23 +1,31 @@
-# Controls - v0.1.0-demo
+# ปุ่มควบคุม — Somchai’s Last Harvest
 
-| Input | Action |
+| ปุ่ม | การใช้งาน |
 |---|---|
-| WASD | Move |
-| Shift | Sprint, using stamina |
-| Mouse / arrows | Look |
-| E | Plant, harvest, Workbench, or bed after clearing night |
-| Tab | Inventory |
-| Q | Farming / Combat |
-| Mouse wheel | Select seed / equipped weapon for current mode |
-| RMB hold | Aim rifle in Combat |
-| LMB in Combat | Rifle: fire while aiming; Wooden Bat: swing without RMB |
-| R | Reload rifle; restart after death |
-| V | Change shoulder |
-| N | Daytime: open Skip to Night confirmation; Cancel is focused first |
-| Esc | Close current panel / Pause / Back |
+| W / A / S / D | เดิน |
+| Shift | วิ่ง ใช้ Stamina |
+| เมาส์ / ปุ่มลูกศร | หมุนมุมมอง |
+| E | ปลูก เก็บเกี่ยว ใช้โต๊ะคราฟต์ หรือพักที่เตียง |
+| Tab | เปิดกระเป๋าและจัดอุปกรณ์ |
+| Q | สลับโหมด Farming / Combat |
+| ล้อเมาส์ | เลือกเมล็ดในโหมด Farming / สลับอาวุธที่สวมใส่ในโหมด Combat |
+| คลิกขวาค้าง | เล็งปืนในโหมด Combat |
+| คลิกซ้าย | ยิงขณะเล็งปืน / ฟาดไม้ในโหมด Combat |
+| R | บรรจุกระสุนปืน |
+| V | สลับไหล่กล้อง |
+| N | ช่วงกลางวัน: เปิดหน้าต่างยืนยันรอจนถึงกลางคืน |
+| Esc | ปิดหน้าต่างปัจจุบัน / หยุดเกม / ย้อนกลับ |
 
-Plant Lead, Paper and Copper, harvest, craft Basic Ammo at Workbench, switch to Combat and reload. Clear the night and rest for full HP/stamina, or survive to dawn without the rest bonus. Survive Night10 to reach rescue. Current source has Basic Rifle/Basic Ammo and a Wooden Bat owned/equipped from Day1. Wheel switches equipped weapons. The bat needs no ammo and deals10damage at short range, once per press with a0.85s interval; medicine and elemental ammunition are craft-only. Release disables F1/development cheats.
+## การเลือกไอเทมและอาวุธ
 
-Skip to Night is available on Days1–10 before18:00, with menus closed and no reload/rest/ending in progress. Confirm advances the existing clock to18:00 on the same day; plants grow during the skipped time. It does not harvest, craft, reload or heal. Escape/Cancel returns without advancing time. Day10 uses a Final Night warning. Waiting never skips a night.
+เปิดกระเป๋าด้วย Tab เพื่อเลือกเมล็ดและจัดอาวุธลงช่องอุปกรณ์ ล้อเมาส์เลือกเมล็ดที่มีอยู่ในโหมด Farming และเลือกอาวุธที่สวมใส่ในโหมด Combat ปืนต้องมี Basic Ammo และบรรจุกระสุนก่อนยิง ส่วนไม้ใช้คลิกซ้ายโจมตีได้โดยไม่ต้องเล็ง
 
-Current source/F5 includes this pass. The existing exported EXE/PCK predates it.
+## การพักและรอเวลา
+
+เตียงใช้ได้เมื่อเคลียร์ศัตรูของคืนนั้นแล้ว และช่วยฟื้น HP/Stamina การรอจนเช้าตามปกติไม่ฟื้น HP
+
+N เปิดหน้าต่างยืนยันรอจนถึงกลางคืนในวันเดียวกัน ใช้ได้ช่วงกลางวันเมื่อไม่มีเมนูหรือการเปลี่ยนสถานะอื่นขวางอยู่ พืชเติบโตตามเวลาที่ผ่านไป แต่ผู้เล่นต้องเก็บเกี่ยว คราฟต์ และบรรจุกระสุนเอง กด Esc หรือ Cancel เพื่อยกเลิก
+
+เมื่อเล่นผ่านเว็บ คลิกพื้นที่เกมเพื่อควบคุมเมาส์อีกครั้งหลังเคอร์เซอร์ถูกปล่อย
+
+[กลับไปดูวิธีเล่น](README.md)

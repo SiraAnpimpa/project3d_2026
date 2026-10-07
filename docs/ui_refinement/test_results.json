@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-06",
+  "native_gates": [
+    {
+      "name": "ui_refinement_contracts_confirm",
+      "passed_assertions": 66,
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "ui_refinement_settings_confirm",
+      "passed_assertions": 22,
+      "failures": [],
+      "result": "PASS"
+    },
+    {
+      "name": "ui_refinement_visual_confirm_final",
+      "passed_assertions": 197,
+      "failures": [],
+      "result": "PASS"
+    }
+  ],
+  "native_total_pass": 285,
+  "baseline_images": 27,
+  "final_native_images": 61,
+  "tested_native_sizes": [
+    "1280x720",
+    "960x540",
+    "1920x1080",
+    "1024x768"
+  ],
+  "web_export": "PASS",
+  "web_fullscreen": "Browser controls; automation entry not certified",
+  "performance_benchmark": "Not run in this add-on",
+  "web_export_environment_diagnostics": [
+    "ERROR: Safe save failed. This may be a permissions problem, but also may happen because you are running a paranoid antivirus. If this is the case, please switch to Windows Defender or disable the 'safe save' option in editor settings. This makes it work, but increases the risk of file corruption in a crash."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-06",
+  "browser": "Codex in-app browser",
+  "states": [
+    "Main",
+    "Settings",
+    "48% volume",
+    "Reduced motion"
+  ],
+  "screenshots": [
+    "01_main_menu.jpg",
+    "02_settings.jpg",
+    "03_volume_reduced_motion.jpg",
+    "04_fullscreen.jpg",
+    "05_settings_after_display_attempt.jpg",
+    "06_after_escape.jpg",
+    "07_main_menu_960x540.jpg"
+  ],
+  "fullscreen": "Not certified; viewport/canvas capture mismatches during fullscreen attempt"
+}

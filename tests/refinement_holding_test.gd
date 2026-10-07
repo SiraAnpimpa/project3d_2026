@@ -6,6 +6,8 @@ func run() -> void:
 	current_scene = game
 	await frames(20)
 	player = game.player
+	# This older fixture exercises a rifle-only loadout; Day 1 now also owns a bat.
+	game.equipment.unequip_weapon(1)
 	game.clock.paused = true
 	game.debug_controls.set_active(false)
 	await place_player(Vector3(13,0.05,6))

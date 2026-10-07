@@ -1,0 +1,20 @@
+[
+  {
+    "level": "error",
+    "message": "UnknownError: If you see this error we have a bug. Please report this bug to chromium.",
+    "timestamp": "2026-10-07T07:14:39.790Z",
+    "url": "http://127.0.0.1:8734/project3d_2026/"
+  },
+  {
+    "level": "error",
+    "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+    "timestamp": "2026-10-07T07:15:13.062Z",
+    "url": "http://127.0.0.1:8734/project3d_2026/"
+  },
+  {
+    "level": "error",
+    "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+    "timestamp": "2026-10-07T07:15:29.192Z",
+    "url": "http://127.0.0.1:8734/project3d_2026/"
+  }
+]

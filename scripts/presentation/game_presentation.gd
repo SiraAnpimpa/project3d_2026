@@ -51,17 +51,26 @@ func _setup_death_menu() -> void:
 	panel.get_node("Text").hide()
 	panel.offset_left = -260
 	panel.offset_right = 260
-	panel.offset_top = -150
-	panel.offset_bottom = 150
+	panel.offset_top = -196
+	panel.offset_bottom = 196
 	var rows := VBoxContainer.new()
 	rows.add_theme_constant_override("separation", 14)
 	panel.add_child(rows)
-	PresentationStyle.label(rows, "GAME OVER", 32).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	PresentationStyle.label(rows, "Somchai did not survive.").horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var restart := PresentationStyle.button(rows, "TRY AGAIN  [R]", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn"))
+	PresentationStyle.eyebrow(rows, "THE LAST LIGHT HAS FADED").horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	PresentationStyle.icon(rows, UiIcons.get_icon("wave"), 42).modulate = PresentationStyle.RED
+	PresentationStyle.label(rows, "Game over", 36).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var summary := PresentationStyle.label(rows, "", 17)
+	summary.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	summary.modulate = PresentationStyle.MUTED
+	rows.add_child(HSeparator.new())
+	var restart := PresentationStyle.button(rows, "Try again  ·  R", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn"), "play")
+	restart.theme_type_variation = "PrimaryButton"
 	restart.name = "Restart"
-	PresentationStyle.button(rows, "MAIN MENU", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/MainMenu.tscn")).name = "MainMenu"
+	var main := PresentationStyle.button(rows, "Return to main menu", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/MainMenu.tscn"), "rest")
+	main.theme_type_variation = "HarvestMenuButton"
+	main.name = "MainMenu"
 	game.player.health.died.connect(func() -> void:
+		summary.text = "Day %d / 10  ·  %02d:%02d\nThe harvest ends here. You can try again." % [mini(game.clock.current_day, 10), game.clock.current_hour, game.clock.current_minute]
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		restart.grab_focus())
 
@@ -146,16 +155,21 @@ func _finish_ending() -> void:
 	ending_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	ending_panel.offset_left = -320
 	ending_panel.offset_right = 320
-	ending_panel.offset_top = -230
-	ending_panel.offset_bottom = 230
+	ending_panel.offset_top = -250
+	ending_panel.offset_bottom = 250
 	var rows := VBoxContainer.new()
 	rows.add_theme_constant_override("separation", 16)
 	ending_panel.add_child(rows)
-	PresentationStyle.label(rows, "SOMCHAI'S LAST HARVEST", 23).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	PresentationStyle.eyebrow(rows, "SOMCHAI’S LAST HARVEST / DAY 11").horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	PresentationStyle.icon(rows, UiIcons.item_icon(game.catalog.get_item(&"seed_small_herb")), 60)
 	PresentationStyle.label(rows, "YOU SURVIVED\n10 NIGHTS", 42).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	PresentationStyle.label(rows, "Rescue has arrived. The farm can rest.").horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var again := PresentationStyle.button(rows, "PLAY AGAIN", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn"))
+	rows.add_child(HSeparator.new())
+	var again := PresentationStyle.button(rows, "Begin a new harvest", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn"), "play")
+	again.theme_type_variation = "PrimaryButton"
 	again.name = "PlayAgain"
-	PresentationStyle.button(rows, "RETURN TO MAIN MENU", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/MainMenu.tscn")).name = "MainMenu"
+	var main := PresentationStyle.button(rows, "Return to main menu", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/MainMenu.tscn"), "rest")
+	main.theme_type_variation = "HarvestMenuButton"
+	main.name = "MainMenu"
 	PresentationStyle.label(rows, "Thank you for playing this survival demo.", 15).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	again.grab_focus()

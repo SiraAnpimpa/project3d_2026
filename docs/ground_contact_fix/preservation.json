@@ -1,0 +1,11 @@
+{
+  "original_files": 1073,
+  "changed": [
+    "scripts/world/rural_environment.gd",
+    "scripts/world/scenery_grounding.gd",
+    "resources/navigation/prototype_navigation.tres"
+  ],
+  "unchanged": 1070,
+  "UI_and_animation_unchanged": true,
+  "source_models_unchanged": true
+}

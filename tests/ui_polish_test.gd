@@ -8,7 +8,7 @@ func run() -> void:
 	var hud: PrototypeHUD = game.hud
 	var bag: InventoryUI = game.inventory_ui
 	var craft: CraftingUI = game.crafting_ui
-	check(hud.day_label.text == "DAY 1 / 10" and hud.time_label.text == "06:00", "clock and day use current game signals")
+	check(hud.day_label.text == "Day 1" and hud.time_label.text == "06:00", "clock and day use current game signals")
 	check(hud.seed_label.visible and not hud.ammo_label.visible and not hud._wave_panel.visible, "day farming shows seeds, hides weapon and wave HUD")
 	check(hud.toast_label.text.length() < 59 and not hud.toast_label.text.contains("\n"), "unlock notification is one short line")
 	for plot: FarmPlot in game.get_node("MainWorld/FarmArea").get_children():

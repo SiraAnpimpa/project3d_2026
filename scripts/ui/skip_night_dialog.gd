@@ -20,12 +20,15 @@ func bind(root_game: Node3D) -> void:
 	game = root_game
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 25
-	action_button = PresentationStyle.button(game.hud.get_node("Root"), "N", request_open, "wait")
+	action_button = PresentationStyle.button(game.hud._clock_actions, "N  Wait", request_open)
 	action_button.name = "SkipToNight"
 	action_button.theme = PresentationStyle.theme(true)
-	action_button.custom_minimum_size = Vector2(62, 44)
-	action_button.position = Vector2(232,31)
-	action_button.add_theme_font_size_override("font_size",15)
+	action_button.theme_type_variation = "QuietButton"
+	action_button.custom_minimum_size = Vector2(58, 28)
+	action_button.add_theme_font_size_override("font_size",12)
+	var wait_style := PresentationStyle.flat(Color(0,0,0,0))
+	wait_style.set_content_margin_all(4)
+	action_button.add_theme_stylebox_override("normal", wait_style)
 	action_button.focus_mode = Control.FOCUS_NONE
 	action_button.tooltip_text = "Press N to review and confirm waiting until 18:00."
 	screen = Control.new()
@@ -46,10 +49,11 @@ func bind(root_game: Node3D) -> void:
 	var rows := VBoxContainer.new()
 	rows.add_theme_constant_override("separation",18)
 	panel.add_child(rows)
+	PresentationStyle.eyebrow(rows, "BEFORE THE SUN GOES DOWN")
 	title = PresentationStyle.label(rows,"Wait until night?",30)
 	time_summary = PresentationStyle.label(rows,"",19)
 	time_summary.modulate = Color("e9c774")
-	var text := PresentationStyle.label(rows,"The night wave begins at 18:00.\nPlants grow during the wait.\n\nHarvest, craft and reload before you leave.\nWaiting does not restore health.",18)
+	var text := PresentationStyle.label(rows,"Plants keep growing as time passes.\nZombies arrive at 18:00.\n\nCheck your supplies before waiting.",18)
 	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.custom_minimum_size.x = 532
 	text.size_flags_vertical = Control.SIZE_FILL
@@ -58,6 +62,7 @@ func bind(root_game: Node3D) -> void:
 	rows.add_child(buttons)
 	cancel_button = PresentationStyle.button(buttons,"Cancel  ·  Esc",cancel)
 	confirm_button = PresentationStyle.button(buttons,"Wait until 18:00",confirm_skip, "wait")
+	confirm_button.theme_type_variation = "PrimaryButton"
 	for button in [cancel_button,confirm_button]: button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	cancel_button.focus_neighbor_right = cancel_button.get_path_to(confirm_button)
 	confirm_button.focus_neighbor_left = confirm_button.get_path_to(cancel_button)

@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-07",
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "renderer": "Compatibility",
+  "individual_native_gates": 11,
+  "pass_lines": 897,
+  "failures": 0,
+  "script_resource_errors": 0,
+  "gates": [
+    {
+      "log": "placement_geometry.log",
+      "pass_lines": 158,
+      "results": [
+        "CLEANUP_GEOMETRY_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_nav_edges.log",
+      "pass_lines": 0,
+      "results": [
+        "NAV_EDGE_AUDIT_RESULT failures=0 overlapping_edges=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_metrics.log",
+      "pass_lines": 20,
+      "results": [
+        "CLEANUP_METRICS_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_audit_verified.log",
+      "pass_lines": 66,
+      "results": [
+        "SCENERY_AUDIT_RESULT failures=0 placements=10073 output=C:/Users/ADMIN/Documents/Codex/2026-09-28/files-mentioned-by-the-user-project3d/work/scenery_placement/after_audit.json"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_routes.log",
+      "pass_lines": 199,
+      "results": [
+        "CLEANUP_ROUTES_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_acceptance.log",
+      "pass_lines": 307,
+      "results": [
+        "CLEANUP_ACCEPTANCE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_full_day.log",
+      "pass_lines": 80,
+      "results": [
+        "CLEANUP_FULL_DAY_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_capture_final.log",
+      "pass_lines": 24,
+      "results": [
+        "SCENERY_CAPTURE_RESULT failures=0 views=24"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_rescue.log",
+      "pass_lines": 8,
+      "results": [
+        "CLEANUP_RESCUE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_environment.log",
+      "pass_lines": 34,
+      "results": [
+        "WORLD_REFRESH_RESULT failures=0 roadside_stakes=4"
+      ],
+      "errors": []
+    },
+    {
+      "log": "placement_performance.log",
+      "pass_lines": 1,
+      "results": [
+        "PHASE_10_PERFORMANCE_RESULT failures=0"
+      ],
+      "errors": []
+    }
+  ],
+  "limits": "Individual automated fixtures, not a human playtest or full ten-day campaign. Image saves count as PASS lines. Geometry/routes/full-day gates used the final physical layout; final audit/capture/profile also include the final small decorative pebble embedding adjustment."
+}

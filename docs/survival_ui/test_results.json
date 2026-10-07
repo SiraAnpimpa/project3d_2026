@@ -1,0 +1,26 @@
+{
+  "survival_ui_compact": {
+    "pass": 209,
+    "fail": 0,
+    "errors": 0,
+    "result": [
+      "SURVIVAL_UI_CAPTURE_RESULT failures=0"
+    ]
+  },
+  "survival_ui_refinement": {
+    "pass": 22,
+    "fail": 0,
+    "errors": 0,
+    "result": [
+      "UI_REFINEMENT_RESULT failures=0"
+    ]
+  },
+  "survival_ui_polish_final": {
+    "pass": 66,
+    "fail": 0,
+    "errors": 0,
+    "result": [
+      "UI_POLISH_TEST_RESULT failures=0"
+    ]
+  }
+}

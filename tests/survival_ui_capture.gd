@@ -1,0 +1,147 @@
+extends "res://tests/phase_9_presentation_test.gd"
+## Render the actual HUD and verify layout/input boundaries at four aspect ratios.
+
+func run() -> void:
+ root.size = Vector2i(1280,720)
+ await load_menu()
+ await start_play()
+ await frames(180)
+ var hud: PrototypeHUD = game.hud
+ check(hud._objective_panel.visible and not hud._wave_panel.visible, "day shows preparation context")
+ await capture("01_day_farming")
+ check_layout("day")
+ key(KEY_TAB)
+ await frames(15)
+ check(game.inventory_ui.is_open and paused and not hud._objective_panel.visible and not hud._control_hints.visible, "bag owns input and hides contextual HUD")
+ await capture("02_bag")
+ check_panel(game.inventory_ui._panel, "bag")
+ key(KEY_ESCAPE)
+ for id in [&"lead", &"paper", &"copper"]: game.inventory.add_item(game.catalog.get_item(id), 3)
+ game.crafting_ui.set_open(true)
+ await frames(15)
+ await capture("03_workbench")
+ check_panel(game.crafting_ui._panel, "workbench")
+ game.crafting_ui.set_open(false)
+ key(KEY_Q)
+ await frames(15)
+ check(hud._slot_icons[0].texture == UiIcons.item_icon(game.catalog.get_item(&"basic_rifle")) and hud._slot_icons[1].texture == UiIcons.item_icon(game.catalog.get_item(&"wooden_bat")) and hud._slot_icons[2].texture == null, "hotbar displays actual equipped icons and empty slot")
+ check(hud._slot_label.text == "R  Reload", "empty magazine gives actionable reload cue")
+ await capture("04_empty_rifle")
+ game.inventory.add_item(game.catalog.get_item(&"basic_ammo"), 25)
+ key(KEY_R)
+ await frames(30)
+ check(hud._count_caption.text == "RELOADING", "reload state is explicit")
+ await capture("05_reload")
+ await frames(70)
+ check(hud.ammo_label.text == "10 / 15", "loaded and reserve counts follow existing reload")
+ game.player.health.take_damage(80)
+ await frames(20)
+ check(hud.hp_label.text == "20" and hud._health_title.text.contains("LOW"), "critical health has number and text warning")
+ await capture("06_low_health")
+ game.player.health.reset()
+ mouse(MOUSE_BUTTON_WHEEL_DOWN, true)
+ mouse(MOUSE_BUTTON_WHEEL_DOWN, false)
+ await frames(8)
+ check(game.weapons.current.data.is_melee() and not hud.ammo_label.visible and hud._count_caption.text == "MELEE WEAPON", "wheel selects bat with no misleading ammunition")
+ await capture("08_bat")
+ game.inventory.remove_item(&"basic_rifle", 1)
+ game.inventory.remove_item(&"wooden_bat", 1)
+ await frames(8)
+ check(hud._slot_label.text == "No weapon equipped" and hud._slot_icons.all(func(icon: TextureRect) -> bool: return icon.texture == null), "removing final weapon clears display without stale runtime")
+ await capture("09_empty_loadout")
+ for id in [&"basic_rifle", &"wooden_bat"]: game.inventory.add_item(game.catalog.get_item(id), 1)
+ game.equipment.equip_weapon(0, game.catalog.get_item(&"basic_rifle"))
+ game.equipment.equip_weapon(1, game.catalog.get_item(&"wooden_bat"))
+ key(KEY_Q)
+ await frames(5)
+ var plot: FarmPlot = game.get_node("MainWorld/FarmArea").get_child(0)
+ game.player.position = plot.global_position + Vector3(0,0.05,1)
+ game.player.velocity = Vector3.ZERO
+ await frames(20)
+ check(game.player.interactor.target == plot and hud.prompt_panel.visible, "real plot target produces contextual interaction")
+ await capture("10_plant_prompt")
+ check_layout("plant prompt")
+ key(KEY_E)
+ game.clock.advance_game_minutes(10)
+ await frames(4)
+ await capture("11_growth_prompt")
+ game.clock.advance_game_minutes(60)
+ await frames(4)
+ await capture("12_harvest_prompt")
+ key(KEY_E)
+ await frames(4)
+ check(plot.state == FarmPlot.State.EMPTY, "original plant and harvest input still completes")
+ key(KEY_N)
+ await frames(15)
+ check(game.skip_night.is_open and paused and game.skip_night.cancel_button.has_focus(), "wait confirmation retains safe initial focus")
+ await capture("13_wait_confirmation")
+ key(KEY_ESCAPE)
+ key(KEY_ESCAPE)
+ await frames(15)
+ check(game.pause_menu.is_open and not hud._stats_panel.visible, "pause hides gameplay HUD")
+ await capture("14_pause")
+ key(KEY_ESCAPE)
+ check(not paused and game.player.camera_rig.can_control(), "Escape restores gameplay ownership")
+ key(KEY_Q)
+ game.clock.skip_to_night()
+ await frames(20)
+ check(hud._wave_panel.visible and not hud._objective_panel.visible and hud._wave_label.text.contains(str(game.waves.remaining_zombies)), "night count uses live wave including incoming")
+ await capture("07_night")
+ check_layout("night")
+ # Fixture expands the viewport to exercise anchors beyond shipping letterboxing.
+ root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
+ for resolution in [Vector2i(1280,720), Vector2i(1920,1080), Vector2i(1024,768), Vector2i(1920,810)]:
+  root.size = resolution
+  await frames(15)
+  if DisplayServer.get_name() != "headless":
+   await process_frame
+   await RenderingServer.frame_post_draw
+   check(root.get_texture().get_image().get_size() == resolution, "actual rendered image matches requested size")
+  var suffix := "%dx%d" % [resolution.x,resolution.y]
+  check_layout(suffix)
+  await capture("responsive_combat_" + suffix)
+  key(KEY_TAB)
+  await frames(15)
+  check_panel(game.inventory_ui._panel, "bag " + suffix)
+  await capture("responsive_bag_" + suffix)
+  key(KEY_ESCAPE)
+  game.crafting_ui.set_open(true)
+  await frames(15)
+  check_panel(game.crafting_ui._panel, "workbench " + suffix)
+  await capture("responsive_workbench_" + suffix)
+  game.crafting_ui.set_open(false)
+ # Final night and cleared night are explicit, state-driven contexts.
+ game.waves.debug_set_day(10)
+ game.clock.skip_to_night()
+ await frames(10)
+ check(hud._night_title.text == "FINAL NIGHT / 10", "final night has explicit survival context")
+ await capture("15_final_night")
+ for tick in 200:
+  game.waves._spawn_wait = 0
+  game.waves.debug_kill_active()
+  await frames(2)
+  if game.waves.state == NightWaveManager.State.CLEARED: break
+ check(game.waves.state == NightWaveManager.State.CLEARED and hud._wave_label.text == "Area cleared" and hud._night_copy.text.contains("cabin"), "cleared night identifies rest destination")
+ await capture("16_night_cleared")
+ game.player.health.take_damage(100)
+ await frames(15)
+ check(hud.death_panel.visible and not hud._wave_panel.visible and not hud._equipment_panel.visible, "death owns screen and suppresses gameplay cards")
+ await capture("17_game_over")
+ print("SURVIVAL_UI_CAPTURE_RESULT failures=",failures)
+ quit(1 if failures else 0)
+
+func check_panel(panel: Control, description: String) -> void:
+ var bounds: Rect2 = game.hud.get_node("Root").get_global_rect()
+ check(bounds.grow(-16).encloses(panel.get_global_rect()), description + " keeps safe screen margins")
+
+func check_layout(description: String) -> void:
+ var hud: PrototypeHUD = game.hud
+ var panels: Array[Control] = []
+ for control: Control in [hud._clock_panel, hud._stats_panel, hud._equipment_panel, hud._objective_panel, hud._wave_panel, hud.prompt_panel, hud._toast_panel, hud._control_hints]:
+  if control.is_visible_in_tree():
+   check_panel(control, description + " " + control.name)
+   panels.append(control)
+ for index in panels.size():
+  for other in range(index + 1,panels.size()):
+   check(not panels[index].get_global_rect().intersects(panels[other].get_global_rect()), description + " no overlap " + panels[index].name + "/" + panels[other].name)
+ check(hud._selected_icon.get_global_rect().size.x >= 40, description + " selected item icon remains readable")

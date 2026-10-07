@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-07",
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "renderer": "Compatibility",
+  "individual_native_gates": 10,
+  "pass_lines": 868,
+  "failures": 0,
+  "script_resource_errors": 0,
+  "gates": [
+    {
+      "log": "animation_contracts_verified.log",
+      "pass_lines": 26,
+      "results": [
+        "ANIMATION_FEEL_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_aim_verified.log",
+      "pass_lines": 30,
+      "results": [
+        "REFINEMENT_AIM_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_holding_verified.log",
+      "pass_lines": 12,
+      "results": [
+        "REFINEMENT_HOLDING_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_character_verified.log",
+      "pass_lines": 19,
+      "results": [
+        "GAMEPLAY_CHARACTER_CAPTURE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_bat_verified.log",
+      "pass_lines": 83,
+      "results": [
+        "GAMEPLAY_BAT_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_movement.log",
+      "pass_lines": 7,
+      "results": [
+        "GAMEPLAY_MOVEMENT_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_stride.log",
+      "pass_lines": 4,
+      "results": [
+        "GAMEPLAY_STRIDE_MEASURE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_acceptance.log",
+      "pass_lines": 307,
+      "results": [
+        "CLEANUP_ACCEPTANCE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_full_day.log",
+      "pass_lines": 80,
+      "results": [
+        "CLEANUP_FULL_DAY_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "animation_capture_verified.log",
+      "pass_lines": 300,
+      "results": [
+        "ANIMATION_CAPTURE_RESULT failures=0"
+      ],
+      "errors": []
+    }
+  ],
+  "limits": "Individually run automated production-input fixtures, not human playtesting or a complete campaign. PASS includes image saves. Final contracts and capture verify the final Hermite bat arc; other regression gates ran with the same final animation tree and unchanged gameplay resources."
+}

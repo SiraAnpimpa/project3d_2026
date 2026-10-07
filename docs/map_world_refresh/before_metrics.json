@@ -1,0 +1,393 @@
+{
+  "grass_placements": 11019,
+  "grass_zone_counts": {
+    "Combat edge": 352,
+    "Forest floor": 5662,
+    "Meadow": 3406,
+    "Rock edge": 425,
+    "Wilderness": 990,
+    "Yard edge": 184
+  },
+  "high_m": 5.06505500658334,
+  "lights": 5,
+  "low_m": -1.72917177171323,
+  "mesh_instances": 377,
+  "minimum_plot_gap_m": 2.14999923706055,
+  "model_placements": 11707,
+  "multi_meshes": 54,
+  "nav_polygons": 3682,
+  "nodes": 1385,
+  "playable_tree_colliders": 116,
+  "playable_triangles": 6272,
+  "sampled_points": 3025,
+  "sampled_slope_degrees": 29.6706703539724,
+  "static_bodies": 178,
+  "structural_placements": [
+    {
+      "asset": "Cabin",
+      "height": 0.0,
+      "lift": -0.276,
+      "point": [
+        -12.0,
+        -0.141000002622604,
+        -10.0
+      ],
+      "width": 9.5,
+      "yaw": 0.0,
+      "zone": "House"
+    },
+    {
+      "asset": "Water Tower",
+      "height": 12.5,
+      "lift": 0.0,
+      "point": [
+        -21.0,
+        0.349999994039536,
+        -18.0
+      ],
+      "width": 5.0,
+      "yaw": 10.0,
+      "zone": "House"
+    },
+    {
+      "asset": "Container Green",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        35.0,
+        1.85000002384186,
+        -23.0
+      ],
+      "width": 8.5,
+      "yaw": 18.0,
+      "zone": "Abandoned"
+    },
+    {
+      "asset": "Container Red",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        43.0,
+        1.85000002384186,
+        -23.0
+      ],
+      "width": 7.4,
+      "yaw": 65.0,
+      "zone": "Abandoned"
+    },
+    {
+      "asset": "Jeep",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        26.0,
+        1.85000002384186,
+        -22.0
+      ],
+      "width": 4.4,
+      "yaw": -25.0,
+      "zone": "Abandoned"
+    },
+    {
+      "asset": "Ambulance Car",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        41.0,
+        1.85000002384186,
+        -32.0
+      ],
+      "width": 4.8,
+      "yaw": 15.0,
+      "zone": "Abandoned"
+    },
+    {
+      "asset": "Truck",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        18.0,
+        0.649999976158142,
+        42.0
+      ],
+      "width": 5.3,
+      "yaw": -9.0,
+      "zone": "Road"
+    },
+    {
+      "asset": "Tree-qZtx0AHhcy",
+      "height": 11.0,
+      "lift": 0.0,
+      "point": [
+        -31.0,
+        1.97355806827545,
+        4.0
+      ],
+      "width": 7.0,
+      "yaw": 10.0,
+      "zone": "Forest"
+    },
+    {
+      "asset": "Dead Tree-Mcd2zYqyww",
+      "height": 8.5,
+      "lift": 0.0,
+      "point": [
+        -41.0,
+        3.43041253089905,
+        -8.0
+      ],
+      "width": 5.0,
+      "yaw": 25.0,
+      "zone": "Forest"
+    },
+    {
+      "asset": "Rock Medium-JQxF95498B",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        -3.0,
+        2.93408584594727,
+        -29.0
+      ],
+      "width": 4.1,
+      "yaw": 15.0,
+      "zone": "Ridge"
+    },
+    {
+      "asset": "Rock Medium-JQxF95498B",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        7.0,
+        3.16015696525574,
+        -32.0
+      ],
+      "width": 5.8,
+      "yaw": 62.0,
+      "zone": "Ridge"
+    },
+    {
+      "asset": "Rock Medium-JQxF95498B",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        -10.0,
+        3.06335997581482,
+        -32.0
+      ],
+      "width": 4.8,
+      "yaw": -17.0,
+      "zone": "Ridge"
+    },
+    {
+      "asset": "Rock Medium",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        -31.0,
+        1.64067208766937,
+        11.0
+      ],
+      "width": 4.4,
+      "yaw": 15.0,
+      "zone": "Forest"
+    },
+    {
+      "asset": "Rock Medium-s1OJ3bBzqc",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        38.0,
+        -0.0201512854546309,
+        14.0
+      ],
+      "width": 4.5,
+      "yaw": 266.0,
+      "zone": "Boundary"
+    },
+    {
+      "asset": "Rock Medium-s1OJ3bBzqc",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        44.0,
+        0.218126684427261,
+        9.0
+      ],
+      "width": 4.5,
+      "yaw": 308.0,
+      "zone": "Boundary"
+    },
+    {
+      "asset": "Rock Medium-s1OJ3bBzqc",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        -49.0,
+        2.49000430107117,
+        -11.0
+      ],
+      "width": 4.5,
+      "yaw": -343.0,
+      "zone": "Boundary"
+    },
+    {
+      "asset": "Rock Medium-s1OJ3bBzqc",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        -48.0,
+        3.50429368019104,
+        22.0
+      ],
+      "width": 4.5,
+      "yaw": -336.0,
+      "zone": "Boundary"
+    },
+    {
+      "asset": "Rock Medium-s1OJ3bBzqc",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        2.0,
+        2.84769582748413,
+        -50.0
+      ],
+      "width": 4.5,
+      "yaw": 14.0,
+      "zone": "Boundary"
+    },
+    {
+      "asset": "Chest",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        -10.3000001907349,
+        0.135000005364418,
+        -12.1999998092651
+      ],
+      "width": 1.05,
+      "yaw": 0.0,
+      "zone": "House"
+    },
+    {
+      "asset": "Barrel",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        5.0,
+        0.00000000000571656350728533,
+        -11.3999996185303
+      ],
+      "width": 0.72,
+      "yaw": 0.0,
+      "zone": "Workshop"
+    },
+    {
+      "asset": "Chest-RfSBvgcZUD",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        3.90000009536743,
+        0.00000000000409573937265595,
+        -11.5
+      ],
+      "width": 0.85,
+      "yaw": 0.0,
+      "zone": "Workshop"
+    },
+    {
+      "asset": "Barrel",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        0.699999988079071,
+        0.0000000000000781168681715343,
+        -14.0
+      ],
+      "width": 0.8,
+      "yaw": 0.0,
+      "zone": "Workshop"
+    },
+    {
+      "asset": "Survival_Tent",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        -34.0,
+        2.59999990463257,
+        21.0
+      ],
+      "width": 4.4,
+      "yaw": 30.0,
+      "zone": "Forest"
+    },
+    {
+      "asset": "Dead Tree",
+      "height": 6.0,
+      "lift": 0.0,
+      "point": [
+        -37.0,
+        2.65018630027771,
+        25.0
+      ],
+      "width": 3.0,
+      "yaw": 15.0,
+      "zone": "Forest"
+    },
+    {
+      "asset": "Damaged Couch",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        28.0,
+        1.85000002384186,
+        -16.0
+      ],
+      "width": 2.2,
+      "yaw": -20.0,
+      "zone": "Abandoned"
+    },
+    {
+      "asset": "Wheels Stack",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        32.0,
+        1.85000002384186,
+        -21.0
+      ],
+      "width": 1.0,
+      "yaw": 0.0,
+      "zone": "Abandoned"
+    },
+    {
+      "asset": "Traffic Barrier",
+      "height": 0.0,
+      "lift": 0.0,
+      "point": [
+        40.0,
+        1.85000002384186,
+        -11.0
+      ],
+      "width": 3.4,
+      "yaw": -10.0,
+      "zone": "Abandoned"
+    },
+    {
+      "asset": "Rock Medium",
+      "height": 0.0,
+      "lift": -0.38,
+      "point": [
+        10.0,
+        1.11146247386932,
+        31.0
+      ],
+      "width": 3.5,
+      "yaw": -20.0,
+      "zone": "Road shoulder"
+    }
+  ],
+  "triangle_slope_degrees": 30.83509531646,
+  "unique_assets": 56
+}

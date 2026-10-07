@@ -1,0 +1,49 @@
+{
+  "resources": 296,
+  "files": {
+    "index.apple-touch-icon.png": {
+      "bytes": 11944,
+      "sha256": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5"
+    },
+    "index.audio.position.worklet.js": {
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    "index.audio.worklet.js": {
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    "index.html": {
+      "bytes": 5454,
+      "sha256": "0f0e4188b504efc3d19af2ff0fc7a23a08543c5c62da36a250a3600249792d66"
+    },
+    "index.icon.png": {
+      "bytes": 5700,
+      "sha256": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5"
+    },
+    "index.js": {
+      "bytes": 279815,
+      "sha256": "68586d6daafc93c6e697b3fb258976874aa7459b8931165ebb1dc3c9614cc42c"
+    },
+    "index.pck": {
+      "bytes": 72775004,
+      "sha256": "a818ebb395cb59c374e805193f0eefe9ce52243148d066b85e82b8a90cb5e71a"
+    },
+    "index.png": {
+      "bytes": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    "index.wasm": {
+      "bytes": 39509339,
+      "sha256": "7eda98958eb09135a1acb54a4323a00b1a55af1997f15fa1cdc2b93e3df46656"
+    }
+  },
+  "total_bytes": 112618970,
+  "html_sizes_match": true,
+  "export_completed": true,
+  "export_diagnostics": "Pre-existing Safe save failed startup diagnostic retained. Export completed with project.binary; security/safe-save settings unchanged.",
+  "new_browser_smoke_performed": false,
+  "previous_browser_limits": "Previous scenery-placement browser pass rendered world/UI but Chromium/root-document pointer-lock errors prevented camera-lock certification. That earlier browser pass does not certify this new animation build.",
+  "published": false,
+  "windows_binary_regenerated": false
+}

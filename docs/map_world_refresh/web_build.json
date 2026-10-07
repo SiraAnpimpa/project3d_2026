@@ -1,0 +1,84 @@
+{
+  "resources": 295,
+  "files": {
+    "index.apple-touch-icon.png": {
+      "bytes": 11944,
+      "sha256": "01d4f63e525941e06ce74f5187dad030d20a8d52a07ce365ae4e94af97a3b1f5"
+    },
+    "index.audio.position.worklet.js": {
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    "index.audio.worklet.js": {
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    "index.html": {
+      "bytes": 5454,
+      "sha256": "0492eb06c183e594c3c26da753e537b322c9f25160250b881af352815929dfa0"
+    },
+    "index.icon.png": {
+      "bytes": 5700,
+      "sha256": "ad3c35ad0facf487c618204bd98db543034fc95224eadc7f08c7a9ff38d5b3b5"
+    },
+    "index.js": {
+      "bytes": 279815,
+      "sha256": "68586d6daafc93c6e697b3fb258976874aa7459b8931165ebb1dc3c9614cc42c"
+    },
+    "index.pck": {
+      "bytes": 72251408,
+      "sha256": "00f62353db2815c86850700127146f64a5af1daa224c53785f5a7f94318d76b5"
+    },
+    "index.png": {
+      "bytes": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    "index.wasm": {
+      "bytes": 39509339,
+      "sha256": "7eda98958eb09135a1acb54a4323a00b1a55af1997f15fa1cdc2b93e3df46656"
+    }
+  },
+  "total_bytes": 112095374,
+  "html_pack_sizes_match": true,
+  "export_completed": true,
+  "export_diagnostics": "Pre-existing editor Safe save failed diagnostic at startup. Export finished; pack sizes match HTML and the updated world renders in the browser. Security and safe-save settings were not changed.",
+  "browser_smoke": {
+    "date": "2026-10-07",
+    "url": "http://127.0.0.1:8734/project3d_2026/",
+    "browser": "Codex In-app Browser",
+    "viewport": [
+      1280,
+      720
+    ],
+    "observed": [
+      "Main menu renders",
+      "Begin opens updated 3D world with shader and sky",
+      "Tab opens inventory with existing icons",
+      "Esc closes inventory, Esc opens Pause",
+      "Resume returns to world"
+    ],
+    "errors": [
+      {
+        "level": "error",
+        "message": "UnknownError: If you see this error we have a bug. Please report this bug to chromium.",
+        "timestamp": "2026-10-07T06:39:07.994Z",
+        "url": "http://127.0.0.1:8734/project3d_2026/"
+      },
+      {
+        "level": "error",
+        "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+        "timestamp": "2026-10-07T06:40:26.803Z",
+        "url": "http://127.0.0.1:8734/project3d_2026/"
+      },
+      {
+        "level": "error",
+        "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+        "timestamp": "2026-10-07T06:40:38.816Z",
+        "url": "http://127.0.0.1:8734/project3d_2026/"
+      }
+    ],
+    "limitation": "One Chromium UnknownError and two root-document pointer-lock WrongDocumentError entries were captured. Updated terrain, sky, HUD, bag and Pause render. Web camera pointer lock, browser movement, campaign, mobile and multi-browser behavior are not certified."
+  },
+  "published": false,
+  "windows_binary_regenerated": false
+}

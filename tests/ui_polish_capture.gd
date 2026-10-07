@@ -6,6 +6,30 @@ func run() -> void:
 	root.size = Vector2i(1280,720)
 	await load_menu()
 	await capture("01_main_menu")
+	var button_point: Vector2 = root.get_final_transform() * current_scene.help_button.get_global_rect().get_center()
+	var hover := InputEventMouseMotion.new()
+	hover.position = button_point
+	hover.global_position = button_point
+	root.push_input(hover)
+	await frames(10)
+	await capture("30_menu_hover")
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.position = button_point
+	press.global_position = button_point
+	press.pressed = true
+	root.push_input(press)
+	await frames(3)
+	await capture("31_menu_pressed")
+	press.pressed = false
+	root.push_input(press)
+	await frames(10)
+	if current_scene.guide.visible: key(KEY_ESCAPE)
+	await click_scaled(current_scene.settings_button)
+	await frames(15)
+	check(current_scene.settings.visible, "main Settings opens through actual click")
+	await capture("28_main_settings")
+	key(KEY_ESCAPE)
 	await click_scaled(current_scene.help_button)
 	await frames(15)
 	check(current_scene.guide.visible,"main menu guide opens")
@@ -60,6 +84,11 @@ func run() -> void:
 	await frames(15)
 	check(game.pause_menu.is_open,"pause opens through Escape")
 	await capture("13_pause")
+	await click_scaled(game.pause_menu.settings_button)
+	await frames(15)
+	check(game.pause_menu.settings.visible and paused, "pause Settings retains pause ownership")
+	await capture("29_pause_settings")
+	key(KEY_ESCAPE)
 	await click_scaled(game.pause_menu.help_button)
 	await frames(15)
 	await capture("14_pause_guide")
@@ -156,6 +185,10 @@ func resolution_views() -> void:
 		key(KEY_ESCAPE)
 		await frames(15)
 		await capture("responsive_pause"+suffix)
+		await click_scaled(game.pause_menu.settings_button)
+		await frames(15)
+		await capture("responsive_pause_settings"+suffix)
+		key(KEY_ESCAPE)
 		key(KEY_ESCAPE)
 	root.size=Vector2i(1280,720)
 	await frames(10)
@@ -209,6 +242,10 @@ func menu_resolutions() -> void:
 		await frames(15)
 		await capture("responsive_guide"+suffix)
 		key(KEY_ESCAPE)
+		await click_scaled(current_scene.settings_button)
+		await frames(15)
+		await capture("responsive_settings"+suffix)
+		key(KEY_ESCAPE)
 
 
 func capture(label: String) -> void:
@@ -219,8 +256,10 @@ func capture(label: String) -> void:
 			if panel.is_visible_in_tree(): candidates.append(panel)
 		if game.skip_night.is_open: candidates.append(game.skip_night.screen.find_child("Confirmation",true,false))
 		if game.presentation.ending_finished: candidates.append(game.presentation.ending_panel)
+		if game.pause_menu.settings.visible: candidates.append(game.pause_menu.settings)
 	elif current_scene != null and current_scene.get("guide") != null:
 		if current_scene.guide.visible: candidates.append(current_scene.guide)
+		if current_scene.settings.visible: candidates.append(current_scene.settings)
 	for panel in candidates:
 		var rectangle := panel.get_global_rect()
 		var transform := root.get_final_transform()

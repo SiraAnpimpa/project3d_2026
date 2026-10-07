@@ -1,0 +1,636 @@
+{
+  "Ambulance Car": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Barrel": {
+    "instances": 2,
+    "zone_counts": {
+      "Workshop": 2
+    },
+    "zones": [
+      "Workshop"
+    ]
+  },
+  "Bush": {
+    "instances": 4,
+    "zone_counts": {
+      "Abandoned": 4
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Bush with Flowers": {
+    "instances": 132,
+    "zone_counts": {
+      "Abandoned": 4,
+      "Boundary": 5,
+      "Forest": 1,
+      "Forest edge": 113,
+      "Garden border": 5,
+      "Ridge": 3,
+      "Road shoulder": 1
+    },
+    "zones": [
+      "Ridge",
+      "Forest",
+      "Boundary",
+      "Forest edge",
+      "Abandoned",
+      "Road shoulder",
+      "Garden border"
+    ]
+  },
+  "Cabin": {
+    "instances": 1,
+    "zone_counts": {
+      "House": 1
+    },
+    "zones": [
+      "House"
+    ]
+  },
+  "Chest": {
+    "instances": 4,
+    "zone_counts": {
+      "House": 1,
+      "Road": 1,
+      "Workshop": 2
+    },
+    "zones": [
+      "Workshop",
+      "House",
+      "Road"
+    ]
+  },
+  "Chest-RfSBvgcZUD": {
+    "instances": 2,
+    "zone_counts": {
+      "Workshop": 2
+    },
+    "zones": [
+      "Workshop"
+    ]
+  },
+  "Cinder Block": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Clover": {
+    "instances": 1099,
+    "zone_counts": {
+      "Combat edge": 41,
+      "Forest floor": 554,
+      "Garden border": 15,
+      "Meadow": 334,
+      "Rock edge": 39,
+      "Wilderness": 97,
+      "Yard edge": 19
+    },
+    "zones": [
+      "Rock edge",
+      "Forest floor",
+      "Meadow",
+      "Yard edge",
+      "Combat edge",
+      "Wilderness",
+      "Garden border"
+    ]
+  },
+  "Container Green": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Container Red": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Damaged Couch": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Dead Tree": {
+    "instances": 1,
+    "zone_counts": {
+      "Forest": 1
+    },
+    "zones": [
+      "Forest"
+    ]
+  },
+  "Dead Tree-Mcd2zYqyww": {
+    "instances": 1,
+    "zone_counts": {
+      "Forest": 1
+    },
+    "zones": [
+      "Forest"
+    ]
+  },
+  "Fern": {
+    "instances": 133,
+    "zone_counts": {
+      "Boundary": 5,
+      "Camp edge": 10,
+      "Forest": 1,
+      "Forest edge": 113,
+      "Ridge": 3,
+      "Road shoulder": 1
+    },
+    "zones": [
+      "Ridge",
+      "Forest",
+      "Boundary",
+      "Forest edge",
+      "Road shoulder",
+      "Camp edge"
+    ]
+  },
+  "Fire Hydrant": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Flower Group": {
+    "instances": 15,
+    "zone_counts": {
+      "Forest": 4,
+      "Garden border": 11
+    },
+    "zones": [
+      "Forest",
+      "Garden border"
+    ]
+  },
+  "Grass": {
+    "instances": 6742,
+    "zone_counts": {
+      "Combat edge": 211,
+      "Forest floor": 3522,
+      "Meadow": 2026,
+      "Rock edge": 276,
+      "Wilderness": 596,
+      "Yard edge": 111
+    },
+    "zones": [
+      "Rock edge",
+      "Forest floor",
+      "Meadow",
+      "Yard edge",
+      "Combat edge",
+      "Wilderness"
+    ]
+  },
+  "Grass Wispy": {
+    "instances": 1083,
+    "zone_counts": {
+      "Combat edge": 37,
+      "Depot verge": 20,
+      "Forest floor": 518,
+      "Meadow": 351,
+      "Rock edge": 34,
+      "Wilderness": 102,
+      "Yard edge": 21
+    },
+    "zones": [
+      "Rock edge",
+      "Forest floor",
+      "Meadow",
+      "Yard edge",
+      "Combat edge",
+      "Wilderness",
+      "Depot verge"
+    ]
+  },
+  "Jeep": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Mushroom": {
+    "instances": 14,
+    "zone_counts": {
+      "Camp edge": 10,
+      "Forest": 4
+    },
+    "zones": [
+      "Forest",
+      "Camp edge"
+    ]
+  },
+  "Pallet": {
+    "instances": 1,
+    "zone_counts": {
+      "Workshop": 1
+    },
+    "zones": [
+      "Workshop"
+    ]
+  },
+  "Pallet Broken": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Pebble Round": {
+    "instances": 44,
+    "zone_counts": {
+      "Boundary": 10,
+      "Forest": 2,
+      "Foundation edge": 20,
+      "Ridge": 6,
+      "Road": 4,
+      "Road shoulder": 2
+    },
+    "zones": [
+      "Ridge",
+      "Forest",
+      "Boundary",
+      "Road",
+      "Road shoulder",
+      "Foundation edge"
+    ]
+  },
+  "Pebble Square": {
+    "instances": 34,
+    "zone_counts": {
+      "Boundary": 15,
+      "Forest": 3,
+      "Ridge": 9,
+      "Road": 4,
+      "Road shoulder": 3
+    },
+    "zones": [
+      "Ridge",
+      "Forest",
+      "Boundary",
+      "Road",
+      "Road shoulder"
+    ]
+  },
+  "Pine": {
+    "instances": 73,
+    "zone_counts": {
+      "Background": 48,
+      "Forest edge": 25
+    },
+    "zones": [
+      "Forest edge",
+      "Background"
+    ]
+  },
+  "Pine-699sFuLCN2": {
+    "instances": 65,
+    "zone_counts": {
+      "Background": 40,
+      "Forest edge": 25
+    },
+    "zones": [
+      "Forest edge",
+      "Background"
+    ]
+  },
+  "Pine-79gmlLnweB": {
+    "instances": 60,
+    "zone_counts": {
+      "Background": 38,
+      "Forest edge": 22
+    },
+    "zones": [
+      "Forest edge",
+      "Background"
+    ]
+  },
+  "Pipes": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Rock Medium": {
+    "instances": 12,
+    "zone_counts": {
+      "Boundary": 5,
+      "Forest": 2,
+      "Ridge": 3,
+      "Road shoulder": 2
+    },
+    "zones": [
+      "Ridge",
+      "Forest",
+      "Boundary",
+      "Road shoulder"
+    ]
+  },
+  "Rock Medium-JQxF95498B": {
+    "instances": 3,
+    "zone_counts": {
+      "Ridge": 3
+    },
+    "zones": [
+      "Ridge"
+    ]
+  },
+  "Rock Medium-s1OJ3bBzqc": {
+    "instances": 25,
+    "zone_counts": {
+      "Boundary": 15,
+      "Forest": 2,
+      "Ridge": 6,
+      "Road shoulder": 2
+    },
+    "zones": [
+      "Ridge",
+      "Forest",
+      "Boundary",
+      "Road shoulder"
+    ]
+  },
+  "Survival_Axe": {
+    "instances": 1,
+    "zone_counts": {
+      "Workshop": 1
+    },
+    "zones": [
+      "Workshop"
+    ]
+  },
+  "Survival_Bonfire": {
+    "instances": 1,
+    "zone_counts": {
+      "Forest": 1
+    },
+    "zones": [
+      "Forest"
+    ]
+  },
+  "Survival_Can": {
+    "instances": 1,
+    "zone_counts": {
+      "Forest": 1
+    },
+    "zones": [
+      "Forest"
+    ]
+  },
+  "Survival_Can Broken": {
+    "instances": 1,
+    "zone_counts": {
+      "Forest": 1
+    },
+    "zones": [
+      "Forest"
+    ]
+  },
+  "Survival_First Aid Kit": {
+    "instances": 2,
+    "zone_counts": {
+      "House": 1,
+      "Rescue": 1
+    },
+    "zones": [
+      "House",
+      "Rescue"
+    ]
+  },
+  "Survival_Gas Can": {
+    "instances": 2,
+    "zone_counts": {
+      "Road": 1,
+      "Workshop": 1
+    },
+    "zones": [
+      "Workshop",
+      "Road"
+    ]
+  },
+  "Survival_Propane Tank": {
+    "instances": 1,
+    "zone_counts": {
+      "Workshop": 1
+    },
+    "zones": [
+      "Workshop"
+    ]
+  },
+  "Survival_Radio": {
+    "instances": 2,
+    "zone_counts": {
+      "House": 1,
+      "Rescue": 1
+    },
+    "zones": [
+      "House",
+      "Rescue"
+    ]
+  },
+  "Survival_Shovel": {
+    "instances": 2,
+    "zone_counts": {
+      "Farm": 1,
+      "Workshop": 1
+    },
+    "zones": [
+      "Workshop",
+      "Farm"
+    ]
+  },
+  "Survival_Tent": {
+    "instances": 1,
+    "zone_counts": {
+      "Forest": 1
+    },
+    "zones": [
+      "Forest"
+    ]
+  },
+  "Survival_Wood Log": {
+    "instances": 6,
+    "zone_counts": {
+      "Forest": 1,
+      "Workshop": 5
+    },
+    "zones": [
+      "Workshop",
+      "Forest"
+    ]
+  },
+  "Tall Grass": {
+    "instances": 2130,
+    "zone_counts": {
+      "Combat edge": 63,
+      "Forest floor": 1068,
+      "Meadow": 695,
+      "Rock edge": 76,
+      "Wilderness": 195,
+      "Yard edge": 33
+    },
+    "zones": [
+      "Rock edge",
+      "Forest floor",
+      "Meadow",
+      "Yard edge",
+      "Combat edge",
+      "Wilderness"
+    ]
+  },
+  "Traffic Barrier": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Traffic Cone": {
+    "instances": 4,
+    "zone_counts": {
+      "Rescue": 4
+    },
+    "zones": [
+      "Rescue"
+    ]
+  },
+  "Trash Bag": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Trash Bags": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Tree": {
+    "instances": 21,
+    "zone_counts": {
+      "Background": 9,
+      "Forest edge": 12
+    },
+    "zones": [
+      "Forest edge",
+      "Background"
+    ]
+  },
+  "Tree-QVOop92WmG": {
+    "instances": 17,
+    "zone_counts": {
+      "Background": 9,
+      "Forest edge": 8
+    },
+    "zones": [
+      "Forest edge",
+      "Background"
+    ]
+  },
+  "Tree-aVOxaHRPWe": {
+    "instances": 20,
+    "zone_counts": {
+      "Background": 9,
+      "Forest edge": 11
+    },
+    "zones": [
+      "Forest edge",
+      "Background"
+    ]
+  },
+  "Tree-qZtx0AHhcy": {
+    "instances": 20,
+    "zone_counts": {
+      "Background": 9,
+      "Forest": 1,
+      "Forest edge": 10
+    },
+    "zones": [
+      "Forest",
+      "Forest edge",
+      "Background"
+    ]
+  },
+  "Truck": {
+    "instances": 1,
+    "zone_counts": {
+      "Road": 1
+    },
+    "zones": [
+      "Road"
+    ]
+  },
+  "Water Tower": {
+    "instances": 1,
+    "zone_counts": {
+      "House": 1
+    },
+    "zones": [
+      "House"
+    ]
+  },
+  "Wheel": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  },
+  "Wheels Stack": {
+    "instances": 1,
+    "zone_counts": {
+      "Abandoned": 1
+    },
+    "zones": [
+      "Abandoned"
+    ]
+  }
+}

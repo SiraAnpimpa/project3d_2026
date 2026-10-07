@@ -1,0 +1,38 @@
+{
+  "locomotion": {
+    "frames": 78,
+    "gif_duration_ms": 2150,
+    "padding_ms": 850,
+    "source": "Final native 960x720 engine captures, reduced to576x432. Original timing from capture_frame_times.json; GIF centisecond quantization applies."
+  },
+  "rifle_raise": {
+    "frames": 20,
+    "gif_duration_ms": 1180,
+    "padding_ms": 850,
+    "source": "Final native 960x720 engine captures, reduced to576x432. Original timing from capture_frame_times.json; GIF centisecond quantization applies."
+  },
+  "reload": {
+    "frames": 94,
+    "gif_duration_ms": 2420,
+    "padding_ms": 850,
+    "source": "Final native 960x720 engine captures, reduced to576x432. Original timing from capture_frame_times.json; GIF centisecond quantization applies."
+  },
+  "recoil": {
+    "frames": 24,
+    "gif_duration_ms": 1250,
+    "padding_ms": 850,
+    "source": "Final native 960x720 engine captures, reduced to576x432. Original timing from capture_frame_times.json; GIF centisecond quantization applies."
+  },
+  "bat": {
+    "frames": 36,
+    "gif_duration_ms": 1450,
+    "padding_ms": 850,
+    "source": "Final native 960x720 engine captures, reduced to576x432. Original timing from capture_frame_times.json; GIF centisecond quantization applies."
+  },
+  "hit_reaction": {
+    "frames": 36,
+    "gif_duration_ms": 1450,
+    "padding_ms": 850,
+    "source": "Final native 960x720 engine captures, reduced to576x432. Original timing from capture_frame_times.json; GIF centisecond quantization applies."
+  }
+}

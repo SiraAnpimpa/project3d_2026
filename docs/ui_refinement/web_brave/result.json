@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-06",
+  "url": "http://127.0.0.1:8734/project3d_2026/",
+  "browser": "Installed Brave via CUA browser connector",
+  "viewport": "1920x917, game maintains its 16:9 aspect",
+  "result": "PASS: rendered UI navigation; pointer lock NOT VERIFIED",
+  "confirmedStates": [
+    "Main",
+    "How to play",
+    "Settings: 48% volume / Reduced motion / Browser controls",
+    "Play: 3D world and floating HUD",
+    "Tab bag",
+    "Escape close / Pause",
+    "Pause Settings",
+    "Escape back to Pause",
+    "Escape Resume"
+  ],
+  "allCapturedConsoleLogs": [
+    {
+      "level": "warn",
+      "message": "MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added. Use emitter.setMaxListeners() to increase limit",
+      "timestamp": "2026-10-06T16:01:06.290Z",
+      "url": "chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js"
+    },
+    {
+      "level": "warn",
+      "message": "MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 end listeners added. Use emitter.setMaxListeners() to increase limit",
+      "timestamp": "2026-10-06T16:01:06.290Z",
+      "url": "chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js"
+    },
+    {
+      "level": "error",
+      "message": "MetaMask encountered an error setting the global Ethereum provider - this is likely due to another Ethereum wallet extension also setting the global Ethereum provider: TypeError: Cannot assign to read only property 'ethereum' of object '#<Window>'\n    at chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/inpage.js:19:36498\n    at s (chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/inpage.js:19:36754)\n    at chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/inpage.js:20:40\n    at chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/inpage.js:20:4054\n    at chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/inpage.js:20:4058",
+      "timestamp": "2026-10-06T16:01:06.290Z",
+      "url": "chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/inpage.js"
+    },
+    {
+      "level": "warn",
+      "message": "ObjectMultiplex - orphaned data for stream \"app-init-liveness\"",
+      "timestamp": "2026-10-06T16:01:06.290Z",
+      "url": "chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js"
+    },
+    {
+      "level": "warn",
+      "message": "ObjectMultiplex - orphaned data for stream \"app-init-liveness\"",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js"
+    },
+    {
+      "level": "warn",
+      "message": "ObjectMultiplex - orphaned data for stream \"background-liveness\"",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js"
+    },
+    {
+      "level": "warn",
+      "message": "ObjectMultiplex - orphaned data for stream \"background-liveness\"",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js"
+    },
+    {
+      "level": "log",
+      "message": "Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/index.js"
+    },
+    {
+      "level": "log",
+      "message": "OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/index.js"
+    },
+    {
+      "level": "log",
+      "message": "Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support.",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/index.js"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:02:53.119Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:04:54.954Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    }
+  ],
+  "stableScreenshots": [
+    "delivery_01_main_menu.jpg",
+    "delivery_02_guide.jpg",
+    "delivery_03_settings_preferences.jpg",
+    "delivery_04_world.jpg",
+    "delivery_05_inventory.jpg",
+    "delivery_06_pause.jpg",
+    "delivery_07_pause_settings.jpg",
+    "delivery_08_back_to_pause.jpg",
+    "delivery_09_resumed_world.jpg"
+  ],
+  "attemptScreenshots": [
+    "01_main_menu.jpg",
+    "02_settings.jpg",
+    "03_settings_confirm.jpg",
+    "04_fullscreen_attempt.jpg",
+    "05_main_menu_updated.jpg",
+    "06_settings_updated.jpg",
+    "07_settings_ready.jpg",
+    "08_fullscreen_confirm.jpg",
+    "09_fullscreen_settled.jpg",
+    "10_display_keyboard.jpg",
+    "11_settings_escape.jpg",
+    "12_main_menu_after_settings.jpg"
+  ],
+  "fullscreen": "Not certified through automation; Web UI uses browser controls",
+  "limitations": [
+    "Exact gameplay/modal assertions are native test evidence.",
+    "No touch/mobile or human playthrough certification.",
+    "Installed wallet-extension diagnostics are separate from game errors.",
+    "Three WrongDocumentError pointer-lock requests were observed through the browser connector at Play/menu exit. Mouse capture is not certified by this pass; the original input implementation is unchanged."
+  ],
+  "consoleErrors": [
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:02:53.119Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:04:54.954Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    }
+  ],
+  "pointerLockErrors": [
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:01:06.291Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:02:53.119Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-06T16:04:54.954Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    }
+  ],
+  "gameScriptErrors": []
+}

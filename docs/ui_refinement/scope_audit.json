@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-06",
+  "baseline_commit": "7cf0228",
+  "original_file_count": 2100,
+  "changed_original_files": [
+    "scripts/ui/crafting_ui.gd",
+    "scripts/ui/inventory_ui.gd",
+    "scripts/ui/main_menu.gd",
+    "scripts/ui/pause_menu.gd",
+    "scripts/ui/presentation_style.gd",
+    "scripts/ui/prototype_hud.gd",
+    "scripts/ui/skip_night_dialog.gd",
+    "scripts/ui/ui_icons.gd",
+    "scripts/ui/ui_item_slot.gd",
+    "tests/ui_polish_capture.gd",
+    "tests/ui_polish_test.gd",
+    "export_presets.cfg",
+    "PROGRESS.md",
+    "README.md",
+    "UI_CURRENT_STRUCTURE.md",
+    "UI_ICON_MAPPING.md",
+    "UI_POLISH_REPORT.md"
+  ],
+  "preserved_original_file_count": 2083,
+  "unexpected_changes": [],
+  "free_raw_source_count": 540,
+  "free_raw_sources_preserved": true,
+  "glb_count": 244,
+  "all_glbs_preserved": true,
+  "windows_preset_preserved": true,
+  "gameplay_and_vfx_preserved": true,
+  "new_source_files": [
+    "scripts/ui/ui_settings_panel.gd",
+    "scripts/ui/ui_settings_panel.gd.uid",
+    "tests/ui_refinement_test.gd",
+    "tests/ui_refinement_test.gd.uid"
+  ],
+  "preexisting_untracked_preserved": [
+    "tests/elemental_impact_test.gd.uid",
+    "tests/elemental_performance_test.gd.uid"
+  ],
+  "publication_performed": false
+}

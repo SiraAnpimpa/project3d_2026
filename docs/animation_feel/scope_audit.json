@@ -1,0 +1,28 @@
+{
+  "baseline_files": 1907,
+  "unchanged_baseline_files": 1904,
+  "changed_existing_runtime_files": [
+    "scripts/player/player_visual.gd",
+    "scripts/player/rifle_pose.gd",
+    "scripts/ui/prototype_hud.gd"
+  ],
+  "new_runtime_files": [],
+  "unchanged_source_glbs": 244,
+  "protected_mechanics_identical": [
+    "scripts/player/player_controller.gd",
+    "scripts/player/camera_rig.gd",
+    "scripts/player/aim_ray.gd",
+    "scripts/weapons/weapon_controller.gd",
+    "scripts/weapons/weapon_runtime.gd",
+    "scripts/components/health_component.gd",
+    "scripts/data/weapon_data.gd",
+    "resources/weapons/basic_rifle.tres",
+    "resources/weapons/wooden_bat.tres"
+  ],
+  "canonical_socket_functions_identical": [
+    "update_socket",
+    "_update_melee_socket"
+  ],
+  "export_preset_identical": true,
+  "scope": "Compared with the beginning of this animation request, preserving earlier map, UI, item icon and VFX changes. New fixtures and documentation are outside the runtime hash set."
+}

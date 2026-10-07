@@ -1,0 +1,19 @@
+{
+  "baseline_files": 1903,
+  "unchanged_baseline_files": 1900,
+  "changed_existing_runtime_files": [
+    "scripts/world/day_night_environment.gd",
+    "scripts/world/rural_environment.gd",
+    "scripts/world/rural_terrain.gd"
+  ],
+  "new_runtime_files": [
+    "assets/shaders/rural_ground.gdshader",
+    "assets/shaders/rural_ground.gdshader.uid"
+  ],
+  "unchanged_glb_count": 244,
+  "navigation_sha256": "18640cfb6c94aa0493f4f1c439db8ddf0a044d56477fac9006975d1fa8e18803",
+  "navigation_unchanged": true,
+  "height_paths_ground_colors_unchanged": true,
+  "windows_preset_unchanged": true,
+  "scope": "Compared with the pre-map-refresh working tree, preserving earlier UI, item-icon and elemental VFX changes."
+}

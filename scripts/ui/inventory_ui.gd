@@ -27,23 +27,31 @@ var _panel: PanelContainer
 
 func _ready() -> void:
 	screen = PresentationStyle.screen(self)
-	_panel = PresentationStyle.center_panel(screen, Vector2(980, 612))
-	var rows := PresentationStyle.box(_panel, true, 14)
+	_panel = PresentationStyle.center_panel(screen, Vector2(1008, 672))
+	var modal_style := _panel.get_theme_stylebox("panel").duplicate() as StyleBoxFlat
+	modal_style.set_content_margin_all(20)
+	_panel.add_theme_stylebox_override("panel", modal_style)
+	var rows := PresentationStyle.box(_panel, true, 8)
 	var header := PresentationStyle.box(rows, false, 12)
-	PresentationStyle.icon(header, UiIcons.get_icon("bag"), 26)
-	PresentationStyle.label(header, "Somchai’s bag", 28).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	PresentationStyle.icon(header, UiIcons.get_icon("bag"), 26).modulate = PresentationStyle.GOLD
+	PresentationStyle.heading(header, "Field inventory", "FIELD KIT / SEEDS, SUPPLIES & EQUIPMENT")
 	capacity_label = PresentationStyle.label(header, "", 17)
 	capacity_label.modulate = PresentationStyle.MUTED
-	PresentationStyle.button(header, "Esc", func() -> void: set_open(false), "close").tooltip_text = "Close bag · Tab / Esc"
+	var close := PresentationStyle.button(header, "Esc", func() -> void: set_open(false), "close")
+	close.theme_type_variation = "QuietButton"
+	close.tooltip_text = "Close bag · Tab / Esc"
 	rows.add_child(HSeparator.new())
-	var content := PresentationStyle.box(rows, false, 28)
+	var content := PresentationStyle.box(rows, false, 16)
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	var left := PresentationStyle.box(content, true, 8)
-	left.custom_minimum_size.x = 496
+	var supply_panel := PanelContainer.new()
+	content.add_child(supply_panel)
+	supply_panel.add_theme_stylebox_override("panel", _section_style())
+	var left := PresentationStyle.box(supply_panel, true, 8)
+	left.custom_minimum_size.x = 532
 	PresentationStyle.label(left, "SEEDS & SUPPLIES", 14).modulate = PresentationStyle.MUTED
 	var scroll := ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	scroll.custom_minimum_size = Vector2(496, 292)
+	scroll.custom_minimum_size = Vector2(532, 336)
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	left.add_child(scroll)
 	grid = GridContainer.new()
@@ -51,22 +59,27 @@ func _ready() -> void:
 	grid.add_theme_constant_override("h_separation", 8)
 	grid.add_theme_constant_override("v_separation", 8)
 	scroll.add_child(grid)
-	var detail := PresentationStyle.box(content, true, 10)
-	detail.custom_minimum_size.x = 380
+	var detail_panel := PanelContainer.new()
+	content.add_child(detail_panel)
+	detail_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	detail_panel.add_theme_stylebox_override("panel", _section_style())
+	var detail := PresentationStyle.box(detail_panel, true, 10)
+	detail.custom_minimum_size.x = 304
 	detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var detail_header := PresentationStyle.box(detail, false, 14)
-	_detail_icon = PresentationStyle.icon(detail_header, null, 64)
+	_detail_icon = PresentationStyle.icon(detail_header, null, 76)
 	selection_label = PresentationStyle.label(detail_header, "", 24)
 	selection_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	selection_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_detail_info = PresentationStyle.box(detail, true, 12) as VBoxContainer
+	_detail_info = PresentationStyle.box(detail, true, 10) as VBoxContainer
 	var spacer := Control.new()
 	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	detail.add_child(spacer)
 	PresentationStyle.label(detail, "OWNED WEAPONS", 14).modulate = PresentationStyle.MUTED
 	_owned_weapons = PresentationStyle.box(detail, false, 8) as HBoxContainer
 	rows.add_child(HSeparator.new())
-	var equipment_hint := PresentationStyle.label(rows, "WEAPON SLOTS", 16)
+	var equipment_hint := PresentationStyle.label(rows, "LOADOUT", 14)
+	equipment_hint.modulate = PresentationStyle.MUTED
 	_named(equipment_hint, "EquipmentHint")
 	var equipment_slots := GridContainer.new()
 	equipment_slots.columns = 3
@@ -164,18 +177,20 @@ func _refresh_detail() -> void:
 		PresentationStyle.label(_detail_info, "Harvest materials to fill your bag.", 17)
 		return
 	var count := inventory.get_item_amount(inspected_item.id)
-	PresentationStyle.label(_detail_info, "×%d owned" % count, 17).modulate = PresentationStyle.MUTED
+	PresentationStyle.eyebrow(_detail_info, UiIcons.category(inspected_item))
+	PresentationStyle.label(_detail_info, "×%d in bag" % count, 18).modulate = PresentationStyle.MUTED
+	_detail_info.add_child(HSeparator.new())
 	if inspected_item.item_type == ItemData.ItemType.SEED and _catalog != null:
 		var plant := _catalog.get_plant(inspected_item.plant_id)
 		if plant == null: return
 		var growth := PresentationStyle.box(_detail_info, false, 10)
 		PresentationStyle.icon(growth, UiIcons.get_icon("clock"), 22)
-		PresentationStyle.label(growth, "%.0f game min to grow" % plant.growth_minutes, 17)
+		PresentationStyle.label(growth, "%.0f game min" % plant.growth_minutes, 17).tooltip_text = "Growth time in game minutes"
 		var harvest := PresentationStyle.box(_detail_info, false, 10)
 		PresentationStyle.icon(harvest, UiIcons.item_icon(plant.harvest_item), 30)
 		PresentationStyle.label(harvest, "%s  ×%d" % [plant.harvest_item.display_name, plant.harvest_amount], 18)
-		PresentationStyle.label(_detail_info, "Empty plot · Farming mode\nNo tool required", 17).modulate = PresentationStyle.MUTED
-		PresentationStyle.label(_detail_info, "Selected for planting", 17).modulate = PresentationStyle.SAGE
+		PresentationStyle.label(_detail_info, "Plant on an empty plot.", 16).modulate = PresentationStyle.MUTED
+		PresentationStyle.label(_detail_info, "Selected for planting", 16).modulate = PresentationStyle.SAGE
 	else:
 		var copy := PresentationStyle.label(_detail_info, UiIcons.use_text(inspected_item), 17)
 		copy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -198,21 +213,22 @@ func bind_equipment(loadout: EquipmentLoadout) -> void:
 func _refresh_equipment() -> void:
 	if equipment == null: return
 	if selected_owned_weapon != null and not inventory.has_item(selected_owned_weapon.id): selected_owned_weapon = null
-	%EquipmentHint.text = "WEAPON SLOTS  ·  Select an owned weapon to equip"
+	%EquipmentHint.text = "LOADOUT  ·  Choose a weapon, then a slot"
 	if selected_owned_weapon != null:
-		%EquipmentHint.text = "Equip %s  →  Choose a slot" % selected_owned_weapon.display_name
+		%EquipmentHint.text = "%s  →  Choose a slot" % selected_owned_weapon.display_name
 	while equipment_buttons.size() < equipment.weapon_slot_count:
 		var index := equipment_buttons.size()
 		var row := PresentationStyle.box(%EquipmentSlots, false, 4)
 		row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var equip := PresentationStyle.button(row, "", func() -> void: equipment.equip_weapon(index, selected_owned_weapon))
 		equip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		equip.custom_minimum_size = Vector2(242, 48)
+		equip.custom_minimum_size = Vector2(242, 44)
 		equip.expand_icon = true
 		equip.add_theme_constant_override("icon_max_width", 40)
 		equipment_buttons.append(equip)
 		var clear := PresentationStyle.button(row, "", func() -> void: equipment.unequip_weapon(index), "close")
 		clear.custom_minimum_size.x = 40
+		clear.theme_type_variation = "QuietButton"
 		clear.tooltip_text = "Unequip · keep weapon in bag"
 		unequip_buttons.append(clear)
 	for index in equipment_buttons.size():
@@ -294,3 +310,8 @@ func bind_debug(debug: DebugControls) -> void:
 	container.visible = debug.active and OS.is_debug_build()
 	debug.status_changed.connect(func(active: bool, _summary: String) -> void: container.visible = active and OS.is_debug_build())
 	debug.message_posted.connect(func(message: String) -> void: debug_message.text = message)
+
+func _section_style() -> StyleBoxFlat:
+	var style := PresentationStyle.flat(Color("17281f"), Color("384c3b"), 1)
+	style.set_content_margin_all(12)
+	return style

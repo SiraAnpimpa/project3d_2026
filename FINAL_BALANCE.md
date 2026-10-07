@@ -1,10 +1,10 @@
-# Final balance - v0.1.0-demo
+# Gameplay tuning
 
-Current source includes the Gameplay & Character Refinement pass (2026-10-02): stamina tuning and a Wooden Bat fallback. Earlier Phase10 daily seed tuning, growth, yields, recipes, rifle, enemies and the ten-day curve remain. See [GAMEPLAY_REFINEMENT_REPORT.md](GAMEPLAY_REFINEMENT_REPORT.md) for current measurements; the exported v0.1.0-demo is older. Production half-day is600 seconds: ten real minutes, with crop growth tied to the same clock. Fixed-FPS headless QA runs simulation faster than wall time without changing these values.
+Half a game day takes 600 real seconds; crop growth uses the same clock.
 
 ## Player
 
-HP100, stamina100; walk4m/s, sprint7m/s, aim walk2.8m/s. Stamina drains14/s, recovers28/s after0.65s delay; exhausted sprint requires25% stamina to restart. Actual full-to-empty sprint:7.167s; first recovery:0.667s; empty-to-full including delay:4.233s. Before:4.567/1.217/6.767s respectively. Bed after a cleared night restores HP/stamina; natural dawn does not heal.
+HP100, stamina100; walk4m/s, sprint7m/s, aim walk2.8m/s. Stamina drains14/s, recovers28/s after0.65s delay; exhausted sprint requires25% stamina to restart. Bed after a cleared night restores HP/stamina; natural dawn does not heal.
 
 ## Plants
 
@@ -30,7 +30,7 @@ HP100, stamina100; walk4m/s, sprint7m/s, aim walk2.8m/s. Stamina drains14/s, rec
 | Ice Ammo | Ice Crystal1 + Paper1 + Copper1 | Ice Ammo10 | 5 |
 | Poison Ammo | Poison Extract1 + Paper1 + Copper1 | Poison Ammo10 | 7 |
 
-Medicine has no heal amount because use is not implemented. Elemental ammunition is also craft-only. The earlier rifle campaign evidence remains historical. This pass verifies ordinary Day1/rest and natural dawn plus focused live night melee; it does not claim a new ten-day bat campaign.
+Medicine and elemental ammunition are craft-only; consumable healing and elemental firing are not implemented.
 
 ## Weapon
 
@@ -67,8 +67,4 @@ Spawn interval2.0s on Day1, decreasing0.1/day to1.1s on Day10. Living cap12; spa
 
 Day1: three each of five basic seeds, empty rifle and owned Wooden Bat. Days2-10: respectively3/4/4/5/5/6/7/8/8 of each of the five basic seeds per reached day; rewards wait if inventory full. Fire/Ice/Poison seeds unlock with three seeds on Days3/5/7, with matching recipes. Twelve farm plots support two batches of24ammo crops.
 
-Three Lead/Paper/Copper crops each yield up to60ammo on Day1, compared with30perfect hits. Eight each yield160ammo/day, compared with136perfect hits on Night10. Full campaign farming now produces1060rounds, reduced from1500; perfect-hit requirement totals698. Carryover rewards preparation; the stationary test died on Night8 despite hundreds of rounds. Resource abundance alone does not guarantee survival.
-
 With an empty magazine/reserve, wheel to the bat in Combat and press LMB to fight at close range, or survive by running to natural dawn, receive daily seed supplies, plant and craft again. This path does not heal, so poor preparation has a health cost. Full bag rewards remain pending until capacity frees. No infinite-ammo or emergency ammo grant was added.
-
-See FINAL_QA_REPORT.md and docs/phase10 for observed ammo consumption, health, remaining resources and the limitations of automated aiming.

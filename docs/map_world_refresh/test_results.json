@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-07",
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "renderer": "Compatibility",
+  "individual_native_gates": 11,
+  "pass_lines": 846,
+  "failures": 0,
+  "script_resource_errors": 0,
+  "gates": [
+    {
+      "log": "world_geometry.log",
+      "pass_lines": 158,
+      "result": [
+        "CLEANUP_GEOMETRY_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_clock.log",
+      "pass_lines": 13,
+      "result": [
+        "STAGE_4_CLOCK_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_routes.log",
+      "pass_lines": 199,
+      "result": [
+        "CLEANUP_ROUTES_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_acceptance.log",
+      "pass_lines": 307,
+      "result": [
+        "CLEANUP_ACCEPTANCE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_full_day.log",
+      "pass_lines": 80,
+      "result": [
+        "CLEANUP_FULL_DAY_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_navigation_edges.log",
+      "pass_lines": 0,
+      "result": [
+        "NAV_EDGE_AUDIT_RESULT failures=0 overlapping_edges=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_metrics_final.log",
+      "pass_lines": 20,
+      "result": [
+        "CLEANUP_METRICS_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_rescue.log",
+      "pass_lines": 8,
+      "result": [
+        "CLEANUP_RESCUE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_performance_final.log",
+      "pass_lines": 1,
+      "result": [
+        "PHASE_10_PERFORMANCE_RESULT failures=0"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_visual_final.log",
+      "pass_lines": 26,
+      "result": [
+        "WORLD_REFRESH_CAPTURE_RESULT failures=0 walks=5"
+      ],
+      "errors": []
+    },
+    {
+      "log": "world_checks_final.log",
+      "pass_lines": 34,
+      "result": [
+        "WORLD_REFRESH_RESULT failures=0 roadside_stakes=4"
+      ],
+      "errors": []
+    }
+  ],
+  "limits": "Automated production-controller/input fixtures and rendered captures. Not a human playtest or a complete ten-day campaign. Gates were executed individually during this pass; final visual/environment/profile runs use final grass-only chunking."
+}

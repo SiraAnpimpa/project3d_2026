@@ -1,0 +1,50 @@
+{
+  "ground_contact_after": {
+    "pass_lines": 507,
+    "results": [
+      "GROUND_CONTACT_RESULT failures=0 summary={\"stone\":{\"count\":108,\"deepest\":-0.941202554284797,\"floating\":0,\"max_gap\":-0.00133911251100036},\"tree\":{\"count\":288,\"deepest\":-0.956138026588215,\"floating\":0,\"max_gap\":-0.0112025715078312}}"
+    ],
+    "failures": 0,
+    "errors": 0
+  },
+  "ground_contact_all_scenery": {
+    "pass_lines": 66,
+    "results": [
+      "SCENERY_AUDIT_RESULT failures=0 placements=10073 output=C:/Users/ADMIN/Documents/Codex/2026-09-28/files-mentioned-by-the-user-project3d/work/ground_contact_fix/all_scenery_audit.json"
+    ],
+    "failures": 0,
+    "errors": 0
+  },
+  "ground_contact_geometry": {
+    "pass_lines": 158,
+    "results": [
+      "CLEANUP_GEOMETRY_RESULT failures=0"
+    ],
+    "failures": 0,
+    "errors": 0
+  },
+  "ground_contact_routes": {
+    "pass_lines": 199,
+    "results": [
+      "CLEANUP_ROUTES_RESULT failures=0"
+    ],
+    "failures": 0,
+    "errors": 0
+  },
+  "ground_contact_nav_edges": {
+    "pass_lines": 0,
+    "results": [
+      "NAV_EDGE_AUDIT_RESULT failures=0 overlapping_edges=0"
+    ],
+    "failures": 0,
+    "errors": 0
+  },
+  "ground_contact_capture_after": {
+    "pass_lines": 12,
+    "results": [
+      "GROUND_CAPTURE_RESULT failures=0"
+    ],
+    "failures": 0,
+    "errors": 0
+  }
+}

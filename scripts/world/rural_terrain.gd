@@ -8,6 +8,7 @@ const PLAY_HALF := 56.0
 const VISUAL_HALF := 120.0
 const RESCUE := Vector2(29,43)
 const RESCUE_HEIGHT := 0.65
+const GROUND_SHADER := preload("res://assets/shaders/rural_ground.gdshader")
 const TRAILS := [
 	[Vector2(0,-4),Vector2(2,-13),Vector2(4,-22),Vector2(-1,-28),Vector2(-10,-37)],
 	[Vector2(4,2),Vector2(13,-1),Vector2(22,3),Vector2(32,0),Vector2(39,5)],
@@ -25,6 +26,8 @@ const TRAILS := [
 func _ready() -> void:
 	build_patch("PlayableTerrain", PLAY_HALF, 2.0, true)
 	build_patch("DistantTerrain", VISUAL_HALF, 4.0, false)
+	# Beyond the original backdrop, low detail ground fades into the depth fog.
+	build_patch("HorizonTerrain",360.0,12.0,false,VISUAL_HALF)
 
 static func mound(x: float, z: float, cx: float, cz: float, rx: float, rz: float) -> float:
 	return exp(-pow((x-cx)/rx,2)-pow((z-cz)/rz,2))
@@ -108,7 +111,7 @@ static func rounded_edge(point: Vector2,center: Vector2,half_extents: Vector2,co
 	var q := (point-center).abs()-half_extents+Vector2.ONE*corner
 	return Vector2(maxf(q.x,0),maxf(q.y,0)).length()+minf(maxf(q.x,q.y),0)-corner
 
-func build_patch(label: String, half: float, step: float, solid: bool) -> void:
+func build_patch(label: String, half: float, step: float, solid: bool, inner_half: float = PLAY_HALF) -> void:
 	var vertices := PackedVector3Array()
 	var normals := PackedVector3Array()
 	var colors := PackedColorArray()
@@ -117,7 +120,7 @@ func build_patch(label: String, half: float, step: float, solid: bool) -> void:
 		for ix in cells:
 			var x := -half+ix*step
 			var z := -half+iz*step
-			if not solid and x >= -PLAY_HALF and x < PLAY_HALF and z >= -PLAY_HALF and z < PLAY_HALF: continue
+			if not solid and x >= -inner_half and x < inner_half and z >= -inner_half and z < inner_half: continue
 			var a := ground_point(x,z)
 			var b := ground_point(x+step,z)
 			var c := ground_point(x,z+step)
@@ -136,9 +139,13 @@ func build_patch(label: String, half: float, step: float, solid: bool) -> void:
 	arrays[Mesh.ARRAY_COLOR] = colors
 	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
-	var material := StandardMaterial3D.new()
-	material.vertex_color_use_as_albedo = true
-	material.roughness = 0.96
+	var material := ShaderMaterial.new()
+	material.shader = GROUND_SHADER
+	material.set_shader_parameter("road_points",PackedVector2Array([
+		Vector2(-3,-1),Vector2(0,7),Vector2(7,16),Vector2(9,25),
+		Vector2(14,33),Vector2(18,41),Vector2(20,62)]))
+	material.set_shader_parameter("rescue_points",PackedVector2Array([
+		Vector2(14,33),Vector2(21,35),Vector2(25,39),Vector2(29,43)]))
 	var visual := MeshInstance3D.new()
 	visual.name = label
 	visual.mesh = mesh

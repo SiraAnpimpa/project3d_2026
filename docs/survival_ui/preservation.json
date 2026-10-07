@@ -1,0 +1,10 @@
+{
+  "baseline_files": 1073,
+  "changed_runtime_files": [
+    "scripts/ui/crafting_ui.gd",
+    "scripts/ui/inventory_ui.gd",
+    "scripts/ui/prototype_hud.gd",
+    "scripts/ui/skip_night_dialog.gd"
+  ],
+  "all_other_files_unchanged": true
+}

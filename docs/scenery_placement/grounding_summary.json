@@ -1,0 +1,30 @@
+{
+  "trees": {
+    "before": {
+      "count": 278,
+      "min_contact": -0.616361125970039,
+      "max_contact": 0.149321769940192,
+      "outside_contact_window": 158
+    },
+    "after": {
+      "count": 288,
+      "min_contact": -0.0250433943120072,
+      "max_contact": -0.0249552197485008,
+      "outside_contact_window": 0
+    }
+  },
+  "low_plants": {
+    "before": {
+      "count": 11352,
+      "min_contact": -0.277620101602409,
+      "max_contact": 0.121629148927682,
+      "outside_contact_window": 1220
+    },
+    "after": {
+      "count": 9627,
+      "min_contact": -0.0120493978509968,
+      "max_contact": -0.011951755957393,
+      "outside_contact_window": 0
+    }
+  }
+}

@@ -25,37 +25,46 @@ var _panel: PanelContainer
 
 func _ready() -> void:
 	screen = PresentationStyle.screen(self)
-	_panel = PresentationStyle.center_panel(screen, Vector2(970, 568))
+	_panel = PresentationStyle.center_panel(screen, Vector2(970, 610))
 	var rows := PresentationStyle.box(_panel, true, 16)
 	var header := PresentationStyle.box(rows, false, 12)
-	PresentationStyle.icon(header, UiIcons.get_icon("workbench"), 26)
-	PresentationStyle.label(header, "Workbench", 28).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	PresentationStyle.icon(header, UiIcons.get_icon("workbench"), 26).modulate = PresentationStyle.GOLD
+	PresentationStyle.heading(header, "Workbench", "FARM WORKSHOP / MAKE EVERY HARVEST COUNT")
 	_close_button = PresentationStyle.button(header, "Esc", func() -> void: set_open(false), "close")
+	_close_button.theme_type_variation = "QuietButton"
 	rows.add_child(HSeparator.new())
-	var columns := PresentationStyle.box(rows, false, 28)
+	var columns := PresentationStyle.box(rows, false, 16)
 	columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	var materials := PresentationStyle.box(columns, true, 14)
-	materials.custom_minimum_size.x = 254
+	materials.custom_minimum_size.x = 238
 	PresentationStyle.label(materials, "MATERIALS", 14).modulate = PresentationStyle.MUTED
+	PresentationStyle.label(materials, "OWNED / NEEDED", 12).modulate = PresentationStyle.MUTED
 	ingredients = PresentationStyle.box(materials, true, 16) as VBoxContainer
 	var recipes := PresentationStyle.box(columns, true, 8)
 	recipes.custom_minimum_size.x = 282
 	PresentationStyle.label(recipes, "RECIPES", 14).modulate = PresentationStyle.MUTED
 	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size = Vector2(282, 382)
+	scroll.custom_minimum_size = Vector2(282, 398)
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	recipes.add_child(scroll)
 	recipe_list = PresentationStyle.box(scroll, true, 6) as VBoxContainer
 	recipe_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var result := PresentationStyle.box(columns, true, 12)
+	var result_panel := PanelContainer.new()
+	columns.add_child(result_panel)
+	result_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var result_style := PresentationStyle.flat(Color("17281f"), Color("526448"), 1)
+	result_style.set_content_margin_all(14)
+	result_panel.add_theme_stylebox_override("panel", result_style)
+	var result := PresentationStyle.box(result_panel, true, 12)
 	result.custom_minimum_size.x = 282
 	result.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	columns.move_child(recipes, 0)
 	PresentationStyle.label(result, "RESULT", 14).modulate = PresentationStyle.MUTED
-	detail_title = PresentationStyle.label(result, "", 24)
+	detail_title = PresentationStyle.label(result, "", 26)
 	detail_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_preview = PresentationStyle.box(result, true, 6) as VBoxContainer
-	outputs = PresentationStyle.label(result, "", 20)
+	outputs = PresentationStyle.label(result, "", 26)
 	outputs.modulate = PresentationStyle.SAGE
 	description = PresentationStyle.label(result, "", 17)
 	description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -67,6 +76,8 @@ func _ready() -> void:
 	feedback.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	feedback.custom_minimum_size.y = 46
 	craft_button = PresentationStyle.button(result, "Craft", _craft_selected, "workbench")
+	craft_button.theme_type_variation = "PrimaryButton"
+	craft_button.custom_minimum_size.y = 50
 	screen.hide()
 
 func bind(system: CraftingSystem, bag: InventoryUI, pause: PauseMenu, actor: PlayerController) -> void:
@@ -118,6 +129,7 @@ func _build_recipe_list() -> void:
 			button.expand_icon = true
 			button.add_theme_constant_override("icon_max_width", 28)
 			button.add_theme_font_size_override("font_size", 17)
+			button.custom_minimum_size.y = 46
 			_buttons[recipe] = button
 	if selected_recipe == null and not crafting.get_recipes().is_empty(): selected_recipe = crafting.get_recipes()[0]
 
@@ -131,9 +143,13 @@ func refresh() -> void:
 		var button: Button = _buttons[recipe]
 		var unlocked := crafting.is_unlocked(recipe)
 		button.text = recipe.display_name
-		button.icon = UiIcons.item_icon(recipe.outputs[0].item) if unlocked else UiIcons.get_icon("lock")
+		button.icon = UiIcons.item_icon(recipe.outputs[0].item)
+		button.add_theme_color_override("icon_normal_color", Color.WHITE if unlocked else Color(0.6, 0.65, 0.6, 0.65))
+		button.add_theme_color_override("font_color", PresentationStyle.PAPER if unlocked else PresentationStyle.MUTED)
 		button.tooltip_text = recipe.display_name if unlocked else "Unlocks on day %d" % recipe.unlock_day
-		button.add_theme_stylebox_override("normal", PresentationStyle.flat(Color("354333") if recipe == selected_recipe else Color("28332b"), PresentationStyle.SAGE if recipe == selected_recipe else Color("3b473a"), 2 if recipe == selected_recipe else 1))
+		button.add_theme_stylebox_override("normal", PresentationStyle.flat(Color("3d4c36") if recipe == selected_recipe else Color(0.16, 0.2, 0.17, 0.55), PresentationStyle.GOLD if recipe == selected_recipe else Color(0.37, 0.43, 0.33, 0.2), 2 if recipe == selected_recipe else 1))
+		button.add_theme_stylebox_override("hover", PresentationStyle.flat(Color("46573c"), PresentationStyle.PAPER, 1))
+		button.add_theme_stylebox_override("pressed", PresentationStyle.flat(Color("233025"), PresentationStyle.GOLD, 2))
 	_clear(ingredients)
 	_clear(_preview)
 	if selected_recipe == null:
@@ -156,8 +172,8 @@ func refresh() -> void:
 	var output_names := PackedStringArray()
 	for entry in selected_recipe.outputs:
 		if entry != null and entry.item != null:
-			PresentationStyle.icon(_preview, UiIcons.item_icon(entry.item), 94)
-			output_names.append("×%d %s" % [entry.quantity * selected_recipe.craft_amount, entry.item.display_name])
+			PresentationStyle.icon(_preview, UiIcons.item_icon(entry.item), 104)
+			output_names.append("×%d" % (entry.quantity * selected_recipe.craft_amount) if selected_recipe.outputs.size() == 1 else "×%d %s" % [entry.quantity * selected_recipe.craft_amount, entry.item.display_name])
 	outputs.text = "\n".join(output_names)
 	description.text = UiIcons.use_text(selected_recipe.outputs[0].item)
 	description.tooltip_text = selected_recipe.description

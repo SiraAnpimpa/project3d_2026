@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-07",
+  "url": "http://127.0.0.1:8734/project3d_2026/",
+  "viewport": [
+    1280,
+    720
+  ],
+  "observed": [
+    "updated main background",
+    "Begin loads updated world and HUD",
+    "Tab opens bag",
+    "Escape closes bag",
+    "Pause opens",
+    "Resume returns to updated world"
+  ],
+  "images": 5,
+  "console_errors": [
+    {
+      "level": "error",
+      "message": "UnknownError: If you see this error we have a bug. Please report this bug to chromium.",
+      "timestamp": "2026-10-07T07:14:39.790Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-07T07:15:13.062Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    },
+    {
+      "level": "error",
+      "message": "WrongDocumentError: The root document of this element is not valid for pointer lock.",
+      "timestamp": "2026-10-07T07:15:29.192Z",
+      "url": "http://127.0.0.1:8734/project3d_2026/"
+    }
+  ],
+  "pointer_lock_certified": false,
+  "movement_certified": false,
+  "limits": "Browser connector reports Chromium UnknownError and root-document WrongDocumentError on pointer lock. Render/UI smoke only; native controller routes are verified separately.",
+  "published": false
+}
