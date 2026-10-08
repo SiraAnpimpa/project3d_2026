@@ -75,7 +75,11 @@ func apply_day(day: int) -> void:
 	claim_rewards()
 	inventory.refresh_seed_selection()
 	if not notices.is_empty():
-		summary = "DAY %d / 10\n%s" % [day, "\n".join(notices)]
+		var unlocks := PackedStringArray()
+		for notice in notices:
+			if notice.begins_with("NEW SEED:"): unlocks.append(notice.trim_prefix("NEW SEED: ") + " unlocked")
+		summary = "Day %d" % day
+		if not unlocks.is_empty(): summary += "\n" + "\n".join(unlocks)
 		feedback.emit.call_deferred(summary)
 	changed.emit()
 

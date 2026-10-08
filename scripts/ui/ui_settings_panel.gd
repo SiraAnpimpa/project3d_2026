@@ -3,6 +3,7 @@ extends PanelContainer
 ## Shared Main Menu/Pause preferences; no game-state ownership.
 
 signal closed
+var _graphics: Node
 var volume_slider: HSlider
 var volume_label: Label
 var sensitivity_slider: HSlider
@@ -10,17 +11,31 @@ var sensitivity_label: Label
 var fullscreen_button: Button
 var motion_button: Button
 var back_button: Button
+var tabs: TabContainer
+var categories: UiCategoryTabs
+var quality_option: OptionButton
+var shadows_button: Button
+var render_scale_slider: HSlider
+var render_scale_label: Label
 
 func _ready() -> void:
 	name = "SettingsPanel"
+	_graphics = get_node("/root/GraphicsSettings")
 	theme = PresentationStyle.theme()
-	PresentationStyle.fit_panel(self, Vector2(560, 632))
-	var rows := PresentationStyle.box(self, true, 14)
+	PresentationStyle.fit_panel(self, Vector2(600, 552))
+	var rows := PresentationStyle.box(self, true, 10)
 	var header := PresentationStyle.box(rows, false, 12)
 	PresentationStyle.icon(header, UiIcons.get_icon("settings"), 26).modulate = PresentationStyle.GOLD
-	PresentationStyle.heading(header, "Settings", "MAKE YOURSELF AT HOME")
+	PresentationStyle.heading(header, "Settings")
 	rows.add_child(HSeparator.new())
-	var sound_header := PresentationStyle.box(rows, false, 12)
+	tabs = TabContainer.new()
+	tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	rows.add_child(tabs)
+	var general := VBoxContainer.new()
+	general.name = "General"
+	general.add_theme_constant_override("separation", 12)
+	tabs.add_child(general)
+	var sound_header := PresentationStyle.box(general, false, 12)
 	PresentationStyle.label(sound_header, "Master volume", 18).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	volume_label = PresentationStyle.label(sound_header, "", 18)
 	volume_label.modulate = PresentationStyle.SAGE
@@ -31,8 +46,8 @@ func _ready() -> void:
 	volume_slider.custom_minimum_size.y = 34
 	volume_slider.value_changed.connect(_set_volume)
 	volume_slider.tooltip_text = "All game audio · left/right adjusts volume"
-	rows.add_child(volume_slider)
-	var camera_header := PresentationStyle.box(rows, false, 12)
+	general.add_child(volume_slider)
+	var camera_header := PresentationStyle.box(general, false, 12)
 	PresentationStyle.label(camera_header, "Camera Sensitivity", 18).size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	sensitivity_label = PresentationStyle.label(camera_header, "", 18)
 	sensitivity_label.modulate = PresentationStyle.SAGE
@@ -44,25 +59,55 @@ func _ready() -> void:
 	sensitivity_slider.custom_minimum_size.y = 34
 	sensitivity_slider.tooltip_text = "Mouse-look multiplier · applies immediately, including aim"
 	sensitivity_slider.value_changed.connect(_set_sensitivity)
-	rows.add_child(sensitivity_slider)
-	var sensitivity_range := PresentationStyle.box(rows, false, 12)
-	PresentationStyle.label(sensitivity_range, "Low", 14).size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	PresentationStyle.label(sensitivity_range, "High", 14)
-	fullscreen_button = _setting_row(rows, "Display", _toggle_fullscreen)
+	general.add_child(sensitivity_slider)
+	fullscreen_button = _setting_row(general, "Display", _toggle_fullscreen)
 	# Web fullscreen must start during the pressed input event, before release.
 	fullscreen_button.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
 	get_viewport().size_changed.connect(_update_labels)
-	motion_button = _setting_row(rows, "UI motion", _toggle_motion)
-	var space := Control.new()
-	space.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	rows.add_child(space)
-	# Fixed short lines avoid autowrap inflating the hidden panel's minimum
-	# height while its containers still have zero width on first construction.
-	var storage_hint := PresentationStyle.label(rows, "Camera sensitivity is saved.\nOther settings apply this session.", 14)
-	storage_hint.modulate = PresentationStyle.MUTED
+	motion_button = _setting_row(general, "UI motion", _toggle_motion)
+	_build_graphics()
+	categories = UiCategoryTabs.new()
+	rows.add_child(categories)
+	rows.move_child(categories, tabs.get_index())
+	categories.bind(tabs, ["general", "graphics"])
+	_graphics.changed.connect(_update_graphics)
+	_update_graphics()
 	back_button = PresentationStyle.button(rows, "Back  ·  Esc", close, "close")
 	back_button.theme_type_variation = "HarvestMenuButton"
 	hide()
+
+func _build_graphics() -> void:
+	var graphics := VBoxContainer.new()
+	graphics.name = "Graphics"
+	graphics.add_theme_constant_override("separation", 10)
+	tabs.add_child(graphics)
+	var quality_row := PresentationStyle.box(graphics, false, 12)
+	PresentationStyle.label(quality_row, "Quality preset", 18).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	quality_option = OptionButton.new()
+	quality_option.custom_minimum_size = Vector2(190, 44)
+	for title in ["Low", "Medium", "High"]: quality_option.add_item(title)
+	quality_option.tooltip_text = "Low: performance. High: image quality. Resets shadows and resolution."
+	quality_option.item_selected.connect(_graphics.set_quality)
+	quality_row.add_child(quality_option)
+	shadows_button = _setting_row(graphics, "Shadows", func() -> void: _graphics.set_shadows(not _graphics.shadows_enabled))
+	var scale_row := PresentationStyle.box(graphics, false, 12)
+	PresentationStyle.label(scale_row, "3D resolution", 18).size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	render_scale_label = PresentationStyle.label(scale_row, "", 18)
+	render_scale_label.modulate = PresentationStyle.SAGE
+	render_scale_slider = HSlider.new()
+	render_scale_slider.min_value = 0.5
+	render_scale_slider.max_value = 1.0
+	render_scale_slider.step = 0.05
+	render_scale_slider.custom_minimum_size.y = 34
+	render_scale_slider.value_changed.connect(_graphics.set_render_scale)
+	render_scale_slider.tooltip_text = "Lower values improve performance. UI stays sharp."
+	graphics.add_child(render_scale_slider)
+
+func _update_graphics() -> void:
+	quality_option.select(_graphics.quality)
+	shadows_button.text = "On" if _graphics.shadows_enabled else "Off"
+	render_scale_slider.set_value_no_signal(_graphics.render_scale)
+	render_scale_label.text = "%d%%" % roundi(_graphics.render_scale * 100)
 
 func _setting_row(parent: Node, title: String, callback: Callable) -> Button:
 	var row := PresentationStyle.box(parent, false, 16)
@@ -78,6 +123,7 @@ func open() -> void:
 	sensitivity_slider.set_value_no_signal(CameraPreferences.get_sensitivity())
 	sensitivity_label.text = "%.1fx" % sensitivity_slider.value
 	_update_labels()
+	_update_graphics()
 	show()
 	PresentationStyle.appear(self)
 	back_button.grab_focus()

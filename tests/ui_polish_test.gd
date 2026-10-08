@@ -20,7 +20,9 @@ func run() -> void:
 	await click_scaled(bag.slot_buttons[1])
 	await frames(2)
 	check(game.inventory.selected_seed_id == &"seed_paper" and bag.inspected_item.id == &"seed_paper", "seed cell selects through original Inventory API")
-	check(bag._detail_info.get_child_count() >= 5 and bag._detail_icon.texture == UiIcons.item_icon(bag.inspected_item), "seed details expose growth, output and conditions")
+	var seed_tip := (bag.slot_buttons[1] as UiItemSlot)._make_custom_tooltip("") as ItemTooltip
+	check(seed_tip != null and seed_tip.find_children("*", "Label", true, false).any(func(label: Label) -> bool: return label.text.contains("Growth")), "hover card exposes seed growth and output outside the weapon panel")
+	seed_tip.free()
 	game.inventory.add_item(game.catalog.get_item(&"lead"), 2)
 	var seed_before: StringName = game.inventory.selected_seed_id
 	await click_item(&"lead")

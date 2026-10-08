@@ -3,8 +3,6 @@ extends Control
 @export var game_path := "res://scenes/main/GameRoot.tscn"
 var _label: Label
 var _bar: ProgressBar
-var _pulse: Label
-var _elapsed := 0.0
 var _preparing := false
 var _game: Node3D
 var _overlay: CanvasLayer
@@ -33,7 +31,7 @@ func _ready() -> void:
 	title.add_theme_font_size_override("font_size", 27)
 	rows.add_child(title)
 	_label = Label.new()
-	_label.text = "Loading the farm…"
+	_label.text = "Loading…"
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_label.modulate = PresentationStyle.MUTED
 	rows.add_child(_label)
@@ -41,9 +39,6 @@ func _ready() -> void:
 	_bar.custom_minimum_size.y = 8
 	_bar.show_percentage = false
 	rows.add_child(_bar)
-	_pulse = Label.new()
-	_pulse.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	rows.add_child(_pulse)
 	# Render the loading UI before initiating any resource work.
 	await get_tree().process_frame
 	if DisplayServer.get_name() != "headless": await RenderingServer.frame_post_draw
@@ -53,9 +48,7 @@ func _ready() -> void:
 func _input(_event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
-func _process(delta: float) -> void:
-	_elapsed += delta
-	_pulse.text = "Preparing your harvest"+".".repeat(int(_elapsed*3.0)%4)
+func _process(_delta: float) -> void:
 	if _preparing: return
 	var progress: Array = []
 	var status := ResourceLoader.load_threaded_get_status(game_path, progress)
@@ -72,8 +65,8 @@ func _prepare() -> void:
 	if scene == null:
 		_fail()
 		return
-	_label.text = "Preparing the world…"
-	_bar.hide()
+	_label.text = "Loading…"
+	_bar.indeterminate = true
 	await get_tree().process_frame
 	var instance := scene.instantiate()
 	if not instance is Node3D or not instance.has_method("wait_until_ready"):
@@ -138,7 +131,7 @@ func _prepare() -> void:
 			await get_tree().process_frame
 			await RenderingServer.frame_post_draw
 		impact.queue_free()
-	_label.text = "Ready for the harvest"
+	_label.text = "Ready"
 	# Allow physics/navigation synchronization and the complete world to render.
 	for frame in 3: await get_tree().process_frame
 	var shade := _overlay.get_child(0) as Control
@@ -155,6 +148,7 @@ func _fail() -> void:
 	if is_instance_valid(_game): _game.queue_free()
 	if get_tree().has_meta("loading_world"): get_tree().remove_meta("loading_world")
 	if get_tree().has_meta("normal_play"): get_tree().remove_meta("normal_play")
+	get_node("/root/DayCheckpoint").begin_new()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().set_meta("loading_failed", true)
 	get_tree().change_scene_to_file("res://scenes/main/MainMenu.tscn")

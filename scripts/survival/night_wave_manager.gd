@@ -175,6 +175,17 @@ func debug_kill_active() -> void:
 	for zombie in alive.values():
 		if is_instance_valid(zombie): zombie.health.take_damage(zombie.health.max_hp)
 
+func debug_clear_wave() -> void:
+	if state in [State.GAME_OVER, State.GAME_COMPLETED]: return
+	var was_active := state == State.ACTIVE
+	_cleanup()
+	spawned_zombies = total_zombies
+	if was_active: state = State.CLEARED
+	changed.emit()
+	if was_active:
+		wave_cleared.emit()
+		feedback.emit("NIGHT CLEARED - Rest at the shelter bed")
+
 
 func debug_set_day(day: int) -> void:
 	if state in [State.GAME_OVER, State.GAME_COMPLETED] or day < 1 or day > 10: return

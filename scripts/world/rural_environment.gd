@@ -493,6 +493,7 @@ func add_batch(key: String, part: Dictionary, placements: Array, cell: Vector2i,
 	# MultiMesh LOD needs the scale inside instance transforms for tiny imported meshes.
 	# Otherwise imported container panels and similar thin structures disappear too soon.
 	visual.lod_bias = largest_scale
+	if is_foliage: visual.add_to_group("graphics_grass")
 	add_child(visual)
 
 func toned_foliage_mesh(source_mesh: Mesh) -> Mesh:

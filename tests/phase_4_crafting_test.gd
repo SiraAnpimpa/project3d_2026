@@ -70,7 +70,7 @@ func run() -> void:
 	key(KEY_Q)
 	await frames(15)
 	check(ui.is_open and not bag.is_open and clock.get_elapsed_minutes() == paused_time and mode.current_mode == remembered_mode, "crafting modal blocks bag, clock and mode input")
-	check(ui.feedback.text.contains("Ready to craft") and not ui.craft_button.disabled, "sufficient materials enable craft button")
+	check(not ui.craft_button.disabled, "sufficient materials enable craft button")
 	await capture("phase4_workbench")
 	click_button(ui.craft_button)
 	check(inventory.get_item_amount(&"basic_ammo") == 10 and inventory.get_item_amount(&"lead") == 1 and inventory.get_item_amount(&"paper") == 2 and inventory.get_item_amount(&"copper") == 1, "Basic Ammo craft consumes each material once and grants ten ammo")

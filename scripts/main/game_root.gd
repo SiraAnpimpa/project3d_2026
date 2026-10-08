@@ -9,6 +9,8 @@ var progression: ProgressionManager
 var skip_night: SkipNightDialog
 var seed_rewards: SeedRewardDialog
 var consumables: ConsumableUse
+var cheats: CheatCommands
+var cheats_menu: CheatMenu
 @export var catalog: ItemCatalog
 @export var starter_loadout: InventoryLoadout
 @export var recipe_book: RecipeBook
@@ -33,6 +35,7 @@ var consumables: ConsumableUse
 
 
 func _ready() -> void:
+	get_node("/root/DayCheckpoint").prepare_clock(clock)
 	# Establish the final fog/light shader configuration before scenery renders.
 	# Applying it after all batches existed recompiled the entire visible world
 	# in one measured ~550 ms Compatibility render frame.
@@ -44,6 +47,9 @@ func _ready() -> void:
 	# yield. Direct editor/test entry still prepares synchronously.
 	for builder in [$MainWorld/Terrain, $MainWorld/RuralEnvironment]:
 		if not builder.preparation_complete: await builder.prepared
+	add_to_group("graphics_world")
+	var graphics: Node = get_node("/root/GraphicsSettings")
+	apply_graphics(graphics.quality, graphics.shadows_enabled)
 	player.global_transform = $MainWorld/PlayerSpawn.global_transform
 	if starter_loadout == null or not starter_loadout.give_to(inventory):
 		push_error("Starter loadout is invalid or inventory is too small.")
@@ -138,6 +144,16 @@ func _ready() -> void:
 	seed_rewards.name = "SeedRewardDialog"
 	add_child(seed_rewards)
 	seed_rewards.bind(self)
+	cheats = CheatCommands.new()
+	cheats.name = "CheatCommands"
+	add_child(cheats)
+	cheats.bind(self)
+	cheats_menu = CheatMenu.new()
+	cheats_menu.name = "CheatMenu"
+	add_child(cheats_menu)
+	cheats_menu.bind(self)
+	cheats_menu.opened_changed.connect(player.camera_rig.set_menu_open)
+	cheats_menu.opened_changed.connect(func(_open: bool) -> void: audio.cue("click"))
 	for screen in [inventory_ui.screen, crafting_ui.screen, pause_menu.get_node("Screen")]:
 		screen.theme = PresentationStyle.theme(screen == crafting_ui.screen)
 	if get_tree().has_meta("normal_play") or not OS.is_debug_build():
@@ -148,16 +164,34 @@ func _ready() -> void:
 	gameplay_mode.mode_changed.connect(func(mode: GameplayModeController.Mode) -> void:
 		hud.show_message("FARMING MODE" if mode == GameplayModeController.Mode.FARMING else "COMBAT MODE"))
 	pause_menu.bind_web_capture(self)
+	get_node("/root/DayCheckpoint").bind(self)
 	preparation_complete = true
 	game_ready.emit()
 
 func wait_until_ready() -> void:
 	if not preparation_complete: await game_ready
 
+func apply_graphics(quality: int, shadows: bool) -> void:
+	var graphics: Node = get_node("/root/GraphicsSettings")
+	var preset: Dictionary = graphics.PRESETS[quality]
+	var sun := $MainWorld/Sun as DirectionalLight3D
+	sun.shadow_enabled = shadows
+	sun.directional_shadow_max_distance = preset.shadow_distance
+	# Only decorative grass is reduced. Trees, rocks, crops, loot, enemies,
+	# navigation and collision geometry remain unchanged in every preset.
+	for grass: MultiMeshInstance3D in get_tree().get_nodes_in_group("graphics_grass"):
+		if not is_ancestor_of(grass): continue
+		grass.multimesh.visible_instance_count = maxi(1, roundi(grass.multimesh.instance_count * float(preset.grass)))
+		grass.visibility_range_end = preset.distance
+		grass.visibility_range_end_margin = 8.0
+		grass.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_DISABLED
+		grass.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if quality == 2 else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart") and (player.health.is_dead or waves.state == NightWaveManager.State.GAME_COMPLETED):
-		PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn")
+		if player.health.is_dead: PresentationStyle.continue_game(get_tree())
+		else: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn")
 
 
 func _update_spawn_debug(active: bool, _summary: String) -> void:
@@ -172,6 +206,10 @@ func _on_completed() -> void:
 	# Freeze gameplay nodes while leaving the HUD and restart handler available.
 	inventory_ui.set_open(false)
 	crafting_ui.set_open(false)
+	if cheats_menu != null:
+		cheats_menu.set_open(false)
+		cheats_menu.process_mode = Node.PROCESS_MODE_DISABLED
+	if cheats != null: cheats.clear_spawned()
 	player.camera_rig.set_player_alive(false)
 	player.velocity = Vector3.ZERO
 	player.process_mode = Node.PROCESS_MODE_DISABLED

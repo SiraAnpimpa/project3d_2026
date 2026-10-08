@@ -19,9 +19,8 @@ var grid: GridContainer
 var capacity_label: Label
 var selection_label: Label
 var inspected_item: ItemData
-var _detail_icon: TextureRect
-var _detail_info: VBoxContainer
 var _owned_weapons: GridContainer
+var _weapon_empty: Label
 var _catalog: ItemCatalog
 var _panel: PanelContainer
 
@@ -34,7 +33,7 @@ func _ready() -> void:
 	var rows := PresentationStyle.box(_panel, true, 8)
 	var header := PresentationStyle.box(rows, false, 12)
 	PresentationStyle.icon(header, UiIcons.get_icon("bag"), 26).modulate = PresentationStyle.GOLD
-	PresentationStyle.heading(header, "Field inventory", "FIELD KIT / SEEDS, SUPPLIES & EQUIPMENT")
+	PresentationStyle.heading(header, "Inventory")
 	capacity_label = PresentationStyle.label(header, "", 17)
 	capacity_label.modulate = PresentationStyle.MUTED
 	var close := PresentationStyle.button(header, "Esc", func() -> void: set_open(false), "close")
@@ -44,6 +43,7 @@ func _ready() -> void:
 	var content := PresentationStyle.box(rows, false, 16)
 	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	var supply_panel := PanelContainer.new()
+	supply_panel.name = "SuppliesWindow"
 	content.add_child(supply_panel)
 	supply_panel.add_theme_stylebox_override("panel", _section_style())
 	var left := PresentationStyle.box(supply_panel, true, 8)
@@ -51,6 +51,7 @@ func _ready() -> void:
 	PresentationStyle.label(left, "SEEDS & SUPPLIES", 14).modulate = PresentationStyle.MUTED
 	var scroll := ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.follow_focus = true
 	scroll.custom_minimum_size = Vector2(532, 336)
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	left.add_child(scroll)
@@ -59,33 +60,30 @@ func _ready() -> void:
 	grid.add_theme_constant_override("h_separation", 8)
 	grid.add_theme_constant_override("v_separation", 8)
 	scroll.add_child(grid)
-	var detail_panel := PanelContainer.new()
-	content.add_child(detail_panel)
-	detail_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	detail_panel.add_theme_stylebox_override("panel", _section_style())
-	var detail := PresentationStyle.box(detail_panel, true, 10)
-	detail.custom_minimum_size.x = 304
-	detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var detail_header := PresentationStyle.box(detail, false, 14)
-	_detail_icon = PresentationStyle.icon(detail_header, null, 76)
-	selection_label = PresentationStyle.label(detail_header, "", 24)
-	selection_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	selection_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_detail_info = PresentationStyle.box(detail, true, 10) as VBoxContainer
-	var spacer := Control.new()
-	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	detail.add_child(spacer)
-	PresentationStyle.label(detail, "OWNED WEAPONS", 14).modulate = PresentationStyle.MUTED
+	selection_label = PresentationStyle.label(left, "", 16)
+	selection_label.modulate = PresentationStyle.SAGE
+	var weapon_panel := PanelContainer.new()
+	weapon_panel.name = "WeaponsWindow"
+	content.add_child(weapon_panel)
+	weapon_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	weapon_panel.add_theme_stylebox_override("panel", _section_style())
+	var weapon_rows := PresentationStyle.box(weapon_panel, true, 10)
+	weapon_rows.custom_minimum_size.x = 304
+	PresentationStyle.label(weapon_rows, "Weapons", 24)
+	weapon_rows.add_child(HSeparator.new())
 	var weapon_scroll := ScrollContainer.new()
 	weapon_scroll.custom_minimum_size.y = 80
+	weapon_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	weapon_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	weapon_scroll.follow_focus = true
-	detail.add_child(weapon_scroll)
+	weapon_rows.add_child(weapon_scroll)
 	_owned_weapons = GridContainer.new()
 	_owned_weapons.columns = 3
 	_owned_weapons.add_theme_constant_override("h_separation",8)
 	_owned_weapons.add_theme_constant_override("v_separation",8)
 	weapon_scroll.add_child(_owned_weapons)
+	_weapon_empty = PresentationStyle.label(weapon_rows, "No weapons in bag", 16)
+	_weapon_empty.modulate = PresentationStyle.MUTED
 	rows.add_child(HSeparator.new())
 	var equipment_hint := PresentationStyle.label(rows, "LOADOUT", 14)
 	equipment_hint.modulate = PresentationStyle.MUTED
@@ -122,6 +120,8 @@ func bind_crafting(menu: CraftingUI) -> void:
 	crafting_ui = menu
 
 func _input(event: InputEvent) -> void:
+	# Always-processing modal UI must still respect the loading scene's input gate.
+	if get_parent().process_mode == Node.PROCESS_MODE_DISABLED: return
 	if event.is_echo(): return
 	# Other modal screens need Tab for focus navigation while they own the pause.
 	if get_tree().paused and not is_open: return
@@ -173,38 +173,19 @@ func refresh() -> void:
 		destination.move_child(cell, -1)
 		var plant: PlantData = _catalog.get_plant(item.plant_id) if item != null and item.item_type == ItemData.ItemType.SEED and _catalog != null else null
 		cell.display(item, slots[index].quantity if item != null else 0, item != null and item == inspected_item, plant)
+		cell.tooltip_planting = item != null and item == inventory.get_selected_seed()
+		cell.tooltip_weapon = null
+		if item != null and item.item_type == ItemData.ItemType.WEAPON:
+			for definition: WeaponData in (player.get_node("WeaponController") as WeaponController).definitions:
+				if definition.weapon_item == item:
+					cell.tooltip_weapon = definition
+					break
 	capacity_label.text = "%d / %d" % [slots.size(), inventory.capacity]
 	capacity_label.tooltip_text = "Occupied bag slots"
-	_refresh_detail()
+	var planting := inventory.get_selected_seed()
+	selection_label.text = "Planting  ·  " + planting.display_name if planting != null else ("Empty bag" if slots.is_empty() else "No seed selected")
+	_weapon_empty.visible = not slots.any(func(slot) -> bool: return slot.item.item_type == ItemData.ItemType.WEAPON)
 	_refresh_equipment()
-
-func _refresh_detail() -> void:
-	for node in _detail_info.get_children():
-		_detail_info.remove_child(node)
-		node.queue_free()
-	_detail_icon.texture = UiIcons.item_icon(inspected_item)
-	selection_label.text = inspected_item.display_name if inspected_item != null else "Empty bag"
-	if inspected_item == null:
-		PresentationStyle.label(_detail_info, "Harvest materials to fill your bag.", 17)
-		return
-	var count := inventory.get_item_amount(inspected_item.id)
-	PresentationStyle.eyebrow(_detail_info, UiIcons.category(inspected_item))
-	PresentationStyle.label(_detail_info, "×%d in bag" % count, 18).modulate = PresentationStyle.MUTED
-	_detail_info.add_child(HSeparator.new())
-	if inspected_item.item_type == ItemData.ItemType.SEED and _catalog != null:
-		var plant := _catalog.get_plant(inspected_item.plant_id)
-		if plant == null: return
-		var growth := PresentationStyle.box(_detail_info, false, 10)
-		PresentationStyle.icon(growth, UiIcons.get_icon("clock"), 22)
-		PresentationStyle.label(growth, "%.0f game min" % plant.growth_minutes, 17).tooltip_text = "Growth time in game minutes"
-		var harvest := PresentationStyle.box(_detail_info, false, 10)
-		PresentationStyle.icon(harvest, UiIcons.item_icon(plant.harvest_item), 30)
-		PresentationStyle.label(harvest, "%s  ×%d" % [plant.harvest_item.display_name, plant.harvest_amount], 18)
-		PresentationStyle.label(_detail_info, "Plant on an empty plot.", 16).modulate = PresentationStyle.MUTED
-		PresentationStyle.label(_detail_info, "Selected for planting", 16).modulate = PresentationStyle.SAGE
-	else:
-		var copy := PresentationStyle.label(_detail_info, UiIcons.use_text(inspected_item), 17)
-		copy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 func _select_slot(index: int) -> void:
 	var slots := inventory.get_slots()
@@ -224,9 +205,9 @@ func bind_equipment(loadout: EquipmentLoadout) -> void:
 func _refresh_equipment() -> void:
 	if equipment == null: return
 	if selected_owned_weapon != null and not inventory.has_item(selected_owned_weapon.id): selected_owned_weapon = null
-	%EquipmentHint.text = "LOADOUT  ·  Choose a weapon, then a slot"
+	%EquipmentHint.text = "LOADOUT"
 	if selected_owned_weapon != null:
-		%EquipmentHint.text = "%s  →  Choose a slot" % selected_owned_weapon.display_name
+		%EquipmentHint.text = "Equip %s  ·  Choose a slot" % selected_owned_weapon.display_name
 	while equipment_buttons.size() < equipment.weapon_slot_count:
 		var index := equipment_buttons.size()
 		var row := PresentationStyle.box(%EquipmentSlots, false, 4)

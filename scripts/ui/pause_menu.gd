@@ -20,15 +20,11 @@ var _web_had_capture := false
 
 func _ready() -> void:
 	var screen := PresentationStyle.screen(self)
-	var panel := PresentationStyle.center_panel(screen, Vector2(440, 552))
+	var panel := PresentationStyle.center_panel(screen, Vector2(440, 492))
 	panel.name = "Panel"
 	var rows := PresentationStyle.box(panel, true, 10)
 	rows.name = "Rows"
-	PresentationStyle.eyebrow(rows, "SOMCHAI’S FARM / PAUSED").name = "Context"
-	PresentationStyle.label(rows, "A moment to rest", 30).name = "Title"
-	var hint := PresentationStyle.label(rows, "The farm can wait.", 17)
-	hint.name = "Hint"
-	hint.modulate = PresentationStyle.MUTED
+	PresentationStyle.label(rows, "Paused", 30).name = "Title"
 	var resume := PresentationStyle.button(rows, "Resume  ·  Esc", _resume_from_button, "play")
 	resume.theme_type_variation = "PrimaryButton"
 	resume.custom_minimum_size.y = 50
@@ -42,7 +38,8 @@ func _ready() -> void:
 	settings_button.theme_type_variation = "HarvestMenuButton"
 	help_button = PresentationStyle.button(rows, "How to play", _toggle_guide, "help")
 	help_button.theme_type_variation = "HarvestMenuButton"
-	var restart := PresentationStyle.button(rows, "Restart", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn"))
+	var restart := PresentationStyle.button(rows, "Restart day", func() -> void: PresentationStyle.continue_game(get_tree()))
+	restart.tooltip_text = "Return to this morning. Today's progress will be lost."
 	restart.name = "Restart"
 	restart.theme_type_variation = "QuietButton"
 	var main := PresentationStyle.button(rows, "Main menu", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/MainMenu.tscn"), "rest")
@@ -67,6 +64,7 @@ func bind_crafting(menu: CraftingUI) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if get_parent().process_mode == Node.PROCESS_MODE_DISABLED: return
 	if _web_capture_waiting:
 		if event.is_action_pressed("capture_mouse"):
 			_web_camera.capture_mouse_from_gesture()
@@ -126,10 +124,10 @@ func _toggle_guide() -> void:
 	guide.visible = not guide.visible
 	help_button.text = "Back  ·  Esc" if guide.visible else "How to play"
 	help_button.icon = UiIcons.get_icon("close" if guide.visible else "help")
-	$Screen/Panel/Rows/Title.text = "How to survive" if guide.visible else "A moment to rest"
-	for node_name in ["Context", "Resume", "Hint", "Settings", "Restart", "MainMenu", "Quit"]:
+	$Screen/Panel/Rows/Title.text = "How to play" if guide.visible else "Paused"
+	for node_name in ["Resume", "Settings", "Restart", "MainMenu", "Quit"]:
 		$Screen/Panel/Rows.get_node(node_name).visible = not guide.visible
-	PresentationStyle.fit_panel($Screen/Panel, Vector2(928, 632) if guide.visible else Vector2(440, 552))
+	PresentationStyle.fit_panel($Screen/Panel, Vector2(928, 632) if guide.visible else Vector2(440, 492))
 	help_button.grab_focus()
 
 func _open_settings() -> void:
@@ -152,9 +150,8 @@ func bind_web_capture(game: Node3D) -> void:
 	_web_capture_screen.name = "WebCaptureScreen"
 	var panel := PresentationStyle.center_panel(_web_capture_screen, Vector2(444, 220))
 	var rows := PresentationStyle.box(panel, true, 12)
-	PresentationStyle.eyebrow(rows, "SOMCHAI’S FARM / READY")
-	PresentationStyle.label(rows, "Click to return to the farm", 26)
-	PresentationStyle.label(rows, "Click anywhere to enable mouse look.\nEsc opens the pause menu.", 17)
+	PresentationStyle.label(rows, "Click to resume", 26)
+	PresentationStyle.label(rows, "Esc · Pause", 17)
 	for control: Control in _web_capture_screen.find_children("*", "Control", true, false):
 		control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_web_capture_screen.mouse_filter = Control.MOUSE_FILTER_IGNORE

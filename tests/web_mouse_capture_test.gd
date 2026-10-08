@@ -105,6 +105,24 @@ func run() -> void:
 	rig.pointer_locked = true
 	await frames(3)
 	check(rig.can_control() and not paused, "focus loss can recover through a fresh engagement")
+	key(KEY_QUOTELEFT)
+	check(game.cheats_menu.is_open and paused and not rig.pointer_locked and not menu.is_open, "Web cheat shortcut releases pointer and owns the pause")
+	rig.capture_requested = false
+	key(KEY_ESCAPE)
+	check(not game.cheats_menu.is_open and menu._web_capture_waiting and paused and not rig.capture_requested, "cheat Escape returns to click-to-resume without requesting browser lock")
+	key(KEY_QUOTELEFT)
+	check(game.cheats_menu.is_open and not menu._web_capture_waiting and paused, "cheat shortcut can replace Web engagement prompt without stacking pauses")
+	var cheat_close := InputEventMouseButton.new()
+	cheat_close.button_index = MOUSE_BUTTON_LEFT
+	cheat_close.position = game.cheats_menu.close_button.get_global_rect().get_center()
+	cheat_close.pressed = true
+	root.push_input(cheat_close)
+	check(not game.cheats_menu.is_open and rig.capture_requested and menu._web_capture_waiting, "cheat close button requests capture during its pressed browser gesture")
+	cheat_close.pressed = false
+	root.push_input(cheat_close)
+	rig.pointer_locked = true
+	await frames(3)
+	check(not paused and rig.can_control(), "Web gameplay resumes normally after closing cheats")
 	game.clock.set_process(false)
 	game.clock.seek(5,6)
 	await frames(4)

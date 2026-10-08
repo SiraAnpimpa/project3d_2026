@@ -63,7 +63,7 @@ func bind(root_game: Node3D) -> void:
 	title = PresentationStyle.label(rows,"Skip to Night?",30)
 	time_summary = PresentationStyle.label(rows,"",18)
 	time_summary.modulate = Color("e9c774")
-	var text := PresentationStyle.label(rows,"Time will advance to 18:00.\nNo HP or stamina recovery.",18)
+	var text := PresentationStyle.label(rows,"No HP or stamina recovery.",18)
 	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.custom_minimum_size.x = 416
 	text.size_flags_vertical = Control.SIZE_FILL

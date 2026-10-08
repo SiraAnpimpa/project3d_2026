@@ -156,3 +156,21 @@ func _is_farming(actor: Node3D) -> bool:
 		return false
 	var mode := actor.get_node_or_null("GameplayMode") as GameplayModeController
 	return mode == null or mode.is_farming()
+
+func checkpoint_state() -> Dictionary:
+	if state == State.EMPTY: return {"name": String(name), "plant": ""}
+	return {"name": String(name), "plant": String(plant_data.plant_id), "age": clampf(_clock.get_elapsed_minutes() - planted_time, 0, plant_data.growth_minutes)}
+
+func restore_checkpoint(saved: Dictionary) -> void:
+	clear_plot()
+	if saved.plant.is_empty(): return
+	plant_data = _catalog.get_plant(StringName(saved.plant))
+	planted_time = _clock.get_elapsed_minutes() - float(saved.age)
+	growth_progress = float(saved.age) / plant_data.growth_minutes
+	growth_stage = plant_data.stage_at(growth_progress)
+	state = State.READY if growth_progress >= 0.999999 else State.PLANTED
+	plant_visual = PLANT_SCENE.instantiate() as PlantVisual
+	$PlantAnchor.add_child(plant_visual)
+	plant_visual.configure(plant_data)
+	plant_visual.set_stage(growth_stage)
+	_publish_status()

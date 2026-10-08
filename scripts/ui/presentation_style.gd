@@ -124,18 +124,49 @@ static func theme(compact: bool = false) -> Theme:
 		result.set_stylebox(track, "HSlider", style)
 	result.set_icon("grabber", "HSlider", preload("res://assets/ui/icons/slider_knob.svg"))
 	result.set_icon("grabber_highlight", "HSlider", preload("res://assets/ui/icons/slider_knob_active.svg"))
+	_category_theme(result)
 	_themes[compact] = result
 	return result
+
+static func _category_theme(result: Theme) -> void:
+	result.set_type_variation("CategoryRail", "PanelContainer")
+	var rail := flat(Color("0d1912"), Color("344534"), 1)
+	rail.set_corner_radius_all(8)
+	rail.set_content_margin_all(5)
+	result.set_stylebox("panel", "CategoryRail", rail)
+	result.set_type_variation("CategoryTab", "Button")
+	var fills := {"normal": Color.TRANSPARENT, "hover": Color("233529"), "pressed": Color("3b4b32"), "hover_pressed": Color("46563b"), "disabled": Color.TRANSPARENT}
+	for state in fills:
+		var selected: bool = state in ["pressed", "hover_pressed"]
+		var style := flat(fills[state], GOLD if selected else Color.TRANSPARENT, 0)
+		style.border_width_bottom = 2 if selected else 0
+		style.content_margin_left = 14
+		style.content_margin_right = 14
+		style.content_margin_top = 10
+		style.content_margin_bottom = 10
+		result.set_stylebox(state, "CategoryTab", style)
+		var tint: Color = PAPER if selected else MUTED
+		if state == "hover": tint = PAPER
+		result.set_color("font_%s_color" % state if state != "normal" else "font_color", "CategoryTab", tint)
+		result.set_color("icon_%s_color" % state, "CategoryTab", GOLD if selected else tint)
+	var focus := flat(Color.TRANSPARENT, SAGE, 2)
+	focus.set_corner_radius_all(6)
+	result.set_stylebox("focus", "CategoryTab", focus)
+	result.set_color("font_focus_color", "CategoryTab", PAPER)
+	result.set_color("icon_focus_color", "CategoryTab", GOLD)
+	result.set_font_size("font_size", "CategoryTab", 18)
+	result.set_constant("h_separation", "CategoryTab", 10)
+	result.set_constant("icon_max_width", "CategoryTab", 24)
 
 static func eyebrow(parent: Node, text: String) -> Label:
 	var result := label(parent, text, 12)
 	result.modulate = GOLD
 	return result
 
-static func heading(parent: Node, text: String, context: String, size: int = 30) -> Label:
+static func heading(parent: Node, text: String, context: String = "", size: int = 30) -> Label:
 	var rows := box(parent, true, 3)
 	rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	eyebrow(rows, context)
+	if not context.is_empty(): eyebrow(rows, context)
 	return label(rows, text, size)
 
 static func label(parent: Node, text: String, size: int = 18) -> Label:
@@ -217,7 +248,7 @@ static func appear(node: Control) -> void:
 		node.modulate.a = 1.0
 		return
 	node.modulate.a = 0.0
-	var tween := node.create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	var tween := node.create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(node, "modulate:a", 1.0, 0.14)
 	node.set_meta("ui_fade", tween)
 
@@ -228,20 +259,18 @@ static func guide_content(parent: Node) -> HBoxContainer:
 	var farm := box(columns, true, 8)
 	farm.custom_minimum_size.x = 340
 	farm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	eyebrow(farm, "01 / CULTIVATE")
-	label(farm, "Grow by day", 25).modulate = SAGE
-	label(farm, "Plant, harvest, craft.\nStock ammunition before nightfall.", 18)
+	label(farm, "Farming", 25).modulate = SAGE
+	label(farm, "Plant, harvest and craft.", 18)
 	farm.add_child(HSeparator.new())
 	for row in [["WASD", "Move"], ["Shift", "Sprint"], ["Mouse / arrows", "Look"], ["E", "Interact"], ["Tab", "Bag and equipment"], ["Wheel", "Select seed or weapon"]]:
 		guide_row(farm, row[0], row[1])
 	var combat := box(columns, true, 8)
 	combat.custom_minimum_size.x = 340
 	combat.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	eyebrow(combat, "02 / HOLD YOUR GROUND")
-	label(combat, "Survive the night", 25).modulate = GOLD
-	label(combat, "Clear the night, then at the cabin:\nE — Rest until Morning. Recover HP/stamina.", 18)
+	label(combat, "Survival", 25).modulate = GOLD
+	label(combat, "Survive ten nights. Rest after clearing a wave.", 16)
 	combat.add_child(HSeparator.new())
-	for row in [["Q", "Farming / Combat"], ["RMB / LMB", "Aim / fire or swing bat"], ["R / C", "Reload / cycle ammo"], ["F", "Use Medicine · restores 30 HP"], ["V", "Switch shoulder"], ["X", "Skip to Night during daytime"], ["Esc", "Close / pause"]]:
+	for row in [["Q", "Farming / Combat"], ["RMB / LMB", "Aim / attack"], ["R / C", "Reload / ammo type"], ["F", "Medicine · +30 HP"], ["V", "Switch shoulder"], ["X", "Skip to night"], ["Esc", "Close / pause"], ["T", "Cheat commands"]]:
 		guide_row(combat, row[0], row[1])
 	return columns
 
@@ -251,10 +280,16 @@ static func guide_row(parent: Node, key: String, action: String) -> void:
 	cap.custom_minimum_size.x = 130
 	label(row, action, 17)
 
-static func go_to(tree: SceneTree, path: String) -> void:
+static func continue_game(tree: SceneTree) -> void:
+	var checkpoint := tree.root.get_node("DayCheckpoint")
+	if checkpoint.request_continue(): go_to(tree, "res://scenes/main/GameRoot.tscn", true)
+	else: go_to(tree, "res://scenes/main/GameRoot.tscn")
+
+static func go_to(tree: SceneTree, path: String, continuing: bool = false) -> void:
 	tree.paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if path.ends_with("GameRoot.tscn"):
+		if not continuing: tree.root.get_node("DayCheckpoint").begin_new()
 		tree.set_meta("normal_play", true)
 		path = "res://scenes/main/Loading.tscn"
 	tree.change_scene_to_file(path)

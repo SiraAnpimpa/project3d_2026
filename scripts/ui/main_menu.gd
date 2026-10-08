@@ -5,6 +5,9 @@ var play_button: Button
 var help_button: Button
 var settings_button: Button
 var settings: UiSettingsPanel
+var continue_button: Button
+var new_game_panel: PanelContainer
+var _confirm_new: Button
 var _home: VBoxContainer
 var _guide_shade: ColorRect
 
@@ -31,7 +34,6 @@ func _ready() -> void:
 	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_home = PresentationStyle.box(self, true, 12) as VBoxContainer
 	_home.custom_minimum_size.x = 484
-	PresentationStyle.eyebrow(_home, "A RURAL SURVIVAL STORY  /  TEN NIGHTS")
 	PresentationStyle.label(_home, "SOMCHAI’S\nLAST HARVEST", 54)
 	PresentationStyle.label(_home, "Grow by day. Survive the night.", 19).modulate = PresentationStyle.MUTED
 	if get_tree().has_meta("loading_failed"):
@@ -40,23 +42,22 @@ func _ready() -> void:
 	var gap := Control.new()
 	gap.custom_minimum_size.y = 8
 	_home.add_child(gap)
-	play_button = PresentationStyle.button(_home, "Begin the harvest", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn"), "play")
-	play_button.theme_type_variation = "PrimaryButton"
+	var checkpoint := get_node("/root/DayCheckpoint")
+	continue_button = _menu_button("Continue", func() -> void: PresentationStyle.continue_game(get_tree()), "play")
+	continue_button.visible = checkpoint.has_checkpoint()
+	continue_button.theme_type_variation = "PrimaryButton"
+	continue_button.custom_minimum_size.y = 54
+	continue_button.text = "Continue  ·  Day %d" % checkpoint.saved_day()
+	continue_button.tooltip_text = "Resume at 06:00 with this morning's inventory."
+	play_button = PresentationStyle.button(_home, "New game", _request_new_game, "play")
+	play_button.theme_type_variation = "HarvestMenuButton" if continue_button.visible else "PrimaryButton"
 	play_button.custom_minimum_size = Vector2(344, 54)
 	play_button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	play_button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	help_button = _menu_button("How to play", _open_guide, "help")
 	settings_button = _menu_button("Settings", _open_settings, "settings")
 	var quit := _menu_button("Quit", func() -> void: get_tree().quit(), "quit")
 	quit.theme_type_variation = "QuietButton"
-	PresentationStyle.label(_home, "Keyboard + mouse", 14).modulate = PresentationStyle.MUTED
-	var signature := PresentationStyle.label(self, "SOMCHAI’S FARM\nSURVIVAL DEMO · 01", 13)
-	signature.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	signature.modulate = PresentationStyle.PAPER
-	signature.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
-	signature.offset_left = -270
-	signature.offset_right = -40
-	signature.offset_top = -66
-	signature.offset_bottom = -28
 	resized.connect(_layout_home)
 	_layout_home.call_deferred()
 	_guide_shade = ColorRect.new()
@@ -68,9 +69,8 @@ func _ready() -> void:
 	guide.name = "Guide"
 	var rows := PresentationStyle.box(guide, true, 16)
 	rows.name = "Rows"
-	PresentationStyle.heading(rows, "How to survive", "FIELD GUIDE / SOMCHAI’S FARM")
+	PresentationStyle.heading(rows, "How to play")
 	PresentationStyle.guide_content(rows)
-	PresentationStyle.label(rows, "Bat: no ammo. Special ammunition and medicine are craft-only.", 16).modulate = PresentationStyle.MUTED
 	var back := PresentationStyle.button(rows, "Back  ·  Esc", _close_guide, "close")
 	back.name = "Back"
 	back.theme_type_variation = "HarvestMenuButton"
@@ -78,6 +78,38 @@ func _ready() -> void:
 	settings = UiSettingsPanel.new()
 	add_child(settings)
 	settings.closed.connect(_close_settings)
+	_build_new_game_confirmation()
+	if continue_button.visible: continue_button.grab_focus()
+	else: play_button.grab_focus()
+
+func _build_new_game_confirmation() -> void:
+	new_game_panel = PresentationStyle.center_panel(self, Vector2(500, 252))
+	new_game_panel.name = "NewGameConfirmation"
+	var rows := PresentationStyle.box(new_game_panel, true, 18)
+	PresentationStyle.heading(rows, "Start a new game?")
+	PresentationStyle.label(rows, "This replaces your saved game.", 18).modulate = PresentationStyle.MUTED
+	var buttons := PresentationStyle.box(rows, false, 12)
+	var cancel := PresentationStyle.button(buttons, "Cancel", _cancel_new_game)
+	cancel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_confirm_new = PresentationStyle.button(buttons, "New game", func() -> void: PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn"), "play")
+	_confirm_new.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_confirm_new.theme_type_variation = "PrimaryButton"
+	new_game_panel.hide()
+
+func _request_new_game() -> void:
+	if not get_node("/root/DayCheckpoint").has_checkpoint():
+		PresentationStyle.go_to(get_tree(), "res://scenes/main/GameRoot.tscn")
+		return
+	_home.hide()
+	_guide_shade.show()
+	new_game_panel.show()
+	PresentationStyle.appear(new_game_panel)
+	new_game_panel.find_children("*", "Button", true, false)[0].grab_focus()
+
+func _cancel_new_game() -> void:
+	new_game_panel.hide()
+	_guide_shade.hide()
+	_home.show()
 	play_button.grab_focus()
 
 func _menu_button(text: String, callback: Callable, icon: String) -> Button:
@@ -117,7 +149,10 @@ func _close_settings() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		if settings.visible:
+		if new_game_panel.visible:
+			_cancel_new_game()
+			get_viewport().set_input_as_handled()
+		elif settings.visible:
 			settings.close()
 			get_viewport().set_input_as_handled()
 		elif guide.visible:

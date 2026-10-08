@@ -8,6 +8,7 @@ var inventory: Inventory
 var book: RecipeBook
 var clock: GameClock
 var _busy := false
+var crafted_weapon_ids: Dictionary[StringName, bool] = {}
 
 
 func bind(target_inventory: Inventory, recipe_book: RecipeBook, game_clock: GameClock) -> void:
@@ -21,6 +22,16 @@ func get_recipes() -> Array[CraftRecipe]:
 		return []
 	return book.recipes
 
+func weapon_already_obtained(recipe: CraftRecipe) -> bool:
+	if recipe == null: return false
+	for entry in recipe.outputs:
+		if entry == null or entry.item == null or entry.item.item_type != ItemData.ItemType.WEAPON: continue
+		if crafted_weapon_ids.has(entry.item.id) or (inventory != null and inventory.has_item(entry.item.id)): return true
+	return false
+
+func get_available_recipes() -> Array[CraftRecipe]:
+	return get_recipes().filter(func(recipe: CraftRecipe) -> bool: return recipe != null and not weapon_already_obtained(recipe))
+
 
 func failure_reason(recipe: CraftRecipe) -> String:
 	if inventory == null or book == null or clock == null or recipe == null:
@@ -29,6 +40,8 @@ func failure_reason(recipe: CraftRecipe) -> String:
 		return "Invalid recipe"
 	if not is_unlocked(recipe):
 		return "Recipe Locked (Day %d)" % recipe.unlock_day
+	if weapon_already_obtained(recipe):
+		return "Weapon already owned or crafted"
 	for entry in recipe.ingredients:
 		var needed := entry.quantity * recipe.craft_amount
 		if not inventory.has_item(entry.item.id, needed):
@@ -51,6 +64,8 @@ func craft(recipe: CraftRecipe) -> String:
 	_busy = false
 	if not success:
 		return "Craft failed; inventory unchanged"
+	for entry in recipe.outputs:
+		if entry.item.item_type == ItemData.ItemType.WEAPON: crafted_weapon_ids[entry.item.id] = true
 	craft_completed.emit(recipe)
 	var names := PackedStringArray()
 	for entry in recipe.outputs:

@@ -5,7 +5,7 @@ extends CanvasLayer
 const TITLES := ["Fire", "Ice", "Poison"]
 const UNLOCK_DAYS := [3, 5, 7]
 const COLOURS := [Color("eea078"), Color("8ecbd4"), Color("bad77c")]
-const DESCRIPTIONS := ["Grow Fire Pepper\nCraft burning ammunition", "Grow Ice Plant\nCraft slowing ammunition", "Grow Poison Plant\nCraft poison ammunition"]
+const DESCRIPTIONS := ["Burn", "Slow", "Poison"]
 
 var game: Node3D
 var is_open := false
@@ -48,7 +48,7 @@ func bind(root_game: Node3D) -> void:
 		var id := ProgressionManager.SPECIAL_SEED_IDS[index]
 		var card := PresentationStyle.button(options, "", _select.bind(id))
 		card.name = TITLES[index] + "Seed"
-		card.custom_minimum_size = Vector2(220, 232)
+		card.custom_minimum_size = Vector2(220, 210)
 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var content := PresentationStyle.box(card, true, 10)
 		content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -119,8 +119,8 @@ func _select(id: StringName) -> void:
 func _refresh() -> void:
 	var amount: int = game.progression.seed_reward_amount(reward_day)
 	var available: Array[StringName] = game.progression.seed_reward_options(reward_day)
-	context.text = "DAY %d / MORNING SUPPLY" % reward_day
-	supply_label.text = "Choose one type · Receive %d seeds, matching today's basic seed supply." % amount
+	context.text = "DAY %d" % reward_day
+	supply_label.text = "%d seeds" % amount
 	for index in cards.size():
 		var id := ProgressionManager.SPECIAL_SEED_IDS[index]
 		var unlocked := id in available
@@ -134,8 +134,9 @@ func _refresh() -> void:
 		badges[index].modulate = COLOURS[index] if unlocked else PresentationStyle.MUTED
 		for child: Control in cards[index].get_child(0).get_children(): child.modulate.a = 1.0 if unlocked else 0.48
 		badges[index].modulate.a = 1.0
-	delivery_hint.text = "One reward each morning. If your bag is full, seeds are saved until space opens."
-	confirm_button.text = "Receive %s Seeds ×%d" % [TITLES[ProgressionManager.SPECIAL_SEED_IDS.find(selected_seed)], amount]
+	delivery_hint.text = ""
+	delivery_hint.hide()
+	confirm_button.text = "Receive %s ×%d" % [TITLES[ProgressionManager.SPECIAL_SEED_IDS.find(selected_seed)], amount]
 	confirm_button.disabled = selected_seed not in available
 	var enabled_cards: Array[Button] = []
 	for card in cards:
@@ -156,7 +157,7 @@ func confirm_selection() -> void:
 	_close()
 	game.player.camera_rig.capture_mouse_from_gesture()
 	game.audio.cue("click")
-	game.hud.show_message("%s ×%d%s" % [item.display_name, amount, " · Saved until bag space opens" if queued else " · Morning supply received"])
+	game.hud.show_message("%s ×%d%s" % [item.display_name, amount, " · Bag full" if queued else ""])
 
 func _close() -> void:
 	if not is_open: return
