@@ -10,15 +10,15 @@
 [resource]
 script = ExtResource("script")
 weapon_id = &"basic_rifle"
-display_name = "Basic Rifle"
+display_name = "Assault Rifle"
 description = "An automatic rifle using farm-crafted Basic, Fire, Ice or Poison Ammo."
 weapon_type = 1
 weapon_item = ExtResource("item")
 ammo_type = ExtResource("ammo")
 compatible_ammo_types = Array[Resource]([ExtResource("ammo"), ExtResource("fire"), ExtResource("ice"), ExtResource("poison")])
-damage = 20.0
+damage = 40.0
 fire_rate = 5.0
-magazine_size = 10
+magazine_size = 25
 reload_time = 1.5
 range_meters = 60.0
 automatic = true

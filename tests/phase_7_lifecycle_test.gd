@@ -46,7 +46,7 @@ func run() -> void:
 	check(not game.rest.request_rest(player), "active wave blocks rest")
 	var first: NormalZombie = waves.alive.values()[0]
 	check(first.position.distance_to(player.position) >= waves.data.minimum_spawn_distance and first.pursue_target, "wave spawn respects minimum distance and pursues beyond local detection")
-	first.health.take_damage(100)
+	first.health.take_damage(first.health.max_hp)
 	check(waves.alive.is_empty() and waves.remaining_zombies == 5 and waves.state == NightWaveManager.State.ACTIVE, "zero alive cannot clear while five are pending")
 	await capture("phase7_pending")
 	var clears := [0]
@@ -56,7 +56,7 @@ func run() -> void:
 		await frames(122)
 		for enemy in waves.alive.values():
 			positions.append(enemy.position)
-			enemy.health.take_damage(100)
+			enemy.health.take_damage(enemy.health.max_hp)
 	check(positions.size() == 6 and positions[0].distance_to(positions[1]) > 10, "wave distributes six spawns across different directions")
 	check(waves.state == NightWaveManager.State.CLEARED and clears[0] == 1 and waves.remaining_zombies == 0, "all spawned and dead emits clear exactly once")
 	check(game.hud._wave_label.text == "Area cleared" and game.hud._night_copy.text.contains("Cabin"), "clear HUD advertises cabin skip")
@@ -133,7 +133,7 @@ func run() -> void:
 	check(waves.state == NightWaveManager.State.GAME_OVER and waves.spawned_zombies == spawned_before and waves.tracked.is_empty() and game.clock.paused, "game over stops wave spawning and clock and cleans enemies")
 	check(not game.rest.request_rest(player) and game.hud.death_panel.visible, "dead player cannot rest and sees game over")
 	key(KEY_R)
-	await frames(20)
+	await wait_for_gameplay()
 	game = current_scene
 	check(game.clock.current_day == 1 and game.clock.current_hour == 6 and game.player.health.current_hp == 100 and game.player.stamina.current_stamina == 100 and game.waves.state == NightWaveManager.State.DAY and game.waves.tracked.is_empty(), "R restart resets day time stats wave and zombies")
 	check(game.get_node("MainWorld/FarmArea/Plot01").state == FarmPlot.State.EMPTY, "restart creates fresh farm state")

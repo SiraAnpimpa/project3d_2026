@@ -48,16 +48,24 @@ func _space(suffix: String) -> AnimationNodeBlendSpace1D:
 	space.add_blend_point(_clip("Run"+suffix),7,-1,&"Run")
 	return space
 
-func _upper_blend(clip: String) -> AnimationNodeBlend2:
+func _upper_blend(clip: String, keep_free_arm := false) -> AnimationNodeBlend2:
 	var blend := AnimationNodeBlend2.new()
 	blend.filter_enabled = true
 	var skeleton := find_child("Skeleton3D",true,false) as Skeleton3D
 	var torso := skeleton.find_bone("Torso")
+	var free_shoulder := skeleton.find_bone("Shoulder.L")
 	var animation := animation_player.get_animation("CharacterArmature|"+clip)
 	for i in animation.get_track_count():
 		var path := animation.track_get_path(i)
 		if path.get_subname_count() == 0: continue
 		var bone := skeleton.find_bone(path.get_subname(0))
+		# Keep the free arm's locomotion underneath the melee action. The bat's
+		# support arm is positioned by its grip solver after this blend.
+		if keep_free_arm and free_shoulder >= 0:
+			var arm_ancestor := bone
+			while arm_ancestor >= 0 and arm_ancestor != free_shoulder:
+				arm_ancestor = skeleton.get_bone_parent(arm_ancestor)
+			if arm_ancestor == free_shoulder: continue
 		var ancestor := bone
 		while ancestor >= 0 and ancestor != torso:
 			ancestor = skeleton.get_bone_parent(ancestor)
@@ -80,7 +88,7 @@ func _build_tree() -> void:
 	graph.add_node("Slash",_clip("Slash"))
 	graph.add_node("SlashSeek",AnimationNodeTimeSeek.new())
 	graph.connect_node("SlashSeek",0,"Slash")
-	graph.add_node("Action",_upper_blend("Slash"))
+	graph.add_node("Action",_upper_blend("Slash",true))
 	graph.connect_node("Action",0,"Cadence")
 	graph.connect_node("Action",1,"SlashSeek")
 	graph.add_node("Hit",_clip("HitReact"))

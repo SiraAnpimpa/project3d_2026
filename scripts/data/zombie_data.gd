@@ -3,10 +3,10 @@ extends Resource
 
 @export var zombie_id: StringName = &"normal_zombie"
 @export var display_name: String = "Normal Zombie"
-@export var max_health: float = 100.0
+@export var max_health: float = 150.0
 @export var move_speed: float = 2.0
 @export var rotation_speed: float = 8.0
-@export var damage: float = 10.0
+@export var damage: float = 15.0
 @export var attack_range: float = 1.35
 @export var attack_interval: float = 1.2
 @export var attack_windup: float = 0.3

@@ -105,6 +105,36 @@ func run() -> void:
 	rig.pointer_locked = true
 	await frames(3)
 	check(rig.can_control() and not paused, "focus loss can recover through a fresh engagement")
+	game.clock.set_process(false)
+	game.clock.seek(5,6)
+	await frames(4)
+	check(game.seed_rewards.is_open and paused and not rig.pointer_locked and not menu._web_capture_waiting, "Web morning reward releases pointer and owns its modal")
+	rig.capture_requested = false
+	var claim := InputEventMouseButton.new()
+	claim.button_index = MOUSE_BUTTON_LEFT
+	claim.pressed = true
+	claim.position = game.seed_rewards.confirm_button.get_global_rect().get_center()
+	root.push_input(claim)
+	check(not game.seed_rewards.is_open and rig.capture_requested and menu._web_capture_waiting, "reward button requests Web pointer lock in the pressed gesture")
+	claim.pressed = false
+	root.push_input(claim)
+	await frames(3)
+	check(paused and not rig.can_control(), "rejected reward capture remains safely resumable")
+	click()
+	rig.pointer_locked = true
+	await frames(3)
+	check(not paused and rig.can_control(), "fresh engagement recovers from rejected reward capture")
+	# A dawn earned while the browser waits must replace that overlay without a trap.
+	rig.pointer_locked = false
+	await frames(3)
+	key(KEY_ESCAPE)
+	game.clock.seek(6,6)
+	await frames(4)
+	check(game.seed_rewards.is_open and not menu._web_capture_waiting and paused, "daily seed choice takes priority over click-to-resume overlay")
+	game.seed_rewards.confirm_selection()
+	rig.pointer_locked = true
+	await frames(3)
+	check(not paused and rig.can_control(), "repeat Web reward returns to captured gameplay")
 	game.player.health.die()
 	rig.pointer_locked = true
 	await frames(3)

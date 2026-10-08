@@ -7,6 +7,7 @@ var presentation: GamePresentation
 var audio: GameAudio
 var progression: ProgressionManager
 var skip_night: SkipNightDialog
+var seed_rewards: SeedRewardDialog
 var consumables: ConsumableUse
 @export var catalog: ItemCatalog
 @export var starter_loadout: InventoryLoadout
@@ -133,6 +134,10 @@ func _ready() -> void:
 	skip_night.name = "SkipNightDialog"
 	add_child(skip_night)
 	skip_night.bind(self)
+	seed_rewards = SeedRewardDialog.new()
+	seed_rewards.name = "SeedRewardDialog"
+	add_child(seed_rewards)
+	seed_rewards.bind(self)
 	for screen in [inventory_ui.screen, crafting_ui.screen, pause_menu.get_node("Screen")]:
 		screen.theme = PresentationStyle.theme(screen == crafting_ui.screen)
 	if get_tree().has_meta("normal_play") or not OS.is_debug_build():

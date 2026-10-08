@@ -14,7 +14,7 @@ func run() -> void:
 		check(weapons.current.data.is_melee()==(id in [&"knife",&"sword"]),"weapon role matches authored data "+String(id))
 		check(weapons.pose_driver.right_error<.15,"right hand reaches grip "+String(id))
 		check(weapons.pose_driver.left_error<.15,"support hand follows configured hold "+String(id))
-		check(weapons.current.data.two_handed == (id in [&"smg",&"marksman_rifle"]),"one/two-hand stance is data driven "+String(id))
+		check(weapons.current.data.two_handed == (id in [&"pistol",&"smg",&"marksman_rifle"]),"one/two-hand stance is data driven "+String(id))
 		await capture("arsenal_day_"+String(id))
 	key(KEY_TAB)
 	await frames(15)

@@ -23,7 +23,11 @@ position = Vector3(0, -0.10, -0.045)
 position = Vector3(0, -0.04, 0.2)
 
 [node name="SecondaryGrip" type="Marker3D" parent="."]
-position = Vector3(0, -0.04, 0.2)
+position = Vector3(0, -0.04, 0.16)
+rotation = Vector3(0, 0, -1.5707963)
+
+[node name="ShoulderRest" type="Marker3D" parent="."]
+position = Vector3(0, 0.08, -0.29)
 
 [node name="MagazineGrip" type="Marker3D" parent="."]
 position = Vector3(0, -0.09, 0.04)

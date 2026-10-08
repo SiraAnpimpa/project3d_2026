@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("script")
 id = &"basic_rifle"
-display_name = "Basic Rifle"
+display_name = "Assault Rifle"
 description = "Aim with RMB, fire with LMB, reload crafted Basic Ammo with R."
 icon = ExtResource("icon")
 max_stack = 1

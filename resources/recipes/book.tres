@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="RecipeBook" load_steps=13 format=3]
+[gd_resource type="Resource" script_class="RecipeBook" load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://scripts/data/recipe_book.gd" id="1"]
 [ext_resource type="Resource" path="res://resources/recipes/basic_ammo.tres" id="ammo"]
@@ -13,6 +13,8 @@
 [ext_resource type="Resource" path="res://resources/recipes/pistol.tres" id="pistol"]
 [ext_resource type="Resource" path="res://resources/recipes/smg.tres" id="smg"]
 [ext_resource type="Resource" path="res://resources/recipes/marksman_rifle.tres" id="marksman_rifle"]
+[ext_resource type="Resource" path="res://resources/recipes/basic_rifle.tres" id="basic_rifle"]
+[ext_resource type="Resource" path="res://resources/recipes/wooden_bat.tres" id="wooden_bat"]
 [resource]
 script = ExtResource("1")
-recipes = Array[Resource]([ExtResource("ammo"), ExtResource("medicine"), ExtResource("metal"), ExtResource("fire"), ExtResource("ice"), ExtResource("poison"), ExtResource("knife"), ExtResource("sword"), ExtResource("pistol"), ExtResource("smg"), ExtResource("marksman_rifle")])
+recipes = Array[Resource]([ExtResource("ammo"), ExtResource("medicine"), ExtResource("metal"), ExtResource("fire"), ExtResource("ice"), ExtResource("poison"), ExtResource("knife"), ExtResource("sword"), ExtResource("pistol"), ExtResource("smg"), ExtResource("marksman_rifle"), ExtResource("basic_rifle"), ExtResource("wooden_bat")])

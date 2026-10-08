@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ZombieData" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/data/zombie_data.gd" id="data"]
-[ext_resource type="PackedScene" path="res://Asset/Post Apocolypse Pack.undefined-glb/Zombie.glb" id="visual"]
+[ext_resource type="PackedScene" path="res://Asset/Post Apocolypse Pack.undefined-glb/Zombie-VlXjG0N8Eg.glb" id="visual"]
 
 [resource]
 script = ExtResource("data")
@@ -9,10 +9,10 @@ visual_scene = ExtResource("visual")
 
 zombie_id = &"runner_zombie"
 display_name = "Runner Zombie"
-max_health = 60.0
+max_health = 100.0
 move_speed = 4.5
-damage = 8.0
+damage = 10.0
 visual_scale = 0.98
 attack_interval = 0.95
 walk_animation = &"CharacterArmature|Run"
-visual_tint = Color(1, 0.6, 0.35, 1)
+visual_tint = Color(1, 1, 1, 1)

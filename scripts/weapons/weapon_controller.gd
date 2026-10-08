@@ -265,10 +265,12 @@ func _resolve_melee_hit(state: WeaponRuntime) -> void:
 	var data := state.data
 	var start := _player.global_position+Vector3.UP*0.85
 	var query := PhysicsShapeQueryParameters3D.new()
-	var shape := SphereShape3D.new()
+	# Cover the whole reach so longer blades still connect with nearby enemies.
+	var shape := CapsuleShape3D.new()
 	shape.radius = data.melee_radius
+	shape.height = maxf(data.range_meters, data.melee_radius * 2.0)
 	query.shape = shape
-	query.transform.origin = start+state.swing_direction*(data.range_meters-data.melee_radius)
+	query.transform = Transform3D(Basis(Quaternion(Vector3.UP, state.swing_direction)), start+state.swing_direction*data.range_meters*0.5)
 	query.collision_mask = shot_collision_mask
 	query.exclude = [_player.get_rid()]
 	var space := get_world_3d().direct_space_state

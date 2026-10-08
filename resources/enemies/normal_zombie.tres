@@ -5,4 +5,6 @@
 
 [resource]
 script = ExtResource("data")
+max_health = 150.0
+damage = 15.0
 visual_scene = ExtResource("visual")

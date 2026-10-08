@@ -22,21 +22,26 @@ material = SubResource("FlashMaterial")
 
 rotation = Vector3(0, 0, 0)
 
-scale = Vector3(0.55, 0.55, 0.55)
+scale = Vector3(0.616, 0.616, 0.616)
 
 [node name="PrimaryGrip" type="Marker3D" parent="."]
+position = Vector3(0, -0.0784, 0)
 
 [node name="SecondaryGrip" type="Marker3D" parent="."]
 
-position = Vector3(0, -0.01, 0.2)
+position = Vector3(0, -0.0504, 0.1792)
+rotation = Vector3(0, 0, -1.5707963)
+
+[node name="ShoulderRest" type="Marker3D" parent="."]
+position = Vector3(0, 0.0896, -0.112)
 
 [node name="MagazineGrip" type="Marker3D" parent="."]
 
-position = Vector3(0, -0.08, 0.08)
+position = Vector3(0, -0.0896, 0.0896)
 
 [node name="Muzzle" type="Marker3D" parent="."]
 
-position = Vector3(0, 0.075, 0.44)
+position = Vector3(0, 0.084, 0.4928)
 
 [node name="Flash" type="MeshInstance3D" parent="Muzzle"]
 

@@ -66,4 +66,6 @@ func _totals(entries: Array[RecipeEntry], multiplier: int) -> Dictionary:
 
 
 func is_unlocked(recipe: CraftRecipe) -> bool:
+	if recipe == null: return false
+	if recipe.category == CraftRecipe.Category.WEAPON: return true
 	return progression.is_recipe_unlocked(recipe.recipe_id) if progression != null else recipe.is_unlocked(clock.current_day)

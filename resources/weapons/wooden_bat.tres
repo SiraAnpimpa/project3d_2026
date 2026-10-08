@@ -21,6 +21,7 @@ muzzle_path = NodePath("")
 ready_hold_offset = Vector3(-0.16, 0, 0.3)
 aim_hold_offset = Vector3(-0.16, 0, 0.3)
 ready_pitch_degrees = -50.0
+pose_style = 3
 melee_hit_delay = 0.18
 melee_swing_duration = 0.48
 melee_radius = 0.65

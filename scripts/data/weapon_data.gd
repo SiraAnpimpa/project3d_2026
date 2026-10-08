@@ -2,6 +2,7 @@ class_name WeaponData
 extends Resource
 
 enum WeaponType { PISTOL, RIFLE, SHOTGUN, SPECIAL, MELEE }
+enum PoseStyle { LONG_GUN, PISTOL, SMG, BAT, SWORD, KNIFE }
 
 @export var weapon_id: StringName
 @export var display_name: String
@@ -24,6 +25,7 @@ enum WeaponType { PISTOL, RIFLE, SHOTGUN, SPECIAL, MELEE }
 @export var icon: Texture2D
 
 @export_group("Holding presentation")
+@export var pose_style: PoseStyle = PoseStyle.LONG_GUN
 @export var two_handed: bool = true
 # Offsets are in Somchai visual space, relative to the animated torso.
 @export var ready_hold_offset := Vector3(-0.18, -0.06, 0.24)

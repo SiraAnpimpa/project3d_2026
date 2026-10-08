@@ -8,14 +8,19 @@
 
 rotation = Vector3(1.5707963, 0, 0)
 
-scale = Vector3(0.24, 0.24, 0.24)
+scale = Vector3(0.372, 0.372, 0.372)
 
 [node name="PrimaryGrip" type="Marker3D" parent="."]
+position = Vector3(0, 0, -0.06975)
+
+rotation = Vector3(1.5707963, 0, 0)
 
 [node name="SecondaryGrip" type="Marker3D" parent="."]
 
-position = Vector3(0, 0, 0.04)
+position = Vector3(0, 0, 0.062)
+
+rotation = Vector3(1.5707963, 0, 0)
 
 [node name="HitTip" type="Marker3D" parent="."]
 
-position = Vector3(0, 0, 0.29)
+position = Vector3(0, 0, 0.4495)

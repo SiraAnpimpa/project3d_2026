@@ -123,6 +123,8 @@ func bind_crafting(menu: CraftingUI) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_echo(): return
+	# Other modal screens need Tab for focus navigation while they own the pause.
+	if get_tree().paused and not is_open: return
 	if event.is_action_pressed("toggle_inventory"):
 		if (not get_tree().paused or is_open) and (crafting_ui == null or not crafting_ui.is_open):
 			set_open(not is_open)

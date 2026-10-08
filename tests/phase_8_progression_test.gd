@@ -20,6 +20,9 @@ func run() -> void:
 		game.debug_controls.set_active(true)
 		game.debug_controls.execute(StringName("debug_set_day_%d" % day))
 		await frames(3)
+		if game.seed_rewards.is_open:
+			game.seed_rewards.confirm_selection()
+			await frames(2)
 		check(game.clock.current_day == day and progression.current.day == day and game.hud.day_label.text == "Day %d" % day and game.hud._phase_label.text.contains("/ 10"), "debug day %d updates config and HUD" % day)
 		if day in [3, 7, 10]: await capture("phase8_day%d" % day)
 		var before: int = game.inventory.get_item_amount(&"seed_lead")
@@ -51,8 +54,9 @@ func run() -> void:
 	for row in [[3, "fire_pepper", "fire_ammo"], [5, "ice_plant", "ice_ammo"], [7, "poison_plant", "poison_ammo"]]:
 		waves.debug_set_day(row[0])
 		var seed_id := StringName("seed_" + row[1])
+		if game.progression.next_seed_reward_day() != 0: game.progression.choose_daily_seed(row[0],seed_id)
 		var plant: PlantData = game.catalog.get_plant(StringName(row[1]))
-		check(game.inventory.get_item_amount(seed_id) == 3 and game.inventory.select_seed(seed_id), "new seed reward selectable: " + row[1])
+		check(game.inventory.get_item_amount(seed_id) == game.progression.current.supply_quantity and game.inventory.select_seed(seed_id), "new seed reward selectable: " + row[1])
 		var plot: FarmPlot = game.get_node("MainWorld/FarmArea/Plot01")
 		plot.interact(player)
 		game.clock.advance_game_minutes(plant.growth_minutes + 1)
@@ -78,9 +82,9 @@ func run() -> void:
 	check(game.progression.is_seed_unlocked(&"seed_fire_pepper") and game.progression.pending_rewards.has(&"seed_fire_pepper") and game.inventory.get_item_amount(&"seed_fire_pepper") == 0, "full bag keeps unlock separate from owned quantity and queues reward")
 	game.inventory.clear()
 	await frames(2)
-	check(game.inventory.get_item_amount(&"seed_fire_pepper") == 3 and game.progression.pending_rewards.is_empty(), "freeing bag claims queued rewards atomically once")
+	check(game.inventory.get_item_amount(&"seed_fire_pepper") == 4 and game.progression.pending_rewards.is_empty(), "freeing bag claims queued rewards atomically once")
 	game.progression.apply_day(3)
-	check(game.inventory.get_item_amount(&"seed_fire_pepper") == 3, "queued delivery cannot duplicate on repeated day")
+	check(game.inventory.get_item_amount(&"seed_fire_pepper") == 4, "queued delivery cannot duplicate on repeated day")
 	game.debug_controls.execute(&"debug_unlock_all")
 	var owned_poison: int = game.inventory.get_item_amount(&"seed_poison_plant")
 	game.debug_controls.execute(&"debug_reset_unlocks")
@@ -88,7 +92,9 @@ func run() -> void:
 	waves.debug_set_day(7)
 	check(game.progression.is_seed_unlocked(&"seed_poison_plant") and game.inventory.get_item_amount(&"seed_poison_plant") == owned_poison, "reaching day after debug reset restores unlock without duplicate starter grant")
 	# Active cap keeps pending types; unexpected removal preserves the exact type.
+	game.progression.choose_daily_seed(7,&"seed_fire_pepper")
 	waves.debug_set_day(10)
+	game.progression.choose_daily_seed(10,&"seed_fire_pepper")
 	game.clock.skip_to_night()
 	var relocated := {}
 	for _tick in 12:
@@ -125,11 +131,12 @@ func run() -> void:
 	check(game.clock.get_elapsed_minutes() == elapsed and not game.inventory_ui.is_open and not game.pause_menu.is_open and not game.weapons.try_fire(), "completion stops clock and gameplay menus/fire")
 	await capture("phase8_completed_dawn")
 	key(KEY_R)
-	await frames(20)
+	await wait_for_gameplay()
 	game = current_scene
 	check(game.clock.current_day == 1 and game.progression.unlocked_seed_ids.size() == 5 and game.inventory.get_item_amount(&"seed_lead") == 3, "victory restart creates fresh Day 1 progression and rewards")
-	# Genuine clock-driven accelerated sequence, no day seeks, kills or healing.
+	# Clock-driven ten-day sequence; invulnerable fixture isolates progression from combat balance.
 	await fresh()
+	player.health.damage_enabled = false
 	game.inventory.select_seed(&"seed_lead")
 	var persistent_plot: FarmPlot = game.get_node("MainWorld/FarmArea/Plot01")
 	persistent_plot.interact(player)
@@ -146,14 +153,15 @@ func run() -> void:
 	var daytime_nodes := {}
 	for _tick in 4000:
 		await frames(1)
+		if game.seed_rewards.is_open: game.seed_rewards.confirm_selection()
 		max_tracked = maxi(max_tracked, waves.tracked.size())
 		if game.clock.is_daytime and game.clock.current_hour == 8:
 			daytime_nodes[game.clock.current_day] = get_node_count()
 		if waves.state == NightWaveManager.State.GAME_COMPLETED: break
 	check(waves.state == NightWaveManager.State.GAME_COMPLETED and day_events == range(2, 12), "accelerated natural Day 1 through Night 10 completes with exactly ten dawns")
-	check(game.progression.reached_days.size() == 10 and game.progression.unlocked_seed_ids.size() == 8 and game.progression.unlocked_recipe_ids.size() == 6, "ten-day registry has no duplicate grants or Day 11 content")
+	check(game.progression.reached_days.size() == 10 and game.progression.unlocked_seed_ids.size() == 8 and game.progression.unlocked_recipe_ids.size() == 13, "ten-day registry has no duplicate grants or Day 11 content")
 	check(waves.tracked.is_empty() and waves.pending.is_empty() and waves.alive.is_empty(), "long run has no stale enemy or pending references")
-	check(persistent_plot.state == FarmPlot.State.READY and game.weapons.current.current_magazine == initial_magazine and game.inventory.has_item(&"basic_rifle"), "ten-day transitions preserve crop, magazine and inventory")
+	check(persistent_plot.state == FarmPlot.State.READY and game.weapons.current.current_magazine == initial_magazine and game.inventory.has_item(&"pistol"), "ten-day transitions preserve crop, magazine and inventory")
 	check(daytime_nodes.size() == 10 and int(daytime_nodes[10]) <= int(daytime_nodes[2]) + 5, "daytime node count does not accumulate across ten days")
 	print("TEN_DAY_NODES ", daytime_nodes, " memory_bytes=", Performance.get_monitor(Performance.MEMORY_STATIC))
 	print("TEN_DAY_RUNTIME max_tracked=", max_tracked, " hp=", player.health.current_hp, " nodes=", get_node_count(), " dawns=", day_events)

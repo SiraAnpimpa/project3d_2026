@@ -1,6 +1,6 @@
 class_name RiflePose
 extends SkeletonModifier3D
-## Small two-arm pose adjustment applied after Matt's existing movement clips.
+## Weapon-specific arm, palm and torso poses layered after the locomotion clips.
 ## No rest bone, imported animation, physics-root transform or shot timing is changed.
 
 var weapons: WeaponController
@@ -27,24 +27,49 @@ var _presentation_weapon: Node3D
 var _presentation_parts: Dictionary = {}
 var _bones: Dictionary = {}
 var _grip_rotations: Dictionary = {}
+var shoulder_error := 0.0
+
+# Ready, anticipation, contact, follow-through. Times come from WeaponRuntime;
+# the last segment returns to ready at the unchanged swing completion time.
+# angles = pitch/yaw/roll in degrees, body = pitch/twist/roll in radians.
+# free = small counterbalance offset from the animated free wrist, not a grasp.
+const MELEE_POSES := {
+	WeaponData.PoseStyle.BAT: [
+		{"angles":Vector3(-52,-22,-12), "reach":Vector3.ZERO, "free":Vector3.ZERO, "body":Vector3(0,-0.06,0)},
+		{"angles":Vector3(-58,-82,-25), "reach":Vector3(-0.10,0.10,-0.10), "free":Vector3.ZERO, "body":Vector3(-0.025,-0.25,-0.035)},
+		{"angles":Vector3(-3,-3,-8), "reach":Vector3(0.11,-0.015,0.08), "free":Vector3.ZERO, "body":Vector3(0.045,0.10,0.025)},
+		{"angles":Vector3(20,78,8), "reach":Vector3(0.25,-0.07,0.03), "free":Vector3.ZERO, "body":Vector3(0.025,0.30,0.04)}],
+	WeaponData.PoseStyle.SWORD: [
+		{"angles":Vector3(-52,-28,-15), "reach":Vector3.ZERO, "free":Vector3.ZERO, "body":Vector3(0,-0.05,0)},
+		{"angles":Vector3(-44,-86,-36), "reach":Vector3(-0.045,0.13,-0.07), "free":Vector3(0.035,0.055,-0.055), "body":Vector3(-0.02,-0.21,-0.02)},
+		{"angles":Vector3(-6,-2,-18), "reach":Vector3(0.12,0.015,0.13), "free":Vector3(0,0.11,0.035), "body":Vector3(0.025,0.10,0.015)},
+		{"angles":Vector3(24,80,-30), "reach":Vector3(0.36,-0.075,0.065), "free":Vector3(0.055,0.035,-0.075), "body":Vector3(0.035,0.27,0.025)}],
+	WeaponData.PoseStyle.KNIFE: [
+		{"angles":Vector3(-55,-20,25), "reach":Vector3.ZERO, "free":Vector3.ZERO, "body":Vector3(0,-0.06,0)},
+		{"angles":Vector3(-65,-48,35), "reach":Vector3(-0.025,0.025,-0.055), "free":Vector3(0.015,0.035,-0.025), "body":Vector3(-0.005,-0.12,-0.01)},
+		{"angles":Vector3(-4,8,62), "reach":Vector3(0.05,0.005,0.14), "free":Vector3(-0.015,0.08,0.055), "body":Vector3(0.025,0.08,0.005)},
+		{"angles":Vector3(12,48,75), "reach":Vector3(0.17,-0.035,0.08), "free":Vector3(0.025,0.04,0.015), "body":Vector3(0.015,0.14,0.01)}]
+}
 
 func setup(controller: WeaponController, player: PlayerController) -> void:
 	weapons = controller
 	actor = player
 	_previous_yaw = actor.visual.rotation.y
 	weapons.melee_hit.connect(func() -> void: _impact = minf(_impact+0.6,1.0))
-	for bone in ["Body","Torso","Foot.L","Foot.R","UpperArm.R","LowerArm.R","Middle1.R","UpperArm.L","LowerArm.L","Middle1.L"]:
+	for bone in ["Body","Torso","Foot.L","Foot.R","UpperArm.R","LowerArm.R","Middle1.R","Middle2.R","Index2.R","Pinky2.R","UpperArm.L","LowerArm.L","Middle1.L","Middle2.L","Index2.L","Pinky2.L"]:
 		_bones[bone] = get_skeleton().find_bone(bone)
-	# Slash's free left hand is open. Reuse the existing Gun grip rotations for
-	# the bat fingers; only presentation poses change, never imported/rest data.
+	# Start from the authored Gun hand pose, then close its fingers and align
+	# the shared wrist without editing imported animation or skeleton data.
 	var grip:=player.visual.animation_player.get_animation("CharacterArmature|Idle_Gun")
 	for track in grip.get_track_count():
 		var path:=grip.track_get_path(track)
 		if path.get_subname_count()==0 or grip.track_get_type(track)!=Animation.TYPE_ROTATION_3D: continue
 		var bone:=String(path.get_subname(0))
-		if not (bone.begins_with("Pinky") or bone.begins_with("Middle") or bone.begins_with("Index") or bone.begins_with("Thumb")): continue
+		if not (bone.begins_with("Pinky") or bone.begins_with("Middle") or bone.begins_with("Index") or bone.begins_with("Thumb") or bone.begins_with("Ring")): continue
 		var index:=get_skeleton().find_bone(bone)
-		if index>=0: _grip_rotations[index]=grip.rotation_track_interpolate(track,0.0)
+		if index>=0:
+			_grip_rotations[index]=grip.rotation_track_interpolate(track,0.0)
+			_bones[bone]=index
 
 func tick(delta: float) -> void:
 	_clock += delta
@@ -106,14 +131,29 @@ func update_socket() -> void:
 		direction = actor.aim_ray.aim_direction
 	var local := actor.visual.global_basis.orthonormalized().inverse() * direction.normalized()
 	aim_yaw = clampf(atan2(local.x,local.z),-deg_to_rad(70),deg_to_rad(70))*aim_weight
-	aim_pitch = clampf(-atan2(local.y,Vector2(local.x,local.z).length()),-deg_to_rad(45),deg_to_rad(60))*aim_weight
+	aim_pitch = clampf(-atan2(local.y,Vector2(local.x,local.z).length()),-deg_to_rad(60),deg_to_rad(60))*aim_weight
 	var pitch := deg_to_rad(data.ready_pitch_degrees)*(1.0-aim_weight) + aim_pitch + reload_weight*deg_to_rad(30) - recoil*deg_to_rad(2.5)
 	var basis := actor.visual.global_basis.orthonormalized() * Basis(Vector3.UP,aim_yaw-reload_weight*0.1) * Basis(Vector3.RIGHT,pitch) * Basis(Vector3.FORWARD,reload_weight*0.18)
-	# Barrel is above the socket; converge its visible axis on ordinary-distance targets.
-	if aim_weight > 0.99 and reload_weight == 0 and recoil == 0 and point.distance_to(target) > 1.2 and absf(atan2(local.x,local.z)) < deg_to_rad(65) and absf(aim_pitch) < deg_to_rad(44):
-		for iteration in 3:
-			var muzzle_point := point+basis*weapons.muzzle.position
-			basis = Basis.looking_at((target-muzzle_point).normalized(),Vector3.UP,true)
+	var shoulder_rest := weapons.visual.get_node_or_null("ShoulderRest") as Node3D
+	var stock_position := Vector3.ZERO
+	var shoulder_anchor := Vector3.ZERO
+	if shoulder_rest != null:
+		var authored: Transform3D = _presentation_parts.get(shoulder_rest,shoulder_rest.transform)
+		stock_position = authored.origin
+		shoulder_anchor = _point("UpperArm.R")+actor.visual.global_basis.orthonormalized()*Vector3(0.02,0.015,0.025)
+		point = point.lerp(shoulder_anchor-basis*stock_position,aim_weight*(1.0-reload_hand_weight))
+	# Aim about the shoulder pivot, accounting for the bore's height above it.
+	# A closed solution avoids oscillation with long barrels and nearby ground.
+	var pivot := shoulder_anchor if shoulder_rest != null else point
+	var bore_offset := weapons.muzzle.position-stock_position if shoulder_rest != null else weapons.muzzle.position
+	var to_target := target-pivot
+	if aim_weight > 0.99 and reload_weight == 0 and recoil == 0 and to_target.length() > maxf(1.2,bore_offset.length()+0.12) and absf(atan2(local.x,local.z)) < deg_to_rad(65) and absf(aim_pitch) <= deg_to_rad(60):
+		var distance := to_target.length()
+		var bore_pitch := asin(clampf(bore_offset.y/distance,-1.0,1.0))
+		var horizontal := sqrt(maxf(0.001,distance*distance-bore_offset.y*bore_offset.y))
+		var bore_yaw := -asin(clampf(bore_offset.x/horizontal,-1.0,1.0))
+		basis = Basis.looking_at(to_target.normalized(),Vector3.UP,true)*Basis(Vector3.RIGHT,bore_pitch)*Basis(Vector3.UP,bore_yaw)
+		if shoulder_rest != null: point = shoulder_anchor-basis*stock_position
 	point -= basis.z*recoil*0.035
 	weapons.get_socket().global_transform = Transform3D(basis,point)
 
@@ -150,28 +190,106 @@ func _process_modification_with_delta(_delta: float) -> void:
 	if hold_weight <= 0.001: return
 	update_socket()
 	_apply_presentation()
-	if weapons.current.data.is_melee():
-		for bone in _grip_rotations:
-			if not weapons.current.data.two_handed and get_skeleton().get_bone_name(bone).ends_with(".L"): continue
-			get_skeleton().set_bone_pose_rotation(bone,_grip_rotations[bone])
+	_apply_fingers()
 	var primary := weapons.visual.get_node_or_null("PrimaryGrip") as Node3D
 	var support := weapons.visual.get_node_or_null("SecondaryGrip") as Node3D
 	if support == null: support = weapons.visual.get_node_or_null("SupportGrip") as Node3D
 	if primary == null: return
-	_solve_arm("R", primary.global_position, actor.visual.to_global(Vector3(-0.5,0.6,-0.08)))
-	right_error = _point("Middle1.R").distance_to(primary.global_position)
-	if not weapons.current.data.two_handed or support == null:
-		left_error = 0.0
-		return
-	var support_target := support.global_position
-	var magazine := weapons.visual.get_node_or_null("MagazineGrip") as Node3D
-	if magazine != null:
-		support_target = support_target.lerp(magazine.global_position,reload_hand_weight)
-		var withdraw := sin(smoothstep(0.25,0.60,reload_progress)*PI)*reload_hand_weight
-		support_target += actor.visual.global_basis.orthonormalized()*Vector3(0,-0.075,0.025)*withdraw
-	_solve_arm("L", support_target, actor.visual.to_global(Vector3(0.5,0.6,0.04)))
-	right_error = _point("Middle1.R").distance_to(primary.global_position)
-	left_error = _point("Middle1.L").distance_to(support_target)
+	var torso := actor.visual.to_local(_point("Torso"))
+	# Markers identify the centre of the grasp, rather than the wrist. This rig
+	# shares the wrist across four finger roots, which can be posed as one hand.
+	var right_frame := _grip_frame(primary, "R")
+	var right_wrist := primary.global_position-_grasp_offset(right_frame)
+	_solve_arm("R",right_wrist,actor.visual.to_global(torso+Vector3(-0.43,-0.30,-0.06)))
+	_pose_hand("R",right_frame)
+	right_error = (_point("Middle1.R")+_grasp_offset(right_frame)).distance_to(primary.global_position)
+	if not weapons.current.data.two_handed:
+		# A free hand follows the authored relaxed wrist and finger pose. Never
+		# send it through the weapon-grasp frame or the magazine-hand solver.
+		var free_target := _pose_free_arm(weapons.current.data)
+		left_error = _point("Middle1.L").distance_to(free_target)
+	elif support != null:
+		var support_target := support.global_position
+		var support_frame := _grip_frame(support,"L")
+		var magazine := weapons.visual.get_node_or_null("MagazineGrip") as Node3D
+		if magazine != null:
+			support_target = support_target.lerp(magazine.global_position,reload_hand_weight)
+			support_frame = support_frame.slerp(_grip_frame(magazine,"L"),reload_hand_weight)
+			var withdraw := sin(smoothstep(0.25,0.60,reload_progress)*PI)*reload_hand_weight
+			support_target += actor.visual.global_basis.orthonormalized()*Vector3(0,-0.075,0.025)*withdraw
+		var left_wrist := support_target-_grasp_offset(support_frame)
+		_solve_arm("L",left_wrist,actor.visual.to_global(torso+Vector3(0.46,-0.13,0.015)))
+		_pose_hand("L",support_frame)
+		left_error = (_point("Middle1.L")+_grasp_offset(support_frame)).distance_to(support_target)
+	shoulder_error = 0.0
+	var stock := weapons.visual.get_node_or_null("ShoulderRest") as Node3D
+	if stock != null:
+		var anchor := _point("UpperArm.R")+actor.visual.global_basis.orthonormalized()*Vector3(0.02,0.015,0.025)
+		shoulder_error = anchor.distance_to(stock.global_position)
+
+
+func _apply_fingers() -> void:
+	var skeleton := get_skeleton()
+	for bone: int in _grip_rotations:
+		var weight := hold_weight
+		if skeleton.get_bone_name(bone).ends_with(".L"):
+			if not weapons.current.data.two_handed: continue
+			weight *= 1.0-reload_hand_weight*0.70
+		skeleton.set_bone_pose_rotation(bone,skeleton.get_bone_pose_rotation(bone).slerp(_grip_rotations[bone],weight))
+
+
+func _pose_free_arm(data: WeaponData) -> Vector3:
+	var wrist := _point("Middle1.L")
+	var motion: Vector3 = _melee_frame(data)["free"]
+	if motion.is_zero_approx(): return wrist
+	# Offset the live idle/walk/run pose. The forearm carries the hand with it,
+	# retaining the authored wrist alignment and relaxed fingers throughout.
+	var frame := actor.visual.global_basis.orthonormalized()
+	var shoulder := _point("UpperArm.L")
+	var elbow := _point("LowerArm.L")
+	var length := shoulder.distance_to(elbow)+elbow.distance_to(wrist)
+	var target := wrist+frame*motion
+	target = shoulder+(target-shoulder).limit_length(length*0.94)
+	_solve_arm("L",target,elbow+frame*Vector3(0.025,-0.015,-0.035))
+	return target
+
+func _grip_frame(marker: Node3D, side: String) -> Basis:
+	var forward := marker.global_basis.z.normalized()
+	var normal := marker.global_basis.x.normalized()*(1.0 if side=="R" else -1.0)
+	return Basis(normal,forward.cross(normal).normalized(),forward)
+
+func _grasp_offset(frame: Basis) -> Vector3:
+	return frame.z*0.075+frame.x*0.018
+
+func _pose_hand(side: String, target: Basis) -> void:
+	var skeleton := get_skeleton()
+	var wrist := _point("Middle1."+side)
+	var forward := (_point("Middle2."+side)-wrist).normalized()
+	var normal := (_point("Index2."+side)-wrist).cross(_point("Pinky2."+side)-wrist).normalized()
+	if side == "L": normal = -normal
+	normal = normal.slide(forward).normalized()
+	if normal.is_zero_approx(): return
+	var source := Basis(normal,forward.cross(normal).normalized(),forward)
+	var turn := Basis(Quaternion.IDENTITY.slerp((target*source.inverse()).get_rotation_quaternion(),hold_weight))
+	var inverse := skeleton.global_transform.affine_inverse()
+	for finger in ["Pinky","Middle","Index","Thumb"]:
+		var bone: int = _bones[finger+"1."+side]
+		var pose := skeleton.global_transform*skeleton.get_bone_global_pose(bone)
+		pose.basis = turn*pose.basis
+		skeleton.set_bone_global_pose(bone,inverse*pose)
+	# Imported Gun clips leave Matt's fingers spread open. Close the two
+	# phalanges around the handle, retaining an index finger at the trigger.
+	for finger in ["Pinky","Middle","Index"]:
+		var trigger: bool = finger=="Index" and side=="R" and not weapons.current.data.is_melee()
+		var curl := deg_to_rad(48.0 if trigger else 70.0)
+		for segment in [2,3]:
+			var name: String = finger+str(segment)+"."+side
+			if not _bones.has(name): continue
+			var bone: int = _bones[name]
+			var pose := skeleton.global_transform*skeleton.get_bone_global_pose(bone)
+			var angle := curl if segment==2 else curl+deg_to_rad(65)
+			var direction := target.z*cos(angle)+target.x*sin(angle)
+			_rotate_joint(name,pose.basis.y,direction)
 
 func _pose_body() -> void:
 	var skeleton := get_skeleton()
@@ -190,15 +308,13 @@ func _pose_body() -> void:
 	var pitch := clampf(aim_pitch*0.5,-0.35,0.45)-recoil*0.025+_lean.x-visual_recoil*0.40
 	var hurt := actor.visual.hurt_weight
 	pitch += hurt*0.10
-	var twist := 0.0
-	if weapons.current != null and weapons.current.data.is_melee() and weapons.current.is_swinging:
-		var t := weapons.current.swing_elapsed*0.48/weapons.current.data.melee_swing_duration
-		if t < 0.08: twist = lerpf(0.0,-0.13,smoothstep(0.0,0.08,t))
-		elif t < 0.18: twist = lerpf(-0.13,0.16,smoothstep(0.08,0.18,t))
-		elif t < 0.30: twist = lerpf(0.16,0.23,smoothstep(0.18,0.30,t))
-		else: twist = lerpf(0.23,0.0,smoothstep(0.30,0.48,t))
+	var body_motion := Vector3.ZERO
+	if weapons.current != null and weapons.current.data.is_melee():
+		body_motion = _melee_frame(weapons.current.data)["body"]*hold_weight
+	pitch += body_motion.x
+	var twist := body_motion.y
 	var roll_axis := actor.visual.global_basis.z.normalized()
-	torso.basis = Basis(roll_axis,_lean.y+hurt*0.055)*Basis(Vector3.UP,twist)*torso.basis
+	torso.basis = Basis(roll_axis,_lean.y+hurt*0.055+body_motion.z)*Basis(Vector3.UP,twist)*torso.basis
 	torso.basis = Basis(Vector3.UP,aim_yaw*0.55)*Basis(right,pitch)*torso.basis
 	skeleton.set_bone_global_pose(_bones["Torso"],inverse*torso)
 
@@ -252,35 +368,11 @@ func _apply_presentation() -> void:
 	var cosmetic := Transform3D.IDENTITY
 	if weapons.current.data.is_melee():
 		var data := weapons.current.data
-		var yaw := deg_to_rad(-15.0)
-		var pitch := deg_to_rad(data.ready_pitch_degrees)
-		var reach := Vector3.ZERO
-		if weapons.current.is_swinging:
-			var t := weapons.current.swing_elapsed
-			var contact := data.melee_hit_delay
-			var anticipation := contact*0.44
-			var follow := contact+(data.melee_swing_duration-contact)*0.40
-			if t < anticipation:
-				var u := smoothstep(0.0,anticipation,t)
-				yaw = lerpf(yaw,deg_to_rad(-72.0),u)
-				pitch = lerpf(pitch,deg_to_rad(-38.0),u)
-			elif t < contact:
-				var u := clampf((t-anticipation)/(contact-anticipation),0,1)
-				yaw = _swing_arc(deg_to_rad(-72.0),0.0,contact-anticipation,u,0.0,deg_to_rad(600.0))
-				pitch = _swing_arc(deg_to_rad(-38.0),0.0,contact-anticipation,u,0.0,deg_to_rad(220.0))
-			elif t < follow:
-				var u := clampf((t-contact)/(follow-contact),0,1)
-				yaw = _swing_arc(0.0,deg_to_rad(64.0),follow-contact,u,deg_to_rad(600.0),0.0)
-				pitch = _swing_arc(0.0,deg_to_rad(12.0),follow-contact,u,deg_to_rad(220.0),0.0)
-			else:
-				var u := smoothstep(follow,data.melee_swing_duration,t)
-				yaw = lerpf(deg_to_rad(64.0),yaw,u)
-				pitch = lerpf(deg_to_rad(12.0),pitch,u)
-			var extend := sin(clampf(t/data.melee_swing_duration,0,1)*PI)
-			reach = Vector3(-0.025,0.015,0.045)*extend
-		var skeleton := get_skeleton()
-		var torso := actor.visual.to_local(skeleton.global_transform*skeleton.get_bone_global_pose(_bones["Torso"]).origin)
-		var desired := Transform3D(actor.visual.global_basis.orthonormalized()*Basis(Vector3.UP,yaw-_impact*0.055)*Basis(Vector3.RIGHT,pitch),actor.visual.to_global(torso+data.ready_hold_offset+reach))
+		var pose := _melee_frame(data)
+		var angles: Vector3 = pose["angles"]*PI/180.0
+		var torso := actor.visual.to_local(_point("Torso"))
+		var basis := actor.visual.global_basis.orthonormalized()*Basis(Vector3.UP,angles.y-_impact*0.04)*Basis(Vector3.RIGHT,angles.x)*Basis(Vector3.BACK,angles.z)
+		var desired := Transform3D(basis,actor.visual.to_global(torso+data.ready_hold_offset+pose["reach"]))
 		cosmetic = weapons.get_socket().global_transform.affine_inverse()*desired
 	else:
 		var idle_sway := sin(_clock*1.8)*0.003*(1.0-aim_weight)
@@ -291,8 +383,29 @@ func _apply_presentation() -> void:
 	for part: Node3D in _presentation_parts:
 		part.transform = cosmetic*_presentation_parts[part]
 
-func _swing_arc(a: float, b: float, duration: float, t: float, start_speed: float, end_speed: float) -> float:
-	# Hermite tangents carry momentum through contact instead of easing to a stop there.
+func _melee_frame(data: WeaponData) -> Dictionary:
+	var keys: Array = MELEE_POSES.get(data.pose_style,MELEE_POSES[WeaponData.PoseStyle.BAT])
+	if not weapons.current.is_swinging: return keys[0]
+	var contact := data.melee_hit_delay
+	var follow := contact+(data.melee_swing_duration-contact)*0.40
+	var times := [0.0,contact*0.44,contact,follow,data.melee_swing_duration]
+	var elapsed := clampf(weapons.current.swing_elapsed,0.0,data.melee_swing_duration)
+	var index := 0
+	while index < 3 and elapsed > times[index+1]: index += 1
+	var duration: float = times[index+1]-times[index]
+	var u: float = clampf((elapsed-times[index])/duration,0.0,1.0)
+	var result := {}
+	for field in ["angles","reach","free","body"]:
+		var a: Vector3 = keys[index][field]
+		var b: Vector3 = keys[(index+1)%4][field]
+		var through: Vector3 = (keys[3][field]-keys[1][field])/(follow-times[1])
+		var start := through if index == 2 else Vector3.ZERO
+		var end := through if index == 1 else Vector3.ZERO
+		result[field] = _vector_arc(a,b,duration,u,start,end)
+	return result
+
+
+func _vector_arc(a: Vector3, b: Vector3, duration: float, t: float, start: Vector3, end: Vector3) -> Vector3:
 	var t2 := t*t
 	var t3 := t2*t
-	return (2*t3-3*t2+1)*a+(t3-2*t2+t)*duration*start_speed+(-2*t3+3*t2)*b+(t3-t2)*duration*end_speed
+	return (2*t3-3*t2+1)*a+(t3-2*t2+t)*duration*start+(-2*t3+3*t2)*b+(t3-t2)*duration*end

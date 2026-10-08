@@ -9,6 +9,9 @@ func run() -> void:
 	current_scene = game
 	await frames(30)
 	player = game.player
+	# This presentation regression exercises the automatic Assault Rifle explicitly.
+	game.inventory.add_item(game.catalog.get_item(&"basic_rifle"))
+	game.equipment.equip_weapon(0,game.catalog.get_item(&"basic_rifle"))
 	game.clock.paused = true
 	game.waves.enabled = false
 	game.debug_controls.set_active(false)
@@ -44,12 +47,12 @@ func run() -> void:
 	mouse(MOUSE_BUTTON_RIGHT,true)
 	await frames(20)
 	check(pose.hold_weight==1 and pose.right_error<0.025 and pose.left_error<0.025,"two-arm pose reaches ready/aim grips after a bounded raise")
-	game.inventory.add_item(game.catalog.get_item(&"basic_ammo"),20)
+	game.inventory.add_item(game.catalog.get_item(&"basic_ammo"),40)
 	check(game.weapons.start_reload(),"original reload timer starts")
 	await frames(44)
 	check(game.weapons.current.current_magazine==0 and pose.reload_hand_weight>0.95,"support hand reaches magazine without granting early ammunition")
 	await frames(50)
-	check(game.weapons.current.current_magazine==10 and game.weapons.reserve_ammo()==10 and not game.weapons.current.is_reloading,"reload remains1.5s and transfers exactly10 rounds")
+	check(game.weapons.current.current_magazine==25 and game.weapons.reserve_ammo()==15 and not game.weapons.current.is_reloading,"reload remains1.5s and transfers exactly25 rounds")
 	var muzzle_local: Transform3D = game.weapons.muzzle.transform
 	var camera_yaw := player.camera_rig.rotation
 	var camera_pitch := player.camera_rig.pitch_pivot.rotation
