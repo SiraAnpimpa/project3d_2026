@@ -1,9 +1,7 @@
-# Demo audio provenance
+# Game audio provenance
 
-These nine short mono WAV cues are original procedural waveforms generated for this project by `tools/generate_demo_audio.py`. They contain no downloaded samples, external recordings, or music. Reproduce them with Python's standard library. Noise uses a fixed seed. They are project-authored placeholder effects, not licensed third-party recordings.
+The game now uses supplied recordings from `Asset/game_sounds/` for UI, shooting, harvest/crafting pickup, grass/stone footsteps, three zombie voices and day/night ambience. Original MP3s are preserved. Short derived cues, exact crop windows and source hashes are documented in [supplied/README.md](supplied/README.md) and [supplied/mapping.json](supplied/mapping.json).
 
-- Combat: shot, reload, hurt
-- Farming/UI: click, harvest, craft, unlock
-- Environment/ending: wind and rotor loops (synthetic; no music)
+Procedural WAVs in this directory were generated within the project by `tools/generate_demo_audio.py`, without external samples. Reload, player hurt, unlock, melee swing/hit and rescue rotor continue to use these cues because the supplied set has no corresponding recordings. The synthetic wind, shot, click, harvest and craft files are retained as historical source assets; ordinary runtime now uses the mapped recordings for those events.
 
-Playback uses a bounded six-voice pool and low-volume ambience with volume interpolation. Music and authored zombie vocal recordings are absent. The original GLB packs elsewhere in the repository have no discovered license/readme; their attribution/distribution status remains unverified and must be resolved before public export. No license claim is made for those models.
+Playback uses six effect voices, a separate footstep player, three positional zombie voices and two compressed ambience loops with crossfade. Two global UI voices survive scene changes. Gameplay audio suspends during pause; UI clicks remain available and all audio follows the existing Master-volume control. Recordings have no included creator/license metadata; no public license is inferred.

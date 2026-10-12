@@ -1,0 +1,132 @@
+[
+  {
+    "cue": "click",
+    "source": "Asset/game_sounds/ui/เสียงกด.mp3",
+    "source_sha256": "58684c6488589fe1e8d5dd38c620cc6c19f7e2ce6d3946a67057051f50dbf587",
+    "selection_seconds": [
+      0.0,
+      0.18
+    ],
+    "duration": 0.18,
+    "sample_rate": 44100,
+    "channels": 1,
+    "peak_dbfs": -3.92
+  },
+  {
+    "cue": "shot",
+    "source": "Asset/game_sounds/ยิงปืน/ยิงทีละนัด.mp3",
+    "source_sha256": "069d16c8f9f7907c18361a03341bfd5cc8ba41b4d0a881edb4a450618f239e41",
+    "selection_seconds": [
+      0.45,
+      1.05
+    ],
+    "duration": 0.6,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0
+  },
+  {
+    "cue": "shot_auto",
+    "source": "Asset/game_sounds/ยิงปืน/รัว.mp3",
+    "source_sha256": "de7aa3c80d68d0f8cb1bca5ea9d4f0254505a67cf604e64f80a11bc9f26776ef",
+    "selection_seconds": [
+      0.03,
+      0.19
+    ],
+    "duration": 0.16,
+    "sample_rate": 44100,
+    "channels": 1,
+    "peak_dbfs": -3.0
+  },
+  {
+    "cue": "harvest",
+    "source": "Asset/game_sounds/เก็บของ/เก็บผัก.mp3",
+    "source_sha256": "4a00df184d107a088a55d4f7e7da7750fc39c50c878ad789aff653e59874047d",
+    "selection_seconds": [
+      0.04,
+      0.74
+    ],
+    "duration": 0.7,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0
+  },
+  {
+    "cue": "pickup",
+    "source": "Asset/game_sounds/เก็บของ/เก็บไอเทมอื่นๆ.mp3",
+    "source_sha256": "d9b5f0e37966608bc82d418e4730ed660184e0885409b8417610febdacf71520",
+    "selection_seconds": [
+      0.165,
+      0.355
+    ],
+    "duration": 0.19,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0
+  },
+  {
+    "cue": "step_grass",
+    "source": "Asset/game_sounds/เดิน/เดินเหยียบหญ้า.mp3",
+    "source_sha256": "a265d7c01f26d83074d7f68c84ee274a6426341788ac98a079b0550e16a8f9d6",
+    "selection_seconds": [
+      1.35,
+      1.7
+    ],
+    "duration": 0.35,
+    "sample_rate": 24000,
+    "channels": 1,
+    "peak_dbfs": -7.33
+  },
+  {
+    "cue": "step_stone",
+    "source": "Asset/game_sounds/เดิน/เดินเหยียบพื้นหิน.mp3",
+    "source_sha256": "01df77ccb3094a915b1554b57c2dae64c03ec0f005f47f504485e0cddb6414d0",
+    "selection_seconds": [
+      0.06,
+      0.41
+    ],
+    "duration": 0.35,
+    "sample_rate": 48000,
+    "channels": 1,
+    "peak_dbfs": -3.0
+  },
+  {
+    "cue": "zombie_normal",
+    "source": "Asset/game_sounds/ซอมบี้/zombie1.mp3",
+    "source_sha256": "57a8f94d3016a4d456b6d3072d5169ce43572bc069f322f8b3b29890014d5b3e",
+    "selection_seconds": [
+      0.04,
+      1.94
+    ],
+    "duration": 1.9,
+    "sample_rate": 44100,
+    "channels": 1,
+    "peak_dbfs": -3.0
+  },
+  {
+    "cue": "zombie_runner",
+    "source": "Asset/game_sounds/ซอมบี้/zombie2.mp3",
+    "source_sha256": "88ddc6782093a464c219e94ac3838429b61b3d66ed439fce2eb466cf728f54ad",
+    "selection_seconds": [
+      0.0,
+      2.5
+    ],
+    "duration": 2.5,
+    "sample_rate": 44100,
+    "channels": 1,
+    "peak_dbfs": -3.0
+  },
+  {
+    "cue": "zombie_tank",
+    "source": "Asset/game_sounds/ซอมบี้/zombie3.mp3",
+    "source_sha256": "5e3ed2299710b9f57dd2622368a19ee3ac44e5d3d12e950ab4d4276c7d51d70d",
+    "selection_seconds": [
+      1.27,
+      1.97
+    ],
+    "duration": 0.7,
+    "sample_rate": 44100,
+    "channels": 1,
+    "peak_dbfs": -3.0
+  }
+]

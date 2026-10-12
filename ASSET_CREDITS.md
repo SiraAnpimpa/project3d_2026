@@ -12,6 +12,7 @@ Model packs are supplied under `Asset/`. Their creator, original source URL and 
 | Crop base model | Asset/Stylized Nature MegaKit.undefined-glb/Plant.glb | License information not found in project files. | Unknown |
 | Rescue helicopter | Asset/Low Poly Military Vehicles-glb/Helicopter.glb | License information not found in project files. | Unknown |
 | Menu landscape and item SVGs | assets/ui | Created within this project | No external attribution requirement identified |
+| Supplied game recordings and derived cues | Asset/game_sounds; assets/audio/supplied | License information not found in project files. | Unknown |
 | Procedural WAV effects and ambience | assets/audio; tools/generate_demo_audio.py | Generated within this project, no sampled audio | No external attribution requirement identified |
 | World primitives / navigation | scenes/world; scripts/world; resources/navigation | Created within this project | No external attribution requirement identified |
 
@@ -25,6 +26,7 @@ Shared UI symbols and button imagery come from the supplied `FREE version` icon 
 - Clock, selection and slider vectors: `assets/ui/icons/`.
 - Menu background: a native game capture of the farm environment; underlying models retain their original provenance.
 - Terrain, shaders, structural geometry, navigation, UI and procedural animation/placement code: authored within this project.
+- Supplied recordings are distinct from project-authored audio; derivatives retain their supplied provenance. See [audio mapping](assets/audio/supplied/README.md).
 - Procedural audio: `assets/audio/`, generated without external samples by `tools/generate_demo_audio.py`. See [audio provenance](assets/audio/README.md).
 
 Project-created work is not assigned a public license by this document.

@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 
 GraphicsSettings="*res://scripts/settings/graphics_settings.gd"
 DayCheckpoint="*res://scripts/save/day_checkpoint.gd"
+UiAudio="*res://scripts/audio/ui_audio.gd"
 
 [display]
 
