@@ -1,0 +1,33 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2060
+
+PASS: audio QA has isolated user saves
+PASS: real main-menu settings button plays supplied click once
+PASS: existing master-volume mute applies to all new audio
+PASS: master volume restores
+PASS: both compressed ambience tracks loop without replay handlers
+PASS: day ambience fades in
+PASS: actual movement emits grass footsteps
+PASS: standing still adds no steps
+PASS: ground ray chooses stone on a solid platform
+Planted Lead Plant.
+Harvested Lead x2.
+PASS: E harvesting uses supplied vegetable pickup cue
+PASS: real crafting transaction succeeds
+PASS: successful craft plays supplied item pickup
+PASS: real pistol shot emits one trimmed shot cue
+PASS: real SMG shot uses supplied rapid-fire sample
+PASS: final-night crossfade uses supplied night track
+PASS: all three variants register without changing AI
+PASS: three positional vocal voices cover all variants with bounded pool
+PASS: pause suspends ambience and zombie playback
+PASS: UI audio remains usable during pause
+PASS: resume restores gameplay playback
+PASS: enemy death immediately removes vocal ownership
+PASS: dead enemies stop active vocals
+PASS: dead enemies stop active vocals
+PASS: dead enemies stop active vocals
+PASS: ending stops both ambience tracks
+PASS: existing rescue sound still loops
+PASS: game teardown leaves only bounded global UI voices
+SUPPLIED_AUDIO_RESULT failures=0

@@ -220,11 +220,13 @@ func start_rescue_sound() -> void:
 func _process(delta: float) -> void:
 	if ambience == null: return
 	var suspended := get_tree().paused and not ending
-	for voice in voices: voice.stream_paused = suspended
-	for voice in zombie_voices: voice.stream_paused = suspended
-	footsteps.stream_paused = suspended
-	ambience.stream_paused = suspended
-	night_ambience.stream_paused = suspended
+	# Web Sample resume recreates its AudioBufferSourceNode, even for a
+	# repeated false value. Only forward actual state changes to the backend.
+	for voice in voices: _pause_if_changed(voice, suspended)
+	for voice in zombie_voices: _pause_if_changed(voice, suspended)
+	_pause_if_changed(footsteps, suspended)
+	_pause_if_changed(ambience, suspended)
+	_pause_if_changed(night_ambience, suspended)
 	if ending:
 		ambience.volume_db = move_toward(ambience.volume_db, target_volume, delta * 8)
 		return
@@ -233,6 +235,10 @@ func _process(delta: float) -> void:
 	ambience.volume_db = move_toward(ambience.volume_db, target_volume + 18 if _daytime and alive else -60, delta * 18)
 	night_ambience.volume_db = move_toward(night_ambience.volume_db, target_volume + 8 if not _daytime and alive else -60, delta * 18)
 	if alive: _update_zombies(delta)
+
+func _pause_if_changed(voice: Node, suspended: bool) -> void:
+	if voice.stream_paused != suspended:
+		voice.stream_paused = suspended
 
 func _exit_tree() -> void:
 	for voice in voices: voice.stop()

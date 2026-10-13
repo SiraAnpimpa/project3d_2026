@@ -1,3 +1,9 @@
+# Web audio correction — 2026-10-13
+
+The reported deployed audio crackle was reproduced and fixed. Repeated per-frame resume commands recreated Web Sample buffers; commands now run only when a player's pause state changes. Browser regression drops1091 resume/restart requests in23s to3 resume requests across140s, with no browser audio errors. Normal ambience loops remain active. Full27-check audio regression passes; the Web build is refreshed. [Evidence and reproduction](docs/web_audio_fix/README.md).
+
+---
+
 # Supplied audio integration — 2026-10-12
 
 Pulled `origin/main` with a fast-forward from7cf0228 to **1437238** before edits. Local worktree was clean. All12 supplied MP3 recordings are now used by the game. Original source MP3 bytes are preserved.
