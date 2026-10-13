@@ -1,5 +1,7 @@
 # Web audio crackle fix — 2026-10-13
 
+Historical counter-based regression. The follow-up [2026-10-14 recovery](../audio_recovery/README.md) supersedes the pause helper and adds direct output measurement plus browser unlock/recovery.
+
 The original integration assigned `stream_paused=false` to every active gameplay voice on every frame. Godot's Web Sample backend treats that assignment as an unpause request and recreates its AudioBufferSourceNode; it does not discard redundant resume requests. Its sample buffer copy therefore repeated at frame cadence, disrupting audio and eventually failing allocations.
 
 `GameAudio._pause_if_changed` now forwards only a changed pause state. Checking each player also covers the three spatial voices that receive native tree-pause notifications, and newly active voices. Default Sample playback, no-thread Web export, volumes, audio recordings and gameplay remain as configured.

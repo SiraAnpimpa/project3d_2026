@@ -41,6 +41,7 @@ var _rng := RandomNumberGenerator.new()
 var _daytime := true
 var _step_distance := 0.0
 var _previous_position := Vector3.ZERO
+var _suspended := false
 
 func bind(game: Node3D) -> void:
 	_game = game
@@ -54,6 +55,9 @@ func bind(game: Node3D) -> void:
 		voices.append(voice)
 	for index in 3:
 		var voice := AudioStreamPlayer3D.new()
+		# GameAudio owns pause/resume for every gameplay voice, including the
+		# spatial players parented to the world instead of this ALWAYS node.
+		voice.process_mode = Node.PROCESS_MODE_ALWAYS
 		voice.volume_db = -15
 		voice.unit_size = 4
 		voice.max_distance = 22
@@ -220,13 +224,16 @@ func start_rescue_sound() -> void:
 func _process(delta: float) -> void:
 	if ambience == null: return
 	var suspended := get_tree().paused and not ending
-	# Web Sample resume recreates its AudioBufferSourceNode, even for a
-	# repeated false value. Only forward actual state changes to the backend.
-	for voice in voices: _pause_if_changed(voice, suspended)
-	for voice in zombie_voices: _pause_if_changed(voice, suspended)
-	_pause_if_changed(footsteps, suspended)
-	_pause_if_changed(ambience, suspended)
-	_pause_if_changed(night_ambience, suspended)
+	# Own the requested state and send both edges exactly once. ALWAYS players
+	# avoid separate SceneTree pause notifications, and tracking the transition
+	# guarantees a resume request without restarting audio every frame.
+	if suspended != _suspended:
+		_suspended = suspended
+		for voice in voices: voice.stream_paused = suspended
+		for voice in zombie_voices: voice.stream_paused = suspended
+		footsteps.stream_paused = suspended
+		ambience.stream_paused = suspended
+		night_ambience.stream_paused = suspended
 	if ending:
 		ambience.volume_db = move_toward(ambience.volume_db, target_volume, delta * 8)
 		return
@@ -235,10 +242,6 @@ func _process(delta: float) -> void:
 	ambience.volume_db = move_toward(ambience.volume_db, target_volume + 18 if _daytime and alive else -60, delta * 18)
 	night_ambience.volume_db = move_toward(night_ambience.volume_db, target_volume + 8 if not _daytime and alive else -60, delta * 18)
 	if alive: _update_zombies(delta)
-
-func _pause_if_changed(voice: Node, suspended: bool) -> void:
-	if voice.stream_paused != suspended:
-		voice.stream_paused = suspended
 
 func _exit_tree() -> void:
 	for voice in voices: voice.stop()

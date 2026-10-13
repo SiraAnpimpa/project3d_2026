@@ -89,6 +89,22 @@ body {
 	text-align: center;
 	z-index: 1;
 }
+
+#enable-audio {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 200;
+	padding: 14px 22px;
+	border: 1px solid #c2d498;
+	border-radius: 8px;
+	background: #233c2b;
+	color: #fff;
+	font: 18px Arial, sans-serif;
+	cursor: pointer;
+}
+
+#enable-audio[hidden] { display: none; }
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
@@ -109,11 +125,58 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
-		<script src="index.js"></script>
+		<button id="enable-audio" type="button" hidden>เปิดเสียง · Enable sound</button>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":86977340,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+// Keep Chrome's autoplay suspension visible and recover on real user input.
+// Capture the engine's own context before it is constructed; use that same
+// context for every retry, so no extra mixer or competing audio is created.
+const gameAudioContexts = new Set();
+const audioButton = document.getElementById('enable-audio');
+let gameAudioReady = false;
+const NativeAudioContext = window.AudioContext || window.webkitAudioContext;
+function updateAudioButton() {
+	audioButton.hidden = !gameAudioReady || !Array.from(gameAudioContexts).some(
+		(context) => context.state !== 'running' && context.state !== 'closed');
+}
+if (NativeAudioContext) {
+	window.AudioContext = class extends NativeAudioContext {
+		constructor(options) {
+			super(options);
+			gameAudioContexts.add(this);
+			this.addEventListener('statechange', updateAudioButton);
+			updateAudioButton();
+		}
+	};
+}
+function resumeGameAudio() {
+	for (const context of gameAudioContexts) {
+		if (context.state === 'running' || context.state === 'closed') continue;
+		// Invoke resume synchronously inside the gesture, before any await.
+		context.resume().then(updateAudioButton).catch(updateAudioButton);
+	}
+}
+audioButton.addEventListener('click', () => {
+	resumeGameAudio();
+	document.getElementById('canvas').focus();
+});
+window.addEventListener('pointerdown', resumeGameAudio, {capture: true});
+window.addEventListener('keydown', resumeGameAudio, {capture: true});
+window.addEventListener('focus', resumeGameAudio);
+document.addEventListener('visibilitychange', () => {
+	if (document.visibilityState === 'visible') resumeGameAudio();
+});
+		</script>
+		<script src="index.js?build=audio-recovery-20261014"></script>
+		<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":86977356,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
+// Fetch a fresh pack after deployment while keeping its virtual filename clean.
+const originalPack = GODOT_CONFIG.executable + '.pck';
+const versionedPack = originalPack + '?build=' + GODOT_CONFIG.fileSizes[originalPack] + '-audio-recovery-20261014';
+GODOT_CONFIG.fileSizes[versionedPack] = GODOT_CONFIG.fileSizes[originalPack];
 const engine = new Engine(GODOT_CONFIG);
+const preloadGameFile = engine.preloadFile.bind(engine);
+engine.preloadFile = (file, path) => preloadGameFile(file === originalPack ? versionedPack : file, path);
 
 (function () {
 	const statusOverlay = document.getElementById('status');
@@ -211,6 +274,8 @@ const engine = new Engine(GODOT_CONFIG);
 			},
 		}).then(() => {
 			setStatusMode('hidden');
+			gameAudioReady = true;
+			updateAudioButton();
 		}, displayFailureNotice);
 	}
 }());

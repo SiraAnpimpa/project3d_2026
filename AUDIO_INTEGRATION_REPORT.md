@@ -1,4 +1,10 @@
-# Web audio correction — 2026-10-13
+# Web audio recovery — 2026-10-14
+
+Added explicit browser audio unlock/recovery and a visible enable-sound button when Chrome suspends its AudioContext. Gameplay pause/resume now tracks each requested transition directly and owns all spatial voices. The Web shell requests a fresh pack after deployment. Actual browser output measurements confirm all 16 tested effects, day/night ambience, pause/resume, mute/unmute and context recovery; the 27 native gameplay assertions also pass. [Measurements and limits](docs/audio_recovery/README.md).
+
+---
+
+# Web audio correction — 2026-10-13 (historical)
 
 The reported deployed audio crackle was reproduced and fixed. Repeated per-frame resume commands recreated Web Sample buffers; commands now run only when a player's pause state changes. Browser regression drops1091 resume/restart requests in23s to3 resume requests across140s, with no browser audio errors. Normal ambience loops remain active. Full27-check audio regression passes; the Web build is refreshed. [Evidence and reproduction](docs/web_audio_fix/README.md).
 
