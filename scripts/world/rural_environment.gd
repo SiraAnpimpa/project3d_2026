@@ -246,7 +246,7 @@ func build_vegetation() -> void:
 		var short_grass := zone in ["Combat edge","Yard edge"]
 		await grass_patch(patch[0],patch[1],patch[2],zone,0.23 if short_grass else 0.45,0.4 if short_grass else 0.85)
 	# Sparse short growth along farm soil edges and the yard; active beds stay bare.
-	for center in [Vector2(-22.4,6),Vector2(-22.6,12),Vector2(-4.0,12),Vector2(-11,16.4),Vector2(-18,1),Vector2(-8,-2)]:
+	for center in [Vector2(-19.7,7.5),Vector2(-19.8,14),Vector2(-3.0,13),Vector2(-11,17.9),Vector2(-18,1),Vector2(-8,-2)]:
 		await grass_patch(center,Vector2(2.8,1.8),40,"Yard edge",0.16,0.28)
 	# Reclamation follows unused depot corners; the central bay and vehicle silhouettes stay open.
 	for item in [[Vector2(34.0,-28.3),1.0,24.0],[Vector2(34.9,-29.1),0.75,137.0],[Vector2(38.0,-27.2),1.25,78.0],[Vector2(38.7,-28.0),0.8,219.0],[Vector2(45.5,-24.5),0.9,311.0],[Vector2(46.2,-25.7),1.15,43.0]]:
@@ -396,10 +396,10 @@ func collect_parts(node: Node3D, parent: Transform3D, parts: Array) -> void:
 		if child is Node3D: collect_parts(child,transform,parts)
 
 func build_landscape_details() -> void:
-	# Domestic perennial borders define the farm edge without narrowing the 2.15m bed lanes.
+	# Domestic perennial borders define the farm edge without narrowing the 1.17m bed lanes.
 	var detail_rng := RandomNumberGenerator.new()
 	detail_rng.seed = 20261007
-	for center in [Vector2(-22.7,5),Vector2(-22.7,13.5),Vector2(-4.4,5),Vector2(-4.3,14),Vector2(-18,17),Vector2(-8,17),Vector2(-18.6,-3.2),Vector2(-6.7,-2.5)]:
+	for center in [Vector2(-19.7,7.5),Vector2(-19.7,14.4),Vector2(-3.3,7.5),Vector2(-3.3,14.4),Vector2(-16,17.6),Vector2(-7,17.6),Vector2(-18.6,-3.2),Vector2(-6.7,-2.5)]:
 		for i in 4:
 			var offset: Vector2 = [Vector2(-0.65,0.15),Vector2(0.05,-0.3),Vector2(0.45,0.2),Vector2(0.1,0.65)][i]
 			var point: Vector2 = center+offset+Vector2(detail_rng.randf_range(-0.12,0.12),detail_rng.randf_range(-0.1,0.1))
@@ -647,7 +647,7 @@ func grass_allowed(point: Vector2) -> bool:
 	if RuralTerrain.trail_distance(point) < (2.3 if point.y < 15 else 3.1): return false
 	if point.distance_to(RuralTerrain.RESCUE) < 10.3: return false
 	# Soil groups, veranda/house, open front yard, workshop and depot access stay clear.
-	if point.x > -21.7 and point.x < -5.2 and point.y > 2.4 and point.y < 14.6: return false
+	if point.x > -19.2 and point.x < -3.8 and point.y > 4.5 and point.y < 17.0: return false
 	if point.x > -17.5 and point.x < -6.0 and point.y > -15.5 and point.y < 1.0: return false
 	if point.x > -0.5 and point.x < 8.6 and point.y > -15.5 and point.y < -5.6: return false
 	if point.x > 23 and point.x < 46 and point.y > -34.8 and point.y < -11.2: return false

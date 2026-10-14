@@ -8,6 +8,7 @@ extends Resource
 @export var spawn_interval: float = 2.0
 @export var minimum_spawn_distance: float = 12.0
 @export var zombie_scene: PackedScene
+@export_range(0, 4) var boss_reinforcements_after_leader := 0
 
 
 func validation_errors() -> PackedStringArray:
@@ -20,6 +21,9 @@ func validation_errors() -> PackedStringArray:
 		if entry == null: errors.append("Null wave entry")
 		else: errors.append_array(entry.validation_errors())
 	if not composition.is_empty() and spawn_queue().is_empty(): errors.append("Wave must contain enemies")
+	if boss_reinforcements_after_leader > 0:
+		var bosses := spawn_queue().filter(func(scene: PackedScene) -> bool: return scene.resource_path.contains("BossZombie")).size()
+		if bosses <= boss_reinforcements_after_leader: errors.append("Boss reinforcements need a first boss in the wave.")
 	return errors
 
 

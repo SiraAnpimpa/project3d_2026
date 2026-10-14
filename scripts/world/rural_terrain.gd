@@ -60,7 +60,7 @@ static func height_at(x: float, z: float) -> float:
 	height += outside*(7.5*mound(x,z,-65,-75,40,24)+9.5*mound(x,z,63,-78,35,32)+6.0*mound(x,z,-80,35,22,48))
 	height += outside*(1.0+0.9*sin(x*0.035)*cos(z*0.042))
 	# Broad level farm soil and depot foundations blend into the existing slopes.
-	var farm_edge := maxf(absf(x+13.4)-10.2,absf(z-8.5)-7.7)
+	var farm_edge := maxf(absf(x+13.4)-11.5,absf(z-10.725)-8.2)
 	height *= smoothstep(0.0,5.0,farm_edge)
 	var depot_edge := maxf(absf(x-35.5)-13.0,absf(z+23)-12.5)
 	height = lerpf(height,1.85,1.0-smoothstep(0.0,5.5,depot_edge))
@@ -109,7 +109,7 @@ static func ground_color(x: float, z: float) -> Color:
 	color = color.lerp(Color("81765e"),(1.0-smoothstep(0.0,2.7,apron+edge_variation))*0.8)
 	var yard := rounded_edge(point,Vector2(-12,-6),Vector2(6.0,6.8),1.8)
 	color = color.lerp(Color("8a7b5e"),(1.0-smoothstep(-0.3,2.2,yard+edge_variation))*0.8)
-	var soil := minf(maxf(absf(x+8.9)-3.7,absf(z-8.5)-5.5),maxf(absf(x+17.9)-3.7,absf(z-8.5)-5.5))
+	var soil := maxf(absf(x+11.5)-7.5,absf(z-10.725)-6.0)
 	color = color.lerp(Color("615039"),1.0-smoothstep(-0.3,1.3,soil+edge_variation))
 	# Broad uneven worn-grass boundary, rather than a bright circular pad stamped on terrain.
 	var offset := point-RESCUE

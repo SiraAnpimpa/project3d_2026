@@ -295,40 +295,64 @@ position = Vector3(0, 0.1, 6)
 [node name="FarmArea" type="Node3D" parent="."]
 
 [node name="Plot01" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-7.0, 0.025, 4.5)
+position = Vector3(-8.500, 0.025, 6.225)
 
 [node name="Plot02" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-10.8, 0.025, 4.5)
+position = Vector3(-11.500, 0.025, 6.225)
 
 [node name="Plot03" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-16.0, 0.025, 4.5)
+position = Vector3(-14.500, 0.025, 6.225)
 
 [node name="Plot04" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-19.8, 0.025, 4.5)
+position = Vector3(-17.500, 0.025, 6.225)
 
 [node name="Plot05" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-7.0, 0.025, 8.5)
+position = Vector3(-8.500, 0.025, 9.225)
 
 [node name="Plot06" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-10.8, 0.025, 8.5)
+position = Vector3(-11.500, 0.025, 9.225)
 
 [node name="Plot07" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-16.0, 0.025, 8.5)
+position = Vector3(-14.500, 0.025, 9.225)
 
 [node name="Plot08" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-19.8, 0.025, 8.5)
+position = Vector3(-17.500, 0.025, 9.225)
 
 [node name="Plot09" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-7.0, 0.025, 12.5)
+position = Vector3(-8.500, 0.025, 12.225)
 
 [node name="Plot10" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-10.8, 0.025, 12.5)
+position = Vector3(-11.500, 0.025, 12.225)
 
 [node name="Plot11" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-16.0, 0.025, 12.5)
+position = Vector3(-14.500, 0.025, 12.225)
 
 [node name="Plot12" parent="FarmArea" instance=ExtResource("FarmPlot")]
-position = Vector3(-19.8, 0.025, 12.5)
+position = Vector3(-17.500, 0.025, 12.225)
+
+[node name="Plot13" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-5.500, 0.025, 6.225)
+
+[node name="Plot14" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-5.500, 0.025, 9.225)
+
+[node name="Plot15" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-5.500, 0.025, 12.225)
+
+[node name="Plot16" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-17.500, 0.025, 15.225)
+
+[node name="Plot17" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-14.500, 0.025, 15.225)
+
+[node name="Plot18" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-11.500, 0.025, 15.225)
+
+[node name="Plot19" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-8.500, 0.025, 15.225)
+
+[node name="Plot20" parent="FarmArea" instance=ExtResource("FarmPlot")]
+position = Vector3(-5.500, 0.025, 15.225)
 
 [node name="FarmLabel" type="Label3D" parent="."]
 position = Vector3(-9, 1.5, 0)

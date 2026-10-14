@@ -7,6 +7,18 @@ signal equipment_changed
 var selected_weapon_slot: int = -1
 var _slots: Array[ItemData] = []
 var _inventory: Inventory
+var armor_item: ItemData
+var _known_armor_owned := false
+
+func equip_armor(item: ItemData) -> bool:
+	if item == null or item.item_type != ItemData.ItemType.ARMOR or _inventory == null or not _inventory.has_item(item.id) or _inventory.get_item_definition(item.id) != item: return false
+	armor_item = item
+	equipment_changed.emit()
+	return true
+
+func unequip_armor() -> void:
+	armor_item = null
+	equipment_changed.emit()
 
 
 func _ready() -> void:
@@ -100,6 +112,14 @@ func _reconcile_owned() -> void:
 	if _inventory == null:
 		return
 	var changed := false
+	var owned_armor := _inventory.get_item_definition(&"heavy_armor") if _inventory.has_item(&"heavy_armor") else null
+	if armor_item != null and owned_armor != armor_item:
+		armor_item = null
+		changed = true
+	if owned_armor != null and not _known_armor_owned and armor_item == null:
+		armor_item = owned_armor
+		changed = true
+	_known_armor_owned = owned_armor != null
 	for index in _slots.size():
 		var weapon := _slots[index]
 		if weapon != null and (not _inventory.has_item(weapon.id) or _inventory.get_item_definition(weapon.id) != weapon):

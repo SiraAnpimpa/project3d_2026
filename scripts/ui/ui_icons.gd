@@ -34,18 +34,23 @@ static func category(item: ItemData) -> String:
 		ItemData.ItemType.WEAPON: return "OWNED WEAPON"
 		ItemData.ItemType.AMMO: return "AMMUNITION"
 		ItemData.ItemType.CONSUMABLE: return "CONSUMABLE"
+		ItemData.ItemType.ARMOR: return "ARMOR"
+		ItemData.ItemType.THROWABLE: return "THROWABLE"
 	return "CRAFTING MATERIAL"
 
 static func use_text(item: ItemData) -> String:
 	if item == null: return "Select an item to inspect."
+	if item.item_type == ItemData.ItemType.THROWABLE: return "G Throw · Combat\n6m radius · Slow 50% for 4s"
+	if item.item_type == ItemData.ItemType.ARMOR: return "Damage reduced %d%%\nClick to equip / remove" % roundi(item.damage_reduction * 100)
 	if item.item_type == ItemData.ItemType.CONSUMABLE and item.heal_amount > 0:
-		return "Close menus · F Use Medicine\nRestores %s HP · No waste at full health" % str(item.heal_amount)
+		if item.heal_to_full: return "V Switch medicine · F Use\nRestores full HP"
+		return "V Switch medicine · F Use\nRestores %s HP · No waste at full health" % str(item.heal_amount)
 	if item.item_type == ItemData.ItemType.AMMO:
 		var effect := "Standard rounds"
 		match item.ammo_effect:
-			ItemData.AmmoEffect.BURN: effect = "Burn: %s HP/s · %ss" % [str(item.effect_damage_per_second), str(item.effect_duration)]
+			ItemData.AmmoEffect.BURN: effect = "+10 damage · +50 Marksman\nBurn: 1% max HP/s · 5s"
 			ItemData.AmmoEffect.SLOW: effect = "Slow: %d%% · %ss" % [roundi((1.0 - item.effect_speed_multiplier) * 100), str(item.effect_duration)]
-			ItemData.AmmoEffect.POISON: effect = "Poison: %s HP/s · %ss" % [str(item.effect_damage_per_second), str(item.effect_duration)]
+			ItemData.AmmoEffect.POISON: effect = "Poison: 5% max HP/s · 3s\nEnemy damage reduced 10%"
 		return "C Switch ammo · R Reload\n" + effect
 	match item.id:
 		&"basic_rifle": return "RMB Aim · LMB Fire\nR Reload"

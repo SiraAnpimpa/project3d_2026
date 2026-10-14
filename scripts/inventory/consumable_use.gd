@@ -9,28 +9,45 @@ signal state_changed
 const USE_COOLDOWN := 0.5
 var game: Node3D
 var quick_use_item: ItemData
+var full_heal_item: ItemData
+var selected_medicine: ItemData
 var cooldown_remaining := 0.0
 var _using := false
 
 func bind(root_game: Node3D, item: ItemData) -> void:
 	game = root_game
 	quick_use_item = item
+	full_heal_item = game.catalog.get_item(&"large_medicine")
+	selected_medicine = quick_use_item
 	set_physics_process(false)
 
 func can_use_input() -> bool:
 	return game != null and game.preparation_complete and not get_tree().paused and not game.player.health.is_dead and not game.rest.is_resting and not game.presentation.ending_started and game.waves.state not in [NightWaveManager.State.GAME_OVER, NightWaveManager.State.GAME_COMPLETED] and not game.inventory_ui.is_open and not game.crafting_ui.is_open and not game.pause_menu.is_open and game.player.camera_rig.can_control()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("use_medicine") and not event.is_echo() and can_use_input():
-		use_item(quick_use_item)
+	if event.is_action_pressed("cycle_medicine") and not event.is_echo() and can_use_input():
+		cycle_medicine()
 		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("use_medicine") and not event.is_echo() and can_use_input():
+		use_item(selected_medicine)
+		get_viewport().set_input_as_handled()
+
+func cycle_medicine() -> bool:
+	if not can_use_input(): return false
+	var next := quick_use_item if selected_medicine == full_heal_item else full_heal_item
+	if next == null or not game.inventory.has_item(next.id):
+		feedback.emit("No Medicine" if next == quick_use_item else "No Large Medicine")
+		return false
+	selected_medicine = next
+	state_changed.emit()
+	return true
 
 func use_item(item: ItemData) -> bool:
 	if not can_use_input() or _using or cooldown_remaining > 0: return false
 	if item == null or item.item_type != ItemData.ItemType.CONSUMABLE or item.heal_amount <= 0 or not item.validation_errors().is_empty(): return false
 	var bag: Inventory = game.inventory
 	if not bag.has_item(item.id):
-		feedback.emit("No Medicine")
+		feedback.emit("No Large Medicine" if item.heal_to_full else "No Medicine")
 		return false
 	# A caller cannot substitute a different resource with the same inventory ID.
 	if bag.get_item_definition(item.id) != item: return false
@@ -46,7 +63,7 @@ func use_item(item: ItemData) -> bool:
 		_using = false
 		return false
 	var before := health.current_hp
-	health.heal(item.heal_amount)
+	health.heal(health.max_hp if item.heal_to_full else item.heal_amount)
 	set_physics_process(true)
 	used.emit(item, health.current_hp - before)
 	state_changed.emit()

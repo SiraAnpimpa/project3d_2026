@@ -12,6 +12,8 @@ var _checkpoint_day := 0
 
 func begin_new() -> void:
 	_pending.clear()
+	_game = null
+	_checkpoint_day = 0
 
 func request_continue() -> bool:
 	_pending = read_checkpoint()
@@ -24,9 +26,10 @@ func saved_day() -> int:
 	return int(read_checkpoint().get("day", 0))
 
 func prepare_clock(clock: GameClock) -> void:
-	if _pending.is_empty(): return
+	# Only an explicit Continue may select a saved day. A new scene always starts
+	# at dawn on Day 1, even if its clock was changed during editor playtesting.
 	clock.set_block_signals(true)
-	clock.seek(int(_pending.day), 6, 0)
+	clock.seek(int(_pending.get("day", 1)), 6, 0)
 	clock.set_block_signals(false)
 
 func bind(game: Node3D) -> void:
@@ -78,6 +81,7 @@ func capture_morning(day: int) -> bool:
 	var receipts: Array = []
 	for reward_day in progression.daily_seed_receipts: receipts.append({"day": reward_day, "id": String(progression.daily_seed_receipts[reward_day])})
 	var snapshot := {"day": day, "bag": bag, "equipment": equipment, "selected_weapon": game.equipment.selected_weapon_slot,
+		"armor": _item_id(game.equipment.armor_item),
 		"selected_seed": String(game.inventory.selected_seed_id), "magazines": magazines, "crops": crops,
 		"health": game.player.health.current_hp, "stamina": game.player.stamina.current_stamina, "exhausted": game.player.stamina.exhausted,
 		"crafted": _strings(game.crafting_system.crafted_weapon_ids.keys()),
@@ -147,7 +151,6 @@ func _restore(game: Node3D, snapshot: Dictionary) -> bool:
 	var plots := {}
 	for plot in game.get_node("MainWorld/FarmArea").get_children():
 		if plot is FarmPlot: plots[String(plot.name)] = plot
-	if plots.size() != snapshot.crops.size(): return false
 	for crop in snapshot.crops:
 		if not plots.has(crop.name): return false
 	var progression: ProgressionManager = game.progression
@@ -182,6 +185,8 @@ func _restore(game: Node3D, snapshot: Dictionary) -> bool:
 		game.equipment.unequip_weapon(index)
 		if not snapshot.equipment[index].is_empty(): game.equipment.equip_weapon(index, game.catalog.get_item(StringName(snapshot.equipment[index])))
 	game.equipment.selected_weapon_slot = int(snapshot.selected_weapon)
+	if not String(snapshot.get("armor", "")).is_empty(): game.equipment.equip_armor(game.catalog.get_item(StringName(snapshot.armor)))
+	else: game.equipment.unequip_armor()
 	game.weapons.runtimes.clear()
 	game.weapons.current = null
 	for magazine in snapshot.magazines:
@@ -193,6 +198,8 @@ func _restore(game: Node3D, snapshot: Dictionary) -> bool:
 		game.weapons.runtimes[definition.weapon_id] = state
 	game.crafting_system.crafted_weapon_ids.clear()
 	for id in snapshot.crafted: game.crafting_system.crafted_weapon_ids[StringName(id)] = true
+	# Newly added beds start empty; original crop names preserve pre-expansion saves.
+	for plot: FarmPlot in plots.values(): plot.clear_plot()
 	for crop in snapshot.crops: plots[crop.name].restore_checkpoint(crop)
 	game.player.health._set_hp(float(snapshot.health))
 	game.player.stamina._set_stamina(float(snapshot.stamina))
@@ -204,6 +211,7 @@ func _restore(game: Node3D, snapshot: Dictionary) -> bool:
 	game.clock.time_changed.emit(int(snapshot.day), 6, 0, true)
 	progression.changed.emit()
 	game.inventory.refresh_seed_selection()
+	progression.reconcile_content_updates()
 	return true
 
 func _valid_snapshot(data: Dictionary) -> bool:
@@ -222,6 +230,11 @@ func _valid_snapshot(data: Dictionary) -> bool:
 		if item == null or not _integer(slot.get("quantity"), 1, item.max_stack): return false
 		owned[slot.id] = true
 	var equipped := {}
+	var armor: Variant = data.get("armor", "")
+	if not armor is String: return false
+	if not armor.is_empty():
+		var armor_data := catalog.get_item(StringName(armor))
+		if armor_data == null or armor_data.item_type != ItemData.ItemType.ARMOR or not owned.has(armor): return false
 	for id in data.equipment:
 		if not id is String: return false
 		if id.is_empty(): continue

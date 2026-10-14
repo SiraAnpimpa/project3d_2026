@@ -3,8 +3,8 @@ extends Node
 ## Deliberate player commands, available in release/Web as well as the editor.
 ## Use the normal inventory, spawn validation, progression and ending paths.
 
-const ZOMBIES := [preload("res://scenes/enemies/NormalZombie.tscn"), preload("res://scenes/enemies/RunnerZombie.tscn"), preload("res://scenes/enemies/TankZombie.tscn")]
-const ZOMBIE_NAMES := ["Normal", "Runner", "Tank"]
+const ZOMBIES := [preload("res://scenes/enemies/NormalZombie.tscn"), preload("res://scenes/enemies/RunnerZombie.tscn"), preload("res://scenes/enemies/TankZombie.tscn"), preload("res://scenes/enemies/BossZombie.tscn")]
+const ZOMBIE_NAMES := ["Normal", "Runner", "Tank", "Boss"]
 const MAX_ZOMBIES := 12
 signal feedback(message: String)
 var game: Node3D

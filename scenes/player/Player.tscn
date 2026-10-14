@@ -68,7 +68,7 @@ far = 150.0
 
 [node name="AimRay" type="Node3D" parent="."]
 script = ExtResource("9_aim")
-aim_collision_mask = 13
+aim_collision_mask = 21
 
 [node name="Interactor" type="Node3D" parent="."]
 position = Vector3(0, 0.85, 0)
@@ -91,5 +91,5 @@ script = ExtResource("11_mode")
 
 [node name="WeaponController" type="Node3D" parent="."]
 script = ExtResource("weapon_controller")
-shot_collision_mask = 13
+shot_collision_mask = 21
 definitions = Array[Resource]([ExtResource("rifle_data"),ExtResource("bat_data"), ExtResource("knife_data"), ExtResource("sword_data"), ExtResource("pistol_data"), ExtResource("smg_data"), ExtResource("marksman_rifle_data")])

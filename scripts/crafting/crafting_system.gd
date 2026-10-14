@@ -30,7 +30,13 @@ func weapon_already_obtained(recipe: CraftRecipe) -> bool:
 	return false
 
 func get_available_recipes() -> Array[CraftRecipe]:
-	return get_recipes().filter(func(recipe: CraftRecipe) -> bool: return recipe != null and not weapon_already_obtained(recipe))
+	return get_recipes().filter(func(recipe: CraftRecipe) -> bool: return recipe != null and not weapon_already_obtained(recipe) and not armor_already_owned(recipe))
+
+func armor_already_owned(recipe: CraftRecipe) -> bool:
+	if recipe == null or inventory == null: return false
+	for entry in recipe.outputs:
+		if entry.item.item_type == ItemData.ItemType.ARMOR and inventory.has_item(entry.item.id): return true
+	return false
 
 
 func failure_reason(recipe: CraftRecipe) -> String:
@@ -42,6 +48,7 @@ func failure_reason(recipe: CraftRecipe) -> String:
 		return "Recipe Locked (Day %d)" % recipe.unlock_day
 	if weapon_already_obtained(recipe):
 		return "Weapon already owned or crafted"
+	if armor_already_owned(recipe): return "Armor already owned"
 	for entry in recipe.ingredients:
 		var needed := entry.quantity * recipe.craft_amount
 		if not inventory.has_item(entry.item.id, needed):

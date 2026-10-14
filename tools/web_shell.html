@@ -164,13 +164,13 @@ document.addEventListener('visibilitychange', () => {
 	if (document.visibilityState === 'visible') resumeGameAudio();
 });
 		</script>
-		<script src="$GODOT_URL?build=audio-recovery-20261014"></script>
+		<script src="$GODOT_URL?build=tank-headshot-ammo-20261015"></script>
 		<script>
 const GODOT_CONFIG = $GODOT_CONFIG;
 const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
 // Fetch a fresh pack after deployment while keeping its virtual filename clean.
 const originalPack = GODOT_CONFIG.executable + '.pck';
-const versionedPack = originalPack + '?build=' + GODOT_CONFIG.fileSizes[originalPack] + '-audio-recovery-20261014';
+const versionedPack = originalPack + '?build=' + GODOT_CONFIG.fileSizes[originalPack] + '-tank-headshot-ammo-20261015';
 GODOT_CONFIG.fileSizes[versionedPack] = GODOT_CONFIG.fileSizes[originalPack];
 const engine = new Engine(GODOT_CONFIG);
 const preloadGameFile = engine.preloadFile.bind(engine);

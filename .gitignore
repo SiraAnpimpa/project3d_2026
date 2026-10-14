@@ -2,6 +2,13 @@
 .kilo/
 *.log
 release/
+work/
+# Keep old test reports and capture folders out of the published Web directory.
+docs/*/
+!docs/licenses/
+# Runtime progress is local to each player and must never be committed.
+day_checkpoint_*.json
+continue_test_expected.json
 # These assets use the shared importer defaults in project.godot.
 Asset/**/*.glb.import
 

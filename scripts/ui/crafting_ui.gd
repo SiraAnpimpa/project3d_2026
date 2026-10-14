@@ -2,7 +2,8 @@ class_name CraftingUI
 extends CanvasLayer
 
 signal opened_changed(is_open: bool)
-const CATEGORY_NAMES := ["AMMO", "MEDICINE", "WEAPON", "UTILITY", "DEFENSE", "MATERIAL"]
+const CATEGORY_NAMES := ["AMMO", "MEDICINE", "WEAPON", "UTILITY", "ARMOR", "PARTS"]
+const TAB_CATEGORIES := [[CraftRecipe.Category.AMMO], [CraftRecipe.Category.WEAPON], [CraftRecipe.Category.MATERIAL, CraftRecipe.Category.UTILITY, CraftRecipe.Category.MEDICINE, CraftRecipe.Category.DEFENSE]]
 var crafting: CraftingSystem
 var inventory_ui: InventoryUI
 var pause_menu: PauseMenu
@@ -14,6 +15,9 @@ var _buttons: Dictionary = {}
 var _category_headings: Dictionary = {}
 var screen: Control
 var recipe_list: VBoxContainer
+var recipe_tabs: TabContainer
+var category_rail: UiCategoryTabs
+var _recipe_lists: Array[VBoxContainer] = []
 var detail_title: Label
 var description: Label
 var ingredients: VBoxContainer
@@ -26,7 +30,7 @@ var _panel: PanelContainer
 
 func _ready() -> void:
 	screen = PresentationStyle.screen(self)
-	_panel = PresentationStyle.center_panel(screen, Vector2(970, 610))
+	_panel = PresentationStyle.center_panel(screen, Vector2(970, 660))
 	var rows := PresentationStyle.box(_panel, true, 16)
 	var header := PresentationStyle.box(rows, false, 12)
 	PresentationStyle.icon(header, UiIcons.get_icon("workbench"), 26).modulate = PresentationStyle.GOLD
@@ -34,6 +38,8 @@ func _ready() -> void:
 	_close_button = PresentationStyle.button(header, "Esc", func() -> void: set_open(false), "close")
 	_close_button.theme_type_variation = "QuietButton"
 	rows.add_child(HSeparator.new())
+	category_rail = UiCategoryTabs.new()
+	rows.add_child(category_rail)
 	var columns := PresentationStyle.box(rows, false, 16)
 	columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	var materials := PresentationStyle.box(columns, true, 14)
@@ -44,13 +50,22 @@ func _ready() -> void:
 	var recipes := PresentationStyle.box(columns, true, 8)
 	recipes.custom_minimum_size.x = 282
 	PresentationStyle.label(recipes, "RECIPES", 14).modulate = PresentationStyle.MUTED
-	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size = Vector2(282, 398)
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	recipes.add_child(scroll)
-	recipe_list = PresentationStyle.box(scroll, true, 6) as VBoxContainer
-	recipe_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	recipe_tabs = TabContainer.new()
+	recipe_tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	recipe_tabs.custom_minimum_size = Vector2(282, 365)
+	recipes.add_child(recipe_tabs)
+	for title in ["Ammo", "Weapons", "Parts"]:
+		var scroll := ScrollContainer.new()
+		scroll.name = title
+		scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+		scroll.follow_focus = true
+		recipe_tabs.add_child(scroll)
+		var list := PresentationStyle.box(scroll, true, 6) as VBoxContainer
+		list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_recipe_lists.append(list)
+	recipe_list = _recipe_lists[0]
+	category_rail.bind(recipe_tabs, ["ammo", "weapons", "parts"])
+	recipe_tabs.tab_changed.connect(_category_changed)
 	var result_panel := PanelContainer.new()
 	columns.add_child(result_panel)
 	result_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -114,20 +129,22 @@ func set_open(value: bool) -> void:
 	opened_changed.emit(value)
 
 func _build_recipe_list() -> void:
-	_clear(recipe_list)
+	for list in _recipe_lists: _clear(list)
 	_buttons.clear()
 	_category_headings.clear()
 	if crafting == null: return
-	for category in CATEGORY_NAMES.size():
+	for category in [0, 2, 5, 3, 1, 4]:
+		var page := _category_for(category)
+		var list := _recipe_lists[page]
 		var heading_added := false
 		for recipe in crafting.get_recipes():
 			if recipe == null or recipe.category != category: continue
 			if not heading_added:
-				var heading := PresentationStyle.label(recipe_list, CATEGORY_NAMES[category], 14)
+				var heading := PresentationStyle.label(list, CATEGORY_NAMES[category], 14)
 				heading.modulate = PresentationStyle.MUTED
 				_category_headings[category] = heading
 				heading_added = true
-			var button := PresentationStyle.button(recipe_list, recipe.display_name, _select_recipe.bind(recipe))
+			var button := PresentationStyle.button(list, recipe.display_name, _select_recipe.bind(recipe))
 			button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 			button.expand_icon = true
 			button.add_theme_constant_override("icon_max_width", 28)
@@ -136,8 +153,27 @@ func _build_recipe_list() -> void:
 			_buttons[recipe] = button
 	if selected_recipe == null and not crafting.get_recipes().is_empty(): selected_recipe = crafting.get_recipes()[0]
 
+func _category_for(category: int) -> int:
+	for index in TAB_CATEGORIES.size():
+		if category in TAB_CATEGORIES[index]: return index
+	return 2
+
+func _category_changed(index: int) -> void:
+	recipe_list = _recipe_lists[index]
+	if crafting == null: return
+	selected_recipe = null
+	for category in TAB_CATEGORIES[index]:
+		for recipe in crafting.get_available_recipes():
+			if recipe.category == category:
+				selected_recipe = recipe
+				break
+		if selected_recipe != null: break
+	refresh()
+
 func _select_recipe(recipe: CraftRecipe) -> void:
-	if crafting.weapon_already_obtained(recipe): return
+	if crafting.weapon_already_obtained(recipe) or crafting.armor_already_owned(recipe): return
+	var page := _category_for(recipe.category)
+	if recipe_tabs.current_tab != page: recipe_tabs.current_tab = page
 	selected_recipe = recipe
 	refresh()
 

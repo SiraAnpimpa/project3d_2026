@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CraftRecipe" load_steps=9 format=3]
+[ext_resource type="Script" path="res://scripts/data/craft_recipe.gd" id="recipe"]
+[ext_resource type="Script" path="res://scripts/data/recipe_entry.gd" id="entry"]
+[ext_resource type="Resource" path="res://resources/items/iron.tres" id="iron"]
+[ext_resource type="Resource" path="res://resources/items/copper.tres" id="copper"]
+[ext_resource type="Resource" path="res://resources/items/heavy_armor.tres" id="output"]
+[sub_resource type="Resource" id="iron_entry"]
+script = ExtResource("entry")
+item = ExtResource("iron")
+quantity = 4
+[sub_resource type="Resource" id="copper_entry"]
+script = ExtResource("entry")
+item = ExtResource("copper")
+quantity = 2
+[sub_resource type="Resource" id="armor_entry"]
+script = ExtResource("entry")
+item = ExtResource("output")
+quantity = 1
+[resource]
+script = ExtResource("recipe")
+recipe_id = &"heavy_armor"
+display_name = "Heavy Armor"
+description = "Damage reduced 40%. Auto-equipped when crafted."
+category = 4
+ingredients = Array[Resource]([SubResource("iron_entry"), SubResource("copper_entry")])
+outputs = Array[Resource]([SubResource("armor_entry")])
+unlock_day = 6

@@ -91,11 +91,11 @@ func run() -> void:
 	await capture("camera_aim_far")
 	player.position.z = 7
 	rig.pitch_pivot.rotation.x = -0.3
-	key(KEY_V)
+	key(KEY_Z)
 	await frames(90)
 	await capture("camera_aim_left")
 	check(rig.shoulder_pivot.position.x < 0 and player.visual.global_basis.z.dot(-rig.global_basis.z) > 0.99, "left shoulder keeps character facing the aim direction")
-	key(KEY_V)
+	key(KEY_Z)
 	Input.action_press("move_left")
 	var start := player.position
 	for _i in 30:

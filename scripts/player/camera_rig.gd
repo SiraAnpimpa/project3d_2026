@@ -5,6 +5,11 @@ signal aim_changed(aiming: bool)
 signal controls_changed(enabled: bool)
 signal capture_wait_requested
 signal pose_updated
+var _impact_strength := 0.0
+var _impact_phase := 0.0
+
+func impact_shake(amount: float) -> void:
+	if not PresentationStyle.reduced_motion and can_control(): _impact_strength = clampf(_impact_strength+amount,0,1)
 
 @export_group("Look")
 @export_range(0.0001, 0.02, 0.0001) var mouse_sensitivity: float = 0.003
@@ -103,6 +108,11 @@ func _physics_process(delta: float) -> void:
 			-Input.get_axis("camera_up", "camera_down") * keyboard_turn_speed * delta)
 	_refresh_aim()
 	update_pose(delta)
+	_impact_strength = maxf(0,_impact_strength-delta*2.0)
+	_impact_phase += delta*30.0
+	var shake := _impact_strength*_impact_strength if can_control() and not PresentationStyle.reduced_motion else 0.0
+	camera.h_offset = sin(_impact_phase*1.7)*0.08*shake
+	camera.v_offset = cos(_impact_phase*2.3)*0.06*shake
 	pose_updated.emit()
 
 

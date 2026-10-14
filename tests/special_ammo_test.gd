@@ -44,7 +44,7 @@ func craft_ammo(id: StringName) -> void:
 	var before := bag.get_item_amount(id)
 	click_button(game.crafting_ui.craft_button)
 	await frames(3)
-	check(bag.get_item_amount(id) == before + 10 and game.crafting_ui.feedback.text.begins_with("Crafted"), "actual workbench crafts ten " + String(id))
+	check(bag.get_item_amount(id) == before + 15 and game.crafting_ui.feedback.text.begins_with("Crafted"), "actual workbench crafts fifteen " + String(id))
 	for entry in recipe.ingredients: check(not bag.has_item(entry.item.id), "craft consumes ingredient " + String(entry.item.id))
 	await frames(15)
 	check(Rect2(Vector2.ZERO,Vector2(root.size)).encloses(game.crafting_ui._panel.get_global_rect()), "special ammo workbench fits 720p")
@@ -79,7 +79,8 @@ func fire_at(enemy: NormalZombie, ammo: ItemData) -> void:
 	var reserve := bag.get_item_amount(ammo.id)
 	aim_at(player, enemy.global_position + Vector3.UP)
 	check(weapons.try_fire() and weapons.last_hit == enemy, "real muzzle shot hits zombie with " + ammo.display_name)
-	check(is_equal_approx(enemy.health.current_hp, hp - rifle.data.damage) and rifle.current_magazine == rounds - 1, "shot keeps base damage and consumes exactly one loaded round")
+	var bonus := ammo.marksman_bonus_damage if rifle.data.weapon_id == &"marksman_rifle" else ammo.bonus_damage
+	check(is_equal_approx(enemy.health.current_hp, hp - rifle.data.damage - bonus) and rifle.current_magazine == rounds - 1, "shot applies its ammo bonus and consumes exactly one loaded round")
 	check(bag.get_item_amount(ammo.id) == reserve and bag.get_item_amount(&"basic_ammo") == normal, "shooting spends loaded rounds without deducting reserve twice")
 	var impacts: Array[Node] = game.find_children("*", "GPUParticles3D", false, false)
 	var impact: GPUParticles3D
@@ -93,7 +94,8 @@ func fire_at(enemy: NormalZombie, ammo: ItemData) -> void:
 		enemy.apply_ammo_effect(ammo)
 		check(enemy.ammo_effects.size() == 1, "repeated same status refreshes without stacking")
 		enemy._tick_ammo_effects(1.0)
-		check(is_equal_approx(enemy.health.current_hp, after - ammo.effect_damage_per_second), "one second uses data-defined DOT through existing Health")
+		var dps := ammo.effect_damage_per_second + enemy.health.max_hp * ammo.effect_max_health_per_second
+		check(is_equal_approx(enemy.health.current_hp, after - dps), "one second uses data-defined percentage DOT through existing Health")
 		check(is_equal_approx(enemy.ammo_speed_multiplier(), ammo.effect_speed_multiplier), "status movement multiplier matches ammo data")
 		if ammo.ammo_effect == ItemData.AmmoEffect.SLOW:
 			enemy._chase(1.0)
@@ -104,7 +106,7 @@ func fire_at(enemy: NormalZombie, ammo: ItemData) -> void:
 		await capture("loaded_" + String(ammo.id))
 		enemy._tick_ammo_effects(ammo.effect_duration + 1)
 		check(enemy.ammo_effects.is_empty() and enemy.ammo_speed_multiplier() == 1.0, "status expires and restores movement")
-		check(is_equal_approx(enemy.health.current_hp, after - ammo.effect_damage_per_second * ammo.effect_duration), "DOT is bounded by its duration")
+		check(is_equal_approx(enemy.health.current_hp, after - dps * ammo.effect_duration), "DOT is bounded by its duration")
 	else:
 		await capture("loaded_basic_ammo")
 	enemy.despawn()

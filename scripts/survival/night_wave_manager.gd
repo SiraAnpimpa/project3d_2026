@@ -28,6 +28,9 @@ var _next_point := 0
 var _last_started_day := 0
 var _ending := false
 var _warned_day := 0
+var held_bosses: Array[PackedScene] = []
+var _leader_id := 0
+var _reinforcement_due := false
 
 
 func bind(time: GameClock, actor: PlayerController, points: Node3D) -> void:
@@ -67,6 +70,12 @@ func _on_night(day: int) -> void:
 	pending = data.spawn_queue()
 	_last_started_day = day
 	total_zombies = pending.size()
+	# Keep all three bosses in total/remaining counts, but hold the final pair.
+	for index in range(pending.size()-1, -1, -1):
+		if held_bosses.size() >= data.boss_reinforcements_after_leader: break
+		if pending[index].resource_path.contains("BossZombie"):
+			held_bosses.push_front(pending[index])
+			pending.remove_at(index)
 	spawned_zombies = 0
 	_next_point = 0
 	_spawn_wait = 0
@@ -76,7 +85,12 @@ func _on_night(day: int) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not enabled or state != State.ACTIVE or pending.is_empty() or alive.size() >= data.max_active_zombies: return
+	if not enabled or state != State.ACTIVE: return
+	if _reinforcement_due:
+		_spawn_reinforcements()
+		return
+	# Reserve room for the pair so they can appear in the same frame.
+	if pending.is_empty() or alive.size() >= data.max_active_zombies - held_bosses.size(): return
 	_spawn_wait -= delta
 	if _spawn_wait > 0: return
 	_spawn_wait = data.spawn_interval
@@ -86,22 +100,49 @@ func _physics_process(delta: float) -> void:
 		_next_point += 1
 		var zombie := ZombieSpawnFactory.spawn(spawn_points.get_parent(), pending[0], player, point.global_position, data.minimum_spawn_distance)
 		if zombie == null: continue
-		zombie.pursue_target = true
-		var id := zombie.get_instance_id()
-		_enemy_scenes[id] = pending.pop_front()
-		alive[id] = zombie
-		tracked[id] = zombie
-		spawned_zombies += 1
-		zombie.died.connect(_on_zombie_died.bind(id))
-		zombie.tree_exiting.connect(_on_zombie_exiting.bind(id))
+		_register_spawn(zombie, pending.pop_front())
 		changed.emit()
 		break
+
+func _register_spawn(zombie: NormalZombie, scene: PackedScene) -> void:
+	zombie.pursue_target = true
+	var id := zombie.get_instance_id()
+	_enemy_scenes[id] = scene
+	alive[id] = zombie
+	tracked[id] = zombie
+	spawned_zombies += 1
+	if _leader_id == 0 and not held_bosses.is_empty() and scene.resource_path.contains("BossZombie"): _leader_id = id
+	zombie.died.connect(_on_zombie_died.bind(id))
+	zombie.tree_exiting.connect(_on_zombie_exiting.bind(id))
+
+func _spawn_reinforcements() -> void:
+	var created: Array[NormalZombie] = []
+	for scene in held_bosses:
+		var zombie: NormalZombie
+		for attempt in spawn_points.get_child_count():
+			var point := spawn_points.get_child(_next_point % spawn_points.get_child_count()) as Node3D
+			_next_point += 1
+			zombie = ZombieSpawnFactory.spawn(spawn_points.get_parent(), scene, player, point.global_position, data.minimum_spawn_distance)
+			if zombie != null: break
+		if zombie == null:
+			for staged in created: staged.despawn()
+			return
+		created.append(zombie)
+	var scenes := held_bosses.duplicate()
+	held_bosses.clear()
+	_reinforcement_due = false
+	for index in created.size(): _register_spawn(created[index], scenes[index])
+	changed.emit()
+	feedback.emit("BOSS REINFORCEMENTS · Two incoming")
 
 
 func _on_zombie_died(id: int) -> void:
 	if _ending or state != State.ACTIVE or not alive.has(id): return
 	alive.erase(id)
 	_enemy_scenes.erase(id)
+	if id == _leader_id and not held_bosses.is_empty():
+		_leader_id = 0
+		_reinforcement_due = true
 	changed.emit()
 	if state == State.ACTIVE and spawned_zombies == total_zombies and alive.is_empty() and clock.is_nighttime and not player.health.is_dead:
 		state = State.CLEARED
@@ -116,6 +157,7 @@ func _on_zombie_exiting(id: int) -> void:
 		_enemy_scenes.erase(id)
 		return
 	alive.erase(id)
+	if id == _leader_id: _leader_id = 0
 	# Unexpected removal is not a kill. Return it to pending rather than award a clear.
 	if state == State.ACTIVE:
 		pending.push_front(_enemy_scenes[id])
@@ -165,6 +207,9 @@ func _cleanup() -> void:
 	alive.clear()
 	tracked.clear()
 	pending.clear()
+	held_bosses.clear()
+	_leader_id = 0
+	_reinforcement_due = false
 	_enemy_scenes.clear()
 	for zombie in enemies:
 		if is_instance_valid(zombie): zombie.despawn()

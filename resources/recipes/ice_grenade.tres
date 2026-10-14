@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CraftRecipe" load_steps=11 format=3]
+[ext_resource type="Script" path="res://scripts/data/craft_recipe.gd" id="recipe"]
+[ext_resource type="Script" path="res://scripts/data/recipe_entry.gd" id="entry"]
+[ext_resource type="Resource" path="res://resources/items/ice_crystal.tres" id="ice"]
+[ext_resource type="Resource" path="res://resources/items/iron.tres" id="iron"]
+[ext_resource type="Resource" path="res://resources/items/paper.tres" id="paper"]
+[ext_resource type="Resource" path="res://resources/items/ice_grenade.tres" id="grenade"]
+[sub_resource type="Resource" id="ice_entry"]
+script = ExtResource("entry")
+item = ExtResource("ice")
+quantity = 2
+[sub_resource type="Resource" id="iron_entry"]
+script = ExtResource("entry")
+item = ExtResource("iron")
+quantity = 1
+[sub_resource type="Resource" id="paper_entry"]
+script = ExtResource("entry")
+item = ExtResource("paper")
+quantity = 1
+[sub_resource type="Resource" id="output_entry"]
+script = ExtResource("entry")
+item = ExtResource("grenade")
+quantity = 1
+[resource]
+script = ExtResource("recipe")
+recipe_id = &"ice_grenade"
+display_name = "Ice Grenade"
+description = "G Throw. Slows enemies in a 6m radius for 4 seconds."
+category = 0
+ingredients = Array[Resource]([SubResource("ice_entry"), SubResource("iron_entry"), SubResource("paper_entry")])
+outputs = Array[Resource]([SubResource("output_entry")])
+unlock_day = 5

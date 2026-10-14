@@ -70,6 +70,11 @@ var _medicine_count: Label
 var _medicine_hint: Label
 var _medicine_discovered := false
 var _medicine_hint_pending := false
+var _medicine_switch: HBoxContainer
+var _armor_badge: TextureRect
+var grenades: Node
+var _grenade_row: HBoxContainer
+var _grenade_count: Label
 
 func _ready() -> void:
 	$Root.theme = PresentationStyle.theme(true).duplicate()
@@ -104,19 +109,38 @@ func _ready() -> void:
 	stamina_bar = stamina[0]
 	stamina_label = stamina[1]
 	_stamina_title = stamina[2]
+	_armor_badge = PresentationStyle.hud_icon(_health_title.get_parent(), UiIcons.get_icon("armor"), 18)
+	_health_title.get_parent().move_child(_armor_badge, 1)
+	_armor_badge.hide()
 	_medicine_row = PresentationStyle.box($Root, false, 7) as HBoxContainer
 	_medicine_row.name = "MedicineHint"
 	_medicine_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_medicine_row.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
 	_medicine_row.offset_left = 26
 	_medicine_row.offset_top = -188
-	_medicine_row.offset_right = 242
+	_medicine_row.offset_right = 340
 	_medicine_row.offset_bottom = -160
 	_medicine_icon = PresentationStyle.icon(_medicine_row, null, 22)
 	_medicine_count = PresentationStyle.label(_medicine_row, "", 14)
 	_hint_key(_medicine_row, _key_hint("use_medicine"))
 	_medicine_hint = PresentationStyle.label(_medicine_row, "Use Medicine", 12)
+	_medicine_switch = PresentationStyle.box(_medicine_row, false, 5) as HBoxContainer
+	_medicine_switch.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_hint_key(_medicine_switch, _key_hint("cycle_medicine"))
+	PresentationStyle.label(_medicine_switch, "Swap", 12).modulate = PresentationStyle.MUTED
 	_medicine_row.hide()
+	_grenade_row = PresentationStyle.box($Root,false,7) as HBoxContainer
+	_grenade_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_grenade_row.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+	_grenade_row.offset_left = 26
+	_grenade_row.offset_top = -220
+	_grenade_row.offset_right = 290
+	_grenade_row.offset_bottom = -192
+	PresentationStyle.icon(_grenade_row,preload("res://assets/ui/items/ice_grenade.svg"),22)
+	_grenade_count = PresentationStyle.label(_grenade_row,"",14)
+	_hint_key(_grenade_row,_key_hint("throw_grenade"))
+	PresentationStyle.label(_grenade_row,"Ice Grenade",12)
+	_grenade_row.hide()
 	_control_hints = PresentationStyle.box($Root, false, 10) as HBoxContainer
 	_control_hints.name = "ControlHints"
 	_control_hints.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
@@ -323,13 +347,21 @@ func bind_gameplay_mode(mode: GameplayModeController, loadout: EquipmentLoadout)
 	equipment = loadout
 	mode.mode_changed.connect(func(_mode: GameplayModeController.Mode) -> void: _refresh_seed(); _refresh_prompt())
 	loadout.equipment_changed.connect(_refresh_seed)
+	loadout.equipment_changed.connect(_refresh_armor)
+	_refresh_armor()
 	_refresh_seed()
+
+func _refresh_armor() -> void:
+	var protected := equipment != null and equipment.armor_item != null
+	_armor_badge.visible = protected
+	_armor_badge.tooltip_text = "Heavy Armor · Damage reduced 40%" if protected else ""
 
 func bind_weapons(controller: WeaponController) -> void:
 	weapons = controller
 	controller.state_changed.connect(_refresh_ammo)
 	controller.feedback.connect(show_message)
 	controller.hit_confirmed.connect($Root/Crosshair.flash_hit)
+	controller.headshot_confirmed.connect($Root/Crosshair.flash_headshot)
 	_refresh_ammo()
 
 func bind_survival(manager: NightWaveManager) -> void:
@@ -349,17 +381,21 @@ func bind_consumables(controller: ConsumableUse, crafting: CraftingSystem) -> vo
 	_refresh_medicine()
 
 func _refresh_medicine() -> void:
-	if consumables == null or consumables.quick_use_item == null: return
-	var item := consumables.quick_use_item
+	if consumables == null or consumables.selected_medicine == null: return
+	var item := consumables.selected_medicine
 	var count := inventory.get_item_amount(item.id)
-	_medicine_row.visible = _ready_to_show and count > 0
+	var other := consumables.quick_use_item if item == consumables.full_heal_item else consumables.full_heal_item
+	var other_count := inventory.get_item_amount(other.id) if other != null else 0
+	_medicine_row.visible = _ready_to_show and (count > 0 or other_count > 0)
 	_medicine_icon.texture = item.icon
 	_medicine_count.text = "×%d" % count
+	_medicine_count.modulate = PresentationStyle.MUTED if count == 0 else PresentationStyle.PAPER
+	_medicine_switch.visible = other_count > 0
 	var full := player.health.current_hp >= player.health.max_hp
 	var cooling := consumables.cooldown_remaining > 0
-	_medicine_hint.text = "HP Full" if full else "Recovering…" if cooling else "Use Medicine"
+	_medicine_hint.text = "HP Full" if full else "Recovering…" if cooling else "Empty" if count == 0 else "Full heal" if item.heal_to_full else "Use Medicine"
 	_medicine_hint.modulate = PresentationStyle.MUTED if full or cooling else PresentationStyle.PAPER
-	_medicine_row.tooltip_text = "%s · +%s HP · %s" % [item.display_name, str(item.heal_amount), _key_hint("use_medicine")]
+	_medicine_row.tooltip_text = "%s · %s · %s Use · %s Swap" % [item.display_name, "Full HP" if item.heal_to_full else "+%s HP" % str(item.heal_amount), _key_hint("use_medicine"), _key_hint("cycle_medicine")]
 
 func _on_consumable_used(item: ItemData, restored_hp: float) -> void:
 	show_message("+%s HP · %s used" % [String.num(restored_hp, 1).trim_suffix(".0"), item.display_name])
@@ -381,10 +417,25 @@ func _sync_visibility() -> void:
 	_refresh_prompt()
 	_refresh_survival()
 	_refresh_medicine()
+	_refresh_grenade()
 	if _ready_to_show and _medicine_hint_pending:
 		_medicine_hint_pending = false
 		show_message("Medicine crafted · [%s] Use Medicine" % _key_hint("use_medicine"))
 		_toast_icon.texture = consumables.quick_use_item.icon
+
+func bind_grenades(controller: Node) -> void:
+	grenades = controller
+	controller.feedback.connect(show_message)
+	controller.state_changed.connect(_refresh_grenade)
+	inventory.inventory_changed.connect(_refresh_grenade)
+	_refresh_grenade()
+
+func _refresh_grenade() -> void:
+	if grenades == null: return
+	var count := inventory.get_item_amount(&"ice_grenade")
+	_grenade_row.visible = _ready_to_show and count > 0
+	_grenade_count.text = "×%d" % count
+	_grenade_row.tooltip_text = "%s Throw in Combat · Slow 50%% · 6m radius · 4s" % _key_hint("throw_grenade")
 
 func _refresh_survival() -> void:
 	if waves == null: return

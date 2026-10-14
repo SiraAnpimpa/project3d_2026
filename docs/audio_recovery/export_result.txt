@@ -1,3 +1,0 @@
-Godot 4.7.2 Web release export
-[ DONE ] savepack
-Errors: []

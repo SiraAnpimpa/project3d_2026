@@ -9,9 +9,9 @@ func bind(world: Node3D, clock: GameClock) -> void:
 		var label := world.get_node_or_null(label_name) as Label3D
 		if label != null: label.hide()
 	world.get_node("RescueArea/Mesh").hide()
-	# Short low markers identify two soil beds without boxing the entire farm.
-	for x in [-22.5,-4.4]:
-		for z in [2.2,15.0]: box(RuralTerrain.ground_point(x,z,0.25),Vector3(0.12,0.5,0.12),Color("776549"))
+	# Short low markers outline the shared four-by-five field.
+	for x in [-19.5,-3.5]:
+		for z in [4.4,17.1]: box(RuralTerrain.ground_point(x,z,0.25),Vector3(0.12,0.5,0.12),Color("776549"))
 	# Relocated landing marks follow the map's single evacuation anchor.
 	var landing: Vector3 = world.get_node("RescueArea").global_position - Vector3.UP*0.05
 	for x in [-1.2,1.2]: box(landing+Vector3(x,0.018,0),Vector3(0.22,0.01,3.8),Color("d9d2a3"))

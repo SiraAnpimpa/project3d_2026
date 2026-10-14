@@ -117,9 +117,9 @@ func run() -> void:
 	check(equipment.get_selected_weapon() == special and not rig.is_aiming, "returning to Combat restores its weapon without stale held aim")
 	key(KEY_Q)
 	check(inventory.selected_seed_id == chosen_seed, "each mode preserves its independent selection")
-	key(KEY_V)
+	key(KEY_Z)
 	check(rig.shoulder_side == -shoulder and mode.is_farming(), "V switches shoulder without changing mode")
-	key(KEY_V)
+	key(KEY_Z)
 	# Plant the final Lead seed through real E interaction, then verify auto successor.
 	inventory.select_seed(&"seed_lead")
 	inventory.remove_item(&"seed_lead", 2)

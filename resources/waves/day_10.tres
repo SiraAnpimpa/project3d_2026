@@ -1,9 +1,14 @@
-[gd_resource type="Resource" script_class="NightWaveData" load_steps=9 format=3]
+[gd_resource type="Resource" script_class="NightWaveData" load_steps=11 format=3]
 [ext_resource type="Script" path="res://scripts/data/night_wave_data.gd" id="wave"]
 [ext_resource type="Script" path="res://scripts/data/wave_entry.gd" id="entry"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/NormalZombie.tscn" id="Normal"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/RunnerZombie.tscn" id="Runner"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/TankZombie.tscn" id="Tank"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/BossZombie.tscn" id="Boss"]
+[sub_resource type="Resource" id="Boss"]
+script = ExtResource("entry")
+scene = ExtResource("Boss")
+count = 3
 [sub_resource type="Resource" id="Normal"]
 script = ExtResource("entry")
 scene = ExtResource("Normal")
@@ -19,7 +24,8 @@ count = 3
 [resource]
 script = ExtResource("wave")
 day = 10
+boss_reinforcements_after_leader = 2
 spawn_interval = 1.1
 zombie_scene = ExtResource("Normal")
 normal_zombie_count = 14
-composition = Array[Resource]([SubResource("Normal"), SubResource("Runner"), SubResource("Tank")])
+composition = Array[Resource]([SubResource("Boss"), SubResource("Normal"), SubResource("Runner"), SubResource("Tank")])

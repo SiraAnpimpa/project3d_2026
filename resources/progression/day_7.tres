@@ -5,9 +5,9 @@
 script = ExtResource("config")
 day = 7
 wave = ExtResource("wave")
-seed_unlocks = Array[StringName]([&"seed_poison_plant"])
-recipe_unlocks = Array[StringName]([&"poison_ammo"])
+seed_unlocks = Array[StringName]([&"seed_poison_plant", &"seed_large_herb"])
+recipe_unlocks = Array[StringName]([&"poison_ammo", &"large_medicine"])
 starter_quantity = 3
-supply_seed_ids = Array[StringName]([&"seed_lead", &"seed_paper", &"seed_iron", &"seed_copper", &"seed_small_herb"])
-supply_quantity = 6
-message = "NEW THREAT: Tank Zombie"
+supply_seed_ids = Array[StringName]([&"seed_lead", &"seed_paper", &"seed_iron", &"seed_copper", &"seed_small_herb", &"seed_large_herb"])
+supply_quantity = 7
+message = "NEW THREAT: Big Arm Boss"

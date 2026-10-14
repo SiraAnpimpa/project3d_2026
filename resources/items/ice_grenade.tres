@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3]
+[ext_resource type="Script" path="res://scripts/data/item_data.gd" id="data"]
+[ext_resource type="Texture2D" path="res://assets/ui/items/ice_grenade.svg" id="icon"]
+[ext_resource type="PackedScene" path="res://scenes/effects/elemental/ice_impact.tscn" id="burst"]
+[resource]
+script = ExtResource("data")
+id = &"ice_grenade"
+display_name = "Ice Grenade"
+description = "G Throw in Combat. 6m radius. Slows enemies 50% for 4 seconds."
+icon = ExtResource("icon")
+item_type = 7
+max_stack = 20
+ammo_effect = 2
+effect_duration = 4.0
+effect_speed_multiplier = 0.5
+blast_radius = 6.0
+impact_vfx = ExtResource("burst")
+tier = 3

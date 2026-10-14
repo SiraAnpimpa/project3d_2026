@@ -102,8 +102,10 @@ func _prepare() -> void:
 			preview.collision_layer = 0
 			preview.collision_mask = 0
 			add_child(preview)
+			preview._disable_hitboxes()
 			preview.global_position = camera.camera.global_transform*Vector3(0,-0.8,-3)
 			if preview.animation_player != null: preview.animation_player.advance(0)
+			if preview.has_method("_update_eyes"): preview._update_eyes()
 			for mesh in preview._meshes: mesh.material_overlay = preview._hit_material
 			await get_tree().process_frame
 			await RenderingServer.frame_post_draw

@@ -1,0 +1,28 @@
+{
+  "assets": [
+    {
+      "path": "assets/ui/items/ice_grenade.svg",
+      "authorship": "Original 96x96 vector icon authored for this project."
+    },
+    {
+      "path": "scripts/inventory/ice_grenade.gd",
+      "authorship": "Original procedural canister mesh."
+    },
+    {
+      "path": "scripts/effects/ground_circle.gd",
+      "authorship": "Original ground-sampled AoE mesh."
+    },
+    {
+      "path": "scripts/enemies/boss_pose.gd",
+      "source_model": "Provided Post Apocolypse Pack / Big arm.glb",
+      "animation": "Imported Jump, Jump_Idle, Jump_Land with physical flight arc, additive arm poses and blended recovery."
+    }
+  ],
+  "grenade": {
+    "key": "G",
+    "radius": 6,
+    "slow": 0.5,
+    "duration": 4,
+    "unlock_day": 5
+  }
+}

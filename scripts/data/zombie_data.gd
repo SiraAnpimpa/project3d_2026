@@ -17,6 +17,8 @@ extends Resource
 @export var vocal_stream: AudioStream
 @export var visual_tint: Color = Color.WHITE
 @export var visual_scale: float = 1.1
+@export var head_radius: float = 0.24
+@export var head_offset_y: float = 0.18
 @export var idle_animation: StringName = &"CharacterArmature|Idle"
 @export var walk_animation: StringName = &"CharacterArmature|Walk"
 @export var attack_animation: StringName = &"CharacterArmature|Punch"
@@ -27,7 +29,7 @@ func validation_errors() -> PackedStringArray:
 	var errors := PackedStringArray()
 	if zombie_id.is_empty() or display_name.strip_edges().is_empty() or visual_scene == null:
 		errors.append("Zombie needs identity and a visual scene.")
-	for value in [max_health, move_speed, rotation_speed, damage, attack_range, attack_interval, detection_range, navigation_interval, death_delay, visual_scale]:
+	for value in [max_health, move_speed, rotation_speed, damage, attack_range, attack_interval, detection_range, navigation_interval, death_delay, visual_scale, head_radius]:
 		if not is_finite(value) or value <= 0:
 			errors.append("Zombie tuning values must be finite and positive.")
 	if not is_finite(attack_windup) or attack_windup < 0 or attack_windup >= attack_interval:

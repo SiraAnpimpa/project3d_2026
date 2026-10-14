@@ -1,21 +1,47 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://scripts/farming/farm_plot.gd" id="1"]
 
+[sub_resource type="Gradient" id="SoilColors"]
+colors = PackedColorArray(0.19, 0.115, 0.055, 1, 0.32, 0.215, 0.105, 1)
+
+[sub_resource type="FastNoiseLite" id="SoilNoise"]
+noise_type = 3
+frequency = 0.08
+
+[sub_resource type="NoiseTexture2D" id="SoilTexture"]
+width = 128
+height = 128
+seamless = true
+color_ramp = SubResource("SoilColors")
+noise = SubResource("SoilNoise")
+
 [sub_resource type="StandardMaterial3D" id="Soil"]
-albedo_color = Color(0.24, 0.15, 0.075, 1)
+albedo_texture = SubResource("SoilTexture")
 roughness = 1.0
 
 [sub_resource type="BoxMesh" id="Bed"]
-size = Vector3(1.65, 0.1, 1.65)
+size = Vector3(1.65, 0.12, 1.65)
 material = SubResource("Soil")
 
 [sub_resource type="BoxShape3D" id="InteractionShape"]
 size = Vector3(1.65, 0.4, 1.65)
 
 [sub_resource type="BoxMesh" id="Ridge"]
-size = Vector3(1.5, 0.04, 0.1)
+size = Vector3(1.48, 0.055, 0.16)
 material = SubResource("Soil")
+
+[sub_resource type="StandardMaterial3D" id="Timber"]
+albedo_color = Color(0.43, 0.34, 0.22, 1)
+roughness = 0.94
+
+[sub_resource type="BoxMesh" id="LongBoard"]
+size = Vector3(1.83, 0.14, 0.09)
+material = SubResource("Timber")
+
+[sub_resource type="BoxMesh" id="SideBoard"]
+size = Vector3(0.09, 0.14, 1.65)
+material = SubResource("Timber")
 
 [node name="FarmPlot" type="StaticBody3D"]
 collision_layer = 4
@@ -24,16 +50,36 @@ script = ExtResource("1")
 interaction_height = 0.45
 
 [node name="Soil" type="MeshInstance3D" parent="."]
-position = Vector3(0, 0.05, 0)
+position = Vector3(0, 0.035, 0)
 mesh = SubResource("Bed")
 
 [node name="Ridge1" type="MeshInstance3D" parent="."]
-position = Vector3(0, 0.115, -0.42)
+position = Vector3(0, 0.0975, -0.43)
 mesh = SubResource("Ridge")
 
 [node name="Ridge2" type="MeshInstance3D" parent="."]
-position = Vector3(0, 0.115, 0.42)
+position = Vector3(0, 0.0975, 0.43)
 mesh = SubResource("Ridge")
+
+[node name="Ridge3" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.0975, 0)
+mesh = SubResource("Ridge")
+
+[node name="FrontBoard" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.045, 0.87)
+mesh = SubResource("LongBoard")
+
+[node name="BackBoard" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.045, -0.87)
+mesh = SubResource("LongBoard")
+
+[node name="LeftBoard" type="MeshInstance3D" parent="."]
+position = Vector3(-0.87, 0.045, 0)
+mesh = SubResource("SideBoard")
+
+[node name="RightBoard" type="MeshInstance3D" parent="."]
+position = Vector3(0.87, 0.045, 0)
+mesh = SubResource("SideBoard")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 position = Vector3(0, 0.2, 0)

@@ -9,6 +9,7 @@ var progression: ProgressionManager
 var skip_night: SkipNightDialog
 var seed_rewards: SeedRewardDialog
 var consumables: ConsumableUse
+var grenades: Node
 var cheats: CheatCommands
 var cheats_menu: CheatMenu
 @export var catalog: ItemCatalog
@@ -58,6 +59,7 @@ func _ready() -> void:
 	if fallback_weapon != null and not inventory.add_item(fallback_weapon):
 		push_error("Cannot grant fallback weapon.")
 	equipment.bind(inventory)
+	player.bind_armor(equipment)
 	if starter_weapon != null:
 		equipment.equip_weapon(0, starter_weapon)
 	if fallback_weapon != null:
@@ -135,6 +137,11 @@ func _ready() -> void:
 	add_child(consumables)
 	consumables.bind(self, catalog.get_item(&"basic_medicine"))
 	hud.bind_consumables(consumables, crafting_system)
+	grenades = preload("res://scripts/inventory/grenade_use.gd").new()
+	grenades.name = "GrenadeUse"
+	add_child(grenades)
+	grenades.bind(self)
+	hud.bind_grenades(grenades)
 	consumables.used.connect(func(_item: ItemData, _restored: float) -> void: audio.cue("click"))
 	skip_night = SkipNightDialog.new()
 	skip_night.name = "SkipNightDialog"
@@ -154,6 +161,10 @@ func _ready() -> void:
 	cheats_menu.bind(self)
 	cheats_menu.opened_changed.connect(player.camera_rig.set_menu_open)
 	cheats_menu.opened_changed.connect(func(_open: bool) -> void: audio.cue("click"))
+	var boss_status = preload("res://scripts/ui/boss_status.gd").new()
+	boss_status.name = "BossStatus"
+	hud.get_node("Root").add_child(boss_status)
+	boss_status.bind(self)
 	for screen in [inventory_ui.screen, crafting_ui.screen, pause_menu.get_node("Screen")]:
 		screen.theme = PresentationStyle.theme(screen == crafting_ui.screen)
 	if get_tree().has_meta("normal_play") or not OS.is_debug_build():

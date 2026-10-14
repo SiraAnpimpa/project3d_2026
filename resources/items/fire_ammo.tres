@@ -7,10 +7,12 @@ script = ExtResource("1")
 icon = ExtResource("icon")
 id = &"fire_ammo"
 display_name = "Fire Ammo"
-description = "Ammunition for all firearms. Burns zombies for 3 seconds; repeated hits refresh the burn."
+description = "Ammunition for all firearms. +10 bullet damage (+50 Marksman). Burns 1% max HP/s for 5 seconds. Repeated hits refresh the burn."
 ammo_effect = 1
-effect_duration = 3.0
-effect_damage_per_second = 3.0
+effect_duration = 5.0
+effect_max_health_per_second = 0.01
+bonus_damage = 10.0
+marksman_bonus_damage = 50.0
 item_type = 5
 tier = 2
 

@@ -270,7 +270,7 @@ static func guide_content(parent: Node) -> HBoxContainer:
 	label(combat, "Survival", 25).modulate = GOLD
 	label(combat, "Survive ten nights. Rest after clearing a wave.", 16)
 	combat.add_child(HSeparator.new())
-	for row in [["Q", "Farming / Combat"], ["RMB / LMB", "Aim / attack"], ["R / C", "Reload / ammo type"], ["F", "Medicine · +30 HP"], ["V", "Switch shoulder"], ["X", "Skip to night"], ["Esc", "Close / pause"], ["T", "Cheat commands"]]:
+	for row in [["Q", "Farming / Combat"], ["RMB / LMB", "Aim / attack"], ["R / C", "Reload / ammo type"], ["F / V", "Use / switch medicine"], ["Z / G", "Shoulder / Ice grenade"], ["X", "Skip to night"], ["Esc", "Close / pause"], ["T", "Cheat commands"]]:
 		guide_row(combat, row[0], row[1])
 	return columns
 

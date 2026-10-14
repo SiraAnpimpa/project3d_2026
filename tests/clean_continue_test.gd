@@ -41,7 +41,7 @@ func write_stage() -> void:
 	game.clock.skip_to_day()
 	game.clock.paused = true
 	await frames(4)
-	check(checkpoint.saved_day() == 2 and game.inventory.get_item_amount(&"seed_lead") == 6, "natural dawn saves after daily seed delivery exactly once")
+	check(checkpoint.saved_day() == 2 and game.inventory.get_item_amount(&"seed_lead") == 8, "natural dawn saves after daily seed delivery exactly once")
 	# Build a representative morning: late unlocks, queued choices, loaded ammo and crops.
 	game.waves.debug_set_day(5)
 	await frames(3)
@@ -121,7 +121,7 @@ func read_stage() -> void:
 	check(game.crafting_system.crafted_weapon_ids.has(&"sword") and not game.crafting_ui._buttons[game.recipe_book.get_recipe(&"sword")].visible, "crafted weapon history stays hidden from duplicate crafting")
 	var plots := game.get_node("MainWorld/FarmArea").get_children().filter(func(node: Node) -> bool: return node is FarmPlot)
 	check(plots[0].state == FarmPlot.State.READY and plots[1].state == FarmPlot.State.PLANTED and is_equal_approx(plots[1].growth_progress, 0.5), "ready and partly grown crops return to their morning state")
-	check(game.progression.seed_reward_amount(5) == 5 and not game.progression.daily_seed_receipts.has(5), "morning choice is offered again without duplicated receipt or seed grant")
+	check(game.progression.seed_reward_amount(5) == 6 and not game.progression.daily_seed_receipts.has(5), "morning choice is offered again without duplicated receipt or seed grant")
 	if not game.seed_rewards.is_open: game.seed_rewards.request_open()
 	await frames(12)
 	await capture("seeds_clean")

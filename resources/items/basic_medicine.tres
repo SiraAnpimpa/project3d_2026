@@ -7,7 +7,7 @@
 script = ExtResource("1")
 id = &"basic_medicine"
 display_name = "Basic Medicine"
-description = "Restores 30 HP. Close menus and press F to use. Not consumed at full health."
+description = "Restores 30 HP. Close menus, select Basic with V, then press F to use. Not consumed at full health."
 icon = ExtResource("2")
 heal_amount = 30.0
 consume_on_use = true

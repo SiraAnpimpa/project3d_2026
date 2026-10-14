@@ -1,0 +1,36 @@
+{
+  "project": "Somchai's Last Harvest",
+  "authorship": "Original vector artwork and Godot mesh authored for this project; no external art generator or sourced art.",
+  "assets": [
+    {
+      "path": "assets/ui/items/heavy_armor.svg",
+      "purpose": "Inventory and crafting vest icon",
+      "format": "96x96 SVG",
+      "palette": [
+        "cream",
+        "olive cloth",
+        "steel",
+        "brass"
+      ]
+    },
+    {
+      "path": "assets/ui/icons/armor.svg",
+      "purpose": "Compact equipped shield next to health",
+      "format": "24x24 SVG",
+      "palette": [
+        "sage",
+        "dark olive"
+      ]
+    },
+    {
+      "path": "scripts/effects/charge_telegraph.gd",
+      "purpose": "Fully filled red charge corridor, sampled to ground collider",
+      "format": "One runtime ArrayMesh",
+      "material": "resources/materials/boss_warning.tres",
+      "lighting": "Opaque unshaded red, legible at night",
+      "arrows": false
+    }
+  ],
+  "armor_presentation": "Icon and equipped status only; no worn armor model.",
+  "validation": "Rendered Inventory, health HUD, 20-plot farm and daytime/nighttime Boss captures; integration checks include charge width/timing, cover, pause, armor and Continue."
+}

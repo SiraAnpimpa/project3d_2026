@@ -7,7 +7,9 @@ Model packs are supplied under `Asset/`. Their creator, original source URL and 
 | Used asset | Local source | License | Attribution requirement |
 |---|---|---|---|
 | Somchai / Matt | Asset/Post Apocolypse Pack.undefined-glb/Characters Matt.glb | License information not found in project files. | Unknown |
-| Normal/Runner/Tank shared model | Asset/Post Apocolypse Pack.undefined-glb/Zombie.glb | License information not found in project files. | Unknown |
+| Normal zombie | Asset/Post Apocolypse Pack.undefined-glb/Zombie.glb | License information not found in project files. | Unknown |
+| Runner (small variant) | Asset/Post Apocolypse Pack.undefined-glb/Zombie-VlXjG0N8Eg.glb | License information not found in project files. | Unknown |
+| Tank / Boss | Asset/Post Apocolypse Pack.undefined-glb/Big arm.glb | License information not found in project files. | Unknown |
 | Rifle | Asset/Post Apocolypse Pack.undefined-glb/Rifle.glb | License information not found in project files. | Unknown |
 | Crop base model | Asset/Stylized Nature MegaKit.undefined-glb/Plant.glb | License information not found in project files. | Unknown |
 | Rescue helicopter | Asset/Low Poly Military Vehicles-glb/Helicopter.glb | License information not found in project files. | Unknown |
@@ -33,4 +35,4 @@ Project-created work is not assigned a public license by this document.
 
 ## Engine
 
-Godot uses the MIT license. Engine and third-party notices are retained in [GODOT_LICENSE.txt](docs/phase10/GODOT_LICENSE.txt) and [GODOT_COPYRIGHT.txt](docs/phase10/GODOT_COPYRIGHT.txt). The UI uses Godot’s bundled font.
+Godot uses the MIT license. Engine and third-party notices are retained in [GODOT_LICENSE.txt](docs/licenses/GODOT_LICENSE.txt) and [GODOT_COPYRIGHT.txt](docs/licenses/GODOT_COPYRIGHT.txt). The UI uses Godot’s bundled font.

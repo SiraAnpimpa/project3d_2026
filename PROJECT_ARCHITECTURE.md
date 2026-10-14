@@ -16,6 +16,7 @@
 | Enemies | Shared zombie controller with per-variant data | `scripts/enemies/`, `resources/enemies/` |
 | Survival | Night waves, cleared-night rest and terminal campaign state | `scripts/survival/`, `resources/waves/` |
 | Progression | Day configuration, seed grants and unlocks | `scripts/progression/`, `resources/progression/` |
+| Save / Continue | Validated dawn checkpoints, inventory and campaign restore | `scripts/save/day_checkpoint.gd` |
 | Clock | Game time and day/night events | `scripts/time/game_clock.gd` |
 | World | Terrain, scenery placement, grounding and day/night lighting | `scripts/world/`, `scenes/world/` |
 | UI | Theme, icons, menus, HUD, inventory and crafting screens | `scripts/ui/`, `scenes/ui/` |
@@ -35,6 +36,7 @@ Gameplay services own resource transfers, damage and wave completion. UI observe
 - `assets/`: project UI, audio and shaders.
 - `tests/`: [runtime checks and capture fixtures](tests/README.md).
 - `tools/`: asset authoring, export and world utilities.
-- `docs/`: [Web build and hosting instructions](docs/WEB_README.md), engine notices and supporting captures/data.
+- `docs/`: latest playable [Web build and hosting instructions](docs/WEB_README.md), with engine notices under `docs/licenses/`.
+- `.godot/`: generated local import/editor/shader cache; recreated by Godot and excluded from version control.
 
 See the [main README](README.md) for gameplay, crop rewards, crafting, controls and current game limitations.

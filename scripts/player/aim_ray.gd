@@ -4,7 +4,7 @@ extends Node3D
 signal sample_updated
 
 @export_range(1.0, 1000.0) var aim_max_distance: float = 100.0
-@export_flags_3d_physics var aim_collision_mask: int = 5
+@export_flags_3d_physics var aim_collision_mask: int = 21
 
 var aim_origin := Vector3.ZERO
 var aim_direction := Vector3.FORWARD
@@ -20,6 +20,7 @@ var _marker: MeshInstance3D
 
 
 func bind(rig: ThirdPersonCamera, actor: CollisionObject3D, debug: DebugControls) -> void:
+	aim_collision_mask = (aim_collision_mask & ~8) | 16
 	_rig = rig
 	camera = rig.camera
 	_exclude = [actor.get_rid()]
@@ -51,11 +52,12 @@ func update_aim() -> void:
 	var end := aim_origin + aim_direction * aim_max_distance
 	var query := PhysicsRayQueryParameters3D.create(aim_origin, end, aim_collision_mask, _exclude)
 	query.hit_from_inside = true
+	query.collide_with_areas = true
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
 	has_hit = not hit.is_empty()
 	aim_point = hit.get("position", end)
 	hit_normal = hit.get("normal", Vector3.ZERO)
-	hit_collider = hit.get("collider")
+	hit_collider = WeaponController.damage_receiver(hit.get("collider"))
 	_refresh_marker()
 	sample_updated.emit()
 

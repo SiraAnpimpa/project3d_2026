@@ -43,17 +43,20 @@ func _ready() -> void:
 	gap.custom_minimum_size.y = 8
 	_home.add_child(gap)
 	var checkpoint := get_node("/root/DayCheckpoint")
-	continue_button = _menu_button("Continue", func() -> void: PresentationStyle.continue_game(get_tree()), "play")
-	continue_button.visible = checkpoint.has_checkpoint()
-	continue_button.theme_type_variation = "PrimaryButton"
-	continue_button.custom_minimum_size.y = 54
-	continue_button.text = "Continue  ·  Day %d" % checkpoint.saved_day()
-	continue_button.tooltip_text = "Resume at 06:00 with this morning's inventory."
 	play_button = PresentationStyle.button(_home, "New game", _request_new_game, "play")
-	play_button.theme_type_variation = "HarvestMenuButton" if continue_button.visible else "PrimaryButton"
+	play_button.theme_type_variation = "PrimaryButton"
 	play_button.custom_minimum_size = Vector2(344, 54)
 	play_button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	play_button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	play_button.tooltip_text = "Start on Day 1 at 06:00."
+	continue_button = _menu_button("Continue", func() -> void: PresentationStyle.continue_game(get_tree()), "play")
+	continue_button.visible = checkpoint.has_checkpoint()
+	continue_button.theme_type_variation = "PrimaryButton"
+	_home.move_child(continue_button, play_button.get_index())
+	play_button.theme_type_variation = "HarvestMenuButton" if continue_button.visible else "PrimaryButton"
+	continue_button.custom_minimum_size.y = 54
+	continue_button.text = "Continue  ·  Day %d" % checkpoint.saved_day()
+	continue_button.tooltip_text = "Resume at 06:00 with this morning's inventory."
 	help_button = _menu_button("How to play", _open_guide, "help")
 	settings_button = _menu_button("Settings", _open_settings, "settings")
 	var quit := _menu_button("Quit", func() -> void: get_tree().quit(), "quit")
@@ -87,7 +90,7 @@ func _build_new_game_confirmation() -> void:
 	new_game_panel.name = "NewGameConfirmation"
 	var rows := PresentationStyle.box(new_game_panel, true, 18)
 	PresentationStyle.heading(rows, "Start a new game?")
-	PresentationStyle.label(rows, "This replaces your saved game.", 18).modulate = PresentationStyle.MUTED
+	PresentationStyle.label(rows, "Day 1 · 06:00\nReplaces your saved game.", 18).modulate = PresentationStyle.MUTED
 	var buttons := PresentationStyle.box(rows, false, 12)
 	var cancel := PresentationStyle.button(buttons, "Cancel", _cancel_new_game)
 	cancel.size_flags_horizontal = Control.SIZE_EXPAND_FILL

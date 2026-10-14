@@ -29,6 +29,11 @@ var _status_material: StandardMaterial3D
 var _status_materials: Dictionary = {}
 # Per-zombie timers; repeated hits refresh one effect, never stack its strength.
 var ammo_effects: Dictionary = {}
+var head_hitbox: Area3D
+var body_hitbox: Area3D
+var head_skeleton: Skeleton3D
+var head_bone := -1
+var _head_offset := Vector3.ZERO
 
 
 func _ready() -> void:
@@ -66,6 +71,7 @@ func _ready() -> void:
 		for clip in [data.attack_animation, data.death_animation]:
 			if animation_player.has_animation(clip):
 				animation_player.get_animation(clip).loop_mode = Animation.LOOP_NONE
+		animation_player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS
 	for mesh in model.find_children("*", "MeshInstance3D", true, false):
 		_meshes.append(mesh)
 		if data.visual_tint != Color.WHITE:
@@ -83,6 +89,8 @@ func _ready() -> void:
 		material.albedo_color = Color(1.0, 0.38, 0.08, 0.55) if kind == ItemData.AmmoEffect.BURN else Color(0.25, 0.7, 1.0, 0.55) if kind == ItemData.AmmoEffect.SLOW else Color(0.45, 0.85, 0.18, 0.55)
 		_status_materials[kind] = material
 	_play(data.idle_animation)
+	if animation_player != null: animation_player.advance(0)
+	_build_hitboxes(model)
 	label.hide()
 	_refresh_label()
 
@@ -99,6 +107,7 @@ func _physics_process(delta: float) -> void:
 		return
 	_tick_ammo_effects(delta)
 	if health.is_dead: return
+	_update_hitboxes()
 	_cooldown = maxf(0, _cooldown - delta)
 	_flash_time = maxf(0, _flash_time - delta)
 	for mesh in _meshes:
@@ -125,7 +134,7 @@ func _physics_process(delta: float) -> void:
 				_windup = -1
 				# Revalidate at the hit, not at the start of the animation.
 				if not target.health.is_dead and global_position.distance_to(target.global_position) <= data.attack_range and _clear_melee_line():
-					target.health.take_damage(data.damage)
+					target.health.take_damage(data.damage * ammo_damage_multiplier())
 					attacks_landed += 1
 					attack_landed.emit()
 		elif _cooldown <= 0:
@@ -137,7 +146,55 @@ func _physics_process(delta: float) -> void:
 		_set_state(State.CHASE)
 		_chase(delta)
 	move_and_slide()
+	_update_hitboxes()
 	_refresh_label()
+
+
+func _build_hitboxes(model: Node3D) -> void:
+	for skeleton: Skeleton3D in model.find_children("*", "Skeleton3D", true, false):
+		var bone := skeleton.find_bone("Head")
+		if bone >= 0:
+			head_skeleton = skeleton
+			head_bone = bone
+			break
+	if head_skeleton == null: return
+	var pose := head_skeleton.global_transform * head_skeleton.get_bone_global_pose(head_bone)
+	_head_offset = pose.basis.inverse() * (visual.global_basis * Vector3.UP * data.head_offset_y * data.visual_scale)
+	var sphere := SphereShape3D.new()
+	sphere.radius = data.head_radius * data.visual_scale
+	head_hitbox = _hitbox("HeadHitbox", sphere, 1.5)
+	head_hitbox.top_level = true
+	_update_hitboxes()
+	var body_shape := CapsuleShape3D.new()
+	body_shape.radius = ($CollisionShape3D.shape as CapsuleShape3D).radius
+	body_shape.height = maxf(body_shape.radius * 2, to_local(head_hitbox.global_position).y - sphere.radius * 0.7)
+	body_hitbox = _hitbox("BodyHitbox", body_shape, 1.0)
+	body_hitbox.position.y = body_shape.height * 0.5
+
+
+func _hitbox(title: String, shape: Shape3D, multiplier: float) -> Area3D:
+	var area := Area3D.new()
+	area.name = title
+	area.collision_layer = 16
+	area.collision_mask = 0
+	area.monitoring = false
+	area.set_meta("damage_receiver", self)
+	area.set_meta("damage_multiplier", multiplier)
+	var collision := CollisionShape3D.new()
+	collision.shape = shape
+	area.add_child(collision)
+	add_child(area)
+	return area
+
+
+func _update_hitboxes() -> void:
+	if is_instance_valid(head_hitbox):
+		head_hitbox.global_position = (head_skeleton.global_transform * head_skeleton.get_bone_global_pose(head_bone)) * _head_offset
+
+
+func _disable_hitboxes() -> void:
+	for hitbox in [head_hitbox, body_hitbox]:
+		if is_instance_valid(hitbox): hitbox.collision_layer = 0
 
 
 func _chase(delta: float) -> void:
@@ -175,6 +232,12 @@ func ammo_speed_multiplier() -> float:
 		multiplier = minf(multiplier, ammo.effect_speed_multiplier)
 	return multiplier
 
+func ammo_damage_multiplier() -> float:
+	var multiplier := 1.0
+	for effect in ammo_effects.values():
+		multiplier = minf(multiplier, effect.ammo.effect_outgoing_damage_multiplier)
+	return multiplier
+
 
 func _tick_ammo_effects(delta: float) -> void:
 	for kind in ammo_effects.keys():
@@ -182,7 +245,7 @@ func _tick_ammo_effects(delta: float) -> void:
 		var ammo: ItemData = effect.ammo
 		var elapsed := minf(delta, effect.remaining)
 		effect.remaining -= elapsed
-		health.take_damage(ammo.effect_damage_per_second * elapsed)
+		health.take_damage((ammo.effect_damage_per_second + health.max_hp * ammo.effect_max_health_per_second) * elapsed)
 		if health.is_dead: return
 		if effect.remaining <= 0: ammo_effects.erase(kind)
 	_status_material = null
@@ -231,6 +294,7 @@ func _die() -> void:
 	velocity = Vector3.ZERO
 	collision_layer = 0
 	collision_mask = 0
+	_disable_hitboxes()
 	$CollisionShape3D.set_deferred("disabled", true)
 	_death_time = data.death_delay
 	_play(data.death_animation)
@@ -248,4 +312,5 @@ func despawn() -> void:
 	velocity = Vector3.ZERO
 	collision_layer = 0
 	collision_mask = 0
+	_disable_hitboxes()
 	queue_free()

@@ -7,10 +7,11 @@ script = ExtResource("1")
 icon = ExtResource("icon")
 id = &"poison_ammo"
 display_name = "Poison Ammo"
-description = "Ammunition for all firearms. Poisons zombies for 4 seconds; repeated hits refresh the poison."
+description = "Ammunition for all firearms. Poisons for 5% max HP/s and reduces enemy damage 10% for 3 seconds. Repeated hits refresh the poison."
 ammo_effect = 3
-effect_duration = 4.0
-effect_damage_per_second = 4.0
+effect_duration = 3.0
+effect_max_health_per_second = 0.05
+effect_outgoing_damage_multiplier = 0.9
 item_type = 5
 tier = 3
 

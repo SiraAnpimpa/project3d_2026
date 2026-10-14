@@ -23,6 +23,8 @@ var _owned_weapons: GridContainer
 var _weapon_empty: Label
 var _catalog: ItemCatalog
 var _panel: PanelContainer
+var armor_button: Button
+var armor_section: PanelContainer
 
 func _ready() -> void:
 	screen = PresentationStyle.screen(self)
@@ -62,10 +64,13 @@ func _ready() -> void:
 	scroll.add_child(grid)
 	selection_label = PresentationStyle.label(left, "", 16)
 	selection_label.modulate = PresentationStyle.SAGE
+	var gear_column := PresentationStyle.box(content, true, 12)
+	gear_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var weapon_panel := PanelContainer.new()
 	weapon_panel.name = "WeaponsWindow"
-	content.add_child(weapon_panel)
+	gear_column.add_child(weapon_panel)
 	weapon_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	weapon_panel.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	weapon_panel.add_theme_stylebox_override("panel", _section_style())
 	var weapon_rows := PresentationStyle.box(weapon_panel, true, 10)
 	weapon_rows.custom_minimum_size.x = 304
@@ -84,6 +89,16 @@ func _ready() -> void:
 	weapon_scroll.add_child(_owned_weapons)
 	_weapon_empty = PresentationStyle.label(weapon_rows, "No weapons in bag", 16)
 	_weapon_empty.modulate = PresentationStyle.MUTED
+	armor_section = PanelContainer.new()
+	armor_section.name = "ArmorWindow"
+	gear_column.add_child(armor_section)
+	armor_section.add_theme_stylebox_override("panel", _section_style())
+	var armor_rows := PresentationStyle.box(armor_section, true, 8)
+	PresentationStyle.label(armor_rows, "Armor", 20)
+	armor_button = PresentationStyle.button(armor_rows, "", _toggle_armor)
+	armor_button.expand_icon = true
+	armor_button.add_theme_constant_override("icon_max_width", 38)
+	armor_section.hide()
 	rows.add_child(HSeparator.new())
 	var equipment_hint := PresentationStyle.label(rows, "LOADOUT", 14)
 	equipment_hint.modulate = PresentationStyle.MUTED
@@ -166,8 +181,9 @@ func refresh() -> void:
 	if inspected_item == null: inspected_item = inventory.get_selected_seed()
 	for index in slot_buttons.size():
 		var cell := slot_buttons[index] as UiItemSlot
-		cell.visible = index < inventory.capacity
 		var item: ItemData = slots[index].item if index < slots.size() else null
+		# Armor is managed in its own window instead of duplicating its bag tile.
+		cell.visible = index < inventory.capacity and (item == null or item.item_type != ItemData.ItemType.ARMOR)
 		var destination: Node = _owned_weapons if item != null and item.item_type == ItemData.ItemType.WEAPON else grid
 		if cell.get_parent() != destination: cell.reparent(destination)
 		destination.move_child(cell, -1)
@@ -195,6 +211,8 @@ func _select_slot(index: int) -> void:
 	selected_owned_weapon = item if item.item_type == ItemData.ItemType.WEAPON else null
 	if item.item_type == ItemData.ItemType.SEED and item.plantable:
 		inventory.select_seed(item.id)
+	elif item.item_type == ItemData.ItemType.ARMOR:
+		_toggle_armor()
 	refresh()
 
 func bind_equipment(loadout: EquipmentLoadout) -> void:
@@ -202,12 +220,24 @@ func bind_equipment(loadout: EquipmentLoadout) -> void:
 	loadout.equipment_changed.connect(_refresh_equipment)
 	_refresh_equipment()
 
+func _toggle_armor() -> void:
+	if equipment == null: return
+	if equipment.armor_item != null: equipment.unequip_armor()
+	else: equipment.equip_armor(inventory.get_item_definition(&"heavy_armor"))
+
 func _refresh_equipment() -> void:
 	if equipment == null: return
+	var armor := inventory.get_item_definition(&"heavy_armor") if inventory.has_item(&"heavy_armor") else null
+	armor_section.visible = armor != null
+	if armor != null:
+		armor_button.icon = armor.icon
+		armor_button.text = "Heavy Armor · Equipped" if equipment.armor_item != null else "Equip Heavy Armor"
+		armor_button.tooltip_text = "Damage reduced 40% · Click to equip / remove"
 	if selected_owned_weapon != null and not inventory.has_item(selected_owned_weapon.id): selected_owned_weapon = null
 	%EquipmentHint.text = "LOADOUT"
 	if selected_owned_weapon != null:
 		%EquipmentHint.text = "Equip %s  ·  Choose a slot" % selected_owned_weapon.display_name
+
 	while equipment_buttons.size() < equipment.weapon_slot_count:
 		var index := equipment_buttons.size()
 		var row := PresentationStyle.box(%EquipmentSlots, false, 4)

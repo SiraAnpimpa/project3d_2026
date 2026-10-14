@@ -24,5 +24,6 @@ static func spawn(parent: Node3D, scene: PackedScene, player: PlayerController, 
 		return null
 	parent.add_child(zombie)
 	zombie.global_position = location + Vector3.UP * 0.02
+	zombie._update_hitboxes()
 	zombie.bind(player)
 	return zombie

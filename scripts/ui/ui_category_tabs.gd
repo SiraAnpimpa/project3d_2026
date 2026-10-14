@@ -3,6 +3,9 @@ extends PanelContainer
 ## Shared category navigation. TabContainer still owns page visibility and state.
 
 const ICONS := {
+	"ammo": preload("res://assets/ui/items/basic_ammo.svg"),
+	"weapons": preload("res://assets/ui/items/basic_rifle.svg"),
+	"parts": preload("res://assets/ui/items/metal_component.svg"),
 	"time": preload("res://assets/ui/icons/nav_time.svg"),
 	"items": preload("res://assets/ui/icons/nav_items.svg"),
 	"zombies": preload("res://assets/ui/icons/nav_zombies.svg"),

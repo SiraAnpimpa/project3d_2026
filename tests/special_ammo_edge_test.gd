@@ -105,7 +105,7 @@ func run() -> void:
 	check(enemy.ammo_effects.size() == 3 and enemy.ammo_speed_multiplier() == 0.5, "different statuses coexist with one timer each")
 	var hp := enemy.health.current_hp
 	enemy._tick_ammo_effects(10.0)
-	check(is_equal_approx(enemy.health.current_hp,hp - 25.0) and enemy.ammo_effects.is_empty(), "long frame clamps burn/poison to nine plus sixteen damage")
+	check(is_equal_approx(enemy.health.current_hp,hp - enemy.health.max_hp*0.20) and enemy.ammo_effects.is_empty(), "long frame clamps burn/poison to five plus fifteen percent of max HP")
 	for rate in [30,120]:
 		enemy.health.reset()
 		enemy.apply_ammo_effect(poison)

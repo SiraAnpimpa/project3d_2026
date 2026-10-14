@@ -6,10 +6,17 @@ var ray: CameraAimRay
 var debug_label: Label
 var player: PlayerController
 var hit_time := 0.0
+var head_hit := false
 
 
 func flash_hit() -> void:
+	head_hit = false
 	hit_time = 0.16
+	queue_redraw()
+
+func flash_headshot() -> void:
+	head_hit = true
+	hit_time = 0.24
 	queue_redraw()
 
 
@@ -56,4 +63,4 @@ func _draw() -> void:
 		draw_circle(center, 1.5, tint)
 	if hit_time > 0:
 		for direction in [Vector2(1, 1), Vector2(-1, 1), Vector2(1, -1), Vector2(-1, -1)]:
-			draw_line(center + direction * 7, center + direction * 13, PresentationStyle.GOLD, 2)
+			draw_line(center + direction * 7, center + direction * 13, PresentationStyle.RED if head_hit else PresentationStyle.GOLD, 3 if head_hit else 2)

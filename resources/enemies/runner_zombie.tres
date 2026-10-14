@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" path="res://assets/audio/supplied/zombie_runner.wav" id="vocal"]
 
 [resource]
+head_radius = 0.27
+head_offset_y = 0.3
 script = ExtResource("data")
 visual_scene = ExtResource("visual")
 

@@ -5,11 +5,12 @@ signal shot_fired
 signal state_changed
 signal feedback(message: String)
 signal hit_confirmed
+signal headshot_confirmed
 signal melee_started
 signal melee_hit
 
 @export var definitions: Array[WeaponData] = []
-@export_flags_3d_physics var shot_collision_mask: int = 5
+@export_flags_3d_physics var shot_collision_mask: int = 21
 
 var current: WeaponRuntime
 var runtimes: Dictionary[StringName, WeaponRuntime] = {}
@@ -36,6 +37,7 @@ var _flash: MeshInstance3D
 
 
 func bind(player: PlayerController, inventory: Inventory, equipment: EquipmentLoadout, mode: GameplayModeController, catalog: ItemCatalog) -> void:
+	shot_collision_mask = (shot_collision_mask & ~8) | 16
 	_player = player
 	_inventory = inventory
 	_equipment = equipment
@@ -156,6 +158,7 @@ func _physics_process(delta: float) -> void:
 			if state.swing_elapsed >= state.data.melee_swing_duration:
 				state.is_swinging = false
 				state_changed.emit()
+	_try_auto_reload()
 	if _fire_held and current != null and current.data.automatic:
 		# Preserve the remainder, so fire rate does not round to whole physics ticks.
 		while current.fire_cooldown <= 0:
@@ -184,7 +187,7 @@ func try_fire() -> bool:
 		return false
 	if current.is_reloading or current.fire_cooldown > 0.000001: return false
 	if current.current_magazine <= 0:
-		feedback.emit("Empty magazine — press R to reload")
+		if not _try_auto_reload(): feedback.emit("Empty magazine · No reserve ammo")
 		return false
 	_committing = true
 	update_weapon_pose()
@@ -209,14 +212,9 @@ func try_fire() -> bool:
 	if hit.is_empty(): hit = _ray(start, end)
 	last_shot_origin = start
 	last_shot_end = hit.get("position", end)
-	last_hit = hit.get("collider")
+	last_hit = damage_receiver(hit.get("collider"))
 	if is_instance_valid(last_hit):
-		var receiver := (last_hit as Node).get_node_or_null("Health") as HealthComponent
-		if receiver != null and not receiver.is_dead:
-			receiver.take_damage(state.data.damage)
-			if (last_hit as Node).has_method("apply_ammo_effect"):
-				last_hit.apply_ammo_effect(ammo)
-			hit_confirmed.emit()
+		apply_bullet_hit(hit, state.data.damage, ammo)
 		if ammo != null and ammo.impact_vfx != null:
 			var impact := ammo.impact_vfx.instantiate() as Node3D
 			if impact != null:
@@ -233,6 +231,30 @@ func try_fire() -> bool:
 	state_changed.emit()
 	shot_fired.emit()
 	if pose_driver != null: pose_driver.kick()
+	_try_auto_reload()
+	return true
+
+
+static func damage_receiver(collider: Object) -> Node:
+	if not is_instance_valid(collider) or not collider is Node: return null
+	return collider.get_meta("damage_receiver", collider) as Node
+
+
+func apply_bullet_hit(hit: Dictionary, damage: float, ammo: ItemData, weapon: WeaponData = null) -> bool:
+	var collider: Object = hit.get("collider")
+	var target := damage_receiver(collider)
+	if target == null: return false
+	var health := target.get_node_or_null("Health") as HealthComponent
+	if health == null or health.is_dead: return false
+	var multiplier: float = collider.get_meta("damage_multiplier", 1.0)
+	if weapon == null and current != null: weapon = current.data
+	var bonus := 0.0
+	if ammo != null:
+		bonus = ammo.marksman_bonus_damage if weapon != null and weapon.weapon_id == &"marksman_rifle" else ammo.bonus_damage
+	health.take_damage((damage + bonus) * multiplier)
+	if target.has_method("apply_ammo_effect"): target.apply_ammo_effect(ammo)
+	hit_confirmed.emit()
+	if multiplier > 1.0: headshot_confirmed.emit()
 	return true
 
 
@@ -271,7 +293,7 @@ func _resolve_melee_hit(state: WeaponRuntime) -> void:
 	shape.height = maxf(data.range_meters, data.melee_radius * 2.0)
 	query.shape = shape
 	query.transform = Transform3D(Basis(Quaternion(Vector3.UP, state.swing_direction)), start+state.swing_direction*data.range_meters*0.5)
-	query.collision_mask = shot_collision_mask
+	query.collision_mask = (shot_collision_mask & ~16) | 8
 	query.exclude = [_player.get_rid()]
 	var space := get_world_3d().direct_space_state
 	var target: Node3D
@@ -288,7 +310,7 @@ func _resolve_melee_hit(state: WeaponRuntime) -> void:
 		if distance > data.range_meters or distance >= closest: continue
 		if distance > 0.001 and displacement.normalized().dot(state.swing_direction) < cos(deg_to_rad(data.melee_arc_degrees)): continue
 		var sight := _ray(start,candidate.global_position+Vector3.UP*0.85)
-		if not sight.is_empty() and sight.get("collider") != candidate: continue
+		if not sight.is_empty() and damage_receiver(sight.get("collider")) != candidate: continue
 		target = candidate
 		closest = distance
 	if target == null: return
@@ -305,7 +327,16 @@ func _resolve_melee_hit(state: WeaponRuntime) -> void:
 func _ray(start: Vector3, end: Vector3) -> Dictionary:
 	var query := PhysicsRayQueryParameters3D.create(start, end, shot_collision_mask, [_player.get_rid()])
 	query.hit_from_inside = true
+	query.collide_with_areas = true
 	return get_world_3d().direct_space_state.intersect_ray(query)
+
+
+func _try_auto_reload() -> bool:
+	if _committing or not can_control() or current == null or current.data.is_melee() or current.current_magazine > 0 or current.is_reloading: return false
+	# Use the normal timed transfer, including its Basic-ammo fallback. Avoid
+	# failed reload attempts every frame when no compatible reserve is available.
+	if reserve_ammo() <= 0 and reserve_ammo(current.data.ammo_type) <= 0: return false
+	return start_reload()
 
 
 func start_reload() -> bool:

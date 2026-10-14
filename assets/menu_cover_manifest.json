@@ -1,0 +1,14 @@
+{
+  "asset": "assets/ui/menu_background.png",
+  "source": "In-engine capture of the current Somchai's Last Harvest GameRoot scene using the project's existing assets.",
+  "captured": "2026-10-15",
+  "engine": "Godot 4.7 Compatibility",
+  "size": [1600, 900],
+  "camera_position": [24, 19, 29],
+  "camera_target": [-8, 0, 0],
+  "camera_fov": 54,
+  "game_time": "Day 1, 09:00",
+  "farm_plots": 20,
+  "graphics": "High",
+  "hud": false
+}

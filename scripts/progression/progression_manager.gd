@@ -169,3 +169,15 @@ func _grant_seed_once(id: StringName, amount: int) -> void:
 	if rewarded_seed_ids.has(id): return
 	rewarded_seed_ids[id] = true
 	_queue_reward(id, amount)
+
+func reconcile_content_updates() -> void:
+	# Unlock content added since a saved morning without replaying existing rewards.
+	for config in data.days:
+		if config.day > clock.current_day: continue
+		for id in config.seed_unlocks:
+			if unlocked_seed_ids.has(id): continue
+			unlocked_seed_ids[id] = true
+			if id not in SPECIAL_SEED_IDS: _grant_seed_once(id, config.starter_quantity)
+		for id in config.recipe_unlocks: unlocked_recipe_ids[id] = true
+	claim_rewards()
+	inventory.refresh_seed_selection()

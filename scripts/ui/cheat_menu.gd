@@ -121,7 +121,7 @@ func _build_zombie_tab() -> void:
 	zombie_option = OptionButton.new()
 	zombie_option.custom_minimum_size = Vector2(460, 44)
 	zombie_option.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	for title in ["Normal  ·  150 HP", "Runner  ·  100 HP", "Tank  ·  400 HP"]: zombie_option.add_item(title)
+	for title in ["Normal  ·  150 HP", "Runner  ·  100 HP", "Tank  ·  500 HP", "Boss  ·  2000 HP"]: zombie_option.add_item(title)
 	selection.add_child(zombie_option)
 	zombie_count = _number(selection, 1, CheatCommands.MAX_ZOMBIES)
 	buttons[&"spawn"] = PresentationStyle.button(rows, "Spawn selected zombie", func() -> void: game.cheats.spawn_zombies(zombie_option.selected, roundi(zombie_count.value)))

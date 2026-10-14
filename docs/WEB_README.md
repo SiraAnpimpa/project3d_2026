@@ -27,6 +27,8 @@ The Web preset uses Compatibility rendering with threads and extensions disabled
 
 ## Local preview
 
+The title screen selects **Continue · Day N** when it finds a valid latest local checkpoint, with **New game** below it. Without a save, or after completing a run, **New game** is the primary option. Confirming New game starts **Day 1 at 06:00**, with the starting inventory. Player saves are local to that device or browser and are not included in the exported pack or uploaded to GitHub.
+
 From the project root, start a static HTTP server, then open `http://localhost:8000/`:
 
 ```powershell

@@ -10,6 +10,7 @@ extends CharacterBody3D
 
 var is_sprinting: bool = false
 var gravity: float = float(ProjectSettings.get_setting("physics/3d/default_gravity", 9.8))
+var _equipment: EquipmentLoadout
 
 @onready var camera_rig: ThirdPersonCamera = $CameraPivot
 @onready var aim_ray: CameraAimRay = $AimRay
@@ -17,6 +18,14 @@ var gravity: float = float(ProjectSettings.get_setting("physics/3d/default_gravi
 @onready var health: HealthComponent = $Health
 @onready var stamina: StaminaComponent = $Stamina
 @onready var interactor: PlayerInteractor = $Interactor
+
+func bind_armor(loadout: EquipmentLoadout) -> void:
+	_equipment = loadout
+	loadout.equipment_changed.connect(_refresh_armor)
+	_refresh_armor()
+
+func _refresh_armor() -> void:
+	health.incoming_damage_multiplier = 1.0 - _equipment.armor_item.damage_reduction if _equipment.armor_item != null else 1.0
 
 
 func _physics_process(delta: float) -> void:
